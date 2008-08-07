@@ -35,7 +35,7 @@
      //internationalize
      QString locale = QLocale::system().name();
      QTranslator translator;
-     translator.load(QString("ts/gpg4usb_de"));
+     translator.load(QString("ts/gpg4usb_") + locale );
      app.installTranslator(&translator);
      
      GpgWin *window = new GpgWin();
