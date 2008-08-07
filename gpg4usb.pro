@@ -10,7 +10,7 @@ INCLUDEPATH += .
 # Input
 HEADERS += context.h gpgwin.h keylist.h
 SOURCES += context.cpp gpgwin.cpp main.cpp keylist.cpp
-RC_FILE = gpg4usblib.rc
+RC_FILE = gpg4usb.rc
 # For Static build on Linux: uncomment line below
 #LIBS += lib/libgpgme.a -static-libgcc -Llib
 #LIBS += lib/libgpgme.a
@@ -18,5 +18,5 @@ LIBS += -lgpgme -lgpg-error
 #LIBS += lib/libgpgme.a -Llib
 DEFINES += _FILE_OFFSET_BITS=64
 
-TRANSLATIONS = ts/gpg4usblib_en.ts \
-			   ts/gpg4usblib_de.ts
+TRANSLATIONS = ts/gpg4usb_en.ts \
+			   ts/gpg4usb_de.ts
