@@ -77,7 +77,7 @@ void GpgWin::createActions()
 
      saveAsAct = new QAction(tr("Save &As"), this);
      saveAsAct->setIcon(QIcon("icons/filesaveas.png"));
-     saveAsAct->setShortcut(tr("Ctrl+A"));
+     //saveAsAct->setShortcut(tr("Ctrl+A"));
      saveAsAct->setStatusTip(tr("Save the current File as..."));
      connect(saveAsAct, SIGNAL(triggered()), this, SLOT(saveAs()));
 
