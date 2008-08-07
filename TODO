@@ -2,12 +2,9 @@ TODO:
 -----
 
 for release 0.1:
-- translation (learn about qt-tr() )
 - save on quit-bug
-- static-build win (evt. lin).
 - homepage
 - tidy up, source-format (indent)
-- LICENCE.txt
 - README.txt
 
 later:
