@@ -1,0 +1,45 @@
+TODO:
+-----
+
+for release 0.1:
+- translation (learn about qt-tr() )
+- save on quit-bug
+- static-build win (evt. lin).
+- homepage
+- tidy up, source-format (indent)
+- LICENCE.txt
+- README.txt
+
+later:
+- Policy ( Icons von Erros und Warnungen anpassen )
+- Encrypt to self (prob: who is self?)
+
+
+- Keyimport, first: function Keyimport should use QByteArray, then:
+  - More Keymanagement (new popup window?) including:
+    - copy a public-keyfile into the editor-window and enable importing it -> same as "Import Key from Clipboard?"
+    - Import Key from Clipboard
+    - export public key
+    - export private key
+    - generate new key
+    - import keyfiles in non ASCII-Amor-format (always and everywhere error-free keyimport would be great)
+    - Import key from Keyserver
+
+- seen on ubuntu with seahorse daemon running, private password is stored for x minutes (x in system preferences), couse  system-preferenced password_cb function is used (seahorse in that case). not good for gpgOnUsb on not owned computers, so maybe force own password_cb (even if this is not recomended in gpgme_docs)  
+
+- Binary File Attachements, function for Decrypt & Help-Text (like safe eml, etc)
+- Tabbed editor (including useful things like encrypted data opens in new tab)
+
+advanced:
+- thread-safety in context.cpp (in, out, ctx)
+
+For the long shot:
+- ProgrammIcon unter Linux
+- Dateiendung unter Linux anhängen
+
+Already Done:
+rev49: Keylist breiter/schmaler machen koennen, vor allem Mailaddis nicht abschneiden
+rev50: About Dialog
+rev66: bei den Schluesseln anzeigen, ob sie private oder public sind
+(rev? ) - Key löschen
+(rev?) - Laden von Text

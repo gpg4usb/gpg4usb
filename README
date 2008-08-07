@@ -1,0 +1,47 @@
+If you have any questions and/or suggestions contact us at gpg4usb@cpunk.de - or feel free to meet us at gpg4usb@conference.jabber.ccc.de
+
+Mixing C & C++:
+---------------
+http://developers.sun.com/solaris/articles/mixing.html
+http://www.mrunix.de/forums/showthread.php?t=51595
+
+qt-tutorial:
+------------
+http://doc.trolltech.com/4.4/index.html
+
+Static qt:
+----------
+test for static: ldd appname should result in "not a dynamic executable"
+
+
+http://doc.trolltech.com/4.1/deployment-x11.html
+
+apt-get source libqt4-dev
+
+./configure -no-xrandr -no-xrender -no-fontconfig -no-xinerama -no-glib -no-sm -qt-zlib -static -prefix=//home/ubbo/Desktop/editors/src/qt4-x11-4.4.0
+
+//after recompile with this flags nice layout is gone
+
+/* It's also worth mentioning that Qt will look for certain X11 extensions,
+such as Xinerama and Xrandr, and possibly pull them in, including all
+the libraries that they link against. If you can't guarantee the
+presence of a certain extension, the safest approach is to disable
+it when configuring Qt (e.g. ./configure -no-xrandr). */
+
+
+
+then:
+    make clean
+    PATH=/path/to/Qt/bin:$PATH
+    export PATH
+    qmake -config release
+    make
+
+static libraries:
+http://www.dwheeler.com/program-library/Program-Library-HOWTO/x26.html
+
+http://www.trilithium.com/johan/2005/06/static-libstdc/
+
+
+http://dev.mysql.com/doc/query-browser/en/mysql-gui-install-source-linux-compiling-static.html
+
