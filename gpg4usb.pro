@@ -14,8 +14,8 @@ RC_FILE = gpg4usb.rc
 # For Static build on Linux: uncomment line below
 #LIBS += lib/libgpgme.a -static-libgcc -Llib
 #LIBS += lib/libgpgme.a
-#LIBS += -lgpgme -lgpg-error
-LIBS += lib/libgpgme.a -Llib
+LIBS += -lgpgme -lgpg-error
+#LIBS += lib/libgpgme.a -Llib
 DEFINES += _FILE_OFFSET_BITS=64
 
 TRANSLATIONS = ts/gpg4usb_en.ts \
