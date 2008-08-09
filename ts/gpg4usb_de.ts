@@ -96,7 +96,7 @@
     <message>
         <location filename="../gpgwin.cpp" line="104"/>
         <source>Cu&amp;t</source>
-        <translation></translation>
+        <translation>&amp;Ausschneiden</translation>
     </message>
     <message>
         <location filename="../gpgwin.cpp" line="106"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../gpgwin.cpp" line="138"/>
         <source>&amp;Import Key From File</source>
-        <translation type="unfinished">Importiere Schlüssel aus &amp;Datei</translation>
+        <translation>Importiere Schlüssel aus &amp;Datei</translation>
     </message>
     <message>
         <location filename="../gpgwin.cpp" line="140"/>
@@ -180,8 +180,8 @@
     </message>
     <message>
         <location filename="../gpgwin.cpp" line="144"/>
-        <source>Import Key From Editor</source>
-        <translation type="unfinished">Importiere Schlüssel aus &amp;Textfeld</translation>
+        <source>Import Key From &amp;Editor</source>
+        <translation>Importiere Schlüssel aus Textfeld</translation>
     </message>
     <message>
         <location filename="../gpgwin.cpp" line="146"/>
