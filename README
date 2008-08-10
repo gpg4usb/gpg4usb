@@ -2,7 +2,7 @@ ABOUT
 -----
 gpg4usb is an easy to use, small portable editor with the possibility
 to encrypt and decrypt any text-message or -file you want. For encryption it acts as
-a gpg-frontend (http://gnupg.org/) Its intend is to be used from an usb-stick,
+a gpg-frontend (http://gnupg.org/). Its intend is to be used from an usb-stick,
 running on Windows(TM) and Linux. Providing a mac-binary is on our TODO-list.
 
 Our aim is, to give anyone the possibility to send and receive secure encrypted
