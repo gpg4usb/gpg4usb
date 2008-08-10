@@ -23,25 +23,25 @@
 #include <QPushButton>
 #include "context.h"
 
- class QMenu;
+class QMenu;
 
 class KeyList : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public slots:
-     void deleteKeys();
-     void deleteKey();
+public slots:
+    void deleteKeys();
+    void deleteKey();
 
-  public:
+public:
     KeyList(QWidget *parent = 0);
     void setContext(GpgME::Context *ctx);
     void setIconPath(QString iconPath);
-    QList<QString>* getChecked();
-    QList<QString>* getSelected();
+    QList<QString> *getChecked();
+    QList<QString> *getSelected();
     void refresh();
 
-  private:
+private:
     GpgME::Context *m_ctx;
     QListWidget *m_keyList;
     QList<QString> *m_idList;
@@ -50,7 +50,6 @@ class KeyList : public QWidget
     void createActions();
     QString iconPath;
 
-
-  protected:
+protected:
     void contextMenuEvent(QContextMenuEvent *event);
 };

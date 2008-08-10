@@ -29,21 +29,22 @@
 
 class GpgKey
 {
-  public:
+public:
     QString id;
     QString name;
     QString email;
     int privkey;
-    //bool privkey;
 };
 
 typedef QLinkedList< GpgKey > GpgKeyList;
 
-namespace GpgME {
+namespace GpgME
+{
 
-  class Context {
+class Context
+{
 
-  public:
+public:
     Context(); // Consttructor
     ~Context(); // Destructor
 
@@ -51,29 +52,29 @@ namespace GpgME {
     void importKey(QByteArray inBuffer);
     GpgKeyList listKeys();
     void deleteKeys(QList<QString> *uidList);
-    bool encrypt(QList<QString> *uidList, const QByteArray& inBuffer, QByteArray* outBuffer);
-
-    bool decrypt(const QByteArray& inBuffer, QByteArray* outBuffer);
+    bool encrypt(QList<QString> *uidList, const QByteArray &inBuffer,
+                 QByteArray *outBuffer);
+    bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
     void clearCache();
 
-  private:
+private:
     gpgme_ctx_t m_ctx;
     gpgme_data_t in, out;
     gpgme_error_t err;
-    gpgme_error_t readToBuffer(gpgme_data_t in, QByteArray* outBuffer);
+    gpgme_error_t readToBuffer(gpgme_data_t in, QByteArray *outBuffer);
     QByteArray m_cache;
     bool debug;
     void checkErr(gpgme_error_t err) const;
     void checkErr(gpgme_error_t err, QString comment) const;
 
     static gpgme_error_t passphraseCb(void *hook, const char *uid_hint,
-                      const char *passphrase_info,
-                      int last_was_bad, int fd);
+                                      const char *passphrase_info,
+                                      int last_was_bad, int fd);
     gpgme_error_t passphrase(const char *uid_hint,
-                 const char *passphrase_info,
-                 int last_was_bad, int fd);
+                             const char *passphrase_info,
+                             int last_was_bad, int fd);
 
-  };
+};
 } // namespace GpgME
 
 #endif // __SGPGMEPP_CONTEXT_H__

@@ -303,11 +303,6 @@ bool GpgWin::maybeSave()
 
 bool GpgWin::saveFile(const QString &fileName)
 {
-    /*QString fileName = QFileDialog::getSaveFileName(this,
-                        tr("Choose a file name"), ".",
-                        tr("Text (*.txt)","All (*)"));
-    if (fileName.isEmpty())
-        return false;*/
     QFile file(fileName);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this, tr("File"),
@@ -362,7 +357,7 @@ void GpgWin::encrypt()
     QList<QString> *uidList = m_keyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-    if ( myCtx->encrypt(uidList, edit->toPlainText().toAscii(), tmp) ) {
+    if (myCtx->encrypt(uidList, edit->toPlainText().toAscii(), tmp)) {
         QString *tmp2 = new QString(*tmp);
         edit->setPlainText(*tmp2);
     }
@@ -373,7 +368,7 @@ void GpgWin::decrypt()
 {
     QByteArray *tmp = new QByteArray();
     myCtx->decrypt(edit->toPlainText().toAscii(), tmp);
-    if (!tmp->isEmpty()){
+    if (!tmp->isEmpty()) {
         QString *tmp2 = new QString(*tmp);
         edit->setPlainText(*tmp2);
     }
@@ -388,12 +383,12 @@ void GpgWin::importKeyFromEdit()
 
 void GpgWin::importKeyFromFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Key"),"", tr("Key Files")+" (*.asc *.txt);;All Files (*.*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
     if (! fileName.isNull()) {
         QFile file;
         file.setFileName(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("couldn't open file: ")+fileName;
+            qDebug() << tr("couldn't open file: ") + fileName;
         }
         QByteArray inBuffer = file.readAll();
 

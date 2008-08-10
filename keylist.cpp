@@ -33,7 +33,7 @@ KeyList::KeyList(QWidget *parent)
     m_idList = new QList<QString>();
     m_deleteButton = new QPushButton(tr("Delete Selected Keys"));
 
-    connect(m_deleteButton, SIGNAL(clicked()), this, SLOT( deleteKeys() ) );
+    connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(deleteKeys()));
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(m_keyList);
@@ -49,7 +49,7 @@ void KeyList::setContext(GpgME::Context *ctx)
     refresh();
 }
 
-void KeyList::setIconPath( QString path )
+void KeyList::setIconPath(QString path)
 {
     this->iconPath = path;
 }
@@ -70,10 +70,10 @@ void KeyList::refresh()
     GpgKeyList::iterator it = keys.begin();
     while (it != keys.end()) {
         QListWidgetItem *tmp = new QListWidgetItem(
-            it->name + " <" + it->email +">"
+            it->name + " <" + it->email + ">"
         );
-        tmp->setFlags( Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable );
-        tmp->setCheckState( Qt::Unchecked );
+        tmp->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        tmp->setCheckState(Qt::Unchecked);
         if (it->privkey == 1)  tmp->setIcon(QIcon(iconPath + "kgpg_key2.png"));
         m_keyList->addItem(tmp);
 
@@ -83,7 +83,7 @@ void KeyList::refresh()
 }
 
 
-QList<QString>* KeyList::getChecked()
+QList<QString> *KeyList::getChecked()
 {
     QList<QString> *ret = new QList<QString>();
     for (int i = 0; i < m_keyList->count(); i++) {
@@ -94,7 +94,7 @@ QList<QString>* KeyList::getChecked()
     return ret;
 }
 
-QList<QString>* KeyList::getSelected()
+QList<QString> *KeyList::getSelected()
 {
     QList<QString> *ret = new QList<QString>();
     for (int i = 0; i < m_keyList->count(); i++) {
