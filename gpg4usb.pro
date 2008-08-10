@@ -3,9 +3,9 @@
 ######################################################################
 
 TEMPLATE = app
-VERSION = 0.1
 unix:TARGET = start_linux
 win32:TARGET = start_windows
+mac:TARGET = start_mac
 DESTDIR = release
 DEPENDPATH += .
 INCLUDEPATH += .

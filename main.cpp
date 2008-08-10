@@ -33,6 +33,9 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
 
+    app.setApplicationVersion("0.1");
+    app.setApplicationName("gpg4usb");
+
     //internationalize
     QString locale = QLocale::system().name();
     QTranslator translator;

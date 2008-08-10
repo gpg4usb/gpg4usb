@@ -278,7 +278,7 @@ void GpgWin::setCurrentFile(const QString &fileName)
     else
         shownName = strippedName(curFile);
 
-    setWindowTitle(tr("%1[*] - %2").arg(shownName).arg(tr("gpg4usb")));
+    setWindowTitle(tr("%1[*] - %2").arg(shownName).arg(qApp->applicationName()));
 }
 
 QString GpgWin::strippedName(const QString &fullFileName)
@@ -337,19 +337,21 @@ void GpgWin::print()
 
 void GpgWin::about()
 {
-    QMessageBox::about(this, tr("About gpg4usb"),
-                       tr("<center>This Application allows you to do simple<br>"
-                          "encryption/decryption of your text-files.<br>"
-                          "It's licensed under the GPL v2.0<br><br>"
-                          "<b>Developer:</b><br>"
-                          "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
-                          "If you have any questions and/or<br>"
-                          "suggestions, contact us at<br>"
-                          "gpg4usb at cpunk.de</a><br><br>"
-                          "or feel free to meet us in our channel at<br>"
-                          "gpg4usb at conference.jabber.ccc.de<br><br>"
-                          "and always remember:<br>"
-                          "cpunk is NOT a bot...</center>"));
+    QMessageBox::about(this, tr("About ") + qApp->applicationName(),
+                       "<center><h2>" + qApp->applicationName() + " "
+                       + qApp->applicationVersion() +"</h2></center>"
+                       +tr("<center>This Application allows you to do simple<br>"
+                           "encryption/decryption of your text-files.<br>"
+                           "It's licensed under the GPL v2.0<br><br>"
+                           "<b>Developer:</b><br>"
+                           "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
+                           "If you have any questions and/or<br>"
+                           "suggestions, contact us at<br>"
+                           "gpg4usb at cpunk.de</a><br><br>"
+                           "or feel free to meet us in our channel at<br>"
+                           "gpg4usb at conference.jabber.ccc.de<br><br>"
+                           "and always remember:<br>"
+                           "cpunk is NOT a bot...</center>"));
 }
 
 void GpgWin::encrypt()
