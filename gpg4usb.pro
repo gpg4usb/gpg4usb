@@ -21,5 +21,5 @@ LIBS += -lgpgme -lgpg-error
 #LIBS += lib/libgpgme.a -Llib
 DEFINES += _FILE_OFFSET_BITS=64
 
-TRANSLATIONS = ts/gpg4usb_en.ts \
-         ts/gpg4usb_de.ts
+TRANSLATIONS = release/ts/gpg4usb_en.ts \
+         release/ts/gpg4usb_de.ts
