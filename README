@@ -37,7 +37,7 @@ gpg4usblib itself is licensed under the GPL (see COPYING).
 
 There are some libries and the gpg-binary included in the zip-file / a static
 gpg-build which (may) have different licenses, for more information check
-their homepages.
+their homepages. You can also obtain the sources from there.
 
 GPG: http://gnupg.org/
 QT: http://trolltech.no/ , http://trolltech.no/downloads/opensource
