@@ -3,7 +3,10 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET =
+VERSION = 0.1
+unix:TARGET = start_linux
+win32:TARGET = start_windows
+DESTDIR = release
 DEPENDPATH += .
 INCLUDEPATH += .
 
@@ -19,4 +22,4 @@ LIBS += -lgpgme -lgpg-error
 DEFINES += _FILE_OFFSET_BITS=64
 
 TRANSLATIONS = ts/gpg4usb_en.ts \
-			   ts/gpg4usb_de.ts
+         ts/gpg4usb_de.ts
