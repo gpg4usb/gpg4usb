@@ -39,6 +39,11 @@ namespace GpgME {
    *  Set up gpgme-context, set paths to app-run path
    */
   Context::Context( ) {
+
+    /** get current dir */
+    QString appPath = qApp->applicationDirPath();
+    qDebug() << "path" << appPath;
+
     /** The function `gpgme_check_version' must be called before any other
      *  function in the library, because it initializes the thread support
      *  subsystem in GPGME. (from the info page) */
@@ -58,12 +63,18 @@ namespace GpgME {
     * also lin/win must  be checked, for calling gpg.exe if needed
     */
 #ifdef _WIN32
-    err = gpgme_ctx_set_engine_info (m_ctx, GPGME_PROTOCOL_OpenPGP,
-               "bin/gpg.exe", "keydb");
+    QString gpgBin = appPath + "\bin\gpg.exe";
+    QString gpgKeys = appPath + "\keydb";
+    /*err = gpgme_ctx_set_engine_info (m_ctx, GPGME_PROTOCOL_OpenPGP,
+               "bin/gpg.exe", "keydb");*/
 #else
-    err = gpgme_ctx_set_engine_info (m_ctx, GPGME_PROTOCOL_OpenPGP,
-               "./bin/gpg", "./keydb");
+    QString gpgBin = appPath + "/bin/gpg";
+    QString gpgKeys = appPath + "/keydb";
+    /*err = gpgme_ctx_set_engine_info (m_ctx, GPGME_PROTOCOL_OpenPGP,
+               "./bin/gpg", "./keydb");*/
 #endif
+    err = gpgme_ctx_set_engine_info (m_ctx, GPGME_PROTOCOL_OpenPGP,
+                  gpgBin.toAscii().constData(), gpgKeys.toAscii().constData());
     checkErr(err);
 
 
@@ -92,11 +103,11 @@ namespace GpgME {
   }
 
   /** Import Key from QByteArray
-   *  
+   *
    */
   void Context::importKey(QByteArray inBuffer) {
-  	err = gpgme_data_new_from_mem (&in, inBuffer.data(), inBuffer.size(), 1);
-  	checkErr(err);
+    err = gpgme_data_new_from_mem (&in, inBuffer.data(), inBuffer.size(), 1);
+    checkErr(err);
     err = gpgme_op_import (m_ctx, in);
     checkErr(err);
     gpgme_data_release (in);
@@ -202,13 +213,13 @@ namespace GpgME {
     err = gpgme_op_encrypt (m_ctx, recipients, GPGME_ENCRYPT_ALWAYS_TRUST, in, out);
     checkErr(err);
 
-  	err = readToBuffer(out, outBuffer);
-  	checkErr(err);
+    err = readToBuffer(out, outBuffer);
+    checkErr(err);
 
-  	/* unref all keys */
-  	for (int i = 0; i <= uidList->count(); i++) {
-  	    gpgme_key_unref (recipients[i]);
-  	}
+    /* unref all keys */
+    for (int i = 0; i <= uidList->count(); i++) {
+        gpgme_key_unref (recipients[i]);
+    }
     gpgme_data_release (in);
     gpgme_data_release (out);
 
@@ -263,7 +274,7 @@ namespace GpgME {
    *  maybe const ?
    */
   #define BUF_SIZE (32 * 1024)
-  gpgme_error_t Context::readToBuffer(gpgme_data_t in, QByteArray* outBuffer) 
+  gpgme_error_t Context::readToBuffer(gpgme_data_t in, QByteArray* outBuffer)
   {
     int ret;
     gpgme_error_t err = GPG_ERR_NO_ERROR;
