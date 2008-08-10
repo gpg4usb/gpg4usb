@@ -48,12 +48,11 @@ class GpgWin : public QMainWindow
      bool save();
      bool saveAs();
      void open();
-     void quit();
 
  private:
-   void createActions();	
+   void createActions();
    void createMenus();
-   void createToolBars();   
+   void createToolBars();
    void createStatusBar();
    void createDockWindows();
    bool saveFile(const QString &fileName);
@@ -61,7 +60,7 @@ class GpgWin : public QMainWindow
    void setCurrentFile(const QString &fileName);
    bool maybeSave();
    QString strippedName(const QString &fullFileName);
-   
+
    QPlainTextEdit *edit;
    QMenu *fileMenu;
    QToolBar *fileToolBar;

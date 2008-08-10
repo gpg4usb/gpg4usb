@@ -91,7 +91,7 @@ void GpgWin::createActions()
      quitAct->setShortcut(tr("Ctrl+Q"));
      quitAct->setIcon(QIcon("icons/exit.png"));
      quitAct->setStatusTip(tr("Quit Program"));
-     connect(quitAct, SIGNAL(triggered()), this, SLOT(quit()));
+     connect(quitAct, SIGNAL(triggered()), this, SLOT(close()));
 
      /** Edit Menu
       */
@@ -140,11 +140,11 @@ void GpgWin::createActions()
      importKeyFromFileAct->setShortcut(tr("Ctrl+I"));
      importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
      connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
-     
+
      importKeyFromEditAct = new QAction(tr("Import Key From &Editor"), this);
      importKeyFromEditAct->setIcon(QIcon("icons/importkey_editor.png"));
      importKeyFromEditAct->setStatusTip(tr("Import New Key From Editor"));
-     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));     
+     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
      /** About Menu
       */
@@ -176,7 +176,7 @@ void GpgWin::createMenus()
      fileMenu->addSeparator();
      fileMenu->addAction(importKeyFromFileAct);
      fileMenu->addAction(importKeyFromEditAct);
-     
+
      fileMenu = menuBar()->addMenu(tr("&Help"));
      fileMenu->addAction(aboutAct);
 }
@@ -223,14 +223,6 @@ void GpgWin::createDockWindows()
           loadFile(fileName);
      }
 }
-
-void GpgWin::quit()
-{
-	 if (maybeSave()) {
-	 	save();
-	 }
-}
-
 
  bool GpgWin::save()
  {
@@ -378,10 +370,10 @@ void GpgWin::about(){
       edit->setPlainText(*tmp2);
     }
  }
- 
+
   void GpgWin::importKeyFromEdit(){
     myCtx->importKey(edit->toPlainText().toAscii());
-    m_keyList->refresh();    
+    m_keyList->refresh();
  }
 
 
@@ -389,14 +381,14 @@ void GpgWin::about(){
   QString fileName = QFileDialog::getOpenFileName(this,tr("Open Key"),"", tr("Key Files")+" (*.asc *.txt);;All Files (*.*)");
   if (! fileName.isNull()) {
 
-	QFile file;
-	file.setFileName(fileName);
-	if (!file.open(QIODevice::ReadOnly))
-	{
-		qDebug() << tr("couldn't open file: ")+fileName;
-	}
-	QByteArray inBuffer = file.readAll();
-        
+  QFile file;
+  file.setFileName(fileName);
+  if (!file.open(QIODevice::ReadOnly))
+  {
+    qDebug() << tr("couldn't open file: ")+fileName;
+  }
+  QByteArray inBuffer = file.readAll();
+
     myCtx->importKey(inBuffer);
     m_keyList->refresh();
   }
