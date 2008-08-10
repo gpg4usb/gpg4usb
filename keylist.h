@@ -32,10 +32,11 @@ class KeyList : public QWidget
   public slots:
      void deleteKeys();
      void deleteKey();
-     
+
   public:
     KeyList(QWidget *parent = 0);
     void setContext(GpgME::Context *ctx);
+    void setIconPath(QString iconPath);
     QList<QString>* getChecked();
     QList<QString>* getSelected();
     void refresh();
@@ -47,8 +48,9 @@ class KeyList : public QWidget
     QPushButton *m_deleteButton;
     QAction *deleteKeyAct;
     void createActions();
+    QString iconPath;
 
-    
+
   protected:
     void contextMenuEvent(QContextMenuEvent *event);
 };

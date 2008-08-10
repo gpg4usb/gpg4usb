@@ -22,29 +22,30 @@
 #include <QApplication>
 #include "gpgwin.h"
 
- int main(int argc, char *argv[])
- {
+int main(int argc, char *argv[])
+{
 
 #ifndef _WIN32
-     // do not use GPG_AGENTS like seahorse, because they may save
-     // a password an pc's not owned by user
-     unsetenv("GPG_AGENT_INFO");
+    // do not use GPG_AGENTS like seahorse, because they may save
+    // a password an pc's not owned by user
+    unsetenv("GPG_AGENT_INFO");
 #endif
-     QApplication app(argc, argv);
-     
-     //internationalize
-     QString locale = QLocale::system().name();
-     QTranslator translator;
-     translator.load(QString("ts/gpg4usb_") + locale );
-     app.installTranslator(&translator);
-     
-     GpgWin *window = new GpgWin();
-     window->resize(800, 450);
 
-     window->show();
+    QApplication app(argc, argv);
 
-     return app.exec();
- }
+    //internationalize
+    QString locale = QLocale::system().name();
+    QTranslator translator;
+    translator.load(QString("ts/gpg4usb_") + locale );
+    app.installTranslator(&translator);
+
+    GpgWin *window = new GpgWin();
+    window->resize(800, 450);
+
+    window->show();
+
+    return app.exec();
+}
 
 
 

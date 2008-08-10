@@ -29,58 +29,59 @@ class QMenu;
 class QPlainTextEdit;
 
 class GpgWin : public QMainWindow
- {
-   Q_OBJECT
+{
+    Q_OBJECT
 
- public:
-     GpgWin();
+public:
+    GpgWin();
 
- protected:
-     void closeEvent(QCloseEvent *event);
+protected:
+    void closeEvent(QCloseEvent *event);
 
- public slots:
-     void encrypt();
-     void decrypt();
-     void importKeyFromFile();
-     void importKeyFromEdit();
-     void print();
-     void about();
-     bool save();
-     bool saveAs();
-     void open();
+public slots:
+    void encrypt();
+    void decrypt();
+    void importKeyFromFile();
+    void importKeyFromEdit();
+    void print();
+    void about();
+    bool save();
+    bool saveAs();
+    void open();
 
- private:
-   void createActions();
-   void createMenus();
-   void createToolBars();
-   void createStatusBar();
-   void createDockWindows();
-   bool saveFile(const QString &fileName);
-   void loadFile(const QString &fileName);
-   void setCurrentFile(const QString &fileName);
-   bool maybeSave();
-   QString strippedName(const QString &fullFileName);
+private:
+    void createActions();
+    void createMenus();
+    void createToolBars();
+    void createStatusBar();
+    void createDockWindows();
+    bool saveFile(const QString &fileName);
+    void loadFile(const QString &fileName);
+    void setCurrentFile(const QString &fileName);
+    bool maybeSave();
+    QString strippedName(const QString &fullFileName);
 
-   QPlainTextEdit *edit;
-   QMenu *fileMenu;
-   QToolBar *fileToolBar;
-   QToolBar *editToolBar;
-   QAction *openAct;
-   QAction *saveAct;
-   QAction *saveAsAct;
-   QAction *printAct;
-   QAction *quitAct;
-   QAction *encryptAct;
-   QAction *decryptAct;
-   QAction *importKeyFromFileAct;
-   QAction *importKeyFromEditAct;
-   QAction *copyAct;
-   QAction *cutAct;
-   QAction *pasteAct;
-   QAction *selectallAct;
-   QAction *aboutAct;
+    QPlainTextEdit *edit;
+    QMenu *fileMenu;
+    QToolBar *fileToolBar;
+    QToolBar *editToolBar;
+    QAction *openAct;
+    QAction *saveAct;
+    QAction *saveAsAct;
+    QAction *printAct;
+    QAction *quitAct;
+    QAction *encryptAct;
+    QAction *decryptAct;
+    QAction *importKeyFromFileAct;
+    QAction *importKeyFromEditAct;
+    QAction *copyAct;
+    QAction *cutAct;
+    QAction *pasteAct;
+    QAction *selectallAct;
+    QAction *aboutAct;
 
-   QString curFile;
-   KeyList *m_keyList;
-   GpgME::Context *myCtx;
- };
+    QString curFile;
+    KeyList *m_keyList;
+    GpgME::Context *myCtx;
+    QString iconPath;
+};

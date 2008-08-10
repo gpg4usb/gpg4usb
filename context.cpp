@@ -42,7 +42,6 @@ namespace GpgME {
 
     /** get current dir */
     QString appPath = qApp->applicationDirPath();
-    qDebug() << "path" << appPath;
 
     /** The function `gpgme_check_version' must be called before any other
      *  function in the library, because it initializes the thread support
