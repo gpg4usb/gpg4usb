@@ -64,16 +64,11 @@ Context::Context()
      * also lin/win must  be checked, for calling gpg.exe if needed
      */
 #ifdef _WIN32
-    QString gpgBin = appPath + "\bin\gpg.exe";
-    QString gpgKeys = appPath + "\keydb";
-    /*err = gpgme_ctx_set_engine_info (m_ctx, GPGME_PROTOCOL_OpenPGP,
-               "bin/gpg.exe", "keydb");*/
+    QString gpgBin = appPath + "/bin/gpg.exe";
 #else
     QString gpgBin = appPath + "/bin/gpg";
-    QString gpgKeys = appPath + "/keydb";
-    /*err = gpgme_ctx_set_engine_info (m_ctx, GPGME_PROTOCOL_OpenPGP,
-    "./bin/gpg", "./keydb");*/
 #endif
+    QString gpgKeys = appPath + "/keydb";
     err = gpgme_ctx_set_engine_info(m_ctx, GPGME_PROTOCOL_OpenPGP,
                                     gpgBin.toAscii().constData(),
                                     gpgKeys.toAscii().constData());
