@@ -1,47 +1,43 @@
-If you have any questions and/or suggestions contact us at gpg4usb@cpunk.de - or feel free to meet us at gpg4usb@conference.jabber.ccc.de
+ABOUT
+-----
+gpg4usb is an easy to use, small portable editor with the possibility
+to encrypt and decrypt any text-message or -file you want. For encryption it acts as
+a gpg-frontend (http://gnupg.org/) Its intend is to be used from an usb-stick,
+running on Windows(TM) and Linux. Providing a mac-binary is on our TODO-list.
 
-Mixing C & C++:
----------------
-http://developers.sun.com/solaris/articles/mixing.html
-http://www.mrunix.de/forums/showthread.php?t=51595
+Our aim is, to give anyone the possibility to send and receive secure encrypted
+messages anywhere - on any computer out there, no matter if Microsoft Windows(TM)
+or Linux is running on it. Therefore it's usage should be self-describing, and the
+user-interface is kept as simple as possible.
 
-qt-tutorial:
-------------
-http://doc.trolltech.com/4.4/index.html
+Of course gpg4usb is open source, as are included libs and binaries.
 
-Static qt:
-----------
-test for static: ldd appname should result in "not a dynamic executable"
+OBTAINING
+---------
+You can get prepacked zip-files from http://dav.cpunk.de/ .
+For retrieving the source checkout http://cpunk.de/svn/src/ .
 
+HOWTO USE
+---------
+1. Unzip gpg4usblib.zip on your usb-stick.
+2. start programm with start_windows.exe or start_linux (depending on your os)
+3. import your private key and some public keys
+4. enjoy portable encryption ;-)
 
-http://doc.trolltech.com/4.1/deployment-x11.html
+CONTACT
+-------
+If you have any questions and/or suggestions contact us at
+gpg4usb@cpunk.de - or feel free to meet us at gpg4usb@conference.jabber.ccc.de
 
-apt-get source libqt4-dev
+Our homepage is located at [insert here].
 
-./configure -no-xrandr -no-xrender -no-fontconfig -no-xinerama -no-glib -no-sm -qt-zlib -static -prefix=//home/ubbo/Desktop/editors/src/qt4-x11-4.4.0
+LICENSES
+--------
+gpg4usblib itself is licensed under the GPL (see COPYING).
 
-//after recompile with this flags nice layout is gone
+There are some libries and the gpg-binary included in the zip-file / a static
+gpg-build which (may) have different licenses, for more information check
+their homepages.
 
-/* It's also worth mentioning that Qt will look for certain X11 extensions,
-such as Xinerama and Xrandr, and possibly pull them in, including all
-the libraries that they link against. If you can't guarantee the
-presence of a certain extension, the safest approach is to disable
-it when configuring Qt (e.g. ./configure -no-xrandr). */
-
-
-
-then:
-    make clean
-    PATH=/path/to/Qt/bin:$PATH
-    export PATH
-    qmake -config release
-    make
-
-static libraries:
-http://www.dwheeler.com/program-library/Program-Library-HOWTO/x26.html
-
-http://www.trilithium.com/johan/2005/06/static-libstdc/
-
-
-http://dev.mysql.com/doc/query-browser/en/mysql-gui-install-source-linux-compiling-static.html
-
+GPG: http://gnupg.org/
+QT: http://trolltech.no/ , http://trolltech.no/downloads/opensource
