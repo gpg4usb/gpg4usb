@@ -1,0 +1,26 @@
+TODO:
+-----
+
+- Binary File Attachements, function for Decrypt & Help-Text (like safe eml, etc)
+
+- sorting keys would be nice (e.g. a-z or complete manual)
+- Policy ( dialogs, what's warning, what an error )
+- Encrypt to self (problem: who is self?)
+
+- Keyimport, first: function Keyimport should use QByteArray, then:
+  - More Keymanagement (new popup window?) including:
+    - copy a public-keyfile into the editor-window and enable importing it -> same as "Import Key from Clipboard?"
+    - Import Key from Clipboard
+    - export public key
+    - export private key
+    - generate new key
+    - import keyfiles in non ASCII-Amor-format (always and everywhere error-free keyimport would be great)
+    - Import key from Keyserver
+
+- Tabbed editor (including useful things like encrypted data opens in new tab)
+
+- some kind of locking for keydb, as gpg.conf uses lock-never, for ability to run on usb-drives (fat-formatted)
+
+advanced:
+- threading & thread-safety in context.cpp (in, out, ctx)
+
