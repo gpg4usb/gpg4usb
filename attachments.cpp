@@ -97,24 +97,41 @@ void Attachments::encryptFile()
 {
     qDebug() << "enc";
 
-    foreach(QString filename, *(getSelected())) {
+    foreach(QString inFilename, *(getSelected())) {
 
         QByteArray *outBuffer = new QByteArray();
         QList<QString> *uidList = m_keyList->getChecked();
 
-        QFile file;
-        file.setFileName(filename);
+        QFile infile;
+        infile.setFileName(inFilename);
 
-        if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("couldn't open file: ") + filename;
+        if (!infile.open(QIODevice::ReadOnly)) {
+            qDebug() << tr("couldn't open file: ") + inFilename;
         }
-        qDebug() << "filesize: " << file.size();
-        QByteArray inBuffer = file.readAll();
-        qDebug() << "buffsize: " << inBuffer.size();
+        //qDebug() << "filesize: " << file.size();
+        QByteArray inBuffer = infile.readAll();
+        //qDebug() << "buffsize: " << inBuffer.size();
 
         if (m_ctx->encrypt(uidList, inBuffer, outBuffer)) {
           //qDebug() << "inb: " << inBuffer.toHex();
-          qDebug() << "outb: " << outBuffer->data();
+          //qDebug() << "outb: " << outBuffer->data();
+          QString outFilename = QFileDialog::getSaveFileName(this);
+          if (outFilename.isEmpty()) {
+            qDebug() << "need Filename";
+            return;
+          }
+
+          QFile outfile(outFilename);
+          if (!outfile.open(QFile::WriteOnly)) {
+            QMessageBox::warning(this, tr("File"),
+                                 tr("Cannot write file %1:\n%2.")
+                                 .arg(outFilename)
+                                 .arg(outfile.errorString()));
+            return;
+          }
+
+          QTextStream out(&outfile);
+          out << outBuffer->data();
         }
     }
 }
@@ -151,8 +168,8 @@ void Attachments::decryptFile()
       }
 
       QDataStream out(&outfile);
-      out << outBuffer;
-
+      //out << outBuffer;
+      out.writeRawData(outBuffer->data(), outBuffer->length());
       //qDebug() << "outb: " << outBuffer->toHex();
 
     }
