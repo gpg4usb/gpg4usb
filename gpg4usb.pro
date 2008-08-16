@@ -11,8 +11,8 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += context.h gpgwin.h keylist.h
-SOURCES += context.cpp gpgwin.cpp main.cpp keylist.cpp
+HEADERS += context.h gpgwin.h keylist.h attachments.h
+SOURCES += context.cpp gpgwin.cpp main.cpp keylist.cpp attachments.cpp
 RC_FILE = gpg4usb.rc
 # For Static build on Linux: uncomment line below
 #LIBS += lib/libgpgme.a -static-libgcc -Llib

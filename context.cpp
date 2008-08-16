@@ -76,7 +76,7 @@ Context::Context()
 
 
     /** Setting the output type must be done at the beginning */
-    /** think this means ascii-amor --> ? */
+    /** think this means ascii-armor --> ? */
     gpgme_set_armor(m_ctx, 1);
     /** passphrase-callback */
     gpgme_set_passphrase_cb(m_ctx, passphraseCb, this);
@@ -178,9 +178,8 @@ void Context::deleteKeys(QList<QString> *uidList)
     }
 }
 
-/** Encrypt String, return String
- *  should also use QByteArray, so be removed
- *  in should be std::vector<key> & recipients (703 in context.cpp)
+/** Encrypt inBuffer for reciepients-uids, write
+ *  result to outBuffer
  */
 bool Context::encrypt(QList<QString> *uidList, const QByteArray &inBuffer, QByteArray *outBuffer)
 {

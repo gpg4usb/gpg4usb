@@ -35,7 +35,6 @@
 #include "context.h"
 #include "gpgwin.h"
 
-
 GpgWin::GpgWin()
 {
     myCtx = new GpgME::Context();
@@ -46,11 +45,20 @@ GpgWin::GpgWin()
 
     edit = new QPlainTextEdit();
     setCentralWidget(edit);
+    setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
+    setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
+
 
     /* the list of Keys available*/
     m_keyList = new KeyList();
     m_keyList->setIconPath(iconPath);
     m_keyList->setContext(myCtx);
+
+    /* List of binary Attachments */
+    m_attachments = new Attachments();
+    m_attachments->setIconPath(iconPath);
+    m_attachments->setContext(myCtx);
+    m_attachments->setKeyList(m_keyList);
 
     createActions();
     createMenus();
@@ -205,9 +213,15 @@ void GpgWin::createStatusBar()
 void GpgWin::createDockWindows()
 {
     QDockWidget *dock = new QDockWidget(tr("Encrypt for:"), this);
-    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
     addDockWidget(Qt::RightDockWidgetArea, dock);
     dock->setWidget(m_keyList);
+
+    dock = new QDockWidget(tr("Attached files:"), this);
+    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea );
+    addDockWidget(Qt::BottomDockWidgetArea, dock);
+    dock->setWidget(m_attachments);
+
 }
 
 void GpgWin::closeEvent(QCloseEvent *event)

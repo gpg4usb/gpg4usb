@@ -1,5 +1,5 @@
 /*
- *      keylist.h
+ *      attachments.h
  *
  *      Copyright 2008 gpg4usb-team <gpg4usb@cpunk.de>
  *
@@ -19,43 +19,48 @@
  *      MA 02110-1301, USA.
  */
 
-#ifndef __KEYLIST_H__
-#define __KEYLIST_H__
+#ifndef __ATTACHMENTS_H__
+#define __ATTACHMENTS_H__
 
-#include <QWidget>
 #include <QListWidget>
-#include <QPushButton>
+#include <QWidget>
+#include <QAction>
+#include <QMenu>
+#include <QContextMenuEvent>
 #include "context.h"
+#include "keylist.h"
 
 class QMenu;
 
-class KeyList : public QWidget
+class Attachments : public QWidget
 {
     Q_OBJECT
 
 public slots:
-    void deleteKeys();
-    void deleteKey();
+    void addFile();
+    void encryptFile();
+    void decryptFile();
 
 public:
-    KeyList(QWidget *parent = 0);
-    void setContext(GpgME::Context *ctx);
+    Attachments(QWidget *parent = 0);
     void setIconPath(QString iconPath);
-    QList<QString> *getChecked();
-    QList<QString> *getSelected();
-    void refresh();
+    void setContext(GpgME::Context *ctx);
+    void setKeyList(KeyList *keylist);
 
 private:
-    GpgME::Context *m_ctx;
-    QListWidget *m_keyList;
-    QList<QString> *m_idList;
-    QPushButton *m_deleteButton;
-    QAction *deleteKeyAct;
     void createActions();
+    QStringList *getSelected();
+    QListWidget *m_attachmentList;
+    QAction *addFileAct;
+    QAction *encryptAct;
+    QAction *decryptAct;
     QString iconPath;
+    GpgME::Context *m_ctx;
+    KeyList *m_keyList;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
+
 };
 
-#endif // __KEYLIST_H__
+#endif // __ATTACHMENTS_H__

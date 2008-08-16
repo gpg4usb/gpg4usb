@@ -24,3 +24,5 @@ TODO:
 advanced:
 - threading & thread-safety in context.cpp (in, out, ctx)
 
+---
+Use QStringList instead of QList<String>

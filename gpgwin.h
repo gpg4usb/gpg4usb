@@ -23,6 +23,7 @@
 #include <QtGui>
 #include "context.h"
 #include "keylist.h"
+#include "attachments.h"
 
 class QAction;
 class QMenu;
@@ -82,6 +83,7 @@ private:
 
     QString curFile;
     KeyList *m_keyList;
+    Attachments *m_attachments;
     GpgME::Context *myCtx;
     QString iconPath;
 };
