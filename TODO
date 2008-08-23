@@ -6,7 +6,7 @@ TODO:
 - sorting keys would be nice (e.g. a-z or complete manual)
 - Policy ( dialogs, what's warning, what an error )
 - Encrypt to self (problem: who is self?)
-- on windows an empty directory gnupg in applivation-data is created, find out
+- on windows an empty directory gnupg in application-data is created, find out
 how to disable
 
 - Keyimport, first: function Keyimport should use QByteArray, then:
