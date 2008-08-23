@@ -6,6 +6,8 @@ TODO:
 - sorting keys would be nice (e.g. a-z or complete manual)
 - Policy ( dialogs, what's warning, what an error )
 - Encrypt to self (problem: who is self?)
+- on windows an empty directory gnupg in applivation-data is created, find out
+how to disable
 
 - Keyimport, first: function Keyimport should use QByteArray, then:
   - More Keymanagement (new popup window?) including:
@@ -20,6 +22,9 @@ TODO:
 - Tabbed editor (including useful things like encrypted data opens in new tab)
 
 - some kind of locking for keydb, as gpg.conf uses lock-never, for ability to run on usb-drives (fat-formatted)
+
+usability:
+- dialog on closing unsaved document (discard/cancel/save) is not very user-friendly
 
 advanced:
 - threading & thread-safety in context.cpp (in, out, ctx)
