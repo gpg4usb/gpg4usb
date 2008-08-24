@@ -3,8 +3,10 @@ TODO:
 
 - Binary File Attachements, function for Decrypt & Help-Text (like safe eml, etc)
 
+- add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
 - Policy ( dialogs, what's warning, what an error )
+- adding signing and clearsigning text messages and verifying signatures (thx, Yucca)
 - Encrypt to self (problem: who is self?)
 - on windows an empty directory gnupg in application-data is created, find out
 how to disable
