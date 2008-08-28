@@ -157,6 +157,10 @@ void GpgWin::createActions()
     importKeyFromEditAct->setStatusTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
+    importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
+    importKeyFromClipboardAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
+    importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
+    connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
     /** About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
@@ -189,6 +193,7 @@ void GpgWin::createMenus()
 	importKeyMenu = cryptMenu->addMenu(tr("&Import key from..."));
     importKeyMenu->addAction(importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
+	importKeyMenu->addAction(importKeyFromClipboardAct);
 	
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
@@ -397,6 +402,12 @@ void GpgWin::importKeyFromEdit()
     m_keyList->refresh();
 }
 
+void GpgWin::importKeyFromClipboard()
+{
+    QClipboard *cb = QApplication::clipboard();
+    myCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
+   	m_keyList->refresh();
+}
 
 void GpgWin::importKeyFromFile()
 {

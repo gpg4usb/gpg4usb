@@ -44,6 +44,7 @@ public slots:
     void decrypt();
     void importKeyFromFile();
     void importKeyFromEdit();
+    void importKeyFromClipboard();
     void print();
     void about();
     bool save();
@@ -79,6 +80,7 @@ private:
     QAction *decryptAct;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
+    QAction *importKeyFromClipboardAct;
     QAction *copyAct;
     QAction *cutAct;
     QAction *pasteAct;
