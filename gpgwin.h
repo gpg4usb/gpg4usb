@@ -64,6 +64,10 @@ private:
 
     QPlainTextEdit *edit;
     QMenu *fileMenu;
+    QMenu *editMenu;
+    QMenu *cryptMenu;
+    QMenu *helpMenu;
+    QMenu *importKeyMenu;
     QToolBar *fileToolBar;
     QToolBar *editToolBar;
     QAction *openAct;

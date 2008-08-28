@@ -147,13 +147,12 @@ void GpgWin::createActions()
     decryptAct->setStatusTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
-    importKeyFromFileAct = new QAction(tr("&Import Key From File"), this);
+    importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(iconPath + "kgpg_import.png"));
-    importKeyFromFileAct->setShortcut(tr("Ctrl+I"));
     importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
-    importKeyFromEditAct = new QAction(tr("Import Key From &Editor"), this);
+    importKeyFromEditAct = new QAction(tr("&Editor"), this);
     importKeyFromEditAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
     importKeyFromEditAct->setStatusTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
@@ -176,21 +175,23 @@ void GpgWin::createMenus()
     fileMenu->addSeparator();
     fileMenu->addAction(quitAct);
 
-    fileMenu = menuBar()->addMenu(tr("&Edit"));
-    fileMenu->addAction(copyAct);
-    fileMenu->addAction(cutAct);
-    fileMenu->addAction(pasteAct);
-    fileMenu->addAction(selectallAct);
+    editMenu = menuBar()->addMenu(tr("&Edit"));
+    editMenu->addAction(copyAct);
+    editMenu->addAction(cutAct);
+    editMenu->addAction(pasteAct);
+    editMenu->addAction(selectallAct);
 
-    fileMenu = menuBar()->addMenu(tr("&Crypt"));
-    fileMenu->addAction(encryptAct);
-    fileMenu->addAction(decryptAct);
-    fileMenu->addSeparator();
-    fileMenu->addAction(importKeyFromFileAct);
-    fileMenu->addAction(importKeyFromEditAct);
+	cryptMenu = menuBar()->addMenu(tr("&Crypt"));
+    cryptMenu->addAction(encryptAct);
+    cryptMenu->addAction(decryptAct);
+    cryptMenu->addSeparator();
 
-    fileMenu = menuBar()->addMenu(tr("&Help"));
-    fileMenu->addAction(aboutAct);
+	importKeyMenu = cryptMenu->addMenu(tr("&Import key from..."));
+    importKeyMenu->addAction(importKeyFromFileAct);
+    importKeyMenu->addAction(importKeyFromEditAct);
+	
+    helpMenu = menuBar()->addMenu(tr("&Help"));
+    helpMenu->addAction(aboutAct);
 }
 
 void GpgWin::createToolBars()
