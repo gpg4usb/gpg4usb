@@ -1,6 +1,16 @@
 TODO:
 -----
 
+Release 0.1.1:
+- Import Key from Clipboard
+- Import-Key Dialog connected with Import-Key Button (like kgpg)
+- Sort Keys (QListView -> TableView)
+- find start of GPG-Block and insert "\n" if needed, to prevent "No Data" error
+- Mac Build
+
+
+Later:
+
 - Binary File Attachements, function for Decrypt & Help-Text (like safe eml, etc)
 
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
