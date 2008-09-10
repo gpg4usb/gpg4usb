@@ -7,6 +7,7 @@ Release 0.1.1:
 - Sort Keys (QListView -> TableView)
 - find start of GPG-Block and insert "\n" if needed, to prevent "No Data" error
 - Mac Build
+- decide, which glibc-version to support on linux, prevent newer dependencies
 
 
 Later:
