@@ -2,12 +2,14 @@ TODO:
 -----
 
 Release 0.1.1:
-- Import Key from Clipboard
-- Import-Key Dialog connected with Import-Key Button (like kgpg)
+- Import Key from Clipboard <DONE>
+- Import-Key Dialog connected with Import-Key Button (like kgpg) <DONE>
 - Sort Keys (QListView -> TableView)
 - find start of GPG-Block and insert "\n" if needed, to prevent "No Data" error
 - Mac Build
 - decide, which glibc-version to support on linux, prevent newer dependencies
+  --> decision done, support from debian Sarge (released jun. 2005) 
+onwards
 
 
 Later:
@@ -21,11 +23,10 @@ Later:
 - Encrypt to self (problem: who is self?)
 - on windows an empty directory gnupg in application-data is created, find out
 how to disable
+- Open File from command Line 
 
-- Keyimport, first: function Keyimport should use QByteArray, then:
-  - More Keymanagement (new popup window?) including:
-    - copy a public-keyfile into the editor-window and enable importing it -> same as "Import Key from Clipboard?"
-    - Import Key from Clipboard
+- More Keymanagement (new popup window?) including:
+   - copy a public-keyfile into the editor-window and enable importing it -> same as "Import Key from Clipboard?"
     - export public key
     - export private key
     - generate new key
