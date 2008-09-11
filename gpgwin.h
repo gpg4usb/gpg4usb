@@ -69,6 +69,7 @@ private:
     void setCurrentFile(const QString &fileName);
     bool maybeSave();
     QString strippedName(const QString &fullFileName);
+    void preventNoDataErr(QByteArray *in); 
 
     QPlainTextEdit *edit;
     QMenu *fileMenu;
