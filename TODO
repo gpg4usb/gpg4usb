@@ -5,7 +5,7 @@ Release 0.1.1:
 - Import Key from Clipboard <DONE>
 - Import-Key Dialog connected with Import-Key Button (like kgpg) <DONE>
 - Sort Keys (QListView -> TableView)
-- find start of GPG-Block and insert "\n" if needed, to prevent "No Data" error
+- find start of GPG-Block and insert "\n" if needed, to prevent "No Data" error <DONE>
 - Mac Build
 - decide, which glibc-version to support on linux, prevent newer dependencies
   --> decision done, support from debian Sarge (released jun. 2005) 
@@ -18,6 +18,7 @@ Later:
 
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
+--> show all email-Adresses connected to a key
 - Policy ( dialogs, what's warning, what an error )
 - adding signing and clearsigning text messages and verifying signatures (thx, Yucca)
 - Encrypt to self (problem: who is self?)
