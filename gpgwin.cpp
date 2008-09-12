@@ -56,10 +56,10 @@ GpgWin::GpgWin()
     m_keyList->setContext(myCtx);
 
     /* List of binary Attachments */
-    m_attachments = new Attachments();
+    /*m_attachments = new Attachments();
     m_attachments->setIconPath(iconPath);
     m_attachments->setContext(myCtx);
-    m_attachments->setKeyList(m_keyList);
+    m_attachments->setKeyList(m_keyList);*/
 
     createActions();
     createMenus();
@@ -232,10 +232,10 @@ void GpgWin::createDockWindows()
     addDockWidget(Qt::RightDockWidgetArea, dock);
     dock->setWidget(m_keyList);
 
-    dock = new QDockWidget(tr("Attached files:"), this);
+    /*dock = new QDockWidget(tr("Attached files:"), this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea );
     addDockWidget(Qt::BottomDockWidgetArea, dock);
-    dock->setWidget(m_attachments);
+    dock->setWidget(m_attachments);*/
 
 }
 

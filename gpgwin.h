@@ -81,9 +81,6 @@ private:
     QToolBar *editToolBar;
     QPushButton *browseButton;
     QWidget *keywindow;
-    QGroupBox *prStyGroup;
-    QRadioButton *prsty1;
-    QRadioButton *prsty2;
 
     QAction *openAct;
     QAction *saveAct;

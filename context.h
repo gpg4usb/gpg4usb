@@ -33,7 +33,7 @@ public:
     QString id;
     QString name;
     QString email;
-    int privkey;
+    bool privkey;
 };
 
 typedef QLinkedList< GpgKey > GpgKeyList;

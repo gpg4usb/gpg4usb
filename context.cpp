@@ -150,9 +150,9 @@ GpgKeyList Context::listKeys()
         GpgKeyList::iterator it = keys.begin();
         while (it != keys.end()) {
             if (key->subkeys->keyid == it->id.toStdString())
-                it->privkey = 1;
+                it->privkey = true;
             else
-                it->privkey = 0;
+                it->privkey = false;
             it++;
         }
 
