@@ -18,12 +18,7 @@
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  *      MA 02110-1301, USA.
  */
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QTableWidgetItem>
-#include <QLabel>
-#include <QMessageBox>
-#include <QtGui>
+
 #include "keylist.h"
 
 KeyList::KeyList(QWidget *parent)

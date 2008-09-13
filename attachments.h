@@ -22,6 +22,11 @@
 #ifndef __ATTACHMENTS_H__
 #define __ATTACHMENTS_H__
 
+#include <QVBoxLayout>
+#include <QDebug>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <iostream>
 #include <QListWidget>
 #include <QWidget>
 #include <QAction>

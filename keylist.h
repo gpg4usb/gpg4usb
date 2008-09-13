@@ -23,6 +23,11 @@
 #define __KEYLIST_H__
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QTableWidgetItem>
+#include <QLabel>
+#include <QMessageBox>
+#include <QtGui>
 #include <QTableWidget>
 #include <QPushButton>
 #include "context.h"

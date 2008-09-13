@@ -19,12 +19,7 @@
  *      MA 02110-1301, USA.
  */
 
-#include <locale.h>
-#include <sstream>
-#include <QApplication>
-#include <QtGui>
-#include <QMessageBox>
-#include <errno.h>
+
 #include "context.h"
 
 #ifdef _WIN32

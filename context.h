@@ -22,6 +22,12 @@
 #ifndef __SGPGMEPP_CONTEXT_H__
 #define __SGPGMEPP_CONTEXT_H__
 
+#include <locale.h>
+#include <sstream>
+#include <QApplication>
+#include <QtGui>
+#include <QMessageBox>
+#include <errno.h>
 #include <gpgme.h>
 #include <QByteArray>
 #include <QString>

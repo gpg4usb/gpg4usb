@@ -18,9 +18,20 @@
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  *      MA 02110-1301, USA.
  */
-#include <QWidget>
+#include <QApplication>
 #include <QMainWindow>
+#include <QPlainTextEdit>
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QGridLayout>
+#include <iostream>
 #include <QtGui>
+#include <QString>
+#include <QFileDialog>
+#include <QStringList>
+#include <QIcon>
+#include <QMessageBox>
+#include <QVBoxLayout>
 #include "context.h"
 #include "keylist.h"
 #include "attachments.h"
