@@ -151,8 +151,6 @@ GpgKeyList Context::listKeys()
         while (it != keys.end()) {
             if (key->subkeys->keyid == it->id.toStdString())
                 it->privkey = true;
-            else
-                it->privkey = false;
             it++;
         }
 
