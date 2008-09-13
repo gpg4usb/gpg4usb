@@ -22,19 +22,19 @@
 #ifndef __ATTACHMENTS_H__
 #define __ATTACHMENTS_H__
 
-#include <QVBoxLayout>
-#include <QDebug>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <iostream>
-#include <QListWidget>
-#include <QWidget>
-#include <QAction>
-#include <QMenu>
-#include <QContextMenuEvent>
 #include "context.h"
 #include "keylist.h"
 
+class QVBoxLayout;
+class QDebug;
+class QFileDialog;
+class QMessageBox;
+class iostream;
+class QListWidget;
+class QWidget;
+class QAction;
+class QMenu;
+class QContextMenuEvent;
 class QMenu;
 
 class Attachments : public QWidget

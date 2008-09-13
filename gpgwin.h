@@ -18,24 +18,23 @@
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  *      MA 02110-1301, USA.
  */
-#include <QApplication>
-#include <QMainWindow>
-#include <QPlainTextEdit>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QGridLayout>
-#include <iostream>
-#include <QtGui>
-#include <QString>
-#include <QFileDialog>
-#include <QStringList>
-#include <QIcon>
-#include <QMessageBox>
-#include <QVBoxLayout>
 #include "context.h"
 #include "keylist.h"
 #include "attachments.h"
 
+class QMainWindow;
+class QPlainTextEdit;
+class QWidget;
+class QVBoxLayout;
+class QGridLayout;
+class iostream;
+class QtGui;
+class QString;
+class QFileDialog;
+class QStringList;
+class QIcon;
+class QMessageBox;
+class QVBoxLayout;
 class QAction;
 class QMenu;
 class QPlainTextEdit;
@@ -43,6 +42,7 @@ class QComboBox;
 class QPushButton;
 class QRadioButton;
 class QButtonGroup;
+class QApplication;
 
 
 class GpgWin : public QMainWindow

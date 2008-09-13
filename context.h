@@ -23,15 +23,16 @@
 #define __SGPGMEPP_CONTEXT_H__
 
 #include <locale.h>
-#include <sstream>
-#include <QApplication>
-#include <QtGui>
-#include <QMessageBox>
 #include <errno.h>
 #include <gpgme.h>
-#include <QByteArray>
-#include <QString>
 #include <QLinkedList>
+#include <QtGui>
+
+class QMessageBox;
+class sstream;
+class QApplication;
+class QByteArray;
+class QString;
 
 class GpgKey
 {

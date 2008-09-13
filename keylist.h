@@ -22,14 +22,14 @@
 #ifndef __KEYLIST_H__
 #define __KEYLIST_H__
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QTableWidgetItem>
-#include <QLabel>
-#include <QMessageBox>
-#include <QtGui>
-#include <QTableWidget>
-#include <QPushButton>
+class QWidget;
+class QVBoxLayout;
+class QTableWidgetItem;
+class QLabel;
+class QMessageBox;
+class QtGui;
+class QTableWidget;
+class QPushButton;
 #include "context.h"
 
 class QMenu;
