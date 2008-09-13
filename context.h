@@ -30,6 +30,9 @@
 class GpgKey
 {
 public:
+    GpgKey() {
+        privkey=false;
+    }
     QString id;
     QString name;
     QString email;
