@@ -33,7 +33,12 @@ KeyList::KeyList(QWidget *parent)
     m_keyList->sortByColumn(2,Qt::AscendingOrder);
     m_keyList->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_keyList->setColumnHidden(4, true);
-    
+    // tableitems not editable
+    m_keyList->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    // no focus (rectangle around tableitems)
+    // may be it should focus on whole row
+    m_keyList->setFocusPolicy(Qt::NoFocus);
+
     m_deleteButton = new QPushButton(tr("Delete Checked Keys"));
 
     connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(deleteKeys()));
@@ -67,26 +72,26 @@ void KeyList::contextMenuEvent(QContextMenuEvent *event)
 void KeyList::refresh()
 {
     m_keyList->clear();
-    
-	QStringList labels;
-	labels << "" << "" << "Name" << "EMail" << "id";
-	m_keyList->setHorizontalHeaderLabels(labels);
-	
+
+    QStringList labels;
+    labels << "" << "" << "Name" << "EMail" << "id";
+    m_keyList->setHorizontalHeaderLabels(labels);
+
     GpgKeyList keys = m_ctx->listKeys();
     m_keyList->setRowCount(keys.size());
- 	QTableWidgetItem *tmp;
+    QTableWidgetItem *tmp;
     int row=0;
     GpgKeyList::iterator it = keys.begin();
     while (it != keys.end()) {
-    	
-    	tmp = new QTableWidgetItem();
-    	tmp->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+
+        tmp = new QTableWidgetItem();
+        tmp->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         tmp->setCheckState(Qt::Unchecked);
-    	m_keyList->setItem(row, 0, tmp);
-    	
+        m_keyList->setItem(row, 0, tmp);
+
         if(it->privkey) {
-        	tmp = new QTableWidgetItem(QIcon(iconPath + "kgpg_key2.png"),"");
-        	m_keyList->setItem(row, 1, tmp);
+            tmp = new QTableWidgetItem(QIcon(iconPath + "kgpg_key2.png"),"");
+            m_keyList->setItem(row, 1, tmp);
         }
         tmp = new QTableWidgetItem(it->name);
         tmp->setToolTip(it->name);
@@ -95,7 +100,7 @@ void KeyList::refresh()
         tmp->setToolTip(it->email);
         m_keyList->setItem(row, 3, tmp);
         tmp = new QTableWidgetItem(it->id);
-        m_keyList->setItem(row, 4, tmp);       
+        m_keyList->setItem(row, 4, tmp);
         it++;
         ++row;
     }
@@ -117,7 +122,7 @@ QList<QString> *KeyList::getChecked()
 QList<QString> *KeyList::getSelected()
 {
     QList<QString> *ret = new QList<QString>();
-   
+
     for (int i = 0; i < m_keyList->rowCount(); i++) {
         if (m_keyList->item(i,0)->isSelected() == 1) {
             *ret << m_keyList->item(i,4)->text();
