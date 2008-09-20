@@ -384,12 +384,27 @@ void GpgWin::encrypt()
 void GpgWin::decrypt()
 {
     QByteArray *tmp = new QByteArray();
-    myCtx->decrypt(edit->toPlainText().toAscii(), tmp);
+    QByteArray text = edit->toPlainText().toAscii();
+    preventNoDataErr(&text);
+    myCtx->decrypt(text, tmp);	
     if (!tmp->isEmpty()) {
         QString *tmp2 = new QString(*tmp);
         edit->setPlainText(*tmp2);
     }
 }
+
+/**
+ * if there is no '\n' before the PGP-Begin-Block, but for example a whitespace,
+ * GPGME doesn't recognise the Message as encrypted. This function adds '\n'
+ * before the PGP-Begin-Block, if missing.
+ */
+void GpgWin::preventNoDataErr(QByteArray *in)
+{
+    int block_start = in->indexOf("-----BEGIN PGP MESSAGE-----");
+    if(block_start > 0 && in->at(block_start - 1) != '\n') {
+        in->insert(block_start, '\n');
+    }
+} 	  				 	 	 	   	 	  	   		  	 
 
 void GpgWin::importKeyFromEdit()
 {
