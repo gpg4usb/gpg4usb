@@ -30,10 +30,13 @@
 class GpgKey
 {
 public:
+    GpgKey() {
+        privkey=false;
+    }
     QString id;
     QString name;
     QString email;
-    int privkey;
+    bool privkey;
 };
 
 typedef QLinkedList< GpgKey > GpgKeyList;

@@ -183,16 +183,16 @@ void GpgWin::createMenus()
     editMenu->addAction(pasteAct);
     editMenu->addAction(selectallAct);
 
-	cryptMenu = menuBar()->addMenu(tr("&Crypt"));
+    cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
     cryptMenu->addSeparator();
 
-	importKeyMenu = cryptMenu->addMenu(tr("&Import key from..."));
+    importKeyMenu = cryptMenu->addMenu(tr("&Import key from..."));
     importKeyMenu->addAction(importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
-	importKeyMenu->addAction(importKeyFromClipboardAct);
-	
+    importKeyMenu->addAction(importKeyFromClipboardAct);
+
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
 }
@@ -203,8 +203,6 @@ void GpgWin::createToolBars()
     cryptToolBar->addAction(encryptAct);
     cryptToolBar->addAction(decryptAct);
     cryptToolBar->addAction(importKeyDialogAct);
-        
-
 
     editToolBar = addToolBar(tr("Edit"));
     editToolBar->addAction(copyAct);
@@ -386,7 +384,7 @@ void GpgWin::decrypt()
     QByteArray *tmp = new QByteArray();
     QByteArray text = edit->toPlainText().toAscii();
     preventNoDataErr(&text);
-    myCtx->decrypt(text, tmp);	
+    myCtx->decrypt(text, tmp);
     if (!tmp->isEmpty()) {
         QString *tmp2 = new QString(*tmp);
         edit->setPlainText(*tmp2);
@@ -404,7 +402,7 @@ void GpgWin::preventNoDataErr(QByteArray *in)
     if(block_start > 0 && in->at(block_start - 1) != '\n') {
         in->insert(block_start, '\n');
     }
-} 	  				 	 	 	   	 	  	   		  	 
+}
 
 void GpgWin::importKeyFromEdit()
 {
@@ -416,7 +414,7 @@ void GpgWin::importKeyFromClipboard()
 {
     QClipboard *cb = QApplication::clipboard();
     myCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
-   	m_keyList->refresh();
+    m_keyList->refresh();
 }
 
 void GpgWin::importKeyFromFile()
@@ -436,40 +434,40 @@ void GpgWin::importKeyFromFile()
 }
 
 void GpgWin::importKeyDialog() {
-	
-		QDialog *dialog = new QDialog();
-	
-		dialog->setWindowTitle(tr("Import Key"));
-		dialog->setModal(true);
-		
-		QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
-		
-		connect(buttonBox,SIGNAL(accepted()),dialog, SLOT(accept()));
-		connect(buttonBox,SIGNAL(rejected()), dialog, SLOT(reject()));
-		
-		QGroupBox *groupBox = new QGroupBox(tr("Import Key From..."));
-     	QRadioButton *radio1 = new QRadioButton(tr("&File"));
-    	QRadioButton *radio2 = new QRadioButton(tr("&Editor"));
-     	QRadioButton *radio3 = new QRadioButton(tr("&Clipboard"));
-     	radio1->setChecked(true);
 
-    	QVBoxLayout *vbox1 = new QVBoxLayout();
-     	vbox1->addWidget(radio1);
-     	vbox1->addWidget(radio2);
-     	vbox1->addWidget(radio3);
-     	
-     	groupBox->setLayout(vbox1);
-     	
-     	QVBoxLayout *vbox2 = new QVBoxLayout();
-     	vbox2->addWidget(groupBox);
-     	vbox2->addWidget(buttonBox);
-     	
-     	dialog->setLayout(vbox2);
-     	
-     	if(dialog->exec() == QDialog::Accepted ) {
-			if (radio1->isChecked()) importKeyFromFile();
-			if (radio2->isChecked()) importKeyFromEdit();
-			if (radio3->isChecked()) importKeyFromClipboard();
-     	}		
-		
+        QDialog *dialog = new QDialog();
+
+        dialog->setWindowTitle(tr("Import Key"));
+        dialog->setModal(true);
+
+        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+
+        connect(buttonBox,SIGNAL(accepted()),dialog, SLOT(accept()));
+        connect(buttonBox,SIGNAL(rejected()), dialog, SLOT(reject()));
+
+        QGroupBox *groupBox = new QGroupBox(tr("Import Key From..."));
+        QRadioButton *radio1 = new QRadioButton(tr("&File"));
+        QRadioButton *radio2 = new QRadioButton(tr("&Editor"));
+        QRadioButton *radio3 = new QRadioButton(tr("&Clipboard"));
+        radio1->setChecked(true);
+
+        QVBoxLayout *vbox1 = new QVBoxLayout();
+        vbox1->addWidget(radio1);
+        vbox1->addWidget(radio2);
+        vbox1->addWidget(radio3);
+
+        groupBox->setLayout(vbox1);
+
+        QVBoxLayout *vbox2 = new QVBoxLayout();
+        vbox2->addWidget(groupBox);
+        vbox2->addWidget(buttonBox);
+
+        dialog->setLayout(vbox2);
+
+        if(dialog->exec() == QDialog::Accepted ) {
+            if (radio1->isChecked()) importKeyFromFile();
+            if (radio2->isChecked()) importKeyFromEdit();
+            if (radio3->isChecked()) importKeyFromClipboard();
+        }
+
 }

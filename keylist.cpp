@@ -20,7 +20,7 @@
  */
 #include <QWidget>
 #include <QVBoxLayout>
-#include <QListWidgetItem>
+#include <QTableWidgetItem>
 #include <QLabel>
 #include <QMessageBox>
 #include <QtGui>
@@ -29,9 +29,17 @@
 KeyList::KeyList(QWidget *parent)
         : QWidget(parent)
 {
-    m_keyList = new QListWidget();
-    m_idList = new QList<QString>();
-    m_deleteButton = new QPushButton(tr("Delete Selected Keys"));
+    m_keyList = new QTableWidget(this);
+    m_keyList->setColumnCount(5);
+    m_keyList->verticalHeader()->hide();
+    m_keyList->setShowGrid(false);
+    m_keyList->setColumnWidth(0, 24);
+    m_keyList->setColumnWidth(1, 20);
+    m_keyList->sortByColumn(2,Qt::AscendingOrder);
+    m_keyList->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_keyList->setColumnHidden(4, true);
+    
+    m_deleteButton = new QPushButton(tr("Delete Checked Keys"));
 
     connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(deleteKeys()));
 
@@ -64,31 +72,48 @@ void KeyList::contextMenuEvent(QContextMenuEvent *event)
 void KeyList::refresh()
 {
     m_keyList->clear();
-    m_idList->clear();
-
+    
+	QStringList labels;
+	labels << "" << "" << "Name" << "EMail" << "id";
+	m_keyList->setHorizontalHeaderLabels(labels);
+	
     GpgKeyList keys = m_ctx->listKeys();
+    m_keyList->setRowCount(keys.size());
+ 	QTableWidgetItem *tmp;
+    int row=0;
     GpgKeyList::iterator it = keys.begin();
     while (it != keys.end()) {
-        QListWidgetItem *tmp = new QListWidgetItem(
-            it->name + " <" + it->email + ">"
-        );
-        tmp->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+    	
+    	tmp = new QTableWidgetItem();
+    	tmp->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         tmp->setCheckState(Qt::Unchecked);
-        if (it->privkey == 1)  tmp->setIcon(QIcon(iconPath + "kgpg_key2.png"));
-        m_keyList->addItem(tmp);
-
-        *m_idList << QString(it->id);
+    	m_keyList->setItem(row, 0, tmp);
+    	
+        if(it->privkey) {
+        	tmp = new QTableWidgetItem(QIcon(iconPath + "kgpg_key2.png"),"");
+        	m_keyList->setItem(row, 1, tmp);
+        }
+        tmp = new QTableWidgetItem(it->name);
+        tmp->setToolTip(it->name);
+        m_keyList->setItem(row, 2, tmp);
+        tmp = new QTableWidgetItem(it->email);
+        tmp->setToolTip(it->email);
+        m_keyList->setItem(row, 3, tmp);
+        tmp = new QTableWidgetItem(it->id);
+        m_keyList->setItem(row, 4, tmp);       
         it++;
+        ++row;
     }
+    m_keyList->setSortingEnabled(true);
 }
 
 
 QList<QString> *KeyList::getChecked()
 {
     QList<QString> *ret = new QList<QString>();
-    for (int i = 0; i < m_keyList->count(); i++) {
-        if (m_keyList->item(i)->checkState() == Qt::Checked) {
-            *ret << m_idList->at(i);
+    for (int i = 0; i < m_keyList->rowCount(); i++) {
+        if (m_keyList->item(i,0)->checkState() == Qt::Checked) {
+            *ret << m_keyList->item(i,4)->text();
         }
     }
     return ret;
@@ -97,9 +122,10 @@ QList<QString> *KeyList::getChecked()
 QList<QString> *KeyList::getSelected()
 {
     QList<QString> *ret = new QList<QString>();
-    for (int i = 0; i < m_keyList->count(); i++) {
-        if (m_keyList->item(i)->isSelected() == 1) {
-            *ret << m_idList->at(i);
+   
+    for (int i = 0; i < m_keyList->rowCount(); i++) {
+        if (m_keyList->item(i,0)->isSelected() == 1) {
+            *ret << m_keyList->item(i,4)->text();
         }
     }
     return ret;
@@ -124,6 +150,6 @@ void KeyList::deleteKey()
 void KeyList::createActions()
 {
     deleteKeyAct = new QAction(tr("Delete Key"), this);
-    deleteKeyAct->setStatusTip(tr("Delete the selected keys"));
+    deleteKeyAct->setStatusTip(tr("Delete the checked keys"));
     connect(deleteKeyAct, SIGNAL(triggered()), this, SLOT(deleteKey()));
 }

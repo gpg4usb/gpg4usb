@@ -19,7 +19,7 @@
  *      MA 02110-1301, USA.
  */
 #include <QWidget>
-#include <QListWidget>
+#include <QTableWidget>
 #include <QPushButton>
 #include "context.h"
 
@@ -43,8 +43,7 @@ public:
 
 private:
     GpgME::Context *m_ctx;
-    QListWidget *m_keyList;
-    QList<QString> *m_idList;
+    QTableWidget *m_keyList;
     QPushButton *m_deleteButton;
     QAction *deleteKeyAct;
     void createActions();
