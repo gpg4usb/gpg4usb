@@ -31,6 +31,7 @@
 #include <QStringList>
 #include <QIcon>
 #include <QMessageBox>
+#include <QVBoxLayout>
 
 #include "context.h"
 #include "gpgwin.h"
@@ -139,17 +140,25 @@ void GpgWin::createActions()
     decryptAct->setStatusTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
-    importKeyFromFileAct = new QAction(tr("&Import Key From File"), this);
+    importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(iconPath + "kgpg_import.png"));
-    importKeyFromFileAct->setShortcut(tr("Ctrl+I"));
     importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
-    importKeyFromEditAct = new QAction(tr("Import Key From &Editor"), this);
+    importKeyFromEditAct = new QAction(tr("&Editor"), this);
     importKeyFromEditAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
     importKeyFromEditAct->setStatusTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
+    importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
+    importKeyFromClipboardAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
+    importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
+    connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
+
+    importKeyDialogAct = new QAction(tr("Import Key"), this);
+    importKeyDialogAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
+    importKeyDialogAct->setStatusTip(tr("Import New Key"));
+    connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
     /** About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
@@ -168,28 +177,34 @@ void GpgWin::createMenus()
     fileMenu->addSeparator();
     fileMenu->addAction(quitAct);
 
-    fileMenu = menuBar()->addMenu(tr("&Edit"));
-    fileMenu->addAction(copyAct);
-    fileMenu->addAction(cutAct);
-    fileMenu->addAction(pasteAct);
-    fileMenu->addAction(selectallAct);
+    editMenu = menuBar()->addMenu(tr("&Edit"));
+    editMenu->addAction(copyAct);
+    editMenu->addAction(cutAct);
+    editMenu->addAction(pasteAct);
+    editMenu->addAction(selectallAct);
 
-    fileMenu = menuBar()->addMenu(tr("&Crypt"));
-    fileMenu->addAction(encryptAct);
-    fileMenu->addAction(decryptAct);
-    fileMenu->addSeparator();
-    fileMenu->addAction(importKeyFromFileAct);
-    fileMenu->addAction(importKeyFromEditAct);
+	cryptMenu = menuBar()->addMenu(tr("&Crypt"));
+    cryptMenu->addAction(encryptAct);
+    cryptMenu->addAction(decryptAct);
+    cryptMenu->addSeparator();
 
-    fileMenu = menuBar()->addMenu(tr("&Help"));
-    fileMenu->addAction(aboutAct);
+	importKeyMenu = cryptMenu->addMenu(tr("&Import key from..."));
+    importKeyMenu->addAction(importKeyFromFileAct);
+    importKeyMenu->addAction(importKeyFromEditAct);
+	importKeyMenu->addAction(importKeyFromClipboardAct);
+	
+    helpMenu = menuBar()->addMenu(tr("&Help"));
+    helpMenu->addAction(aboutAct);
 }
 
 void GpgWin::createToolBars()
 {
-    fileToolBar = addToolBar(tr("File"));
-    fileToolBar->addAction(encryptAct);
-    fileToolBar->addAction(decryptAct);
+    cryptToolBar = addToolBar(tr("Crypt"));
+    cryptToolBar->addAction(encryptAct);
+    cryptToolBar->addAction(decryptAct);
+    cryptToolBar->addAction(importKeyDialogAct);
+        
+
 
     editToolBar = addToolBar(tr("Edit"));
     editToolBar->addAction(copyAct);
@@ -382,6 +397,12 @@ void GpgWin::importKeyFromEdit()
     m_keyList->refresh();
 }
 
+void GpgWin::importKeyFromClipboard()
+{
+    QClipboard *cb = QApplication::clipboard();
+    myCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
+   	m_keyList->refresh();
+}
 
 void GpgWin::importKeyFromFile()
 {
@@ -399,3 +420,41 @@ void GpgWin::importKeyFromFile()
     }
 }
 
+void GpgWin::importKeyDialog() {
+	
+		QDialog *dialog = new QDialog();
+	
+		dialog->setWindowTitle(tr("Import Key"));
+		dialog->setModal(true);
+		
+		QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+		
+		connect(buttonBox,SIGNAL(accepted()),dialog, SLOT(accept()));
+		connect(buttonBox,SIGNAL(rejected()), dialog, SLOT(reject()));
+		
+		QGroupBox *groupBox = new QGroupBox(tr("Import Key From..."));
+     	QRadioButton *radio1 = new QRadioButton(tr("&File"));
+    	QRadioButton *radio2 = new QRadioButton(tr("&Editor"));
+     	QRadioButton *radio3 = new QRadioButton(tr("&Clipboard"));
+     	radio1->setChecked(true);
+
+    	QVBoxLayout *vbox1 = new QVBoxLayout();
+     	vbox1->addWidget(radio1);
+     	vbox1->addWidget(radio2);
+     	vbox1->addWidget(radio3);
+     	
+     	groupBox->setLayout(vbox1);
+     	
+     	QVBoxLayout *vbox2 = new QVBoxLayout();
+     	vbox2->addWidget(groupBox);
+     	vbox2->addWidget(buttonBox);
+     	
+     	dialog->setLayout(vbox2);
+     	
+     	if(dialog->exec() == QDialog::Accepted ) {
+			if (radio1->isChecked()) importKeyFromFile();
+			if (radio2->isChecked()) importKeyFromEdit();
+			if (radio3->isChecked()) importKeyFromClipboard();
+     	}		
+		
+}

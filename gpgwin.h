@@ -27,6 +27,11 @@
 class QAction;
 class QMenu;
 class QPlainTextEdit;
+class QComboBox;
+class QPushButton;
+class QRadioButton;
+class QButtonGroup;
+
 
 class GpgWin : public QMainWindow
 {
@@ -43,11 +48,14 @@ public slots:
     void decrypt();
     void importKeyFromFile();
     void importKeyFromEdit();
+    void importKeyFromClipboard();
     void print();
     void about();
     bool save();
     bool saveAs();
     void open();
+    void importKeyDialog();
+    //void browse();
 
 private:
     void createActions();
@@ -63,8 +71,18 @@ private:
 
     QPlainTextEdit *edit;
     QMenu *fileMenu;
-    QToolBar *fileToolBar;
+    QMenu *editMenu;
+    QMenu *cryptMenu;
+    QMenu *helpMenu;
+    QMenu *importKeyMenu;
+    QToolBar *cryptToolBar;
     QToolBar *editToolBar;
+    QPushButton *browseButton;
+    QWidget *keywindow;
+    QGroupBox *prStyGroup;
+    QRadioButton *prsty1;
+    QRadioButton *prsty2;
+
     QAction *openAct;
     QAction *saveAct;
     QAction *saveAsAct;
@@ -72,8 +90,10 @@ private:
     QAction *quitAct;
     QAction *encryptAct;
     QAction *decryptAct;
+    QAction *importKeyDialogAct;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
+    QAction *importKeyFromClipboardAct;
     QAction *copyAct;
     QAction *cutAct;
     QAction *pasteAct;
@@ -85,3 +105,6 @@ private:
     GpgME::Context *myCtx;
     QString iconPath;
 };
+
+
+
