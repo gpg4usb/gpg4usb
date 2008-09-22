@@ -41,7 +41,7 @@ KeyList::KeyList(QWidget *parent)
 
     m_deleteButton = new QPushButton(tr("Delete Checked Keys"));
 
-    connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(deleteKeys()));
+    connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(deleteCheckedKeys()));
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(m_keyList);
@@ -65,7 +65,7 @@ void KeyList::setIconPath(QString path)
 void KeyList::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu(this);
-    menu.addAction(deleteKeyAct);
+    menu.addAction(deleteSelectedKeysAct);
     menu.exec(event->globalPos());
 }
 
@@ -131,7 +131,7 @@ QList<QString> *KeyList::getSelected()
     return ret;
 }
 
-void KeyList::deleteKeys()
+void KeyList::deleteCheckedKeys()
 {
 
     m_ctx->deleteKeys(getChecked());
@@ -139,7 +139,7 @@ void KeyList::deleteKeys()
 
 }
 
-void KeyList::deleteKey()
+void KeyList::deleteSelectedKeys()
 {
 
     m_ctx->deleteKeys(getSelected());
@@ -149,7 +149,7 @@ void KeyList::deleteKey()
 
 void KeyList::createActions()
 {
-    deleteKeyAct = new QAction(tr("Delete Key"), this);
-    deleteKeyAct->setStatusTip(tr("Delete the checked keys"));
-    connect(deleteKeyAct, SIGNAL(triggered()), this, SLOT(deleteKey()));
+    deleteSelectedKeysAct = new QAction(tr("Delete Key"), this);
+    deleteSelectedKeysAct->setStatusTip(tr("Delete the selected keys"));
+    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
 }

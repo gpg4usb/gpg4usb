@@ -22,6 +22,8 @@
 #ifndef __KEYLIST_H__
 #define __KEYLIST_H__
 
+#include "context.h"
+
 class QWidget;
 class QVBoxLayout;
 class QTableWidgetItem;
@@ -30,8 +32,6 @@ class QMessageBox;
 class QtGui;
 class QTableWidget;
 class QPushButton;
-#include "context.h"
-
 class QMenu;
 
 class KeyList : public QWidget
@@ -39,8 +39,8 @@ class KeyList : public QWidget
     Q_OBJECT
 
 public slots:
-    void deleteKeys();
-    void deleteKey();
+    void deleteCheckedKeys();
+    void deleteSelectedKeys();
 
 public:
     KeyList(QWidget *parent = 0);
@@ -54,7 +54,7 @@ private:
     GpgME::Context *m_ctx;
     QTableWidget *m_keyList;
     QPushButton *m_deleteButton;
-    QAction *deleteKeyAct;
+    QAction *deleteSelectedKeysAct;
     void createActions();
     QString iconPath;
 
