@@ -71,6 +71,8 @@ void KeyList::contextMenuEvent(QContextMenuEvent *event)
 
 void KeyList::refresh()
 {
+    // while filling the table, sort enabled causes errors
+    m_keyList->setSortingEnabled(false);
     m_keyList->clear();
 
     QStringList labels;
