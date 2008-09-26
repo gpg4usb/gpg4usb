@@ -39,9 +39,12 @@ KeyList::KeyList(QWidget *parent)
     // may be it should focus on whole row
     m_keyList->setFocusPolicy(Qt::NoFocus);
 
+    m_keyList->setAlternatingRowColors(true);
+
     QStringList labels;
     labels << "" << "" << "Name" << "EMail" << "id";
     m_keyList->setHorizontalHeaderLabels(labels);
+    m_keyList->horizontalHeader()->setStretchLastSection(true);
 
     m_deleteButton = new QPushButton(tr("Delete Checked Keys"));
 
@@ -50,6 +53,8 @@ KeyList::KeyList(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(m_keyList);
     layout->addWidget(m_deleteButton);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(3);
     setLayout(layout);
     createActions();
 
