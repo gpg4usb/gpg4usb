@@ -22,7 +22,7 @@
 #include <QtGui>
 
 #include "keymgmt.h"
-#include "keyutils.h"
+
 
 KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
 {
