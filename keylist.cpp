@@ -46,17 +46,13 @@ KeyList::KeyList(QWidget *parent)
     m_keyList->setHorizontalHeaderLabels(labels);
     m_keyList->horizontalHeader()->setStretchLastSection(true);
 
-    m_deleteButton = new QPushButton(tr("Delete Checked Keys"));
-
-    connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(deleteCheckedKeys()));
-
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(m_keyList);
-    layout->addWidget(m_deleteButton);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(3);
     setLayout(layout);
-    createActions();
+
+    popupMenu = new QMenu(this);
 
 }
 
@@ -69,13 +65,6 @@ void KeyList::setContext(GpgME::Context *ctx)
 void KeyList::setIconPath(QString path)
 {
     this->iconPath = path;
-}
-
-void KeyList::contextMenuEvent(QContextMenuEvent *event)
-{
-    QMenu menu(this);
-    menu.addAction(deleteSelectedKeysAct);
-    menu.exec(event->globalPos());
 }
 
 void KeyList::refresh()
@@ -120,6 +109,7 @@ QList<QString> *KeyList::getChecked()
     QList<QString> *ret = new QList<QString>();
     for (int i = 0; i < m_keyList->rowCount(); i++) {
         if (m_keyList->item(i,0)->checkState() == Qt::Checked) {
+            qDebug() << m_keyList->item(i,4)->text();
             *ret << m_keyList->item(i,4)->text();
         }
     }
@@ -138,25 +128,17 @@ QList<QString> *KeyList::getSelected()
     return ret;
 }
 
-void KeyList::deleteCheckedKeys()
+void KeyList::setColumnWidth(int row, int size)
 {
-
-    m_ctx->deleteKeys(getChecked());
-    refresh();
-
+    m_keyList->setColumnWidth(row, size);
 }
 
-void KeyList::deleteSelectedKeys()
+void KeyList::contextMenuEvent(QContextMenuEvent *event)
 {
-
-    m_ctx->deleteKeys(getSelected());
-    refresh();
-
+    popupMenu->exec(event->globalPos());
 }
 
-void KeyList::createActions()
+void KeyList::addMenuAction(QAction *act)
 {
-    deleteSelectedKeysAct = new QAction(tr("Delete Key"), this);
-    deleteSelectedKeysAct->setStatusTip(tr("Delete the selected keys"));
-    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
+    popupMenu->addAction(act);
 }

@@ -68,6 +68,7 @@ public slots:
     void open();
     void importKeyDialog();
     //void browse();
+    void deleteSelectedKeys();
 
 private:
     void createActions();
@@ -80,7 +81,7 @@ private:
     void setCurrentFile(const QString &fileName);
     bool maybeSave();
     QString strippedName(const QString &fullFileName);
-    void preventNoDataErr(QByteArray *in); 
+    void preventNoDataErr(QByteArray *in);
 
     QPlainTextEdit *edit;
     QMenu *fileMenu;
@@ -109,6 +110,7 @@ private:
     QAction *pasteAct;
     QAction *selectallAct;
     QAction *aboutAct;
+    QAction *deleteSelectedKeysAct;
 
     QString curFile;
     KeyList *m_keyList;

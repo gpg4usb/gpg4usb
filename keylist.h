@@ -38,25 +38,22 @@ class KeyList : public QWidget
 {
     Q_OBJECT
 
-public slots:
-    void deleteCheckedKeys();
-    void deleteSelectedKeys();
-
 public:
-    KeyList(QWidget *parent = 0);
     void setContext(GpgME::Context *ctx);
     void setIconPath(QString iconPath);
+    void refresh();
+    void setColumnWidth(int row, int size);
+    void addMenuAction(QAction *act);
+
+    KeyList(QWidget *parent = 0);
     QList<QString> *getChecked();
     QList<QString> *getSelected();
-    void refresh();
 
 private:
     GpgME::Context *m_ctx;
     QTableWidget *m_keyList;
-    QPushButton *m_deleteButton;
-    QAction *deleteSelectedKeysAct;
-    void createActions();
     QString iconPath;
+    QMenu *popupMenu;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
