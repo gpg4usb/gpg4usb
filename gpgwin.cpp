@@ -51,7 +51,6 @@ GpgWin::GpgWin()
     createToolBars();
     createStatusBar();
     createDockWindows();
-
     setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     setIconSize(QSize(32, 32));
     setCurrentFile("");
@@ -150,6 +149,11 @@ void GpgWin::createActions()
     importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
+    openKeyManagementAct = new QAction(tr("Key Management"), this);
+    openKeyManagementAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
+    openKeyManagementAct->setStatusTip(tr("Open Keymanagement"));
+    connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
+
     importKeyDialogAct = new QAction(tr("Import Key"), this);
     importKeyDialogAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
     importKeyDialogAct->setStatusTip(tr("Import New Key"));
@@ -166,7 +170,6 @@ void GpgWin::createActions()
     deleteSelectedKeysAct = new QAction(tr("Delete Key"), this);
     deleteSelectedKeysAct->setStatusTip(tr("Delete the selected keys"));
     connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
-
 }
 
 void GpgWin::createMenus()
@@ -205,8 +208,7 @@ void GpgWin::createToolBars()
     cryptToolBar->addAction(encryptAct);
     cryptToolBar->addAction(decryptAct);
     cryptToolBar->addAction(importKeyDialogAct);
-
-
+    cryptToolBar->addAction(openKeyManagementAct);
 
     editToolBar = addToolBar(tr("Edit"));
     editToolBar->addAction(copyAct);
@@ -443,6 +445,11 @@ void GpgWin::importKeyFromFile()
     }
 }
 
+void GpgWin::openKeyManagement() {
+    KeyMgmt *window = new KeyMgmt(myCtx, iconPath);
+    window->show();
+}
+
 void GpgWin::importKeyDialog() {
 
         QDialog *dialog = new QDialog();
@@ -490,3 +497,4 @@ void GpgWin::deleteSelectedKeys()
     myCtx->deleteKeys(m_keyList->getSelected());
     m_keyList->refresh();
 }
+

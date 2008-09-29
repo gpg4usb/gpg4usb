@@ -109,7 +109,6 @@ QList<QString> *KeyList::getChecked()
     QList<QString> *ret = new QList<QString>();
     for (int i = 0; i < m_keyList->rowCount(); i++) {
         if (m_keyList->item(i,0)->checkState() == Qt::Checked) {
-            qDebug() << m_keyList->item(i,4)->text();
             *ret << m_keyList->item(i,4)->text();
         }
     }

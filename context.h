@@ -58,7 +58,6 @@ public:
     Context(); // Consttructor
     ~Context(); // Destructor
 
-    void importKeyFromFile(QString pathToFile);
     void importKey(QByteArray inBuffer);
     GpgKeyList listKeys();
     void deleteKeys(QList<QString> *uidList);

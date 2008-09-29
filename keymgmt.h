@@ -1,5 +1,5 @@
 /*
- *      gpgwin.h
+ *      keymgmt.h
  *
  *      Copyright 2008 gpg4usb-team <gpg4usb@cpunk.de>
  *
@@ -18,10 +18,10 @@
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  *      MA 02110-1301, USA.
  */
-#include "context.h"
-#include "keylist.h"
-#include "attachments.h"
-#include "keymgmt.h"
+
+#ifndef __KEYMGMT_H__
+#define __KEYMGMT_H__
+
 
 class QMainWindow;
 class QPlainTextEdit;
@@ -45,81 +45,38 @@ class QRadioButton;
 class QButtonGroup;
 class QApplication;
 
+#include "context.h"
+#include "keylist.h"
 
-class GpgWin : public QMainWindow
+class KeyMgmt : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    GpgWin();
-
-protected:
-    void closeEvent(QCloseEvent *event);
+    KeyMgmt(GpgME::Context* ctx, QString iconpath);
 
 public slots:
-    void encrypt();
-    void decrypt();
     void importKeyFromFile();
-    void importKeyFromEdit();
     void importKeyFromClipboard();
-    void importKeyDialog();
-    void openKeyManagement();
-    void print();
-    void about();
-    bool save();
-    bool saveAs();
-    void open();
+    void deleteCheckedKeys();
     void deleteSelectedKeys();
 
 private:
-    void createActions();
     void createMenus();
+    void createActions();
     void createToolBars();
-    void createStatusBar();
-    void createDockWindows();
-    bool saveFile(const QString &fileName);
-    void loadFile(const QString &fileName);
-    void setCurrentFile(const QString &fileName);
-    bool maybeSave();
-    void preventNoDataErr(QByteArray *in);
-    QString strippedName(const QString &fullFileName);
 
-    QPlainTextEdit *edit;
+    KeyList *m_keyList;
+    QString mIconPath;
+    GpgME::Context *mCtx;
     QMenu *fileMenu;
-    QMenu *editMenu;
-    QMenu *cryptMenu;
-    QMenu *helpMenu;
-    QMenu *importKeyMenu;
-    QToolBar *cryptToolBar;
-    QToolBar *editToolBar;
-    QPushButton *browseButton;
-    QWidget *keywindow;
-
-    QAction *openAct;
-    QAction *saveAct;
-    QAction *saveAsAct;
-    QAction *printAct;
-    QAction *quitAct;
-    QAction *encryptAct;
-    QAction *decryptAct;
-    QAction *importKeyDialogAct;
+    QMenu *keyMenu;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
-    QAction *openKeyManagementAct;
-    QAction *copyAct;
-    QAction *cutAct;
-    QAction *pasteAct;
-    QAction *selectallAct;
-    QAction *aboutAct;
+    QAction *deleteCheckedKeysAct;
     QAction *deleteSelectedKeysAct;
-
-    QString curFile;
-    KeyList *m_keyList;
-    Attachments *m_attachments;
-    GpgME::Context *myCtx;
-    QString iconPath;
+    QAction *closeAct;
 };
 
-
-
+#endif // __KEYMGMT_H__
