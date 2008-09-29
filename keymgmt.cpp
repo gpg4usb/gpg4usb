@@ -31,9 +31,7 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
     resize(640, 400);
 
     /* the list of Keys available*/
-    m_keyList = new KeyList();
-    m_keyList->setIconPath(mIconPath);
-    m_keyList->setContext(mCtx);
+    m_keyList = new KeyList(mCtx, mIconPath);
     m_keyList->setColumnWidth(2,250);
     m_keyList->setColumnWidth(3,250);
     setCentralWidget(m_keyList);

@@ -36,9 +36,7 @@ GpgWin::GpgWin()
 
 
     /* the list of Keys available*/
-    m_keyList = new KeyList();
-    m_keyList->setIconPath(iconPath);
-    m_keyList->setContext(myCtx);
+    m_keyList = new KeyList(myCtx, iconPath);
 
     /* List of binary Attachments */
     /*m_attachments = new Attachments();

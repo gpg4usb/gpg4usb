@@ -21,9 +21,12 @@
 
 #include "keylist.h"
 
-KeyList::KeyList(QWidget *parent)
+KeyList::KeyList(GpgME::Context* ctx, QString iconpath, QWidget *parent)
         : QWidget(parent)
 {
+    m_ctx = ctx;
+    this->iconPath = iconpath;
+
     m_keyList = new QTableWidget(this);
     m_keyList->setColumnCount(5);
     m_keyList->verticalHeader()->hide();
@@ -54,17 +57,7 @@ KeyList::KeyList(QWidget *parent)
 
     popupMenu = new QMenu(this);
 
-}
-
-void KeyList::setContext(GpgME::Context *ctx)
-{
-    m_ctx = ctx;
     refresh();
-}
-
-void KeyList::setIconPath(QString path)
-{
-    this->iconPath = path;
 }
 
 void KeyList::refresh()
