@@ -133,17 +133,17 @@ void GpgWin::createActions()
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
     importKeyFromFileAct = new QAction(tr("&File"), this);
-    importKeyFromFileAct->setIcon(QIcon(iconPath + "kgpg_import.png"));
+    importKeyFromFileAct->setIcon(QIcon(iconPath + "key_import.png"));
     importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
     importKeyFromEditAct = new QAction(tr("&Editor"), this);
-    importKeyFromEditAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
+    importKeyFromEditAct->setIcon(QIcon(iconPath + "key_import.png"));
     importKeyFromEditAct->setStatusTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
     importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
-    importKeyFromClipboardAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
+    importKeyFromClipboardAct->setIcon(QIcon(iconPath + "key_import.png"));
     importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
@@ -153,8 +153,8 @@ void GpgWin::createActions()
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
 
     importKeyDialogAct = new QAction(tr("Import Key"), this);
-    importKeyDialogAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
-    importKeyDialogAct->setStatusTip(tr("Import New Key"));
+    importKeyDialogAct->setIcon(QIcon(iconPath + "key_import"));
+    importKeyDialogAct->setStatusTip(tr("Open Import New Key Dialog"));
     connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
     /** About Menu
      */
@@ -429,19 +429,21 @@ void GpgWin::importKeyFromClipboard()
 
 void GpgWin::importKeyFromFile()
 {
+    QFile file;
+    QByteArray inBuffer;
+    
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
     if (! fileName.isNull()) {
-        QFile file;
         file.setFileName(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
             qDebug() << tr("couldn't open file: ") + fileName;
         }
         QByteArray inBuffer = file.readAll();
-
         myCtx->importKey(inBuffer);
         m_keyList->refresh();
     }
 }
+
 
 void GpgWin::openKeyManagement() {
     KeyMgmt *window = new KeyMgmt(myCtx, iconPath);

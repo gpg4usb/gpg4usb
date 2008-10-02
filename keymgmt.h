@@ -24,10 +24,7 @@
 
 
 class QMainWindow;
-class QPlainTextEdit;
 class QWidget;
-class QVBoxLayout;
-class QGridLayout;
 class iostream;
 class QtGui;
 class QString;
@@ -35,14 +32,8 @@ class QFileDialog;
 class QStringList;
 class QIcon;
 class QMessageBox;
-class QVBoxLayout;
 class QAction;
 class QMenu;
-class QPlainTextEdit;
-class QComboBox;
-class QPushButton;
-class QRadioButton;
-class QButtonGroup;
 class QApplication;
 
 #include "context.h"
@@ -58,8 +49,11 @@ public:
 public slots:
     void importKeyFromFile();
     void importKeyFromClipboard();
+    void exportKeyToFile();
+    void exportKeyToClipboard();
     void deleteCheckedKeys();
     void deleteSelectedKeys();
+
 
 private:
     void createMenus();
@@ -74,6 +68,8 @@ private:
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
+    QAction *exportKeyToFileAct;
+    QAction *exportKeyToClipboardAct;
     QAction *deleteCheckedKeysAct;
     QAction *deleteSelectedKeysAct;
     QAction *closeAct;

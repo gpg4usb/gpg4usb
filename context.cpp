@@ -107,6 +107,35 @@ void Context::importKey(QByteArray inBuffer)
     gpgme_data_release(in);
 }
 
+/** Export Key to QByteArray
+ *
+ */
+void Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
+{
+    size_t read_bytes;
+    gpgme_data_t out = 0;
+    outBuffer->resize(0);
+
+    if (uidList->count() == 0) {
+        QMessageBox::critical(0, "Export Keys Error", "No Keys Selected");
+        return;
+    }
+
+    for (int i = 0; i < uidList->count(); i++) {
+        err = gpgme_data_new(&out);
+        checkErr(err);
+
+        err = gpgme_op_export(m_ctx, uidList->at(i).toAscii().constData(), 0, out);
+        checkErr(err);
+
+        read_bytes = gpgme_data_seek (out, 0, SEEK_END);
+
+        err = readToBuffer(out, outBuffer);
+        checkErr(err);
+        gpgme_data_release(out);
+    }
+}
+
 /** List all availabe Keys (VERY much like kgpgme)
  */
 GpgKeyList Context::listKeys()

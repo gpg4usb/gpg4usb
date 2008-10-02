@@ -35,6 +35,7 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
     m_keyList->setColumnWidth(2,250);
     m_keyList->setColumnWidth(3,250);
     setCentralWidget(m_keyList);
+
     createActions();
     createMenus();
     createToolBars();
@@ -54,14 +55,24 @@ void KeyMgmt::createActions()
     connect(closeAct, SIGNAL(triggered()), this, SLOT(close()));
 
     importKeyFromFileAct = new QAction(tr("Import Key From &File"), this);
-    importKeyFromFileAct->setIcon(QIcon(mIconPath + "importkey_editor.png"));
+    importKeyFromFileAct->setIcon(QIcon(mIconPath + "import_key_from_file.png"));
     importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
     importKeyFromClipboardAct = new QAction(tr("Import Key From &Clipboard"), this);
-    importKeyFromClipboardAct->setIcon(QIcon(mIconPath + "importkey_editor.png"));
+    importKeyFromClipboardAct->setIcon(QIcon(mIconPath + "import_key_from_clipbaord.png"));
     importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
+
+    exportKeyToClipboardAct = new QAction(tr("Export Key To &Clipboard"), this);
+    exportKeyToClipboardAct->setIcon(QIcon(mIconPath + "export_key_to_clipbaord.png"));
+    exportKeyToClipboardAct->setStatusTip(tr("Export Selected Key(s) To Clipboard"));
+    connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
+
+    exportKeyToFileAct = new QAction(tr("Export Key To &File"), this);
+    exportKeyToFileAct->setIcon(QIcon(mIconPath + "export_key_to_file.png"));
+    exportKeyToFileAct->setStatusTip(tr("Export Selected Key(s) To File"));
+    connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(exportKeyToFile()));
 
     deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
     deleteSelectedKeysAct->setStatusTip(tr("Delete the Selected keys"));
@@ -75,12 +86,15 @@ void KeyMgmt::createActions()
 
 void KeyMgmt::createMenus()
 {
-    fileMenu = menuBar()->addMenu(tr("&Quit"));
+    fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(closeAct);
+    
     keyMenu = menuBar()->addMenu(tr("&Key"));
     keyMenu->addAction(importKeyFromFileAct);
     keyMenu->addAction(importKeyFromClipboardAct);
     keyMenu->addSeparator();
+    keyMenu->addAction(exportKeyToFileAct);
+    keyMenu->addAction(exportKeyToClipboardAct);
     keyMenu->addAction(deleteCheckedKeysAct);
 }
 
@@ -91,6 +105,9 @@ void KeyMgmt::createToolBars()
     keyToolBar->addAction(importKeyFromClipboardAct);
     keyToolBar->addSeparator();
     keyToolBar->addAction(deleteCheckedKeysAct);
+    keyToolBar->addSeparator();
+    keyToolBar->addAction(exportKeyToFileAct);
+    keyToolBar->addAction(exportKeyToClipboardAct);
 }
 
 void KeyMgmt::importKeyFromFile()
@@ -100,7 +117,7 @@ void KeyMgmt::importKeyFromFile()
         QFile file;
         file.setFileName(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("couldn't open file: ") + fileName;
+            qDebug() << tr("Couldn't Open File: ") + fileName;
         }
         QByteArray inBuffer = file.readAll();
 
@@ -127,3 +144,32 @@ void KeyMgmt::deleteCheckedKeys()
     mCtx->deleteKeys(m_keyList->getChecked());
     m_keyList->refresh();
 }
+
+void KeyMgmt::exportKeyToFile()
+{
+    QList<QString> *uidList = m_keyList->getChecked();
+    QByteArray *keyArray = new QByteArray();
+	
+    mCtx->exportKeys(uidList, keyArray);
+    
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
+	QFile file(fileName);
+	if (!file.open( QIODevice::WriteOnly |QIODevice::Text))
+        return;
+    QTextStream stream( &file );
+	stream << *keyArray;
+	file.close();
+	delete keyArray;
+}
+
+void KeyMgmt::exportKeyToClipboard()
+{
+    QList<QString> *uidList = m_keyList->getChecked();
+    QByteArray *keyArray = new QByteArray();
+	
+    mCtx->exportKeys(uidList, keyArray);
+    QClipboard *cb = QApplication::clipboard();
+    cb->setText(*keyArray);
+}
+
+

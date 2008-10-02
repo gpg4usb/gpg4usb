@@ -15,7 +15,7 @@ onwards
 Later:
 
 - Binary File Attachements, function for Decrypt & Help-Text (like safe eml, etc)
-- add a button to open Keytable ( no you have to restart, if accidently closed the keytable.
+- add a button to open Keytable ( now you have to restart, if accidently closed the keytable ).
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
 --> show all email-Adresses connected to a key

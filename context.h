@@ -59,6 +59,7 @@ public:
     ~Context(); // Destructor
 
     void importKey(QByteArray inBuffer);
+    void exportKeys(QList<QString> *uidList, QByteArray *outBuffer);
     GpgKeyList listKeys();
     void deleteKeys(QList<QString> *uidList);
     bool encrypt(QList<QString> *uidList, const QByteArray &inBuffer,
