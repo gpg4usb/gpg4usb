@@ -115,8 +115,8 @@ private:
     QAction *deleteSelectedKeysAct;
 
     QString curFile;
-    KeyList *m_keyList;
-    Attachments *m_attachments;
+    KeyList *mKeyList;
+    Attachments *mAttachments;
     GpgME::Context *myCtx;
     QString iconPath;
 };

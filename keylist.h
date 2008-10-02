@@ -48,8 +48,8 @@ public:
     QList<QString> *getSelected();
 
 private:
-    GpgME::Context *m_ctx;
-    QTableWidget *m_keyList;
+    GpgME::Context *mCtx;
+    QTableWidget *mKeyList;
     QString iconPath;
     QMenu *popupMenu;
 

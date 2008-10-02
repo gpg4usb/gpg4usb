@@ -31,10 +31,10 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
     resize(640, 400);
 
     /* the list of Keys available*/
-    m_keyList = new KeyList(mCtx, mIconPath);
-    m_keyList->setColumnWidth(2,250);
-    m_keyList->setColumnWidth(3,250);
-    setCentralWidget(m_keyList);
+    mKeyList = new KeyList(mCtx, mIconPath);
+    mKeyList->setColumnWidth(2,250);
+    mKeyList->setColumnWidth(3,250);
+    setCentralWidget(mKeyList);
 
     createActions();
     createMenus();
@@ -43,7 +43,7 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
     setIconSize(QSize(32, 32));
 
     setWindowTitle(tr("Keymanagement"));
-    m_keyList->addMenuAction(deleteSelectedKeysAct);
+    mKeyList->addMenuAction(deleteSelectedKeysAct);
 }
 
 void KeyMgmt::createActions()
@@ -122,7 +122,7 @@ void KeyMgmt::importKeyFromFile()
         QByteArray inBuffer = file.readAll();
 
         mCtx->importKey(inBuffer);
-        m_keyList->refresh();
+        mKeyList->refresh();
     }
 }
 
@@ -130,24 +130,24 @@ void KeyMgmt::importKeyFromClipboard()
 {
     QClipboard *cb = QApplication::clipboard();
     mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
-    m_keyList->refresh();
+    mKeyList->refresh();
 }
 
 void KeyMgmt::deleteSelectedKeys()
 {
-    mCtx->deleteKeys(m_keyList->getSelected());
-    m_keyList->refresh();
+    mCtx->deleteKeys(mKeyList->getSelected());
+    mKeyList->refresh();
 }
 
 void KeyMgmt::deleteCheckedKeys()
 {
-    mCtx->deleteKeys(m_keyList->getChecked());
-    m_keyList->refresh();
+    mCtx->deleteKeys(mKeyList->getChecked());
+    mKeyList->refresh();
 }
 
 void KeyMgmt::exportKeyToFile()
 {
-    QList<QString> *uidList = m_keyList->getChecked();
+    QList<QString> *uidList = mKeyList->getChecked();
     QByteArray *keyArray = new QByteArray();
 	
     mCtx->exportKeys(uidList, keyArray);
@@ -164,7 +164,7 @@ void KeyMgmt::exportKeyToFile()
 
 void KeyMgmt::exportKeyToClipboard()
 {
-    QList<QString> *uidList = m_keyList->getChecked();
+    QList<QString> *uidList = mKeyList->getChecked();
     QByteArray *keyArray = new QByteArray();
 	
     mCtx->exportKeys(uidList, keyArray);

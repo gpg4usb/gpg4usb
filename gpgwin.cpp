@@ -36,13 +36,13 @@ GpgWin::GpgWin()
 
 
     /* the list of Keys available*/
-    m_keyList = new KeyList(myCtx, iconPath);
+    mKeyList = new KeyList(myCtx, iconPath);
 
     /* List of binary Attachments */
-    /*m_attachments = new Attachments();
-    m_attachments->setIconPath(iconPath);
-    m_attachments->setContext(myCtx);
-    m_attachments->setKeyList(m_keyList);*/
+    /*mAttachments = new Attachments();
+    mAttachments->setIconPath(iconPath);
+    mAttachments->setContext(myCtx);
+    mAttachments->setKeyList(mKeyList);*/
 
     createActions();
     createMenus();
@@ -53,7 +53,7 @@ GpgWin::GpgWin()
     setIconSize(QSize(32, 32));
     setCurrentFile("");
 
-    m_keyList->addMenuAction(deleteSelectedKeysAct);
+    mKeyList->addMenuAction(deleteSelectedKeysAct);
 
 }
 
@@ -224,12 +224,12 @@ void GpgWin::createDockWindows()
     QDockWidget *dock = new QDockWidget(tr("Encrypt for:"), this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
     addDockWidget(Qt::RightDockWidgetArea, dock);
-    dock->setWidget(m_keyList);
+    dock->setWidget(mKeyList);
 
     /*dock = new QDockWidget(tr("Attached files:"), this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea );
     addDockWidget(Qt::BottomDockWidgetArea, dock);
-    dock->setWidget(m_attachments);*/
+    dock->setWidget(mAttachments);*/
 
 }
 
@@ -379,7 +379,7 @@ void GpgWin::about()
 
 void GpgWin::encrypt()
 {
-    QList<QString> *uidList = m_keyList->getChecked();
+    QList<QString> *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
     if (myCtx->encrypt(uidList, edit->toPlainText().toAscii(), tmp)) {
@@ -417,14 +417,14 @@ void GpgWin::preventNoDataErr(QByteArray *in)
 void GpgWin::importKeyFromEdit()
 {
     myCtx->importKey(edit->toPlainText().toAscii());
-    m_keyList->refresh();
+    mKeyList->refresh();
 }
 
 void GpgWin::importKeyFromClipboard()
 {
     QClipboard *cb = QApplication::clipboard();
     myCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
-    m_keyList->refresh();
+    mKeyList->refresh();
 }
 
 void GpgWin::importKeyFromFile()
@@ -440,7 +440,7 @@ void GpgWin::importKeyFromFile()
         }
         QByteArray inBuffer = file.readAll();
         myCtx->importKey(inBuffer);
-        m_keyList->refresh();
+        mKeyList->refresh();
     }
 }
 
@@ -494,7 +494,7 @@ void GpgWin::importKeyDialog() {
  */
 void GpgWin::deleteSelectedKeys()
 {
-    myCtx->deleteKeys(m_keyList->getSelected());
-    m_keyList->refresh();
+    myCtx->deleteKeys(mKeyList->getSelected());
+    mKeyList->refresh();
 }
 

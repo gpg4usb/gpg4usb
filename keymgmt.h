@@ -60,7 +60,7 @@ private:
     void createActions();
     void createToolBars();
 
-    KeyList *m_keyList;
+    KeyList *mKeyList;
     QString mIconPath;
     GpgME::Context *mCtx;
     QMenu *fileMenu;
