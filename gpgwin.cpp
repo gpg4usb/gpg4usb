@@ -23,7 +23,7 @@
 
 GpgWin::GpgWin()
 {
-    myCtx = new GpgME::Context();
+    mCtx = new GpgME::Context();
 
     /* get path were app was started */
     QString appPath = qApp->applicationDirPath();
@@ -36,12 +36,12 @@ GpgWin::GpgWin()
 
 
     /* the list of Keys available*/
-    mKeyList = new KeyList(myCtx, iconPath);
+    mKeyList = new KeyList(mCtx, iconPath);
 
     /* List of binary Attachments */
     /*mAttachments = new Attachments();
     mAttachments->setIconPath(iconPath);
-    mAttachments->setContext(myCtx);
+    mAttachments->setContext(mCtx);
     mAttachments->setKeyList(mKeyList);*/
 
     createActions();
@@ -386,7 +386,7 @@ void GpgWin::encrypt()
     QList<QString> *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-    if (myCtx->encrypt(uidList, edit->toPlainText().toAscii(), tmp)) {
+    if (mCtx->encrypt(uidList, edit->toPlainText().toAscii(), tmp)) {
         QString *tmp2 = new QString(*tmp);
         edit->setPlainText(*tmp2);
     }
@@ -398,7 +398,7 @@ void GpgWin::decrypt()
     QByteArray *tmp = new QByteArray();
     QByteArray text = edit->toPlainText().toAscii();
     preventNoDataErr(&text);
-    myCtx->decrypt(text, tmp);
+    mCtx->decrypt(text, tmp);
     if (!tmp->isEmpty()) {
         QString *tmp2 = new QString(*tmp);
         edit->setPlainText(*tmp2);
@@ -420,14 +420,14 @@ void GpgWin::preventNoDataErr(QByteArray *in)
 
 void GpgWin::importKeyFromEdit()
 {
-    myCtx->importKey(edit->toPlainText().toAscii());
+    mCtx->importKey(edit->toPlainText().toAscii());
     mKeyList->refresh();
 }
 
 void GpgWin::importKeyFromClipboard()
 {
     QClipboard *cb = QApplication::clipboard();
-    myCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
+    mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
     mKeyList->refresh();
 }
 
@@ -443,14 +443,14 @@ void GpgWin::importKeyFromFile()
             qDebug() << tr("couldn't open file: ") + fileName;
         }
         QByteArray inBuffer = file.readAll();
-        myCtx->importKey(inBuffer);
+        mCtx->importKey(inBuffer);
         mKeyList->refresh();
     }
 }
 
 
 void GpgWin::openKeyManagement() {
-    KeyMgmt *window = new KeyMgmt(myCtx, iconPath);
+    KeyMgmt *window = new KeyMgmt(mCtx, iconPath);
     window->show();
 }
 
@@ -498,7 +498,7 @@ void GpgWin::importKeyDialog() {
  */
 void GpgWin::deleteSelectedKeys()
 {
-    myCtx->deleteKeys(mKeyList->getSelected());
+    mCtx->deleteKeys(mKeyList->getSelected());
     mKeyList->refresh();
 }
 
@@ -509,6 +509,6 @@ void GpgWin::appendSelectedKeys()
 {
     QByteArray *keyArray = new QByteArray();
 
-    myCtx->exportKeys(mKeyList->getSelected(), keyArray);
+    mCtx->exportKeys(mKeyList->getSelected(), keyArray);
     edit->appendPlainText(*keyArray);
 }

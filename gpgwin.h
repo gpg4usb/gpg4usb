@@ -119,7 +119,7 @@ private:
     QString curFile;
     KeyList *mKeyList;
     Attachments *mAttachments;
-    GpgME::Context *myCtx;
+    GpgME::Context *mCtx;
     QString iconPath;
 };
 
