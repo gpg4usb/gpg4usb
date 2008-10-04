@@ -54,7 +54,7 @@ GpgWin::GpgWin()
     setCurrentFile("");
 
     mKeyList->addMenuAction(deleteSelectedKeysAct);
-
+    mKeyList->addMenuAction(appendSelectedKeysAct);
 }
 
 void GpgWin::createActions()
@@ -165,9 +165,13 @@ void GpgWin::createActions()
 
     /** Popup-Menu-Action for KeyList
      */
-    deleteSelectedKeysAct = new QAction(tr("Delete Key"), this);
-    deleteSelectedKeysAct->setStatusTip(tr("Delete the selected keys"));
+    deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
+    deleteSelectedKeysAct->setStatusTip(tr("Delete The Selected Keys"));
     connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
+
+    appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
+    appendSelectedKeysAct->setStatusTip(tr("Append The Selected Keys To Text in Editor"));
+    connect(appendSelectedKeysAct, SIGNAL(triggered()), this, SLOT(appendSelectedKeys()));
 }
 
 void GpgWin::createMenus()
@@ -191,7 +195,7 @@ void GpgWin::createMenus()
     cryptMenu->addAction(decryptAct);
     cryptMenu->addSeparator();
 
-    importKeyMenu = cryptMenu->addMenu(tr("&Import key from..."));
+    importKeyMenu = cryptMenu->addMenu(tr("&Import Key From..."));
     importKeyMenu->addAction(importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
     importKeyMenu->addAction(importKeyFromClipboardAct);
@@ -498,3 +502,13 @@ void GpgWin::deleteSelectedKeys()
     mKeyList->refresh();
 }
 
+/**
+ * Append the selected (not checked!) Key(s) To Textedit
+ */
+void GpgWin::appendSelectedKeys()
+{
+    QByteArray *keyArray = new QByteArray();
+
+    myCtx->exportKeys(mKeyList->getSelected(), keyArray);
+    edit->appendPlainText(*keyArray);
+}

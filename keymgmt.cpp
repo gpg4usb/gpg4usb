@@ -147,10 +147,9 @@ void KeyMgmt::deleteCheckedKeys()
 
 void KeyMgmt::exportKeyToFile()
 {
-    QList<QString> *uidList = mKeyList->getChecked();
     QByteArray *keyArray = new QByteArray();
 	
-    mCtx->exportKeys(uidList, keyArray);
+    mCtx->exportKeys(mKeyList->getChecked(), keyArray);
     
     QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
 	QFile file(fileName);
@@ -164,12 +163,12 @@ void KeyMgmt::exportKeyToFile()
 
 void KeyMgmt::exportKeyToClipboard()
 {
-    QList<QString> *uidList = mKeyList->getChecked();
     QByteArray *keyArray = new QByteArray();
-	
-    mCtx->exportKeys(uidList, keyArray);
     QClipboard *cb = QApplication::clipboard();
+	
+    mCtx->exportKeys(mKeyList->getChecked(), keyArray);
     cb->setText(*keyArray);
+	delete keyArray;
 }
 
 
