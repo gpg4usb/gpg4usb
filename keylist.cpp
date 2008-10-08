@@ -56,7 +56,7 @@ KeyList::KeyList(GpgME::Context* ctx, QString iconpath, QWidget *parent)
     setLayout(layout);
 
     popupMenu = new QMenu(this);
-
+	connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
     refresh();
 }
 

@@ -105,6 +105,8 @@ void Context::importKey(QByteArray inBuffer)
     err = gpgme_op_import(m_ctx, in);
     checkErr(err);
     gpgme_data_release(in);
+    emit keyDBChanged();
+
 }
 
 /** Export Key to QByteArray
@@ -200,6 +202,7 @@ void Context::deleteKeys(QList<QString> *uidList)
         gpgme_op_keylist_end(m_ctx);
         gpgme_op_delete(m_ctx, key, 1);
     }
+    emit keyDBChanged();
 }
 
 /** Encrypt inBuffer for reciepients-uids, write

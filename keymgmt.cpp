@@ -60,7 +60,7 @@ void KeyMgmt::createActions()
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
     importKeyFromClipboardAct = new QAction(tr("Import Key From &Clipboard"), this);
-    importKeyFromClipboardAct->setIcon(QIcon(mIconPath + "import_key_from_clipbaord.png"));
+    importKeyFromClipboardAct->setIcon(QIcon(mIconPath + "import_key_from_clipboard.png"));
     importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 

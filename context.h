@@ -51,8 +51,9 @@ typedef QLinkedList< GpgKey > GpgKeyList;
 namespace GpgME
 {
 
-class Context
+class Context : public QObject
 {
+ Q_OBJECT
 
 public:
     Context(); // Consttructor
@@ -67,6 +68,9 @@ public:
     bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
     void clearCache();
 
+signals:
+	void keyDBChanged();
+	
 private:
     gpgme_ctx_t m_ctx;
     gpgme_data_t in, out;

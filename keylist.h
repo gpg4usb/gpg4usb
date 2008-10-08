@@ -39,7 +39,6 @@ class KeyList : public QWidget
     Q_OBJECT
 
 public:
-    void refresh();
     void setColumnWidth(int row, int size);
     void addMenuAction(QAction *act);
 
@@ -47,6 +46,9 @@ public:
     QList<QString> *getChecked();
     QList<QString> *getSelected();
 
+public slots:
+    void refresh();
+    
 private:
     GpgME::Context *mCtx;
     QTableWidget *mKeyList;
