@@ -72,7 +72,7 @@ signals:
 	void keyDBChanged();
 	
 private:
-    gpgme_ctx_t m_ctx;
+    gpgme_ctx_t mCtx;
     gpgme_data_t in, out;
     gpgme_error_t err;
     gpgme_error_t readToBuffer(gpgme_data_t in, QByteArray *outBuffer);

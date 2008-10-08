@@ -52,7 +52,7 @@ Context::Context()
     gpgme_set_locale(NULL, LC_MESSAGES, setlocale(LC_MESSAGES, NULL));
 #endif
 
-    err = gpgme_new(&m_ctx);
+    err = gpgme_new(&mCtx);
     checkErr(err);
     /** here come the settings, instead of /usr/bin/gpg
      * a executable in the same path as app is used.
@@ -64,7 +64,7 @@ Context::Context()
     QString gpgBin = appPath + "/bin/gpg";
 #endif
     QString gpgKeys = appPath + "/keydb";
-    err = gpgme_ctx_set_engine_info(m_ctx, GPGME_PROTOCOL_OpenPGP,
+    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
                                     gpgBin.toAscii().constData(),
                                     gpgKeys.toAscii().constData());
     checkErr(err);
@@ -72,9 +72,9 @@ Context::Context()
 
     /** Setting the output type must be done at the beginning */
     /** think this means ascii-armor --> ? */
-    gpgme_set_armor(m_ctx, 1);
+    gpgme_set_armor(mCtx, 1);
     /** passphrase-callback */
-    gpgme_set_passphrase_cb(m_ctx, passphraseCb, this);
+    gpgme_set_passphrase_cb(mCtx, passphraseCb, this);
 
     /** check if app is called with -d from command line */
     if (qApp->arguments().contains("-d")) {
@@ -91,8 +91,8 @@ Context::Context()
  */
 Context::~Context()
 {
-    if (m_ctx) gpgme_release(m_ctx);
-    m_ctx = 0;
+    if (mCtx) gpgme_release(mCtx);
+    mCtx = 0;
 }
 
 /** Import Key from QByteArray
@@ -102,7 +102,7 @@ void Context::importKey(QByteArray inBuffer)
 {
     err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
     checkErr(err);
-    err = gpgme_op_import(m_ctx, in);
+    err = gpgme_op_import(mCtx, in);
     checkErr(err);
     gpgme_data_release(in);
     emit keyDBChanged();
@@ -127,7 +127,7 @@ void Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
         err = gpgme_data_new(&out);
         checkErr(err);
 
-        err = gpgme_op_export(m_ctx, uidList->at(i).toAscii().constData(), 0, out);
+        err = gpgme_op_export(mCtx, uidList->at(i).toAscii().constData(), 0, out);
         checkErr(err);
 
         read_bytes = gpgme_data_seek (out, 0, SEEK_END);
@@ -148,9 +148,9 @@ GpgKeyList Context::listKeys()
     GpgKeyList keys;
     //TODO dont run the loop more often than necessary
     // list all keys ( the 0 is for all )
-    err = gpgme_op_keylist_start(m_ctx, NULL, 0);
+    err = gpgme_op_keylist_start(mCtx, NULL, 0);
     checkErr(err);
-    while (!(err = gpgme_op_keylist_next(m_ctx, &key))) {
+    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
         GpgKey gpgkey;
 
         if (!key->subkeys)
@@ -165,11 +165,11 @@ GpgKeyList Context::listKeys()
         keys.append(gpgkey);
         gpgme_key_unref(key);
     }
-    gpgme_op_keylist_end(m_ctx);
+    gpgme_op_keylist_end(mCtx);
 
     // list only private keys ( the 1 does )
-    gpgme_op_keylist_start(m_ctx, NULL, 1);
-    while (!(err = gpgme_op_keylist_next(m_ctx, &key))) {
+    gpgme_op_keylist_start(mCtx, NULL, 1);
+    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
         if (!key->subkeys)
             continue;
         // iterate keys, mark privates
@@ -182,7 +182,7 @@ GpgKeyList Context::listKeys()
 
         gpgme_key_unref(key);
     }
-    gpgme_op_keylist_end(m_ctx);
+    gpgme_op_keylist_end(mCtx);
 
     return keys;
 }
@@ -197,10 +197,10 @@ void Context::deleteKeys(QList<QString> *uidList)
     gpgme_key_t key;
 
     foreach(tmp,  *uidList) {
-        gpgme_op_keylist_start(m_ctx, tmp.toAscii().constData(), 0);
-        gpgme_op_keylist_next(m_ctx, &key);
-        gpgme_op_keylist_end(m_ctx);
-        gpgme_op_delete(m_ctx, key, 1);
+        gpgme_op_keylist_start(mCtx, tmp.toAscii().constData(), 0);
+        gpgme_op_keylist_next(mCtx, &key);
+        gpgme_op_keylist_end(mCtx);
+        gpgme_op_delete(mCtx, key, 1);
     }
     emit keyDBChanged();
 }
@@ -225,9 +225,9 @@ bool Context::encrypt(QList<QString> *uidList, const QByteArray &inBuffer, QByte
     /* get key for user */
     for (int i = 0; i < uidList->count(); i++) {
         // the last 0 is for public keys, 1 would return private keys
-        gpgme_op_keylist_start(m_ctx, uidList->at(i).toAscii().constData(), 0);
-        gpgme_op_keylist_next(m_ctx, &recipients[i]);
-        gpgme_op_keylist_end(m_ctx);
+        gpgme_op_keylist_start(mCtx, uidList->at(i).toAscii().constData(), 0);
+        gpgme_op_keylist_next(mCtx, &recipients[i]);
+        gpgme_op_keylist_end(mCtx);
     }
     //Last entry in array has to be NULL
     recipients[uidList->count()] = NULL;
@@ -238,7 +238,7 @@ bool Context::encrypt(QList<QString> *uidList, const QByteArray &inBuffer, QByte
     err = gpgme_data_new(&out);
     checkErr(err);
 
-    err = gpgme_op_encrypt(m_ctx, recipients, GPGME_ENCRYPT_ALWAYS_TRUST, in, out);
+    err = gpgme_op_encrypt(mCtx, recipients, GPGME_ENCRYPT_ALWAYS_TRUST, in, out);
     checkErr(err);
 
     err = readToBuffer(out, outBuffer);
@@ -263,17 +263,17 @@ bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
     gpgme_decrypt_result_t result = 0;
 
     outBuffer->resize(0);
-    if (m_ctx) {
+    if (mCtx) {
         err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
         checkErr(err);
         if (!err) {
             err = gpgme_data_new(&out);
             checkErr(err);
             if (!err) {
-                err = gpgme_op_decrypt(m_ctx, in, out);
+                err = gpgme_op_decrypt(mCtx, in, out);
                 checkErr(err);
                 if (!err) {
-                    result = gpgme_op_decrypt_result(m_ctx);
+                    result = gpgme_op_decrypt_result(mCtx);
                     if (result->unsupported_algorithm) {
                         QMessageBox::critical(0, "Unsupported algorithm", result->unsupported_algorithm);
                     } else {
