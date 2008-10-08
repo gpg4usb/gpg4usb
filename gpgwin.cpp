@@ -421,14 +421,12 @@ void GpgWin::preventNoDataErr(QByteArray *in)
 void GpgWin::importKeyFromEdit()
 {
     mCtx->importKey(edit->toPlainText().toAscii());
-    mKeyList->refresh();
 }
 
 void GpgWin::importKeyFromClipboard()
 {
     QClipboard *cb = QApplication::clipboard();
     mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
-    mKeyList->refresh();
 }
 
 void GpgWin::importKeyFromFile()
@@ -444,7 +442,6 @@ void GpgWin::importKeyFromFile()
         }
         QByteArray inBuffer = file.readAll();
         mCtx->importKey(inBuffer);
-        mKeyList->refresh();
     }
 }
 
@@ -499,7 +496,6 @@ void GpgWin::importKeyDialog() {
 void GpgWin::deleteSelectedKeys()
 {
     mCtx->deleteKeys(mKeyList->getSelected());
-    mKeyList->refresh();
 }
 
 /**

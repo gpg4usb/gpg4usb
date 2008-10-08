@@ -122,7 +122,6 @@ void KeyMgmt::importKeyFromFile()
         QByteArray inBuffer = file.readAll();
 
         mCtx->importKey(inBuffer);
-        mKeyList->refresh();
     }
 }
 
@@ -130,19 +129,16 @@ void KeyMgmt::importKeyFromClipboard()
 {
     QClipboard *cb = QApplication::clipboard();
     mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
-    mKeyList->refresh();
 }
 
 void KeyMgmt::deleteSelectedKeys()
 {
     mCtx->deleteKeys(mKeyList->getSelected());
-    mKeyList->refresh();
 }
 
 void KeyMgmt::deleteCheckedKeys()
 {
     mCtx->deleteKeys(mKeyList->getChecked());
-    mKeyList->refresh();
 }
 
 void KeyMgmt::exportKeyToFile()
