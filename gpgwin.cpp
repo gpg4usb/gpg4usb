@@ -64,30 +64,30 @@ void GpgWin::createActions()
     openAct = new QAction(tr("&Open..."), this);
     openAct->setIcon(QIcon(iconPath + "fileopen.png"));
     openAct->setShortcut(tr("Ctrl+O"));
-    openAct->setStatusTip(tr("Open an existing file"));
+    openAct->setToolTip(tr("Open an existing file"));
     connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
 
     saveAct = new QAction(tr("&Save"), this);
     saveAct->setIcon(QIcon(iconPath + "filesave.png"));
     saveAct->setShortcut(tr("Ctrl+S"));
-    saveAct->setStatusTip(tr("Save the current File"));
+    saveAct->setToolTip(tr("Save the current File"));
     connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
 
     saveAsAct = new QAction(tr("Save &As"), this);
     saveAsAct->setIcon(QIcon(iconPath + "filesaveas.png"));
-    saveAsAct->setStatusTip(tr("Save the current File as..."));
+    saveAsAct->setToolTip(tr("Save the current File as..."));
     connect(saveAsAct, SIGNAL(triggered()), this, SLOT(saveAs()));
 
     printAct = new QAction(tr("&Print"), this);
     printAct->setIcon(QIcon(iconPath + "fileprint.png"));
     printAct->setShortcut(tr("Ctrl+P"));
-    printAct->setStatusTip(tr("Print Document"));
+    printAct->setToolTip(tr("Print Document"));
     connect(printAct, SIGNAL(triggered()), this, SLOT(print()));
 
     quitAct = new QAction(tr("&Quit"), this);
     quitAct->setShortcut(tr("Ctrl+Q"));
     quitAct->setIcon(QIcon(iconPath + "exit.png"));
-    quitAct->setStatusTip(tr("Quit Program"));
+    quitAct->setToolTip(tr("Quit Program"));
     connect(quitAct, SIGNAL(triggered()), this, SLOT(close()));
 
     /** Edit Menu
@@ -95,27 +95,27 @@ void GpgWin::createActions()
     pasteAct = new QAction(tr("&Paste"), this);
     pasteAct->setIcon(QIcon(iconPath + "button_paste.png"));
     pasteAct->setShortcut(tr("Ctrl+V"));
-    pasteAct->setStatusTip(tr("Paste Text From Clipboard"));
+    pasteAct->setToolTip(tr("Paste Text From Clipboard"));
     connect(pasteAct, SIGNAL(triggered()), edit, SLOT(paste()));
 
     cutAct = new QAction(tr("Cu&t"), this);
     cutAct->setIcon(QIcon(iconPath + "button_cut.png"));
     cutAct->setShortcut(tr("Ctrl+X"));
-    cutAct->setStatusTip(tr("Cut the current selection's contents to the "
+    cutAct->setToolTip(tr("Cut the current selection's contents to the "
                             "clipboard"));
     connect(cutAct, SIGNAL(triggered()), edit, SLOT(cut()));
 
     copyAct = new QAction(tr("&Copy"), this);
     copyAct->setIcon(QIcon(iconPath + "button_copy.png"));
     copyAct->setShortcut(tr("Ctrl+C"));
-    copyAct->setStatusTip(tr("Copy the current selection's contents to the "
+    copyAct->setToolTip(tr("Copy the current selection's contents to the "
                              "clipboard"));
     connect(copyAct, SIGNAL(triggered()), edit, SLOT(copy()));
 
     selectallAct = new QAction(tr("Select &All"), this);
     selectallAct->setIcon(QIcon(iconPath + "edit.png"));
     selectallAct->setShortcut(tr("Ctrl+A"));
-    selectallAct->setStatusTip(tr("Select the whole text"));
+    selectallAct->setToolTip(tr("Select the whole text"));
     connect(selectallAct, SIGNAL(triggered()), edit, SLOT(selectAll()));
 
     /** Crypt Menu
@@ -123,55 +123,55 @@ void GpgWin::createActions()
     encryptAct = new QAction(tr("&Encrypt"), this);
     encryptAct->setIcon(QIcon(iconPath + "encrypted.png"));
     encryptAct->setShortcut(tr("Ctrl+E"));
-    encryptAct->setStatusTip(tr("Encrypt Message"));
+    encryptAct->setToolTip(tr("Encrypt Message"));
     connect(encryptAct, SIGNAL(triggered()), this, SLOT(encrypt()));
 
     decryptAct = new QAction(tr("&Decrypt"), this);
     decryptAct->setIcon(QIcon(iconPath + "decrypted.png"));
     decryptAct->setShortcut(tr("Ctrl+D"));
-    decryptAct->setStatusTip(tr("Decrypt Message"));
+    decryptAct->setToolTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
     importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(iconPath + "misc_doc.png"));
-    importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
+    importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
     importKeyFromEditAct = new QAction(tr("&Editor"), this);
     importKeyFromEditAct->setIcon(QIcon(iconPath + "txt.png"));
-    importKeyFromEditAct->setStatusTip(tr("Import New Key From Editor"));
+    importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
     importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
     importKeyFromClipboardAct->setIcon(QIcon(iconPath + "button_paste.png"));
-    importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
+    importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
     openKeyManagementAct = new QAction(tr("Key Management"), this);
     openKeyManagementAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
-    openKeyManagementAct->setStatusTip(tr("Open Keymanagement"));
+    openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
 
     importKeyDialogAct = new QAction(tr("Import Key"), this);
     importKeyDialogAct->setIcon(QIcon(iconPath + "key_import.png"));
-    importKeyDialogAct->setStatusTip(tr("Open Import New Key Dialog"));
+    importKeyDialogAct->setToolTip(tr("Open Import New Key Dialog"));
     connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
     
     /** About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
     aboutAct->setIcon(QIcon(iconPath + "help.png"));
-    aboutAct->setStatusTip(tr("Show the application's About box"));
+    aboutAct->setToolTip(tr("Show the application's About box"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
     /** Popup-Menu-Action for KeyList
      */
     deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
-    deleteSelectedKeysAct->setStatusTip(tr("Delete The Selected Keys"));
+    deleteSelectedKeysAct->setToolTip(tr("Delete The Selected Keys"));
     connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
 
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
-    appendSelectedKeysAct->setStatusTip(tr("Append The Selected Keys To Text in Editor"));
+    appendSelectedKeysAct->setToolTip(tr("Append The Selected Keys To Text in Editor"));
     connect(appendSelectedKeysAct, SIGNAL(triggered()), this, SLOT(appendSelectedKeys()));
 }
 

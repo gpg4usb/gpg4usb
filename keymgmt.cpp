@@ -50,40 +50,40 @@ void KeyMgmt::createActions()
     closeAct = new QAction(tr("&Close Key Management"), this);
     closeAct->setShortcut(tr("Ctrl+Q"));
     closeAct->setIcon(QIcon(mIconPath + "exit.png"));
-    closeAct->setStatusTip(tr("Close Key Management"));
+    closeAct->setToolTip(tr("Close Key Management"));
     connect(closeAct, SIGNAL(triggered()), this, SLOT(close()));
 
     importKeyFromFileAct = new QAction(tr("Import Key From &File"), this);
     importKeyFromFileAct->setIcon(QIcon(mIconPath + "import_key_from_file.png"));
-    importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
+    importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
     importKeyFromClipboardAct = new QAction(tr("Import Key From &Clipboard"), this);
     importKeyFromClipboardAct->setIcon(QIcon(mIconPath + "import_key_from_clipboard.png"));
-    importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
+    importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
     exportKeyToClipboardAct = new QAction(tr("Export Key To &Clipboard"), this);
     exportKeyToClipboardAct->setIcon(QIcon(mIconPath + "export_key_to_clipbaord.png"));
-    exportKeyToClipboardAct->setStatusTip(tr("Export Selected Key(s) To Clipboard"));
+    exportKeyToClipboardAct->setv(tr("Export Selected Key(s) To Clipboard"));
     connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
 
     exportKeyToFileAct = new QAction(tr("Export Key To &File"), this);
     exportKeyToFileAct->setIcon(QIcon(mIconPath + "export_key_to_file.png"));
-    exportKeyToFileAct->setStatusTip(tr("Export Selected Key(s) To File"));
+    exportKeyToFileAct->setToolTip(tr("Export Selected Key(s) To File"));
     connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(exportKeyToFile()));
 
     deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
-    deleteSelectedKeysAct->setStatusTip(tr("Delete the Selected keys"));
+    deleteSelectedKeysAct->setToolTip(tr("Delete the Selected keys"));
     connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
 
     deleteCheckedKeysAct = new QAction(tr("Delete Checked Key(s)"), this);
-    deleteCheckedKeysAct->setStatusTip(tr("Delete the Checked keys"));
+    deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
     deleteCheckedKeysAct->setIcon(QIcon(mIconPath + "button_cancel.png"));
     connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
         
     generateKeyDialogAct = new QAction(tr("Generate Key"), this);
-    generateKeyDialogAct->setStatusTip(tr("Generate New Key"));
+    generateKeyDialogAct->setToolTip(tr("Generate New Key"));
     generateKeyDialogAct->setIcon(QIcon(mIconPath + "key_generate.png"));
     connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(generateKeyDialog()));
 }

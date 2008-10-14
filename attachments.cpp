@@ -60,17 +60,17 @@ void Attachments::contextMenuEvent(QContextMenuEvent *event)
 void Attachments::createActions()
 {
     addFileAct = new QAction(tr("Add File"), this);
-    addFileAct->setStatusTip(tr("Add a file"));
+    addFileAct->setToolTip(tr("Add a file"));
     addFileAct->setIcon(QIcon(iconPath + "fileopen.png"));
     connect(addFileAct, SIGNAL(triggered()), this, SLOT(addFile()));
 
     encryptAct = new QAction(tr("Encrypt"), this);
-    encryptAct->setStatusTip(tr("Encrypt marked File(s)"));
+    encryptAct->setToolTip(tr("Encrypt marked File(s)"));
     encryptAct->setIcon(QIcon(iconPath + "encrypted.png"));
     connect(encryptAct, SIGNAL(triggered()), this, SLOT(encryptFile()));
 
     decryptAct = new QAction(tr("Decrypt"), this);
-    decryptAct->setStatusTip(tr("Decrypt marked File(s)"));
+    decryptAct->setToolTip(tr("Decrypt marked File(s)"));
     decryptAct->setIcon(QIcon(iconPath + "decrypted.png"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decryptFile()));
 }
