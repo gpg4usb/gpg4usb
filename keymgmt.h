@@ -31,7 +31,6 @@ class QString;
 class QFileDialog;
 class QStringList;
 class QIcon;
-class QMessageBox;
 class QAction;
 class QMenu;
 class QApplication;
@@ -53,18 +52,24 @@ public slots:
     void exportKeyToClipboard();
     void deleteCheckedKeys();
     void deleteSelectedKeys();
+    
+private slots:
+    void keyGenAccept();
+    void generateKeyDialog();
 
 
 private:
     void createMenus();
     void createActions();
     void createToolBars();
+ //   int checkPassWordStrength(QString password);
 
     KeyList *mKeyList;
     QString mIconPath;
     GpgME::Context *mCtx;
     QMenu *fileMenu;
     QMenu *keyMenu;
+    QDialog *genkeyDialog;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
@@ -72,7 +77,26 @@ private:
     QAction *exportKeyToClipboardAct;
     QAction *deleteCheckedKeysAct;
     QAction *deleteSelectedKeysAct;
+    QAction *generateKeyDialogAct;
     QAction *closeAct;
+    
+    
+    /**
+     * Variables For Key-Generation 
+     */
+	QLabel *nameLabel;
+	QLabel *emailLabel;
+	QLabel *commentLabel;
+	QLabel *keySizeLabel;
+	QLabel *passwordLabel;
+	QLabel *repeatpwLabel;
+	QLabel *errorLabel;
+    QLineEdit *nameEdit;
+	QLineEdit *emailEdit;
+	QLineEdit *commentEdit;
+	QLineEdit *passwordEdit;
+	QLineEdit *repeatpwEdit;
+	QSpinBox *keySizeSpinBox;
 };
 
 #endif // __KEYMGMT_H__

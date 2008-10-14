@@ -61,6 +61,7 @@ public:
 
     void importKey(QByteArray inBuffer);
     void exportKeys(QList<QString> *uidList, QByteArray *outBuffer);
+    void generateKey(QString *params);
     GpgKeyList listKeys();
     void deleteKeys(QList<QString> *uidList);
     bool encrypt(QList<QString> *uidList, const QByteArray &inBuffer,

@@ -28,8 +28,7 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
 {
     mCtx = ctx;
     mIconPath = iconpath;
-    resize(640, 400);
-
+    
     /* the list of Keys available*/
     mKeyList = new KeyList(mCtx, mIconPath);
     mKeyList->setColumnWidth(2,250);
@@ -82,6 +81,11 @@ void KeyMgmt::createActions()
     deleteCheckedKeysAct->setStatusTip(tr("Delete the Checked keys"));
     deleteCheckedKeysAct->setIcon(QIcon(mIconPath + "button_cancel.png"));
     connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
+        
+    generateKeyDialogAct = new QAction(tr("Generate Key"), this);
+    generateKeyDialogAct->setStatusTip(tr("Generate New Key"));
+    generateKeyDialogAct->setIcon(QIcon(mIconPath + "key_generate.png"));
+    connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(generateKeyDialog()));
 }
 
 void KeyMgmt::createMenus()
@@ -95,7 +99,10 @@ void KeyMgmt::createMenus()
     keyMenu->addSeparator();
     keyMenu->addAction(exportKeyToFileAct);
     keyMenu->addAction(exportKeyToClipboardAct);
+    keyMenu->addSeparator();
     keyMenu->addAction(deleteCheckedKeysAct);
+    keyMenu->addAction(generateKeyDialogAct);
+
 }
 
 void KeyMgmt::createToolBars()
@@ -167,4 +174,125 @@ void KeyMgmt::exportKeyToClipboard()
 	delete keyArray;
 }
 
+void KeyMgmt::generateKeyDialog() 
+{
+		QStringList errorMessages;
+        genkeyDialog = new QDialog();
+        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
 
+        connect(buttonBox,SIGNAL(accepted()),this, SLOT(keyGenAccept()));
+        connect(buttonBox,SIGNAL(rejected()), genkeyDialog, SLOT(reject()));
+
+        genkeyDialog->setWindowTitle(tr("Generate Key"));
+        genkeyDialog->setModal(true);
+
+		nameLabel = new QLabel(tr("Name:*"));
+		emailLabel = new QLabel(tr("E-Mailaddress::"));
+		commentLabel = new QLabel(tr("Comment:"));
+		keySizeLabel = new QLabel(tr("KeySize (in Bit):"));
+		passwordLabel = new QLabel(tr("Password:"));
+		repeatpwLabel = new QLabel(tr("Repeat Password:"));
+		errorLabel = new QLabel(tr(""));
+
+		nameEdit = new QLineEdit(genkeyDialog);
+		emailEdit = new QLineEdit(genkeyDialog);
+		commentEdit = new QLineEdit(genkeyDialog);
+		keySizeSpinBox = new QSpinBox(genkeyDialog);
+		keySizeSpinBox->setRange(512,8192);
+		keySizeSpinBox->setValue(2048);
+		keySizeSpinBox->setSingleStep(256);
+		passwordEdit = new QLineEdit(genkeyDialog);
+		repeatpwEdit = new QLineEdit(genkeyDialog);
+		
+		passwordEdit->setEchoMode(QLineEdit::Password);
+		repeatpwEdit->setEchoMode(QLineEdit::Password);
+
+ 		QGridLayout *vbox1 = new QGridLayout;
+ 		vbox1->addWidget(nameLabel,0,0);
+        vbox1->addWidget(nameEdit,0,1);
+ 		vbox1->addWidget(emailLabel,1,0);
+        vbox1->addWidget(emailEdit,1,1);
+ 		vbox1->addWidget(commentLabel,2,0);
+        vbox1->addWidget(commentEdit,2,1);
+ 		vbox1->addWidget(keySizeLabel,3,0);
+        vbox1->addWidget(keySizeSpinBox,3,1);
+   		vbox1->addWidget(passwordLabel,4,0);
+   		vbox1->addWidget(passwordEdit,4,1);   		
+   		vbox1->addWidget(repeatpwLabel,5,0);
+   		vbox1->addWidget(repeatpwEdit,5,1);
+
+		QWidget *nameList = new QWidget(genkeyDialog);
+		nameList->setLayout(vbox1);
+
+        QVBoxLayout *vbox2 = new QVBoxLayout();
+		vbox2->addWidget(nameList);
+        vbox2->addWidget(errorLabel);
+        vbox2->addWidget(buttonBox);
+		
+        genkeyDialog->setLayout(vbox2);
+		genkeyDialog->show();
+
+        if(genkeyDialog->exec() == QDialog::Accepted ) {
+
+		}
+}
+
+
+void KeyMgmt::keyGenAccept()
+{
+	QString errorString="";
+    QString keyGenParams="";
+    
+    /**
+     * check for errors in keygen dialog input
+     */
+	if ((nameEdit->text()).size() < 5 ) {
+		errorString.append("  Name must contain at least five characters.  \n");
+	}	
+	if (passwordEdit->text() != repeatpwEdit->text()) {
+		errorString.append("  Password and Repeat don't match.  ");
+	}
+	
+	
+	if (errorString.isEmpty()) { 
+
+		/**
+	 	* create the string for key generation
+	 	*/
+	  	keyGenParams ="<GnupgKeyParms format=\"internal\">\n"
+    			"Key-Type: DSA\n"
+	      		"Key-Length: "
+	      		+keySizeSpinBox->cleanText()+"\n"
+	      		"Subkey-Type: ELG-E\n"
+	      		"Name-Real: "+ nameEdit->text()+"\n";
+	    if (!(commentEdit->text().isEmpty())) {
+	    	keyGenParams +="Name-Comment: "+commentEdit->text()+"\n";
+	    }
+	    if (!(emailEdit->text().isEmpty())) {
+	    	keyGenParams +="Name-Email: "+emailEdit->text()+"\n";
+	    }
+	    keyGenParams += "Expire-Date: 0\n"
+	    		"Passphrase: "+passwordEdit->text()+"\n"
+	      		"</GnupgKeyParms>";
+
+        mCtx->generateKey(&keyGenParams); 
+ 		genkeyDialog->accept();
+	} else {
+
+		/**
+	 	* create error message
+	 	*/
+   		errorLabel->setAutoFillBackground(true);
+   		QPalette error = errorLabel->palette();
+   		error.setColor(QPalette::Background, "#ff8080");
+   		errorLabel->setPalette(error);
+		errorLabel->setText(errorString);
+
+		genkeyDialog->show();
+	}
+}
+
+/*int checkPassWordStrength(QString password)
+{
+	return 0;
+}*/

@@ -106,7 +106,16 @@ void Context::importKey(QByteArray inBuffer)
     checkErr(err);
     gpgme_data_release(in);
     emit keyDBChanged();
+}
 
+/** Generate New Key with values params
+ *
+ */
+void Context::generateKey(QString *params)
+{
+	err = gpgme_op_genkey(mCtx, params->toAscii().data(), NULL,NULL);
+	checkErr(err);
+	emit keyDBChanged();
 }
 
 /** Export Key to QByteArray

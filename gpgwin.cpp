@@ -133,17 +133,17 @@ void GpgWin::createActions()
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
     importKeyFromFileAct = new QAction(tr("&File"), this);
-    importKeyFromFileAct->setIcon(QIcon(iconPath + "key_import.png"));
+    importKeyFromFileAct->setIcon(QIcon(iconPath + "misc_doc.png"));
     importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
     importKeyFromEditAct = new QAction(tr("&Editor"), this);
-    importKeyFromEditAct->setIcon(QIcon(iconPath + "key_import.png"));
+    importKeyFromEditAct->setIcon(QIcon(iconPath + "txt.png"));
     importKeyFromEditAct->setStatusTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
     importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
-    importKeyFromClipboardAct->setIcon(QIcon(iconPath + "key_import.png"));
+    importKeyFromClipboardAct->setIcon(QIcon(iconPath + "button_paste.png"));
     importKeyFromClipboardAct->setStatusTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
@@ -153,9 +153,10 @@ void GpgWin::createActions()
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
 
     importKeyDialogAct = new QAction(tr("Import Key"), this);
-    importKeyDialogAct->setIcon(QIcon(iconPath + "key_import"));
+    importKeyDialogAct->setIcon(QIcon(iconPath + "key_import.png"));
     importKeyDialogAct->setStatusTip(tr("Open Import New Key Dialog"));
     connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
+    
     /** About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
@@ -195,7 +196,9 @@ void GpgWin::createMenus()
     cryptMenu->addAction(decryptAct);
     cryptMenu->addSeparator();
 
-    importKeyMenu = cryptMenu->addMenu(tr("&Import Key From..."));
+	keyMenu = menuBar()->addMenu(tr("&Keys"));
+    importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
+    importKeyMenu->setIcon(QIcon(iconPath + "key_import.png"));
     importKeyMenu->addAction(importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
     importKeyMenu->addAction(importKeyFromClipboardAct);
@@ -209,8 +212,10 @@ void GpgWin::createToolBars()
     cryptToolBar = addToolBar(tr("Crypt"));
     cryptToolBar->addAction(encryptAct);
     cryptToolBar->addAction(decryptAct);
-    cryptToolBar->addAction(importKeyDialogAct);
-    cryptToolBar->addAction(openKeyManagementAct);
+
+    keyToolBar = addToolBar(tr("Key"));
+    keyToolBar->addAction(importKeyDialogAct);
+    keyToolBar->addAction(openKeyManagementAct);
 
     editToolBar = addToolBar(tr("Edit"));
     editToolBar->addAction(copyAct);
