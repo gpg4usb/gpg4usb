@@ -52,10 +52,11 @@ public slots:
     void exportKeyToClipboard();
     void deleteCheckedKeys();
     void deleteSelectedKeys();
+    void generateKeyDialog();
+	void expireBoxChanged();
     
 private slots:
     void keyGenAccept();
-    void generateKeyDialog();
 
 
 private:
@@ -91,12 +92,16 @@ private:
 	QLabel *passwordLabel;
 	QLabel *repeatpwLabel;
 	QLabel *errorLabel;
+	QLabel *dateLabel;
+	QLabel *expireLabel;
     QLineEdit *nameEdit;
 	QLineEdit *emailEdit;
 	QLineEdit *commentEdit;
 	QLineEdit *passwordEdit;
 	QLineEdit *repeatpwEdit;
 	QSpinBox *keySizeSpinBox;
+	QDateTimeEdit *dateEdit;
+	QCheckBox *expireCheckBox;
 };
 
 #endif // __KEYMGMT_H__

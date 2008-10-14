@@ -65,7 +65,7 @@ void KeyMgmt::createActions()
 
     exportKeyToClipboardAct = new QAction(tr("Export Key To &Clipboard"), this);
     exportKeyToClipboardAct->setIcon(QIcon(mIconPath + "export_key_to_clipbaord.png"));
-    exportKeyToClipboardAct->setv(tr("Export Selected Key(s) To Clipboard"));
+    exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
     connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
 
     exportKeyToFileAct = new QAction(tr("Export Key To &File"), this);
@@ -180,9 +180,6 @@ void KeyMgmt::generateKeyDialog()
         genkeyDialog = new QDialog();
         QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
 
-        connect(buttonBox,SIGNAL(accepted()),this, SLOT(keyGenAccept()));
-        connect(buttonBox,SIGNAL(rejected()), genkeyDialog, SLOT(reject()));
-
         genkeyDialog->setWindowTitle(tr("Generate Key"));
         genkeyDialog->setModal(true);
 
@@ -190,22 +187,36 @@ void KeyMgmt::generateKeyDialog()
 		emailLabel = new QLabel(tr("E-Mailaddress::"));
 		commentLabel = new QLabel(tr("Comment:"));
 		keySizeLabel = new QLabel(tr("KeySize (in Bit):"));
+		dateLabel = new QLabel(tr("Expiration Date:"));
 		passwordLabel = new QLabel(tr("Password:"));
 		repeatpwLabel = new QLabel(tr("Repeat Password:"));
+		expireLabel = new QLabel(tr("Never Expire"));
 		errorLabel = new QLabel(tr(""));
 
 		nameEdit = new QLineEdit(genkeyDialog);
 		emailEdit = new QLineEdit(genkeyDialog);
 		commentEdit = new QLineEdit(genkeyDialog);
+
 		keySizeSpinBox = new QSpinBox(genkeyDialog);
 		keySizeSpinBox->setRange(512,8192);
 		keySizeSpinBox->setValue(2048);
 		keySizeSpinBox->setSingleStep(256);
+
+		dateEdit = new QDateEdit(QDate::currentDate().addYears(5), genkeyDialog);
+		dateEdit->setMinimumDate(QDate::currentDate());
+        dateEdit->setDisplayFormat("dd/MM/yyyy");
+        dateEdit->setCalendarPopup(true);
+		dateEdit->setEnabled(false);
+		
+		expireCheckBox = new QCheckBox(genkeyDialog);
+		expireCheckBox->setCheckState(Qt::Checked);
+		
 		passwordEdit = new QLineEdit(genkeyDialog);
 		repeatpwEdit = new QLineEdit(genkeyDialog);
 		
 		passwordEdit->setEchoMode(QLineEdit::Password);
 		repeatpwEdit->setEchoMode(QLineEdit::Password);
+
 
  		QGridLayout *vbox1 = new QGridLayout;
  		vbox1->addWidget(nameLabel,0,0);
@@ -216,11 +227,14 @@ void KeyMgmt::generateKeyDialog()
         vbox1->addWidget(commentEdit,2,1);
  		vbox1->addWidget(keySizeLabel,3,0);
         vbox1->addWidget(keySizeSpinBox,3,1);
-   		vbox1->addWidget(passwordLabel,4,0);
-   		vbox1->addWidget(passwordEdit,4,1);   		
-   		vbox1->addWidget(repeatpwLabel,5,0);
-   		vbox1->addWidget(repeatpwEdit,5,1);
-
+        vbox1->addWidget(dateLabel,4,0);
+        vbox1->addWidget(dateEdit,4,1);
+   		vbox1->addWidget(expireCheckBox,4,2);
+   		vbox1->addWidget(expireLabel,4,3);
+   		vbox1->addWidget(passwordLabel,5,0);
+   		vbox1->addWidget(passwordEdit,5,1);   		
+   		vbox1->addWidget(repeatpwLabel,6,0);
+   		vbox1->addWidget(repeatpwEdit,6,1);
 		QWidget *nameList = new QWidget(genkeyDialog);
 		nameList->setLayout(vbox1);
 
@@ -228,6 +242,11 @@ void KeyMgmt::generateKeyDialog()
 		vbox2->addWidget(nameList);
         vbox2->addWidget(errorLabel);
         vbox2->addWidget(buttonBox);
+
+        connect(buttonBox,SIGNAL(accepted()),this, SLOT(keyGenAccept()));
+        connect(buttonBox,SIGNAL(rejected()), genkeyDialog, SLOT(reject()));
+
+        connect(expireCheckBox,SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
 		
         genkeyDialog->setLayout(vbox2);
 		genkeyDialog->show();
@@ -242,7 +261,6 @@ void KeyMgmt::keyGenAccept()
 {
 	QString errorString="";
     QString keyGenParams="";
-    
     /**
      * check for errors in keygen dialog input
      */
@@ -271,10 +289,13 @@ void KeyMgmt::keyGenAccept()
 	    if (!(emailEdit->text().isEmpty())) {
 	    	keyGenParams +="Name-Email: "+emailEdit->text()+"\n";
 	    }
-	    keyGenParams += "Expire-Date: 0\n"
-	    		"Passphrase: "+passwordEdit->text()+"\n"
-	      		"</GnupgKeyParms>";
-
+		if (expireCheckBox->checkState()) {
+	    	keyGenParams += "Expire-Date: 0\n";
+		} else {
+	    	keyGenParams += "Expire-Date: "+dateEdit->sectionText(QDateTimeEdit::YearSection)+"-"+dateEdit->sectionText(QDateTimeEdit::MonthSection)+"-"+dateEdit->sectionText(QDateTimeEdit::DaySection)+"\n"
+	    			"Passphrase: "+passwordEdit->text()+"\n";
+	    }
+	    keyGenParams +=	"</GnupgKeyParms>";
         mCtx->generateKey(&keyGenParams); 
  		genkeyDialog->accept();
 	} else {
@@ -292,6 +313,15 @@ void KeyMgmt::keyGenAccept()
 	}
 }
 
+void KeyMgmt::expireBoxChanged()
+{
+	if (expireCheckBox->checkState()) {
+		dateEdit->setEnabled(false);
+	} else {
+		dateEdit->setEnabled(true);
+	}
+	
+}
 /*int checkPassWordStrength(QString password)
 {
 	return 0;
