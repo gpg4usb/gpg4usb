@@ -44,6 +44,13 @@ KeyList::KeyList(QWidget *parent)
     // may be it should focus on whole row
     m_keyList->setFocusPolicy(Qt::NoFocus);
 
+    m_keyList->setAlternatingRowColors(true);
+
+    QStringList labels;
+    labels << "" << "" << "Name" << "EMail" << "id";
+    m_keyList->setHorizontalHeaderLabels(labels);
+    m_keyList->horizontalHeader()->setStretchLastSection(true);
+
     m_deleteButton = new QPushButton(tr("Delete Checked Keys"));
 
     connect(m_deleteButton, SIGNAL(clicked()), this, SLOT(deleteKeys()));
@@ -76,36 +83,34 @@ void KeyList::contextMenuEvent(QContextMenuEvent *event)
 
 void KeyList::refresh()
 {
-    m_keyList->clear();
-
-    QStringList labels;
-    labels << "" << "" << "Name" << "EMail" << "id";
-    m_keyList->setHorizontalHeaderLabels(labels);
+    // while filling the table, sort enabled causes errors
+    m_keyList->setSortingEnabled(false);
+    m_keyList->clearContents();
 
     GpgKeyList keys = m_ctx->listKeys();
     m_keyList->setRowCount(keys.size());
-    QTableWidgetItem *tmp;
+
     int row=0;
     GpgKeyList::iterator it = keys.begin();
     while (it != keys.end()) {
 
-        tmp = new QTableWidgetItem();
-        tmp->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        tmp->setCheckState(Qt::Unchecked);
-        m_keyList->setItem(row, 0, tmp);
+        QTableWidgetItem *tmp0 = new QTableWidgetItem();
+        tmp0->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        tmp0->setCheckState(Qt::Unchecked);
+        m_keyList->setItem(row, 0, tmp0);
 
         if(it->privkey) {
-            tmp = new QTableWidgetItem(QIcon(iconPath + "kgpg_key2.png"),"");
-            m_keyList->setItem(row, 1, tmp);
+            QTableWidgetItem *tmp1 = new QTableWidgetItem(QIcon(iconPath + "kgpg_key2.png"),"");
+            m_keyList->setItem(row, 1, tmp1);
         }
-        tmp = new QTableWidgetItem(it->name);
-        tmp->setToolTip(it->name);
-        m_keyList->setItem(row, 2, tmp);
-        tmp = new QTableWidgetItem(it->email);
-        tmp->setToolTip(it->email);
-        m_keyList->setItem(row, 3, tmp);
-        tmp = new QTableWidgetItem(it->id);
-        m_keyList->setItem(row, 4, tmp);
+        QTableWidgetItem *tmp2 = new QTableWidgetItem(it->name);
+        tmp2->setToolTip(it->name);
+        m_keyList->setItem(row, 2, tmp2);
+        QTableWidgetItem *tmp3 = new QTableWidgetItem(it->email);
+        tmp3->setToolTip(it->email);
+        m_keyList->setItem(row, 3, tmp3);
+        QTableWidgetItem *tmp4 = new QTableWidgetItem(it->id);
+        m_keyList->setItem(row, 4, tmp4);
         it++;
         ++row;
     }
