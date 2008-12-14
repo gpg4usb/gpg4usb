@@ -359,7 +359,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="448"/>
         <source>Import Key From...</source>
-        <translation type="unfinished">Importiere Schlüssel aus Datei</translation>
+        <translation type="unfinished">Importiere Schlüssel aus...</translation>
     </message>
 </context>
 <context>
