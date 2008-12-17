@@ -55,6 +55,8 @@ public slots:
     bool saveAs();
     void open();
     void importKeyDialog();
+    void encryptFile();
+    void decryptFile();
     //void browse();
 
 private:
@@ -97,6 +99,8 @@ private:
     QAction *pasteAct;
     QAction *selectallAct;
     QAction *aboutAct;
+    QAction *encryptFileAct;
+    QAction *decryptFileAct;
 
     QString curFile;
     KeyList *m_keyList;

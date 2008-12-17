@@ -85,6 +85,17 @@ void GpgWin::createActions()
     saveAsAct->setIcon(QIcon(iconPath + "filesaveas.png"));
     saveAsAct->setStatusTip(tr("Save the current File as..."));
     connect(saveAsAct, SIGNAL(triggered()), this, SLOT(saveAs()));
+    
+    encryptFileAct = new QAction(tr("&Encrypt File"), this);
+    //encryptFileAct->setIcon(QIcon(iconPath + "filesave.png"));
+    //encryptFileAct->setShortcut(tr("Ctrl+S"));
+    //encryptFileAct->setStatusTip(tr("Save the current File"));
+    connect(encryptFileAct, SIGNAL(triggered()), this, SLOT(encryptFile()));
+
+    decryptFileAct = new QAction(tr("&Decrypt File"), this);
+    //decryptFileAct->setIcon(QIcon(iconPath + "filesaveas.png"));
+    //decryptFileAct->setStatusTip(tr("Save the current File as..."));
+    connect(decryptFileAct, SIGNAL(triggered()), this, SLOT(decryptFile()));   
 
     printAct = new QAction(tr("&Print"), this);
     printAct->setIcon(QIcon(iconPath + "fileprint.png"));
@@ -139,7 +150,7 @@ void GpgWin::createActions()
     decryptAct->setShortcut(tr("Ctrl+D"));
     decryptAct->setStatusTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
-
+    
     importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(iconPath + "kgpg_import.png"));
     importKeyFromFileAct->setStatusTip(tr("Import New Key From File"));
@@ -173,6 +184,8 @@ void GpgWin::createMenus()
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveAct);
     fileMenu->addAction(saveAsAct);
+    fileMenu->addAction(decryptFileAct);
+    fileMenu->addAction(encryptFileAct);    
     fileMenu->addAction(printAct);
     fileMenu->addSeparator();
     fileMenu->addAction(quitAct);
@@ -470,4 +483,71 @@ void GpgWin::importKeyDialog() {
             if (radio3->isChecked()) importKeyFromClipboard();
         }
 
+}
+
+void GpgWin::encryptFile(){
+
+    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Files") + "All Files (*.*)");
+    if (infileName.isNull()) return;
+    
+    QFile infile;
+    infile.setFileName(infileName);
+    if (!infile.open(QIODevice::ReadOnly)) {
+        qDebug() << tr("couldn't open file: ") + infileName;
+    }
+    QByteArray inBuffer = infile.readAll();
+        
+    QList<QString> *uidList = m_keyList->getChecked();
+
+    QByteArray *outBuffer = new QByteArray();
+    if (!myCtx->encrypt(uidList, inBuffer, outBuffer)) return;
+        
+    QString outfileName = QFileDialog::getSaveFileName(this);
+    if (outfileName.isEmpty())
+        return;    
+        
+    QFile outfile(outfileName);
+    if (!outfile.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("File"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(outfileName)
+                             .arg(outfile.errorString()));
+        return;
+    }
+    
+    QTextStream out(&outfile);
+    out << outBuffer->data();
+}
+
+void GpgWin::decryptFile(){
+
+    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Files") + "All Files (*.*)");
+    if (infileName.isNull()) return;
+    
+    QFile infile;
+    infile.setFileName(infileName);
+    if (!infile.open(QIODevice::ReadOnly)) {
+        qDebug() << tr("couldn't open file: ") + infileName;
+    }
+    QByteArray inBuffer = infile.readAll();
+
+    QByteArray *outBuffer = new QByteArray();
+    if (!myCtx->decrypt(inBuffer, outBuffer)) return;
+        
+    QString outfileName = QFileDialog::getSaveFileName(this);
+    if (outfileName.isEmpty())
+        return;    
+        
+    QFile outfile(outfileName);
+    if (!outfile.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("File"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(outfileName)
+                             .arg(outfile.errorString()));
+        return;
+    }
+    
+    QDataStream out(&outfile);
+    out.writeRawData(outBuffer->data(), outBuffer->length());
+  
 }
