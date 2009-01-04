@@ -1,36 +1,31 @@
 TODO:
 -----
+Release 0.2
+- KeyManagement (create/export) [DONE] 
+  - export private key
+  - progressbar on key creation 
+- File En-/Decryption [DONE]
 
-Release 0.1.1:
-- Import Key from Clipboard <DONE>
-- Import-Key Dialog connected with Import-Key Button (like kgpg) <DONE>
-- Sort Keys (QListView -> TableView)
-- find start of GPG-Block and insert "\n" if needed, to prevent "No Data" error <DONE>
-- Mac Build
-- decide, which glibc-version to support on linux, prevent newer dependencies
-  --> decision done, support from debian Sarge (released jun. 2005) 
-onwards
-
+Release 0.3
+- adding signing and verifying
+  - nice for verify: inport key from keyserver
 
 Later:
+- Add QSettings for persistent configuration
+   - Encrypt to self
+
 
 - Binary File Attachements, function for Decrypt & Help-Text (like safe eml, etc)
 - add a button to open Keytable ( now you have to restart, if accidently closed the keytable ).
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
---> show all email-Adresses connected to a key
 - Policy ( dialogs, what's warning, what an error )
-- adding signing and clearsigning text messages and verifying signatures (thx, Yucca)
-- Encrypt to self (problem: who is self?)
 - on windows an empty directory gnupg in application-data is created, find out
 how to disable
 - Open File from command Line 
 
 - More Keymanagement (new popup window?) including:
-   - copy a public-keyfile into the editor-window and enable importing it -> same as "Import Key from Clipboard?"
-    - export public key
     - export private key
-    - generate new key
     - import keyfiles in non ASCII-Amor-format (always and everywhere error-free keyimport would be great)
     - Import key from Keyserver
 
