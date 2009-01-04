@@ -151,9 +151,9 @@ void KeyMgmt::deleteCheckedKeys()
 void KeyMgmt::exportKeyToFile()
 {
     QByteArray *keyArray = new QByteArray();
-	
-    mCtx->exportKeys(mKeyList->getChecked(), keyArray);
-    
+	if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
+		return;
+	}
     QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
 	QFile file(fileName);
 	if (!file.open( QIODevice::WriteOnly |QIODevice::Text))
@@ -168,8 +168,9 @@ void KeyMgmt::exportKeyToClipboard()
 {
     QByteArray *keyArray = new QByteArray();
     QClipboard *cb = QApplication::clipboard();
-	
-    mCtx->exportKeys(mKeyList->getChecked(), keyArray);
+	if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
+		return;
+	}
     cb->setText(*keyArray);
 	delete keyArray;
 }

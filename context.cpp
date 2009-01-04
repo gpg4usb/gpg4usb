@@ -121,7 +121,7 @@ void Context::generateKey(QString *params)
 /** Export Key to QByteArray
  *
  */
-void Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
+bool Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
 {
     size_t read_bytes;
     gpgme_data_t out = 0;
@@ -129,7 +129,7 @@ void Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
 
     if (uidList->count() == 0) {
         QMessageBox::critical(0, "Export Keys Error", "No Keys Selected");
-        return;
+        return false;
     }
 
     for (int i = 0; i < uidList->count(); i++) {
@@ -145,6 +145,7 @@ void Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
         checkErr(err);
         gpgme_data_release(out);
     }
+    return true;
 }
 
 /** List all availabe Keys (VERY much like kgpgme)

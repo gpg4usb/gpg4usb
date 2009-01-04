@@ -60,7 +60,7 @@ public:
     ~Context(); // Destructor
 
     void importKey(QByteArray inBuffer);
-    void exportKeys(QList<QString> *uidList, QByteArray *outBuffer);
+    bool exportKeys(QList<QString> *uidList, QByteArray *outBuffer);
     void generateKey(QString *params);
     GpgKeyList listKeys();
     void deleteKeys(QList<QString> *uidList);
