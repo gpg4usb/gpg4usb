@@ -34,6 +34,7 @@ class QIcon;
 class QAction;
 class QMenu;
 class QApplication;
+class QSlider;
 
 #include "context.h"
 #include "keylist.h"
@@ -54,6 +55,7 @@ public slots:
     void deleteSelectedKeys();
     void generateKeyDialog();
 	void expireBoxChanged();
+	void passwordEditChanged();    
     
 private slots:
     void keyGenAccept();
@@ -63,7 +65,7 @@ private:
     void createMenus();
     void createActions();
     void createToolBars();
- //   int checkPassWordStrength(QString password);
+    int checkPassWordStrength();
 
     KeyList *mKeyList;
     QString mIconPath;
@@ -94,6 +96,7 @@ private:
 	QLabel *errorLabel;
 	QLabel *dateLabel;
 	QLabel *expireLabel;
+	QLabel *pwStrengthLabel;
     QLineEdit *nameEdit;
 	QLineEdit *emailEdit;
 	QLineEdit *commentEdit;
@@ -102,6 +105,7 @@ private:
 	QSpinBox *keySizeSpinBox;
 	QDateTimeEdit *dateEdit;
 	QCheckBox *expireCheckBox;
+	QSlider *pwStrengthSlider;
 };
 
 #endif // __KEYMGMT_H__

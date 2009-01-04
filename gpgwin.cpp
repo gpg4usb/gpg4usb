@@ -463,6 +463,7 @@ void GpgWin::importKeyFromFile()
 
 void GpgWin::openKeyManagement() {
     KeyMgmt *window = new KeyMgmt(mCtx, iconPath);
+    window->resize(800,400);
     window->show();
 }
 

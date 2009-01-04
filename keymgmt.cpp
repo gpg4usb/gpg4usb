@@ -183,7 +183,7 @@ void KeyMgmt::generateKeyDialog()
         genkeyDialog->setWindowTitle(tr("Generate Key"));
         genkeyDialog->setModal(true);
 
-		nameLabel = new QLabel(tr("Name:*"));
+		nameLabel = new QLabel(tr("Name:"));
 		emailLabel = new QLabel(tr("E-Mailaddress::"));
 		commentLabel = new QLabel(tr("Comment:"));
 		keySizeLabel = new QLabel(tr("KeySize (in Bit):"));
@@ -191,12 +191,12 @@ void KeyMgmt::generateKeyDialog()
 		passwordLabel = new QLabel(tr("Password:"));
 		repeatpwLabel = new QLabel(tr("Repeat Password:"));
 		expireLabel = new QLabel(tr("Never Expire"));
+		pwStrengthLabel = new QLabel(tr("Password: Strength\nWeak -> Strong"));
 		errorLabel = new QLabel(tr(""));
-
 		nameEdit = new QLineEdit(genkeyDialog);
 		emailEdit = new QLineEdit(genkeyDialog);
 		commentEdit = new QLineEdit(genkeyDialog);
-
+		
 		keySizeSpinBox = new QSpinBox(genkeyDialog);
 		keySizeSpinBox->setRange(512,8192);
 		keySizeSpinBox->setValue(2048);
@@ -217,6 +217,12 @@ void KeyMgmt::generateKeyDialog()
 		passwordEdit->setEchoMode(QLineEdit::Password);
 		repeatpwEdit->setEchoMode(QLineEdit::Password);
 
+		pwStrengthSlider = new QSlider(genkeyDialog);
+   		pwStrengthSlider->setOrientation(Qt::Horizontal);
+   		pwStrengthSlider->setMaximum(6);
+  		pwStrengthSlider->setDisabled(true);
+		pwStrengthSlider->setToolTip(tr("Password Strength"));
+		pwStrengthSlider->setTickPosition(QSlider::TicksBelow);
 
  		QGridLayout *vbox1 = new QGridLayout;
  		vbox1->addWidget(nameLabel,0,0);
@@ -225,16 +231,19 @@ void KeyMgmt::generateKeyDialog()
         vbox1->addWidget(emailEdit,1,1);
  		vbox1->addWidget(commentLabel,2,0);
         vbox1->addWidget(commentEdit,2,1);
- 		vbox1->addWidget(keySizeLabel,3,0);
-        vbox1->addWidget(keySizeSpinBox,3,1);
-        vbox1->addWidget(dateLabel,4,0);
-        vbox1->addWidget(dateEdit,4,1);
-   		vbox1->addWidget(expireCheckBox,4,2);
-   		vbox1->addWidget(expireLabel,4,3);
+        vbox1->addWidget(dateLabel,3,0);
+        vbox1->addWidget(dateEdit,3,1);
+   		vbox1->addWidget(expireCheckBox,3,2);
+   		vbox1->addWidget(expireLabel,3,3);
+ 		vbox1->addWidget(keySizeLabel,4,0);
+        vbox1->addWidget(keySizeSpinBox,4,1);
    		vbox1->addWidget(passwordLabel,5,0);
    		vbox1->addWidget(passwordEdit,5,1);   		
+		vbox1->addWidget(pwStrengthLabel,5,3);
    		vbox1->addWidget(repeatpwLabel,6,0);
    		vbox1->addWidget(repeatpwEdit,6,1);
+		vbox1->addWidget(pwStrengthSlider,6,3);
+   		
 		QWidget *nameList = new QWidget(genkeyDialog);
 		nameList->setLayout(vbox1);
 
@@ -247,7 +256,7 @@ void KeyMgmt::generateKeyDialog()
         connect(buttonBox,SIGNAL(rejected()), genkeyDialog, SLOT(reject()));
 
         connect(expireCheckBox,SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
-		
+		connect(passwordEdit,SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
         genkeyDialog->setLayout(vbox2);
 		genkeyDialog->show();
 
@@ -322,7 +331,21 @@ void KeyMgmt::expireBoxChanged()
 	}
 	
 }
-/*int checkPassWordStrength(QString password)
+
+void KeyMgmt::passwordEditChanged()
 {
-	return 0;
-}*/
+	pwStrengthSlider->setValue(checkPassWordStrength());
+	update();
+}
+
+int KeyMgmt::checkPassWordStrength()
+{
+	int strength=0;
+	if ((passwordEdit->text()).length() > 7) { strength=strength+2; }
+	if ((passwordEdit->text()).contains(QRegExp("\\d"))) { strength++; }
+	if ((passwordEdit->text()).contains(QRegExp("[a-z]"))) { strength++; }
+	if ((passwordEdit->text()).contains(QRegExp("[A-Z]"))) { strength++; }
+	if ((passwordEdit->text()).contains(QRegExp("\\W"))) { strength++; }
+	
+	return strength;
+}
