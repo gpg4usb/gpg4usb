@@ -71,7 +71,8 @@ public slots:
     bool save();
     bool saveAs();
     void open();
-
+    void fileEncryption();
+    
 private:
     void createActions();
     void createMenus();
@@ -116,7 +117,8 @@ private:
     QAction *pasteAct;
     QAction *selectallAct;
     QAction *aboutAct;
-
+    QAction *fileEncryptionAct;
+    
 	QLineEdit *nameEdit;
 	QLineEdit *emailEdit;
 	QLineEdit *commentEdit;

@@ -352,7 +352,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
                                   const char * /*passphrase_info*/,
                                   int last_was_bad, int fd)
 {
-    gpgme_error_t res = GPG_ERR_CANCELED;
+    gpgme_error_t returnValue = GPG_ERR_CANCELED;
     QString s;
     QString gpg_hint = uid_hint;
     bool result;
@@ -374,27 +374,34 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
                            s, QLineEdit::Password,
                            "", &result);
 
-        if (result == 1) m_cache = password.toAscii();
+        if (result) m_cache = password.toAscii();
     } else
-        result = 0;
+        result = false;
 
-    if (result == 1) {
+    if (result) {
+
 #ifndef _WIN32
-        write(fd, m_cache.data(), m_cache.length());
+        if( write(fd, m_cache.data(), m_cache.length()) == -1) {
+        	qDebug() << "something is terribly broken";
+         }
 #else
         DWORD written;
         WriteFile((HANDLE) fd, m_cache.data(), m_cache.length(), &written, 0);
 #endif
-        res = 0;
+
+        returnValue = 0;
     }
+
 #ifndef _WIN32
-    write(fd, "\n", 1);
+    if( write(fd, "\n", 1) == -1 ) {
+        	qDebug() << "something is terribly broken";
+    }
 #else
     DWORD written;
     WriteFile((HANDLE) fd, "\n", 1, &written, 0);
 #endif
 
-    return res;
+    return returnValue;
 }
 
 /** also from kgpgme.cpp, seems to clear password from mem */

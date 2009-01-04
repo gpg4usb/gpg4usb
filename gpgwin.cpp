@@ -20,6 +20,7 @@
  */
 
 #include "gpgwin.h"
+#include "fileencryptiondialog.h"
 
 GpgWin::GpgWin()
 {
@@ -132,6 +133,13 @@ void GpgWin::createActions()
     decryptAct->setToolTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
+    fileEncryptionAct = new QAction(tr("&File Encryption"), this); 
+    fileEncryptionAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    fileEncryptionAct->setToolTip(tr("Encrypt/Decrypt File"));
+    connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(fileEncryption()));
+
+	/** Key Menu
+	 */
     importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(iconPath + "misc_doc.png"));
     importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
@@ -148,7 +156,7 @@ void GpgWin::createActions()
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
     openKeyManagementAct = new QAction(tr("Key Management"), this);
-    openKeyManagementAct->setIcon(QIcon(iconPath + "importkey_editor.png"));
+    openKeyManagementAct->setIcon(QIcon(iconPath + "keymgmt.png"));
     openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
 
@@ -195,6 +203,7 @@ void GpgWin::createMenus()
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
     cryptMenu->addSeparator();
+    cryptMenu->addAction(fileEncryptionAct);
 
 	keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
@@ -212,6 +221,7 @@ void GpgWin::createToolBars()
     cryptToolBar = addToolBar(tr("Crypt"));
     cryptToolBar->addAction(encryptAct);
     cryptToolBar->addAction(decryptAct);
+    cryptToolBar->addAction(fileEncryptionAct);
 
     keyToolBar = addToolBar(tr("Key"));
     keyToolBar->addAction(importKeyDialogAct);
@@ -512,4 +522,11 @@ void GpgWin::appendSelectedKeys()
 
     mCtx->exportKeys(mKeyList->getSelected(), keyArray);
     edit->appendPlainText(*keyArray);
+}
+
+
+void GpgWin::fileEncryption() {
+  
+    new FileEncryptionDialog(mCtx, iconPath);
+    
 }
