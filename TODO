@@ -1,7 +1,9 @@
 TODO:
 -----
 Release 0.2
+- move to Qt 4.5 (includes building static qt on win32 and linux, also write howto about static building) 
 - KeyManagement (create/export) [DONE] 
+- new thread for key creation, to keep gui responsive
   - export private key
   - progressbar on key creation 
 - File En-/Decryption [DONE]
