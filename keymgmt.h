@@ -38,6 +38,7 @@ class QSlider;
 
 #include "context.h"
 #include "keylist.h"
+#include "keygenthread.h"
 
 class KeyMgmt : public QMainWindow
 {
@@ -82,8 +83,8 @@ private:
     QAction *deleteSelectedKeysAct;
     QAction *generateKeyDialogAct;
     QAction *closeAct;
-    
-    
+	KeyGenThread *keyGenThread;
+    QMessageBox msgbox;
     /**
      * Variables For Key-Generation 
      */

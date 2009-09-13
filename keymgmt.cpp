@@ -111,6 +111,8 @@ void KeyMgmt::createToolBars()
     keyToolBar->addAction(importKeyFromFileAct);
     keyToolBar->addAction(importKeyFromClipboardAct);
     keyToolBar->addSeparator();
+    keyToolBar->addAction(generateKeyDialogAct);
+    keyToolBar->addSeparator();
     keyToolBar->addAction(deleteCheckedKeysAct);
     keyToolBar->addSeparator();
     keyToolBar->addAction(exportKeyToFileAct);
@@ -194,13 +196,14 @@ void KeyMgmt::generateKeyDialog()
 		expireLabel = new QLabel(tr("Never Expire"));
 		pwStrengthLabel = new QLabel(tr("Password: Strength\nWeak -> Strong"));
 		errorLabel = new QLabel(tr(""));
-		nameEdit = new QLineEdit(genkeyDialog);
+		nameEdit = new QLineEdit("hallo",genkeyDialog);
 		emailEdit = new QLineEdit(genkeyDialog);
 		commentEdit = new QLineEdit(genkeyDialog);
 		
 		keySizeSpinBox = new QSpinBox(genkeyDialog);
 		keySizeSpinBox->setRange(512,8192);
-		keySizeSpinBox->setValue(2048);
+		keySizeSpinBox->setValue(512);
+		
 		keySizeSpinBox->setSingleStep(256);
 
 		dateEdit = new QDateEdit(QDate::currentDate().addYears(5), genkeyDialog);
@@ -212,8 +215,8 @@ void KeyMgmt::generateKeyDialog()
 		expireCheckBox = new QCheckBox(genkeyDialog);
 		expireCheckBox->setCheckState(Qt::Checked);
 		
-		passwordEdit = new QLineEdit(genkeyDialog);
-		repeatpwEdit = new QLineEdit(genkeyDialog);
+		passwordEdit = new QLineEdit("asd",genkeyDialog);
+		repeatpwEdit = new QLineEdit("asd",genkeyDialog);
 		
 		passwordEdit->setEchoMode(QLineEdit::Password);
 		repeatpwEdit->setEchoMode(QLineEdit::Password);
@@ -260,7 +263,7 @@ void KeyMgmt::generateKeyDialog()
 		connect(passwordEdit,SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
         genkeyDialog->setLayout(vbox2);
 		genkeyDialog->show();
-
+	
         if(genkeyDialog->exec() == QDialog::Accepted ) {
 
 		}
@@ -269,6 +272,7 @@ void KeyMgmt::generateKeyDialog()
 
 void KeyMgmt::keyGenAccept()
 {
+	
 	QString errorString="";
     QString keyGenParams="";
     /**
@@ -306,8 +310,26 @@ void KeyMgmt::keyGenAccept()
 	    			"Passphrase: "+passwordEdit->text()+"\n";
 	    }
 	    keyGenParams +=	"</GnupgKeyParms>";
-        mCtx->generateKey(&keyGenParams); 
- 		genkeyDialog->accept();
+//        mCtx->generateKey(&keyGenParams); 
+
+		KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
+		kg->start();
+		
+		genkeyDialog->accept();
+		QProgressDialog *qpd = new QProgressDialog("Generating", "Jau",0,5,this);
+		qpd->setWindowModality(Qt::WindowModal);
+		
+		int value=0;
+		while(kg->isRunning())
+		{
+			value++;
+			value=value%5;
+			qDebug() << value;
+			qpd->setValue(value);
+			//sleep(1);
+		}
+		qpd->cancel();
+	//genkeyDialog->accept();
 	} else {
 
 		/**
