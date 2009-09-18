@@ -1,4 +1,5 @@
 /*
+ *
  *      keymgmt.cpp
  *
  *      Copyright 2008 gpg4usb-team <gpg4usb@cpunk.de>
@@ -316,19 +317,30 @@ void KeyMgmt::keyGenAccept()
 		kg->start();
 		
 		genkeyDialog->accept();
-		QProgressDialog *qpd = new QProgressDialog("Generating", "Jau",0,5,this);
-		qpd->setWindowModality(Qt::WindowModal);
-		
+        QPixmap pix(mIconPath+"genkey.jpeg");
+        QSplashScreen splash(this, pix);
+		splash.releaseMouse();
+        splash.show();
+        splash.showMessage("Generating Key");
+		//QProgressBar* progress = new QProgressBar(splash);
+//		QProgressDialog *qpd = new QProgressDialog("Generating", "Jau",0,5,this);
+	//	qpd->setWindowModality(Qt::WindowModal);
 		int value=0;
 		while(kg->isRunning())
 		{
 			value++;
-			value=value%5;
-			qDebug() << value;
-			qpd->setValue(value);
+			value=value%32000;
+			
+			qDebug() << value << value;
+			splash.show();
+			QCoreApplication::processEvents();
+			
+			//qpd->setValue(value);
 			//sleep(1);
 		}
-		qpd->cancel();
+		splash.finish(this);
+		//qpd->cancel();
+		qDebug() << "hallo";
 	//genkeyDialog->accept();
 	} else {
 
