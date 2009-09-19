@@ -278,10 +278,10 @@ void KeyMgmt::keyGenAccept()
      * check for errors in keygen dialog input
      */
     if ((nameEdit->text()).size() < 5) {
-        errorString.append("  Name must contain at least five characters.  \n");
+        errorString.append(tr("  Name must contain at least five characters.  \n"));
     }
     if (passwordEdit->text() != repeatpwEdit->text()) {
-        errorString.append("  Password and Repeat don't match.  ");
+        errorString.append(tr("  Password and Repeat don't match.  "));
     }
 
 
