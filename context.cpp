@@ -429,6 +429,33 @@ void Context::checkErr(gpgme_error_t err) const
     }
 }
 
+
+/** export private key, TODO errohandling, e.g. like in seahorse (seahorse-gpg-op.c) **/ 
+
+void Context::exportSecretKey(QString uid, QByteArray *outBuffer)
+{
+	QStringList arguments;
+	arguments << "--armor" << "--export-secret-key" << uid;
+	QByteArray *err = new QByteArray();
+	executeGpgCommand(arguments, outBuffer, err);
+}
+
+/** return type should be gpgme_error_t*/
+void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByteArray *stdErr)
+{
+	gpgme_engine_info_t engine = gpgme_ctx_get_engine_info(mCtx);
+
+	QStringList args;
+	args << "--homedir" << engine->home_dir << "--batch" << arguments;	
+
+	QProcess gpg;
+    gpg.start(engine->file_name, args);
+    gpg.waitForFinished();
+
+    *stdOut = gpg.readAllStandardOutput();    
+    *stdErr = gpg.readAllStandardError();   
+}
+
 }
 
 

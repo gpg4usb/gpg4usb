@@ -68,6 +68,7 @@ public:
                  QByteArray *outBuffer);
     bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
     void clearCache();
+    void exportSecretKey(QString uid, QByteArray *outBuffer);
 
 signals:
     void keyDBChanged();
@@ -88,6 +89,10 @@ private:
     gpgme_error_t passphrase(const char *uid_hint,
                              const char *passphrase_info,
                              int last_was_bad, int fd);
+                             
+    void executeGpgCommand(QStringList arguments, 
+                                    QByteArray *stdOut, 
+                                    QByteArray *stdErr);                
 
 };
 } // namespace GpgME
