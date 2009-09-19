@@ -138,5 +138,6 @@ private:
     Attachments *mAttachments;
     GpgME::Context *mCtx;
     QString iconPath;
+	KeyMgmt *keyMgmt;
 };
 

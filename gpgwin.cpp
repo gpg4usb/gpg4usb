@@ -462,9 +462,13 @@ void GpgWin::importKeyFromFile()
 
 
 void GpgWin::openKeyManagement() {
-    KeyMgmt *window = new KeyMgmt(mCtx, iconPath);
-    window->resize(800,400);
-    window->show();
+    if(!keyMgmt) {
+		keyMgmt = new KeyMgmt(mCtx, iconPath);
+		keyMgmt->resize(800,400);
+	}
+    keyMgmt->show();
+	keyMgmt->raise();
+	keyMgmt->activateWindow();
 }
 
 void GpgWin::importKeyDialog() {

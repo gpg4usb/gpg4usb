@@ -197,13 +197,13 @@ void KeyMgmt::generateKeyDialog()
 		expireLabel = new QLabel(tr("Never Expire"));
 		pwStrengthLabel = new QLabel(tr("Password: Strength\nWeak -> Strong"));
 		errorLabel = new QLabel(tr(""));
-		nameEdit = new QLineEdit("hallo",genkeyDialog);
+		nameEdit = new QLineEdit(genkeyDialog);
 		emailEdit = new QLineEdit(genkeyDialog);
 		commentEdit = new QLineEdit(genkeyDialog);
 		
 		keySizeSpinBox = new QSpinBox(genkeyDialog);
 		keySizeSpinBox->setRange(512,8192);
-		keySizeSpinBox->setValue(512);
+		keySizeSpinBox->setValue(1024);
 		
 		keySizeSpinBox->setSingleStep(256);
 
@@ -216,8 +216,8 @@ void KeyMgmt::generateKeyDialog()
 		expireCheckBox = new QCheckBox(genkeyDialog);
 		expireCheckBox->setCheckState(Qt::Checked);
 		
-		passwordEdit = new QLineEdit("asd",genkeyDialog);
-		repeatpwEdit = new QLineEdit("asd",genkeyDialog);
+		passwordEdit = new QLineEdit(genkeyDialog);
+		repeatpwEdit = new QLineEdit(genkeyDialog);
 		
 		passwordEdit->setEchoMode(QLineEdit::Password);
 		repeatpwEdit->setEchoMode(QLineEdit::Password);
@@ -311,37 +311,33 @@ void KeyMgmt::keyGenAccept()
 	    			"Passphrase: "+passwordEdit->text()+"\n";
 	    }
 	    keyGenParams +=	"</GnupgKeyParms>";
-//        mCtx->generateKey(&keyGenParams); 
 
 		KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
 		kg->start();
 		
 		genkeyDialog->accept();
-        QPixmap pix(mIconPath+"genkey.jpeg");
-        QSplashScreen splash(this, pix);
-		splash.releaseMouse();
-        splash.show();
-        splash.showMessage("Generating Key");
-		//QProgressBar* progress = new QProgressBar(splash);
-//		QProgressDialog *qpd = new QProgressDialog("Generating", "Jau",0,5,this);
-	//	qpd->setWindowModality(Qt::WindowModal);
-		int value=0;
+
+		QDialog *dialog = new QDialog(this, Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+		dialog->setModal(true);
+		dialog->setWindowTitle(tr("Generating Key..."));
+		
+		QLabel *waitMessage = new QLabel(tr("Collecting random data for key generation.\n This may take a while.\n To speed up the process use your computer\n (e.g. browse the net, listen to music,...)"));
+		QProgressBar *pb = new QProgressBar();
+		pb->setRange(0,0);
+		
+		QVBoxLayout *layout = new QVBoxLayout(dialog);
+		layout->addWidget(waitMessage);
+		layout->addWidget(pb);
+		dialog->setLayout(layout);
+		
+		dialog->show();
+		
 		while(kg->isRunning())
 		{
-			value++;
-			value=value%32000;
-			
-			qDebug() << value << value;
-			splash.show();
 			QCoreApplication::processEvents();
-			
-			//qpd->setValue(value);
-			//sleep(1);
 		}
-		splash.finish(this);
-		//qpd->cancel();
-		qDebug() << "hallo";
-	//genkeyDialog->accept();
+
+		dialog->close();
 	} else {
 
 		/**
