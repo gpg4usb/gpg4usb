@@ -55,7 +55,7 @@ GpgWin::GpgWin()
     setIconSize(QSize(32, 32));
     setCurrentFile("");
 
-    mKeyList->addMenuAction(deleteSelectedKeysAct);
+    //mKeyList->addMenuAction(deleteSelectedKeysAct);
     mKeyList->addMenuAction(appendSelectedKeysAct);
 }
 
@@ -175,9 +175,9 @@ void GpgWin::createActions()
 
     /** Popup-Menu-Action for KeyList
      */
-    deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
+    /*deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
     deleteSelectedKeysAct->setToolTip(tr("Delete The Selected Keys"));
-    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
+    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));*/
 
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
     appendSelectedKeysAct->setToolTip(tr("Append The Selected Keys To Text in Editor"));
@@ -516,10 +516,10 @@ void GpgWin::importKeyDialog()
 /**
  * Delete a selected (not checked!) Key(s) from keylist
  */
-void GpgWin::deleteSelectedKeys()
+/*void GpgWin::deleteSelectedKeys()
 {
     mCtx->deleteKeys(mKeyList->getSelected());
-}
+}*/
 
 /**
  * Append the selected (not checked!) Key(s) To Textedit

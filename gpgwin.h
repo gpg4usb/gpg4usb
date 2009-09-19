@@ -63,7 +63,7 @@ public slots:
     void importKeyFromEdit();
     void importKeyFromClipboard();
     void importKeyDialog();
-    void deleteSelectedKeys();
+    //void deleteSelectedKeys();
     void appendSelectedKeys();
     void openKeyManagement();
     void print();
@@ -109,7 +109,7 @@ private:
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
-    QAction *deleteSelectedKeysAct;
+    //QAction *deleteSelectedKeysAct;
     QAction *appendSelectedKeysAct;
     QAction *openKeyManagementAct;
     QAction *copyAct;
