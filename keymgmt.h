@@ -55,9 +55,9 @@ public slots:
     void deleteCheckedKeys();
     void deleteSelectedKeys();
     void generateKeyDialog();
-	void expireBoxChanged();
-	void passwordEditChanged();    
-    
+    void expireBoxChanged();
+    void passwordEditChanged();
+
 private slots:
     void keyGenAccept();
 
@@ -83,30 +83,30 @@ private:
     QAction *deleteSelectedKeysAct;
     QAction *generateKeyDialogAct;
     QAction *closeAct;
-	KeyGenThread *keyGenThread;
+    KeyGenThread *keyGenThread;
     QMessageBox msgbox;
     /**
-     * Variables For Key-Generation 
+     * Variables For Key-Generation
      */
-	QLabel *nameLabel;
-	QLabel *emailLabel;
-	QLabel *commentLabel;
-	QLabel *keySizeLabel;
-	QLabel *passwordLabel;
-	QLabel *repeatpwLabel;
-	QLabel *errorLabel;
-	QLabel *dateLabel;
-	QLabel *expireLabel;
-	QLabel *pwStrengthLabel;
+    QLabel *nameLabel;
+    QLabel *emailLabel;
+    QLabel *commentLabel;
+    QLabel *keySizeLabel;
+    QLabel *passwordLabel;
+    QLabel *repeatpwLabel;
+    QLabel *errorLabel;
+    QLabel *dateLabel;
+    QLabel *expireLabel;
+    QLabel *pwStrengthLabel;
     QLineEdit *nameEdit;
-	QLineEdit *emailEdit;
-	QLineEdit *commentEdit;
-	QLineEdit *passwordEdit;
-	QLineEdit *repeatpwEdit;
-	QSpinBox *keySizeSpinBox;
-	QDateTimeEdit *dateEdit;
-	QCheckBox *expireCheckBox;
-	QSlider *pwStrengthSlider;
+    QLineEdit *emailEdit;
+    QLineEdit *commentEdit;
+    QLineEdit *passwordEdit;
+    QLineEdit *repeatpwEdit;
+    QSpinBox *keySizeSpinBox;
+    QDateTimeEdit *dateEdit;
+    QCheckBox *expireCheckBox;
+    QSlider *pwStrengthSlider;
 };
 
 #endif // __KEYMGMT_H__

@@ -29,22 +29,23 @@ class QMessageBox;
 
 #include "context.h"
 
-class KeyGenThread : public QThread {
-	Q_OBJECT
+class KeyGenThread : public QThread
+{
+    Q_OBJECT
 
 public:
-  KeyGenThread(QString keyGenParams, GpgME::Context *ctx);
+    KeyGenThread(QString keyGenParams, GpgME::Context *ctx);
 
 signals:
-	void keyGenerated();
-	
+    void keyGenerated();
+
 private:
-	QString keyGenParams;
-	GpgME::Context *ctx;
-	bool abort;
-	QMutex mutex;
+    QString keyGenParams;
+    GpgME::Context *ctx;
+    bool abort;
+    QMutex mutex;
 
 protected:
-	void run();
+    void run();
 
 };

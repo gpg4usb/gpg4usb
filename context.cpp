@@ -113,9 +113,9 @@ void Context::importKey(QByteArray inBuffer)
  */
 void Context::generateKey(QString *params)
 {
-	err = gpgme_op_genkey(mCtx, params->toAscii().data(), NULL,NULL);
-	checkErr(err);
-	emit keyDBChanged();
+    err = gpgme_op_genkey(mCtx, params->toAscii().data(), NULL, NULL);
+    checkErr(err);
+    emit keyDBChanged();
 }
 
 /** Export Key to QByteArray
@@ -139,7 +139,7 @@ bool Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
         err = gpgme_op_export(mCtx, uidList->at(i).toAscii().constData(), 0, out);
         checkErr(err);
 
-        read_bytes = gpgme_data_seek (out, 0, SEEK_END);
+        read_bytes = gpgme_data_seek(out, 0, SEEK_END);
 
         err = readToBuffer(out, outBuffer);
         checkErr(err);
@@ -382,9 +382,9 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
     if (result) {
 
 #ifndef _WIN32
-        if( write(fd, m_cache.data(), m_cache.length()) == -1) {
-        	qDebug() << "something is terribly broken";
-         }
+        if (write(fd, m_cache.data(), m_cache.length()) == -1) {
+            qDebug() << "something is terribly broken";
+        }
 #else
         DWORD written;
         WriteFile((HANDLE) fd, m_cache.data(), m_cache.length(), &written, 0);
@@ -394,8 +394,8 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
     }
 
 #ifndef _WIN32
-    if( write(fd, "\n", 1) == -1 ) {
-        	qDebug() << "something is terribly broken";
+    if (write(fd, "\n", 1) == -1) {
+        qDebug() << "something is terribly broken";
     }
 #else
     DWORD written;

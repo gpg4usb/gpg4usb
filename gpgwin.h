@@ -64,7 +64,7 @@ public slots:
     void importKeyFromClipboard();
     void importKeyDialog();
     void deleteSelectedKeys();
-	void appendSelectedKeys();
+    void appendSelectedKeys();
     void openKeyManagement();
     void print();
     void about();
@@ -72,7 +72,7 @@ public slots:
     bool saveAs();
     void open();
     void fileEncryption();
-    
+
 private:
     void createActions();
     void createMenus();
@@ -85,7 +85,7 @@ private:
     bool maybeSave();
     void preventNoDataErr(QByteArray *in);
     QString strippedName(const QString &fullFileName);
-	
+
     QPlainTextEdit *edit;
     QMenu *fileMenu;
     QMenu *editMenu;
@@ -110,7 +110,7 @@ private:
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
     QAction *deleteSelectedKeysAct;
-	QAction *appendSelectedKeysAct;
+    QAction *appendSelectedKeysAct;
     QAction *openKeyManagementAct;
     QAction *copyAct;
     QAction *cutAct;
@@ -118,26 +118,26 @@ private:
     QAction *selectallAct;
     QAction *aboutAct;
     QAction *fileEncryptionAct;
-    
-	QLineEdit *nameEdit;
-	QLineEdit *emailEdit;
-	QLineEdit *commentEdit;
-	QLineEdit *passwordEdit;
-	QLineEdit *repeatpwEdit;
-	QSpinBox *keysizeSpinBox;
-	QLabel *nameLabel;
-	QLabel *emailLabel;
-	QLabel *commentLabel;
-	QLabel *keysizeLabel;
-	QLabel *passwordLabel;
-	QLabel *repeatpwLabel;
-	QLabel *errorLabel;
-	
+
+    QLineEdit *nameEdit;
+    QLineEdit *emailEdit;
+    QLineEdit *commentEdit;
+    QLineEdit *passwordEdit;
+    QLineEdit *repeatpwEdit;
+    QSpinBox *keysizeSpinBox;
+    QLabel *nameLabel;
+    QLabel *emailLabel;
+    QLabel *commentLabel;
+    QLabel *keysizeLabel;
+    QLabel *passwordLabel;
+    QLabel *repeatpwLabel;
+    QLabel *errorLabel;
+
     QString curFile;
     KeyList *mKeyList;
     Attachments *mAttachments;
     GpgME::Context *mCtx;
     QString iconPath;
-	KeyMgmt *keyMgmt;
+    KeyMgmt *keyMgmt;
 };
 

@@ -38,7 +38,7 @@ class GpgKey
 {
 public:
     GpgKey() {
-        privkey=false;
+        privkey = false;
     }
     QString id;
     QString name;
@@ -53,7 +53,7 @@ namespace GpgME
 
 class Context : public QObject
 {
- Q_OBJECT
+    Q_OBJECT
 
 public:
     Context(); // Consttructor
@@ -70,8 +70,8 @@ public:
     void clearCache();
 
 signals:
-	void keyDBChanged();
-	
+    void keyDBChanged();
+
 private:
     gpgme_ctx_t mCtx;
     gpgme_data_t in, out;

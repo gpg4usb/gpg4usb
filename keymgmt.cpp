@@ -29,11 +29,11 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
 {
     mCtx = ctx;
     mIconPath = iconpath;
-    
+
     /* the list of Keys available*/
     mKeyList = new KeyList(mCtx, mIconPath);
-    mKeyList->setColumnWidth(2,250);
-    mKeyList->setColumnWidth(3,250);
+    mKeyList->setColumnWidth(2, 250);
+    mKeyList->setColumnWidth(3, 250);
     setCentralWidget(mKeyList);
 
     createActions();
@@ -82,7 +82,7 @@ void KeyMgmt::createActions()
     deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
     deleteCheckedKeysAct->setIcon(QIcon(mIconPath + "button_cancel.png"));
     connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
-        
+
     generateKeyDialogAct = new QAction(tr("Generate Key"), this);
     generateKeyDialogAct->setToolTip(tr("Generate New Key"));
     generateKeyDialogAct->setIcon(QIcon(mIconPath + "key_generate.png"));
@@ -93,7 +93,7 @@ void KeyMgmt::createMenus()
 {
     fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(closeAct);
-    
+
     keyMenu = menuBar()->addMenu(tr("&Key"));
     keyMenu->addAction(importKeyFromFileAct);
     keyMenu->addAction(importKeyFromClipboardAct);
@@ -152,229 +152,238 @@ void KeyMgmt::deleteCheckedKeys()
 void KeyMgmt::exportKeyToFile()
 {
     QByteArray *keyArray = new QByteArray();
-	if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
-		return;
-	}
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
-	QFile file(fileName);
-	if (!file.open( QIODevice::WriteOnly |QIODevice::Text))
+    if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
         return;
-    QTextStream stream( &file );
-	stream << *keyArray;
-	file.close();
-	delete keyArray;
+    }
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+    QTextStream stream(&file);
+    stream << *keyArray;
+    file.close();
+    delete keyArray;
 }
 
 void KeyMgmt::exportKeyToClipboard()
 {
     QByteArray *keyArray = new QByteArray();
     QClipboard *cb = QApplication::clipboard();
-	if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
-		return;
-	}
+    if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
+        return;
+    }
     cb->setText(*keyArray);
-	delete keyArray;
+    delete keyArray;
 }
 
-void KeyMgmt::generateKeyDialog() 
+void KeyMgmt::generateKeyDialog()
 {
-		QStringList errorMessages;
-        genkeyDialog = new QDialog();
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QStringList errorMessages;
+    genkeyDialog = new QDialog();
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
-        genkeyDialog->setWindowTitle(tr("Generate Key"));
-        genkeyDialog->setModal(true);
+    genkeyDialog->setWindowTitle(tr("Generate Key"));
+    genkeyDialog->setModal(true);
 
-		nameLabel = new QLabel(tr("Name:"));
-		emailLabel = new QLabel(tr("E-Mailaddress::"));
-		commentLabel = new QLabel(tr("Comment:"));
-		keySizeLabel = new QLabel(tr("KeySize (in Bit):"));
-		dateLabel = new QLabel(tr("Expiration Date:"));
-		passwordLabel = new QLabel(tr("Password:"));
-		repeatpwLabel = new QLabel(tr("Repeat Password:"));
-		expireLabel = new QLabel(tr("Never Expire"));
-		pwStrengthLabel = new QLabel(tr("Password: Strength\nWeak -> Strong"));
-		errorLabel = new QLabel(tr(""));
-		nameEdit = new QLineEdit(genkeyDialog);
-		emailEdit = new QLineEdit(genkeyDialog);
-		commentEdit = new QLineEdit(genkeyDialog);
-		
-		keySizeSpinBox = new QSpinBox(genkeyDialog);
-		keySizeSpinBox->setRange(512,8192);
-		keySizeSpinBox->setValue(1024);
-		
-		keySizeSpinBox->setSingleStep(256);
+    nameLabel = new QLabel(tr("Name:"));
+    emailLabel = new QLabel(tr("E-Mailaddress::"));
+    commentLabel = new QLabel(tr("Comment:"));
+    keySizeLabel = new QLabel(tr("KeySize (in Bit):"));
+    dateLabel = new QLabel(tr("Expiration Date:"));
+    passwordLabel = new QLabel(tr("Password:"));
+    repeatpwLabel = new QLabel(tr("Repeat Password:"));
+    expireLabel = new QLabel(tr("Never Expire"));
+    pwStrengthLabel = new QLabel(tr("Password: Strength\nWeak -> Strong"));
+    errorLabel = new QLabel(tr(""));
+    nameEdit = new QLineEdit(genkeyDialog);
+    emailEdit = new QLineEdit(genkeyDialog);
+    commentEdit = new QLineEdit(genkeyDialog);
 
-		dateEdit = new QDateEdit(QDate::currentDate().addYears(5), genkeyDialog);
-		dateEdit->setMinimumDate(QDate::currentDate());
-        dateEdit->setDisplayFormat("dd/MM/yyyy");
-        dateEdit->setCalendarPopup(true);
-		dateEdit->setEnabled(false);
-		
-		expireCheckBox = new QCheckBox(genkeyDialog);
-		expireCheckBox->setCheckState(Qt::Checked);
-		
-		passwordEdit = new QLineEdit(genkeyDialog);
-		repeatpwEdit = new QLineEdit(genkeyDialog);
-		
-		passwordEdit->setEchoMode(QLineEdit::Password);
-		repeatpwEdit->setEchoMode(QLineEdit::Password);
+    keySizeSpinBox = new QSpinBox(genkeyDialog);
+    keySizeSpinBox->setRange(512, 8192);
+    keySizeSpinBox->setValue(1024);
 
-		pwStrengthSlider = new QSlider(genkeyDialog);
-   		pwStrengthSlider->setOrientation(Qt::Horizontal);
-   		pwStrengthSlider->setMaximum(6);
-  		pwStrengthSlider->setDisabled(true);
-		pwStrengthSlider->setToolTip(tr("Password Strength"));
-		pwStrengthSlider->setTickPosition(QSlider::TicksBelow);
+    keySizeSpinBox->setSingleStep(256);
 
- 		QGridLayout *vbox1 = new QGridLayout;
- 		vbox1->addWidget(nameLabel,0,0);
-        vbox1->addWidget(nameEdit,0,1);
- 		vbox1->addWidget(emailLabel,1,0);
-        vbox1->addWidget(emailEdit,1,1);
- 		vbox1->addWidget(commentLabel,2,0);
-        vbox1->addWidget(commentEdit,2,1);
-        vbox1->addWidget(dateLabel,3,0);
-        vbox1->addWidget(dateEdit,3,1);
-   		vbox1->addWidget(expireCheckBox,3,2);
-   		vbox1->addWidget(expireLabel,3,3);
- 		vbox1->addWidget(keySizeLabel,4,0);
-        vbox1->addWidget(keySizeSpinBox,4,1);
-   		vbox1->addWidget(passwordLabel,5,0);
-   		vbox1->addWidget(passwordEdit,5,1);   		
-		vbox1->addWidget(pwStrengthLabel,5,3);
-   		vbox1->addWidget(repeatpwLabel,6,0);
-   		vbox1->addWidget(repeatpwEdit,6,1);
-		vbox1->addWidget(pwStrengthSlider,6,3);
-   		
-		QWidget *nameList = new QWidget(genkeyDialog);
-		nameList->setLayout(vbox1);
+    dateEdit = new QDateEdit(QDate::currentDate().addYears(5), genkeyDialog);
+    dateEdit->setMinimumDate(QDate::currentDate());
+    dateEdit->setDisplayFormat("dd/MM/yyyy");
+    dateEdit->setCalendarPopup(true);
+    dateEdit->setEnabled(false);
 
-        QVBoxLayout *vbox2 = new QVBoxLayout();
-		vbox2->addWidget(nameList);
-        vbox2->addWidget(errorLabel);
-        vbox2->addWidget(buttonBox);
+    expireCheckBox = new QCheckBox(genkeyDialog);
+    expireCheckBox->setCheckState(Qt::Checked);
 
-        connect(buttonBox,SIGNAL(accepted()),this, SLOT(keyGenAccept()));
-        connect(buttonBox,SIGNAL(rejected()), genkeyDialog, SLOT(reject()));
+    passwordEdit = new QLineEdit(genkeyDialog);
+    repeatpwEdit = new QLineEdit(genkeyDialog);
 
-        connect(expireCheckBox,SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
-		connect(passwordEdit,SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
-        genkeyDialog->setLayout(vbox2);
-		genkeyDialog->show();
-	
-        if(genkeyDialog->exec() == QDialog::Accepted ) {
+    passwordEdit->setEchoMode(QLineEdit::Password);
+    repeatpwEdit->setEchoMode(QLineEdit::Password);
 
-		}
+    pwStrengthSlider = new QSlider(genkeyDialog);
+    pwStrengthSlider->setOrientation(Qt::Horizontal);
+    pwStrengthSlider->setMaximum(6);
+    pwStrengthSlider->setDisabled(true);
+    pwStrengthSlider->setToolTip(tr("Password Strength"));
+    pwStrengthSlider->setTickPosition(QSlider::TicksBelow);
+
+    QGridLayout *vbox1 = new QGridLayout;
+    vbox1->addWidget(nameLabel, 0, 0);
+    vbox1->addWidget(nameEdit, 0, 1);
+    vbox1->addWidget(emailLabel, 1, 0);
+    vbox1->addWidget(emailEdit, 1, 1);
+    vbox1->addWidget(commentLabel, 2, 0);
+    vbox1->addWidget(commentEdit, 2, 1);
+    vbox1->addWidget(dateLabel, 3, 0);
+    vbox1->addWidget(dateEdit, 3, 1);
+    vbox1->addWidget(expireCheckBox, 3, 2);
+    vbox1->addWidget(expireLabel, 3, 3);
+    vbox1->addWidget(keySizeLabel, 4, 0);
+    vbox1->addWidget(keySizeSpinBox, 4, 1);
+    vbox1->addWidget(passwordLabel, 5, 0);
+    vbox1->addWidget(passwordEdit, 5, 1);
+    vbox1->addWidget(pwStrengthLabel, 5, 3);
+    vbox1->addWidget(repeatpwLabel, 6, 0);
+    vbox1->addWidget(repeatpwEdit, 6, 1);
+    vbox1->addWidget(pwStrengthSlider, 6, 3);
+
+    QWidget *nameList = new QWidget(genkeyDialog);
+    nameList->setLayout(vbox1);
+
+    QVBoxLayout *vbox2 = new QVBoxLayout();
+    vbox2->addWidget(nameList);
+    vbox2->addWidget(errorLabel);
+    vbox2->addWidget(buttonBox);
+
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(keyGenAccept()));
+    connect(buttonBox, SIGNAL(rejected()), genkeyDialog, SLOT(reject()));
+
+    connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
+    connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
+    genkeyDialog->setLayout(vbox2);
+    genkeyDialog->show();
+
+    if (genkeyDialog->exec() == QDialog::Accepted) {
+
+    }
 }
 
 
 void KeyMgmt::keyGenAccept()
 {
-	
-	QString errorString="";
-    QString keyGenParams="";
+
+    QString errorString = "";
+    QString keyGenParams = "";
     /**
      * check for errors in keygen dialog input
      */
-	if ((nameEdit->text()).size() < 5 ) {
-		errorString.append("  Name must contain at least five characters.  \n");
-	}	
-	if (passwordEdit->text() != repeatpwEdit->text()) {
-		errorString.append("  Password and Repeat don't match.  ");
-	}
-	
-	
-	if (errorString.isEmpty()) { 
+    if ((nameEdit->text()).size() < 5) {
+        errorString.append("  Name must contain at least five characters.  \n");
+    }
+    if (passwordEdit->text() != repeatpwEdit->text()) {
+        errorString.append("  Password and Repeat don't match.  ");
+    }
 
-		/**
-	 	* create the string for key generation
-	 	*/
-	  	keyGenParams ="<GnupgKeyParms format=\"internal\">\n"
-    			"Key-Type: DSA\n"
-	      		"Key-Length: "
-	      		+keySizeSpinBox->cleanText()+"\n"
-	      		"Subkey-Type: ELG-E\n"
-	      		"Name-Real: "+ nameEdit->text()+"\n";
-	    if (!(commentEdit->text().isEmpty())) {
-	    	keyGenParams +="Name-Comment: "+commentEdit->text()+"\n";
-	    }
-	    if (!(emailEdit->text().isEmpty())) {
-	    	keyGenParams +="Name-Email: "+emailEdit->text()+"\n";
-	    }
-		if (expireCheckBox->checkState()) {
-	    	keyGenParams += "Expire-Date: 0\n";
-		} else {
-	    	keyGenParams += "Expire-Date: "+dateEdit->sectionText(QDateTimeEdit::YearSection)+"-"+dateEdit->sectionText(QDateTimeEdit::MonthSection)+"-"+dateEdit->sectionText(QDateTimeEdit::DaySection)+"\n"
-	    			"Passphrase: "+passwordEdit->text()+"\n";
-	    }
-	    keyGenParams +=	"</GnupgKeyParms>";
 
-		KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
-		kg->start();
-		
-		genkeyDialog->accept();
+    if (errorString.isEmpty()) {
 
-		QDialog *dialog = new QDialog(this, Qt::CustomizeWindowHint | Qt::WindowTitleHint);
-		dialog->setModal(true);
-		dialog->setWindowTitle(tr("Generating Key..."));
-		
-		QLabel *waitMessage = new QLabel(tr("Collecting random data for key generation.\n This may take a while.\n To speed up the process use your computer\n (e.g. browse the net, listen to music,...)"));
-		QProgressBar *pb = new QProgressBar();
-		pb->setRange(0,0);
-		
-		QVBoxLayout *layout = new QVBoxLayout(dialog);
-		layout->addWidget(waitMessage);
-		layout->addWidget(pb);
-		dialog->setLayout(layout);
-		
-		dialog->show();
-		
-		while(kg->isRunning())
-		{
-			QCoreApplication::processEvents();
-		}
+        /**
+         * create the string for key generation
+         */
+        keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
+                       "Key-Type: DSA\n"
+                       "Key-Length: "
+                       + keySizeSpinBox->cleanText() + "\n"
+                       "Subkey-Type: ELG-E\n"
+                       "Name-Real: " + nameEdit->text() + "\n";
+        if (!(commentEdit->text().isEmpty())) {
+            keyGenParams += "Name-Comment: " + commentEdit->text() + "\n";
+        }
+        if (!(emailEdit->text().isEmpty())) {
+            keyGenParams += "Name-Email: " + emailEdit->text() + "\n";
+        }
+        if (expireCheckBox->checkState()) {
+            keyGenParams += "Expire-Date: 0\n";
+        } else {
+            keyGenParams += "Expire-Date: " + dateEdit->sectionText(QDateTimeEdit::YearSection) + "-" + dateEdit->sectionText(QDateTimeEdit::MonthSection) + "-" + dateEdit->sectionText(QDateTimeEdit::DaySection) + "\n"
+                            "Passphrase: " + passwordEdit->text() + "\n";
+        }
+        keyGenParams += "</GnupgKeyParms>";
 
-		dialog->close();
-	} else {
+        KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
+        kg->start();
 
-		/**
-	 	* create error message
-	 	*/
-   		errorLabel->setAutoFillBackground(true);
-   		QPalette error = errorLabel->palette();
-   		error.setColor(QPalette::Background, "#ff8080");
-   		errorLabel->setPalette(error);
-		errorLabel->setText(errorString);
+        genkeyDialog->accept();
 
-		genkeyDialog->show();
-	}
+        QDialog *dialog = new QDialog(this, Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+        dialog->setModal(true);
+        dialog->setWindowTitle(tr("Generating Key..."));
+
+        QLabel *waitMessage = new QLabel(tr("Collecting random data for key generation.\n This may take a while.\n To speed up the process use your computer\n (e.g. browse the net, listen to music,...)"));
+        QProgressBar *pb = new QProgressBar();
+        pb->setRange(0, 0);
+
+        QVBoxLayout *layout = new QVBoxLayout(dialog);
+        layout->addWidget(waitMessage);
+        layout->addWidget(pb);
+        dialog->setLayout(layout);
+
+        dialog->show();
+
+        while (kg->isRunning()) {
+            QCoreApplication::processEvents();
+        }
+
+        dialog->close();
+    } else {
+
+        /**
+         * create error message
+         */
+        errorLabel->setAutoFillBackground(true);
+        QPalette error = errorLabel->palette();
+        error.setColor(QPalette::Background, "#ff8080");
+        errorLabel->setPalette(error);
+        errorLabel->setText(errorString);
+
+        genkeyDialog->show();
+    }
 }
 
 void KeyMgmt::expireBoxChanged()
 {
-	if (expireCheckBox->checkState()) {
-		dateEdit->setEnabled(false);
-	} else {
-		dateEdit->setEnabled(true);
-	}
-	
+    if (expireCheckBox->checkState()) {
+        dateEdit->setEnabled(false);
+    } else {
+        dateEdit->setEnabled(true);
+    }
+
 }
 
 void KeyMgmt::passwordEditChanged()
 {
-	pwStrengthSlider->setValue(checkPassWordStrength());
-	update();
+    pwStrengthSlider->setValue(checkPassWordStrength());
+    update();
 }
 
 int KeyMgmt::checkPassWordStrength()
 {
-	int strength=0;
-	if ((passwordEdit->text()).length() > 7) { strength=strength+2; }
-	if ((passwordEdit->text()).contains(QRegExp("\\d"))) { strength++; }
-	if ((passwordEdit->text()).contains(QRegExp("[a-z]"))) { strength++; }
-	if ((passwordEdit->text()).contains(QRegExp("[A-Z]"))) { strength++; }
-	if ((passwordEdit->text()).contains(QRegExp("\\W"))) { strength++; }
-	
-	return strength;
+    int strength = 0;
+    if ((passwordEdit->text()).length() > 7) {
+        strength = strength + 2;
+    }
+    if ((passwordEdit->text()).contains(QRegExp("\\d"))) {
+        strength++;
+    }
+    if ((passwordEdit->text()).contains(QRegExp("[a-z]"))) {
+        strength++;
+    }
+    if ((passwordEdit->text()).contains(QRegExp("[A-Z]"))) {
+        strength++;
+    }
+    if ((passwordEdit->text()).contains(QRegExp("\\W"))) {
+        strength++;
+    }
+
+    return strength;
 }

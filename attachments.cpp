@@ -82,7 +82,7 @@ void Attachments::addFile()
 
     QStringList fileNames;
     if (dialog.exec())
-       fileNames = dialog.selectedFiles();
+        fileNames = dialog.selectedFiles();
 
     //foreach(QString tmp, fileNames) qDebug() << tmp;
     m_attachmentList->addItems(fileNames);
@@ -108,25 +108,25 @@ void Attachments::encryptFile()
         //qDebug() << "buffsize: " << inBuffer.size();
 
         if (m_ctx->encrypt(uidList, inBuffer, outBuffer)) {
-          //qDebug() << "inb: " << inBuffer.toHex();
-          //qDebug() << "outb: " << outBuffer->data();
-          QString outFilename = QFileDialog::getSaveFileName(this);
-          if (outFilename.isEmpty()) {
-            qDebug() << "need Filename";
-            return;
-          }
+            //qDebug() << "inb: " << inBuffer.toHex();
+            //qDebug() << "outb: " << outBuffer->data();
+            QString outFilename = QFileDialog::getSaveFileName(this);
+            if (outFilename.isEmpty()) {
+                qDebug() << "need Filename";
+                return;
+            }
 
-          QFile outfile(outFilename);
-          if (!outfile.open(QFile::WriteOnly)) {
-            QMessageBox::warning(this, tr("File"),
-                                 tr("Cannot write file %1:\n%2.")
-                                 .arg(outFilename)
-                                 .arg(outfile.errorString()));
-            return;
-          }
+            QFile outfile(outFilename);
+            if (!outfile.open(QFile::WriteOnly)) {
+                QMessageBox::warning(this, tr("File"),
+                                     tr("Cannot write file %1:\n%2.")
+                                     .arg(outFilename)
+                                     .arg(outfile.errorString()));
+                return;
+            }
 
-          QTextStream out(&outfile);
-          out << outBuffer->data();
+            QTextStream out(&outfile);
+            out << outBuffer->data();
         }
     }
 }
@@ -134,38 +134,38 @@ void Attachments::encryptFile()
 void Attachments::decryptFile()
 {
     qDebug() << "dec";
-    foreach(QString inFilename, *(getSelected())){
-      qDebug() << inFilename;
+    foreach(QString inFilename, *(getSelected())) {
+        qDebug() << inFilename;
 
-      QFile infile;
-      infile.setFileName(inFilename);
-      if (!infile.open(QIODevice::ReadOnly)) {
-        qDebug() << tr("couldn't open file: ") + inFilename;
-      }
+        QFile infile;
+        infile.setFileName(inFilename);
+        if (!infile.open(QIODevice::ReadOnly)) {
+            qDebug() << tr("couldn't open file: ") + inFilename;
+        }
 
-      QByteArray inBuffer = infile.readAll();
-      QByteArray *outBuffer = new QByteArray();
-      m_ctx->decrypt(inBuffer, outBuffer);
+        QByteArray inBuffer = infile.readAll();
+        QByteArray *outBuffer = new QByteArray();
+        m_ctx->decrypt(inBuffer, outBuffer);
 
-      QString outFilename = QFileDialog::getSaveFileName(this);
-      if (outFilename.isEmpty()) {
-        qDebug() << "need Filename";
-        return;
-      }
+        QString outFilename = QFileDialog::getSaveFileName(this);
+        if (outFilename.isEmpty()) {
+            qDebug() << "need Filename";
+            return;
+        }
 
-      QFile outfile(outFilename);
-      if (!outfile.open(QFile::WriteOnly)) {
-        QMessageBox::warning(this, tr("File"),
-                             tr("Cannot write file %1:\n%2.")
-                             .arg(outFilename)
-                             .arg(outfile.errorString()));
-        return;
-      }
+        QFile outfile(outFilename);
+        if (!outfile.open(QFile::WriteOnly)) {
+            QMessageBox::warning(this, tr("File"),
+                                 tr("Cannot write file %1:\n%2.")
+                                 .arg(outFilename)
+                                 .arg(outfile.errorString()));
+            return;
+        }
 
-      QDataStream out(&outfile);
-      //out << outBuffer;
-      out.writeRawData(outBuffer->data(), outBuffer->length());
-      //qDebug() << "outb: " << outBuffer->toHex();
+        QDataStream out(&outfile);
+        //out << outBuffer;
+        out.writeRawData(outBuffer->data(), outBuffer->length());
+        //qDebug() << "outb: " << outBuffer->toHex();
 
     }
 

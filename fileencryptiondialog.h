@@ -12,21 +12,21 @@ class FileEncryptionDialog : public QDialog
 public:
     FileEncryptionDialog(GpgME::Context *ctx, QString iconPath);
 
-public slots:    
-   void selectInputFile();
-   void selectOutputFile();
-   void executeAction();
-   void hideKeyList();
-   void showKeyList();
+public slots:
+    void selectInputFile();
+    void selectOutputFile();
+    void executeAction();
+    void hideKeyList();
+    void showKeyList();
 
 private:
     QLineEdit *outputFileEdit;
     QLineEdit *inputFileEdit;
     QRadioButton *radioEnc;
     QRadioButton *radioDec;
-    
+
 protected:
-	GpgME::Context *mCtx;
-	KeyList *mKeyList;
+    GpgME::Context *mCtx;
+    KeyList *mKeyList;
 
 };

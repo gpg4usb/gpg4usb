@@ -103,14 +103,14 @@ void GpgWin::createActions()
     cutAct->setIcon(QIcon(iconPath + "button_cut.png"));
     cutAct->setShortcut(tr("Ctrl+X"));
     cutAct->setToolTip(tr("Cut the current selection's contents to the "
-                            "clipboard"));
+                          "clipboard"));
     connect(cutAct, SIGNAL(triggered()), edit, SLOT(cut()));
 
     copyAct = new QAction(tr("&Copy"), this);
     copyAct->setIcon(QIcon(iconPath + "button_copy.png"));
     copyAct->setShortcut(tr("Ctrl+C"));
     copyAct->setToolTip(tr("Copy the current selection's contents to the "
-                             "clipboard"));
+                           "clipboard"));
     connect(copyAct, SIGNAL(triggered()), edit, SLOT(copy()));
 
     selectallAct = new QAction(tr("Select &All"), this);
@@ -133,13 +133,13 @@ void GpgWin::createActions()
     decryptAct->setToolTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
-    fileEncryptionAct = new QAction(tr("&File Encryption"), this); 
+    fileEncryptionAct = new QAction(tr("&File Encryption"), this);
     fileEncryptionAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
     fileEncryptionAct->setToolTip(tr("Encrypt/Decrypt File"));
     connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(fileEncryption()));
 
-	/** Key Menu
-	 */
+    /** Key Menu
+     */
     importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(iconPath + "misc_doc.png"));
     importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
@@ -164,7 +164,7 @@ void GpgWin::createActions()
     importKeyDialogAct->setIcon(QIcon(iconPath + "key_import.png"));
     importKeyDialogAct->setToolTip(tr("Open Import New Key Dialog"));
     connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
-    
+
     /** About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
@@ -205,7 +205,7 @@ void GpgWin::createMenus()
     cryptMenu->addSeparator();
     cryptMenu->addAction(fileEncryptionAct);
 
-	keyMenu = menuBar()->addMenu(tr("&Keys"));
+    keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
     importKeyMenu->setIcon(QIcon(iconPath + "key_import.png"));
     importKeyMenu->addAction(importKeyFromFileAct);
@@ -241,7 +241,7 @@ void GpgWin::createStatusBar()
 void GpgWin::createDockWindows()
 {
     QDockWidget *dock = new QDockWidget(tr("Encrypt for:"), this);
-    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
+    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     addDockWidget(Qt::RightDockWidgetArea, dock);
     dock->setWidget(mKeyList);
 
@@ -381,19 +381,19 @@ void GpgWin::about()
 {
     QMessageBox::about(this, tr("About ") + qApp->applicationName(),
                        "<center><h2>" + qApp->applicationName() + " "
-                       + qApp->applicationVersion() +"</h2></center>"
-                       +tr("<center>This Application allows you to do simple<br>"
-                           "encryption/decryption of your text-files.<br>"
-                           "It's licensed under the GPL v2.0<br><br>"
-                           "<b>Developer:</b><br>"
-                           "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
-                           "If you have any questions and/or<br>"
-                           "suggestions, contact us at<br>"
-                           "gpg4usb at cpunk.de</a><br><br>"
-                           "or feel free to meet us in our channel at<br>"
-                           "gpg4usb at conference.jabber.ccc.de<br><br>"
-                           "and always remember:<br>"
-                           "cpunk is NOT a bot...</center>"));
+                       + qApp->applicationVersion() + "</h2></center>"
+                       + tr("<center>This Application allows you to do simple<br>"
+                            "encryption/decryption of your text-files.<br>"
+                            "It's licensed under the GPL v2.0<br><br>"
+                            "<b>Developer:</b><br>"
+                            "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
+                            "If you have any questions and/or<br>"
+                            "suggestions, contact us at<br>"
+                            "gpg4usb at cpunk.de</a><br><br>"
+                            "or feel free to meet us in our channel at<br>"
+                            "gpg4usb at conference.jabber.ccc.de<br><br>"
+                            "and always remember:<br>"
+                            "cpunk is NOT a bot...</center>"));
 }
 
 void GpgWin::encrypt()
@@ -428,7 +428,7 @@ void GpgWin::decrypt()
 void GpgWin::preventNoDataErr(QByteArray *in)
 {
     int block_start = in->indexOf("-----BEGIN PGP MESSAGE-----");
-    if(block_start > 0 && in->at(block_start - 1) != '\n') {
+    if (block_start > 0 && in->at(block_start - 1) != '\n') {
         in->insert(block_start, '\n');
     }
 }
@@ -448,7 +448,7 @@ void GpgWin::importKeyFromFile()
 {
     QFile file;
     QByteArray inBuffer;
-    
+
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
     if (! fileName.isNull()) {
         file.setFileName(fileName);
@@ -461,52 +461,54 @@ void GpgWin::importKeyFromFile()
 }
 
 
-void GpgWin::openKeyManagement() {
-    if(!keyMgmt) {
-		keyMgmt = new KeyMgmt(mCtx, iconPath);
-		keyMgmt->resize(800,400);
-	}
+void GpgWin::openKeyManagement()
+{
+    if (!keyMgmt) {
+        keyMgmt = new KeyMgmt(mCtx, iconPath);
+        keyMgmt->resize(800, 400);
+    }
     keyMgmt->show();
-	keyMgmt->raise();
-	keyMgmt->activateWindow();
+    keyMgmt->raise();
+    keyMgmt->activateWindow();
 }
 
-void GpgWin::importKeyDialog() {
+void GpgWin::importKeyDialog()
+{
 
-        QDialog *dialog = new QDialog();
+    QDialog *dialog = new QDialog();
 
-        dialog->setWindowTitle(tr("Import Key"));
-        dialog->setModal(true);
+    dialog->setWindowTitle(tr("Import Key"));
+    dialog->setModal(true);
 
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
-        connect(buttonBox,SIGNAL(accepted()),dialog, SLOT(accept()));
-        connect(buttonBox,SIGNAL(rejected()), dialog, SLOT(reject()));
+    connect(buttonBox, SIGNAL(accepted()), dialog, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), dialog, SLOT(reject()));
 
-        QGroupBox *groupBox = new QGroupBox(tr("Import Key From..."));
-        QRadioButton *radio1 = new QRadioButton(tr("&File"));
-        QRadioButton *radio2 = new QRadioButton(tr("&Editor"));
-        QRadioButton *radio3 = new QRadioButton(tr("&Clipboard"));
-        radio1->setChecked(true);
+    QGroupBox *groupBox = new QGroupBox(tr("Import Key From..."));
+    QRadioButton *radio1 = new QRadioButton(tr("&File"));
+    QRadioButton *radio2 = new QRadioButton(tr("&Editor"));
+    QRadioButton *radio3 = new QRadioButton(tr("&Clipboard"));
+    radio1->setChecked(true);
 
-        QVBoxLayout *vbox1 = new QVBoxLayout();
-        vbox1->addWidget(radio1);
-        vbox1->addWidget(radio2);
-        vbox1->addWidget(radio3);
+    QVBoxLayout *vbox1 = new QVBoxLayout();
+    vbox1->addWidget(radio1);
+    vbox1->addWidget(radio2);
+    vbox1->addWidget(radio3);
 
-        groupBox->setLayout(vbox1);
+    groupBox->setLayout(vbox1);
 
-        QVBoxLayout *vbox2 = new QVBoxLayout();
-        vbox2->addWidget(groupBox);
-        vbox2->addWidget(buttonBox);
+    QVBoxLayout *vbox2 = new QVBoxLayout();
+    vbox2->addWidget(groupBox);
+    vbox2->addWidget(buttonBox);
 
-        dialog->setLayout(vbox2);
+    dialog->setLayout(vbox2);
 
-        if(dialog->exec() == QDialog::Accepted ) {
-            if (radio1->isChecked()) importKeyFromFile();
-            if (radio2->isChecked()) importKeyFromEdit();
-            if (radio3->isChecked()) importKeyFromClipboard();
-        }
+    if (dialog->exec() == QDialog::Accepted) {
+        if (radio1->isChecked()) importKeyFromFile();
+        if (radio2->isChecked()) importKeyFromEdit();
+        if (radio3->isChecked()) importKeyFromClipboard();
+    }
 
 }
 
@@ -530,8 +532,9 @@ void GpgWin::appendSelectedKeys()
 }
 
 
-void GpgWin::fileEncryption() {
-  
+void GpgWin::fileEncryption()
+{
+
     new FileEncryptionDialog(mCtx, iconPath);
-    
+
 }

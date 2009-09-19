@@ -21,7 +21,7 @@
 
 #include "keylist.h"
 
-KeyList::KeyList(GpgME::Context* ctx, QString iconpath, QWidget *parent)
+KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
         : QWidget(parent)
 {
     mCtx = ctx;
@@ -33,7 +33,7 @@ KeyList::KeyList(GpgME::Context* ctx, QString iconpath, QWidget *parent)
     mKeyList->setShowGrid(false);
     mKeyList->setColumnWidth(0, 24);
     mKeyList->setColumnWidth(1, 20);
-    mKeyList->sortByColumn(2,Qt::AscendingOrder);
+    mKeyList->sortByColumn(2, Qt::AscendingOrder);
     mKeyList->setSelectionBehavior(QAbstractItemView::SelectRows);
     mKeyList->setColumnHidden(4, true);
     // tableitems not editable
@@ -56,7 +56,7 @@ KeyList::KeyList(GpgME::Context* ctx, QString iconpath, QWidget *parent)
     setLayout(layout);
 
     popupMenu = new QMenu(this);
-	connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
+    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
     refresh();
 }
 
@@ -69,7 +69,7 @@ void KeyList::refresh()
     GpgKeyList keys = mCtx->listKeys();
     mKeyList->setRowCount(keys.size());
 
-    int row=0;
+    int row = 0;
     GpgKeyList::iterator it = keys.begin();
     while (it != keys.end()) {
 
@@ -78,8 +78,8 @@ void KeyList::refresh()
         tmp0->setCheckState(Qt::Unchecked);
         mKeyList->setItem(row, 0, tmp0);
 
-        if(it->privkey) {
-            QTableWidgetItem *tmp1 = new QTableWidgetItem(QIcon(iconPath + "kgpg_key2.png"),"");
+        if (it->privkey) {
+            QTableWidgetItem *tmp1 = new QTableWidgetItem(QIcon(iconPath + "kgpg_key2.png"), "");
             mKeyList->setItem(row, 1, tmp1);
         }
         QTableWidgetItem *tmp2 = new QTableWidgetItem(it->name);
@@ -101,8 +101,8 @@ QList<QString> *KeyList::getChecked()
 {
     QList<QString> *ret = new QList<QString>();
     for (int i = 0; i < mKeyList->rowCount(); i++) {
-        if (mKeyList->item(i,0)->checkState() == Qt::Checked) {
-            *ret << mKeyList->item(i,4)->text();
+        if (mKeyList->item(i, 0)->checkState() == Qt::Checked) {
+            *ret << mKeyList->item(i, 4)->text();
         }
     }
     return ret;
@@ -113,8 +113,8 @@ QList<QString> *KeyList::getSelected()
     QList<QString> *ret = new QList<QString>();
 
     for (int i = 0; i < mKeyList->rowCount(); i++) {
-        if (mKeyList->item(i,0)->isSelected() == 1) {
-            *ret << mKeyList->item(i,4)->text();
+        if (mKeyList->item(i, 0)->isSelected() == 1) {
+            *ret << mKeyList->item(i, 4)->text();
         }
     }
     return ret;

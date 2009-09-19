@@ -42,13 +42,13 @@ public:
     void setColumnWidth(int row, int size);
     void addMenuAction(QAction *act);
 
-    KeyList(GpgME::Context* ctx, QString iconpath, QWidget *parent = 0);
+    KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent = 0);
     QList<QString> *getChecked();
     QList<QString> *getSelected();
 
 public slots:
     void refresh();
-    
+
 private:
     GpgME::Context *mCtx;
     QTableWidget *mKeyList;

@@ -25,12 +25,12 @@
 
 KeyGenThread::KeyGenThread(QString keyGenParams, GpgME::Context *ctx)
 {
-	this->keyGenParams=keyGenParams;
-	this->ctx=ctx;
-	abort=false;
+    this->keyGenParams = keyGenParams;
+    this->ctx = ctx;
+    abort = false;
 }
 
 void KeyGenThread::run()
 {
-	ctx->generateKey(&keyGenParams); 
+    ctx->generateKey(&keyGenParams);
 }
