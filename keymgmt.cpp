@@ -54,22 +54,22 @@ void KeyMgmt::createActions()
     closeAct->setToolTip(tr("Close Key Management"));
     connect(closeAct, SIGNAL(triggered()), this, SLOT(close()));
 
-    importKeyFromFileAct = new QAction(tr("Import Key From &File"), this);
+    importKeyFromFileAct = new QAction(tr("Import From &File"), this);
     importKeyFromFileAct->setIcon(QIcon(mIconPath + "import_key_from_file.png"));
     importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
-    importKeyFromClipboardAct = new QAction(tr("Import Key From &Clipboard"), this);
+    importKeyFromClipboardAct = new QAction(tr("Import From &Clipboard"), this);
     importKeyFromClipboardAct->setIcon(QIcon(mIconPath + "import_key_from_clipboard.png"));
     importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
-    exportKeyToClipboardAct = new QAction(tr("Export Key To &Clipboard"), this);
+    exportKeyToClipboardAct = new QAction(tr("Export To &Clipboard"), this);
     exportKeyToClipboardAct->setIcon(QIcon(mIconPath + "export_key_to_clipbaord.png"));
     exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
     connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
 
-    exportKeyToFileAct = new QAction(tr("Export Key To &File"), this);
+    exportKeyToFileAct = new QAction(tr("Export To &File"), this);
     exportKeyToFileAct->setIcon(QIcon(mIconPath + "export_key_to_file.png"));
     exportKeyToFileAct->setToolTip(tr("Export Selected Key(s) To File"));
     connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(exportKeyToFile()));
@@ -111,8 +111,6 @@ void KeyMgmt::createToolBars()
     QToolBar *keyToolBar = addToolBar(tr("Crypt"));
     keyToolBar->addAction(importKeyFromFileAct);
     keyToolBar->addAction(importKeyFromClipboardAct);
-    keyToolBar->addSeparator();
-    keyToolBar->addAction(generateKeyDialogAct);
     keyToolBar->addSeparator();
     keyToolBar->addAction(deleteCheckedKeysAct);
     keyToolBar->addSeparator();
