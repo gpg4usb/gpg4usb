@@ -25,6 +25,7 @@
 GpgWin::GpgWin()
 {
     mCtx = new GpgME::Context();
+    keyMgmt = NULL;  // initialized on first key-management-window open
 
     /* get path were app was started */
     QString appPath = qApp->applicationDirPath();
