@@ -33,13 +33,13 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
     inputFileEdit = new QLineEdit();
     QPushButton *fb1 = new QPushButton(tr("..."));
     connect(fb1, SIGNAL(clicked()), this, SLOT(selectInputFile()));
-    QLabel *fl1 = new QLabel("Input");
+    QLabel *fl1 = new QLabel(tr("Input"));
     fl1->setBuddy(inputFileEdit);
 
     outputFileEdit = new QLineEdit();
     QPushButton *fb2 = new QPushButton(tr("..."));
     connect(fb2, SIGNAL(clicked()), this, SLOT(selectOutputFile()));
-    QLabel *fl2 = new QLabel("Output");
+    QLabel *fl2 = new QLabel(tr("Output"));
     fl2->setBuddy(outputFileEdit);
 
     QGridLayout *gLayout = new QGridLayout();

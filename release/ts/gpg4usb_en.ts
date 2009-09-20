@@ -26,6 +26,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../fileencryptiondialog.cpp" line="36"/>
+        <source>Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileencryptiondialog.cpp" line="42"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../fileencryptiondialog.cpp" line="60"/>
         <source>&amp;Encrypt</source>
         <translation type="unfinished"></translation>
@@ -60,387 +70,377 @@
 <context>
     <name>GpgWin</name>
     <message>
-        <location filename="../../gpgwin.cpp" line="65"/>
+        <location filename="../../gpgwin.cpp" line="66"/>
         <source>&amp;Open...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="67"/>
+        <location filename="../../gpgwin.cpp" line="68"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="68"/>
+        <location filename="../../gpgwin.cpp" line="69"/>
         <source>Open an existing file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="71"/>
+        <location filename="../../gpgwin.cpp" line="72"/>
         <source>&amp;Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="73"/>
+        <location filename="../../gpgwin.cpp" line="74"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="74"/>
+        <location filename="../../gpgwin.cpp" line="75"/>
         <source>Save the current File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="77"/>
+        <location filename="../../gpgwin.cpp" line="78"/>
         <source>Save &amp;As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="118"/>
+        <location filename="../../gpgwin.cpp" line="119"/>
         <source>Ctrl+A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="79"/>
+        <location filename="../../gpgwin.cpp" line="80"/>
         <source>Save the current File as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="82"/>
+        <location filename="../../gpgwin.cpp" line="83"/>
         <source>&amp;Print</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="84"/>
+        <location filename="../../gpgwin.cpp" line="85"/>
         <source>Ctrl+P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="85"/>
+        <location filename="../../gpgwin.cpp" line="86"/>
         <source>Print Document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="88"/>
+        <location filename="../../gpgwin.cpp" line="89"/>
         <source>&amp;Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="89"/>
+        <location filename="../../gpgwin.cpp" line="90"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="91"/>
+        <location filename="../../gpgwin.cpp" line="92"/>
         <source>Quit Program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="96"/>
+        <location filename="../../gpgwin.cpp" line="97"/>
         <source>&amp;Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="98"/>
+        <location filename="../../gpgwin.cpp" line="99"/>
         <source>Ctrl+V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="99"/>
+        <location filename="../../gpgwin.cpp" line="100"/>
         <source>Paste Text From Clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="102"/>
+        <location filename="../../gpgwin.cpp" line="103"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="104"/>
+        <location filename="../../gpgwin.cpp" line="105"/>
         <source>Ctrl+X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="105"/>
+        <location filename="../../gpgwin.cpp" line="106"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="109"/>
+        <location filename="../../gpgwin.cpp" line="110"/>
         <source>&amp;Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="111"/>
+        <location filename="../../gpgwin.cpp" line="112"/>
         <source>Ctrl+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="112"/>
+        <location filename="../../gpgwin.cpp" line="113"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="116"/>
+        <location filename="../../gpgwin.cpp" line="117"/>
         <source>Select &amp;All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="119"/>
+        <location filename="../../gpgwin.cpp" line="120"/>
         <source>Select the whole text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="124"/>
+        <location filename="../../gpgwin.cpp" line="125"/>
         <source>&amp;Encrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="126"/>
+        <location filename="../../gpgwin.cpp" line="127"/>
         <source>Ctrl+E</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="127"/>
+        <location filename="../../gpgwin.cpp" line="128"/>
         <source>Encrypt Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="130"/>
+        <location filename="../../gpgwin.cpp" line="131"/>
         <source>&amp;Decrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="132"/>
+        <location filename="../../gpgwin.cpp" line="133"/>
         <source>Ctrl+D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="133"/>
+        <location filename="../../gpgwin.cpp" line="134"/>
         <source>Decrypt Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="136"/>
+        <location filename="../../gpgwin.cpp" line="137"/>
         <source>&amp;File Encryption</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="138"/>
+        <location filename="../../gpgwin.cpp" line="139"/>
         <source>Encrypt/Decrypt File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="145"/>
+        <location filename="../../gpgwin.cpp" line="146"/>
         <source>Import New Key From File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="150"/>
+        <location filename="../../gpgwin.cpp" line="151"/>
         <source>Import New Key From Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="158"/>
+        <location filename="../../gpgwin.cpp" line="159"/>
         <source>Key Management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="160"/>
+        <location filename="../../gpgwin.cpp" line="161"/>
         <source>Open Keymanagement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="165"/>
+        <location filename="../../gpgwin.cpp" line="166"/>
         <source>Open Import New Key Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="170"/>
+        <location filename="../../gpgwin.cpp" line="171"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="172"/>
+        <location filename="../../gpgwin.cpp" line="173"/>
         <source>Show the application&apos;s About box</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="143"/>
-        <location filename="../../gpgwin.cpp" line="188"/>
-        <location filename="../../gpgwin.cpp" line="489"/>
+        <location filename="../../gpgwin.cpp" line="144"/>
+        <location filename="../../gpgwin.cpp" line="189"/>
+        <location filename="../../gpgwin.cpp" line="490"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="196"/>
+        <location filename="../../gpgwin.cpp" line="197"/>
         <source>&amp;Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="215"/>
+        <location filename="../../gpgwin.cpp" line="216"/>
         <source>&amp;Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="350"/>
+        <location filename="../../gpgwin.cpp" line="351"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="230"/>
+        <location filename="../../gpgwin.cpp" line="231"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="177"/>
-        <source>Delete Selected Key(s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="178"/>
-        <source>Delete The Selected Keys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="181"/>
+        <location filename="../../gpgwin.cpp" line="182"/>
         <source>Append Selected Key(s) To Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="182"/>
+        <location filename="../../gpgwin.cpp" line="183"/>
         <source>Append The Selected Keys To Text in Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="208"/>
+        <location filename="../../gpgwin.cpp" line="209"/>
         <source>&amp;Keys</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="209"/>
+        <location filename="../../gpgwin.cpp" line="210"/>
         <source>&amp;Import Key From...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="226"/>
+        <location filename="../../gpgwin.cpp" line="227"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="238"/>
-        <location filename="../../gpgwin.cpp" line="376"/>
+        <location filename="../../gpgwin.cpp" line="239"/>
+        <location filename="../../gpgwin.cpp" line="377"/>
         <source>Ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="243"/>
+        <location filename="../../gpgwin.cpp" line="244"/>
         <source>Encrypt for:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="295"/>
-        <location filename="../../gpgwin.cpp" line="335"/>
+        <location filename="../../gpgwin.cpp" line="296"/>
+        <location filename="../../gpgwin.cpp" line="336"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="296"/>
+        <location filename="../../gpgwin.cpp" line="297"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="308"/>
+        <location filename="../../gpgwin.cpp" line="309"/>
         <source>File loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="319"/>
+        <location filename="../../gpgwin.cpp" line="320"/>
         <source>untitled.txt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="323"/>
+        <location filename="../../gpgwin.cpp" line="324"/>
         <source>%1[*] - %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="336"/>
+        <location filename="../../gpgwin.cpp" line="337"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="351"/>
+        <location filename="../../gpgwin.cpp" line="352"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="360"/>
+        <location filename="../../gpgwin.cpp" line="361"/>
         <source>Saved &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="385"/>
+        <location filename="../../gpgwin.cpp" line="386"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our channel at&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;br&gt;&lt;br&gt;and always remember:&lt;br&gt;cpunk is NOT a bot...&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="452"/>
+        <location filename="../../gpgwin.cpp" line="453"/>
         <source>Open Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="452"/>
+        <location filename="../../gpgwin.cpp" line="453"/>
         <source>Key Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="456"/>
+        <location filename="../../gpgwin.cpp" line="457"/>
         <source>couldn&apos;t open file: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="148"/>
-        <location filename="../../gpgwin.cpp" line="490"/>
+        <location filename="../../gpgwin.cpp" line="149"/>
+        <location filename="../../gpgwin.cpp" line="491"/>
         <source>&amp;Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="153"/>
-        <location filename="../../gpgwin.cpp" line="491"/>
+        <location filename="../../gpgwin.cpp" line="154"/>
+        <location filename="../../gpgwin.cpp" line="492"/>
         <source>&amp;Clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="155"/>
+        <location filename="../../gpgwin.cpp" line="156"/>
         <source>Import New Key From Clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="163"/>
-        <location filename="../../gpgwin.cpp" line="480"/>
+        <location filename="../../gpgwin.cpp" line="164"/>
+        <location filename="../../gpgwin.cpp" line="481"/>
         <source>Import Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="202"/>
+        <location filename="../../gpgwin.cpp" line="203"/>
         <source>&amp;Crypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="221"/>
+        <location filename="../../gpgwin.cpp" line="222"/>
         <source>Crypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="382"/>
+        <location filename="../../gpgwin.cpp" line="383"/>
         <source>About </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="488"/>
+        <location filename="../../gpgwin.cpp" line="489"/>
         <source>Import Key From...</source>
         <translation type="unfinished"></translation>
     </message>
