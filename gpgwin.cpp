@@ -450,7 +450,7 @@ void GpgWin::importKeyFromFile()
     QFile file;
     QByteArray inBuffer;
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*)");
     if (! fileName.isNull()) {
         file.setFileName(fileName);
         if (!file.open(QIODevice::ReadOnly)) {

@@ -82,7 +82,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
 
 void FileEncryptionDialog::selectInputFile()
 {
-    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Files") + "All Files (*.*)");
+    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Files") + "All Files (*)");
     inputFileEdit->insert(infileName);
 }
 

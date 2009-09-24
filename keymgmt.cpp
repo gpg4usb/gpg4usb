@@ -120,7 +120,7 @@ void KeyMgmt::createToolBars()
 
 void KeyMgmt::importKeyFromFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*)");
     if (! fileName.isNull()) {
         QFile file;
         file.setFileName(fileName);
@@ -155,7 +155,7 @@ void KeyMgmt::exportKeyToFile()
     if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
         return;
     }
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*)");
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
