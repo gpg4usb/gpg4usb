@@ -305,10 +305,12 @@ void KeyMgmt::keyGenAccept()
         if (expireCheckBox->checkState()) {
             keyGenParams += "Expire-Date: 0\n";
         } else {
-            keyGenParams += "Expire-Date: " + dateEdit->sectionText(QDateTimeEdit::YearSection) + "-" + dateEdit->sectionText(QDateTimeEdit::MonthSection) + "-" + dateEdit->sectionText(QDateTimeEdit::DaySection) + "\n"
-                            "Passphrase: " + passwordEdit->text() + "\n";
+            keyGenParams += "Expire-Date: " + dateEdit->sectionText(QDateTimeEdit::YearSection) + "-" + dateEdit->sectionText(QDateTimeEdit::MonthSection) + "-" + dateEdit->sectionText(QDateTimeEdit::DaySection) + "\n";
         }
-        keyGenParams += "</GnupgKeyParms>";
+        if (!(passwordEdit->text().isEmpty())) {
+            keyGenParams += "Passphrase: " + passwordEdit->text() + "\n";
+        }
+                keyGenParams += "</GnupgKeyParms>";
 
         KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
         kg->start();
