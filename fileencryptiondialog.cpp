@@ -84,15 +84,15 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
     radioDec->setChecked(true);
 
     QHBoxLayout *hbox1 = new QHBoxLayout();
-    hbox1->addWidget(radioEnc);
     hbox1->addWidget(radioDec);
+    hbox1->addWidget(radioEnc);
 
     groupBox1->setLayout(gLayout);
     groupBox3->setLayout(hbox1);
 
     QVBoxLayout *vbox2 = new QVBoxLayout();
-    vbox2->addWidget(groupBox1);
     vbox2->addWidget(groupBox3);
+    vbox2->addWidget(groupBox1);
     vbox2->addWidget(mKeyList);
     vbox2->addWidget(buttonBox);
     vbox2->addStretch(0);
