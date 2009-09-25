@@ -4,64 +4,69 @@
 <context>
     <name>FileEncryptionDialog</name>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="21"/>
+        <location filename="../../fileencryptiondialog.cpp" line="41"/>
         <source>Encrypt / Decrypt File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="29"/>
-        <location filename="../../fileencryptiondialog.cpp" line="118"/>
+        <location filename="../../fileencryptiondialog.cpp" line="49"/>
+        <location filename="../../fileencryptiondialog.cpp" line="163"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="30"/>
+        <location filename="../../fileencryptiondialog.cpp" line="50"/>
         <source>Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="34"/>
-        <location filename="../../fileencryptiondialog.cpp" line="40"/>
+        <location filename="../../fileencryptiondialog.cpp" line="54"/>
+        <location filename="../../fileencryptiondialog.cpp" line="60"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="36"/>
+        <location filename="../../fileencryptiondialog.cpp" line="56"/>
         <source>Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="42"/>
+        <location filename="../../fileencryptiondialog.cpp" line="62"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="60"/>
+        <location filename="../../fileencryptiondialog.cpp" line="80"/>
         <source>&amp;Encrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="62"/>
+        <location filename="../../fileencryptiondialog.cpp" line="82"/>
         <source>&amp;Decrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="85"/>
+        <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="85"/>
+        <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="101"/>
+        <location filename="../../fileencryptiondialog.cpp" line="136"/>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileencryptiondialog.cpp" line="146"/>
         <source>couldn&apos;t open file: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="119"/>
+        <location filename="../../fileencryptiondialog.cpp" line="164"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -637,12 +642,12 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="320"/>
+        <location filename="../../keymgmt.cpp" line="322"/>
         <source>Generating Key...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="322"/>
+        <location filename="../../keymgmt.cpp" line="324"/>
         <source>Collecting random data for key generation.
  This may take a while.
  To speed up the process use your computer

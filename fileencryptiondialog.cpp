@@ -102,8 +102,15 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
 
 void FileEncryptionDialog::selectInputFile()
 {
-    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Files") + "All Files (*)");
-    inputFileEdit->insert(infileName);
+    QString path="";
+    if(inputFileEdit->text().size() > 0) {
+        path=QFileInfo(inputFileEdit->text()).absolutePath();
+    }
+
+    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), path, tr("Files") + "All Files (*)");
+    inputFileEdit->setText(infileName);
+    
+    // try to find a matching output-filename, if not yet done
     if(infileName > 0 && outputFileEdit->text().size()==0) {
         if(radioEnc->isChecked()) {
             outputFileEdit->setText(infileName+".asc");
@@ -121,8 +128,13 @@ void FileEncryptionDialog::selectInputFile()
 
 void FileEncryptionDialog::selectOutputFile()
 {
-    QString outfileName = QFileDialog::getSaveFileName(this);
-    outputFileEdit->insert(outfileName);
+    QString path="";
+    if(outputFileEdit->text().size() > 0) {
+        path=QFileInfo(outputFileEdit->text()).absolutePath();
+    }
+
+    QString outfileName = QFileDialog::getSaveFileName(this, tr("Save File"), path);
+    outputFileEdit->setText(outfileName);
 }
 
 void FileEncryptionDialog::executeAction()
