@@ -201,7 +201,7 @@ void KeyMgmt::generateKeyDialog()
 
     keySizeSpinBox = new QSpinBox(genkeyDialog);
     keySizeSpinBox->setRange(512, 8192);
-    keySizeSpinBox->setValue(1024);
+    keySizeSpinBox->setValue(2048);
 
     keySizeSpinBox->setSingleStep(256);
 
