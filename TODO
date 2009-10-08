@@ -7,10 +7,13 @@ Release 0.2
 - progressbar on key creation [DONE]
 - File En-/Decryption [DONE]
 
+release 0.2.1
+- private key export
+- key properties dialog
+
 Release 0.3
 - adding signing and verifying
 - nice for verify: import key from keyserver
-- export private key 
 
 Later:
 - Add QSettings for persistent configuration
