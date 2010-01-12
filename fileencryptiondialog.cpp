@@ -159,7 +159,7 @@ void FileEncryptionDialog::executeAction()
     }
 
     QFile outfile(outputFileEdit->text());
-    if (!outfile.open(QFile::WriteOnly | QFile::Text)) {
+    if (!outfile.open(QFile::WriteOnly)) {
         QMessageBox::warning(this, tr("File"),
                              tr("Cannot write file %1:\n%2.")
                              .arg(outputFileEdit->text())
