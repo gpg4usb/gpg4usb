@@ -1,39 +1,30 @@
 TODO:
 -----
-Release 0.2
-- move to Qt 4.5 (includes building static qt on win32 and linux, also write howto about static building) 
-- KeyManagement (create/export) [DONE] 
-- new thread for key creation, to keep gui responsive [DONE]
-- progressbar on key creation [DONE]
-- File En-/Decryption [DONE]
 
-release 0.2.1
+Release 0.2.2
 - private key export
 - key properties dialog
+- more doku on building gpg4usb (especially on windows)
+- add a menu-entry to open Keytable ( now you have to restart, if accidently closed the keytable ).
+- File-Encryption: Warning if file overwritten
 
 Release 0.3
 - adding signing and verifying
 - nice for verify: import key from keyserver
+- PGP-MIME
+- Qt 4.6 
 
 Later:
 - Add QSettings for persistent configuration
 - Encrypt to self
 
 
-- Binary File Attachements, function for Decrypt & Help-Text (like safe eml, etc)
-- add a button to open Keytable ( now you have to restart, if accidently closed the keytable ).
+
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
 - Policy ( dialogs, what's warning, what an error )
-- on windows an empty directory gnupg in application-data is created, find out
-how to disable
+- on windows an empty directory gnupg in application-data is created, find out how to disable
 - Open File from command Line 
-
-- More Keymanagement (new popup window?) including:
-    - export private key
-    - import keyfiles in non ASCII-Amor-format (always and everywhere error-free keyimport would be great)
-    - Import key from Keyserver
-
 - Tabbed editor (including useful things like encrypted data opens in new tab)
 
 - some kind of locking for keydb, as gpg.conf uses lock-never, for ability to run on usb-drives (fat-formatted)
