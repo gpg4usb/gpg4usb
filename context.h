@@ -69,6 +69,7 @@ public:
     bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
     void clearCache();
     void exportSecretKey(QString uid, QByteArray *outBuffer);
+	gpgme_key_t getKeyDetails(QString uid); 
 
 signals:
     void keyDBChanged();

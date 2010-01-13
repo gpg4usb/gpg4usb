@@ -48,6 +48,7 @@ Context::Context()
     setlocale(LC_ALL, "");
     /** set locale, because tests do also */
     gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));
+    //qDebug() << "Locale set to" << LC_CTYPE << " - " << setlocale(LC_CTYPE, NULL);
 #ifndef _WIN32
     gpgme_set_locale(NULL, LC_MESSAGES, setlocale(LC_MESSAGES, NULL));
 #endif
@@ -146,6 +147,26 @@ bool Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
         gpgme_data_release(out);
     }
     return true;
+}
+
+gpgme_key_t Context::getKeyDetails(QString uid) 
+{
+	gpgme_error_t err;
+	gpgme_key_t key;
+
+	/*gpgme_op_keylist_start (mCctx, uid.toAscii().constData(), 0);
+    gpgme_op_keylist_next (mCtx, &key);
+    qDebug() << key->subkeys->keyid);
+    if (key->uids && key->uids->name)
+		qDebug() << key->uids->name;
+    if (key->uids && key->uids->email)
+        qDebug() << key->uids->email;
+     gpgme_key_release (key);*/
+    gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 1);
+
+	
+	return key;
+	
 }
 
 /** List all availabe Keys (VERY much like kgpgme)

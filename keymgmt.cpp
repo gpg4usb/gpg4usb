@@ -44,6 +44,7 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
 
     setWindowTitle(tr("Keymanagement"));
     mKeyList->addMenuAction(deleteSelectedKeysAct);
+    mKeyList->addMenuAction(showKeyDetailsAct);
 }
 
 void KeyMgmt::createActions()
@@ -87,6 +88,10 @@ void KeyMgmt::createActions()
     generateKeyDialogAct->setToolTip(tr("Generate New Key"));
     generateKeyDialogAct->setIcon(QIcon(mIconPath + "key_generate.png"));
     connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(generateKeyDialog()));
+    
+    showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
+    showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
+    connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(showKeyDetails()));
 }
 
 void KeyMgmt::createMenus()
@@ -147,6 +152,14 @@ void KeyMgmt::deleteSelectedKeys()
 void KeyMgmt::deleteCheckedKeys()
 {
     mCtx->deleteKeys(mKeyList->getChecked());
+}
+
+void KeyMgmt::showKeyDetails()
+{
+	qDebug() << mKeyList->getSelected();
+	// TODO: first...?
+	gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+	new KeyDetailsDialog(key);
 }
 
 void KeyMgmt::exportKeyToFile()

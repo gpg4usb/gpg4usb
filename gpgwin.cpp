@@ -400,7 +400,7 @@ void GpgWin::about()
 void GpgWin::encrypt()
 {
     QList<QString> *uidList = mKeyList->getChecked();
-
+    
     QByteArray *tmp = new QByteArray();
     if (mCtx->encrypt(uidList, edit->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
