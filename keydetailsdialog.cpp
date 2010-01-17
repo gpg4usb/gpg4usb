@@ -24,12 +24,24 @@
  
 KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 	
-	setWindowTitle(tr("Encrypt / Decrypt File"));
+	setWindowTitle(tr("Key Properties"));
     resize(500, 200);
     setModal(true);
 
     if (key->uids && key->uids->name)
-		qDebug() << key->uids->name;
+		qDebug() << "Name:" << key->uids->name;
+		qDebug() << "E-Mail: " << key ->uids->email;
+		qDebug() << "Komentar: " << key ->uids->comment;
+		qDebug() << "Fingerprint:" << key ->subkeys->fpr;
+		qDebug() << "Key-Length:" << key ->subkeys->length <<" bit";
+		qDebug() << "creation date timestamp: " << key->subkeys->timestamp;
+		qDebug() << "is secret: " << key ->secret;
+		qDebug() << "can sign: " <<key ->can_sign;
+		qDebug() << "can encrypt: " <<key ->can_encrypt;
+		qDebug() << "expires: " << key-> expired;
+		qDebug() << "can authenticate: " <<key ->can_authenticate;
+		qDebug() << "protocol: " << gpgme_get_protocol_name(key->protocol);
+		qDebug() << "algo: " << gpgme_pubkey_algo_name(key->subkeys->pubkey_algo);
 		
 	exec();
 }
