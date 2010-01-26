@@ -17,8 +17,8 @@ Release 0.3
 Later:
 - Add QSettings for persistent configuration
 - Encrypt to self
-
-
+- Drag and drop capabilities. Especially to encrypt / decrypt text, but would also be nice for files as well as import public and private keys.
+- Password caching options (always, for X minutes, never)
 
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
