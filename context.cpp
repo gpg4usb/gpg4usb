@@ -66,8 +66,8 @@ Context::Context()
 #endif
     QString gpgKeys = appPath + "/keydb";
     err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
-                                    gpgBin.toAscii().constData(),
-                                    gpgKeys.toAscii().constData());
+                                    gpgBin.toUtf8().constData(),
+                                    gpgKeys.toUtf8().constData());
     checkErr(err);
 
 
@@ -151,8 +151,10 @@ bool Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
 
 gpgme_key_t Context::getKeyDetails(QString uid) 
 {
-	gpgme_error_t err;
+//	gpgme_error_t err;
 	gpgme_key_t key;
+
+	qDebug() << "before";
 
 	/*gpgme_op_keylist_start (mCctx, uid.toAscii().constData(), 0);
     gpgme_op_keylist_next (mCtx, &key);
@@ -164,7 +166,7 @@ gpgme_key_t Context::getKeyDetails(QString uid)
      gpgme_key_release (key);*/
     gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 1);
 
-	
+	qDebug() << "after";
 	return key;
 	
 }
