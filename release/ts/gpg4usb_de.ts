@@ -655,7 +655,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../keymgmt.cpp" line="97"/>
         <source>&amp;Key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sch&amp;lüssel</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="111"/>

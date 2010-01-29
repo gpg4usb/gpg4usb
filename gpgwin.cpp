@@ -212,7 +212,8 @@ void GpgWin::createMenus()
     importKeyMenu->addAction(importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
     importKeyMenu->addAction(importKeyFromClipboardAct);
-
+	keyMenu->addAction(openKeyManagementAct);
+	
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
 }
