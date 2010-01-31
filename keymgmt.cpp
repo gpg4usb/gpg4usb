@@ -146,12 +146,24 @@ void KeyMgmt::importKeyFromClipboard()
 
 void KeyMgmt::deleteSelectedKeys()
 {
-    mCtx->deleteKeys(mKeyList->getSelected());
+    deleteKeysWithWarning(mKeyList->getSelected());
 }
 
 void KeyMgmt::deleteCheckedKeys()
 {
-    mCtx->deleteKeys(mKeyList->getChecked());
+    deleteKeysWithWarning(mKeyList->getSelected());
+}
+
+void KeyMgmt::deleteKeysWithWarning(QList<QString> *uidList) {
+    
+    int ret = QMessageBox::warning(this, tr("Deleting Keys"),
+                                tr("Are you sure that you want to delete the selected keys?.\n"
+                                   "The action can not be undone."),
+                                QMessageBox::No | QMessageBox::Yes);
+    
+    if(ret==QMessageBox::Yes) {
+        mCtx->deleteKeys(uidList);
+    }
 }
 
 void KeyMgmt::showKeyDetails()
