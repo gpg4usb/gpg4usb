@@ -20,7 +20,7 @@
  */
  
 #include "keydetailsdialog.h"
-//#include "QDebug"
+#include "QDebug"
 
 KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 	
@@ -45,15 +45,37 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
     nameVarLabel = new QLabel(key->uids->name);
     emailVarLabel = new QLabel(key->uids->email);
     commentVarLabel = new QLabel(key->uids->comment);
-    keySizeVarLabel = new QLabel();
-    keySizeVarLabel->setNum(int(key->subkeys->length));
+    //keySizeVarLabel = new QLabel();
+    QString keySizeVal, keyExpireVal, keyCreatedVal, keyAlgoVal;
+    
     if ( key->subkeys->expires == 0 ) {
-		expireVarLabel = new QLabel(tr("Never"));
-	 } else {
-		expireVarLabel = new QLabel(QDateTime::fromTime_t(key->subkeys->expires).toString("dd. MMM. yyyy"));
-	}
-	createdVarLabel = new QLabel(QDateTime::fromTime_t(key->subkeys->timestamp).toString("dd. MMM. yyyy"));
-    algorithmVarLabel = new QLabel(gpgme_pubkey_algo_name(key->subkeys->pubkey_algo));
+        keyExpireVal = tr("Never");
+    } else {
+        keyExpireVal = QDateTime::fromTime_t(key->subkeys->expires).toString("dd. MMM. yyyy");
+    }
+    
+    keyAlgoVal = gpgme_pubkey_algo_name(key->subkeys->pubkey_algo);
+    keyCreatedVal = QDateTime::fromTime_t(key->subkeys->timestamp).toString(tr("dd. MMM. yyyy"));
+    
+    // have el-gamal key?
+    if(key->subkeys->next) {
+        keySizeVal.sprintf("%d / %d",  int(key->subkeys->length), int(key->subkeys->next->length) );
+        if ( key->subkeys->next->expires == 0 ) {
+            keyExpireVal += tr(" / Never");
+        } else {
+            keyExpireVal += " / " + QDateTime::fromTime_t(key->subkeys->next->expires).toString(tr("dd. MMM. yyyy"));
+        }
+        keyAlgoVal.append(" / ").append(gpgme_pubkey_algo_name(key->subkeys->next->pubkey_algo));
+        keyCreatedVal += " / " + QDateTime::fromTime_t(key->subkeys->next->timestamp).toString(tr("dd. MMM. yyyy"));
+    } else {
+        keySizeVal.setNum( int(key->subkeys->length));
+    }
+    
+    keySizeVarLabel = new QLabel(keySizeVal);
+    expireVarLabel = new QLabel(keyExpireVal);
+	createdVarLabel = new QLabel(keyCreatedVal);
+    algorithmVarLabel = new QLabel(keyAlgoVal);
+
    
     mvbox = new QVBoxLayout();
     vboxKD = new QGridLayout();
@@ -75,13 +97,13 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
     vboxKD->addWidget(expireVarLabel, 1, 1);
     vboxKD->addWidget(algorithmVarLabel, 3, 1);
     vboxKD->addWidget(createdVarLabel, 4, 1);
-
+    
 	ownerBox->setLayout(vboxOD);
 	mvbox->addWidget(ownerBox);
 	
 	keyBox->setLayout(vboxKD);
 	mvbox->addWidget(keyBox);
-	
+	    
 	vboxFP = new QVBoxLayout();
     fingerPrintLabel = new QLabel(beautifyFingerprint(key->subkeys->fpr));
     fingerPrintLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
@@ -92,7 +114,7 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 	mvbox->addWidget(buttonBox);
 	
 	this->setLayout(mvbox);
-    this->setWindowTitle(tr("Generate Key"));
+    this->setWindowTitle(tr("Keydatails"));
 	this->show();
 	
 /*		qDebug() << "is secret: " << key ->secret;
@@ -103,7 +125,15 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 		qDebug() << "can authenticate: " <<key ->can_authenticate;
 		qDebug() << "protocol: " << gpgme_get_protocol_name(key->protocol);
 		qDebug() << "algo: " << gpgme_pubkey_algo_name(key->subkeys->pubkey_algo);
-	*/	
+    
+        if( key->subkeys->next ) {
+            qDebug() << "next length: " << key->subkeys->next->length;
+            qDebug() << "next algo: " << gpgme_pubkey_algo_name(key->subkeys->next->pubkey_algo);
+            qDebug() << "next secret: " << key->subkeys->next->secret;
+        } else {
+            qDebug() << "no second key";
+        }
+*/    
 	exec();
 }
 

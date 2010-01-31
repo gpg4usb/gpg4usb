@@ -156,7 +156,12 @@ void KeyMgmt::deleteCheckedKeys()
 
 void KeyMgmt::deleteKeysWithWarning(QList<QString> *uidList) {
     
-    int ret = QMessageBox::warning(this, tr("Deleting Keys"),
+    /**
+     * TODO: Different Messages for private/public key, check if
+     * more than one selected... compare to seahorse "delete-dialog"
+     */
+    
+    int ret = QMessageBox::question(this, tr("Deleting Keys"),
                                 tr("Are you sure that you want to delete the selected keys?.\n"
                                    "The action can not be undone."),
                                 QMessageBox::No | QMessageBox::Yes);
