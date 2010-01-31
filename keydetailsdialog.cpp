@@ -20,10 +20,12 @@
  */
  
 #include "keydetailsdialog.h"
-#include "QPushButton"
-#include "QDebug"
+//#include "QDebug"
 
-KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
+KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key) {
+    
+    mCtx = ctx;
+    keyid = new QString(key->subkeys->keyid);
 	
 	setWindowTitle(tr("Key Properties"));
     resize(500, 200);
@@ -118,6 +120,7 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
         
         QPushButton *exportButton = new QPushButton(tr("Export Private Key"));
         vboxPK->addWidget(exportButton);
+        connect(exportButton, SIGNAL(clicked()), this, SLOT(exportPrivateKey()));
         
         privKeyBox->setLayout(vboxPK);
         mvbox->addWidget(privKeyBox);
@@ -128,25 +131,33 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 	this->setLayout(mvbox);
     this->setWindowTitle(tr("Keydatails"));
 	this->show();
-/*	
-		qDebug() << "is secret: " << key ->secret;
-		qDebug() << "can encrypt: " <<key ->can_encrypt;
-		qDebug() << "can sign: " <<key ->can_sign;
-		qDebug() << "can encrypt: " <<key ->can_encrypt;
-		qDebug() << "expires: " << key-> expired;
-		qDebug() << "can authenticate: " <<key ->can_authenticate;
-		qDebug() << "protocol: " << gpgme_get_protocol_name(key->protocol);
-		qDebug() << "algo: " << gpgme_pubkey_algo_name(key->subkeys->pubkey_algo);
-    
-        if( key->subkeys->next ) {
-            qDebug() << "next length: " << key->subkeys->next->length;
-            qDebug() << "next algo: " << gpgme_pubkey_algo_name(key->subkeys->next->pubkey_algo);
-            qDebug() << "next secret: " << key->subkeys->next->secret;
-        } else {
-            qDebug() << "no second key";
-        }
-*/   
+
 	exec();
+}
+
+void KeyDetailsDialog::exportPrivateKey() {
+    
+    int ret = QMessageBox::information(this, tr("Exporting private Key"),
+                            tr("You are about to export your private key.\n"
+                               "This is NOT your public key, so don't give it away.\n"
+                               "Make sure you keep it save."),
+                            QMessageBox::Cancel | QMessageBox::Ok);
+                            
+    if(ret==QMessageBox::Ok) {                       
+    
+        QByteArray *keyArray = new QByteArray();
+        mCtx->exportSecretKey(*keyid, keyArray);
+        
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+        QTextStream stream(&file);
+        stream << *keyArray;
+        file.close();
+        delete keyArray;
+    }
+    
 }
 
 QString KeyDetailsDialog::beautifyFingerprint(QString fingerprint) {
