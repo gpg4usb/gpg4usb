@@ -495,7 +495,7 @@ Do you want to save your changes?</source>
         <location filename="../../gpgwin.cpp" line="164"/>
         <location filename="../../gpgwin.cpp" line="481"/>
         <source>Import Key</source>
-        <translation>Importiere Schlüssel</translation>
+        <translation>Schlüsselimport</translation>
     </message>
     <message>
         <source>Import New Key</source>
@@ -715,7 +715,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="58"/>
         <source>Import From &amp;File</source>
-        <translation>Importiere aus &amp;Datei</translation>
+        <translation>Import aus &amp;Datei</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="60"/>
@@ -725,7 +725,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="63"/>
         <source>Import From &amp;Clipboard</source>
-        <translation>Importiere aus der &amp;Zwischenablage</translation>
+        <translation>Import aus &amp;Zwischenablage</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="65"/>
@@ -735,7 +735,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="68"/>
         <source>Export To &amp;Clipboard</source>
-        <translation>Exportiere in die &amp;Zwischenablage</translation>
+        <translation>Export in &amp;Zwischenablage</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="70"/>
@@ -745,7 +745,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="73"/>
         <source>Export To &amp;File</source>
-        <translation>Exportiere in &amp;Datei</translation>
+        <translation>Export in &amp;Datei</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="75"/>
@@ -755,7 +755,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="78"/>
         <source>Delete Selected Key(s)</source>
-        <translation>Lösche die gewählten Schlüssel</translation>
+        <translation>Lösche gewählte Schlüssel</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="79"/>
@@ -765,7 +765,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="82"/>
         <source>Delete Checked Key(s)</source>
-        <translation>Lösche die markierten Schlüssel</translation>
+        <translation>Lösche markierte Schlüssel</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="83"/>
