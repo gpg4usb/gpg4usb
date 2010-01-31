@@ -213,7 +213,7 @@ void KeyMgmt::generateKeyDialog()
     commentEdit = new QLineEdit(genkeyDialog);
 
     keySizeSpinBox = new QSpinBox(genkeyDialog);
-    keySizeSpinBox->setRange(512, 8192);
+    keySizeSpinBox->setRange(768, 8192);
     keySizeSpinBox->setValue(2048);
 
     keySizeSpinBox->setSingleStep(256);
