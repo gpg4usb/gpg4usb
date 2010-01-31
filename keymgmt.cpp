@@ -156,7 +156,6 @@ void KeyMgmt::deleteCheckedKeys()
 
 void KeyMgmt::showKeyDetails()
 {
-	qDebug() << mKeyList->getSelected();
 	// TODO: first...?
 	gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
 	new KeyDetailsDialog(key);

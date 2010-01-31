@@ -20,21 +20,26 @@
  */
  
 #include "keydetailsdialog.h"
-#include "QDebug"
-#include "QDateTime"
- 
+//#include "QDebug"
+
 KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 	
 	setWindowTitle(tr("Key Properties"));
     resize(500, 200);
     setModal(true);
-
+	
+	ownerBox = new QGroupBox(tr("Owner details"));
+	keyBox = new QGroupBox(tr("Key details"));
+	fingerprintBox = new QGroupBox(tr("Fingerprint"));
+	buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+	connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
+	
     nameLabel = new QLabel(tr("Name:"));
-    emailLabel = new QLabel(tr("E-Mailaddress::"));
+    emailLabel = new QLabel(tr("E-Mailaddress:"));
     commentLabel = new QLabel(tr("Comment:"));
     keySizeLabel = new QLabel(tr("KeySize:"));
     expireLabel = new QLabel(tr("Expires on: "));
-    fingerPrintLabel = new QLabel(tr("Fingerprint"));
+    createdLabel = new QLabel(tr("Created on: "));
     algorithmLabel = new QLabel(tr("Algorithm"));
 
     nameVarLabel = new QLabel(key->uids->name);
@@ -45,43 +50,53 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
     if ( key->subkeys->expires == 0 ) {
 		expireVarLabel = new QLabel(tr("Never"));
 	 } else {
-		expireVarLabel = new QLabel(QDateTime::fromTime_t(key->subkeys->expires).toString());
+		expireVarLabel = new QLabel(QDateTime::fromTime_t(key->subkeys->expires).toString("dd. MMM. yyyy"));
 	}
-	
-    fingerPrintVarLabel = new QLabel(key->subkeys->fpr);
+	createdVarLabel = new QLabel(QDateTime::fromTime_t(key->subkeys->timestamp).toString("dd. MMM. yyyy"));
     algorithmVarLabel = new QLabel(gpgme_pubkey_algo_name(key->subkeys->pubkey_algo));
+   
+    mvbox = new QVBoxLayout();
+    vboxKD = new QGridLayout();
+	vboxOD = new QGridLayout();
     
-    QGridLayout *vbox1 = new QGridLayout;
-    vbox1->addWidget(nameLabel, 0, 0);
-    vbox1->addWidget(emailLabel, 1, 0);
-    vbox1->addWidget(commentLabel, 2, 0);
-    vbox1->addWidget(keySizeLabel, 3, 0);
-    vbox1->addWidget(expireLabel, 4, 0);
-    vbox1->addWidget(fingerPrintLabel, 5, 0);
-    vbox1->addWidget(algorithmLabel, 6, 0);
-    vbox1->addWidget(nameVarLabel, 0, 1);
-    vbox1->addWidget(emailVarLabel, 1, 1);
-    vbox1->addWidget(commentVarLabel, 2, 1);
-    vbox1->addWidget(keySizeVarLabel, 3, 1);
-    vbox1->addWidget(expireVarLabel, 4, 1);
-    vbox1->addWidget(fingerPrintVarLabel, 5, 1);
-    vbox1->addWidget(algorithmVarLabel, 6, 1);
+    vboxOD->addWidget(nameLabel, 0, 0);
+    vboxOD->addWidget(emailLabel, 1, 0);
+    vboxOD->addWidget(commentLabel, 2, 0);
+    vboxOD->addWidget(nameVarLabel, 0, 1);
+    vboxOD->addWidget(emailVarLabel, 1, 1);
+    vboxOD->addWidget(commentVarLabel, 2, 1);
 
-this->setLayout(vbox1);
-    
-this->setWindowTitle(tr("Generate Key"));
-this->show();
-/*if (key->uids) { qDebug() <<"UIds: ja";}
+    vboxKD->addWidget(keySizeLabel, 0, 0);
+    vboxKD->addWidget(expireLabel, 1, 0);
+    vboxKD->addWidget(algorithmLabel, 3, 0);
+    vboxKD->addWidget(createdLabel, 4, 0);
+
+    vboxKD->addWidget(keySizeVarLabel, 0, 1);
+    vboxKD->addWidget(expireVarLabel, 1, 1);
+    vboxKD->addWidget(algorithmVarLabel, 3, 1);
+    vboxKD->addWidget(createdVarLabel, 4, 1);
+
+	ownerBox->setLayout(vboxOD);
+	mvbox->addWidget(ownerBox);
+	
+	keyBox->setLayout(vboxKD);
+	mvbox->addWidget(keyBox);
+	
+	vboxFP = new QVBoxLayout();
+    fingerPrintLabel = new QLabel(beautifyFingerprint(key->subkeys->fpr));
+    fingerPrintLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    vboxFP->addWidget(fingerPrintLabel);	
+	fingerprintBox->setLayout(vboxFP);
+	mvbox->addWidget(fingerprintBox);
+
+	mvbox->addWidget(buttonBox);
+	
+	this->setLayout(mvbox);
+    this->setWindowTitle(tr("Generate Key"));
+	this->show();
+	
+/*		qDebug() << "is secret: " << key ->secret;
 		qDebug() << "can encrypt: " <<key ->can_encrypt;
-    
-		qDebug() << "Name:" << key->uids->name;
-		qDebug() << "E-Mail: " << key ->uids->email;
-		qDebug() << "Komentar: " << key ->uids->comment;
-		qDebug() << "Fingerprint:" << key ->subkeys->fpr;
-		qDebug() << "Key-Length:" << key ->subkeys->length <<" bit";
-		qDebug() << "creation date timestamp: " << key->subkeys->timestamp;
-		qDebug() << "creation date timestamp: " << QDateTime::fromTime_t(key->subkeys->timestamp);
-		qDebug() << "is secret: " << key ->secret;
 		qDebug() << "can sign: " <<key ->can_sign;
 		qDebug() << "can encrypt: " <<key ->can_encrypt;
 		qDebug() << "expires: " << key-> expired;
@@ -90,4 +105,12 @@ this->show();
 		qDebug() << "algo: " << gpgme_pubkey_algo_name(key->subkeys->pubkey_algo);
 	*/	
 	exec();
+}
+
+QString KeyDetailsDialog::beautifyFingerprint(QString fingerprint) {
+	uint len = fingerprint.length();
+	if((len>0) && (len%4 == 0))
+		for (uint n = 0; 4 * (n + 1) < len; ++n)
+			fingerprint.insert(5 * n + 4, ' ');
+	return fingerprint;
 }

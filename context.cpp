@@ -151,19 +151,9 @@ bool Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
 
 gpgme_key_t Context::getKeyDetails(QString uid) 
 {
-//	gpgme_error_t err;
 	gpgme_key_t key;
 
-
-	/*gpgme_op_keylist_start (mCctx, uid.toAscii().constData(), 0);
-    gpgme_op_keylist_next (mCtx, &key);
-    qDebug() << key->subkeys->keyid);
-    if (key->uids && key->uids->name)
-		qDebug() << key->uids->name;
-    if (key->uids && key->uids->email)
-        qDebug() << key->uids->email;
-     gpgme_key_release (key);*/
-    gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 1);
+    gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 0);
 	return key;	
 }
 

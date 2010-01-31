@@ -19,9 +19,14 @@
  *      MA 02110-1301, USA.
  */
 
-#include <QDialog>
-#include <QLabel>
-#include <QGridLayout>
+#include "QDateTime"
+#include "QVBoxLayout"
+#include "QDialogButtonBox"
+#include "QDialog"
+#include "QGroupBox"
+#include "QLabel"
+#include "QGridLayout"
+
 #include <gpgme.h>
 
 class KeyDetailsDialog : public QDialog
@@ -32,19 +37,31 @@ public:
     KeyDetailsDialog(gpgme_key_t key);
     
 private:
+	QGroupBox *ownerBox;
+	QGroupBox *keyBox;
+	QGroupBox *fingerprintBox;
+	QDialogButtonBox *buttonBox;
+
+    QVBoxLayout *mvbox;
+    QGridLayout *vboxKD;
+    QGridLayout *vboxOD;
+	QVBoxLayout *vboxFP;
+
     QLabel *nameLabel;
     QLabel *emailLabel;
     QLabel *commentLabel;
     QLabel *keySizeLabel;
     QLabel *expireLabel;
-	QLabel *fingerPrintLabel;
+    QLabel *createdLabel;
 	QLabel *algorithmLabel;
-
+	QLabel *fingerPrintLabel;
+	
     QLabel *nameVarLabel;
     QLabel *emailVarLabel;
     QLabel *commentVarLabel;
     QLabel *keySizeVarLabel;
     QLabel *expireVarLabel;
-	QLabel *fingerPrintVarLabel;
+    QLabel *createdVarLabel;
 	QLabel *algorithmVarLabel;
+	QString beautifyFingerprint(QString fingerprint);
 };
