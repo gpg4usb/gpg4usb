@@ -109,7 +109,7 @@
         <location filename="../../fileencryptiondialog.cpp" line="164"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>Kann Datei nicht lesen %1: %2.</translation>
+        <translation>Kann Datei nicht schreiben %1: %2.</translation>
     </message>
 </context>
 <context>
