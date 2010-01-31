@@ -389,6 +389,8 @@ void GpgWin::about()
                             "It's licensed under the GPL v2.0<br><br>"
                             "<b>Developer:</b><br>"
                             "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
+                            "<b>Translation:</b><br>"
+                            "Kirill (ru)<br><br>"
                             "If you have any questions and/or<br>"
                             "suggestions, contact us at<br>"
                             "gpg4usb at cpunk.de</a><br><br>"

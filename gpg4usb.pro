@@ -20,4 +20,5 @@ LIBS += -lgpgme -lgpg-error
 DEFINES += _FILE_OFFSET_BITS=64
 
 TRANSLATIONS = release/ts/gpg4usb_en.ts \
-         release/ts/gpg4usb_de.ts
+        release/ts/gpg4usb_de.ts \
+        release/ts/gpg4usb_ru.ts \
