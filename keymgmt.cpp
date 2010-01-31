@@ -305,9 +305,10 @@ void KeyMgmt::keyGenAccept()
          */
         keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
                        "Key-Type: DSA\n"
-                       "Key-Length: "
-                       + keySizeSpinBox->cleanText() + "\n"
+                       "Key-Length: 1024\n"
                        "Subkey-Type: ELG-E\n"
+						"Subkey-Length: "
+                       + keySizeSpinBox->cleanText() + "\n"
                        "Name-Real: " + nameEdit->text() + "\n";
         if (!(commentEdit->text().isEmpty())) {
             keyGenParams += "Name-Comment: " + commentEdit->text() + "\n";
