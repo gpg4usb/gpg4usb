@@ -27,10 +27,6 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key) {
     mCtx = ctx;
     keyid = new QString(key->subkeys->keyid);
 	
-	setWindowTitle(tr("Key Properties"));
-    resize(500, 200);
-    setModal(true);
-	
 	ownerBox = new QGroupBox(tr("Owner details"));
 	keyBox = new QGroupBox(tr("Key details"));
 	fingerprintBox = new QGroupBox(tr("Fingerprint"));
@@ -40,10 +36,10 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key) {
     nameLabel = new QLabel(tr("Name:"));
     emailLabel = new QLabel(tr("E-Mailaddress:"));
     commentLabel = new QLabel(tr("Comment:"));
-    keySizeLabel = new QLabel(tr("KeySize:"));
+    keySizeLabel = new QLabel(tr("Key size:"));
     expireLabel = new QLabel(tr("Expires on: "));
     createdLabel = new QLabel(tr("Created on: "));
-    algorithmLabel = new QLabel(tr("Algorithm"));
+    algorithmLabel = new QLabel(tr("Algorithm: "));
 
     nameVarLabel = new QLabel(key->uids->name);
     emailVarLabel = new QLabel(key->uids->email);
@@ -129,7 +125,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key) {
 	mvbox->addWidget(buttonBox);
 	
 	this->setLayout(mvbox);
-    this->setWindowTitle(tr("Keydatails"));
+    this->setWindowTitle(tr("Keydetails"));
 	this->show();
 
 	exec();

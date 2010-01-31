@@ -45,7 +45,7 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
     mKeyList->setAlternatingRowColors(true);
 
     QStringList labels;
-    labels << "" << "" << "Name" << "EMail" << "id";
+    labels << "" << "" << tr("Name") << tr("EMail") << tr("id");
     mKeyList->setHorizontalHeaderLabels(labels);
     mKeyList->horizontalHeader()->setStretchLastSection(true);
 

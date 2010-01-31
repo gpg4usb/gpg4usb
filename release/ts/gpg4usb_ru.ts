@@ -307,7 +307,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="144"/>
         <location filename="../../gpgwin.cpp" line="189"/>
-        <location filename="../../gpgwin.cpp" line="488"/>
+        <location filename="../../gpgwin.cpp" line="490"/>
         <source>&amp;File</source>
         <translation>Ф&amp;айл</translation>
     </message>
@@ -451,7 +451,7 @@ Do you want to save your changes?</source>
         <translation type="obsolete">О gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="451"/>
+        <location filename="../../gpgwin.cpp" line="453"/>
         <source>Open Key</source>
         <translation>Открыть ключ</translation>
     </message>
@@ -465,7 +465,12 @@ Do you want to save your changes?</source>
         <translation>Текстовый файл.txt</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="455"/>
+        <location filename="../../gpgwin.cpp" line="387"/>
+        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="457"/>
         <source>couldn&apos;t open file: </source>
         <translation>Не удалось открыть файл: </translation>
     </message>
@@ -475,13 +480,13 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="149"/>
-        <location filename="../../gpgwin.cpp" line="489"/>
+        <location filename="../../gpgwin.cpp" line="491"/>
         <source>&amp;Editor</source>
         <translation>Окна &amp;редактора</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="154"/>
-        <location filename="../../gpgwin.cpp" line="490"/>
+        <location filename="../../gpgwin.cpp" line="492"/>
         <source>&amp;Clipboard</source>
         <translation>Б&amp;уфера Обмена</translation>
     </message>
@@ -492,7 +497,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="164"/>
-        <location filename="../../gpgwin.cpp" line="479"/>
+        <location filename="../../gpgwin.cpp" line="481"/>
         <source>Import Key</source>
         <translation>Импорт ключа</translation>
     </message>
@@ -520,17 +525,12 @@ Do you want to save your changes?</source>
         <translation>О программе </translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="387"/>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="451"/>
+        <location filename="../../gpgwin.cpp" line="453"/>
         <source>Key Files</source>
         <translation>Файлы ключей</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="487"/>
+        <location filename="../../gpgwin.cpp" line="489"/>
         <source>Import Key From...</source>
         <translation>Импорт ключа из...</translation>
     </message>
@@ -539,110 +539,105 @@ Do you want to save your changes?</source>
     <name>KeyDetailsDialog</name>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="30"/>
-        <source>Key Properties</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="34"/>
         <source>Owner details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="35"/>
+        <location filename="../../keydetailsdialog.cpp" line="31"/>
         <source>Key details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="36"/>
+        <location filename="../../keydetailsdialog.cpp" line="32"/>
         <source>Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="40"/>
+        <location filename="../../keydetailsdialog.cpp" line="36"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="41"/>
+        <location filename="../../keydetailsdialog.cpp" line="37"/>
         <source>E-Mailaddress:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="42"/>
+        <location filename="../../keydetailsdialog.cpp" line="38"/>
         <source>Comment:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="43"/>
-        <source>KeySize:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="44"/>
+        <location filename="../../keydetailsdialog.cpp" line="40"/>
         <source>Expires on: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="45"/>
+        <location filename="../../keydetailsdialog.cpp" line="41"/>
         <source>Created on: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="46"/>
-        <source>Algorithm</source>
+        <location filename="../../keydetailsdialog.cpp" line="128"/>
+        <source>Keydetails</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="55"/>
+        <location filename="../../keydetailsdialog.cpp" line="39"/>
+        <source>Key size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keydetailsdialog.cpp" line="42"/>
+        <source>Algorithm: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keydetailsdialog.cpp" line="51"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="61"/>
-        <location filename="../../keydetailsdialog.cpp" line="69"/>
-        <location filename="../../keydetailsdialog.cpp" line="72"/>
+        <location filename="../../keydetailsdialog.cpp" line="57"/>
+        <location filename="../../keydetailsdialog.cpp" line="65"/>
+        <location filename="../../keydetailsdialog.cpp" line="68"/>
         <source>dd. MMM. yyyy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="67"/>
+        <location filename="../../keydetailsdialog.cpp" line="63"/>
         <source> / Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="118"/>
+        <location filename="../../keydetailsdialog.cpp" line="114"/>
         <source>Private Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="121"/>
+        <location filename="../../keydetailsdialog.cpp" line="117"/>
         <source>Export Private Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="132"/>
-        <source>Keydatails</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="140"/>
+        <location filename="../../keydetailsdialog.cpp" line="136"/>
         <source>Exporting private Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="141"/>
+        <location filename="../../keydetailsdialog.cpp" line="137"/>
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="151"/>
+        <location filename="../../keydetailsdialog.cpp" line="147"/>
         <source>Export Key To File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="151"/>
+        <location filename="../../keydetailsdialog.cpp" line="147"/>
         <source>Key Files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -668,6 +663,21 @@ Make sure you keep it save.</source>
     <message>
         <source>Delete the checked keys</source>
         <translation type="obsolete">Стереть выделенные ключи</translation>
+    </message>
+    <message>
+        <location filename="../../keylist.cpp" line="48"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keylist.cpp" line="48"/>
+        <source>EMail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keylist.cpp" line="48"/>
+        <source>id</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
