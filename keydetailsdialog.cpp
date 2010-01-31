@@ -20,6 +20,7 @@
  */
  
 #include "keydetailsdialog.h"
+#include "QPushButton"
 #include "QDebug"
 
 KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
@@ -111,13 +112,24 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 	fingerprintBox->setLayout(vboxFP);
 	mvbox->addWidget(fingerprintBox);
 
+    if(key->secret) {
+        QGroupBox *privKeyBox = new QGroupBox(tr("Private Key"));
+        QVBoxLayout *vboxPK = new QVBoxLayout();
+        
+        QPushButton *exportButton = new QPushButton(tr("Export Private Key"));
+        vboxPK->addWidget(exportButton);
+        
+        privKeyBox->setLayout(vboxPK);
+        mvbox->addWidget(privKeyBox);
+    }
+
 	mvbox->addWidget(buttonBox);
 	
 	this->setLayout(mvbox);
     this->setWindowTitle(tr("Keydatails"));
 	this->show();
-	
-/*		qDebug() << "is secret: " << key ->secret;
+/*	
+		qDebug() << "is secret: " << key ->secret;
 		qDebug() << "can encrypt: " <<key ->can_encrypt;
 		qDebug() << "can sign: " <<key ->can_sign;
 		qDebug() << "can encrypt: " <<key ->can_encrypt;
@@ -133,7 +145,7 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
         } else {
             qDebug() << "no second key";
         }
-*/    
+*/   
 	exec();
 }
 

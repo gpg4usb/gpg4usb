@@ -153,7 +153,13 @@ gpgme_key_t Context::getKeyDetails(QString uid)
 {
 	gpgme_key_t key;
 
-    gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 0);
+    // try secret
+    gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 1);
+    // ok, its a public key
+    if(!key) {
+        gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 0);
+    }
+    
 	return key;	
 }
 
