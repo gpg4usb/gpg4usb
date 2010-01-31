@@ -154,7 +154,6 @@ gpgme_key_t Context::getKeyDetails(QString uid)
 //	gpgme_error_t err;
 	gpgme_key_t key;
 
-	qDebug() << "before";
 
 	/*gpgme_op_keylist_start (mCctx, uid.toAscii().constData(), 0);
     gpgme_op_keylist_next (mCtx, &key);
@@ -165,10 +164,7 @@ gpgme_key_t Context::getKeyDetails(QString uid)
         qDebug() << key->uids->email;
      gpgme_key_release (key);*/
     gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 1);
-
-	qDebug() << "after";
-	return key;
-	
+	return key;	
 }
 
 /** List all availabe Keys (VERY much like kgpgme)

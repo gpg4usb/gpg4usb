@@ -21,6 +21,7 @@
  
 #include "keydetailsdialog.h"
 #include "QDebug"
+#include "QDateTime"
  
 KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 	
@@ -28,13 +29,58 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
     resize(500, 200);
     setModal(true);
 
-    if (key->uids && key->uids->name)
+    nameLabel = new QLabel(tr("Name:"));
+    emailLabel = new QLabel(tr("E-Mailaddress::"));
+    commentLabel = new QLabel(tr("Comment:"));
+    keySizeLabel = new QLabel(tr("KeySize:"));
+    expireLabel = new QLabel(tr("Expires on: "));
+    fingerPrintLabel = new QLabel(tr("Fingerprint"));
+    algorithmLabel = new QLabel(tr("Algorithm"));
+
+    nameVarLabel = new QLabel(key->uids->name);
+    emailVarLabel = new QLabel(key->uids->email);
+    commentVarLabel = new QLabel(key->uids->comment);
+    keySizeVarLabel = new QLabel();
+    keySizeVarLabel->setNum(int(key->subkeys->length));
+    if ( key->subkeys->expires == 0 ) {
+		expireVarLabel = new QLabel(tr("Never"));
+	 } else {
+		expireVarLabel = new QLabel(QDateTime::fromTime_t(key->subkeys->expires).toString());
+	}
+	
+    fingerPrintVarLabel = new QLabel(key->subkeys->fpr);
+    algorithmVarLabel = new QLabel(gpgme_pubkey_algo_name(key->subkeys->pubkey_algo));
+    
+    QGridLayout *vbox1 = new QGridLayout;
+    vbox1->addWidget(nameLabel, 0, 0);
+    vbox1->addWidget(emailLabel, 1, 0);
+    vbox1->addWidget(commentLabel, 2, 0);
+    vbox1->addWidget(keySizeLabel, 3, 0);
+    vbox1->addWidget(expireLabel, 4, 0);
+    vbox1->addWidget(fingerPrintLabel, 5, 0);
+    vbox1->addWidget(algorithmLabel, 6, 0);
+    vbox1->addWidget(nameVarLabel, 0, 1);
+    vbox1->addWidget(emailVarLabel, 1, 1);
+    vbox1->addWidget(commentVarLabel, 2, 1);
+    vbox1->addWidget(keySizeVarLabel, 3, 1);
+    vbox1->addWidget(expireVarLabel, 4, 1);
+    vbox1->addWidget(fingerPrintVarLabel, 5, 1);
+    vbox1->addWidget(algorithmVarLabel, 6, 1);
+
+this->setLayout(vbox1);
+    
+this->setWindowTitle(tr("Generate Key"));
+this->show();
+/*if (key->uids) { qDebug() <<"UIds: ja";}
+		qDebug() << "can encrypt: " <<key ->can_encrypt;
+    
 		qDebug() << "Name:" << key->uids->name;
 		qDebug() << "E-Mail: " << key ->uids->email;
 		qDebug() << "Komentar: " << key ->uids->comment;
 		qDebug() << "Fingerprint:" << key ->subkeys->fpr;
 		qDebug() << "Key-Length:" << key ->subkeys->length <<" bit";
 		qDebug() << "creation date timestamp: " << key->subkeys->timestamp;
+		qDebug() << "creation date timestamp: " << QDateTime::fromTime_t(key->subkeys->timestamp);
 		qDebug() << "is secret: " << key ->secret;
 		qDebug() << "can sign: " <<key ->can_sign;
 		qDebug() << "can encrypt: " <<key ->can_encrypt;
@@ -42,6 +88,6 @@ KeyDetailsDialog::KeyDetailsDialog(gpgme_key_t key) {
 		qDebug() << "can authenticate: " <<key ->can_authenticate;
 		qDebug() << "protocol: " << gpgme_get_protocol_name(key->protocol);
 		qDebug() << "algo: " << gpgme_pubkey_algo_name(key->subkeys->pubkey_algo);
-		
+	*/	
 	exec();
 }

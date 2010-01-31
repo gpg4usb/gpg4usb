@@ -20,6 +20,8 @@
  */
 
 #include <QDialog>
+#include <QLabel>
+#include <QGridLayout>
 #include <gpgme.h>
 
 class KeyDetailsDialog : public QDialog
@@ -29,4 +31,20 @@ class KeyDetailsDialog : public QDialog
 public:
     KeyDetailsDialog(gpgme_key_t key);
     
+private:
+    QLabel *nameLabel;
+    QLabel *emailLabel;
+    QLabel *commentLabel;
+    QLabel *keySizeLabel;
+    QLabel *expireLabel;
+	QLabel *fingerPrintLabel;
+	QLabel *algorithmLabel;
+
+    QLabel *nameVarLabel;
+    QLabel *emailVarLabel;
+    QLabel *commentVarLabel;
+    QLabel *keySizeVarLabel;
+    QLabel *expireVarLabel;
+	QLabel *fingerPrintVarLabel;
+	QLabel *algorithmVarLabel;
 };
