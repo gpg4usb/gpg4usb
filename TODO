@@ -4,14 +4,18 @@ TODO:
 Release 0.2.2
 - private key export
 - key properties dialog
+
+Release 0.2.3
 - more doku on building gpg4usb (especially on windows)
 - add a menu-entry to open Keytable ( now you have to restart, if accidently closed the keytable ).
 - File-Encryption: Warning if file overwritten
+- minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable") 
+- menu-entry for changing language
 
 Release 0.3
 - adding signing and verifying
 - nice for verify: import key from keyserver
-- PGP-MIME
+- PGP-MIME, find and show inline encrypted files
 - Qt 4.6 
 
 Later:
