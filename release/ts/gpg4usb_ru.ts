@@ -402,7 +402,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="245"/>
         <source>Encrypt for:</source>
-        <translation>Зашифровать для:</translation>
+        <translation>   Зашифровать для:</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="297"/>
@@ -467,7 +467,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="387"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="457"/>
@@ -540,106 +540,108 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="30"/>
         <source>Owner details</source>
-        <translation type="unfinished"></translation>
+        <translation>Свойства владельца</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="31"/>
         <source>Key details</source>
-        <translation type="unfinished"></translation>
+        <translation>Свойства ключа</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="32"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="36"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя:</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="37"/>
         <source>E-Mailaddress:</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес eMail:</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="38"/>
         <source>Comment:</source>
-        <translation type="unfinished"></translation>
+        <translation>Комментарий:</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="40"/>
         <source>Expires on: </source>
-        <translation type="unfinished"></translation>
+        <translation>Истекает:</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="41"/>
         <source>Created on: </source>
-        <translation type="unfinished"></translation>
+        <translation>Создан:</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="128"/>
         <source>Keydetails</source>
-        <translation type="unfinished"></translation>
+        <translation>Свойства ключа</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="39"/>
         <source>Key size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Длина ключа:</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="42"/>
         <source>Algorithm: </source>
-        <translation type="unfinished"></translation>
+        <translation>Алгоритм: </translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="51"/>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Никогда</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="57"/>
         <location filename="../../keydetailsdialog.cpp" line="65"/>
         <location filename="../../keydetailsdialog.cpp" line="68"/>
         <source>dd. MMM. yyyy</source>
-        <translation type="unfinished"></translation>
+        <translation>дд. МММ. гггг</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="63"/>
         <source> / Never</source>
-        <translation type="unfinished"></translation>
+        <translation> / Никогда</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="114"/>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Секретный ключ</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="117"/>
         <source>Export Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспортировать Секретный ключ</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="136"/>
         <source>Exporting private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт Секретного ключа</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="137"/>
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы собираетесь экспортировать свой Секретный ключ.
+Это НЕ открытый ключ, так что не давайте его никому.
+Убедитесь, что он хранится в Надёжном Месте.</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="147"/>
         <source>Export Key To File</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт ключа в файл</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="147"/>
         <source>Key Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы ключей</translation>
     </message>
 </context>
 <context>
@@ -667,17 +669,17 @@ Make sure you keep it save.</source>
     <message>
         <location filename="../../keylist.cpp" line="48"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <location filename="../../keylist.cpp" line="48"/>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
+        <translation>eMail</translation>
     </message>
     <message>
         <location filename="../../keylist.cpp" line="48"/>
         <source>id</source>
-        <translation type="unfinished"></translation>
+        <translation>Идентификатор пользователя</translation>
     </message>
 </context>
 <context>
@@ -776,12 +778,12 @@ Make sure you keep it save.</source>
     <message>
         <location filename="../../keymgmt.cpp" line="92"/>
         <source>Show Keydetails</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать свойства ключа</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="93"/>
         <source>Show Details for this Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать детали для этого ключа</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="99"/>
@@ -817,13 +819,14 @@ Make sure you keep it save.</source>
     <message>
         <location filename="../../keymgmt.cpp" line="164"/>
         <source>Deleting Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Удаление ключа</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="165"/>
         <source>Are you sure that you want to delete the selected keys?.
 The action can not be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы уверены, что хотите стереть выбранные ключи?
+Это действие будет необратимым.</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="188"/>
@@ -838,7 +841,7 @@ The action can not be undone.</source>
     <message>
         <location filename="../../keymgmt.cpp" line="219"/>
         <source>E-Mailaddress::</source>
-        <translation>Адреса eMail:</translation>
+        <translation>Адрес eMail:</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="220"/>
@@ -908,7 +911,7 @@ Weak -&gt; Strong</source>
         <translation>Сбор случайных данных для генерации ключа.
 Это займёт некоторое время. Можно ускорить
 процесс, активно используя компьютер (листая
- страницы интернета, слушая музыку и т.д.)</translation>
+страницы интернета, слушая музыку и т.д.)</translation>
     </message>
 </context>
 </TS>
