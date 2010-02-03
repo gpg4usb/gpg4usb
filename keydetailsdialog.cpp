@@ -54,7 +54,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key) {
     }
     
     keyAlgoVal = gpgme_pubkey_algo_name(key->subkeys->pubkey_algo);
-    keyCreatedVal = QDateTime::fromTime_t(key->subkeys->timestamp).toString(tr("dd. MMM. yyyy"));
+    keyCreatedVal = QDateTime::fromTime_t(key->subkeys->timestamp).toString("dd. MMM. yyyy");
     
     // have el-gamal key?
     if(key->subkeys->next) {
@@ -62,10 +62,10 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key) {
         if ( key->subkeys->next->expires == 0 ) {
             keyExpireVal += tr(" / Never");
         } else {
-            keyExpireVal += " / " + QDateTime::fromTime_t(key->subkeys->next->expires).toString(tr("dd. MMM. yyyy"));
+            keyExpireVal += " / " + QDateTime::fromTime_t(key->subkeys->next->expires).toString("dd. MMM. yyyy");
         }
         keyAlgoVal.append(" / ").append(gpgme_pubkey_algo_name(key->subkeys->next->pubkey_algo));
-        keyCreatedVal += " / " + QDateTime::fromTime_t(key->subkeys->next->timestamp).toString(tr("dd. MMM. yyyy"));
+        keyCreatedVal += " / " + QDateTime::fromTime_t(key->subkeys->next->timestamp).toString("dd. MMM. yyyy");
     } else {
         keySizeVal.setNum( int(key->subkeys->length));
     }
