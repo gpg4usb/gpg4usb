@@ -65,9 +65,12 @@ Context::Context()
     QString gpgBin = appPath + "/bin/gpg";
 #endif
     QString gpgKeys = appPath + "/keydb";
-    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
+/*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
                                     gpgBin.toUtf8().constData(),
-                                    gpgKeys.toUtf8().constData());
+                                    gpgKeys.toUtf8().constData());*/
+    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
+                                    gpgBin.toLocal8Bit().constData(),
+                                    gpgKeys.toLocal8Bit().constData());
     checkErr(err);
 
 
