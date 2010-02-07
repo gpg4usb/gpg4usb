@@ -54,17 +54,22 @@ GpgWin::GpgWin()
     setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     setIconSize(QSize(32, 32));
     setCurrentFile("");
+
+    mKeyList->addMenuAction(appendSelectedKeysAct);
    
     // Restore window size & location
     // TODO: is this a good idea for a portable app? screen size & resolution may vary
     QSettings settings;
-    QPoint pos = settings.value("pos", QPoint(100, 100)).toPoint();
-    QSize size = settings.value("size", QSize(800, 450)).toSize();
+    //restoreGeometry(settings.value("window/geometry").toByteArray());
+    QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
+    QSize size = settings.value("window/size", QSize(800, 450)).toSize();
+
     resize(size);
     move(pos);
 
-    //mKeyList->addMenuAction(deleteSelectedKeysAct);
-    mKeyList->addMenuAction(appendSelectedKeysAct);
+    // state sets pos & size of dock-widgets
+    restoreState(settings.value("window/windowState").toByteArray());
+
 }
 
 void GpgWin::createActions()
@@ -271,8 +276,15 @@ void GpgWin::closeEvent(QCloseEvent *event)
     }
     
      QSettings settings;
-     settings.setValue("pos", pos());
-     settings.setValue("size", size());    
+
+     
+     //settings.setValue("geometry", saveGeometry());
+     settings.setValue("window/windowState", saveState());
+     settings.setValue("window/pos", pos());
+     settings.setValue("window/size", size());
+     //settings.setValue("windows/size", isFullscreen());
+     
+     QMainWindow::closeEvent(event);
 }
 
 void GpgWin::open()

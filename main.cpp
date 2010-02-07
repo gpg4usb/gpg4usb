@@ -38,7 +38,6 @@ int main(int argc, char *argv[])
     
     // QSettings uses org-name for automatically setting path... 
     app.setOrganizationName("conf");
-    //app.setOrganizationDomain("gpg4usb.cpunk.de"); // mac uses this?
     // specify default path & format for QSettings
     QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, qApp->applicationDirPath());
     QSettings::setDefaultFormat(QSettings::IniFormat);
