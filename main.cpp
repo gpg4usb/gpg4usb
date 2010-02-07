@@ -35,6 +35,13 @@ int main(int argc, char *argv[])
 
     app.setApplicationVersion("0.2.2");
     app.setApplicationName("gpg4usb");
+    
+    // QSettings uses org-name for automatically setting path... 
+    app.setOrganizationName("conf");
+    //app.setOrganizationDomain("gpg4usb.cpunk.de"); // mac uses this?
+    // specify default path & format for QSettings
+    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, qApp->applicationDirPath());
+    QSettings::setDefaultFormat(QSettings::IniFormat);
 
     //internationalize
     QTranslator translator;
@@ -43,8 +50,6 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator);
 
     GpgWin *window = new GpgWin();
-    window->resize(800, 450);
-
     window->show();
 
     return app.exec();

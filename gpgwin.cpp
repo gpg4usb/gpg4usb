@@ -54,6 +54,14 @@ GpgWin::GpgWin()
     setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     setIconSize(QSize(32, 32));
     setCurrentFile("");
+   
+    // Restore window size & location
+    // TODO: is this a good idea for a portable app? screen size & resolution may vary
+    QSettings settings;
+    QPoint pos = settings.value("pos", QPoint(100, 100)).toPoint();
+    QSize size = settings.value("size", QSize(800, 450)).toSize();
+    resize(size);
+    move(pos);
 
     //mKeyList->addMenuAction(deleteSelectedKeysAct);
     mKeyList->addMenuAction(appendSelectedKeysAct);
@@ -261,6 +269,10 @@ void GpgWin::closeEvent(QCloseEvent *event)
     } else {
         event->ignore();
     }
+    
+     QSettings settings;
+     settings.setValue("pos", pos());
+     settings.setValue("size", size());    
 }
 
 void GpgWin::open()
