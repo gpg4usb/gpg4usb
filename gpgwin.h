@@ -72,6 +72,9 @@ public slots:
     bool saveAs();
     void open();
     void fileEncryption();
+    void viewKeyToolBar();
+    void viewCryptToolBar();
+    void viewEditToolBar();
 
 private:
     void createActions();
@@ -92,6 +95,7 @@ private:
     QMenu *cryptMenu;
     QMenu *helpMenu;
     QMenu *keyMenu;
+    QMenu *viewMenu;
     QMenu *importKeyMenu;
     QToolBar *cryptToolBar;
     QToolBar *editToolBar;
@@ -109,7 +113,6 @@ private:
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
-    //QAction *deleteSelectedKeysAct;
     QAction *appendSelectedKeysAct;
     QAction *openKeyManagementAct;
     QAction *copyAct;
@@ -118,7 +121,10 @@ private:
     QAction *selectallAct;
     QAction *aboutAct;
     QAction *fileEncryptionAct;
-
+	QAction *viewKeyToolbarAct;
+	QAction *viewCryptToolbarAct;
+	QAction *viewEditToolbarAct;
+	
     QLineEdit *nameEdit;
     QLineEdit *emailEdit;
     QLineEdit *commentEdit;

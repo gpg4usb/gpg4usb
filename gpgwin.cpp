@@ -179,6 +179,23 @@ void GpgWin::createActions()
     importKeyDialogAct->setToolTip(tr("Open Import New Key Dialog"));
     connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
 
+    /** View Menu
+     */
+	viewKeyToolbarAct = new QAction(tr("Keytoolbar"), this);
+    viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	viewKeyToolbarAct->setToolTip(tr("Show/Hide Key-Toolbar"));
+    connect(viewKeyToolbarAct, SIGNAL(triggered()), this, SLOT(viewKeyToolBar()));
+
+	viewCryptToolbarAct = new QAction(tr("Crypttoolbar"), this);
+    viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	viewCryptToolbarAct->setToolTip(tr("Show/Hide Crypt-Toolbar"));
+    connect(viewCryptToolbarAct, SIGNAL(triggered()), this, SLOT(viewCryptToolBar()));
+
+	viewEditToolbarAct = new QAction(tr("Edittoolbar"), this);
+    viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	viewEditToolbarAct->setToolTip(tr("Show/Hide Edit-Toolbar"));
+    connect(viewEditToolbarAct, SIGNAL(triggered()), this, SLOT(viewEditToolBar()));
+
     /** About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
@@ -226,6 +243,11 @@ void GpgWin::createMenus()
     importKeyMenu->addAction(importKeyFromEditAct);
     importKeyMenu->addAction(importKeyFromClipboardAct);
 	keyMenu->addAction(openKeyManagementAct);
+
+	viewMenu = menuBar()->addMenu(tr("View"));
+	viewMenu->addAction(viewCryptToolbarAct);
+	viewMenu->addAction(viewKeyToolbarAct);
+	viewMenu->addAction(viewEditToolbarAct);
 	
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
@@ -556,10 +578,42 @@ void GpgWin::appendSelectedKeys()
     edit->appendPlainText(*keyArray);
 }
 
-
 void GpgWin::fileEncryption()
 {
 
     new FileEncryptionDialog(mCtx, iconPath);
 
+}
+
+void GpgWin::viewKeyToolBar()
+{
+	if (keyToolBar->isHidden()) {
+		keyToolBar->show();
+		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	} else {
+		keyToolBar->hide();
+		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	}
+}
+
+void GpgWin::viewCryptToolBar()
+{
+	if (cryptToolBar->isHidden()) {
+		cryptToolBar->show();
+		viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	} else {
+		cryptToolBar->hide();
+		viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	}
+}
+
+void GpgWin::viewEditToolBar()
+{
+	if (editToolBar->isHidden()) {
+		editToolBar->show();
+		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	} else {
+		editToolBar->hide();
+		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	}
 }
