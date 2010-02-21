@@ -44,6 +44,7 @@ class QPushButton;
 class QRadioButton;
 class QButtonGroup;
 class QApplication;
+class QDockWidget;
 
 
 class GpgWin : public QMainWindow
@@ -55,7 +56,7 @@ public:
 
 protected:
     void closeEvent(QCloseEvent *event);
-
+    
 public slots:
     void encrypt();
     void decrypt();
@@ -75,6 +76,8 @@ public slots:
     void viewKeyToolBar();
     void viewCryptToolBar();
     void viewEditToolBar();
+    void viewKeyList();
+    void dropEvent(QDropEvent *event);
 
 private:
     void createActions();
@@ -82,6 +85,7 @@ private:
     void createToolBars();
     void createStatusBar();
     void createDockWindows();
+	void setViewCheckboxes();
     bool saveFile(const QString &fileName);
     void loadFile(const QString &fileName);
     void setCurrentFile(const QString &fileName);
@@ -100,6 +104,7 @@ private:
     QToolBar *cryptToolBar;
     QToolBar *editToolBar;
     QToolBar *keyToolBar;
+	QDockWidget *dock;
     QDialog *genkeyDialog;
 
     QAction *openAct;
@@ -124,7 +129,7 @@ private:
 	QAction *viewKeyToolbarAct;
 	QAction *viewCryptToolbarAct;
 	QAction *viewEditToolbarAct;
-	
+	QAction *viewKeyListAct;
     QLineEdit *nameEdit;
     QLineEdit *emailEdit;
     QLineEdit *commentEdit;

@@ -33,6 +33,8 @@ GpgWin::GpgWin()
 
     edit = new QPlainTextEdit();
     setCentralWidget(edit);
+    setAcceptDrops(true);
+
     setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
 
@@ -54,6 +56,7 @@ GpgWin::GpgWin()
     setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     setIconSize(QSize(32, 32));
     setCurrentFile("");
+    connect(cryptToolBar, SIGNAL(actionTriggered(encryptAct)), this, SLOT(about()));
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
    
@@ -63,16 +66,22 @@ GpgWin::GpgWin()
     //restoreGeometry(settings.value("window/geometry").toByteArray());
     QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
     QSize size = settings.value("window/size", QSize(800, 450)).toSize();
-
+	
     resize(size);
     move(pos);
 
     // state sets pos & size of dock-widgets
     restoreState(settings.value("window/windowState").toByteArray());
-
+	setViewCheckboxes();
 }
 
-void GpgWin::createActions()
+ void GpgWin::dropEvent(QDropEvent *event)
+ {
+     edit->setPlainText(event->mimeData()->text());
+     event->acceptProposedAction();
+ }
+
+ void GpgWin::createActions()
 {
     /** Main Menu
       */
@@ -182,19 +191,20 @@ void GpgWin::createActions()
     /** View Menu
      */
 	viewKeyToolbarAct = new QAction(tr("Keytoolbar"), this);
-    viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
 	viewKeyToolbarAct->setToolTip(tr("Show/Hide Key-Toolbar"));
     connect(viewKeyToolbarAct, SIGNAL(triggered()), this, SLOT(viewKeyToolBar()));
 
 	viewCryptToolbarAct = new QAction(tr("Crypttoolbar"), this);
-    viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
 	viewCryptToolbarAct->setToolTip(tr("Show/Hide Crypt-Toolbar"));
     connect(viewCryptToolbarAct, SIGNAL(triggered()), this, SLOT(viewCryptToolBar()));
 
 	viewEditToolbarAct = new QAction(tr("Edittoolbar"), this);
-    viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
 	viewEditToolbarAct->setToolTip(tr("Show/Hide Edit-Toolbar"));
     connect(viewEditToolbarAct, SIGNAL(triggered()), this, SLOT(viewEditToolBar()));
+
+	viewKeyListAct = new QAction(tr("Keylist"), this);
+	viewKeyListAct->setToolTip(tr("Show/Hide Keylist"));
+    connect(viewKeyListAct, SIGNAL(triggered()), this, SLOT(viewKeyList()));
 
     /** About Menu
      */
@@ -205,10 +215,6 @@ void GpgWin::createActions()
 
     /** Popup-Menu-Action for KeyList
      */
-    /*deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
-    deleteSelectedKeysAct->setToolTip(tr("Delete The Selected Keys"));
-    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));*/
-
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
     appendSelectedKeysAct->setToolTip(tr("Append The Selected Keys To Text in Editor"));
     connect(appendSelectedKeysAct, SIGNAL(triggered()), this, SLOT(appendSelectedKeys()));
@@ -244,10 +250,11 @@ void GpgWin::createMenus()
     importKeyMenu->addAction(importKeyFromClipboardAct);
 	keyMenu->addAction(openKeyManagementAct);
 
-	viewMenu = menuBar()->addMenu(tr("View"));
+	viewMenu = menuBar()->addMenu(tr("&View"));
 	viewMenu->addAction(viewCryptToolbarAct);
 	viewMenu->addAction(viewKeyToolbarAct);
 	viewMenu->addAction(viewEditToolbarAct);
+	viewMenu->addAction(viewKeyListAct);
 	
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
@@ -277,7 +284,7 @@ void GpgWin::createStatusBar()
 
 void GpgWin::createDockWindows()
 {
-    QDockWidget *dock = new QDockWidget(tr("Encrypt for:"), this);
+    dock = new QDockWidget(tr("Encrypt for:"), this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     addDockWidget(Qt::RightDockWidgetArea, dock);
     dock->setWidget(mKeyList);
@@ -286,7 +293,32 @@ void GpgWin::createDockWindows()
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea );
     addDockWidget(Qt::BottomDockWidgetArea, dock);
     dock->setWidget(mAttachments);*/
+}
 
+void GpgWin::setViewCheckboxes()
+{	if (editToolBar->isHidden()) {
+		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	} else {
+		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	}
+
+	if (keyToolBar->isHidden()) {
+		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	} else {
+		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	}
+
+	if (cryptToolBar->isHidden()) {
+		viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	} else {
+		viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	}
+
+	if (dock->isVisible()) {
+		viewKeyListAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
+	} else {
+		viewKeyListAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	}
 }
 
 void GpgWin::closeEvent(QCloseEvent *event)
@@ -298,13 +330,10 @@ void GpgWin::closeEvent(QCloseEvent *event)
     }
     
      QSettings settings;
-
-     
      //settings.setValue("geometry", saveGeometry());
      settings.setValue("window/windowState", saveState());
      settings.setValue("window/pos", pos());
      settings.setValue("window/size", size());
-     //settings.setValue("windows/size", isFullscreen());
      
      QMainWindow::closeEvent(event);
 }
@@ -591,7 +620,7 @@ void GpgWin::viewKeyToolBar()
 		keyToolBar->show();
 		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
 	} else {
-		keyToolBar->hide();
+		keyToolBar->hide();	
 		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
 	}
 }
@@ -615,5 +644,16 @@ void GpgWin::viewEditToolBar()
 	} else {
 		editToolBar->hide();
 		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	}
+}
+
+void GpgWin::viewKeyList()
+{
+	if (dock->isVisible()) {
+		dock->close();
+		viewKeyListAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
+	} else {
+		dock->show();
+		viewKeyListAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
 	}
 }
