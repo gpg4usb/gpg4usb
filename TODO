@@ -39,6 +39,7 @@ Later:
 
 usability:
 - dialog on closing unsaved document (discard/cancel/save) is not very user-friendly
+- undo / history
 
 advanced:
 - threading & thread-safety in context.cpp (in, out, ctx)
