@@ -60,7 +60,6 @@
         <translation>Aktion</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="54"/>
         <location filename="../../fileencryptiondialog.cpp" line="60"/>
         <source>...</source>
         <translation></translation>
@@ -94,6 +93,11 @@
         <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>Files</source>
         <translation>Dateien</translation>
+    </message>
+    <message>
+        <location filename="../../fileencryptiondialog.cpp" line="110"/>
+        <source>All Files (*)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="136"/>
