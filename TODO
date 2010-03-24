@@ -5,6 +5,11 @@ Release 0.2.2
 - private key export
 - key properties dialog
 
+
+Release 0.2.2.1
+- encrypt files for checked not selected keys.
+- add translation for portuguese and french
+
 Release 0.2.3
 - more doku on building gpg4usb (especially on windows)
 - add a menu-entry to open Keytable ( now you have to restart, if accidently closed the keytable ).
