@@ -77,7 +77,7 @@ public slots:
     void viewCryptToolBar();
     void viewEditToolBar();
     void viewKeyList();
-    void dropEvent(QDropEvent *event);
+//    void dropEvent(QDropEvent *event);
 
 private:
     void createActions();

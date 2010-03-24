@@ -33,7 +33,7 @@ GpgWin::GpgWin()
 
     edit = new QPlainTextEdit();
     setCentralWidget(edit);
-    setAcceptDrops(true);
+//    setAcceptDrops(true);
 
     setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
@@ -75,12 +75,12 @@ GpgWin::GpgWin()
 	setViewCheckboxes();
 }
 
- void GpgWin::dropEvent(QDropEvent *event)
+/* void GpgWin::dropEvent(QDropEvent *event)
  {
      edit->setPlainText(event->mimeData()->text());
      event->acceptProposedAction();
  }
-
+*/
  void GpgWin::createActions()
 {
     /** Main Menu
