@@ -51,7 +51,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
 
     /* Setup input & Outputfileselection*/
     inputFileEdit = new QLineEdit();
-    QPushButton *fb1 = new QPushButton(tr("..."));
+    QPushButton *fb1 = new QPushButton("...");
     connect(fb1, SIGNAL(clicked()), this, SLOT(selectInputFile()));
     QLabel *fl1 = new QLabel(tr("Input"));
     fl1->setBuddy(inputFileEdit);
@@ -107,7 +107,7 @@ void FileEncryptionDialog::selectInputFile()
         path=QFileInfo(inputFileEdit->text()).absolutePath();
     }
 
-    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), path, tr("Files") + "All Files (*)");
+    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), path, tr("Files") + tr("All Files (*)"));
     inputFileEdit->setText(infileName);
     
     // try to find a matching output-filename, if not yet done

@@ -9,6 +9,8 @@ Release 0.2.2
 Release 0.2.2.1
 - encrypt files for checked not selected keys.
 - add translation for portuguese and french
+- beautify view menu
+- save window settings
 
 Release 0.2.3
 - more doku on building gpg4usb (especially on windows)

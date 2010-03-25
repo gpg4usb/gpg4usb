@@ -251,10 +251,6 @@ void GpgWin::createMenus()
 	keyMenu->addAction(openKeyManagementAct);
 
 	viewMenu = menuBar()->addMenu(tr("&View"));
-	viewMenu->addAction(viewCryptToolbarAct);
-	viewMenu->addAction(viewKeyToolbarAct);
-	viewMenu->addAction(viewEditToolbarAct);
-	viewMenu->addAction(viewKeyListAct);
 	
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
@@ -266,15 +262,18 @@ void GpgWin::createToolBars()
     cryptToolBar->addAction(encryptAct);
     cryptToolBar->addAction(decryptAct);
     cryptToolBar->addAction(fileEncryptionAct);
+    viewMenu->addAction(cryptToolBar->toggleViewAction());
 
     keyToolBar = addToolBar(tr("Key"));
     keyToolBar->addAction(importKeyDialogAct);
     keyToolBar->addAction(openKeyManagementAct);
+    viewMenu->addAction(keyToolBar->toggleViewAction());
 
     editToolBar = addToolBar(tr("Edit"));
     editToolBar->addAction(copyAct);
     editToolBar->addAction(pasteAct);
     editToolBar->addAction(selectallAct);
+    viewMenu->addAction(editToolBar->toggleViewAction());
 }
 
 void GpgWin::createStatusBar()
@@ -288,6 +287,7 @@ void GpgWin::createDockWindows()
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     addDockWidget(Qt::RightDockWidgetArea, dock);
     dock->setWidget(mKeyList);
+    viewMenu->addAction(dock->toggleViewAction());
 
     /*dock = new QDockWidget(tr("Attached files:"), this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea );
@@ -612,48 +612,4 @@ void GpgWin::fileEncryption()
 
     new FileEncryptionDialog(mCtx, iconPath);
 
-}
-
-void GpgWin::viewKeyToolBar()
-{
-	if (keyToolBar->isHidden()) {
-		keyToolBar->show();
-		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
-	} else {
-		keyToolBar->hide();	
-		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
-	}
-}
-
-void GpgWin::viewCryptToolBar()
-{
-	if (cryptToolBar->isHidden()) {
-		cryptToolBar->show();
-		viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
-	} else {
-		cryptToolBar->hide();
-		viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
-	}
-}
-
-void GpgWin::viewEditToolBar()
-{
-	if (editToolBar->isHidden()) {
-		editToolBar->show();
-		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
-	} else {
-		editToolBar->hide();
-		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
-	}
-}
-
-void GpgWin::viewKeyList()
-{
-	if (dock->isVisible()) {
-		dock->close();
-		viewKeyListAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
-	} else {
-		dock->show();
-		viewKeyListAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
-	}
 }

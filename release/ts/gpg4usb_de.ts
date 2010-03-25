@@ -363,7 +363,7 @@
         <translation type="obsolete">&amp;Crypt</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="259"/>
+        <location filename="../../gpgwin.cpp" line="255"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
@@ -373,7 +373,7 @@
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="274"/>
+        <location filename="../../gpgwin.cpp" line="272"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
@@ -437,18 +437,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="270"/>
+        <location filename="../../gpgwin.cpp" line="267"/>
         <source>Key</source>
         <translation>Schlüssel</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="282"/>
+        <location filename="../../gpgwin.cpp" line="281"/>
         <location filename="../../gpgwin.cpp" line="453"/>
         <source>Ready</source>
         <translation>Fertig</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="287"/>
+        <location filename="../../gpgwin.cpp" line="286"/>
         <source>Encrypt for:</source>
         <translation>Verschlüssele für:</translation>
     </message>
@@ -560,7 +560,7 @@ Do you want to save your changes?</source>
         <translation type="obsolete">&amp;Importiere neuen Schlüssel aus...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="265"/>
+        <location filename="../../gpgwin.cpp" line="261"/>
         <source>Crypt</source>
         <translation>Crypt</translation>
     </message>

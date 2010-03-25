@@ -73,10 +73,6 @@ public slots:
     bool saveAs();
     void open();
     void fileEncryption();
-    void viewKeyToolBar();
-    void viewCryptToolBar();
-    void viewEditToolBar();
-    void viewKeyList();
 //    void dropEvent(QDropEvent *event);
 
 private:
