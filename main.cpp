@@ -42,9 +42,12 @@ int main(int argc, char *argv[])
     QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, qApp->applicationDirPath());
     QSettings::setDefaultFormat(QSettings::IniFormat);
 
+    QSettings settings;
+    QString lang = settings.value("int/lang", QLocale::system().name()).toString();
+    
     //internationalize
     QTranslator translator;
-    translator.load("ts/gpg4usb_" +  QLocale::system().name(),
+    translator.load("ts/gpg4usb_" +  lang,
                     qApp->applicationDirPath());
     app.installTranslator(&translator);
 
