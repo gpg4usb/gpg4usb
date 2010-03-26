@@ -151,7 +151,7 @@ void FileEncryptionDialog::executeAction()
     QByteArray *outBuffer = new QByteArray();
 
     if (radioEnc->isChecked()) {
-        if (! mCtx->encrypt(mKeyList->getSelected(), inBuffer, outBuffer)) return;
+        if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
     }
 
     if (radioDec->isChecked()) {
