@@ -346,11 +346,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="272"/>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="218"/>
         <source>Append Selected Key(s) To Text</source>
         <translation type="unfinished"></translation>
@@ -376,8 +371,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../gpgwin.cpp" line="261"/>
+        <source>Crypt-Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../gpgwin.cpp" line="267"/>
-        <source>Key</source>
+        <source>Key-Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="272"/>
+        <source>Edit-Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -481,11 +486,6 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="239"/>
         <source>&amp;Crypt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="261"/>
-        <source>Crypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -368,14 +368,28 @@
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
+        <location filename="../../gpgwin.cpp" line="261"/>
+        <source>Crypt-Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="267"/>
+        <source>Key-Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="272"/>
+        <source>Edit-Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../gpgwin.cpp" line="427"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="272"/>
         <source>Edit</source>
-        <translation>Bearbeiten</translation>
+        <translation type="obsolete">Bearbeiten</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="159"/>
@@ -437,9 +451,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="267"/>
         <source>Key</source>
-        <translation>Schlüssel</translation>
+        <translation type="obsolete">Schlüssel</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="281"/>
@@ -560,9 +573,8 @@ Do you want to save your changes?</source>
         <translation type="obsolete">&amp;Importiere neuen Schlüssel aus...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="261"/>
         <source>Crypt</source>
-        <translation>Crypt</translation>
+        <translation type="obsolete">Crypt</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="459"/>

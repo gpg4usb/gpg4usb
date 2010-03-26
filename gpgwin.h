@@ -81,7 +81,6 @@ private:
     void createToolBars();
     void createStatusBar();
     void createDockWindows();
-	void setViewCheckboxes();
     bool saveFile(const QString &fileName);
     void loadFile(const QString &fileName);
     void setCurrentFile(const QString &fileName);

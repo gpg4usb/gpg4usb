@@ -370,14 +370,28 @@
         <translation>&amp;Справка</translation>
     </message>
     <message>
+        <location filename="../../gpgwin.cpp" line="261"/>
+        <source>Crypt-Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="267"/>
+        <source>Key-Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="272"/>
+        <source>Edit-Toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../gpgwin.cpp" line="427"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="272"/>
         <source>Edit</source>
-        <translation>Правка</translation>
+        <translation type="obsolete">Правка</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="159"/>
@@ -438,9 +452,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="267"/>
         <source>Key</source>
-        <translation>Ключ</translation>
+        <translation type="obsolete">Ключ</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="281"/>
@@ -564,9 +577,8 @@ Do you want to save your changes?</source>
         <translation type="obsolete">&amp;Импорт нового ключа из...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="261"/>
         <source>Crypt</source>
-        <translation>Шифрование</translation>
+        <translation type="obsolete">Шифрование</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="459"/>

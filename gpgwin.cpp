@@ -72,7 +72,6 @@ GpgWin::GpgWin()
 
     // state sets pos & size of dock-widgets
     restoreState(settings.value("window/windowState").toByteArray());
-	setViewCheckboxes();
 }
 
 /* void GpgWin::dropEvent(QDropEvent *event)
@@ -295,31 +294,6 @@ void GpgWin::createDockWindows()
     dock->setWidget(mAttachments);*/
 }
 
-void GpgWin::setViewCheckboxes()
-{	if (editToolBar->isHidden()) {
-		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
-	} else {
-		viewEditToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
-	}
-
-	if (keyToolBar->isHidden()) {
-		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
-	} else {
-		viewKeyToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
-	}
-
-	if (cryptToolBar->isHidden()) {
-		viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
-	} else {
-		viewCryptToolbarAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
-	}
-
-	if (dock->isVisible()) {
-		viewKeyListAct->setIcon(QIcon(iconPath + "checkbox_checked.png"));
-	} else {
-		viewKeyListAct->setIcon(QIcon(iconPath + "checkbox_unchecked.png"));
-	}
-}
 
 void GpgWin::closeEvent(QCloseEvent *event)
 {
