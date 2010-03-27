@@ -21,6 +21,7 @@
 
 #include "gpgwin.h"
 #include "fileencryptiondialog.h"
+#include "settingsdialog.h"
 
 GpgWin::GpgWin()
 {
@@ -54,9 +55,8 @@ GpgWin::GpgWin()
     createStatusBar();
     createDockWindows();
     setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    setIconSize(QSize(32, 32));
+//    setIconSize(QSize(24, 24));
     setCurrentFile("");
-    connect(cryptToolBar, SIGNAL(actionTriggered(encryptAct)), this, SLOT(about()));
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
    
@@ -66,9 +66,13 @@ GpgWin::GpgWin()
     //restoreGeometry(settings.value("window/geometry").toByteArray());
     QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
     QSize size = settings.value("window/size", QSize(800, 450)).toSize();
-	
+	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+    Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/style", Qt::ToolButtonTextUnderIcon).toUInt());
+    
     resize(size);
     move(pos);
+	setIconSize(iconSize);
+	setToolButtonStyle(buttonStyle);
 
     // state sets pos & size of dock-widgets
     restoreState(settings.value("window/windowState").toByteArray());
@@ -141,6 +145,11 @@ GpgWin::GpgWin()
     selectallAct->setToolTip(tr("Select the whole text"));
     connect(selectallAct, SIGNAL(triggered()), edit, SLOT(selectAll()));
 
+    openSettingsAct = new QAction(tr("Settings"), this);
+//    openSettingsAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    openSettingsAct->setToolTip(tr("Open settings dialog"));
+    connect(openSettingsAct, SIGNAL(triggered()), this, SLOT(openSettingsDialog()));
+
     /** Crypt Menu
      */
     encryptAct = new QAction(tr("&Encrypt"), this);
@@ -187,31 +196,13 @@ GpgWin::GpgWin()
     importKeyDialogAct->setToolTip(tr("Open Import New Key Dialog"));
     connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
 
-    /** View Menu
-     */
-	viewKeyToolbarAct = new QAction(tr("Keytoolbar"), this);
-	viewKeyToolbarAct->setToolTip(tr("Show/Hide Key-Toolbar"));
-    connect(viewKeyToolbarAct, SIGNAL(triggered()), this, SLOT(viewKeyToolBar()));
-
-	viewCryptToolbarAct = new QAction(tr("Crypttoolbar"), this);
-	viewCryptToolbarAct->setToolTip(tr("Show/Hide Crypt-Toolbar"));
-    connect(viewCryptToolbarAct, SIGNAL(triggered()), this, SLOT(viewCryptToolBar()));
-
-	viewEditToolbarAct = new QAction(tr("Edittoolbar"), this);
-	viewEditToolbarAct->setToolTip(tr("Show/Hide Edit-Toolbar"));
-    connect(viewEditToolbarAct, SIGNAL(triggered()), this, SLOT(viewEditToolBar()));
-
-	viewKeyListAct = new QAction(tr("Keylist"), this);
-	viewKeyListAct->setToolTip(tr("Show/Hide Keylist"));
-    connect(viewKeyListAct, SIGNAL(triggered()), this, SLOT(viewKeyList()));
-
     /** About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
     aboutAct->setIcon(QIcon(iconPath + "help.png"));
     aboutAct->setToolTip(tr("Show the application's About box"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
-
+    
     /** Popup-Menu-Action for KeyList
      */
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
@@ -234,6 +225,7 @@ void GpgWin::createMenus()
     editMenu->addAction(cutAct);
     editMenu->addAction(pasteAct);
     editMenu->addAction(selectallAct);
+	editMenu->addAction(openSettingsAct);
 
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
@@ -586,4 +578,8 @@ void GpgWin::fileEncryption()
 
     new FileEncryptionDialog(mCtx, iconPath);
 
+}
+void GpgWin::openSettingsDialog()
+{
+	new SettingsDialog();
 }
