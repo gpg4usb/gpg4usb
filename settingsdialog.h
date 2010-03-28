@@ -33,8 +33,6 @@ public:
 public slots:
     void applySettings();
 
-
-
 private:
 	QGroupBox *groupBox1;
 	QGroupBox *groupBox2;

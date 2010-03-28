@@ -54,12 +54,16 @@ GpgWin::GpgWin()
     createToolBars();
     createStatusBar();
     createDockWindows();
-    setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     setCurrentFile("");
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
-   
-    // Restore window size & location
+	restoreSettings();
+    
+}
+
+void GpgWin::restoreSettings()
+{
+	// Restore window size & location
     // TODO: is this a good idea for a portable app? screen size & resolution may vary
     QSettings settings;
     //restoreGeometry(settings.value("window/geometry").toByteArray());
@@ -68,15 +72,14 @@ GpgWin::GpgWin()
 	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     
-    resize(size);
-    move(pos);
-	setIconSize(iconSize);
-	setToolButtonStyle(buttonStyle);
+    this->resize(size);
+    this->move(pos);
+	this->setIconSize(iconSize);
+	this->setToolButtonStyle(buttonStyle);
 
     // state sets pos & size of dock-widgets
-    restoreState(settings.value("window/windowState").toByteArray());
+    this->restoreState(settings.value("window/windowState").toByteArray());
 }
-
 /* void GpgWin::dropEvent(QDropEvent *event)
  {
      edit->setPlainText(event->mimeData()->text());
@@ -581,4 +584,5 @@ void GpgWin::fileEncryption()
 void GpgWin::openSettingsDialog()
 {
 	new SettingsDialog();
+	restoreSettings();
 }

@@ -86,6 +86,7 @@ private:
     void loadFile(const QString &fileName);
     void setCurrentFile(const QString &fileName);
     bool maybeSave();
+    void restoreSettings();
     void preventNoDataErr(QByteArray *in);
     QString strippedName(const QString &fullFileName);
 
