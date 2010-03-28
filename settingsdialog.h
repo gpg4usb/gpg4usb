@@ -39,4 +39,5 @@ private:
 	QGroupBox *groupBox1;
 	QGroupBox *groupBox2;
 	QButtonGroup *group1;
+	QButtonGroup *group2;
 };

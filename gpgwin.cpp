@@ -55,7 +55,6 @@ GpgWin::GpgWin()
     createStatusBar();
     createDockWindows();
     setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-//    setIconSize(QSize(24, 24));
     setCurrentFile("");
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
@@ -67,7 +66,7 @@ GpgWin::GpgWin()
     QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
     QSize size = settings.value("window/size", QSize(800, 450)).toSize();
 	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
-    Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/style", Qt::ToolButtonTextUnderIcon).toUInt());
+    Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     
     resize(size);
     move(pos);

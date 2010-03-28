@@ -44,18 +44,10 @@ SettingsDialog::SettingsDialog()
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     groupBox1 = new QGroupBox(tr("Options"));
-    groupBox2 = new QGroupBox("Action");
+    groupBox2 = new QGroupBox(tr("Action"));
 
-	QRadioButton *iconTextButton = new QRadioButton(tr("just test"));
-	QRadioButton *iconIconsButton =new QRadioButton(tr("just icons"));
-	QRadioButton *iconAllButton = new QRadioButton(tr("text and icons"));
-	
-	QHBoxLayout *iconStyleBox = new QHBoxLayout();
-	iconStyleBox->addWidget(iconTextButton);
-	iconStyleBox->addWidget(iconIconsButton);
-	iconStyleBox->addWidget(iconAllButton);
-	group1 = new QButtonGroup();
-	
+
+	group1 = new QButtonGroup();	
 	QRadioButton *iconSizeSmall = new QRadioButton(tr("small"));
 	QRadioButton *iconSizeMedium =new QRadioButton(tr("medium"));
 	QRadioButton *iconSizeLarge = new QRadioButton(tr("large"));
@@ -63,38 +55,57 @@ SettingsDialog::SettingsDialog()
 	group1->addButton(iconSizeMedium,2);
 	group1->addButton(iconSizeLarge,3);
 
+	group2 = new QButtonGroup();
+	QRadioButton *iconTextButton = new QRadioButton(tr("just text"));
+	QRadioButton *iconIconsButton =new QRadioButton(tr("just icons"));
+	QRadioButton *iconAllButton = new QRadioButton(tr("text and icons"));
+	group2->addButton(iconTextButton,1);
+	group2->addButton(iconIconsButton,2);
+	group2->addButton(iconAllButton,3);
 
 	QHBoxLayout *iconSizeBox = new QHBoxLayout();
 	iconSizeBox->addWidget(iconSizeSmall);
 	iconSizeBox->addWidget(iconSizeMedium);
 	iconSizeBox->addWidget(iconSizeLarge);
 
-	groupBox1->setLayout(iconStyleBox);
-	groupBox2->setLayout(iconSizeBox);
+	QHBoxLayout *iconStyleBox = new QHBoxLayout();
+	iconStyleBox->addWidget(iconTextButton);
+	iconStyleBox->addWidget(iconIconsButton);
+	iconStyleBox->addWidget(iconAllButton);
+
+	groupBox2->setLayout(iconStyleBox);
+	groupBox1->setLayout(iconSizeBox);
 	
-	
-    QVBoxLayout *vbox2 = new QVBoxLayout();
-    vbox2->addWidget(groupBox1);
-	vbox2->addWidget(groupBox2);
-	vbox2->addWidget(buttonBox);
-    setLayout(vbox2);
+    QVBoxLayout *vbox = new QVBoxLayout();
+    vbox->addWidget(groupBox1);
+	vbox->addWidget(groupBox2);
+	vbox->addWidget(buttonBox);
+    setLayout(vbox);
     exec();
 }
 
 void SettingsDialog::applySettings()
 {
-	     QSettings settings;
+	 QSettings settings;
      //settings.setValue("geometry", saveGeometry());
 
-	qDebug() << group1->checkedId();
 	switch (group1->checkedId()){
-	case 1: 
-     settings.setValue("toolbar/iconsize", QSize(12, 12));
-     break;
-     
-     case 2:settings.setValue("toolbar/iconsize", QSize(24, 24));
-     break;
-     case 3:settings.setValue("toolbar/iconsize", QSize(32, 32));
-     break;
- }
+	case 1: settings.setValue("toolbar/iconsize", QSize(12, 12));
+		break;
+    case 2:settings.setValue("toolbar/iconsize", QSize(24, 24));
+		break;
+    case 3:settings.setValue("toolbar/iconsize", QSize(32, 32));
+		break;
+	}
+
+	switch (group2->checkedId()){
+	case 1: settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextOnly);
+		break;
+    case 2:settings.setValue("toolbar/iconstyle", Qt::ToolButtonIconOnly);
+		break;
+    case 3:settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon);
+		break;
+	}
+	accept();
 }
+
