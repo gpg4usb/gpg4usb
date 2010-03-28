@@ -359,7 +359,7 @@ void GpgWin::setCurrentFile(const QString &fileName)
 
     QString shownName;
     if (curFile.isEmpty())
-        shownName = tr("untitled.txt");
+        shownName = "untitled.txt";
     else
         shownName = strippedName(curFile);
 
