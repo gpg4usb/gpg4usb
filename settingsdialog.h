@@ -22,6 +22,7 @@
 #include <QDialog>
 #include <QButtonGroup>
 #include <QGroupBox>
+#include <QComboBox>
 
 class SettingsDialog : public QDialog
 {
@@ -38,4 +39,5 @@ private:
 	QGroupBox *groupBox2;
 	QButtonGroup *group1;
 	QButtonGroup *group2;
+    QHash<QString, QString> listLanguages();
 };

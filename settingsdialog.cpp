@@ -31,6 +31,9 @@
 #include <QRadioButton>
 #include <QButtonGroup>
 #include <QSettings>
+#include <QApplication>
+#include <QDir>
+#include <QTranslator>
 #include "settingsdialog.h"
 
 SettingsDialog::SettingsDialog()
@@ -75,11 +78,28 @@ SettingsDialog::SettingsDialog()
 
 	groupBox2->setLayout(iconStyleBox);
 	groupBox1->setLayout(iconSizeBox);
+    
+    /**/
+    QGroupBox *langBox = new QGroupBox(tr("Language"));
+    QHBoxLayout *hbox2 = new QHBoxLayout();
+    QComboBox *langSelectBox = new QComboBox;
+    
+    QHash<QString, QString> lang = listLanguages();
+    
+    foreach(QString l , lang) {
+        langSelectBox->addItem(l);
+        //qDebug() << l;
+    }
+    
+    hbox2->addWidget(langSelectBox);
+    langBox->setLayout(hbox2);
+    /**/
 	
     QVBoxLayout *vbox = new QVBoxLayout();
     vbox->addWidget(groupBox1);
 	vbox->addWidget(groupBox2);
-	vbox->addWidget(buttonBox);
+    vbox->addWidget(langBox);
+    vbox->addWidget(buttonBox);
     setLayout(vbox);
     exec();
 }
@@ -107,5 +127,35 @@ void SettingsDialog::applySettings()
 		break;
 	}
 	accept();
+}
+
+// http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
+QHash<QString, QString> SettingsDialog::listLanguages() {
+    
+    // translate this String to language used, the language list gets 
+    // filled from this
+    QString(tr("English"));
+    
+    //QStringList languages;
+    QHash<QString, QString> languages;
+    
+    QString appPath = qApp->applicationDirPath();
+    QDir qmDir = QDir(appPath + "/ts/");
+    QStringList fileNames =
+            qmDir.entryList(QStringList("gpg4usb_*.qm"));
+
+    for (int i = 0; i < fileNames.size(); ++i) {
+        QString locale = fileNames[i];
+        locale.remove(0, locale.indexOf('_') + 1);
+        locale.chop(3);
+        
+        QTranslator translator;
+        translator.load(fileNames[i], qmDir.absolutePath());
+        QString language = translator.translate("SettingsDialog",
+                                                "English");
+        languages.insert(locale, language);
+        
+    }
+    return languages;
 }
 
