@@ -22,6 +22,10 @@
 #include <QDialog>
 #include <QButtonGroup>
 #include <QGroupBox>
+#include <QRadioButton>
+#include <QDialogButtonBox>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QComboBox>
 
 class SettingsDialog : public QDialog
@@ -31,13 +35,29 @@ class SettingsDialog : public QDialog
 public:
     SettingsDialog();
 
-public slots:
+private:
+	QGroupBox *iconSizeBox;
+	QGroupBox *iconStyleBox;
+	QDialogButtonBox *buttonBox;
+	
+	QButtonGroup *iconSizeGroup;
+	QButtonGroup *iconStyleGroup;
+	
+	QRadioButton *iconSizeSmall;
+	QRadioButton *iconSizeMedium;
+	QRadioButton *iconSizeLarge;
+	QRadioButton *iconTextButton;
+	QRadioButton *iconIconsButton;
+	QRadioButton *iconAllButton;
+	
+	QHBoxLayout *iconSizeBoxLayout;
+	QHBoxLayout *iconStyleBoxLayout;
+	QVBoxLayout *vbox;
+	void setSettings();
+	
+
+private slots:
     void applySettings();
 
-private:
-	QGroupBox *groupBox1;
-	QGroupBox *groupBox2;
-	QButtonGroup *group1;
-	QButtonGroup *group2;
     QHash<QString, QString> listLanguages();
 };

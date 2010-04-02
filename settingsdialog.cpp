@@ -19,22 +19,21 @@
  *      MA 02110-1301, USA.
  */
 
-#include <QWidget>
+#include "settingsdialog.h"
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
+#include <QWidget>
+#include <QSettings>
 #include <QDebug>
 #include <QLabel>
-#include <QGridLayout>
-#include <QGroupBox>
-#include <QDialogButtonBox>
-#include <QRadioButton>
 #include <QButtonGroup>
 #include <QSettings>
 #include <QApplication>
 #include <QDir>
 #include <QTranslator>
-#include "settingsdialog.h"
+
+class QLabel;
+class QButtonGroup;
+class QGroupBox;
 
 SettingsDialog::SettingsDialog()
 {
@@ -42,44 +41,56 @@ SettingsDialog::SettingsDialog()
     resize(500, 200);
     setModal(true);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(applySettings()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-    groupBox1 = new QGroupBox(tr("Options"));
-    groupBox2 = new QGroupBox(tr("Action"));
+    iconStyleBox = new QGroupBox(tr("Iconstyle"));
+    iconSizeBox = new QGroupBox(tr("Iconsize"));
 
 
-	group1 = new QButtonGroup();	
-	QRadioButton *iconSizeSmall = new QRadioButton(tr("small"));
-	QRadioButton *iconSizeMedium =new QRadioButton(tr("medium"));
-	QRadioButton *iconSizeLarge = new QRadioButton(tr("large"));
-	group1->addButton(iconSizeSmall,1);
-	group1->addButton(iconSizeMedium,2);
-	group1->addButton(iconSizeLarge,3);
+	/*****************************************
+	 * Icon-Size-Box
+	 *****************************************/
+	iconSizeGroup = new QButtonGroup();	
+	iconSizeSmall = new QRadioButton(tr("small"));
+	iconSizeMedium =new QRadioButton(tr("medium"));
+	iconSizeLarge = new QRadioButton(tr("large"));
 
-	group2 = new QButtonGroup();
-	QRadioButton *iconTextButton = new QRadioButton(tr("just text"));
-	QRadioButton *iconIconsButton =new QRadioButton(tr("just icons"));
-	QRadioButton *iconAllButton = new QRadioButton(tr("text and icons"));
-	group2->addButton(iconTextButton,1);
-	group2->addButton(iconIconsButton,2);
-	group2->addButton(iconAllButton,3);
+	iconSizeGroup->addButton(iconSizeSmall,1);
+	iconSizeGroup->addButton(iconSizeMedium,2);
+	iconSizeGroup->addButton(iconSizeLarge,3);
 
-	QHBoxLayout *iconSizeBox = new QHBoxLayout();
-	iconSizeBox->addWidget(iconSizeSmall);
-	iconSizeBox->addWidget(iconSizeMedium);
-	iconSizeBox->addWidget(iconSizeLarge);
+	iconSizeBoxLayout = new QHBoxLayout();
+	iconSizeBoxLayout->addWidget(iconSizeSmall);
+	iconSizeBoxLayout->addWidget(iconSizeMedium);
+	iconSizeBoxLayout->addWidget(iconSizeLarge);
 
-	QHBoxLayout *iconStyleBox = new QHBoxLayout();
-	iconStyleBox->addWidget(iconTextButton);
-	iconStyleBox->addWidget(iconIconsButton);
-	iconStyleBox->addWidget(iconAllButton);
+	iconSizeBox->setLayout(iconSizeBoxLayout);
 
-	groupBox2->setLayout(iconStyleBox);
-	groupBox1->setLayout(iconSizeBox);
-    
-    /**/
+	/*****************************************
+	 * Icon-Style-Box
+	 *****************************************/
+	iconStyleGroup = new QButtonGroup();
+	iconTextButton = new QRadioButton(tr("just text"));
+	iconIconsButton =new QRadioButton(tr("just icons"));
+	iconAllButton = new QRadioButton(tr("text and icons"));
+
+	iconStyleGroup->addButton(iconTextButton,1);
+	iconStyleGroup->addButton(iconIconsButton,2);
+	iconStyleGroup->addButton(iconAllButton,3);
+
+	iconStyleBoxLayout = new QHBoxLayout();
+	iconStyleBoxLayout->addWidget(iconTextButton);
+	iconStyleBoxLayout->addWidget(iconIconsButton);
+	iconStyleBoxLayout->addWidget(iconAllButton);
+
+	iconStyleBox->setLayout(iconStyleBoxLayout);	
+
+	
+    /*****************************************
+	 * Language Select Box
+	 *****************************************/
     QGroupBox *langBox = new QGroupBox(tr("Language"));
     QHBoxLayout *hbox2 = new QHBoxLayout();
     QComboBox *langSelectBox = new QComboBox;
@@ -93,23 +104,66 @@ SettingsDialog::SettingsDialog()
     
     hbox2->addWidget(langSelectBox);
     langBox->setLayout(hbox2);
-    /**/
-	
-    QVBoxLayout *vbox = new QVBoxLayout();
-    vbox->addWidget(groupBox1);
-	vbox->addWidget(groupBox2);
+
+	/*****************************************
+	 * Main V-Box
+	 *****************************************/
+    vbox = new QVBoxLayout();
+    vbox->addWidget(iconSizeBox);
+	vbox->addWidget(iconStyleBox);
     vbox->addWidget(langBox);
     vbox->addWidget(buttonBox);
     setLayout(vbox);
+	
+	setSettings();
     exec();
 }
 
+/**********************************
+ * Read the settings from config 
+ * and set the buttons and checkboxes
+ * appropriately
+ **********************************/
+void SettingsDialog::setSettings()
+{
+	QSettings settings;
+	
+	//Iconsize
+	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+	switch (iconSize.height()){
+	case 12: iconSizeSmall->setChecked(true);
+		break;
+    case 24:iconSizeMedium->setChecked(true);
+		break;
+    case 32:iconSizeLarge->setChecked(true);
+		break;
+	}
+	
+	// Iconstyle
+	Qt::ToolButtonStyle iconStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
+	switch (iconStyle){
+	case Qt::ToolButtonTextOnly: iconTextButton->setChecked(true);
+		break;
+    case Qt::ToolButtonIconOnly:iconIconsButton->setChecked(true);
+		break;
+    case Qt::ToolButtonTextUnderIcon:iconAllButton->setChecked(true);
+		break;
+	default:
+		break;
+	}
+	
+}
+
+/***********************************
+ * get the values of the buttons and
+ * write them to settings-file
+ *************************************/
 void SettingsDialog::applySettings()
 {
 	 QSettings settings;
      //settings.setValue("geometry", saveGeometry());
 
-	switch (group1->checkedId()){
+	switch (iconSizeGroup->checkedId()){
 	case 1: settings.setValue("toolbar/iconsize", QSize(12, 12));
 		break;
     case 2:settings.setValue("toolbar/iconsize", QSize(24, 24));
@@ -118,7 +172,7 @@ void SettingsDialog::applySettings()
 		break;
 	}
 
-	switch (group2->checkedId()){
+	switch (iconStyleGroup->checkedId()){
 	case 1: settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextOnly);
 		break;
     case 2:settings.setValue("toolbar/iconstyle", Qt::ToolButtonIconOnly);
