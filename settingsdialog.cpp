@@ -41,17 +41,11 @@ SettingsDialog::SettingsDialog()
     resize(500, 200);
     setModal(true);
 
-    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(applySettings()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-
-    iconStyleBox = new QGroupBox(tr("Iconstyle"));
-    iconSizeBox = new QGroupBox(tr("Iconsize"));
-
-
+	
 	/*****************************************
 	 * Icon-Size-Box
 	 *****************************************/
+    iconSizeBox = new QGroupBox(tr("Iconsize"));
 	iconSizeGroup = new QButtonGroup();	
 	iconSizeSmall = new QRadioButton(tr("small"));
 	iconSizeMedium =new QRadioButton(tr("medium"));
@@ -71,6 +65,7 @@ SettingsDialog::SettingsDialog()
 	/*****************************************
 	 * Icon-Style-Box
 	 *****************************************/
+    iconStyleBox = new QGroupBox(tr("Iconstyle"));
 	iconStyleGroup = new QButtonGroup();
 	iconTextButton = new QRadioButton(tr("just text"));
 	iconIconsButton =new QRadioButton(tr("just icons"));
@@ -87,7 +82,15 @@ SettingsDialog::SettingsDialog()
 
 	iconStyleBox->setLayout(iconStyleBoxLayout);	
 
-	
+	/*****************************************
+	 * Window-Size-Box
+	 *****************************************/
+	windowSizeBox = new QGroupBox(tr("Windowstate"));
+	windowSizeBoxLayout = new QHBoxLayout();
+	windowSizeCheckBox =new QCheckBox(tr("save window size and position on exit"),this);
+	windowSizeBoxLayout->addWidget(windowSizeCheckBox);
+	windowSizeBox->setLayout(windowSizeBoxLayout);	
+
     /*****************************************
 	 * Language Select Box
 	 *****************************************/
@@ -106,11 +109,19 @@ SettingsDialog::SettingsDialog()
     langBox->setLayout(hbox2);
 
 	/*****************************************
+	 * Button-Box
+	 *****************************************/
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(applySettings()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+
+	/*****************************************
 	 * Main V-Box
 	 *****************************************/
     vbox = new QVBoxLayout();
     vbox->addWidget(iconSizeBox);
 	vbox->addWidget(iconStyleBox);
+    vbox->addWidget(windowSizeBox);
     vbox->addWidget(langBox);
     vbox->addWidget(buttonBox);
     setLayout(vbox);
@@ -152,6 +163,8 @@ void SettingsDialog::setSettings()
 		break;
 	}
 	
+	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
+	windowSizeCheckBox->setCheckState(windowSave);
 }
 
 /***********************************
@@ -180,6 +193,8 @@ void SettingsDialog::applySettings()
     case 3:settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon);
 		break;
 	}
+
+	settings.setValue("window/windowSave", windowSizeCheckBox->checkState());
 	accept();
 }
 

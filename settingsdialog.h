@@ -27,6 +27,8 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QComboBox>
+#include <QCheckBox>
+
 
 class SettingsDialog : public QDialog
 {
@@ -38,6 +40,7 @@ public:
 private:
 	QGroupBox *iconSizeBox;
 	QGroupBox *iconStyleBox;
+	QGroupBox *windowSizeBox;
 	QDialogButtonBox *buttonBox;
 	
 	QButtonGroup *iconSizeGroup;
@@ -49,9 +52,11 @@ private:
 	QRadioButton *iconTextButton;
 	QRadioButton *iconIconsButton;
 	QRadioButton *iconAllButton;
+	QCheckBox *windowSizeCheckBox;
 	
 	QHBoxLayout *iconSizeBoxLayout;
 	QHBoxLayout *iconStyleBoxLayout;
+	QHBoxLayout *windowSizeBoxLayout;
 	QVBoxLayout *vbox;
 	void setSettings();
 	

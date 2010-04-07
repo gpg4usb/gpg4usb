@@ -63,29 +63,33 @@ GpgWin::GpgWin()
 
 void GpgWin::restoreSettings()
 {
-	// Restore window size & location
-    // TODO: is this a good idea for a portable app? screen size & resolution may vary
     QSettings settings;
     //restoreGeometry(settings.value("window/geometry").toByteArray());
-    QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
-    QSize size = settings.value("window/size", QSize(800, 450)).toSize();
+
+	// Restore window size & location
+	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
+	if (windowSave == Qt::Checked) {
+		QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
+		QSize size = settings.value("window/size", QSize(800, 450)).toSize();
+		this->resize(size);
+		this->move(pos);
+	} else {
+		this->resize(QSize(800,450));
+		this->move(QPoint(100, 100));
+	}
+	
+	// Iconsize
 	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
-    Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
-    
-    this->resize(size);
-    this->move(pos);
 	this->setIconSize(iconSize);
+
+	// Iconstyle
+    Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
 	this->setToolButtonStyle(buttonStyle);
 
     // state sets pos & size of dock-widgets
     this->restoreState(settings.value("window/windowState").toByteArray());
 }
-/* void GpgWin::dropEvent(QDropEvent *event)
- {
-     edit->setPlainText(event->mimeData()->text());
-     event->acceptProposedAction();
- }
-*/
+
  void GpgWin::createActions()
 {
     /** Main Menu
@@ -147,8 +151,7 @@ void GpgWin::restoreSettings()
     selectallAct->setToolTip(tr("Select the whole text"));
     connect(selectallAct, SIGNAL(triggered()), edit, SLOT(selectAll()));
 
-    openSettingsAct = new QAction(tr("Settings"), this);
-//    openSettingsAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    openSettingsAct = new QAction(tr("Se&ttings"), this);
     openSettingsAct->setToolTip(tr("Open settings dialog"));
     connect(openSettingsAct, SIGNAL(triggered()), this, SLOT(openSettingsDialog()));
 
