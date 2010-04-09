@@ -40,8 +40,7 @@ SettingsDialog::SettingsDialog()
     setWindowTitle(tr("Settings"));
     resize(500, 200);
     setModal(true);
-
-	
+    
 	/*****************************************
 	 * Icon-Size-Box
 	 *****************************************/
@@ -195,6 +194,7 @@ void SettingsDialog::applySettings()
 	}
 
 	settings.setValue("window/windowSave", windowSizeCheckBox->checkState());
+
 	accept();
 }
 
@@ -223,7 +223,6 @@ QHash<QString, QString> SettingsDialog::listLanguages() {
         QString language = translator.translate("SettingsDialog",
                                                 "English");
         languages.insert(locale, language);
-        
     }
     return languages;
 }

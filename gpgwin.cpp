@@ -58,7 +58,6 @@ GpgWin::GpgWin()
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
 	restoreSettings();
-    
 }
 
 void GpgWin::restoreSettings()
@@ -85,9 +84,10 @@ void GpgWin::restoreSettings()
 	// Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
 	this->setToolButtonStyle(buttonStyle);
-
     // state sets pos & size of dock-widgets
+	settings.sync();
     this->restoreState(settings.value("window/windowState").toByteArray());
+
 }
 
  void GpgWin::createActions()
@@ -560,14 +560,6 @@ void GpgWin::importKeyDialog()
 }
 
 /**
- * Delete a selected (not checked!) Key(s) from keylist
- */
-/*void GpgWin::deleteSelectedKeys()
-{
-    mCtx->deleteKeys(mKeyList->getSelected());
-}*/
-
-/**
  * Append the selected (not checked!) Key(s) To Textedit
  */
 void GpgWin::appendSelectedKeys()
@@ -580,7 +572,6 @@ void GpgWin::appendSelectedKeys()
 
 void GpgWin::fileEncryption()
 {
-
     new FileEncryptionDialog(mCtx, iconPath);
 
 }

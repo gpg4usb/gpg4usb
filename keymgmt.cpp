@@ -42,10 +42,11 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
     
     /* Restore the iconstyle */
 	QSettings settings;
+	settings.sync();
 	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
-    setIconSize(iconSize);
-	setToolButtonStyle(buttonStyle);
+    this->setIconSize(iconSize);
+	this->setToolButtonStyle(buttonStyle);
 
     setWindowTitle(tr("Keymanagement"));
     mKeyList->addMenuAction(deleteSelectedKeysAct);
