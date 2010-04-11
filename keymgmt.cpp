@@ -48,6 +48,20 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
     this->setIconSize(iconSize);
 	this->setToolButtonStyle(buttonStyle);
 
+    // state sets pos & size of dock-widgets
+    this->restoreState(settings.value("keymgmt/windowState").toByteArray());
+
+	// Restore window size & location
+	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
+	if (windowSave == Qt::Checked) {
+		QPoint pos = settings.value("keymgmt/pos", QPoint(100, 100)).toPoint();
+		QSize size = settings.value("keymgmt/size", QSize(800, 450)).toSize();
+		this->resize(size);
+		this->move(pos);
+	} else {
+		this->resize(QSize(800,400));
+	}
+
     setWindowTitle(tr("Keymanagement"));
     mKeyList->addMenuAction(deleteSelectedKeysAct);
     mKeyList->addMenuAction(showKeyDetailsAct);
@@ -425,4 +439,15 @@ int KeyMgmt::checkPassWordStrength()
     }
 
     return strength;
+}
+
+void KeyMgmt::closeEvent(QCloseEvent *event)
+{
+     QSettings settings;
+     //settings.setValue("geometry", saveGeometry());
+     settings.setValue("keymgmt/windowState", saveState());
+     settings.setValue("keymgmt/pos", pos());
+     settings.setValue("keymgmt/size", size());
+     
+     QMainWindow::closeEvent(event);
 }

@@ -111,6 +111,9 @@ private:
     QDateTimeEdit *dateEdit;
     QCheckBox *expireCheckBox;
     QSlider *pwStrengthSlider;
+
+protected:
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // __KEYMGMT_H__

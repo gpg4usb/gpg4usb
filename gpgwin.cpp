@@ -65,6 +65,9 @@ void GpgWin::restoreSettings()
     QSettings settings;
     //restoreGeometry(settings.value("window/geometry").toByteArray());
 
+    // state sets pos & size of dock-widgets
+    this->restoreState(settings.value("window/windowState").toByteArray());
+
 	// Restore window size & location
 	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
 	if (windowSave == Qt::Checked) {
@@ -84,10 +87,6 @@ void GpgWin::restoreSettings()
 	// Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
 	this->setToolButtonStyle(buttonStyle);
-    // state sets pos & size of dock-widgets
-	settings.sync();
-    this->restoreState(settings.value("window/windowState").toByteArray());
-
 }
 
  void GpgWin::createActions()
@@ -290,7 +289,6 @@ void GpgWin::createDockWindows()
     addDockWidget(Qt::BottomDockWidgetArea, dock);
     dock->setWidget(mAttachments);*/
 }
-
 
 void GpgWin::closeEvent(QCloseEvent *event)
 {
@@ -512,7 +510,7 @@ void GpgWin::openKeyManagement()
 {
     if (!keyMgmt) {
         keyMgmt = new KeyMgmt(mCtx, iconPath);
-        keyMgmt->resize(800, 400);
+//        keyMgmt->resize(800, 400);
     }
     keyMgmt->show();
     keyMgmt->raise();
@@ -577,6 +575,14 @@ void GpgWin::fileEncryption()
 }
 void GpgWin::openSettingsDialog()
 {
+	QSettings settings;
 	new SettingsDialog();
-	restoreSettings();
+//	restoreSettings();
+	// Iconsize
+	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+	this->setIconSize(iconSize);
+
+	// Iconstyle
+    Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
+	this->setToolButtonStyle(buttonStyle);
 }
