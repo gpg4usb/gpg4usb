@@ -53,6 +53,8 @@ private:
 	QRadioButton *iconIconsButton;
 	QRadioButton *iconAllButton;
 	QCheckBox *windowSizeCheckBox;
+    QComboBox *langSelectBox;
+    QHash<QString, QString> lang;
 	
 	QHBoxLayout *iconSizeBoxLayout;
 	QHBoxLayout *iconStyleBoxLayout;

@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
 
     QSettings settings;
     QString lang = settings.value("int/lang", QLocale::system().name()).toString();
+    if(lang.isEmpty()) lang = QLocale::system().name();
     
     //internationalize
     QTranslator translator;

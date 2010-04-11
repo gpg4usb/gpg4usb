@@ -94,18 +94,18 @@ SettingsDialog::SettingsDialog()
 	 * Language Select Box
 	 *****************************************/
     QGroupBox *langBox = new QGroupBox(tr("Language"));
-    QHBoxLayout *hbox2 = new QHBoxLayout();
-    QComboBox *langSelectBox = new QComboBox;
-    
-    QHash<QString, QString> lang = listLanguages();
+    QVBoxLayout *vbox2 = new QVBoxLayout();
+    langSelectBox = new QComboBox;
+    lang = listLanguages();
     
     foreach(QString l , lang) {
         langSelectBox->addItem(l);
-        //qDebug() << l;
     }
     
-    hbox2->addWidget(langSelectBox);
-    langBox->setLayout(hbox2);
+    vbox2->addWidget(langSelectBox);
+    QLabel *langNote = new QLabel(tr("Language change is applied after restarting program."));
+    vbox2->addWidget(langNote);
+    langBox->setLayout(vbox2);
 
 	/*****************************************
 	 * Button-Box
@@ -164,6 +164,11 @@ void SettingsDialog::setSettings()
 	
 	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
 	windowSizeCheckBox->setCheckState(windowSave);
+    //static_cast<Qt::QString>
+    QString langKey = settings.value("int/lang").toString();
+    QString langValue = lang.value(langKey);
+    
+    langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
 }
 
 /***********************************
@@ -195,6 +200,9 @@ void SettingsDialog::applySettings()
 
 	settings.setValue("window/windowSave", windowSizeCheckBox->checkState());
 
+    //qDebug() << "lang:" << langSelectBox->currentText() << " : "  << lang.key(langSelectBox->currentText());
+    settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
+
 	accept();
 }
 
@@ -207,6 +215,8 @@ QHash<QString, QString> SettingsDialog::listLanguages() {
     
     //QStringList languages;
     QHash<QString, QString> languages;
+    
+    languages.insert("", tr("System Default"));
     
     QString appPath = qApp->applicationDirPath();
     QDir qmDir = QDir(appPath + "/ts/");
