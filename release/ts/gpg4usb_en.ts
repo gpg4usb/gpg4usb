@@ -872,6 +872,11 @@ Weak -&gt; Strong</source>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="214"/>
+        <source>English</source>
+        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
+        <translation type="unfinished">English</translation>
+    </message>
+    <message>
         <location filename="../../settingsdialog.cpp" line="233"/>
         <source>English</source>
         <translation type="unfinished">English</translation>

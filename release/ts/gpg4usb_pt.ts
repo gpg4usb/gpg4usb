@@ -380,10 +380,6 @@
         <translation>Arquivo carregado</translation>
     </message>
     <message>
-        <source>untitled.txt</source>
-        <translation type="obsolete">untitled.txt</translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="369"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
@@ -538,10 +534,6 @@ Deseja salvar as alterações?</translation>
         <translation>Nunca</translation>
     </message>
     <message>
-        <source>dd. MMM. yyyy</source>
-        <translation type="obsolete">dd.MMM.yyyy</translation>
-    </message>
-    <message>
         <location filename="../../keydetailsdialog.cpp" line="63"/>
         <source> / Never</source>
         <translation>/Nunca</translation>
@@ -575,10 +567,6 @@ Guarde-a em segurança.</translation>
         <source>Export Key To File</source>
         <translation>Exportar Chave para Arquivo</translation>
     </message>
-    <message>
-        <source>Key Files</source>
-        <translation type="obsolete">Arquivos de Chaves</translation>
-    </message>
 </context>
 <context>
     <name>KeyList</name>
@@ -591,10 +579,6 @@ Guarde-a em segurança.</translation>
         <location filename="../../keylist.cpp" line="48"/>
         <source>EMail</source>
         <translation>Email</translation>
-    </message>
-    <message>
-        <source>id</source>
-        <translation type="obsolete">id</translation>
     </message>
 </context>
 <context>
@@ -896,6 +880,11 @@ Para agilizar o processo use seu computador
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="214"/>
+        <source>English</source>
+        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
+        <translation type="unfinished">Português</translation>
+    </message>
+    <message>
         <location filename="../../settingsdialog.cpp" line="233"/>
         <source>English</source>
         <translation>Português</translation>

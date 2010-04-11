@@ -2,46 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de">
 <context>
-    <name>Attachments</name>
-    <message>
-        <source>Add File</source>
-        <translation type="obsolete">Datei hinzufügen</translation>
-    </message>
-    <message>
-        <source>Add a file</source>
-        <translation type="obsolete">Füge eine Datei hinzu</translation>
-    </message>
-    <message>
-        <source>Encrypt</source>
-        <translation type="obsolete">Verschlüsseln</translation>
-    </message>
-    <message>
-        <source>Encrypt marked File(s)</source>
-        <translation type="obsolete">Verschlüssele markierte Datei(en)</translation>
-    </message>
-    <message>
-        <source>Decrypt</source>
-        <translation type="obsolete">Entschlüsseln</translation>
-    </message>
-    <message>
-        <source>Decrypt marked File(s)</source>
-        <translation type="obsolete">Entschlüssele markierte Datei(en)</translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">Konnte Datei nicht öffnen:</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation type="obsolete">Datei</translation>
-    </message>
-    <message>
-        <source>Cannot write file %1:
-%2.</source>
-        <translation type="obsolete">Kann Datei nicht lesen %1: %2.</translation>
-    </message>
-</context>
-<context>
     <name>FileEncryptionDialog</name>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="41"/>
@@ -284,17 +244,9 @@
         <translation>Entschlüssele den Text</translation>
     </message>
     <message>
-        <source>&amp;Import Key From File</source>
-        <translation type="obsolete">Importiere Schlüssel aus &amp;Datei</translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="180"/>
         <source>Import New Key From File</source>
         <translation>Importiere einen neuen Schlüssel aus Datei</translation>
-    </message>
-    <message>
-        <source>Import Key From &amp;Editor</source>
-        <translation type="obsolete">Importiere Schlüssel aus Textfeld</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="185"/>
@@ -322,10 +274,6 @@
         <location filename="../../gpgwin.cpp" line="227"/>
         <source>&amp;Edit</source>
         <translation>&amp;Bearbeiten</translation>
-    </message>
-    <message>
-        <source>&amp;Crypto</source>
-        <translation type="obsolete">&amp;Crypt</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="250"/>
@@ -372,14 +320,6 @@
         <location filename="../../gpgwin.cpp" line="200"/>
         <source>Open Import New Key Dialog</source>
         <translation>Öffne den Schlüsselimport Dialog</translation>
-    </message>
-    <message>
-        <source>Delete Selected Key(s)</source>
-        <translation type="obsolete">Lösche den ausgewählten Schlüssel</translation>
-    </message>
-    <message>
-        <source>Delete The Selected Keys</source>
-        <translation type="obsolete">Lösche den/die ausgewählten Schlüssel</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="212"/>
@@ -462,21 +402,9 @@ Do you want to save your changes?</source>
         <translation>%1 gespeichert</translation>
     </message>
     <message>
-        <source>About gpg4usb</source>
-        <translation type="obsolete">Über gpg4usb</translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="497"/>
         <source>Open Key</source>
         <translation>Öffne Datei</translation>
-    </message>
-    <message>
-        <source>Key Files (*.asc *.txt);;All Files (*.*)</source>
-        <translation type="obsolete">Schhlüsseldateien (*.asc *.txt);;Alle Dateien (*.*)</translation>
-    </message>
-    <message>
-        <source>untitled.txt</source>
-        <translation type="obsolete">Neue Datei.txt</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="431"/>
@@ -487,10 +415,6 @@ Do you want to save your changes?</source>
         <location filename="../../gpgwin.cpp" line="501"/>
         <source>couldn&apos;t open file: </source>
         <translation>Konnte Datei nicht öffnen:</translation>
-    </message>
-    <message>
-        <source>gpg4usb</source>
-        <translation type="obsolete">gpg4usb</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="183"/>
@@ -516,17 +440,9 @@ Do you want to save your changes?</source>
         <translation>Schlüsselimport</translation>
     </message>
     <message>
-        <source>Import New Key</source>
-        <translation type="obsolete">Importiere neuen Schlüssel</translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="234"/>
         <source>&amp;Crypt</source>
         <translation>&amp;Crypt</translation>
-    </message>
-    <message>
-        <source>&amp;Import key from...</source>
-        <translation type="obsolete">&amp;Importiere neuen Schlüssel aus...</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="256"/>
@@ -551,10 +467,6 @@ Do you want to save your changes?</source>
 </context>
 <context>
     <name>KeyDetailsDialog</name>
-    <message>
-        <source>Key Properties</source>
-        <translation type="obsolete">Schlüsseleigenschaften</translation>
-    </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="30"/>
         <source>Owner details</source>
@@ -586,10 +498,6 @@ Do you want to save your changes?</source>
         <translation>Kommentar: </translation>
     </message>
     <message>
-        <source>KeySize:</source>
-        <translation type="obsolete">Länge:</translation>
-    </message>
-    <message>
         <location filename="../../keydetailsdialog.cpp" line="40"/>
         <source>Expires on: </source>
         <translation>Läuft ab am: </translation>
@@ -598,10 +506,6 @@ Do you want to save your changes?</source>
         <location filename="../../keydetailsdialog.cpp" line="41"/>
         <source>Created on: </source>
         <translation>Erzeugt am: </translation>
-    </message>
-    <message>
-        <source>Algorithm</source>
-        <translation type="obsolete">Typ:</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="39"/>
@@ -617,10 +521,6 @@ Do you want to save your changes?</source>
         <location filename="../../keydetailsdialog.cpp" line="51"/>
         <source>Never</source>
         <translation>Nie</translation>
-    </message>
-    <message>
-        <source>dd. MMM. yyyy</source>
-        <translation type="obsolete">dd. MMM. yyyy</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="63"/>
@@ -666,33 +566,9 @@ also geben sie ihn nicht weiter.</translation>
         <source>Key Files </source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Key Files</source>
-        <translation type="obsolete">Schlüsseldateien</translation>
-    </message>
 </context>
 <context>
     <name>KeyList</name>
-    <message>
-        <source>Delete Selected Keys</source>
-        <translation type="obsolete">Lösche die markierten Schlüssel</translation>
-    </message>
-    <message>
-        <source>Delete Key</source>
-        <translation type="obsolete">Lösche Schlüssel</translation>
-    </message>
-    <message>
-        <source>Delete the selected keys</source>
-        <translation type="obsolete">Lösche die markierten Schlüssel</translation>
-    </message>
-    <message>
-        <source>Delete Checked Keys</source>
-        <translation type="obsolete">Gewählte Schlüssel löschen</translation>
-    </message>
-    <message>
-        <source>Delete the checked keys</source>
-        <translation type="obsolete">Lösche die gewählte Schlüssel </translation>
-    </message>
     <message>
         <location filename="../../keylist.cpp" line="48"/>
         <source>Name</source>
@@ -943,10 +819,6 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Action</source>
-        <translation type="obsolete">Aktion</translation>
-    </message>
-    <message>
         <location filename="../../settingsdialog.cpp" line="47"/>
         <source>Iconsize</source>
         <translation type="unfinished"></translation>
@@ -1008,6 +880,11 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="214"/>
+        <source>English</source>
+        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
+        <translation type="unfinished">Deutsch</translation>
+    </message>
+    <message>
         <location filename="../../settingsdialog.cpp" line="233"/>
         <source>English</source>
         <translation type="unfinished">Deutsch</translation>

@@ -330,38 +330,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Keytoolbar</source>
-        <translation type="obsolete">Barre de tache des cles</translation>
-    </message>
-    <message>
-        <source>Show/Hide Key-Toolbar</source>
-        <translation type="obsolete">Afficher/Masquer barre de tache des cles</translation>
-    </message>
-    <message>
-        <source>Crypttoolbar</source>
-        <translation type="obsolete">Barre de tache de cryptage</translation>
-    </message>
-    <message>
-        <source>Show/Hide Crypt-Toolbar</source>
-        <translation type="obsolete">Afficher/Masquer barre de tache de cryptage</translation>
-    </message>
-    <message>
-        <source>Edittoolbar</source>
-        <translation type="obsolete">Barre de tache d&apos;edition</translation>
-    </message>
-    <message>
-        <source>Show/Hide Edit-Toolbar</source>
-        <translation type="obsolete">Afficher/Masquer barre de tache d&apos;edition</translation>
-    </message>
-    <message>
-        <source>Keylist</source>
-        <translation type="obsolete">Liste des cles</translation>
-    </message>
-    <message>
-        <source>Show/Hide Keylist</source>
-        <translation type="obsolete">Afficher/Masquer liste des cles</translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="205"/>
         <source>&amp;About</source>
         <translation>&amp;A propos</translation>
@@ -411,18 +379,6 @@
         <location filename="../../gpgwin.cpp" line="250"/>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
-    </message>
-    <message>
-        <source>Crypt-Toolbar</source>
-        <translation type="obsolete">Barre de tache de cryptage</translation>
-    </message>
-    <message>
-        <source>Key-Toolbar</source>
-        <translation type="obsolete">Barre de tache des cles</translation>
-    </message>
-    <message>
-        <source>Edit-Toolbar</source>
-        <translation type="obsolete">Barre de tache d&apos;edition</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="276"/>
@@ -608,10 +564,6 @@ Make sure you keep it save.</source>
         <location filename="../../keydetailsdialog.cpp" line="147"/>
         <source>Key Files </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Key Files</source>
-        <translation type="obsolete">Fichiers des cles </translation>
     </message>
 </context>
 <context>
@@ -922,6 +874,11 @@ Weak -&gt; Strong</source>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="214"/>
+        <source>English</source>
+        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
+        <translation type="unfinished">Français</translation>
+    </message>
+    <message>
         <location filename="../../settingsdialog.cpp" line="233"/>
         <source>English</source>
         <translation>Français</translation>

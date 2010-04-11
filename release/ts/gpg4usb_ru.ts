@@ -2,47 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ru">
 <context>
-    <name>Attachments</name>
-    <message>
-        <source>Add File</source>
-        <translation type="obsolete">Добавить файл</translation>
-    </message>
-    <message>
-        <source>Add a file</source>
-        <translation type="obsolete">Добавить файл</translation>
-    </message>
-    <message>
-        <source>Encrypt</source>
-        <translation type="obsolete">Зашифровать</translation>
-    </message>
-    <message>
-        <source>Encrypt marked File(s)</source>
-        <translation type="obsolete">Зашифровать выделенные файлы</translation>
-    </message>
-    <message>
-        <source>Decrypt</source>
-        <translation type="obsolete">Расшифровать</translation>
-    </message>
-    <message>
-        <source>Decrypt marked File(s)</source>
-        <translation type="obsolete">Pacшифровать выделенные файлы</translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">Не удалось открыть файл:</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation type="obsolete">Файл</translation>
-    </message>
-    <message>
-        <source>Cannot write file %1:
-%2.</source>
-        <translation type="obsolete">Не удалось записать файл %1:
-%2.</translation>
-    </message>
-</context>
-<context>
     <name>FileEncryptionDialog</name>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="41"/>
@@ -286,17 +245,9 @@
         <translation>Расшифровать текст</translation>
     </message>
     <message>
-        <source>&amp;Import Key From File</source>
-        <translation type="obsolete">Импорт ключа из &amp;файла</translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="180"/>
         <source>Import New Key From File</source>
         <translation>Импорт нового ключа из файла</translation>
-    </message>
-    <message>
-        <source>Import Key From &amp;Editor</source>
-        <translation type="obsolete">Импорт ключа из редактора</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="185"/>
@@ -324,10 +275,6 @@
         <location filename="../../gpgwin.cpp" line="227"/>
         <source>&amp;Edit</source>
         <translation>&amp;Правка</translation>
-    </message>
-    <message>
-        <source>&amp;Crypto</source>
-        <translation type="obsolete">&amp;Шифрование</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="250"/>
@@ -373,14 +320,6 @@
         <location filename="../../gpgwin.cpp" line="200"/>
         <source>Open Import New Key Dialog</source>
         <translation>Открыть окно импорта ключей</translation>
-    </message>
-    <message>
-        <source>Delete Selected Key(s)</source>
-        <translation type="obsolete">Стереть выбранные ключи</translation>
-    </message>
-    <message>
-        <source>Delete The Selected Keys</source>
-        <translation type="obsolete">Стереть выбранные ключи</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="212"/>
@@ -466,21 +405,9 @@ Do you want to save your changes?</source>
         <translation>&quot;%1&quot; сохранён</translation>
     </message>
     <message>
-        <source>About gpg4usb</source>
-        <translation type="obsolete">О gpg4usb</translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="497"/>
         <source>Open Key</source>
         <translation>Открыть ключ</translation>
-    </message>
-    <message>
-        <source>Key Files (*.asc *.txt);;All Files (*.*)</source>
-        <translation type="obsolete">Файлы ключей (*.asc *.txt);;Все файлы (*.*)</translation>
-    </message>
-    <message>
-        <source>untitled.txt</source>
-        <translation type="obsolete">Текстовый файл.txt</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="431"/>
@@ -491,10 +418,6 @@ Do you want to save your changes?</source>
         <location filename="../../gpgwin.cpp" line="501"/>
         <source>couldn&apos;t open file: </source>
         <translation>Не удалось открыть файл: </translation>
-    </message>
-    <message>
-        <source>gpg4usb</source>
-        <translation type="obsolete">gpg4usb</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="183"/>
@@ -520,17 +443,9 @@ Do you want to save your changes?</source>
         <translation>Импорт ключа</translation>
     </message>
     <message>
-        <source>Import New Key</source>
-        <translation type="obsolete">Импорт нового ключа</translation>
-    </message>
-    <message>
         <location filename="../../gpgwin.cpp" line="234"/>
         <source>&amp;Crypt</source>
         <translation>&amp;Шифрование</translation>
-    </message>
-    <message>
-        <source>&amp;Import key from...</source>
-        <translation type="obsolete">&amp;Импорт нового ключа из...</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="256"/>
@@ -621,10 +536,6 @@ Do you want to save your changes?</source>
         <translation>Никогда</translation>
     </message>
     <message>
-        <source>dd. MMM. yyyy</source>
-        <translation type="obsolete">дд. МММ. гггг</translation>
-    </message>
-    <message>
         <location filename="../../keydetailsdialog.cpp" line="63"/>
         <source> / Never</source>
         <translation> / Никогда</translation>
@@ -658,33 +569,9 @@ Make sure you keep it save.</source>
         <source>Export Key To File</source>
         <translation>Экспорт ключа в файл</translation>
     </message>
-    <message>
-        <source>Key Files</source>
-        <translation type="obsolete">Файлы ключей</translation>
-    </message>
 </context>
 <context>
     <name>KeyList</name>
-    <message>
-        <source>Delete Selected Keys</source>
-        <translation type="obsolete">Стереть выбранные ключи</translation>
-    </message>
-    <message>
-        <source>Delete Key</source>
-        <translation type="obsolete">Стереть ключ</translation>
-    </message>
-    <message>
-        <source>Delete the selected keys</source>
-        <translation type="obsolete">Стереть выбранные ключи</translation>
-    </message>
-    <message>
-        <source>Delete Checked Keys</source>
-        <translation type="obsolete">Стереть выделенные ключи</translation>
-    </message>
-    <message>
-        <source>Delete the checked keys</source>
-        <translation type="obsolete">Стереть выделенные ключи</translation>
-    </message>
     <message>
         <location filename="../../keylist.cpp" line="48"/>
         <source>Name</source>
@@ -694,10 +581,6 @@ Make sure you keep it save.</source>
         <location filename="../../keylist.cpp" line="48"/>
         <source>EMail</source>
         <translation>eMail</translation>
-    </message>
-    <message>
-        <source>id</source>
-        <translation type="obsolete">Идентификатор пользователя</translation>
     </message>
 </context>
 <context>
@@ -940,10 +823,6 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Action</source>
-        <translation type="obsolete">Действие</translation>
-    </message>
-    <message>
         <location filename="../../settingsdialog.cpp" line="47"/>
         <source>Iconsize</source>
         <translation type="unfinished"></translation>
@@ -1005,6 +884,11 @@ Weak -&gt; Strong</source>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="214"/>
+        <source>English</source>
+        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
+        <translation type="unfinished">Русский</translation>
+    </message>
+    <message>
         <location filename="../../settingsdialog.cpp" line="233"/>
         <source>English</source>
         <translation type="unfinished">Русский</translation>
