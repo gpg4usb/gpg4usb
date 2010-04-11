@@ -28,6 +28,7 @@
 #include <QVBoxLayout>
 #include <QComboBox>
 #include <QCheckBox>
+#include <QHash>
 
 
 class SettingsDialog : public QDialog
