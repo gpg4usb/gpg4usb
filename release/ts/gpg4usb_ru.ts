@@ -57,7 +57,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="136"/>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="147"/>
         <source>Select &amp;All</source>
-        <translation>&amp;Выделить всё</translation>
+        <translation>В&amp;ыделить всё</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="150"/>
@@ -212,7 +212,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="154"/>
         <source>Open settings dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть окно настроек</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="159"/>
@@ -289,12 +289,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="267"/>
         <source>Edit</source>
-        <translation type="unfinished">Правка</translation>
+        <translation>Правка</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="153"/>
         <source>Se&amp;ttings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Настройки</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="171"/>
@@ -344,12 +344,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="248"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Вид</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="262"/>
         <source>Key</source>
-        <translation type="unfinished">Ключ</translation>
+        <translation>Ключ</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="276"/>
@@ -429,7 +429,7 @@ Do you want to save your changes?</source>
         <location filename="../../gpgwin.cpp" line="188"/>
         <location filename="../../gpgwin.cpp" line="536"/>
         <source>&amp;Clipboard</source>
-        <translation>Б&amp;уфера Обмена</translation>
+        <translation>&amp;Буфера Обмена</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="190"/>
@@ -450,7 +450,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="256"/>
         <source>Crypt</source>
-        <translation type="unfinished">Шифрование</translation>
+        <translation>Шифрование</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="428"/>
@@ -518,7 +518,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="147"/>
         <source>Key Files </source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы ключей</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="39"/>
@@ -658,7 +658,7 @@ Make sure you keep it save.</source>
     <message>
         <location filename="../../keymgmt.cpp" line="102"/>
         <source>Delete Checked Key(s)</source>
-        <translation>Стереть выделенн. ключи</translation>
+        <translation>Стереть выбранн. ключ(и)</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="103"/>
@@ -820,83 +820,85 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="40"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="47"/>
         <source>Iconsize</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер иконок</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="49"/>
         <source>small</source>
-        <translation type="unfinished"></translation>
+        <translation>Маленький</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="50"/>
         <source>medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Средний</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="51"/>
         <source>large</source>
-        <translation type="unfinished"></translation>
+        <translation>Большой</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="67"/>
         <source>Iconstyle</source>
-        <translation type="unfinished"></translation>
+        <translation>Стиль иконок</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="69"/>
         <source>just text</source>
-        <translation type="unfinished"></translation>
+        <translation>Только текст</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="70"/>
         <source>just icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Только значки</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="71"/>
         <source>text and icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Значки и текст</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="87"/>
         <source>Windowstate</source>
-        <translation type="unfinished"></translation>
+        <translation>Системные настройки</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="89"/>
         <source>save window size and position on exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранять размер окна при выходе</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="96"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Язык</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="106"/>
         <source>Language change is applied after restarting program.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменение языка вступит в силу после перезапуска программы.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="214"/>
         <source>English</source>
         <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation type="unfinished">Русский</translation>
+        <translatorcomment>Local language here is russian</translatorcomment>
+        <translation>Русский</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="233"/>
         <source>English</source>
-        <translation type="unfinished">Русский</translation>
+        <translatorcomment>Also local language here?</translatorcomment>
+        <translation>Русский</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="219"/>
         <source>System Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Стандартнай язык системы</translation>
     </message>
 </context>
 </TS>
