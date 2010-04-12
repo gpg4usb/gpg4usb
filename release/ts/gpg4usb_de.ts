@@ -57,7 +57,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Dateien (*) </translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="136"/>
@@ -211,7 +211,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="154"/>
         <source>Open settings dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffne den Einstellungsdialog</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="159"/>
@@ -288,12 +288,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="267"/>
         <source>Edit</source>
-        <translation type="unfinished">Bearbeiten</translation>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="153"/>
         <source>Se&amp;ttings</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;instellungen</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="171"/>
@@ -344,12 +344,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="248"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ansicht</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="262"/>
         <source>Key</source>
-        <translation type="unfinished">Schlüssel</translation>
+        <translation>Schlüssel</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="276"/>
@@ -409,7 +409,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="431"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;center&gt;Diese Anwendung erlaubt das einfache&lt;br&gt; Ver-und Entschlüsseln von Texten und Dateien.&lt;br&gt;Die Anwendung ist lizensiert unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Kirill (ru), Alessandro(pt)&lt;br&gt;&lt;br&gt;Falls sie Fragen oder Anregungen haben,&lt;br&gt; kontaktieren sie uns unter gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen sie uns in unserem XMPP-Channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="501"/>
@@ -447,7 +447,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="256"/>
         <source>Crypt</source>
-        <translation type="unfinished">Crypt</translation>
+        <translation>Crypt</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="428"/>
@@ -564,7 +564,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="147"/>
         <source>Key Files </source>
-        <translation type="unfinished"></translation>
+        <translation>Schlüsseldateien</translation>
     </message>
 </context>
 <context>
@@ -572,12 +572,12 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keylist.cpp" line="48"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Name</translation>
     </message>
     <message>
         <location filename="../../keylist.cpp" line="48"/>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
+        <translation>EMail</translation>
     </message>
 </context>
 <context>
@@ -816,83 +816,83 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="40"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="47"/>
         <source>Iconsize</source>
-        <translation type="unfinished"></translation>
+        <translation>Optionen</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="49"/>
         <source>small</source>
-        <translation type="unfinished"></translation>
+        <translation>klein</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="50"/>
         <source>medium</source>
-        <translation type="unfinished"></translation>
+        <translation>mittel</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="51"/>
         <source>large</source>
-        <translation type="unfinished"></translation>
+        <translation>gross</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="67"/>
         <source>Iconstyle</source>
-        <translation type="unfinished"></translation>
+        <translation>Iconstil</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="69"/>
         <source>just text</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur Text</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="70"/>
         <source>just icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur Icons</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="71"/>
         <source>text and icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Text und Icons</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="87"/>
         <source>Windowstate</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenstereinstellungen</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="89"/>
         <source>save window size and position on exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichere Fenstergröße und -position beim Beenden</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="96"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprache</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="106"/>
         <source>Language change is applied after restarting program.</source>
-        <translation type="unfinished"></translation>
+        <translation>DIe Änderung der Sprache wird beim nächsten Progrmmstart übernommen.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="214"/>
         <source>English</source>
         <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation type="unfinished">Deutsch</translation>
+        <translation>Deutsch</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="233"/>
         <source>English</source>
-        <translation type="unfinished">Deutsch</translation>
+        <translation>Deutsch</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="219"/>
         <source>System Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemstandard</translation>
     </message>
 </context>
 </TS>
