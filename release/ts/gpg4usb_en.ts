@@ -4,73 +4,63 @@
 <context>
     <name>FileEncryptionDialog</name>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="41"/>
+        <location filename="../../fileencryptiondialog.cpp" line="43"/>
         <source>Encrypt / Decrypt File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="49"/>
-        <location filename="../../fileencryptiondialog.cpp" line="163"/>
+        <location filename="../../fileencryptiondialog.cpp" line="51"/>
+        <location filename="../../fileencryptiondialog.cpp" line="166"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="50"/>
+        <location filename="../../fileencryptiondialog.cpp" line="52"/>
         <source>Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="60"/>
+        <location filename="../../fileencryptiondialog.cpp" line="62"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="56"/>
+        <location filename="../../fileencryptiondialog.cpp" line="58"/>
         <source>Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="62"/>
+        <location filename="../../fileencryptiondialog.cpp" line="64"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="80"/>
+        <location filename="../../fileencryptiondialog.cpp" line="82"/>
         <source>&amp;Encrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="82"/>
+        <location filename="../../fileencryptiondialog.cpp" line="84"/>
         <source>&amp;Decrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
+        <location filename="../../fileencryptiondialog.cpp" line="113"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
-        <source>Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
-        <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="136"/>
+        <location filename="../../fileencryptiondialog.cpp" line="139"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="146"/>
+        <location filename="../../fileencryptiondialog.cpp" line="149"/>
         <source>couldn&apos;t open file: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="164"/>
+        <location filename="../../fileencryptiondialog.cpp" line="167"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -403,6 +393,11 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="497"/>
         <source>Key Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="497"/>
+        <source>All Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -806,83 +801,83 @@ Weak -&gt; Strong</source>
 <context>
     <name>SettingsDialog</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="40"/>
+        <location filename="../../settingsdialog.cpp" line="41"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="47"/>
+        <location filename="../../settingsdialog.cpp" line="48"/>
         <source>Iconsize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="49"/>
+        <location filename="../../settingsdialog.cpp" line="50"/>
         <source>small</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="50"/>
+        <location filename="../../settingsdialog.cpp" line="51"/>
         <source>medium</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="51"/>
+        <location filename="../../settingsdialog.cpp" line="52"/>
         <source>large</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="67"/>
+        <location filename="../../settingsdialog.cpp" line="68"/>
         <source>Iconstyle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="69"/>
+        <location filename="../../settingsdialog.cpp" line="70"/>
         <source>just text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="70"/>
+        <location filename="../../settingsdialog.cpp" line="71"/>
         <source>just icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="71"/>
+        <location filename="../../settingsdialog.cpp" line="72"/>
         <source>text and icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="87"/>
+        <location filename="../../settingsdialog.cpp" line="88"/>
         <source>Windowstate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="89"/>
+        <location filename="../../settingsdialog.cpp" line="90"/>
         <source>save window size and position on exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="96"/>
+        <location filename="../../settingsdialog.cpp" line="97"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="106"/>
+        <location filename="../../settingsdialog.cpp" line="107"/>
         <source>Language change is applied after restarting program.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="214"/>
+        <location filename="../../settingsdialog.cpp" line="215"/>
         <source>English</source>
         <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
         <translation type="unfinished">English</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="233"/>
+        <location filename="../../settingsdialog.cpp" line="234"/>
         <source>English</source>
         <translation type="unfinished">English</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="219"/>
+        <location filename="../../settingsdialog.cpp" line="220"/>
         <source>System Default</source>
         <translation type="unfinished"></translation>
     </message>

@@ -4,73 +4,71 @@
 <context>
     <name>FileEncryptionDialog</name>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="41"/>
+        <location filename="../../fileencryptiondialog.cpp" line="43"/>
         <source>Encrypt / Decrypt File</source>
         <translation>За-/Расшифровать файл</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="49"/>
-        <location filename="../../fileencryptiondialog.cpp" line="163"/>
+        <location filename="../../fileencryptiondialog.cpp" line="51"/>
+        <location filename="../../fileencryptiondialog.cpp" line="166"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="50"/>
+        <location filename="../../fileencryptiondialog.cpp" line="52"/>
         <source>Action</source>
         <translation>Действие</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="60"/>
+        <location filename="../../fileencryptiondialog.cpp" line="62"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="56"/>
+        <location filename="../../fileencryptiondialog.cpp" line="58"/>
         <source>Input</source>
         <translation>Файл ввода</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="62"/>
+        <location filename="../../fileencryptiondialog.cpp" line="64"/>
         <source>Output</source>
         <translation>Файл вывода</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="80"/>
+        <location filename="../../fileencryptiondialog.cpp" line="82"/>
         <source>&amp;Encrypt</source>
         <translation>З&amp;ашифровать</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="82"/>
+        <location filename="../../fileencryptiondialog.cpp" line="84"/>
         <source>&amp;Decrypt</source>
         <translation>Расшифро&amp;вать</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
+        <location filename="../../fileencryptiondialog.cpp" line="113"/>
         <source>Open File</source>
         <translation>Открыть файл</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>Files</source>
-        <translation>Файлы</translation>
+        <translation type="obsolete">Файлы</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>All Files (*)</source>
-        <translation>Все файлы</translation>
+        <translation type="obsolete">Все файлы</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="136"/>
+        <location filename="../../fileencryptiondialog.cpp" line="139"/>
         <source>Save File</source>
         <translation>Сохранить файл</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="146"/>
+        <location filename="../../fileencryptiondialog.cpp" line="149"/>
         <source>couldn&apos;t open file: </source>
         <translation>Не удалось открыть файл: </translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="164"/>
+        <location filename="../../fileencryptiondialog.cpp" line="167"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Не удалось записать файл %1:
@@ -463,6 +461,11 @@ Do you want to save your changes?</source>
         <translation>Файлы ключей</translation>
     </message>
     <message>
+        <location filename="../../gpgwin.cpp" line="497"/>
+        <source>All Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../gpgwin.cpp" line="533"/>
         <source>Import Key From...</source>
         <translation>Импорт ключа из...</translation>
@@ -818,85 +821,85 @@ Weak -&gt; Strong</source>
 <context>
     <name>SettingsDialog</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="40"/>
+        <location filename="../../settingsdialog.cpp" line="41"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="47"/>
+        <location filename="../../settingsdialog.cpp" line="48"/>
         <source>Iconsize</source>
         <translation>Размер иконок</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="49"/>
+        <location filename="../../settingsdialog.cpp" line="50"/>
         <source>small</source>
         <translation>Маленький</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="50"/>
+        <location filename="../../settingsdialog.cpp" line="51"/>
         <source>medium</source>
         <translation>Средний</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="51"/>
+        <location filename="../../settingsdialog.cpp" line="52"/>
         <source>large</source>
         <translation>Большой</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="67"/>
+        <location filename="../../settingsdialog.cpp" line="68"/>
         <source>Iconstyle</source>
         <translation>Стиль иконок</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="69"/>
+        <location filename="../../settingsdialog.cpp" line="70"/>
         <source>just text</source>
         <translation>Только текст</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="70"/>
+        <location filename="../../settingsdialog.cpp" line="71"/>
         <source>just icons</source>
         <translation>Только значки</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="71"/>
+        <location filename="../../settingsdialog.cpp" line="72"/>
         <source>text and icons</source>
         <translation>Значки и текст</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="87"/>
+        <location filename="../../settingsdialog.cpp" line="88"/>
         <source>Windowstate</source>
         <translation>Системные настройки</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="89"/>
+        <location filename="../../settingsdialog.cpp" line="90"/>
         <source>save window size and position on exit</source>
         <translation>Сохранять размер окна при выходе</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="96"/>
+        <location filename="../../settingsdialog.cpp" line="97"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="106"/>
+        <location filename="../../settingsdialog.cpp" line="107"/>
         <source>Language change is applied after restarting program.</source>
         <translation>Изменение языка вступит в силу после перезапуска программы.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="214"/>
+        <location filename="../../settingsdialog.cpp" line="215"/>
         <source>English</source>
         <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
         <translatorcomment>Local language here is russian</translatorcomment>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="233"/>
+        <location filename="../../settingsdialog.cpp" line="234"/>
         <source>English</source>
         <translatorcomment>Also local language here?</translatorcomment>
         <translation>Русский</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="219"/>
+        <location filename="../../settingsdialog.cpp" line="220"/>
         <source>System Default</source>
         <translation>Стандартнай язык системы</translation>
     </message>

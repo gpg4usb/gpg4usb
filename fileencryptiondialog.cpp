@@ -34,7 +34,9 @@
 
 #include "fileencryptiondialog.h"
 
-FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath)
+FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QWidget *parent)
+ : QDialog(parent)
+
 {
 
     mCtx = ctx;
@@ -107,7 +109,8 @@ void FileEncryptionDialog::selectInputFile()
         path=QFileInfo(inputFileEdit->text()).absolutePath();
     }
 
-    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), path, tr("Files") + tr("All Files (*)"));
+//    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), path, tr("Files") + tr("All Files (*)"));
+    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), path);
     inputFileEdit->setText(infileName);
     
     // try to find a matching output-filename, if not yet done

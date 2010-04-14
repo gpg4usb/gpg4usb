@@ -18,6 +18,10 @@
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  *      MA 02110-1301, USA.
  */
+
+#ifndef __GPGWIN_H__
+#define __GPGWIN_H__
+
 #include "context.h"
 #include "keylist.h"
 #include "attachments.h"
@@ -146,3 +150,4 @@ private:
     KeyMgmt *keyMgmt;
 };
 
+#endif // __GPGWIN_H__

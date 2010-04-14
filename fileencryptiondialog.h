@@ -19,6 +19,9 @@
  *      MA 02110-1301, USA.
  */
 
+#ifndef __FILEENCRYPTIONDIALOG_H__
+#define __FILEENCRYPTIONDIALOG_H__
+
 #include <QDialog>
 #include <QLineEdit>
 #include <QRadioButton>
@@ -31,7 +34,7 @@ class FileEncryptionDialog : public QDialog
     Q_OBJECT
 
 public:
-    FileEncryptionDialog(GpgME::Context *ctx, QString iconPath);
+    FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QWidget *parent = 0);
 
 public slots:
     void selectInputFile();
@@ -51,3 +54,4 @@ protected:
     KeyList *mKeyList;
 
 };
+#endif // __FILEENCRYPTIONDIALOG_H__

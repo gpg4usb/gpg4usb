@@ -4,73 +4,71 @@
 <context>
     <name>FileEncryptionDialog</name>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="41"/>
+        <location filename="../../fileencryptiondialog.cpp" line="43"/>
         <source>Encrypt / Decrypt File</source>
         <translation>Datei Ver/Entschlüsseln</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="49"/>
-        <location filename="../../fileencryptiondialog.cpp" line="163"/>
+        <location filename="../../fileencryptiondialog.cpp" line="51"/>
+        <location filename="../../fileencryptiondialog.cpp" line="166"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="50"/>
+        <location filename="../../fileencryptiondialog.cpp" line="52"/>
         <source>Action</source>
         <translation>Aktion</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="60"/>
+        <location filename="../../fileencryptiondialog.cpp" line="62"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="56"/>
+        <location filename="../../fileencryptiondialog.cpp" line="58"/>
         <source>Input</source>
         <translation>Eingabedatei</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="62"/>
+        <location filename="../../fileencryptiondialog.cpp" line="64"/>
         <source>Output</source>
         <translation>Ausgabedatei</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="80"/>
+        <location filename="../../fileencryptiondialog.cpp" line="82"/>
         <source>&amp;Encrypt</source>
         <translation>&amp;Verschlüsseln</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="82"/>
+        <location filename="../../fileencryptiondialog.cpp" line="84"/>
         <source>&amp;Decrypt</source>
         <translation>&amp;Entschlüsseln</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
+        <location filename="../../fileencryptiondialog.cpp" line="113"/>
         <source>Open File</source>
         <translation>Datei Öffnen</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>Files</source>
-        <translation>Dateien</translation>
+        <translation type="obsolete">Dateien</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="110"/>
         <source>All Files (*)</source>
-        <translation>Alle Dateien (*) </translation>
+        <translation type="obsolete">Alle Dateien (*) </translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="136"/>
+        <location filename="../../fileencryptiondialog.cpp" line="139"/>
         <source>Save File</source>
         <translation>Datei Speichern</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="146"/>
+        <location filename="../../fileencryptiondialog.cpp" line="149"/>
         <source>couldn&apos;t open file: </source>
         <translation>Konnte Datei nicht öffnen:</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="164"/>
+        <location filename="../../fileencryptiondialog.cpp" line="167"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Kann Datei nicht schreiben %1: %2.</translation>
@@ -409,7 +407,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="431"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="unfinished">&lt;center&gt;Diese Anwendung erlaubt das einfache&lt;br&gt; Ver-und Entschlüsseln von Texten und Dateien.&lt;br&gt;Die Anwendung ist lizensiert unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Kirill (ru), Alessandro (pt)&lt;br&gt;&lt;br&gt;Falls sie Fragen oder Anregungen haben,&lt;br&gt; kontaktieren sie uns unter gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen sie uns in unserem XMPP-Channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
+        <translation>&lt;center&gt;Diese Anwendung erlaubt das einfache&lt;br&gt; Ver-und Entschlüsseln von Texten und Dateien.&lt;br&gt;Die Anwendung ist lizensiert unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Kirill (ru), Alessandro (pt)&lt;br&gt;&lt;br&gt;Falls sie Fragen oder Anregungen haben,&lt;br&gt; kontaktieren sie uns unter gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen sie uns in unserem XMPP-Channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="501"/>
@@ -458,6 +456,11 @@ Do you want to save your changes?</source>
         <location filename="../../gpgwin.cpp" line="497"/>
         <source>Key Files</source>
         <translation>Schlüssel Dateien</translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="497"/>
+        <source>All Files</source>
+        <translation>Alle Dateien</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="533"/>
@@ -814,83 +817,83 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
 <context>
     <name>SettingsDialog</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="40"/>
+        <location filename="../../settingsdialog.cpp" line="41"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="47"/>
+        <location filename="../../settingsdialog.cpp" line="48"/>
         <source>Iconsize</source>
         <translation>Optionen</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="49"/>
+        <location filename="../../settingsdialog.cpp" line="50"/>
         <source>small</source>
         <translation>klein</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="50"/>
+        <location filename="../../settingsdialog.cpp" line="51"/>
         <source>medium</source>
         <translation>mittel</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="51"/>
+        <location filename="../../settingsdialog.cpp" line="52"/>
         <source>large</source>
         <translation>gross</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="67"/>
+        <location filename="../../settingsdialog.cpp" line="68"/>
         <source>Iconstyle</source>
         <translation>Iconstil</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="69"/>
+        <location filename="../../settingsdialog.cpp" line="70"/>
         <source>just text</source>
         <translation>Nur Text</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="70"/>
+        <location filename="../../settingsdialog.cpp" line="71"/>
         <source>just icons</source>
         <translation>Nur Icons</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="71"/>
+        <location filename="../../settingsdialog.cpp" line="72"/>
         <source>text and icons</source>
         <translation>Text und Icons</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="87"/>
+        <location filename="../../settingsdialog.cpp" line="88"/>
         <source>Windowstate</source>
         <translation>Fenstereinstellungen</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="89"/>
+        <location filename="../../settingsdialog.cpp" line="90"/>
         <source>save window size and position on exit</source>
         <translation>Speichere Fenstergröße und -position beim Beenden</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="96"/>
+        <location filename="../../settingsdialog.cpp" line="97"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="106"/>
+        <location filename="../../settingsdialog.cpp" line="107"/>
         <source>Language change is applied after restarting program.</source>
         <translation>DIe Änderung der Sprache wird beim nächsten Progrmmstart übernommen.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="214"/>
+        <location filename="../../settingsdialog.cpp" line="215"/>
         <source>English</source>
         <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
         <translation>Deutsch</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="233"/>
+        <location filename="../../settingsdialog.cpp" line="234"/>
         <source>English</source>
         <translation>Deutsch</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="219"/>
+        <location filename="../../settingsdialog.cpp" line="220"/>
         <source>System Default</source>
         <translation>Systemstandard</translation>
     </message>

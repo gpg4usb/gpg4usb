@@ -494,7 +494,7 @@ void GpgWin::importKeyFromFile()
     QFile file;
     QByteArray inBuffer;
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;"+tr("All Files")+" (*)");
     if (! fileName.isNull()) {
         file.setFileName(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
@@ -570,13 +570,13 @@ void GpgWin::appendSelectedKeys()
 
 void GpgWin::fileEncryption()
 {
-    new FileEncryptionDialog(mCtx, iconPath);
+    new FileEncryptionDialog(mCtx, iconPath, this);
 
 }
 void GpgWin::openSettingsDialog()
 {
 	QSettings settings;
-	new SettingsDialog();
+	new SettingsDialog(this);
 //	restoreSettings();
 	// Iconsize
 	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();

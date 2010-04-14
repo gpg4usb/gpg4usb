@@ -19,6 +19,9 @@
  *      MA 02110-1301, USA.
  */
 
+#ifndef __SETTINGSDIALOG_H__
+#define __SETTINGSDIALOG_H__
+
 #include <QDialog>
 #include <QButtonGroup>
 #include <QGroupBox>
@@ -36,7 +39,7 @@ class SettingsDialog : public QDialog
     Q_OBJECT
 
 public:
-    SettingsDialog();
+    SettingsDialog(QWidget *parent = 0);
 
 private:
 	QGroupBox *iconSizeBox;
@@ -69,3 +72,4 @@ private slots:
 
     QHash<QString, QString> listLanguages();
 };
+#endif  // __SETTINGSDIALOG_H__

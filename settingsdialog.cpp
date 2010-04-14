@@ -35,7 +35,8 @@ class QLabel;
 class QButtonGroup;
 class QGroupBox;
 
-SettingsDialog::SettingsDialog()
+SettingsDialog::SettingsDialog(QWidget *parent)
+ : QDialog(parent)
 {
     setWindowTitle(tr("Settings"));
     resize(500, 200);

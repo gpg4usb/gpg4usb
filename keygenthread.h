@@ -19,6 +19,9 @@
  *      MA 02110-1301, USA.
  */
 
+#ifndef __KEYGENTHREAD_H__
+#define __KEYGENTHREAD_H__
+
 #include <qthread.h>
 #include <iostream>
 #include <string>
@@ -49,3 +52,4 @@ protected:
     void run();
 
 };
+#endif // __KEYGENTHREAD_H__
