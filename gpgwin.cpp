@@ -58,7 +58,7 @@ GpgWin::GpgWin()
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
 	restoreSettings();
-a}
+}
 
 void GpgWin::restoreSettings()
 {
