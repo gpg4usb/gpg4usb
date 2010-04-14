@@ -404,9 +404,8 @@ Deseja salvar as alterações?</translation>
         <translation>&apos;%1&apos; salvo.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="431"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation>&lt;center&gt; Este aplicativo permite a encriptação/decriptação&lt;br&gt;simplificada das suas mensagens de texto ou arquivos.&lt;br&gt;E é liberado sob licença GPL-V2.0&lt;br&gt;&lt;br&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Krill(ru)&lt;br&gt;Alessandro Benevenuto (pt-br)&lt;br&gt;&lt;br&gt;Caso tenha dúvidas e/ou sugestões, entre em&lt;br&gt;contatoatravés de gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;ou no canal xmpp&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
+        <translation type="obsolete">&lt;center&gt; Este aplicativo permite a encriptação/decriptação&lt;br&gt;simplificada das suas mensagens de texto ou arquivos.&lt;br&gt;E é liberado sob licença GPL-V2.0&lt;br&gt;&lt;br&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Krill(ru)&lt;br&gt;Alessandro Benevenuto (pt-br)&lt;br&gt;&lt;br&gt;Caso tenha dúvidas e/ou sugestões, entre em&lt;br&gt;contatoatravés de gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;ou no canal xmpp&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="497"/>
@@ -465,6 +464,11 @@ Deseja salvar as alterações?</translation>
         <location filename="../../gpgwin.cpp" line="428"/>
         <source>About </source>
         <translation>Sobre</translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="431"/>
+        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Kirill (ru), Alessandro (pt), Alex (fr)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="533"/>
