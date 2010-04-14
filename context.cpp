@@ -391,7 +391,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
     if (m_cache.isEmpty()) {
         QString password = QInputDialog::getText(0, "Enter Password",
                            s, QLineEdit::Password,
-                           "", &result);
+                           "", &result, Qt::Window);
 
         if (result) m_cache = password.toAscii();
     } else

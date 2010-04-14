@@ -451,7 +451,6 @@ void GpgWin::encrypt()
         QString *tmp2 = new QString(*tmp);
         edit->setPlainText(*tmp2);
     }
-
 }
 
 void GpgWin::decrypt()
