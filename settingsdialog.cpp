@@ -212,7 +212,7 @@ QHash<QString, QString> SettingsDialog::listLanguages() {
     
     // translate this String to language used, the language list gets 
     // filled from this
-    QString locaLangName = tr("English", "Insert local name of language here. This is used for the language menu of the settingsdialog");
+//    QString locaLangName = tr("English", "Insert local name of language here. This is used for the language menu of the settingsdialog");
     
     //QStringList languages;
     QHash<QString, QString> languages;

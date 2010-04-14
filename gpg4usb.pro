@@ -16,11 +16,11 @@ HEADERS += context.h gpgwin.h keylist.h keymgmt.h fileencryptiondialog.h keygent
 SOURCES += context.cpp gpgwin.cpp main.cpp keylist.cpp keymgmt.cpp fileencryptiondialog.cpp keygenthread.cpp keydetailsdialog.cpp settingsdialog.cpp
 RC_FILE = gpg4usb.rc
 # comment out line below for static building
-LIBS += -lgpgme -lgpg-error
+# LIBS += -lgpgme -lgpg-error
 DEFINES += _FILE_OFFSET_BITS=64
 
 TRANSLATIONS = release/ts/gpg4usb_en.ts \
         release/ts/gpg4usb_de.ts \
         release/ts/gpg4usb_ru.ts \
         release/ts/gpg4usb_fr.ts \
-        release/ts/gpg4usb_pt.ts \
+        release/ts/gpg4usb_pt_BR.ts \
