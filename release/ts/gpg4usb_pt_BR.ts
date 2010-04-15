@@ -295,9 +295,14 @@
         <translation>Exibe a caixa &apos;sobre&apos;</translation>
     </message>
     <message>
+        <location filename="../../gpgwin.cpp" line="431"/>
+        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../gpgwin.cpp" line="178"/>
         <location filename="../../gpgwin.cpp" line="219"/>
-        <location filename="../../gpgwin.cpp" line="534"/>
+        <location filename="../../gpgwin.cpp" line="533"/>
         <source>&amp;File</source>
         <translation>&amp;Arquivo</translation>
     </message>
@@ -408,34 +413,34 @@ Deseja salvar as alterações?</translation>
         <translation type="obsolete">&lt;center&gt; Este aplicativo permite a encriptação/decriptação&lt;br&gt;simplificada das suas mensagens de texto ou arquivos.&lt;br&gt;E é liberado sob licença GPL-V2.0&lt;br&gt;&lt;br&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Krill(ru)&lt;br&gt;Alessandro Benevenuto (pt-br)&lt;br&gt;&lt;br&gt;Caso tenha dúvidas e/ou sugestões, entre em&lt;br&gt;contatoatravés de gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;ou no canal xmpp&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="497"/>
+        <location filename="../../gpgwin.cpp" line="496"/>
         <source>Open Key</source>
         <translation>Abrir a Chave</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="497"/>
+        <location filename="../../gpgwin.cpp" line="496"/>
         <source>Key Files</source>
         <translation>Arquivos de Chaves</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="497"/>
+        <location filename="../../gpgwin.cpp" line="496"/>
         <source>All Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="501"/>
+        <location filename="../../gpgwin.cpp" line="500"/>
         <source>couldn&apos;t open file: </source>
         <translation>Não pode abrir o arquivo:</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="183"/>
-        <location filename="../../gpgwin.cpp" line="535"/>
+        <location filename="../../gpgwin.cpp" line="534"/>
         <source>&amp;Editor</source>
         <translation>&amp;Editor</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="188"/>
-        <location filename="../../gpgwin.cpp" line="536"/>
+        <location filename="../../gpgwin.cpp" line="535"/>
         <source>&amp;Clipboard</source>
         <translation>Área de &amp;Transferência</translation>
     </message>
@@ -446,7 +451,7 @@ Deseja salvar as alterações?</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="198"/>
-        <location filename="../../gpgwin.cpp" line="525"/>
+        <location filename="../../gpgwin.cpp" line="524"/>
         <source>Import Key</source>
         <translation>Importar Chave</translation>
     </message>
@@ -466,12 +471,7 @@ Deseja salvar as alterações?</translation>
         <translation>Sobre</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="431"/>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Kirill (ru), Alessandro (pt), Alex (fr)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="533"/>
+        <location filename="../../gpgwin.cpp" line="532"/>
         <source>Import Key From...</source>
         <translation>Importar Chave de...</translation>
     </message>
@@ -889,10 +889,9 @@ Para agilizar o processo use seu computador
         <translation>Alteração de idioma disponível após reiniciar o programa.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="215"/>
         <source>English</source>
         <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation>Português do Brasil</translation>
+        <translation type="obsolete">Português do Brasil</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="234"/>
