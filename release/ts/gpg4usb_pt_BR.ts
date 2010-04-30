@@ -110,12 +110,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="108"/>
         <source>Save &amp;As</source>
-        <translation>Salvar &amp;Como</translation>
+        <translation>Salvar Co&amp;mo</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="149"/>
         <source>Ctrl+A</source>
-        <translation>Ctrl+C</translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="110"/>
@@ -297,7 +297,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="431"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;center&gt;Esse programa serve para encriptar e&lt;br&gt;decriptar mensagens de texto ou arquivos.&lt;br&gt;E é liberado sob a licença GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru)&lt;br&gt;&lt;br&gt;Caso tenha dúvidas e/ou sugestões,&lt;br&gt;envie uma mensagem para&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;ou nos encontre no nosso canal xmpp:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="178"/>
@@ -425,7 +425,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../gpgwin.cpp" line="496"/>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Todos os Arquivos</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="500"/>
@@ -896,7 +896,7 @@ Para agilizar o processo use seu computador
     <message>
         <location filename="../../settingsdialog.cpp" line="234"/>
         <source>English</source>
-        <translation>Inglês</translation>
+        <translation>Português do Brasil</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="220"/>
