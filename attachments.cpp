@@ -95,7 +95,7 @@ void Attachments::encryptFile()
     foreach(QString inFilename, *(getSelected())) {
 
         QByteArray *outBuffer = new QByteArray();
-        QList<QString> *uidList = m_keyList->getChecked();
+        QStringList *uidList = m_keyList->getChecked();
 
         QFile infile;
         infile.setFileName(inFilename);

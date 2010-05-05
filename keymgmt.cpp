@@ -174,7 +174,7 @@ void KeyMgmt::deleteCheckedKeys()
     deleteKeysWithWarning(mKeyList->getSelected());
 }
 
-void KeyMgmt::deleteKeysWithWarning(QList<QString> *uidList) {
+void KeyMgmt::deleteKeysWithWarning(QStringList *uidList) {
     
     /**
      * TODO: Different Messages for private/public key, check if

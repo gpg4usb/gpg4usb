@@ -69,7 +69,7 @@ private:
     void createActions();
     void createToolBars();
     int checkPassWordStrength();
-    void deleteKeysWithWarning(QList<QString> *uidList);
+    void deleteKeysWithWarning(QStringList *uidList);
 
     KeyList *mKeyList;
     QString mIconPath;

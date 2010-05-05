@@ -97,9 +97,9 @@ void KeyList::refresh()
 }
 
 
-QList<QString> *KeyList::getChecked()
+QStringList *KeyList::getChecked()
 {
-    QList<QString> *ret = new QList<QString>();
+    QStringList *ret = new QStringList();
     for (int i = 0; i < mKeyList->rowCount(); i++) {
         if (mKeyList->item(i, 0)->checkState() == Qt::Checked) {
             *ret << mKeyList->item(i, 4)->text();
@@ -108,9 +108,9 @@ QList<QString> *KeyList::getChecked()
     return ret;
 }
 
-QList<QString> *KeyList::getSelected()
+QStringList *KeyList::getSelected()
 {
-    QList<QString> *ret = new QList<QString>();
+    QStringList *ret = new QStringList();
 
     for (int i = 0; i < mKeyList->rowCount(); i++) {
         if (mKeyList->item(i, 0)->isSelected() == 1) {

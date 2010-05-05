@@ -125,7 +125,7 @@ void Context::generateKey(QString *params)
 /** Export Key to QByteArray
  *
  */
-bool Context::exportKeys(QList<QString> *uidList, QByteArray *outBuffer)
+bool Context::exportKeys(QStringList *uidList, QByteArray *outBuffer)
 {
     size_t read_bytes;
     gpgme_data_t out = 0;
@@ -218,7 +218,7 @@ GpgKeyList Context::listKeys()
 /** Delete keys
  */
 
-void Context::deleteKeys(QList<QString> *uidList)
+void Context::deleteKeys(QStringList *uidList)
 {
 
     QString tmp;
@@ -236,7 +236,7 @@ void Context::deleteKeys(QList<QString> *uidList)
 /** Encrypt inBuffer for reciepients-uids, write
  *  result to outBuffer
  */
-bool Context::encrypt(QList<QString> *uidList, const QByteArray &inBuffer, QByteArray *outBuffer)
+bool Context::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer)
 {
 
     gpgme_data_t in = 0, out = 0;

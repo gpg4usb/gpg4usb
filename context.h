@@ -60,11 +60,11 @@ public:
     ~Context(); // Destructor
 
     void importKey(QByteArray inBuffer);
-    bool exportKeys(QList<QString> *uidList, QByteArray *outBuffer);
+    bool exportKeys(QStringList *uidList, QByteArray *outBuffer);
     void generateKey(QString *params);
     GpgKeyList listKeys();
-    void deleteKeys(QList<QString> *uidList);
-    bool encrypt(QList<QString> *uidList, const QByteArray &inBuffer,
+    void deleteKeys(QStringList *uidList);
+    bool encrypt(QStringList *uidList, const QByteArray &inBuffer,
                  QByteArray *outBuffer);
     bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
     void clearCache();
