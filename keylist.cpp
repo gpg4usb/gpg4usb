@@ -35,6 +35,7 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
     mKeyList->setColumnWidth(1, 20);
     mKeyList->sortByColumn(2, Qt::AscendingOrder);
     mKeyList->setSelectionBehavior(QAbstractItemView::SelectRows);
+    // id of key
     mKeyList->setColumnHidden(4, true);
     // tableitems not editable
     mKeyList->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -108,6 +109,30 @@ QStringList *KeyList::getChecked()
     return ret;
 }
 
+void KeyList::setChecked(QStringList *keyIds)
+{
+	if (!keyIds->isEmpty()){
+		if (keyIds->at(0) != "" ){
+			for (int i = 0; i < mKeyList->rowCount(); i++) {
+				if (keyIds->contains(mKeyList->item(i, 4)->text())) {
+					mKeyList->item(i, 0)->setCheckState(Qt::Checked);
+				}
+			}
+		}
+	}
+}
+
+/*QStringList *KeyList::getPrivateChecked()
+{
+    QStringList *ret = new QStringList();
+    for (int i = 0; i < mKeyList->rowCount(); i++) {
+        if ((mKeyList->item(i, 0)->checkState() == Qt::Checked) && (mKeyList->item(i, 4))) {
+            *ret << mKeyList->item(i, 4)->text();
+        }
+    }
+    return ret;
+}
+*/
 QStringList *KeyList::getSelected()
 {
     QStringList *ret = new QStringList();

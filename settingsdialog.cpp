@@ -91,6 +91,15 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 	windowSizeBoxLayout->addWidget(windowSizeCheckBox);
 	windowSizeBox->setLayout(windowSizeBoxLayout);	
 
+	/*****************************************
+	 * Save-Checked-Keys-Box
+	 *****************************************/
+	saveCheckedKeysBox = new QGroupBox(tr("Save Checked Keys"));
+	saveCheckedKeysBoxLayout = new QHBoxLayout();
+	saveCheckedKeysCheckBox =new QCheckBox(tr("Save checked private keys on exit"),this);
+	saveCheckedKeysBoxLayout->addWidget(saveCheckedKeysCheckBox);
+	saveCheckedKeysBox->setLayout(saveCheckedKeysBoxLayout);	
+
     /*****************************************
 	 * Language Select Box
 	 *****************************************/
@@ -122,6 +131,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     vbox->addWidget(iconSizeBox);
 	vbox->addWidget(iconStyleBox);
     vbox->addWidget(windowSizeBox);
+    vbox->addWidget(saveCheckedKeysBox);
     vbox->addWidget(langBox);
     vbox->addWidget(buttonBox);
     setLayout(vbox);
@@ -163,12 +173,17 @@ void SettingsDialog::setSettings()
 		break;
 	}
 	
+	// Window Save and Position
 	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
 	windowSizeCheckBox->setCheckState(windowSave);
-    //static_cast<Qt::QString>
+
+	// Keysaving
+	Qt::CheckState keySave = static_cast<Qt::CheckState>(settings.value("keys/keySave", Qt::Unchecked).toUInt());
+	saveCheckedKeysCheckBox->setCheckState(keySave);
+
+	//Language setting
     QString langKey = settings.value("int/lang").toString();
     QString langValue = lang.value(langKey);
-    
     langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
 }
 
@@ -200,6 +215,7 @@ void SettingsDialog::applySettings()
 	}
 
 	settings.setValue("window/windowSave", windowSizeCheckBox->checkState());
+	settings.setValue("keys/keySave", saveCheckedKeysCheckBox->checkState());
 
     //qDebug() << "lang:" << langSelectBox->currentText() << " : "  << lang.key(langSelectBox->currentText());
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
@@ -208,13 +224,8 @@ void SettingsDialog::applySettings()
 }
 
 // http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
-QHash<QString, QString> SettingsDialog::listLanguages() {
-    
-    // translate this String to language used, the language list gets 
-    // filled from this
-//    QString locaLangName = tr("English", "Insert local name of language here. This is used for the language menu of the settingsdialog");
-    
-    //QStringList languages;
+QHash<QString, QString> SettingsDialog::listLanguages() 
+{
     QHash<QString, QString> languages;
     
     languages.insert("", tr("System Default"));

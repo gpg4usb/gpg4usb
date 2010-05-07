@@ -45,6 +45,7 @@ private:
 	QGroupBox *iconSizeBox;
 	QGroupBox *iconStyleBox;
 	QGroupBox *windowSizeBox;
+	QGroupBox *saveCheckedKeysBox;
 	QDialogButtonBox *buttonBox;
 	
 	QButtonGroup *iconSizeGroup;
@@ -57,12 +58,14 @@ private:
 	QRadioButton *iconIconsButton;
 	QRadioButton *iconAllButton;
 	QCheckBox *windowSizeCheckBox;
+	QCheckBox *saveCheckedKeysCheckBox;
     QComboBox *langSelectBox;
     QHash<QString, QString> lang;
 	
 	QHBoxLayout *iconSizeBoxLayout;
 	QHBoxLayout *iconStyleBoxLayout;
 	QHBoxLayout *windowSizeBoxLayout;
+	QHBoxLayout *saveCheckedKeysBoxLayout;
 	QVBoxLayout *vbox;
 	void setSettings();
 	

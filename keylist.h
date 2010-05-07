@@ -44,6 +44,8 @@ public:
 
     KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent = 0);
     QStringList *getChecked();
+    void setChecked(QStringList *keyIds);
+    //QStringList *getPrivateChecked();
     QStringList *getSelected();
 
 public slots:

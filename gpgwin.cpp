@@ -63,7 +63,6 @@ GpgWin::GpgWin()
 void GpgWin::restoreSettings()
 {
     QSettings settings;
-    //restoreGeometry(settings.value("window/geometry").toByteArray());
 
     // state sets pos & size of dock-widgets
     this->restoreState(settings.value("window/windowState").toByteArray());
@@ -87,6 +86,14 @@ void GpgWin::restoreSettings()
 	// Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
 	this->setToolButtonStyle(buttonStyle);
+	
+	// Checked Keys
+	Qt::CheckState keySave = static_cast<Qt::CheckState>(settings.value("keys/keySave", Qt::Unchecked).toUInt());
+	if (keySave == Qt::Checked) {
+		QStringList keyIds = settings.value("keys/keyList").toStringList();
+		mKeyList->setChecked(&keyIds);
+		
+	}	
 }
 
  void GpgWin::createActions()
@@ -278,6 +285,8 @@ void GpgWin::createStatusBar()
 
 void GpgWin::createDockWindows()
 {
+	/** KeyList-Dockwindow
+	 */
     dock = new QDockWidget(tr("Encrypt for:"), this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     addDockWidget(Qt::RightDockWidgetArea, dock);
@@ -292,18 +301,37 @@ void GpgWin::createDockWindows()
 
 void GpgWin::closeEvent(QCloseEvent *event)
 {
+	/** ask to save changes, if text modified
+	 */
     if (maybeSave()) {
         event->accept();
     } else {
         event->ignore();
     }
     
+	/** Save the settings 
+	 */
      QSettings settings;
-     //settings.setValue("geometry", saveGeometry());
+
+		// window position and size
      settings.setValue("window/windowState", saveState());
      settings.setValue("window/pos", pos());
      settings.setValue("window/size", size());
      
+     // keyid-list of private checked keys
+	 Qt::CheckState keySave = static_cast<Qt::CheckState>(settings.value("keys/keySave", Qt::Unchecked).toUInt());
+     if ( keySave == Qt::Checked ) {
+		 QStringList *keyIds = mKeyList->getChecked();
+		 if (!keyIds->isEmpty()){
+				settings.setValue("keys/keyList", *keyIds);
+			} else {
+				settings.setValue("keys/keyList","");
+			}
+		}
+		
+	/********************
+	 * Quit programm
+	 * ******************/	
      QMainWindow::closeEvent(event);
 }
 
