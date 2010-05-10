@@ -109,14 +109,23 @@ QStringList *KeyList::getChecked()
     return ret;
 }
 
+QStringList *KeyList::getPrivateChecked()
+{
+    QStringList *ret = new QStringList();
+    for (int i = 0; i < mKeyList->rowCount(); i++) {
+        if ((mKeyList->item(i, 0)->checkState() == Qt::Checked) && (mKeyList->item(i,1))) {
+            *ret << mKeyList->item(i, 4)->text();
+        }
+    }
+    return ret;
+}
+
 void KeyList::setChecked(QStringList *keyIds)
 {
 	if (!keyIds->isEmpty()){
-		if (keyIds->at(0) != "" ){
-			for (int i = 0; i < mKeyList->rowCount(); i++) {
-				if (keyIds->contains(mKeyList->item(i, 4)->text())) {
-					mKeyList->item(i, 0)->setCheckState(Qt::Checked);
-				}
+		for (int i = 0; i < mKeyList->rowCount(); i++) {
+			if (keyIds->contains(mKeyList->item(i, 4)->text()))  {
+				mKeyList->item(i, 0)->setCheckState(Qt::Checked);
 			}
 		}
 	}

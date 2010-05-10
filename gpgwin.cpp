@@ -102,7 +102,6 @@ void GpgWin::restoreSettings()
 	if (keySave == Qt::Checked) {
 		QStringList keyIds = settings.value("keys/keyList").toStringList();
 		mKeyList->setChecked(&keyIds);
-		
 	}	
 }
 
@@ -331,12 +330,14 @@ void GpgWin::closeEvent(QCloseEvent *event)
      // keyid-list of private checked keys
 	 Qt::CheckState keySave = static_cast<Qt::CheckState>(settings.value("keys/keySave", Qt::Unchecked).toUInt());
      if ( keySave == Qt::Checked ) {
-		 QStringList *keyIds = mKeyList->getChecked();
+		 QStringList *keyIds = mKeyList->getPrivateChecked();
 		 if (!keyIds->isEmpty()){
 				settings.setValue("keys/keyList", *keyIds);
 			} else {
 				settings.setValue("keys/keyList","");
 			}
+		} else  {
+				settings.remove("keys/keyList");
 		}
 		
 	/********************

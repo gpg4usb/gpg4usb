@@ -96,7 +96,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 	 *****************************************/
 	saveCheckedKeysBox = new QGroupBox(tr("Save Checked Keys"));
 	saveCheckedKeysBoxLayout = new QHBoxLayout();
-	saveCheckedKeysCheckBox =new QCheckBox(tr("Save checked private keys on exit"),this);
+	saveCheckedKeysCheckBox =new QCheckBox(tr("Save checked private keys on exit and restore them on next start"),this);
 	saveCheckedKeysBoxLayout->addWidget(saveCheckedKeysCheckBox);
 	saveCheckedKeysBox->setLayout(saveCheckedKeysBoxLayout);	
 
