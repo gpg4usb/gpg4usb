@@ -473,7 +473,7 @@ void GpgWin::about()
                             "<b>Developer:</b><br>"
                             "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                             "<b>Translation:</b><br>"
-                            "Alessandro (pt_br), Alex (fr), Kirill (ru)<br><br>"
+                            "Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)<br><br>"
                             "If you have any questions and/or<br>"
                             "suggestions, contact us at<br>"
                             "gpg4usb at cpunk.de</a><br><br>"

@@ -87,7 +87,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 	 *****************************************/
 	windowSizeBox = new QGroupBox(tr("Windowstate"));
 	windowSizeBoxLayout = new QHBoxLayout();
-	windowSizeCheckBox =new QCheckBox(tr("save window size and position on exit"),this);
+	windowSizeCheckBox =new QCheckBox(tr("Save window size and position on exit."),this);
 	windowSizeBoxLayout->addWidget(windowSizeCheckBox);
 	windowSizeBox->setLayout(windowSizeBoxLayout);	
 
@@ -96,7 +96,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 	 *****************************************/
 	saveCheckedKeysBox = new QGroupBox(tr("Save Checked Keys"));
 	saveCheckedKeysBoxLayout = new QHBoxLayout();
-	saveCheckedKeysCheckBox =new QCheckBox(tr("Save checked private keys on exit and restore them on next start"),this);
+	saveCheckedKeysCheckBox =new QCheckBox(tr("Save checked private keys on exit and restore them on next start."),this);
 	saveCheckedKeysBoxLayout->addWidget(saveCheckedKeysCheckBox);
 	saveCheckedKeysBox->setLayout(saveCheckedKeysBoxLayout);	
 
