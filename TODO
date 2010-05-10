@@ -1,24 +1,15 @@
 TODO:
 -----
 
-Release 0.2.2
-- private key export
-- key properties dialog
-
-
 Release 0.2.2.1
-- encrypt files for checked not selected keys.
-- add translation for portuguese and french
+- add translation for french
 - beautify view menu
-- save window settings
 
 Release 0.2.3
 - more doku on building gpg4usb (especially on windows)
-- add a menu-entry to open Keytable ( now you have to restart, if accidently closed the keytable ).
 - File-Encryption: Warning if file overwritten
 - more internationalisation:
   - minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable") 
-  - menu-entry for changing language
   - menu entry for changing character encoding
   - configuration framework, for saving language & charencoding preferences
   - hints (on webpage?) which webmailer sends which encoding-header
