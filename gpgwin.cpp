@@ -44,10 +44,10 @@ GpgWin::GpgWin()
     mKeyList = new KeyList(mCtx, iconPath);
 
     /* List of binary Attachments */
-    /*mAttachments = new Attachments();
+    mAttachments = new Attachments();
     mAttachments->setIconPath(iconPath);
     mAttachments->setContext(mCtx);
-    mAttachments->setKeyList(mKeyList);*/
+    mAttachments->setKeyList(mKeyList);
 
     createActions();
     createMenus();

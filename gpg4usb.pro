@@ -12,8 +12,8 @@ INCLUDEPATH += . ./include
 CONFIG += release static
 
 # Input
-HEADERS += context.h gpgwin.h keylist.h keymgmt.h fileencryptiondialog.h keygenthread.h keydetailsdialog.h settingsdialog.h
-SOURCES += context.cpp gpgwin.cpp main.cpp keylist.cpp keymgmt.cpp fileencryptiondialog.cpp keygenthread.cpp keydetailsdialog.cpp settingsdialog.cpp
+HEADERS += attachments.h context.h gpgwin.h keylist.h keymgmt.h fileencryptiondialog.h keygenthread.h keydetailsdialog.h settingsdialog.h
+SOURCES += attachments.cpp context.cpp gpgwin.cpp main.cpp keylist.cpp keymgmt.cpp fileencryptiondialog.cpp keygenthread.cpp keydetailsdialog.cpp settingsdialog.cpp
 RC_FILE = gpg4usb.rc
 # comment out line below for static building
 LIBS += -lgpgme -lgpg-error
