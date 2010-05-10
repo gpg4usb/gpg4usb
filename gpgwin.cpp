@@ -58,6 +58,16 @@ GpgWin::GpgWin()
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
 	restoreSettings();
+    
+    // open filename if provided as first command line parameter
+    QStringList args = qApp->arguments();
+    if(args.size() > 1) {
+        if(!args[1].startsWith("-")) {
+            if(QFile::exists(args[1]))
+                loadFile(args[1]);
+            }
+    }
+
 }
 
 void GpgWin::restoreSettings()
