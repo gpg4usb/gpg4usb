@@ -24,6 +24,7 @@
 
 #include "context.h"
 #include "keylist.h"
+#include "mime.h"
 
 class QVBoxLayout;
 class QDebug;
@@ -42,26 +43,18 @@ class Attachments : public QWidget
     Q_OBJECT
 
 public slots:
-    void addFile();
-    void encryptFile();
-    void decryptFile();
+    void saveFile();
 
 public:
-    Attachments(QWidget *parent = 0);
-    void setIconPath(QString iconPath);
-    void setContext(GpgME::Context *ctx);
-    void setKeyList(KeyList *keylist);
+    Attachments(QString iconpath, QWidget *parent = 0);
+    void addMimePart(MimePart *mp);
 
 private:
     void createActions();
     QStringList *getSelected();
-    QListWidget *m_attachmentList;
-    QAction *addFileAct;
-    QAction *encryptAct;
-    QAction *decryptAct;
+    QTableWidget *mAttachmentTable;
+    QAction *saveFileAct;
     QString iconPath;
-    GpgME::Context *m_ctx;
-    KeyList *m_keyList;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);

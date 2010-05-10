@@ -25,6 +25,7 @@
 #include "context.h"
 #include "keylist.h"
 #include "attachments.h"
+#include "mime.h"
 #include "keymgmt.h"
 
 class QMainWindow;
@@ -92,6 +93,7 @@ private:
     bool maybeSave();
     void restoreSettings();
     void preventNoDataErr(QByteArray *in);
+    void parseMime(QByteArray *message);
     QString strippedName(const QString &fullFileName);
 
     QPlainTextEdit *edit;
@@ -105,7 +107,8 @@ private:
     QToolBar *cryptToolBar;
     QToolBar *editToolBar;
     QToolBar *keyToolBar;
-	QDockWidget *dock;
+    QDockWidget *dock;
+    QDockWidget *aDock;
     QDialog *genkeyDialog;
 
     QAction *openAct;

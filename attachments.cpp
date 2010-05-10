@@ -21,163 +21,80 @@
 
 #include "attachments.h"
 
-Attachments::Attachments(QWidget *parent)
+Attachments::Attachments(QString iconpath, QWidget *parent)
         : QWidget(parent)
 {
-    m_attachmentList = new QListWidget();
+
+    this->iconPath = iconpath;
+
+    mAttachmentTable = new QTableWidget(this);
+    mAttachmentTable->setColumnCount(2);
+
+    QStringList labels;
+    labels << "filename" << "content-type";
+    mAttachmentTable->setHorizontalHeaderLabels(labels);
+
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(m_attachmentList);
+    layout->addWidget(mAttachmentTable);
     setLayout(layout);
     createActions();
 
 }
 
-void Attachments::setIconPath(QString path)
-{
-    this->iconPath = path;
-}
-
-void Attachments::setContext(GpgME::Context *ctx)
-{
-    m_ctx = ctx;
-}
-
-void Attachments::setKeyList(KeyList *keylist)
-{
-    m_keyList = keylist;
-}
-
-
 void Attachments::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu(this);
-    menu.addAction(addFileAct);
-    menu.addAction(encryptAct);
-    menu.addAction(decryptAct);
+    menu.addAction(saveFileAct);
     menu.exec(event->globalPos());
 }
 
 void Attachments::createActions()
 {
-    addFileAct = new QAction(tr("Add File"), this);
-    addFileAct->setToolTip(tr("Add a file"));
-    addFileAct->setIcon(QIcon(iconPath + "fileopen.png"));
-    connect(addFileAct, SIGNAL(triggered()), this, SLOT(addFile()));
+    saveFileAct = new QAction(tr("Save File"), this);
+    saveFileAct->setToolTip(tr("Save this file"));
+    saveFileAct->setIcon(QIcon(iconPath + "filesave.png"));
+    connect(saveFileAct, SIGNAL(triggered()), this, SLOT(saveFile()));
 
-    encryptAct = new QAction(tr("Encrypt"), this);
-    encryptAct->setToolTip(tr("Encrypt marked File(s)"));
-    encryptAct->setIcon(QIcon(iconPath + "encrypted.png"));
-    connect(encryptAct, SIGNAL(triggered()), this, SLOT(encryptFile()));
-
-    decryptAct = new QAction(tr("Decrypt"), this);
-    decryptAct->setToolTip(tr("Decrypt marked File(s)"));
-    decryptAct->setIcon(QIcon(iconPath + "decrypted.png"));
-    connect(decryptAct, SIGNAL(triggered()), this, SLOT(decryptFile()));
 }
 
-void Attachments::addFile()
+void Attachments::saveFile()
 {
-    QFileDialog dialog(this);
-    dialog.setFileMode(QFileDialog::ExistingFiles);
 
-    QStringList fileNames;
-    if (dialog.exec())
-        fileNames = dialog.selectedFiles();
+    qDebug() << "want to save file";
 
-    //foreach(QString tmp, fileNames) qDebug() << tmp;
-    m_attachmentList->addItems(fileNames);
-}
-
-void Attachments::encryptFile()
-{
-    qDebug() << "enc";
-
-    foreach(QString inFilename, *(getSelected())) {
-
-        QByteArray *outBuffer = new QByteArray();
-        QStringList *uidList = m_keyList->getChecked();
-
-        QFile infile;
-        infile.setFileName(inFilename);
-
-        if (!infile.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("couldn't open file: ") + inFilename;
-        }
-        //qDebug() << "filesize: " << file.size();
-        QByteArray inBuffer = infile.readAll();
-        //qDebug() << "buffsize: " << inBuffer.size();
-
-        if (m_ctx->encrypt(uidList, inBuffer, outBuffer)) {
-            //qDebug() << "inb: " << inBuffer.toHex();
-            //qDebug() << "outb: " << outBuffer->data();
-            QString outFilename = QFileDialog::getSaveFileName(this);
-            if (outFilename.isEmpty()) {
-                qDebug() << "need Filename";
-                return;
-            }
-
-            QFile outfile(outFilename);
-            if (!outfile.open(QFile::WriteOnly)) {
-                QMessageBox::warning(this, tr("File"),
-                                     tr("Cannot write file %1:\n%2.")
-                                     .arg(outFilename)
-                                     .arg(outfile.errorString()));
-                return;
-            }
-
-            QTextStream out(&outfile);
-            out << outBuffer->data();
-        }
-    }
-}
-
-void Attachments::decryptFile()
-{
-    qDebug() << "dec";
-    foreach(QString inFilename, *(getSelected())) {
-        qDebug() << inFilename;
-
-        QFile infile;
-        infile.setFileName(inFilename);
-        if (!infile.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("couldn't open file: ") + inFilename;
-        }
-
-        QByteArray inBuffer = infile.readAll();
-        QByteArray *outBuffer = new QByteArray();
-        m_ctx->decrypt(inBuffer, outBuffer);
-
-        QString outFilename = QFileDialog::getSaveFileName(this);
-        if (outFilename.isEmpty()) {
-            qDebug() << "need Filename";
-            return;
-        }
-
-        QFile outfile(outFilename);
-        if (!outfile.open(QFile::WriteOnly)) {
-            QMessageBox::warning(this, tr("File"),
-                                 tr("Cannot write file %1:\n%2.")
-                                 .arg(outFilename)
-                                 .arg(outfile.errorString()));
-            return;
-        }
-
-        QDataStream out(&outfile);
-        //out << outBuffer;
-        out.writeRawData(outBuffer->data(), outBuffer->length());
-        //qDebug() << "outb: " << outBuffer->toHex();
-
+    foreach (QString tmp, *getSelected()) {
+        qDebug() << tmp;
     }
 
 }
 
 QStringList *Attachments::getSelected()
 {
+
     QStringList *ret = new QStringList();
-    for (int i = 0; i < m_attachmentList->count(); i++) {
-        if (m_attachmentList->item(i)->isSelected() == 1) {
-            *ret << m_attachmentList->item(i)->text();
+
+    for (int i = 0; i < mAttachmentTable->rowCount(); i++) {
+        if (mAttachmentTable->item(i, 0)->isSelected() == 1) {
+            *ret << mAttachmentTable->item(i, 0)->text();
         }
     }
     return ret;
+
 }
+
+void Attachments::addMimePart(MimePart *mp)
+{
+        QString icoPath  = "/usr/lib/kde4/share/icons/oxygen/32x32/mimetypes/";
+        QString icon = mp->getValue("Content-Type").replace("/", "-");
+        icon = icoPath + icon + ".png";
+
+        //QIcon *icon = new QIcon("/usr/lib/kde4/share/icons/oxygen/32x32/mimetypes/" + )
+        mAttachmentTable->setRowCount(mAttachmentTable->rowCount()+1);
+        QTableWidgetItem  *tmp = new QTableWidgetItem(QIcon(icon) , mp->getParam("Content-Type", "name"));
+        mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 0, tmp);
+
+       //  QTableWidgetItem  *tmp2 = new QTableWidgetItem(mp->getValue("Content-Type"));
+       // mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 1, tmp2);
+
+}
+

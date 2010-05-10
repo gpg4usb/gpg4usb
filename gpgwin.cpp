@@ -44,10 +44,7 @@ GpgWin::GpgWin()
     mKeyList = new KeyList(mCtx, iconPath);
 
     /* List of binary Attachments */
-    mAttachments = new Attachments();
-    mAttachments->setIconPath(iconPath);
-    mAttachments->setContext(mCtx);
-    mAttachments->setKeyList(mKeyList);
+    mAttachments = new Attachments(iconPath);
 
     createActions();
     createMenus();
@@ -302,10 +299,16 @@ void GpgWin::createDockWindows()
     dock->setWidget(mKeyList);
     viewMenu->addAction(dock->toggleViewAction());
 
-    /*dock = new QDockWidget(tr("Attached files:"), this);
-    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea );
-    addDockWidget(Qt::BottomDockWidgetArea, dock);
-    dock->setWidget(mAttachments);*/
+    /** Attachments-Dockwindow
+      */
+    aDock = new QDockWidget(tr("Attached files:"), this);
+    aDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea );
+    addDockWidget(Qt::BottomDockWidgetArea, aDock);
+    aDock->setWidget(mAttachments);
+    // hide till attachmendt is decrypted
+    aDock->hide();
+
+
 }
 
 void GpgWin::closeEvent(QCloseEvent *event)
@@ -499,8 +502,40 @@ void GpgWin::decrypt()
     preventNoDataErr(&text);
     mCtx->decrypt(text, tmp);
     if (!tmp->isEmpty()) {
+        // is it mime? TODO: parseMime should be optional by setting
+        parseMime(tmp);
         edit->setPlainText(QString::fromUtf8(*tmp));
     }
+}
+
+/**
+  * if this is mime, split text and attachents...
+  * message contains only text afterwards
+  */
+void GpgWin::parseMime(QByteArray *message) {
+
+    if( ! Mime::isMultipart(message) ) {
+            qDebug() << "no multipart";
+            return;
+    }
+    qDebug() << "multipart";
+
+    QString pText;
+    bool showmadock = false;
+
+    Mime *mime = new Mime(message);
+    foreach(MimePart tmp, mime->parts()) {
+        if(tmp.getValue("Content-Type")=="text/plain") {
+                pText.append(QString(tmp.body));
+            }
+            else {
+                (mAttachments->addMimePart(&tmp));
+                showmadock=true;
+            }
+        }
+
+    *message = pText.toAscii();
+    if(showmadock) aDock->show();
 }
 
 /**
