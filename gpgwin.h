@@ -145,6 +145,7 @@ private:
     QLabel *repeatpwLabel;
     QLabel *errorLabel;
 
+    QSettings settings;
     QString curFile;
     KeyList *mKeyList;
     Attachments *mAttachments;

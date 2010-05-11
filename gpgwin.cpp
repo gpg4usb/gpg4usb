@@ -69,8 +69,6 @@ GpgWin::GpgWin()
 
 void GpgWin::restoreSettings()
 {
-    QSettings settings;
-
     // state sets pos & size of dock-widgets
     this->restoreState(settings.value("window/windowState").toByteArray());
 
@@ -323,8 +321,6 @@ void GpgWin::closeEvent(QCloseEvent *event)
     
 	/** Save the settings 
 	 */
-     QSettings settings;
-
 		// window position and size
      settings.setValue("window/windowState", saveState());
      settings.setValue("window/pos", pos());
@@ -502,14 +498,16 @@ void GpgWin::decrypt()
     preventNoDataErr(&text);
     mCtx->decrypt(text, tmp);
     if (!tmp->isEmpty()) {
-        // is it mime? TODO: parseMime should be optional by setting
-        parseMime(tmp);
+        // is it mime?
+        if(settings.value("mime/parseMime").toBool()) {
+            parseMime(tmp);
+        }
         edit->setPlainText(QString::fromUtf8(*tmp));
     }
 }
 
 /**
-  * if this is mime, split text and attachents...
+  * if this is mime, split text and attachments...
   * message contains only text afterwards
   */
 void GpgWin::parseMime(QByteArray *message) {
@@ -648,7 +646,6 @@ void GpgWin::fileEncryption()
 }
 void GpgWin::openSettingsDialog()
 {
-	QSettings settings;
 	new SettingsDialog(this);
 //	restoreSettings();
 	// Iconsize
@@ -656,6 +653,6 @@ void GpgWin::openSettingsDialog()
 	this->setIconSize(iconSize);
 
 	// Iconstyle
-    Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
+        Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
 	this->setToolButtonStyle(buttonStyle);
 }
