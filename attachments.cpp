@@ -30,6 +30,8 @@ Attachments::Attachments(QString iconpath, QWidget *parent)
     mAttachmentTable = new QTableWidget(this);
     mAttachmentTable->setColumnCount(2);
 
+    attachmentBodys = new QList<QByteArray>();
+
     QStringList labels;
     labels << "filename" << "content-type";
     mAttachmentTable->setHorizontalHeaderLabels(labels);
@@ -62,10 +64,30 @@ void Attachments::saveFile()
 
     qDebug() << "want to save file";
 
-    foreach (QString tmp, *getSelected()) {
-        qDebug() << tmp;
+    foreach (int tmp, getSelectedPos()) {
+        qDebug() << "int is: " << tmp;
+        saveByteArrayToFile(attachmentBodys->at(tmp));
     }
 
+}
+
+void  Attachments::saveByteArrayToFile(QByteArray outBuffer)
+{
+
+    QString path="";
+    QString outfileName = QFileDialog::getSaveFileName(this, tr("Save File"), path);
+
+    QFile outfile(outfileName);
+    if (!outfile.open(QFile::WriteOnly)) {
+        QMessageBox::warning(this, tr("File"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(outfileName)
+                             .arg(outfile.errorString()));
+        return;
+    }
+
+    QDataStream out(&outfile);
+    out.writeRawData(outBuffer.data(), outBuffer.length());
 }
 
 QStringList *Attachments::getSelected()
@@ -82,19 +104,34 @@ QStringList *Attachments::getSelected()
 
 }
 
+QList<int> Attachments::getSelectedPos () {
+
+    QList<int> ret;
+
+    for (int i = 0; i < mAttachmentTable->rowCount(); i++) {
+        if (mAttachmentTable->item(i, 0)->isSelected() == 1) {
+            ret << i;
+        }
+    }
+    return ret;
+
+}
+
 void Attachments::addMimePart(MimePart *mp)
 {
-        QString icoPath  = "/usr/lib/kde4/share/icons/oxygen/32x32/mimetypes/";
-        QString icon = mp->getValue("Content-Type").replace("/", "-");
-        icon = icoPath + icon + ".png";
 
-        //QIcon *icon = new QIcon("/usr/lib/kde4/share/icons/oxygen/32x32/mimetypes/" + )
-        mAttachmentTable->setRowCount(mAttachmentTable->rowCount()+1);
-        QTableWidgetItem  *tmp = new QTableWidgetItem(QIcon(icon) , mp->getParam("Content-Type", "name"));
-        mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 0, tmp);
+       QString icon = mp->getValue("Content-Type").replace("/", "-");
+       icon = iconPath + "/mimetypes/" + icon + ".png";
 
-       //  QTableWidgetItem  *tmp2 = new QTableWidgetItem(mp->getValue("Content-Type"));
-       // mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 1, tmp2);
+       mAttachmentTable->setRowCount(mAttachmentTable->rowCount()+1);
+       QTableWidgetItem  *tmp = new QTableWidgetItem(QIcon(icon) , mp->getParam("Content-Type", "name"));
+       mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 0, tmp);
+
+       QTableWidgetItem  *tmp2 = new QTableWidgetItem(mp->getValue("Content-Type"));
+       mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 1, tmp2);
+
+       //TODO: check, if content-encoding is base64 (get from header)
+       attachmentBodys->append(QByteArray::fromBase64(mp->body));
 
 }
 
