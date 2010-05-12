@@ -19,6 +19,13 @@
  *      MA 02110-1301, USA.
  */
 
+/* TODO:
+ * - check content encoding (base64 / quoted-printable) and apply appropriate opperation (maybe already in mime.cpp)
+ * - add option to settingsdialog for mimeparsing
+ * - check memory usage, use less copy operations / more references
+ * - try table-model-view for mimeparts
+ */
+
 #include "attachments.h"
 
 Attachments::Attachments(QString iconpath, QWidget *parent)
@@ -29,12 +36,20 @@ Attachments::Attachments(QString iconpath, QWidget *parent)
 
     mAttachmentTable = new QTableWidget(this);
     mAttachmentTable->setColumnCount(2);
+    mAttachmentTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    mAttachmentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    mAttachmentTable->setFocusPolicy(Qt::NoFocus);
+    mAttachmentTable->setAlternatingRowColors(true);
+    mAttachmentTable->verticalHeader()->hide();
+    mAttachmentTable->setShowGrid(false);
+    mAttachmentTable->setColumnWidth(0, 300);
 
     attachmentBodys = new QList<QByteArray>();
 
     QStringList labels;
     labels << "filename" << "content-type";
     mAttachmentTable->setHorizontalHeaderLabels(labels);
+    mAttachmentTable->horizontalHeader()->setStretchLastSection(true);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(mAttachmentTable);
