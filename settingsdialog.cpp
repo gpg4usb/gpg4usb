@@ -117,6 +117,16 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     vbox2->addWidget(langNote);
     langBox->setLayout(vbox2);
 
+    /*****************************************
+     * MIME-Parsing-Box
+     *****************************************/
+
+    mimeParseBox = new QGroupBox(tr("MIME-parsing (Experimental)"));
+    mimeParseBoxLayout = new QHBoxLayout();
+    mimeParseCheckBox =new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."),this);
+    mimeParseBoxLayout->addWidget(mimeParseCheckBox);
+    mimeParseBox->setLayout(mimeParseBoxLayout);
+
 	/*****************************************
 	 * Button-Box
 	 *****************************************/
@@ -129,14 +139,15 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 	 *****************************************/
     vbox = new QVBoxLayout();
     vbox->addWidget(iconSizeBox);
-	vbox->addWidget(iconStyleBox);
+    vbox->addWidget(iconStyleBox);
     vbox->addWidget(windowSizeBox);
     vbox->addWidget(saveCheckedKeysBox);
+    vbox->addWidget(mimeParseBox);
     vbox->addWidget(langBox);
     vbox->addWidget(buttonBox);
     setLayout(vbox);
-	
-	setSettings();
+
+    setSettings();
     exec();
 }
 
@@ -181,6 +192,9 @@ void SettingsDialog::setSettings()
 	Qt::CheckState keySave = static_cast<Qt::CheckState>(settings.value("keys/keySave", Qt::Unchecked).toUInt());
 	saveCheckedKeysCheckBox->setCheckState(keySave);
 
+        // MIME-Parsing
+        if(settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
+
 	//Language setting
     QString langKey = settings.value("int/lang").toString();
     QString langValue = lang.value(langKey);
@@ -216,6 +230,8 @@ void SettingsDialog::applySettings()
 
 	settings.setValue("window/windowSave", windowSizeCheckBox->checkState());
 	settings.setValue("keys/keySave", saveCheckedKeysCheckBox->checkState());
+
+        settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
 
     //qDebug() << "lang:" << langSelectBox->currentText() << " : "  << lang.key(langSelectBox->currentText());
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));

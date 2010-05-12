@@ -21,7 +21,6 @@
 
 /* TODO:
  * - check content encoding (base64 / quoted-printable) and apply appropriate opperation (maybe already in mime.cpp)
- * - add option to settingsdialog for mimeparsing
  * - check memory usage, use less copy operations / more references
  * - try table-model-view for mimeparts
  */
