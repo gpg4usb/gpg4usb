@@ -36,7 +36,7 @@ Attachments::Attachments(QString iconpath, QWidget *parent)
 
     this->iconPath = iconpath;
 
-    table = new AttachmentTableModel(this);
+    table = new AttachmentTableModel(iconpath, this);
 
     tableView = new QTableView;
     tableView->setModel(table);

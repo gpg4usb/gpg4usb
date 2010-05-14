@@ -4,6 +4,9 @@
 #include "mime.h"
 
 #include <QAbstractTableModel>
+#include <QStandardItem>
+#include <QIcon>
+#include <QFile>
 
 
 class AttachmentTableModel : public QAbstractTableModel
@@ -12,6 +15,7 @@ class AttachmentTableModel : public QAbstractTableModel
 
 public:
     AttachmentTableModel(QObject *parent = 0);
+    AttachmentTableModel(QString iconpath, QObject *parent = 0);
     AttachmentTableModel(QList<MimePart> mimeparts, QObject *parent = 0);
 
     int rowCount(const QModelIndex &parent) const;
@@ -26,6 +30,7 @@ public:
 
 private:
     QList<MimePart> listOfMimeparts;
+    QString iconPath;
 
 };
 
