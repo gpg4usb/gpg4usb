@@ -24,6 +24,11 @@
  * - check memory usage, use less copy operations / more references
  * - try table-model-view for mimeparts
  * - possibility to clear attachment-view , e.g. with decryption or encrypting a new message
+ * - clean header-file (remove dep. on keylist.h)
+ */
+
+/* implement model for mime, based on qabstracttablemodel
+ *
  */
 
 #include "attachments.h"
@@ -34,25 +39,22 @@ Attachments::Attachments(QString iconpath, QWidget *parent)
 
     this->iconPath = iconpath;
 
-    mAttachmentTable = new QTableWidget(this);
-    mAttachmentTable->setColumnCount(2);
-    mAttachmentTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-    mAttachmentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    mAttachmentTable->setFocusPolicy(Qt::NoFocus);
-    mAttachmentTable->setAlternatingRowColors(true);
-    mAttachmentTable->verticalHeader()->hide();
-    mAttachmentTable->setShowGrid(false);
-    mAttachmentTable->setColumnWidth(0, 300);
+    table = new AttachmentTableModel(this);
 
-    attachmentBodys = new QList<QByteArray>();
-
-    QStringList labels;
-    labels << "filename" << "content-type";
-    mAttachmentTable->setHorizontalHeaderLabels(labels);
-    mAttachmentTable->horizontalHeader()->setStretchLastSection(true);
+    tableView = new QTableView;
+    tableView->setModel(table);
+    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tableView->setFocusPolicy(Qt::NoFocus);
+    tableView->setAlternatingRowColors(true);
+    tableView->verticalHeader()->hide();
+    tableView->setShowGrid(false);
+    tableView->setColumnWidth(0, 300);
+    tableView->horizontalHeader()->setStretchLastSection(true);
 
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(mAttachmentTable);
+    //layout->addWidget(mAttachmentTable);
+    layout->addWidget(tableView);
     setLayout(layout);
     createActions();
 
@@ -110,11 +112,13 @@ QStringList *Attachments::getSelected()
 
     QStringList *ret = new QStringList();
 
-    for (int i = 0; i < mAttachmentTable->rowCount(); i++) {
+    // TODO
+
+    /*for (int i = 0; i < mAttachmentTable->rowCount(); i++) {
         if (mAttachmentTable->item(i, 0)->isSelected() == 1) {
             *ret << mAttachmentTable->item(i, 0)->text();
         }
-    }
+    }*/
     return ret;
 
 }
@@ -123,11 +127,13 @@ QList<int> Attachments::getSelectedPos () {
 
     QList<int> ret;
 
-    for (int i = 0; i < mAttachmentTable->rowCount(); i++) {
+    // TODO
+
+    /*for (int i = 0; i < mAttachmentTable->rowCount(); i++) {
         if (mAttachmentTable->item(i, 0)->isSelected() == 1) {
             ret << i;
         }
-    }
+    }*/
     return ret;
 
 }
@@ -135,9 +141,12 @@ QList<int> Attachments::getSelectedPos () {
 void Attachments::addMimePart(MimePart *mp)
 {
 
-       QString icon = mp->getValue("Content-Type").replace("/", "-");
-       icon = iconPath + "/mimetypes/" + icon + ".png";
+       //QString icon = mp->getValue("Content-Type").replace("/", "-");
+       //icon = iconPath + "/mimetypes/" + icon + ".png";
 
+       table->add(*mp);
+       //tableView->update();
+       /*
        mAttachmentTable->setRowCount(mAttachmentTable->rowCount()+1);
        QTableWidgetItem  *tmp = new QTableWidgetItem(QIcon(icon) , mp->getParam("Content-Type", "name"));
        mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 0, tmp);
@@ -147,6 +156,7 @@ void Attachments::addMimePart(MimePart *mp)
 
        //TODO: check, if content-encoding is base64 (get from header)
        attachmentBodys->append(QByteArray::fromBase64(mp->body));
+       */
 
 }
 

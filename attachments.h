@@ -22,21 +22,24 @@
 #ifndef __ATTACHMENTS_H__
 #define __ATTACHMENTS_H__
 
-#include "context.h"
 #include "keylist.h"
 #include "mime.h"
+#include "attachmenttablemodel.h"
 
+class QWidget;
 class QVBoxLayout;
 class QDebug;
 class QFileDialog;
-class QMessageBox;
-class iostream;
 class QListWidget;
 class QWidget;
 class QAction;
 class QMenu;
 class QContextMenuEvent;
 class QMenu;
+class QTableWidget;
+class QTableWidgetItem;
+class QtGui;
+
 
 class Attachments : public QWidget
 {
@@ -59,6 +62,9 @@ private:
     QList<QByteArray> *attachmentBodys;
     QAction *saveFileAct;
     QString iconPath;
+
+    AttachmentTableModel *table;
+    QTableView *tableView;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
