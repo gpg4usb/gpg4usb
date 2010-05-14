@@ -525,7 +525,17 @@ void GpgWin::parseMime(QByteArray *message) {
     foreach(MimePart tmp, mime->parts()) {
         if(tmp.getValue("Content-Type")=="text/plain"
            && tmp.getValue("Content-Transfer-Encoding") != "base64") {
-                pText.append(QString(tmp.body));
+
+            QByteArray body;
+            if(tmp.getValue("Content-Transfer-Encoding")=="quoted-printable") {
+
+                Mime::quotedPrintableDecode(tmp.body, body);
+            } else {
+                body = tmp.body;
+            }
+
+            pText.append(QString(body));
+
         } else {
                 (mAttachments->addMimePart(&tmp));
                 showmadock=true;

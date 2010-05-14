@@ -19,6 +19,18 @@
  *      MA 02110-1301, USA.
  */
 
+/***
+ * quotedPrintableDecode copied from KCodecs, where it is stated:
+
+   The quoted-printable codec as described in RFC 2045, section 6.7. is by
+   Rik Hemsley (C) 2001.
+
+ */
+
+/*    TODO: proper import / copyright statement
+ *
+ */
+
 #include "mime.h"
 #include <QDebug>
 #include <QHashIterator>
@@ -138,3 +150,91 @@ bool Mime::isMultipart(QByteArray *message)
     return message->startsWith("Content-Type: multipart/mixed;");
 }
 
+/***
+ * quotedPrintableDecode copied from KCodecs, where it is stated:
+
+   The quoted-printable codec as described in RFC 2045, section 6.7. is by
+   Rik Hemsley (C) 2001.
+
+ */
+
+static const char hexChars[16] =
+{
+  '0', '1', '2', '3', '4', '5', '6', '7',
+  '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
+};
+
+/******************************** KCodecs ********************************/
+// strchr(3) for broken systems.
+static int rikFindChar(register const char * _s, const char c)
+{
+  register const char * s = _s;
+
+  while (true)
+  {
+    if ((0 == *s) || (c == *s)) break; ++s;
+    if ((0 == *s) || (c == *s)) break; ++s;
+    if ((0 == *s) || (c == *s)) break; ++s;
+    if ((0 == *s) || (c == *s)) break; ++s;
+  }
+
+  return s - _s;
+}
+
+void Mime::quotedPrintableDecode(const QByteArray& in, QByteArray& out)
+{
+  // clear out the output buffer
+  out.resize (0);
+  if (in.isEmpty())
+      return;
+
+  char *cursor;
+  const char *data;
+  const unsigned int length = in.size();
+
+  data = in.data();
+  out.resize (length);
+  cursor = out.data();
+
+  for (unsigned int i = 0; i < length; i++)
+  {
+    char c(in[i]);
+
+    if ('=' == c)
+    {
+      if (i < length - 2)
+      {
+        char c1 = in[i + 1];
+        char c2 = in[i + 2];
+
+        if (('\n' == c1) || ('\r' == c1 && '\n' == c2))
+        {
+          // Soft line break. No output.
+          if ('\r' == c1)
+            i += 2;        // CRLF line breaks
+          else
+            i += 1;
+        }
+        else
+        {
+          // =XX encoded byte.
+
+          int hexChar0 = rikFindChar(hexChars, c1);
+          int hexChar1 = rikFindChar(hexChars, c2);
+
+          if (hexChar0 < 16 && hexChar1 < 16)
+          {
+            *cursor++ = char((hexChar0 * 16) | hexChar1);
+            i += 2;
+          }
+        }
+      }
+    }
+    else
+    {
+      *cursor++ = c;
+    }
+  }
+
+  out.truncate(cursor - out.data());
+}

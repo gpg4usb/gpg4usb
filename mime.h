@@ -86,13 +86,14 @@ class Mime
 {
 
 public:
-    Mime(QByteArray *message); // Consttructor
+    Mime(QByteArray *message); // Constructor
     ~Mime(); // Destructor
     static bool isMultipart(QByteArray *message);
     QList<MimePart> parts()
       { return mPartList; }
     void splitParts(QByteArray *message);
     QList<HeadElem> parseHeader(QByteArray *header);
+    static void quotedPrintableDecode(const QByteArray& in, QByteArray& out);
 
 private:
     QByteArray *mMessage;
