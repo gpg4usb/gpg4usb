@@ -54,15 +54,9 @@ public:
 
 private:
     void createActions();
-    void saveByteArrayToFile(QByteArray outBuffer);
-    QStringList *getSelected();
-    QList<int> getSelectedPos();
-    QTableWidget *mAttachmentTable;
-    //QList<QPointer<QByteArray>>
-    QList<QByteArray> *attachmentBodys;
+    void saveByteArrayToFile(QByteArray outBuffer, QString filename);
     QAction *saveFileAct;
     QString iconPath;
-
     AttachmentTableModel *table;
     QTableView *tableView;
 

@@ -24,6 +24,22 @@ void AttachmentTableModel::add(MimePart mp) {
    reset();
 }
 
+MimePart AttachmentTableModel::getSelectedMimePart(QModelIndex index){
+    return listOfMimeparts.at(index.row());
+}
+
+MimePart AttachmentTableModel::getMimePart(int index){
+    return listOfMimeparts.at(index);
+}
+
+/*QList<MimePart> AttachmentTableModel::getSelectedMimeParts(QModelIndexList indexes){
+
+    foreach(QModelIndex index, indexes) {
+        qDebug() << "ir: "<< index.row();
+    }
+
+}*/
+
 int AttachmentTableModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);

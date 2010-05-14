@@ -523,10 +523,10 @@ void GpgWin::parseMime(QByteArray *message) {
 
     Mime *mime = new Mime(message);
     foreach(MimePart tmp, mime->parts()) {
-        if(tmp.getValue("Content-Type")=="text/plain") {
+        if(tmp.getValue("Content-Type")=="text/plain"
+           && tmp.getValue("Content-Transfer-Encoding") != "base64") {
                 pText.append(QString(tmp.body));
-            }
-            else {
+        } else {
                 (mAttachments->addMimePart(&tmp));
                 showmadock=true;
             }

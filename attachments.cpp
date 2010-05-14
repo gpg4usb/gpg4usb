@@ -22,14 +22,11 @@
 /* TODO:
  * - check content encoding (base64 / quoted-printable) and apply appropriate opperation (maybe already in mime.cpp)
  * - check memory usage, use less copy operations / more references
- * - try table-model-view for mimeparts
  * - possibility to clear attachment-view , e.g. with decryption or encrypting a new message
  * - clean header-file (remove dep. on keylist.h)
+ * - save all: like in thunderbird, one folder, all files go there
  */
 
-/* implement model for mime, based on qabstracttablemodel
- *
- */
 
 #include "attachments.h"
 
@@ -44,6 +41,8 @@ Attachments::Attachments(QString iconpath, QWidget *parent)
     tableView = new QTableView;
     tableView->setModel(table);
     tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    // only one entry should be selected at time
+    tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     tableView->setFocusPolicy(Qt::NoFocus);
     tableView->setAlternatingRowColors(true);
@@ -79,19 +78,24 @@ void Attachments::createActions()
 void Attachments::saveFile()
 {
 
-    qDebug() << "want to save file";
+    QModelIndexList indexes = tableView->selectionModel()->selection().indexes();
 
-    foreach (int tmp, getSelectedPos()) {
-        qDebug() << "int is: " << tmp;
-        saveByteArrayToFile(attachmentBodys->at(tmp));
-    }
+    // only singe-selection possible now: TODO: foreach
+    MimePart mp = table->getMimePart(indexes.at(0).row());
+    QString filename = mp.getParam("Content-Type", "name");
+    // TODO: find out why filename is quoted
+    filename.chop(1);
+    filename.remove(0,1);
+    // TODO: check if really base64
+    saveByteArrayToFile(QByteArray::fromBase64(mp.body), filename);
 
 }
 
-void  Attachments::saveByteArrayToFile(QByteArray outBuffer)
+void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
 {
 
-    QString path="";
+    //QString path="";
+    QString path=filename;
     QString outfileName = QFileDialog::getSaveFileName(this, tr("Save File"), path);
 
     QFile outfile(outfileName);
@@ -107,56 +111,10 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer)
     out.writeRawData(outBuffer.data(), outBuffer.length());
 }
 
-QStringList *Attachments::getSelected()
-{
 
-    QStringList *ret = new QStringList();
-
-    // TODO
-
-    /*for (int i = 0; i < mAttachmentTable->rowCount(); i++) {
-        if (mAttachmentTable->item(i, 0)->isSelected() == 1) {
-            *ret << mAttachmentTable->item(i, 0)->text();
-        }
-    }*/
-    return ret;
-
-}
-
-QList<int> Attachments::getSelectedPos () {
-
-    QList<int> ret;
-
-    // TODO
-
-    /*for (int i = 0; i < mAttachmentTable->rowCount(); i++) {
-        if (mAttachmentTable->item(i, 0)->isSelected() == 1) {
-            ret << i;
-        }
-    }*/
-    return ret;
-
-}
 
 void Attachments::addMimePart(MimePart *mp)
 {
-
-       //QString icon = mp->getValue("Content-Type").replace("/", "-");
-       //icon = iconPath + "/mimetypes/" + icon + ".png";
-
        table->add(*mp);
-       //tableView->update();
-       /*
-       mAttachmentTable->setRowCount(mAttachmentTable->rowCount()+1);
-       QTableWidgetItem  *tmp = new QTableWidgetItem(QIcon(icon) , mp->getParam("Content-Type", "name"));
-       mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 0, tmp);
-
-       QTableWidgetItem  *tmp2 = new QTableWidgetItem(mp->getValue("Content-Type"));
-       mAttachmentTable->setItem(mAttachmentTable->rowCount()-1, 1, tmp2);
-
-       //TODO: check, if content-encoding is base64 (get from header)
-       attachmentBodys->append(QByteArray::fromBase64(mp->body));
-       */
-
 }
 

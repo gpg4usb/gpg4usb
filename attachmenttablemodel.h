@@ -20,6 +20,9 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 
     void add(MimePart mp);
+    MimePart getSelectedMimePart(QModelIndex index);
+    MimePart getMimePart(int index);
+    //QList<MimePart> getSelectedMimeParts(QModelIndexList indexes);
 
 private:
     QList<MimePart> listOfMimeparts;
