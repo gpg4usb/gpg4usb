@@ -27,7 +27,6 @@
 #include "attachments.h"
 #include "mime.h"
 #include "keymgmt.h"
-#include "kcodecs.h"
 
 class QMainWindow;
 class QPlainTextEdit;
