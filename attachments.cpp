@@ -98,6 +98,8 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
     QString path=filename;
     QString outfileName = QFileDialog::getSaveFileName(this, tr("Save File"), path);
 
+    if(outfileName.isEmpty()) return;
+
     QFile outfile(outfileName);
     if (!outfile.open(QFile::WriteOnly)) {
         QMessageBox::warning(this, tr("File"),
