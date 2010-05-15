@@ -104,13 +104,13 @@ void GpgWin::createActions()
       */
     openAct = new QAction(tr("&Open..."), this);
     openAct->setIcon(QIcon(iconPath + "fileopen.png"));
-    openAct->setShortcut(tr("Ctrl+O"));
+    openAct->setShortcut("Ctrl+O");
     openAct->setToolTip(tr("Open an existing file"));
     connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
 
     saveAct = new QAction(tr("&Save"), this);
     saveAct->setIcon(QIcon(iconPath + "filesave.png"));
-    saveAct->setShortcut(tr("Ctrl+S"));
+    saveAct->setShortcut("Ctrl+S");
     saveAct->setToolTip(tr("Save the current File"));
     connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
 
@@ -121,12 +121,12 @@ void GpgWin::createActions()
 
     printAct = new QAction(tr("&Print"), this);
     printAct->setIcon(QIcon(iconPath + "fileprint.png"));
-    printAct->setShortcut(tr("Ctrl+P"));
+    printAct->setShortcut("Ctrl+P");
     printAct->setToolTip(tr("Print Document"));
     connect(printAct, SIGNAL(triggered()), this, SLOT(print()));
 
     quitAct = new QAction(tr("&Quit"), this);
-    quitAct->setShortcut(tr("Ctrl+Q"));
+    quitAct->setShortcut("Ctrl+Q");
     quitAct->setIcon(QIcon(iconPath + "exit.png"));
     quitAct->setToolTip(tr("Quit Program"));
     connect(quitAct, SIGNAL(triggered()), this, SLOT(close()));
@@ -135,27 +135,27 @@ void GpgWin::createActions()
      */
     pasteAct = new QAction(tr("&Paste"), this);
     pasteAct->setIcon(QIcon(iconPath + "button_paste.png"));
-    pasteAct->setShortcut(tr("Ctrl+V"));
+    pasteAct->setShortcut("Ctrl+V");
     pasteAct->setToolTip(tr("Paste Text From Clipboard"));
     connect(pasteAct, SIGNAL(triggered()), edit, SLOT(paste()));
 
     cutAct = new QAction(tr("Cu&t"), this);
     cutAct->setIcon(QIcon(iconPath + "button_cut.png"));
-    cutAct->setShortcut(tr("Ctrl+X"));
+    cutAct->setShortcut("Ctrl+X");
     cutAct->setToolTip(tr("Cut the current selection's contents to the "
                           "clipboard"));
     connect(cutAct, SIGNAL(triggered()), edit, SLOT(cut()));
 
     copyAct = new QAction(tr("&Copy"), this);
     copyAct->setIcon(QIcon(iconPath + "button_copy.png"));
-    copyAct->setShortcut(tr("Ctrl+C"));
+    copyAct->setShortcut("Ctrl+C");
     copyAct->setToolTip(tr("Copy the current selection's contents to the "
                            "clipboard"));
     connect(copyAct, SIGNAL(triggered()), edit, SLOT(copy()));
 
     selectallAct = new QAction(tr("Select &All"), this);
     selectallAct->setIcon(QIcon(iconPath + "edit.png"));
-    selectallAct->setShortcut(tr("Ctrl+A"));
+    selectallAct->setShortcut("Ctrl+A");
     selectallAct->setToolTip(tr("Select the whole text"));
     connect(selectallAct, SIGNAL(triggered()), edit, SLOT(selectAll()));
 
