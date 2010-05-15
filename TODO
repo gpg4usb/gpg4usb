@@ -9,6 +9,7 @@ Release 0.2.4
 - doku for translating gpg4usb
 - File-Encryption: Warning if file overwritten
 - minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable")
+- link to online-docs in help-menu
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files
