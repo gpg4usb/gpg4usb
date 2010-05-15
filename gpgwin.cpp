@@ -252,9 +252,9 @@ void GpgWin::createMenus()
     importKeyMenu->addAction(importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
     importKeyMenu->addAction(importKeyFromClipboardAct);
-	keyMenu->addAction(openKeyManagementAct);
+    keyMenu->addAction(openKeyManagementAct);
 
-	viewMenu = menuBar()->addMenu(tr("&View"));
+    viewMenu = menuBar()->addMenu(tr("&View"));
 	
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
@@ -302,6 +302,7 @@ void GpgWin::createDockWindows()
     addDockWidget(Qt::BottomDockWidgetArea, aDock);
     aDock->setWidget(mAttachments);
     // hide till attachmendt is decrypted
+    viewMenu->addAction(aDock->toggleViewAction());
     aDock->hide();
 
 
