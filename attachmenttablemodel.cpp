@@ -4,38 +4,41 @@
  */
 
 AttachmentTableModel::AttachmentTableModel(QObject *parent) :
-    QAbstractTableModel(parent)
+        QAbstractTableModel(parent)
 {
 }
 
 AttachmentTableModel::AttachmentTableModel(QList<MimePart> mimeparts, QObject *parent) :
-    QAbstractTableModel(parent)
+        QAbstractTableModel(parent)
 {
     listOfMimeparts = mimeparts;
 }
 
 AttachmentTableModel::AttachmentTableModel(QString iconpath, QObject *parent) :
-    QAbstractTableModel(parent)
+        QAbstractTableModel(parent)
 {
     iconPath = iconpath;
 }
 
 
-void AttachmentTableModel::add(MimePart mp) {
-   listOfMimeparts.append(mp);
-   //QModelIndex changedIndex0 = createIndex(listOfMimeparts.size(), 0);
-   //QModelIndex changedIndex1 = createIndex(listOfMimeparts.size(), 1);
+void AttachmentTableModel::add(MimePart mp)
+{
+    listOfMimeparts.append(mp);
+    //QModelIndex changedIndex0 = createIndex(listOfMimeparts.size(), 0);
+    //QModelIndex changedIndex1 = createIndex(listOfMimeparts.size(), 1);
 
-   //emit(dataChanged(changedIndex0, changedIndex1));
-   // TODO: check the data-changed signal
-   reset();
+    //emit(dataChanged(changedIndex0, changedIndex1));
+    // TODO: check the data-changed signal
+    reset();
 }
 
-MimePart AttachmentTableModel::getSelectedMimePart(QModelIndex index){
+MimePart AttachmentTableModel::getSelectedMimePart(QModelIndex index)
+{
     return listOfMimeparts.at(index.row());
 }
 
-MimePart AttachmentTableModel::getMimePart(int index){
+MimePart AttachmentTableModel::getMimePart(int index)
+{
     return listOfMimeparts.at(index);
 }
 
@@ -54,10 +57,10 @@ int AttachmentTableModel::rowCount(const QModelIndex &parent) const
 }
 
 int AttachmentTableModel::columnCount(const QModelIndex &parent) const
- {
-     Q_UNUSED(parent);
-     return 2;
- }
+{
+    Q_UNUSED(parent);
+    return 2;
+}
 
 QVariant AttachmentTableModel::data(const QModelIndex &index, int role) const
 {
@@ -85,14 +88,14 @@ QVariant AttachmentTableModel::data(const QModelIndex &index, int role) const
     if (role == Qt::DecorationRole && index.column() == 0) {
         MimePart mp = listOfMimeparts.at(index.row());
         QString icon;
-        if(mp.getValue("Content-Type").startsWith("image")) {
-           icon = iconPath + "/mimetypes/image-x-generic.png";
-       } else {
-           icon = mp.getValue("Content-Type").replace("/", "-");
-           icon = iconPath + "/mimetypes/" + icon + ".png";
-       }
-       if(!QFile::exists(icon)) icon = iconPath + "/mimetypes/unknown.png";
-       return QIcon(icon);
+        if (mp.getValue("Content-Type").startsWith("image")) {
+            icon = iconPath + "/mimetypes/image-x-generic.png";
+        } else {
+            icon = mp.getValue("Content-Type").replace("/", "-");
+            icon = iconPath + "/mimetypes/" + icon + ".png";
+        }
+        if (!QFile::exists(icon)) icon = iconPath + "/mimetypes/unknown.png";
+        return QIcon(icon);
     }
 
     return QVariant();
@@ -106,14 +109,14 @@ QVariant AttachmentTableModel::headerData(int section, Qt::Orientation orientati
 
     if (orientation == Qt::Horizontal) {
         switch (section) {
-            case 0:
-                return tr("Filename");
+        case 0:
+            return tr("Filename");
 
-            case 1:
-                return tr("Contenttype");
+        case 1:
+            return tr("Contenttype");
 
-            default:
-                return QVariant();
+        default:
+            return QVariant();
         }
     }
     return QVariant();

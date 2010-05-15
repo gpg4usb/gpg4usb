@@ -61,7 +61,7 @@ public:
 
 protected:
     void closeEvent(QCloseEvent *event);
-    
+
 public slots:
     void encrypt();
     void decrypt();

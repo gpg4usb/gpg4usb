@@ -4,24 +4,24 @@
    Copyright (C) 2003, 2004 g10 Code GmbH
 
    This file is part of libgpg-error.
- 
+
    libgpg-error is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public License
    as published by the Free Software Foundation; either version 2.1 of
    the License, or (at your option) any later version.
- 
+
    libgpg-error is distributed in the hope that it will be useful, but
    WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
    Lesser General Public License for more details.
- 
+
    You should have received a copy of the GNU Lesser General Public
    License along with libgpg-error; if not, write to the Free
    Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
    02111-1307, USA.  */
 
 #ifndef GPG_ERROR_H
-#define GPG_ERROR_H	1
+#define GPG_ERROR_H 1
 
 #include <stddef.h>
 
@@ -32,7 +32,7 @@
 #else
 #ifndef GPG_ERR_INLINE
 #define GPG_ERR_INLINE
-#endif 
+#endif
 #endif
 
 
@@ -67,12 +67,11 @@ extern "C" {
 
    Where as the Poo out of a welle small
    Taketh his firste springing and his sours.
-					--Chaucer.  */
+                    --Chaucer.  */
 
 /* Only use free slots, never change or reorder the existing
    entries.  */
-typedef enum
-  {
+typedef enum {
     GPG_ERR_SOURCE_UNKNOWN = 0,
     GPG_ERR_SOURCE_GCRYPT = 1,
     GPG_ERR_SOURCE_GPG = 2,
@@ -95,15 +94,14 @@ typedef enum
 
     /* This is one more than the largest allowed entry.  */
     GPG_ERR_SOURCE_DIM = 256
-  } gpg_err_source_t;
+} gpg_err_source_t;
 
 
 /* The error code type gpg_err_code_t.  */
 
 /* Only use free slots, never change or reorder the existing
    entries.  */
-typedef enum
-  {
+typedef enum {
     GPG_ERR_NO_ERROR = 0,
     GPG_ERR_GENERAL = 1,
     GPG_ERR_UNKNOWN_PACKET = 2,
@@ -340,7 +338,7 @@ typedef enum
     GPG_ERR_EOF = 16383,
 
     /* The following error codes are used to map system errors.  */
-#define GPG_ERR_SYSTEM_ERROR	(1 << 15)
+#define GPG_ERR_SYSTEM_ERROR    (1 << 15)
     GPG_ERR_E2BIG = GPG_ERR_SYSTEM_ERROR | 0,
     GPG_ERR_EACCES = GPG_ERR_SYSTEM_ERROR | 1,
     GPG_ERR_EADDRINUSE = GPG_ERR_SYSTEM_ERROR | 2,
@@ -485,7 +483,7 @@ typedef enum
 
     /* This is one more than the largest allowed entry.  */
     GPG_ERR_CODE_DIM = 65536
-  } gpg_err_code_t;
+} gpg_err_code_t;
 
 
 /* The error value type gpg_error_t.  */
@@ -498,24 +496,24 @@ typedef unsigned int gpg_error_t;
 
 /* We use the lowest 16 bits of gpg_error_t for error codes.  The 16th
    bit indicates system errors.  */
-#define GPG_ERR_CODE_MASK	(GPG_ERR_CODE_DIM - 1)
+#define GPG_ERR_CODE_MASK   (GPG_ERR_CODE_DIM - 1)
 
 /* Bits 17 to 24 are reserved.  */
 
 /* We use the upper 8 bits of gpg_error_t for error sources.  */
-#define GPG_ERR_SOURCE_MASK	(GPG_ERR_SOURCE_DIM - 1)
-#define GPG_ERR_SOURCE_SHIFT	24
+#define GPG_ERR_SOURCE_MASK (GPG_ERR_SOURCE_DIM - 1)
+#define GPG_ERR_SOURCE_SHIFT    24
 
 
 /* GCC feature test.  */
 #undef _GPG_ERR_HAVE_CONSTRUCTOR
 #if __GNUC__
 #define _GPG_ERR_GCC_VERSION (__GNUC__ * 10000 \
-                            + __GNUC_MINOR__ * 100 \
-                            + __GNUC_PATCHLEVEL__)
+                              + __GNUC_MINOR__ * 100 \
+                              + __GNUC_PATCHLEVEL__)
 
 #if _GPG_ERR_GCC_VERSION > 30100
-#define _GPG_ERR_CONSTRUCTOR	__attribute__ ((__constructor__))
+#define _GPG_ERR_CONSTRUCTOR    __attribute__ ((__constructor__))
 #define _GPG_ERR_HAVE_CONSTRUCTOR
 #endif
 #endif
@@ -528,13 +526,13 @@ typedef unsigned int gpg_error_t;
 /* Initialization function.  */
 
 /* Initialize the library.  This function should be run early.  */
-gpg_error_t gpg_err_init (void) _GPG_ERR_CONSTRUCTOR;
+gpg_error_t gpg_err_init(void) _GPG_ERR_CONSTRUCTOR;
 
 /* If this is defined, the library is already initialized by the
    constructor and does not need to be initialized explicitely.  */
 #undef GPG_ERR_INITIALIZED
 #ifdef _GPG_ERR_HAVE_CONSTRUCTOR
-#define GPG_ERR_INITIALIZED	1
+#define GPG_ERR_INITIALIZED 1
 #endif
 
 
@@ -543,41 +541,41 @@ gpg_error_t gpg_err_init (void) _GPG_ERR_CONSTRUCTOR;
 /* Construct an error value from an error code and source.  Within a
    subsystem, use gpg_error.  */
 static GPG_ERR_INLINE gpg_error_t
-gpg_err_make (gpg_err_source_t source, gpg_err_code_t code)
+gpg_err_make(gpg_err_source_t source, gpg_err_code_t code)
 {
-  return code == GPG_ERR_NO_ERROR ? GPG_ERR_NO_ERROR
-    : (((source & GPG_ERR_SOURCE_MASK) << GPG_ERR_SOURCE_SHIFT)
-       | (code & GPG_ERR_CODE_MASK));
+    return code == GPG_ERR_NO_ERROR ? GPG_ERR_NO_ERROR
+           : (((source & GPG_ERR_SOURCE_MASK) << GPG_ERR_SOURCE_SHIFT)
+              | (code & GPG_ERR_CODE_MASK));
 }
 
 
 /* The user should define GPG_ERR_SOURCE_DEFAULT before including this
    file to specify a default source for gpg_error.  */
 #ifndef GPG_ERR_SOURCE_DEFAULT
-#define GPG_ERR_SOURCE_DEFAULT	GPG_ERR_SOURCE_UNKNOWN
+#define GPG_ERR_SOURCE_DEFAULT  GPG_ERR_SOURCE_UNKNOWN
 #endif
 
 static GPG_ERR_INLINE gpg_error_t
-gpg_error (gpg_err_code_t code)
+gpg_error(gpg_err_code_t code)
 {
-  return gpg_err_make (GPG_ERR_SOURCE_DEFAULT, code);
+    return gpg_err_make(GPG_ERR_SOURCE_DEFAULT, code);
 }
 
 
 /* Retrieve the error code from an error value.  */
 static GPG_ERR_INLINE gpg_err_code_t
-gpg_err_code (gpg_error_t err)
+gpg_err_code(gpg_error_t err)
 {
-  return (gpg_err_code_t) (err & GPG_ERR_CODE_MASK);
+    return (gpg_err_code_t)(err & GPG_ERR_CODE_MASK);
 }
 
 
 /* Retrieve the error source from an error value.  */
 static GPG_ERR_INLINE gpg_err_source_t
-gpg_err_source (gpg_error_t err)
+gpg_err_source(gpg_error_t err)
 {
-  return (gpg_err_source_t) ((err >> GPG_ERR_SOURCE_SHIFT)
-			     & GPG_ERR_SOURCE_MASK);
+    return (gpg_err_source_t)((err >> GPG_ERR_SOURCE_SHIFT)
+                              & GPG_ERR_SOURCE_MASK);
 }
 
 
@@ -585,7 +583,7 @@ gpg_err_source (gpg_error_t err)
 
 /* Return a pointer to a string containing a description of the error
    code in the error value ERR.  This function is not thread-safe.  */
-const char *gpg_strerror (gpg_error_t err);
+const char *gpg_strerror(gpg_error_t err);
 
 /* Return the error string for ERR in the user-supplied buffer BUF of
    size BUFLEN.  This function is, in contrast to gpg_strerror,
@@ -594,11 +592,11 @@ const char *gpg_strerror (gpg_error_t err);
    contains the string describing the error.  If the buffer was not
    large enough, ERANGE is returned and BUF contains as much of the
    beginning of the error string as fits into the buffer.  */
-int gpg_strerror_r (gpg_error_t err, char *buf, size_t buflen);
+int gpg_strerror_r(gpg_error_t err, char *buf, size_t buflen);
 
 /* Return a pointer to a string containing a description of the error
    source in the error value ERR.  */
-const char *gpg_strsource (gpg_error_t err);
+const char *gpg_strsource(gpg_error_t err);
 
 
 /* Mapping of system errors (errno).  */
@@ -606,18 +604,18 @@ const char *gpg_strsource (gpg_error_t err);
 /* Retrieve the error code for the system error ERR.  This returns
    GPG_ERR_UNKNOWN_ERRNO if the system error is not mapped (report
    this). */
-gpg_err_code_t gpg_err_code_from_errno (int err);
+gpg_err_code_t gpg_err_code_from_errno(int err);
 
 
 /* Retrieve the system error for the error code CODE.  This returns 0
    if CODE is not a system error code.  */
-int gpg_err_code_to_errno (gpg_err_code_t code);
+int gpg_err_code_to_errno(gpg_err_code_t code);
 
 
 /* Retrieve the error code directly from the ERRNO variable.  This
    returns GPG_ERR_UNKNOWN_ERRNO if the system error is not mapped
    (report this) and GPG_ERR_MISSING_ERRNO if ERRNO has the value 0. */
-gpg_err_code_t gpg_err_code_from_syserror (void);
+gpg_err_code_t gpg_err_code_from_syserror(void);
 
 
 
@@ -625,22 +623,22 @@ gpg_err_code_t gpg_err_code_from_syserror (void);
 /* Self-documenting convenience functions.  */
 
 static GPG_ERR_INLINE gpg_error_t
-gpg_err_make_from_errno (gpg_err_source_t source, int err)
+gpg_err_make_from_errno(gpg_err_source_t source, int err)
 {
-  return gpg_err_make (source, gpg_err_code_from_errno (err));
+    return gpg_err_make(source, gpg_err_code_from_errno(err));
 }
 
 
 static GPG_ERR_INLINE gpg_error_t
-gpg_error_from_errno (int err)
+gpg_error_from_errno(int err)
 {
-  return gpg_error (gpg_err_code_from_errno (err));
+    return gpg_error(gpg_err_code_from_errno(err));
 }
 
 static GPG_ERR_INLINE gpg_error_t
-gpg_error_from_syserror (void)
+gpg_error_from_syserror(void)
 {
-  return gpg_error (gpg_err_code_from_syserror ());
+    return gpg_error(gpg_err_code_from_syserror());
 }
 
 #ifdef __cplusplus
@@ -648,4 +646,4 @@ gpg_error_from_syserror (void)
 #endif
 
 
-#endif	/* GPG_ERROR_H */
+#endif  /* GPG_ERROR_H */

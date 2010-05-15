@@ -42,36 +42,36 @@ public:
     SettingsDialog(QWidget *parent = 0);
 
 private:
-	QGroupBox *iconSizeBox;
-	QGroupBox *iconStyleBox;
-	QGroupBox *windowSizeBox;
-	QGroupBox *saveCheckedKeysBox;
-        QGroupBox *mimeParseBox;
-	QDialogButtonBox *buttonBox;
-	
-	QButtonGroup *iconSizeGroup;
-	QButtonGroup *iconStyleGroup;
-	
-	QRadioButton *iconSizeSmall;
-	QRadioButton *iconSizeMedium;
-	QRadioButton *iconSizeLarge;
-	QRadioButton *iconTextButton;
-	QRadioButton *iconIconsButton;
-	QRadioButton *iconAllButton;
-	QCheckBox *windowSizeCheckBox;
-	QCheckBox *saveCheckedKeysCheckBox;
-        QCheckBox *mimeParseCheckBox;
+    QGroupBox *iconSizeBox;
+    QGroupBox *iconStyleBox;
+    QGroupBox *windowSizeBox;
+    QGroupBox *saveCheckedKeysBox;
+    QGroupBox *mimeParseBox;
+    QDialogButtonBox *buttonBox;
+
+    QButtonGroup *iconSizeGroup;
+    QButtonGroup *iconStyleGroup;
+
+    QRadioButton *iconSizeSmall;
+    QRadioButton *iconSizeMedium;
+    QRadioButton *iconSizeLarge;
+    QRadioButton *iconTextButton;
+    QRadioButton *iconIconsButton;
+    QRadioButton *iconAllButton;
+    QCheckBox *windowSizeCheckBox;
+    QCheckBox *saveCheckedKeysCheckBox;
+    QCheckBox *mimeParseCheckBox;
     QComboBox *langSelectBox;
     QHash<QString, QString> lang;
-	
-	QHBoxLayout *iconSizeBoxLayout;
-	QHBoxLayout *iconStyleBoxLayout;
-	QHBoxLayout *windowSizeBoxLayout;
-	QHBoxLayout *saveCheckedKeysBoxLayout;
-        QHBoxLayout *mimeParseBoxLayout;
-	QVBoxLayout *vbox;
-	void setSettings();
-	
+
+    QHBoxLayout *iconSizeBoxLayout;
+    QHBoxLayout *iconStyleBoxLayout;
+    QHBoxLayout *windowSizeBoxLayout;
+    QHBoxLayout *saveCheckedKeysBoxLayout;
+    QHBoxLayout *mimeParseBoxLayout;
+    QVBoxLayout *vbox;
+    void setSettings();
+
 
 private slots:
     void applySettings();

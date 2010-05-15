@@ -86,7 +86,7 @@ private:
     QAction *deleteSelectedKeysAct;
     QAction *generateKeyDialogAct;
     QAction *closeAct;
-	QAction *showKeyDetailsAct;
+    QAction *showKeyDetailsAct;
     KeyGenThread *keyGenThread;
     QMessageBox msgbox;
     /**

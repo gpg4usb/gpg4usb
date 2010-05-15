@@ -54,15 +54,15 @@ GpgWin::GpgWin()
     setCurrentFile("");
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
-	restoreSettings();
-    
+    restoreSettings();
+
     // open filename if provided as first command line parameter
     QStringList args = qApp->arguments();
-    if(args.size() > 1) {
-        if(!args[1].startsWith("-")) {
-            if(QFile::exists(args[1]))
+    if (args.size() > 1) {
+        if (!args[1].startsWith("-")) {
+            if (QFile::exists(args[1]))
                 loadFile(args[1]);
-            }
+        }
     }
 
 }
@@ -72,33 +72,33 @@ void GpgWin::restoreSettings()
     // state sets pos & size of dock-widgets
     this->restoreState(settings.value("window/windowState").toByteArray());
 
-	// Restore window size & location
-       if (settings.value("window/windowSave").toBool()) {
-		QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
-		QSize size = settings.value("window/size", QSize(800, 450)).toSize();
-		this->resize(size);
-		this->move(pos);
-	} else {
-		this->resize(QSize(800,450));
-		this->move(QPoint(100, 100));
-	}
-	
-	// Iconsize
-	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
-	this->setIconSize(iconSize);
+    // Restore window size & location
+    if (settings.value("window/windowSave").toBool()) {
+        QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
+        QSize size = settings.value("window/size", QSize(800, 450)).toSize();
+        this->resize(size);
+        this->move(pos);
+    } else {
+        this->resize(QSize(800, 450));
+        this->move(QPoint(100, 100));
+    }
 
-	// Iconstyle
+    // Iconsize
+    QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+    this->setIconSize(iconSize);
+
+    // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
-	this->setToolButtonStyle(buttonStyle);
-	
-	// Checked Keys
-        if (settings.value("keys/keySave").toBool()) {
-		QStringList keyIds = settings.value("keys/keyList").toStringList();
-		mKeyList->setChecked(&keyIds);
-	}	
+    this->setToolButtonStyle(buttonStyle);
+
+    // Checked Keys
+    if (settings.value("keys/keySave").toBool()) {
+        QStringList keyIds = settings.value("keys/keyList").toStringList();
+        mKeyList->setChecked(&keyIds);
+    }
 }
 
- void GpgWin::createActions()
+void GpgWin::createActions()
 {
     /** Main Menu
       */
@@ -215,7 +215,7 @@ void GpgWin::restoreSettings()
     aboutAct->setIcon(QIcon(iconPath + "help.png"));
     aboutAct->setToolTip(tr("Show the application's About box"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
-    
+
     /** Popup-Menu-Action for KeyList
      */
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
@@ -238,7 +238,7 @@ void GpgWin::createMenus()
     editMenu->addAction(cutAct);
     editMenu->addAction(pasteAct);
     editMenu->addAction(selectallAct);
-	editMenu->addAction(openSettingsAct);
+    editMenu->addAction(openSettingsAct);
 
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
@@ -255,7 +255,7 @@ void GpgWin::createMenus()
     keyMenu->addAction(openKeyManagementAct);
 
     viewMenu = menuBar()->addMenu(tr("&View"));
-	
+
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
 }
@@ -287,8 +287,8 @@ void GpgWin::createStatusBar()
 
 void GpgWin::createDockWindows()
 {
-	/** KeyList-Dockwindow
-	 */
+    /** KeyList-Dockwindow
+     */
     dock = new QDockWidget(tr("Encrypt for:"), this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     addDockWidget(Qt::RightDockWidgetArea, dock);
@@ -298,7 +298,7 @@ void GpgWin::createDockWindows()
     /** Attachments-Dockwindow
       */
     aDock = new QDockWidget(tr("Attached files:"), this);
-    aDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea );
+    aDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea);
     addDockWidget(Qt::BottomDockWidgetArea, aDock);
     aDock->setWidget(mAttachments);
     // hide till attachmendt is decrypted
@@ -310,37 +310,37 @@ void GpgWin::createDockWindows()
 
 void GpgWin::closeEvent(QCloseEvent *event)
 {
-	/** ask to save changes, if text modified
-	 */
+    /** ask to save changes, if text modified
+     */
     if (maybeSave()) {
         event->accept();
     } else {
         event->ignore();
     }
-    
-	/** Save the settings 
-	 */
-		// window position and size
-     settings.setValue("window/windowState", saveState());
-     settings.setValue("window/pos", pos());
-     settings.setValue("window/size", size());
-     
-     // keyid-list of private checked keys
-     if ( settings.value("keys/keySave").toBool() ) {
-		 QStringList *keyIds = mKeyList->getPrivateChecked();
-		 if (!keyIds->isEmpty()){
-				settings.setValue("keys/keyList", *keyIds);
-			} else {
-				settings.setValue("keys/keyList","");
-			}
-		} else  {
-				settings.remove("keys/keyList");
-		}
-		
-	/********************
-	 * Quit programm
-	 * ******************/	
-     QMainWindow::closeEvent(event);
+
+    /** Save the settings
+     */
+    // window position and size
+    settings.setValue("window/windowState", saveState());
+    settings.setValue("window/pos", pos());
+    settings.setValue("window/size", size());
+
+    // keyid-list of private checked keys
+    if (settings.value("keys/keySave").toBool()) {
+        QStringList *keyIds = mKeyList->getPrivateChecked();
+        if (!keyIds->isEmpty()) {
+            settings.setValue("keys/keyList", *keyIds);
+        } else {
+            settings.setValue("keys/keyList", "");
+        }
+    } else  {
+        settings.remove("keys/keyList");
+    }
+
+    /********************
+     * Quit programm
+     * ******************/
+    QMainWindow::closeEvent(event);
 }
 
 void GpgWin::open()
@@ -481,7 +481,7 @@ void GpgWin::about()
 void GpgWin::encrypt()
 {
     QStringList *uidList = mKeyList->getChecked();
-    
+
     QByteArray *tmp = new QByteArray();
     if (mCtx->encrypt(uidList, edit->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
@@ -497,7 +497,7 @@ void GpgWin::decrypt()
     mCtx->decrypt(text, tmp);
     if (!tmp->isEmpty()) {
         // is it mime?
-        if(settings.value("mime/parseMime").toBool()) {
+        if (settings.value("mime/parseMime").toBool()) {
             parseMime(tmp);
         }
         edit->setPlainText(QString::fromUtf8(*tmp));
@@ -508,11 +508,12 @@ void GpgWin::decrypt()
   * if this is mime, split text and attachments...
   * message contains only text afterwards
   */
-void GpgWin::parseMime(QByteArray *message) {
+void GpgWin::parseMime(QByteArray *message)
+{
 
-    if( ! Mime::isMultipart(message) ) {
-            qDebug() << "no multipart";
-            return;
+    if (! Mime::isMultipart(message)) {
+        qDebug() << "no multipart";
+        return;
     }
     qDebug() << "multipart";
 
@@ -521,11 +522,11 @@ void GpgWin::parseMime(QByteArray *message) {
 
     Mime *mime = new Mime(message);
     foreach(MimePart tmp, mime->parts()) {
-        if(tmp.getValue("Content-Type")=="text/plain"
-           && tmp.getValue("Content-Transfer-Encoding") != "base64") {
+        if (tmp.getValue("Content-Type") == "text/plain"
+                && tmp.getValue("Content-Transfer-Encoding") != "base64") {
 
             QByteArray body;
-            if(tmp.getValue("Content-Transfer-Encoding")=="quoted-printable") {
+            if (tmp.getValue("Content-Transfer-Encoding") == "quoted-printable") {
 
                 Mime::quotedPrintableDecode(tmp.body, body);
             } else {
@@ -535,13 +536,13 @@ void GpgWin::parseMime(QByteArray *message) {
             pText.append(QString(body));
 
         } else {
-                (mAttachments->addMimePart(&tmp));
-                showmadock=true;
-            }
+            (mAttachments->addMimePart(&tmp));
+            showmadock = true;
         }
+    }
 
     *message = pText.toAscii();
-    if(showmadock) aDock->show();
+    if (showmadock) aDock->show();
 }
 
 /**
@@ -573,7 +574,7 @@ void GpgWin::importKeyFromFile()
     QFile file;
     QByteArray inBuffer;
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;"+tr("All Files")+" (*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;" + tr("All Files") + " (*)");
     if (! fileName.isNull()) {
         file.setFileName(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
@@ -654,13 +655,13 @@ void GpgWin::fileEncryption()
 }
 void GpgWin::openSettingsDialog()
 {
-	new SettingsDialog(this);
-//	restoreSettings();
-	// Iconsize
-	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
-	this->setIconSize(iconSize);
+    new SettingsDialog(this);
+//  restoreSettings();
+    // Iconsize
+    QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+    this->setIconSize(iconSize);
 
-	// Iconstyle
-        Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
-	this->setToolButtonStyle(buttonStyle);
+    // Iconstyle
+    Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
+    this->setToolButtonStyle(buttonStyle);
 }

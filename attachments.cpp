@@ -90,7 +90,7 @@ void Attachments::saveFile()
     QString filename = mp.getParam("Content-Type", "name");
     // TODO: find out why filename is quoted
     filename.chop(1);
-    filename.remove(0,1);
+    filename.remove(0, 1);
     // TODO: check if really base64
     saveByteArrayToFile(QByteArray::fromBase64(mp.body), filename);
 
@@ -100,10 +100,10 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
 {
 
     //QString path="";
-    QString path=filename;
+    QString path = filename;
     QString outfileName = QFileDialog::getSaveFileName(this, tr("Save File"), path);
 
-    if(outfileName.isEmpty()) return;
+    if (outfileName.isEmpty()) return;
 
     QFile outfile(outfileName);
     if (!outfile.open(QFile::WriteOnly)) {
@@ -122,6 +122,6 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
 
 void Attachments::addMimePart(MimePart *mp)
 {
-       table->add(*mp);
+    table->add(*mp);
 }
 

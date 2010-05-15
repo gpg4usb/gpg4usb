@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
 
     app.setApplicationVersion("0.2.3");
     app.setApplicationName("gpg4usb");
-    
-    // QSettings uses org-name for automatically setting path... 
+
+    // QSettings uses org-name for automatically setting path...
     app.setOrganizationName("conf");
     // specify default path & format for QSettings
     QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, qApp->applicationDirPath());
@@ -44,8 +44,8 @@ int main(int argc, char *argv[])
 
     QSettings settings;
     QString lang = settings.value("int/lang", QLocale::system().name()).toString();
-    if(lang.isEmpty()) lang = QLocale::system().name();
-    
+    if (lang.isEmpty()) lang = QLocale::system().name();
+
     //internationalize
     QTranslator translator;
     translator.load("ts/gpg4usb_" +  lang,

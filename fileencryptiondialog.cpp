@@ -35,7 +35,7 @@
 #include "fileencryptiondialog.h"
 
 FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QWidget *parent)
- : QDialog(parent)
+        : QDialog(parent)
 
 {
 
@@ -104,36 +104,36 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
 
 void FileEncryptionDialog::selectInputFile()
 {
-    QString path="";
-    if(inputFileEdit->text().size() > 0) {
-        path=QFileInfo(inputFileEdit->text()).absolutePath();
+    QString path = "";
+    if (inputFileEdit->text().size() > 0) {
+        path = QFileInfo(inputFileEdit->text()).absolutePath();
     }
 
 //    QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), path, tr("Files") + tr("All Files (*)"));
     QString infileName = QFileDialog::getOpenFileName(this, tr("Open File"), path);
     inputFileEdit->setText(infileName);
-    
+
     // try to find a matching output-filename, if not yet done
-    if(infileName > 0 && outputFileEdit->text().size()==0) {
-        if(radioEnc->isChecked()) {
-            outputFileEdit->setText(infileName+".asc");
-	} else {
+    if (infileName > 0 && outputFileEdit->text().size() == 0) {
+        if (radioEnc->isChecked()) {
+            outputFileEdit->setText(infileName + ".asc");
+        } else {
             if (infileName.endsWith(".asc", Qt::CaseInsensitive)) {
                 QString ofn = infileName;
                 ofn.chop(4);
                 outputFileEdit->setText(ofn);
             } else {
-                outputFileEdit->setText(infileName+".out");
-	    }
+                outputFileEdit->setText(infileName + ".out");
+            }
         }
     }
 }
 
 void FileEncryptionDialog::selectOutputFile()
 {
-    QString path="";
-    if(outputFileEdit->text().size() > 0) {
-        path=QFileInfo(outputFileEdit->text()).absolutePath();
+    QString path = "";
+    if (outputFileEdit->text().size() > 0) {
+        path = QFileInfo(outputFileEdit->text()).absolutePath();
     }
 
     QString outfileName = QFileDialog::getSaveFileName(this, tr("Save File"), path);

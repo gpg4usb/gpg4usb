@@ -38,26 +38,26 @@ class QPushButton;
 class KeyDetailsDialog : public QDialog
 {
     Q_OBJECT
-  
+
 public:
     KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key);
 
-private slots:    
-    void exportPrivateKey();    
-    
+private slots:
+    void exportPrivateKey();
+
 private:
     QString *keyid;
     GpgME::Context *mCtx;
 
-	QGroupBox *ownerBox;
-	QGroupBox *keyBox;
-	QGroupBox *fingerprintBox;
-	QDialogButtonBox *buttonBox;
+    QGroupBox *ownerBox;
+    QGroupBox *keyBox;
+    QGroupBox *fingerprintBox;
+    QDialogButtonBox *buttonBox;
 
     QVBoxLayout *mvbox;
     QGridLayout *vboxKD;
     QGridLayout *vboxOD;
-	QVBoxLayout *vboxFP;
+    QVBoxLayout *vboxFP;
 
     QLabel *nameLabel;
     QLabel *emailLabel;
@@ -65,19 +65,19 @@ private:
     QLabel *keySizeLabel;
     QLabel *expireLabel;
     QLabel *createdLabel;
-	QLabel *algorithmLabel;
-	QLabel *fingerPrintLabel;
-	
+    QLabel *algorithmLabel;
+    QLabel *fingerPrintLabel;
+
     QLabel *nameVarLabel;
     QLabel *emailVarLabel;
     QLabel *commentVarLabel;
     QLabel *keySizeVarLabel;
     QLabel *expireVarLabel;
     QLabel *createdVarLabel;
-	QLabel *algorithmVarLabel;
-    
-    
-	QString beautifyFingerprint(QString fingerprint);
+    QLabel *algorithmVarLabel;
+
+
+    QString beautifyFingerprint(QString fingerprint);
 };
 
 #endif // __KEYDETAILSDIALOG_H__

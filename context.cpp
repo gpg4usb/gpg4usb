@@ -65,9 +65,9 @@ Context::Context()
     QString gpgBin = appPath + "/bin/gpg";
 #endif
     QString gpgKeys = appPath + "/keydb";
-/*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
-                                    gpgBin.toUtf8().constData(),
-                                    gpgKeys.toUtf8().constData());*/
+    /*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
+                                        gpgBin.toUtf8().constData(),
+                                        gpgKeys.toUtf8().constData());*/
     err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
                                     gpgBin.toLocal8Bit().constData(),
                                     gpgKeys.toLocal8Bit().constData());
@@ -152,18 +152,18 @@ bool Context::exportKeys(QStringList *uidList, QByteArray *outBuffer)
     return true;
 }
 
-gpgme_key_t Context::getKeyDetails(QString uid) 
+gpgme_key_t Context::getKeyDetails(QString uid)
 {
-	gpgme_key_t key;
+    gpgme_key_t key;
 
     // try secret
-    gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 1);
+    gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 1);
     // ok, its a public key
-    if(!key) {
-        gpgme_get_key (mCtx, uid.toAscii().constData(), &key, 0);
+    if (!key) {
+        gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 0);
     }
-    
-	return key;	
+
+    return key;
 }
 
 /** List all availabe Keys (VERY much like kgpgme)
@@ -448,30 +448,30 @@ void Context::checkErr(gpgme_error_t err) const
 }
 
 
-/** export private key, TODO errohandling, e.g. like in seahorse (seahorse-gpg-op.c) **/ 
+/** export private key, TODO errohandling, e.g. like in seahorse (seahorse-gpg-op.c) **/
 
 void Context::exportSecretKey(QString uid, QByteArray *outBuffer)
 {
-	QStringList arguments;
-	arguments << "--armor" << "--export-secret-key" << uid;
-	QByteArray *err = new QByteArray();
-	executeGpgCommand(arguments, outBuffer, err);
+    QStringList arguments;
+    arguments << "--armor" << "--export-secret-key" << uid;
+    QByteArray *err = new QByteArray();
+    executeGpgCommand(arguments, outBuffer, err);
 }
 
 /** return type should be gpgme_error_t*/
 void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByteArray *stdErr)
 {
-	gpgme_engine_info_t engine = gpgme_ctx_get_engine_info(mCtx);
+    gpgme_engine_info_t engine = gpgme_ctx_get_engine_info(mCtx);
 
-	QStringList args;
-	args << "--homedir" << engine->home_dir << "--batch" << arguments;	
+    QStringList args;
+    args << "--homedir" << engine->home_dir << "--batch" << arguments;
 
-	QProcess gpg;
+    QProcess gpg;
     gpg.start(engine->file_name, args);
     gpg.waitForFinished();
 
-    *stdOut = gpg.readAllStandardOutput();    
-    *stdErr = gpg.readAllStandardError();   
+    *stdOut = gpg.readAllStandardOutput();
+    *stdErr = gpg.readAllStandardError();
 }
 
 }

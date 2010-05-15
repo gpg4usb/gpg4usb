@@ -27,59 +27,61 @@
 #include <QDebug>
 
 
-class HeadElem {
+class HeadElem
+{
 public:
     QString name;
     QString value;
     QHash<QString, QString> params;
 
-/*    QDataStream & operator<<(QDataStream& Stream, const HeadElem& H)
-    {
-        return Stream << H.name << " : " << H.value;
-    }*/
+    /*    QDataStream & operator<<(QDataStream& Stream, const HeadElem& H)
+        {
+            return Stream << H.name << " : " << H.value;
+        }*/
 
 };
 
-class MimePart {
+class MimePart
+{
 public:
     QList<HeadElem> header;
     QByteArray body;
 
-    QString getValue(QString key){
+    QString getValue(QString key) {
         foreach(HeadElem tmp, header) {
             //qDebug() << "gv: " << tmp.name << ":" << tmp.value;
-            if(tmp.name == key)
+            if (tmp.name == key)
                 return tmp.value;
         }
         return "";
     }
 
-    QHash<QString, QString> getParams(QString key){
+    QHash<QString, QString> getParams(QString key) {
         foreach(HeadElem tmp, header) {
             //qDebug() << "gv: " << tmp.name << ":" << tmp.value;
-            if(tmp.name == key)
+            if (tmp.name == key)
                 //return tmp.value;
                 return tmp.params;
         }
         return *(new QHash<QString, QString>());
     }
 
-     QString getParam(QString key, QString pKey){
+    QString getParam(QString key, QString pKey) {
         foreach(HeadElem tmp, header) {
             //qDebug() << "gv: " << tmp.name << ":" << tmp.value;
-            if(tmp.name == key)
+            if (tmp.name == key)
                 return tmp.params.value(pKey);
         }
         return "";
     }
 
-/*    QDataStream & operator<<(QDataStream& Stream, const Part& P)
-    {
-        foreach(HeadElem tmp, header) {
-            Stream << tmp << "\n";
-        }
-        return Stream;
-    }*/
+    /*    QDataStream & operator<<(QDataStream& Stream, const Part& P)
+        {
+            foreach(HeadElem tmp, header) {
+                Stream << tmp << "\n";
+            }
+            return Stream;
+        }*/
 };
 
 class Mime
@@ -89,8 +91,9 @@ public:
     Mime(QByteArray *message); // Constructor
     ~Mime(); // Destructor
     static bool isMultipart(QByteArray *message);
-    QList<MimePart> parts()
-      { return mPartList; }
+    QList<MimePart> parts() {
+        return mPartList;
+    }
     void splitParts(QByteArray *message);
     QList<HeadElem> parseHeader(QByteArray *header);
     static void quotedPrintableDecode(const QByteArray& in, QByteArray& out);

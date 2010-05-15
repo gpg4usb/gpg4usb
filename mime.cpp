@@ -38,46 +38,46 @@
 
 Mime::Mime(QByteArray *message)
 {
-  splitParts(message);
+    splitParts(message);
     /*
-  mMessage = message;
-  int bStart = mMessage->indexOf("boundary=\"") + 10 ;
-  int bEnd = mMessage->indexOf("\"\n", bStart );
+    mMessage = message;
+    int bStart = mMessage->indexOf("boundary=\"") + 10 ;
+    int bEnd = mMessage->indexOf("\"\n", bStart );
 
-  qDebug() << "bStart: " << bStart << " bEnd: " << bEnd;
-  mBoundary = new QByteArray(mMessage->mid(bStart, bEnd - bStart));
-  qDebug() << "boundary: " << *mBoundary;
+    qDebug() << "bStart: " << bStart << " bEnd: " << bEnd;
+    mBoundary = new QByteArray(mMessage->mid(bStart, bEnd - bStart));
+    qDebug() << "boundary: " << *mBoundary;
 
-  Part *p1 = new Part();
+    Part *p1 = new Part();
 
-  int nb = mMessage->indexOf(*mBoundary, bEnd) + mBoundary->length() +1 ;
-  qDebug() << "nb: " << nb;
-  int eh = mMessage->indexOf("\n\n", nb);
-  qDebug() << "eh: " << eh;
-  QByteArray *header = new QByteArray(mMessage->mid(nb , eh - nb));
-  qDebug() << "header:" << header;
+    int nb = mMessage->indexOf(*mBoundary, bEnd) + mBoundary->length() +1 ;
+    qDebug() << "nb: " << nb;
+    int eh = mMessage->indexOf("\n\n", nb);
+    qDebug() << "eh: " << eh;
+    QByteArray *header = new QByteArray(mMessage->mid(nb , eh - nb));
+    qDebug() << "header:" << header;
 
-  // split header at newlines
-  foreach(QByteArray tmp , header->split(* "\n")) {
+    // split header at newlines
+    foreach(QByteArray tmp , header->split(* "\n")) {
     // split lines at :
     QList<QByteArray> tmp2 = tmp.split(* ":");
     p1->header.insert(QString(tmp2[0].trimmed()), QString(tmp2[1].trimmed()));
-  }
+    }
 
-  QHashIterator<QString, QString> i(p1->header);
-   while (i.hasNext()) {
+    QHashIterator<QString, QString> i(p1->header);
+    while (i.hasNext()) {
        i.next();
        qDebug() << "found: " << i.key() << ":" << i.value() << endl;
-  }
+    }
 
-  int nb2 = mMessage->indexOf(*mBoundary, eh);
+    int nb2 = mMessage->indexOf(*mBoundary, eh);
 
-  p1->body = mMessage->mid(eh , nb2 - eh);
+    p1->body = mMessage->mid(eh , nb2 - eh);
 
-  QTextCodec *codec = QTextCodec::codecForName("ISO-8859-15");
-  QString qs = codec->toUnicode(p1->body);
-  qDebug() << "body: " << qs;
-*/
+    QTextCodec *codec = QTextCodec::codecForName("ISO-8859-15");
+    QString qs = codec->toUnicode(p1->body);
+    qDebug() << "body: " << qs;
+    */
 }
 
 Mime::~Mime()
@@ -85,21 +85,22 @@ Mime::~Mime()
 
 }
 
-void Mime::splitParts(QByteArray *message) {
+void Mime::splitParts(QByteArray *message)
+{
     int pos1, pos2, headEnd;
     MimePart p_tmp;
 
     // find the boundary
     pos1 = message->indexOf("boundary=\"") + 10 ;
-    pos2 = message->indexOf("\"\n", pos1 );
+    pos2 = message->indexOf("\"\n", pos1);
     QByteArray boundary = message->mid(pos1, pos2 - pos1);
     //qDebug() << "boundary: " << boundary;
 
-    while ( pos2 > pos1 ) {
+    while (pos2 > pos1) {
 
-        pos1 = message->indexOf(boundary, pos2) + boundary.length() +1 ;
+        pos1 = message->indexOf(boundary, pos2) + boundary.length() + 1 ;
         headEnd = message->indexOf("\n\n", pos1);
-        if(headEnd < 0)
+        if (headEnd < 0)
             break;
         QByteArray header = message->mid(pos1 , headEnd - pos1);
 
@@ -112,7 +113,8 @@ void Mime::splitParts(QByteArray *message) {
     }
 }
 
-QList<HeadElem> Mime::parseHeader(QByteArray *header){
+QList<HeadElem> Mime::parseHeader(QByteArray *header)
+{
 
     QList<HeadElem> ret;
 
@@ -127,21 +129,21 @@ QList<HeadElem> Mime::parseHeader(QByteArray *header){
         HeadElem elem;
         //split lines at :
         QList<QByteArray> tmp2 = line.split(* ":");
-            elem.name = tmp2[0].trimmed();
-            if(tmp2[1].contains(';')) {
-                // split lines at ;
-                // TODO: what if ; is inside ""
-                QList<QByteArray> tmp3 = tmp2[1].split(* ";");
-                elem.value = QString(tmp3.takeFirst().trimmed());
-                foreach(QByteArray tmp4, tmp3) {
-                    QList<QByteArray> tmp5 = tmp4.split(* "=");
-                    elem.params.insert(QString( tmp5[0].trimmed() ), QString(tmp5[1].trimmed()));
-                }
-            } else {
-                elem.value = tmp2[1].trimmed();
+        elem.name = tmp2[0].trimmed();
+        if (tmp2[1].contains(';')) {
+            // split lines at ;
+            // TODO: what if ; is inside ""
+            QList<QByteArray> tmp3 = tmp2[1].split(* ";");
+            elem.value = QString(tmp3.takeFirst().trimmed());
+            foreach(QByteArray tmp4, tmp3) {
+                QList<QByteArray> tmp5 = tmp4.split(* "=");
+                elem.params.insert(QString(tmp5[0].trimmed()), QString(tmp5[1].trimmed()));
             }
-            ret.append(elem);
+        } else {
+            elem.value = tmp2[1].trimmed();
         }
+        ret.append(elem);
+    }
     return ret;
 }
 
@@ -158,83 +160,72 @@ bool Mime::isMultipart(QByteArray *message)
 
  */
 
-static const char hexChars[16] =
-{
-  '0', '1', '2', '3', '4', '5', '6', '7',
-  '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
+static const char hexChars[16] = {
+    '0', '1', '2', '3', '4', '5', '6', '7',
+    '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
 };
 
 /******************************** KCodecs ********************************/
 // strchr(3) for broken systems.
 static int rikFindChar(register const char * _s, const char c)
 {
-  register const char * s = _s;
+    register const char * s = _s;
 
-  while (true)
-  {
-    if ((0 == *s) || (c == *s)) break; ++s;
-    if ((0 == *s) || (c == *s)) break; ++s;
-    if ((0 == *s) || (c == *s)) break; ++s;
-    if ((0 == *s) || (c == *s)) break; ++s;
-  }
+    while (true) {
+        if ((0 == *s) || (c == *s)) break; ++s;
+        if ((0 == *s) || (c == *s)) break; ++s;
+        if ((0 == *s) || (c == *s)) break; ++s;
+        if ((0 == *s) || (c == *s)) break; ++s;
+    }
 
-  return s - _s;
+    return s - _s;
 }
 
 void Mime::quotedPrintableDecode(const QByteArray& in, QByteArray& out)
 {
-  // clear out the output buffer
-  out.resize (0);
-  if (in.isEmpty())
-      return;
+    // clear out the output buffer
+    out.resize(0);
+    if (in.isEmpty())
+        return;
 
-  char *cursor;
-  const char *data;
-  const unsigned int length = in.size();
+    char *cursor;
+    const char *data;
+    const unsigned int length = in.size();
 
-  data = in.data();
-  out.resize (length);
-  cursor = out.data();
+    data = in.data();
+    out.resize(length);
+    cursor = out.data();
 
-  for (unsigned int i = 0; i < length; i++)
-  {
-    char c(in[i]);
+    for (unsigned int i = 0; i < length; i++) {
+        char c(in[i]);
 
-    if ('=' == c)
-    {
-      if (i < length - 2)
-      {
-        char c1 = in[i + 1];
-        char c2 = in[i + 2];
+        if ('=' == c) {
+            if (i < length - 2) {
+                char c1 = in[i + 1];
+                char c2 = in[i + 2];
 
-        if (('\n' == c1) || ('\r' == c1 && '\n' == c2))
-        {
-          // Soft line break. No output.
-          if ('\r' == c1)
-            i += 2;        // CRLF line breaks
-          else
-            i += 1;
+                if (('\n' == c1) || ('\r' == c1 && '\n' == c2)) {
+                    // Soft line break. No output.
+                    if ('\r' == c1)
+                        i += 2;        // CRLF line breaks
+                    else
+                        i += 1;
+                } else {
+                    // =XX encoded byte.
+
+                    int hexChar0 = rikFindChar(hexChars, c1);
+                    int hexChar1 = rikFindChar(hexChars, c2);
+
+                    if (hexChar0 < 16 && hexChar1 < 16) {
+                        *cursor++ = char((hexChar0 * 16) | hexChar1);
+                        i += 2;
+                    }
+                }
+            }
+        } else {
+            *cursor++ = c;
         }
-        else
-        {
-          // =XX encoded byte.
-
-          int hexChar0 = rikFindChar(hexChars, c1);
-          int hexChar1 = rikFindChar(hexChars, c2);
-
-          if (hexChar0 < 16 && hexChar1 < 16)
-          {
-            *cursor++ = char((hexChar0 * 16) | hexChar1);
-            i += 2;
-          }
-        }
-      }
     }
-    else
-    {
-      *cursor++ = c;
-    }
-  }
 
-  out.truncate(cursor - out.data());
+    out.truncate(cursor - out.data());
 }

@@ -39,28 +39,28 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
     createActions();
     createMenus();
     createToolBars();
-    
+
     /* Restore the iconstyle */
-	QSettings settings;
-	settings.sync();
-	QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+    QSettings settings;
+    settings.sync();
+    QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     this->setIconSize(iconSize);
-	this->setToolButtonStyle(buttonStyle);
+    this->setToolButtonStyle(buttonStyle);
 
     // state sets pos & size of dock-widgets
     this->restoreState(settings.value("keymgmt/windowState").toByteArray());
 
-	// Restore window size & location
-	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
-	if (windowSave == Qt::Checked) {
-		QPoint pos = settings.value("keymgmt/pos", QPoint(100, 100)).toPoint();
-		QSize size = settings.value("keymgmt/size", QSize(800, 450)).toSize();
-		this->resize(size);
-		this->move(pos);
-	} else {
-		this->resize(QSize(800,400));
-	}
+    // Restore window size & location
+    Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
+    if (windowSave == Qt::Checked) {
+        QPoint pos = settings.value("keymgmt/pos", QPoint(100, 100)).toPoint();
+        QSize size = settings.value("keymgmt/size", QSize(800, 450)).toSize();
+        this->resize(size);
+        this->move(pos);
+    } else {
+        this->resize(QSize(800, 400));
+    }
 
     setWindowTitle(tr("Keymanagement"));
     mKeyList->addMenuAction(deleteSelectedKeysAct);
@@ -108,7 +108,7 @@ void KeyMgmt::createActions()
     generateKeyDialogAct->setToolTip(tr("Generate New Key"));
     generateKeyDialogAct->setIcon(QIcon(mIconPath + "key_generate.png"));
     connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(generateKeyDialog()));
-    
+
     showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
     showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
     connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(showKeyDetails()));
@@ -174,29 +174,30 @@ void KeyMgmt::deleteCheckedKeys()
     deleteKeysWithWarning(mKeyList->getSelected());
 }
 
-void KeyMgmt::deleteKeysWithWarning(QStringList *uidList) {
-    
+void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
+{
+
     /**
      * TODO: Different Messages for private/public key, check if
      * more than one selected... compare to seahorse "delete-dialog"
      */
-    
+
     int ret = QMessageBox::question(this, tr("Deleting Keys"),
-                                tr("Are you sure that you want to delete the selected keys?.\n"
-                                   "The action can not be undone."),
-                                QMessageBox::No | QMessageBox::Yes);
-    
-    if(ret==QMessageBox::Yes) {
+                                    tr("Are you sure that you want to delete the selected keys?.\n"
+                                       "The action can not be undone."),
+                                    QMessageBox::No | QMessageBox::Yes);
+
+    if (ret == QMessageBox::Yes) {
         mCtx->deleteKeys(uidList);
     }
 }
 
 void KeyMgmt::showKeyDetails()
 {
-	// TODO: first...?
-	gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
-    
-	new KeyDetailsDialog(mCtx, key);
+    // TODO: first...?
+    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+
+    new KeyDetailsDialog(mCtx, key);
 }
 
 void KeyMgmt::exportKeyToFile()
@@ -344,7 +345,7 @@ void KeyMgmt::keyGenAccept()
                        "Key-Type: DSA\n"
                        "Key-Length: 1024\n"
                        "Subkey-Type: ELG-E\n"
-						"Subkey-Length: "
+                       "Subkey-Length: "
                        + keySizeSpinBox->cleanText() + "\n"
                        "Name-Real: " + nameEdit->text() + "\n";
         if (!(commentEdit->text().isEmpty())) {
@@ -361,7 +362,7 @@ void KeyMgmt::keyGenAccept()
         if (!(passwordEdit->text().isEmpty())) {
             keyGenParams += "Passphrase: " + passwordEdit->text() + "\n";
         }
-                keyGenParams += "</GnupgKeyParms>";
+        keyGenParams += "</GnupgKeyParms>";
 
         KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
         kg->start();
@@ -443,11 +444,11 @@ int KeyMgmt::checkPassWordStrength()
 
 void KeyMgmt::closeEvent(QCloseEvent *event)
 {
-     QSettings settings;
-     //settings.setValue("geometry", saveGeometry());
-     settings.setValue("keymgmt/windowState", saveState());
-     settings.setValue("keymgmt/pos", pos());
-     settings.setValue("keymgmt/size", size());
-     
-     QMainWindow::closeEvent(event);
+    QSettings settings;
+    //settings.setValue("geometry", saveGeometry());
+    settings.setValue("keymgmt/windowState", saveState());
+    settings.setValue("keymgmt/pos", pos());
+    settings.setValue("keymgmt/size", size());
+
+    QMainWindow::closeEvent(event);
 }
