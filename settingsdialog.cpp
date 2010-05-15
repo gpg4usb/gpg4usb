@@ -185,12 +185,10 @@ void SettingsDialog::setSettings()
 	}
 	
 	// Window Save and Position
-	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
-	windowSizeCheckBox->setCheckState(windowSave);
+        if(settings.value("window/windowSave").toBool()) windowSizeCheckBox->setCheckState(Qt::Checked);
 
 	// Keysaving
-	Qt::CheckState keySave = static_cast<Qt::CheckState>(settings.value("keys/keySave", Qt::Unchecked).toUInt());
-	saveCheckedKeysCheckBox->setCheckState(keySave);
+       if(settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
 
         // MIME-Parsing
         if(settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
@@ -228,12 +226,11 @@ void SettingsDialog::applySettings()
 		break;
 	}
 
-	settings.setValue("window/windowSave", windowSizeCheckBox->checkState());
-	settings.setValue("keys/keySave", saveCheckedKeysCheckBox->checkState());
+        settings.setValue("window/windowSave", windowSizeCheckBox->isChecked());
+        settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
 
         settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
 
-    //qDebug() << "lang:" << langSelectBox->currentText() << " : "  << lang.key(langSelectBox->currentText());
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
 
 	accept();

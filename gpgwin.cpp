@@ -73,8 +73,7 @@ void GpgWin::restoreSettings()
     this->restoreState(settings.value("window/windowState").toByteArray());
 
 	// Restore window size & location
-	Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
-	if (windowSave == Qt::Checked) {
+       if (settings.value("window/windowSave").toBool()) {
 		QPoint pos = settings.value("window/pos", QPoint(100, 100)).toPoint();
 		QSize size = settings.value("window/size", QSize(800, 450)).toSize();
 		this->resize(size);
@@ -93,8 +92,7 @@ void GpgWin::restoreSettings()
 	this->setToolButtonStyle(buttonStyle);
 	
 	// Checked Keys
-	Qt::CheckState keySave = static_cast<Qt::CheckState>(settings.value("keys/keySave", Qt::Unchecked).toUInt());
-	if (keySave == Qt::Checked) {
+        if (settings.value("keys/keySave").toBool()) {
 		QStringList keyIds = settings.value("keys/keyList").toStringList();
 		mKeyList->setChecked(&keyIds);
 	}	
@@ -327,8 +325,7 @@ void GpgWin::closeEvent(QCloseEvent *event)
      settings.setValue("window/size", size());
      
      // keyid-list of private checked keys
-	 Qt::CheckState keySave = static_cast<Qt::CheckState>(settings.value("keys/keySave", Qt::Unchecked).toUInt());
-     if ( keySave == Qt::Checked ) {
+     if ( settings.value("keys/keySave").toBool() ) {
 		 QStringList *keyIds = mKeyList->getPrivateChecked();
 		 if (!keyIds->isEmpty()){
 				settings.setValue("keys/keyList", *keyIds);

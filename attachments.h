@@ -22,24 +22,17 @@
 #ifndef __ATTACHMENTS_H__
 #define __ATTACHMENTS_H__
 
-#include "keylist.h"
 #include "mime.h"
 #include "attachmenttablemodel.h"
 
-class QWidget;
-class QVBoxLayout;
-class QDebug;
-class QFileDialog;
-class QListWidget;
-class QWidget;
-class QAction;
-class QMenu;
-class QContextMenuEvent;
-class QMenu;
-class QTableWidget;
-class QTableWidgetItem;
-class QtGui;
-
+#include "QWidget"
+#include "QTableView"
+#include "QHeaderView"
+#include "QVBoxLayout"
+#include "QMenu"
+#include "QMessageBox"
+#include "QContextMenuEvent"
+#include "QFileDialog"
 
 class Attachments : public QWidget
 {

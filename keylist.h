@@ -44,7 +44,7 @@ public:
 
     KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent = 0);
     QStringList *getChecked();
-	QStringList *getPrivateChecked();
+    QStringList *getPrivateChecked();
     void setChecked(QStringList *keyIds);
     //QStringList *getPrivateChecked();
     QStringList *getSelected();

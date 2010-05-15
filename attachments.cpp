@@ -23,8 +23,13 @@
  * - check content encoding (base64 / quoted-printable) and apply appropriate opperation (maybe already in mime.cpp)
  * - check memory usage, use less copy operations / more references
  * - possibility to clear attachment-view , e.g. with decryption or encrypting a new message
- * - clean header-file (remove dep. on keylist.h)
  * - save all: like in thunderbird, one folder, all files go there
+ */
+
+/*
+ * - save, delete (clear) all
+ * - each line save & clear button
+ * - attached files to view-menu
  */
 
 
