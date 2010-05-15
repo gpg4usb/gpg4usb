@@ -1,36 +1,39 @@
 TODO:
 -----
 
-Release 0.2.2.1
-- add translation for french
-- beautify view menu
-
-Release 0.2.3
+Release 0.2.4
+- Open File from command Line [DONE]
+- possibility to save which private keys are checked on closing (partially solving "encrypt to self") [DONE]
+- add translation for french / spanish [DONE]
 - more doku on building gpg4usb (especially on windows)
+- doku for translating gpg4usb
 - File-Encryption: Warning if file overwritten
+- minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable")
+
+Release 0.3
+- PGP-MIME, find and show inline encrypted files
+- Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
+- check pointer usage (const/references)
+- check class / includes
+- Qt 4.6 / new gpg-binaries / new gpgme libs
+
+Release 0.4
+- adding signing and verifying
+- nice for verify: import key from keyserver
+
+Later:
+
 - more internationalisation:
-  - minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable") 
   - menu entry for changing character encoding
   - configuration framework, for saving language & charencoding preferences
   - hints (on webpage?) which webmailer sends which encoding-header
 
-Release 0.3
-- adding signing and verifying
-- nice for verify: import key from keyserver
-- PGP-MIME, find and show inline encrypted files
-- Qt 4.6 
-
-Later:
-- Add QSettings for persistent configuration
-- Encrypt to self
 - Drag and drop capabilities. Especially to encrypt / decrypt text, but would also be nice for files as well as import public and private keys.
 - Password caching options (always, for X minutes, never)
 
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
 - Policy ( dialogs, what's warning, what an error )
-- on windows an empty directory gnupg in application-data is created, find out how to disable
-- Open File from command Line 
 - Tabbed editor (including useful things like encrypted data opens in new tab)
 
 - some kind of locking for keydb, as gpg.conf uses lock-never, for ability to run on usb-drives (fat-formatted)
@@ -39,8 +42,9 @@ usability:
 - dialog on closing unsaved document (discard/cancel/save) is not very user-friendly
 - undo / history
 
-advanced:
-- threading & thread-safety in context.cpp (in, out, ctx)
+BUGS
+----
+- key generation on windows 7 64-bit may fail
+- 0.2.3 hangs on windows xp sp3 32bit sometimes
+- on windows an empty directory gnupg in application-data is created, find out how to disable
 
----
-Use QStringList instead of QList<String>
