@@ -46,7 +46,7 @@ public:
     bool privkey;
 };
 
-typedef QLinkedList< GpgKey > GpgKeyList;
+typedef QList< GpgKey > GpgKeyList;
 
 namespace GpgME
 {

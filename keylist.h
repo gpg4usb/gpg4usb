@@ -23,6 +23,7 @@
 #define __KEYLIST_H__
 
 #include "context.h"
+#include "keytablemodel.h"
 
 class QWidget;
 class QVBoxLayout;
@@ -54,7 +55,7 @@ public slots:
 
 private:
     GpgME::Context *mCtx;
-    QTableWidget *mKeyList;
+    QTableView *mKeyList;
     QString iconPath;
     QMenu *popupMenu;
 

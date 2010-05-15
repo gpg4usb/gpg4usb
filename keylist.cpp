@@ -27,16 +27,24 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
     mCtx = ctx;
     this->iconPath = iconpath;
 
-    mKeyList = new QTableWidget(this);
-    mKeyList->setColumnCount(5);
+    KeyTableModel *table = new KeyTableModel(ctx, iconpath, this);
+
+    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(table);
+    proxyModel->setDynamicSortFilter(true);
+
+    mKeyList = new QTableView(this);
+    mKeyList->setModel(proxyModel);
+    //mKeyList->setColumnCount(5);
     mKeyList->verticalHeader()->hide();
     mKeyList->setShowGrid(false);
     mKeyList->setColumnWidth(0, 24);
     mKeyList->setColumnWidth(1, 20);
     mKeyList->sortByColumn(2, Qt::AscendingOrder);
     mKeyList->setSelectionBehavior(QAbstractItemView::SelectRows);
+    mKeyList->setSortingEnabled(true);
     // id of key
-    mKeyList->setColumnHidden(4, true);
+    //mKeyList->setColumnHidden(4, true);
     // tableitems not editable
     mKeyList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     // no focus (rectangle around tableitems)
@@ -45,10 +53,10 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
 
     mKeyList->setAlternatingRowColors(true);
 
-    QStringList labels;
+    /*QStringList labels;
     labels << "" << "" << tr("Name") << tr("EMail") << "id";
     mKeyList->setHorizontalHeaderLabels(labels);
-    mKeyList->horizontalHeader()->setStretchLastSection(true);
+    mKeyList->horizontalHeader()->setStretchLastSection(true);*/
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(mKeyList);
@@ -64,7 +72,7 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
 void KeyList::refresh()
 {
     // while filling the table, sort enabled causes errors
-    mKeyList->setSortingEnabled(false);
+    /*mKeyList->setSortingEnabled(false);
     mKeyList->clearContents();
 
     GpgKeyList keys = mCtx->listKeys();
@@ -94,41 +102,41 @@ void KeyList::refresh()
         it++;
         ++row;
     }
-    mKeyList->setSortingEnabled(true);
+    mKeyList->setSortingEnabled(true);*/
 }
 
 
 QStringList *KeyList::getChecked()
 {
     QStringList *ret = new QStringList();
-    for (int i = 0; i < mKeyList->rowCount(); i++) {
+ /*   for (int i = 0; i < mKeyList->rowCount(); i++) {
         if (mKeyList->item(i, 0)->checkState() == Qt::Checked) {
             *ret << mKeyList->item(i, 4)->text();
         }
-    }
+    }*/
     return ret;
 }
 
 QStringList *KeyList::getPrivateChecked()
 {
     QStringList *ret = new QStringList();
-    for (int i = 0; i < mKeyList->rowCount(); i++) {
+ /*   for (int i = 0; i < mKeyList->rowCount(); i++) {
         if ((mKeyList->item(i, 0)->checkState() == Qt::Checked) && (mKeyList->item(i, 1))) {
             *ret << mKeyList->item(i, 4)->text();
         }
-    }
+    }*/
     return ret;
 }
 
 void KeyList::setChecked(QStringList *keyIds)
 {
-    if (!keyIds->isEmpty()) {
+/*    if (!keyIds->isEmpty()) {
         for (int i = 0; i < mKeyList->rowCount(); i++) {
             if (keyIds->contains(mKeyList->item(i, 4)->text()))  {
                 mKeyList->item(i, 0)->setCheckState(Qt::Checked);
             }
         }
-    }
+    }*/
 }
 
 /*QStringList *KeyList::getPrivateChecked()
@@ -146,11 +154,11 @@ QStringList *KeyList::getSelected()
 {
     QStringList *ret = new QStringList();
 
-    for (int i = 0; i < mKeyList->rowCount(); i++) {
+/*    for (int i = 0; i < mKeyList->rowCount(); i++) {
         if (mKeyList->item(i, 0)->isSelected() == 1) {
             *ret << mKeyList->item(i, 4)->text();
         }
-    }
+    }*/
     return ret;
 }
 
