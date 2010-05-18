@@ -79,6 +79,7 @@ public slots:
     void open();
     void fileEncryption();
     void openSettingsDialog();
+    void openTutorial();
 //    void dropEvent(QDropEvent *event);
 
 private:
@@ -131,6 +132,7 @@ private:
     QAction *aboutAct;
     QAction *fileEncryptionAct;
     QAction *openSettingsAct;
+    QAction *openTutorialAct;
     QLineEdit *nameEdit;
     QLineEdit *emailEdit;
     QLineEdit *commentEdit;

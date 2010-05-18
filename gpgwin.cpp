@@ -218,6 +218,11 @@ void GpgWin::createActions()
     aboutAct->setToolTip(tr("Show the application's About box"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
+    openTutorialAct = new QAction(tr("Online &Tutorial"), this);
+    openTutorialAct->setIcon(QIcon(iconPath + "help.png"));
+    openTutorialAct->setToolTip(tr("Open Online Tutorial"));
+    connect(openTutorialAct, SIGNAL(triggered()), this, SLOT(openTutorial()));
+
     /** Popup-Menu-Action for KeyList
      */
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
@@ -259,6 +264,7 @@ void GpgWin::createMenus()
     viewMenu = menuBar()->addMenu(tr("&View"));
 
     helpMenu = menuBar()->addMenu(tr("&Help"));
+    helpMenu->addAction(openTutorialAct);
     helpMenu->addAction(aboutAct);
 }
 
@@ -478,6 +484,10 @@ void GpgWin::about()
                             "gpg4usb at cpunk.de</a><br><br>"
                             "or feel free to meet us in our xmpp-channel:<br>"
                             "gpg4usb at conference.jabber.ccc.de</center>"));
+}
+
+void GpgWin::openTutorial() {
+    QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
 }
 
 void GpgWin::encrypt()

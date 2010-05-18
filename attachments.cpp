@@ -30,6 +30,7 @@
  * - save, delete (clear) all
  * - each line save & clear button
  * - attached files to view-menu
+ * - also an open button, whichs should save file to tmp-folder, and open with correct app (via QDesktopServices)
  */
 
 
