@@ -21,23 +21,23 @@
         <translation type="obsolete">Не удалось открыть файл: </translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="76"/>
-        <location filename="../../attachments.cpp" line="104"/>
+        <location filename="../../attachments.cpp" line="77"/>
+        <location filename="../../attachments.cpp" line="105"/>
         <source>Save File</source>
         <translation type="unfinished">Сохранить файл</translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="77"/>
+        <location filename="../../attachments.cpp" line="78"/>
         <source>Save this file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="110"/>
+        <location filename="../../attachments.cpp" line="111"/>
         <source>File</source>
         <translation type="unfinished">Файл</translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="111"/>
+        <location filename="../../attachments.cpp" line="112"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -171,299 +171,319 @@
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="137"/>
+        <source>&amp;Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="139"/>
+        <source>Undo Last Edit Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="142"/>
         <source>&amp;Paste</source>
         <translation>&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="140"/>
+        <location filename="../../gpgwin.cpp" line="145"/>
         <source>Paste Text From Clipboard</source>
         <translation>Вставить текст из Буфера Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="143"/>
+        <location filename="../../gpgwin.cpp" line="148"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Вырезать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="146"/>
+        <location filename="../../gpgwin.cpp" line="151"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
         <translation>Вырезать выделенные элементы в Буфер Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="150"/>
+        <location filename="../../gpgwin.cpp" line="155"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="153"/>
+        <location filename="../../gpgwin.cpp" line="158"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
         <translation>Копировать выделенные элементы в Буфер Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="157"/>
+        <location filename="../../gpgwin.cpp" line="162"/>
         <source>Select &amp;All</source>
         <translation>В&amp;ыделить всё</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="160"/>
+        <location filename="../../gpgwin.cpp" line="165"/>
         <source>Select the whole text</source>
         <translation>Выделить весь текст</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="164"/>
+        <location filename="../../gpgwin.cpp" line="169"/>
         <source>Open settings dialog</source>
         <translation>Открыть окно настроек</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="170"/>
+        <location filename="../../gpgwin.cpp" line="175"/>
         <source>&amp;Encrypt</source>
         <translation>З&amp;ашифровать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="173"/>
+        <location filename="../../gpgwin.cpp" line="178"/>
         <source>Encrypt Message</source>
         <translation>Зашифровать текст</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="176"/>
+        <location filename="../../gpgwin.cpp" line="181"/>
         <source>&amp;Decrypt</source>
         <translation>Расшифро&amp;вать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="179"/>
+        <location filename="../../gpgwin.cpp" line="184"/>
         <source>Decrypt Message</source>
         <translation>Расшифровать текст</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="191"/>
+        <location filename="../../gpgwin.cpp" line="196"/>
         <source>Import New Key From File</source>
         <translation>Импорт нового ключа из файла</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="196"/>
+        <location filename="../../gpgwin.cpp" line="201"/>
         <source>Import New Key From Editor</source>
         <translation>Импорт нового ключа из редактора</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="216"/>
+        <location filename="../../gpgwin.cpp" line="221"/>
         <source>&amp;About</source>
         <translation>&amp;О программе</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="218"/>
+        <location filename="../../gpgwin.cpp" line="223"/>
         <source>Show the application&apos;s About box</source>
         <translation>Показать инфо о программе</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="189"/>
-        <location filename="../../gpgwin.cpp" line="230"/>
-        <location filename="../../gpgwin.cpp" line="616"/>
+        <location filename="../../gpgwin.cpp" line="194"/>
+        <location filename="../../gpgwin.cpp" line="240"/>
+        <location filename="../../gpgwin.cpp" line="632"/>
         <source>&amp;File</source>
         <translation>Ф&amp;айл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="238"/>
+        <location filename="../../gpgwin.cpp" line="248"/>
         <source>&amp;Edit</source>
         <translation>&amp;Правка</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="261"/>
+        <location filename="../../gpgwin.cpp" line="272"/>
         <source>&amp;Help</source>
         <translation>&amp;Справка</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="434"/>
+        <location filename="../../gpgwin.cpp" line="446"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="278"/>
+        <location filename="../../gpgwin.cpp" line="290"/>
         <source>Edit</source>
         <translation>Правка</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="163"/>
+        <location filename="../../gpgwin.cpp" line="168"/>
         <source>Se&amp;ttings</source>
         <translation>&amp;Настройки</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="182"/>
+        <location filename="../../gpgwin.cpp" line="187"/>
         <source>&amp;File Encryption</source>
         <translation>Шифрование &amp;файлов</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="184"/>
+        <location filename="../../gpgwin.cpp" line="189"/>
         <source>Encrypt/Decrypt File</source>
         <translation>За-/Расшифровать файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="204"/>
+        <location filename="../../gpgwin.cpp" line="209"/>
         <source>Key Management</source>
         <translation>Менеджер ключей</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="206"/>
+        <location filename="../../gpgwin.cpp" line="211"/>
         <source>Open Keymanagement</source>
         <translation>Открыть Менеджер ключей</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="211"/>
+        <location filename="../../gpgwin.cpp" line="216"/>
         <source>Open Import New Key Dialog</source>
         <translation>Открыть окно импорта ключей</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="223"/>
+        <location filename="../../gpgwin.cpp" line="226"/>
+        <source>Online &amp;Tutorial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="228"/>
+        <source>Open Online Tutorial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="233"/>
         <source>Append Selected Key(s) To Text</source>
         <translation>Добавить выбранн. ключ(и) к тексту</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="224"/>
+        <location filename="../../gpgwin.cpp" line="234"/>
         <source>Append The Selected Keys To Text in Editor</source>
         <translation>Добавить выбранный ключ к тексту в редакторе</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="251"/>
+        <location filename="../../gpgwin.cpp" line="262"/>
         <source>&amp;Keys</source>
         <translation>&amp;Ключи</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="252"/>
+        <location filename="../../gpgwin.cpp" line="263"/>
         <source>&amp;Import Key From...</source>
         <translation>&amp;Импорт ключа из...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="259"/>
+        <location filename="../../gpgwin.cpp" line="270"/>
         <source>&amp;View</source>
         <translation>&amp;Вид</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="273"/>
+        <location filename="../../gpgwin.cpp" line="285"/>
         <source>Key</source>
         <translation>Ключ</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="287"/>
-        <location filename="../../gpgwin.cpp" line="460"/>
+        <location filename="../../gpgwin.cpp" line="299"/>
+        <location filename="../../gpgwin.cpp" line="472"/>
         <source>Ready</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="294"/>
+        <location filename="../../gpgwin.cpp" line="306"/>
         <source>Encrypt for:</source>
         <translation>   Зашифровать для:</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="302"/>
+        <location filename="../../gpgwin.cpp" line="314"/>
         <source>Attached files:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="379"/>
-        <location filename="../../gpgwin.cpp" line="419"/>
+        <location filename="../../gpgwin.cpp" line="391"/>
+        <location filename="../../gpgwin.cpp" line="431"/>
         <source>Application</source>
         <translation>Приложение</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="380"/>
+        <location filename="../../gpgwin.cpp" line="392"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Не удалось прочесть файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="392"/>
+        <location filename="../../gpgwin.cpp" line="404"/>
         <source>File loaded</source>
         <translation>Файл загружен</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="407"/>
+        <location filename="../../gpgwin.cpp" line="419"/>
         <source>%1[*] - %2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="420"/>
+        <location filename="../../gpgwin.cpp" line="432"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Документ был редактирован.
 Сохранить изменения?</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="435"/>
+        <location filename="../../gpgwin.cpp" line="447"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Не удалось записать файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="444"/>
+        <location filename="../../gpgwin.cpp" line="456"/>
         <source>Saved &apos;%1&apos;</source>
         <translation>&quot;%1&quot; сохранён</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="469"/>
+        <location filename="../../gpgwin.cpp" line="481"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="579"/>
+        <location filename="../../gpgwin.cpp" line="595"/>
         <source>Open Key</source>
         <translation>Открыть ключ</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="583"/>
+        <location filename="../../gpgwin.cpp" line="599"/>
         <source>couldn&apos;t open file: </source>
         <translation>Не удалось открыть файл: </translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="194"/>
-        <location filename="../../gpgwin.cpp" line="617"/>
+        <location filename="../../gpgwin.cpp" line="199"/>
+        <location filename="../../gpgwin.cpp" line="633"/>
         <source>&amp;Editor</source>
         <translation>Окна &amp;редактора</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="199"/>
-        <location filename="../../gpgwin.cpp" line="618"/>
+        <location filename="../../gpgwin.cpp" line="204"/>
+        <location filename="../../gpgwin.cpp" line="634"/>
         <source>&amp;Clipboard</source>
         <translation>&amp;Буфера Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="201"/>
+        <location filename="../../gpgwin.cpp" line="206"/>
         <source>Import New Key From Clipboard</source>
         <translation>Импорт нового ключа из Буфера Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="209"/>
-        <location filename="../../gpgwin.cpp" line="607"/>
+        <location filename="../../gpgwin.cpp" line="214"/>
+        <location filename="../../gpgwin.cpp" line="623"/>
         <source>Import Key</source>
         <translation>Импорт ключа</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="245"/>
+        <location filename="../../gpgwin.cpp" line="256"/>
         <source>&amp;Crypt</source>
         <translation>&amp;Шифрование</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="267"/>
+        <location filename="../../gpgwin.cpp" line="279"/>
         <source>Crypt</source>
         <translation>Шифрование</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="466"/>
+        <location filename="../../gpgwin.cpp" line="478"/>
         <source>About </source>
         <translation>О программе </translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="579"/>
+        <location filename="../../gpgwin.cpp" line="595"/>
         <source>Key Files</source>
         <translation>Файлы ключей</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="579"/>
+        <location filename="../../gpgwin.cpp" line="595"/>
         <source>All Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="615"/>
+        <location filename="../../gpgwin.cpp" line="631"/>
         <source>Import Key From...</source>
         <translation>Импорт ключа из...</translation>
     </message>
