@@ -267,10 +267,12 @@ void GpgWin::createMenus()
 
     editMenu = menuBar()->addMenu(tr("&Edit"));
     editMenu->addAction(undoAct);
+    editMenu->addSeparator();
     editMenu->addAction(copyAct);
     editMenu->addAction(cutAct);
     editMenu->addAction(pasteAct);
     editMenu->addAction(selectallAct);
+    editMenu->addSeparator();
     editMenu->addAction(openSettingsAct);
 
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
