@@ -93,6 +93,7 @@ private:
     void setCurrentFile(const QString &fileName);
     bool maybeSave();
     void restoreSettings();
+    void saveSettings();
     void preventNoDataErr(QByteArray *in);
     void parseMime(QByteArray *message);
     QString strippedName(const QString &fullFileName);

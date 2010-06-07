@@ -98,6 +98,26 @@ void GpgWin::restoreSettings()
     }
 }
 
+void GpgWin::saveSettings()
+{
+    // window position and size
+    settings.setValue("window/windowState", saveState());
+    settings.setValue("window/pos", pos());
+    settings.setValue("window/size", size());
+
+    // keyid-list of private checked keys
+    if (settings.value("keys/keySave").toBool()) {
+        QStringList *keyIds = mKeyList->getPrivateChecked();
+        if (!keyIds->isEmpty()) {
+            settings.setValue("keys/keyList", *keyIds);
+        } else {
+            settings.setValue("keys/keyList", "");
+        }
+    } else  {
+        settings.remove("keys/keyList");
+    }
+}
+
 void GpgWin::createActions()
 {
     /** Main Menu
@@ -327,34 +347,12 @@ void GpgWin::closeEvent(QCloseEvent *event)
     /** ask to save changes, if text modified
      */
     if (maybeSave()) {
+        saveSettings();
         event->accept();
     } else {
         event->ignore();
     }
 
-    /** Save the settings
-     */
-    // window position and size
-    settings.setValue("window/windowState", saveState());
-    settings.setValue("window/pos", pos());
-    settings.setValue("window/size", size());
-
-    // keyid-list of private checked keys
-    if (settings.value("keys/keySave").toBool()) {
-        QStringList *keyIds = mKeyList->getPrivateChecked();
-        if (!keyIds->isEmpty()) {
-            settings.setValue("keys/keyList", *keyIds);
-        } else {
-            settings.setValue("keys/keyList", "");
-        }
-    } else  {
-        settings.remove("keys/keyList");
-    }
-
-    /********************
-     * Quit programm
-     * ******************/
-    QMainWindow::closeEvent(event);
 }
 
 void GpgWin::open()
