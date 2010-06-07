@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
 
-    app.setApplicationVersion("0.2.3");
+    app.setApplicationVersion("0.2.4");
     app.setApplicationName("gpg4usb");
 
     // QSettings uses org-name for automatically setting path...
