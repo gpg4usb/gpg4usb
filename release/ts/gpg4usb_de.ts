@@ -6,12 +6,12 @@
     <message>
         <location filename="../../attachmenttablemodel.cpp" line="113"/>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateiname</translation>
     </message>
     <message>
         <location filename="../../attachmenttablemodel.cpp" line="116"/>
         <source>Contenttype</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateityp</translation>
     </message>
 </context>
 <context>
@@ -48,12 +48,12 @@
         <location filename="../../attachments.cpp" line="77"/>
         <location filename="../../attachments.cpp" line="105"/>
         <source>Save File</source>
-        <translation type="unfinished">Datei Speichern</translation>
+        <translation>Datei Speichern</translation>
     </message>
     <message>
         <location filename="../../attachments.cpp" line="78"/>
         <source>Save this file</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichere diese Datei</translation>
     </message>
     <message>
         <location filename="../../attachments.cpp" line="111"/>
@@ -348,12 +348,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="137"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rückgängig</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="139"/>
         <source>Undo Last Edit Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Mache die letzte Aktion rückgängig</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="168"/>
@@ -389,12 +389,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="226"/>
         <source>Online &amp;Tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Online &amp;Dokumentation</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="228"/>
         <source>Open Online Tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffne die Online Dokumentation</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="233"/>
@@ -440,7 +440,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="314"/>
         <source>Attached files:</source>
-        <translation type="unfinished"></translation>
+        <translation>Angehängte Dateien:</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="391"/>
@@ -969,12 +969,12 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="124"/>
         <source>MIME-parsing (Experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>MIME-Parsing (Experimentell)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="126"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation type="unfinished"></translation>
+        <translation>Versuche, die Anhänge von PGP-MIME verschlüsselten Nachrichten zu extrahieren</translation>
     </message>
     <message>
         <source>save window size and position on exit</source>
