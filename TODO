@@ -16,6 +16,7 @@ Release 0.3
 - Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
 - check pointer usage (const/references)
 - check class / includes
+- Setup crosscompile-environment for building against glibc2.3 
 - Qt 4.6 / new gpg-binaries / new gpgme libs
 
 Release 0.4
