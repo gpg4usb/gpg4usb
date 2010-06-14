@@ -16,7 +16,7 @@ Release 0.3
 - Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
 - check pointer usage (const/references)
 - check class / includes
-- Setup crosscompile-environment for building against glibc2.3 
+- setup crosscompile-environment for building against glibc2.3 
 - Qt 4.6 / new gpg-binaries / new gpgme libs
 
 Release 0.4
@@ -39,6 +39,8 @@ Later:
 - Tabbed editor (including useful things like encrypted data opens in new tab)
 
 - some kind of locking for keydb, as gpg.conf uses lock-never, for ability to run on usb-drives (fat-formatted)
+
+- make use of GPGME IO-Callbacks from QT, read chapter 7.8.2 from GPGME info page
 
 usability:
 - dialog on closing unsaved document (discard/cancel/save) is not very user-friendly
