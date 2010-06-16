@@ -371,7 +371,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="328"/>
         <source>Encrypt for:</source>
-        <translation>   Зашифровать для:</translation>
+        <translation> Зашифровать для:</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="336"/>
@@ -886,17 +886,17 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="88"/>
         <source>Windowstate</source>
-        <translation>Системные настройки</translation>
+        <translation>Настройки окна</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="90"/>
         <source>Save window size and position on exit.</source>
-        <translation>Сохранять размер и позицию окна при выходе.</translation>
+        <translation>Запоминать размер и положение окна при выходе.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="99"/>
         <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation>Запомнить отмеченные ключи при выходе и выделить их при следующем запуске.</translation>
+        <translation>Запоминать отмеченные ключи при выходе и выделять их при следующем запуске.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="124"/>
@@ -906,7 +906,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="126"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation>Пробую отделить вложение от письма, зашифрованного PGP-MIME.</translation>
+        <translation>Пробовать отделять вложения писем, зашифрованных PGP-MIME.</translation>
     </message>
     <message>
         <source>save window size and position on exit</source>
@@ -915,7 +915,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="97"/>
         <source>Save Checked Keys</source>
-        <translation>Сохранить выбранные ключи</translation>
+        <translation>Сохранение выбора ключей</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="106"/>
