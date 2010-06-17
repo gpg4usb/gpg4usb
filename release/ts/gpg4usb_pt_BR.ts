@@ -110,7 +110,7 @@
         <location filename="../../fileencryptiondialog.cpp" line="167"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>Não pode escrever o arquivo %1:
+        <translation>Não escreveu o arquivo %1:
 %2.</translation>
     </message>
 </context>
@@ -248,7 +248,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="189"/>
         <source>Open settings dialog</source>
-        <translation>Abre janela de configurações</translation>
+        <translation>Abrir janela de configurações</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="195"/>
@@ -301,7 +301,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="229"/>
         <source>Key Management</source>
-        <translation>Gerenciar Chaves</translation>
+        <translation>Gerenciador de Chaves</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="231"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="243"/>
         <source>Show the application&apos;s About box</source>
-        <translation>Exibe a caixa &apos;sobre&apos;</translation>
+        <translation>Exibe a janela &apos;sobre&apos;</translation>
     </message>
     <message>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="285"/>
         <source>&amp;Import Key From...</source>
-        <translation></translation>
+        <translation>&amp;Importar Chave de...</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="292"/>
@@ -430,7 +430,8 @@
         <location filename="../../gpgwin.cpp" line="392"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Não leu o arquivo %1: %2.</translation>
+        <translation>Não leu o arquivo %1:
+%2.</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="404"/>
@@ -453,7 +454,8 @@ Deseja salvar as alterações?</translation>
         <location filename="../../gpgwin.cpp" line="447"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>Não escreveu o arquivo %1: %2.</translation>
+        <translation>Não escreveu o arquivo %1:
+%2.</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="456"/>
@@ -483,7 +485,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../gpgwin.cpp" line="599"/>
         <source>couldn&apos;t open file: </source>
-        <translation>Não pode abrir o arquivo:</translation>
+        <translation>Não pode abrir o arquivo: </translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="219"/>
@@ -521,7 +523,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../gpgwin.cpp" line="478"/>
         <source>About </source>
-        <translation>Sobre</translation>
+        <translation>Sobre </translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="481"/>
@@ -539,7 +541,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="31"/>
         <source>Owner details</source>
-        <translation>Detalhes do Proprietario</translation>
+        <translation>Detalhes do Proprietário</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="32"/>
@@ -584,7 +586,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="149"/>
         <source>Key Files </source>
-        <translation>Arquivos de Chaves</translation>
+        <translation>Arquivos de Chaves </translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="40"/>
@@ -594,7 +596,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="43"/>
         <source>Algorithm: </source>
-        <translation>Algorítmo:</translation>
+        <translation>Algoritmo: </translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="52"/>
@@ -604,7 +606,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="64"/>
         <source> / Never</source>
-        <translation>/Nunca</translation>
+        <translation> / Nunca</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="115"/>
@@ -664,7 +666,8 @@ Guarde-a em segurança.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="73"/>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+F</translation>
+        <translatorcomment>????? what is this accelerator?????</translatorcomment>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="75"/>
@@ -684,7 +687,7 @@ Guarde-a em segurança.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="83"/>
         <source>Import From &amp;Clipboard</source>
-        <translation>Importar da &amp;Área de Transferência</translation>
+        <translation>Importar da Área de &amp;Transferência</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="85"/>
@@ -709,7 +712,7 @@ Guarde-a em segurança.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="95"/>
         <source>Export Selected Key(s) To File</source>
-        <translation>Exportar as Chaves Marcadas para Arquivo</translation>
+        <translation>Exportar Chaves Marcadas para Arquivo</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="98"/>
@@ -750,7 +753,7 @@ Guarde-a em segurança.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="113"/>
         <source>Show Details for this Key</source>
-        <translation>Exibir Detalhes para essa Chave</translation>
+        <translation>Exibir Detalhes da Chave</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="119"/>
@@ -781,7 +784,7 @@ Guarde-a em segurança.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="153"/>
         <source>Couldn&apos;t Open File: </source>
-        <translation>Não Pode Abrir o Arquivo:</translation>
+        <translation>Não Pode Abrir o Arquivo: </translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="185"/>
@@ -844,7 +847,8 @@ A ação não poderá ser desfeita.</translation>
         <location filename="../../keymgmt.cpp" line="247"/>
         <source>Password: Strength
 Weak -&gt; Strong</source>
-        <translation>Força da Senha: Fraca -&gt; Forte</translation>
+        <translation>Força da Senha:
+Fraca -&gt; Forte</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="278"/>
@@ -855,12 +859,13 @@ Weak -&gt; Strong</source>
         <location filename="../../keymgmt.cpp" line="332"/>
         <source>  Name must contain at least five characters.  
 </source>
-        <translation>  o nome deve conter pelo menos cinco caracteres.</translation>
+        <translation>  O nome deve conter pelo menos cinco caracteres.  
+</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="335"/>
         <source>  Password and Repeat don&apos;t match.  </source>
-        <translation>As senhas não conferem.</translation>
+        <translation>  As senhas não conferem.  </translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="374"/>
@@ -874,8 +879,8 @@ Weak -&gt; Strong</source>
  To speed up the process use your computer
  (e.g. browse the net, listen to music,...)</source>
         <translation>Coletando dados aleatórios para a geração da chave.
-Isso pode demorar um pouco.
-Para agilizar o processo use seu computador
+ Isso pode demorar um pouco.
+ Para agilizar o processo use seu computador
  (ex: navegue na internet, ouça música,...)</translation>
     </message>
 </context>
@@ -939,12 +944,12 @@ Para agilizar o processo use seu computador
     <message>
         <location filename="../../settingsdialog.cpp" line="99"/>
         <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation>Salvar chaves privadas na saída e restaurá-las na proxima execução.</translation>
+        <translation>Salvar chaves privadas selecionadas na saída e restaurá-las na proxima execução.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="124"/>
         <source>MIME-parsing (Experimental)</source>
-        <translation>Interpretação-MIME (Experimental)</translation>
+        <translation>Análise-MIME (Experimental)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="126"/>
@@ -968,7 +973,7 @@ Para agilizar o processo use seu computador
     <message>
         <location filename="../../settingsdialog.cpp" line="116"/>
         <source>Language change is applied after restarting program.</source>
-        <translation>Alteração de idioma disponível após reiniciar o programa.</translation>
+        <translation>A alteração de idioma será aplicada após reiniciar o programa.</translation>
     </message>
     <message>
         <source>English</source>
