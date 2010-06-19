@@ -4,12 +4,15 @@ TODO:
 Release 0.2.4
 - Open File from command Line [DONE]
 - possibility to save which private keys are checked on closing (partially solving "encrypt to self") [DONE]
-- add translation for french / spanish [DONE]
+- add translation for spanish [DONE]
+- link to online tutorial in help menu [DONE]
+
+Release 0.2.5
+- minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable")
+- File-Encryption: Warning if file overwritten
 - more doku on building gpg4usb (especially on windows)
 - doku for translating gpg4usb
-- File-Encryption: Warning if file overwritten
-- minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable")
-- link to online tutorial in help menu [DONE]
+- add translation for french 
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files

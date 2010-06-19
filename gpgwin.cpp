@@ -159,6 +159,11 @@ void GpgWin::createActions()
     undoAct->setToolTip(tr("Undo Last Edit Action"));
     connect(undoAct, SIGNAL(triggered()), edit, SLOT(undo()));
 
+    undoAct = new QAction(tr("&Redo"), this);
+    undoAct->setShortcut(QKeySequence::Redo);
+    undoAct->setToolTip(tr("Redo Last Edit Action"));
+    connect(redoAct, SIGNAL(triggered()), edit, SLOT(redo()));
+
     pasteAct = new QAction(tr("&Paste"), this);
     pasteAct->setIcon(QIcon(iconPath + "button_paste.png"));
     pasteAct->setShortcut(QKeySequence::Paste);
@@ -266,6 +271,7 @@ void GpgWin::createMenus()
     fileMenu->addAction(quitAct);
 
     editMenu = menuBar()->addMenu(tr("&Edit"));
+    editMenu->addAction(redoAct);
     editMenu->addAction(undoAct);
     editMenu->addSeparator();
     editMenu->addAction(copyAct);

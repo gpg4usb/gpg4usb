@@ -131,6 +131,7 @@ private:
     QAction *pasteAct;
     QAction *selectallAct;
 	QAction *undoAct;
+	QAction *redoAct;
     QAction *aboutAct;
     QAction *fileEncryptionAct;
     QAction *openSettingsAct;
