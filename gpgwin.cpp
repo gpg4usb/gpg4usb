@@ -159,9 +159,9 @@ void GpgWin::createActions()
     undoAct->setToolTip(tr("Undo Last Edit Action"));
     connect(undoAct, SIGNAL(triggered()), edit, SLOT(undo()));
 
-    undoAct = new QAction(tr("&Redo"), this);
-    undoAct->setShortcut(QKeySequence::Redo);
-    undoAct->setToolTip(tr("Redo Last Edit Action"));
+    redoAct = new QAction(tr("&Redo"), this);
+    redoAct->setShortcut(QKeySequence::Redo);
+    redoAct->setToolTip(tr("Redo Last Edit Action"));
     connect(redoAct, SIGNAL(triggered()), edit, SLOT(redo()));
 
     pasteAct = new QAction(tr("&Paste"), this);
