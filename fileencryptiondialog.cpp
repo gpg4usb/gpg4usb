@@ -38,7 +38,6 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
         : QDialog(parent)
 
 {
-
     mCtx = ctx;
     setWindowTitle(tr("Encrypt / Decrypt File"));
     resize(500, 200);
@@ -136,8 +135,9 @@ void FileEncryptionDialog::selectOutputFile()
         path = QFileInfo(outputFileEdit->text()).absolutePath();
     }
 
-    QString outfileName = QFileDialog::getSaveFileName(this, tr("Save File"), path);
+    QString outfileName = QFileDialog::getSaveFileName(this, tr("Save File"),path, NULL ,NULL ,QFileDialog::DontConfirmOverwrite);
     outputFileEdit->setText(outfileName);
+
 }
 
 void FileEncryptionDialog::executeAction()
@@ -173,8 +173,14 @@ void FileEncryptionDialog::executeAction()
     QDataStream out(&outfile);
     out.writeRawData(outBuffer->data(), outBuffer->length());
 
-    accept();
-    QMessageBox::information(0, "Done", "Output saved to " + outputFileEdit->text());
+    QMessageBox::StandardButton ret;
+    ret = QMessageBox::warning(this, tr("File"),
+                                       tr("File exists! Do you want to overwrite it?"),
+                                       QMessageBox::Ok|QMessageBox::Cancel);
+    if (ret == QMessageBox::Ok){
+                accept();
+                QMessageBox::information(0, "Done", "Output saved to " + outputFileEdit->text());
+    }
 }
 
 void FileEncryptionDialog::showKeyList()
