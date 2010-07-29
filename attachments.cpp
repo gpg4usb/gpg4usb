@@ -88,7 +88,7 @@ void Attachments::saveFile()
 
     // only singe-selection possible now: TODO: foreach
     MimePart mp = table->getMimePart(indexes.at(0).row());
-    QString filename = mp.getParam("Content-Type", "name");
+    QString filename = mp.header.getParam("Content-Type", "name");
     // TODO: find out why filename is quoted
     filename.chop(1);
     filename.remove(0, 1);

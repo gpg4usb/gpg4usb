@@ -41,14 +41,23 @@ public:
 
 };
 
-class MimePart
+class Header
 {
 public:
-    QList<HeadElem> header;
-    QByteArray body;
+    QList<HeadElem> headElems;
+
+    Header() {}
+
+    Header(QList <HeadElem> heads) {
+        headElems = heads;
+    }
+
+    void setHeader(QList <HeadElem> heads) {
+       headElems = heads;
+    }
 
     QString getValue(QString key) {
-        foreach(HeadElem tmp, header) {
+        foreach(HeadElem tmp, headElems) {
             //qDebug() << "gv: " << tmp.name << ":" << tmp.value;
             if (tmp.name == key)
                 return tmp.value;
@@ -57,7 +66,7 @@ public:
     }
 
     QHash<QString, QString> getParams(QString key) {
-        foreach(HeadElem tmp, header) {
+        foreach(HeadElem tmp, headElems) {
             //qDebug() << "gv: " << tmp.name << ":" << tmp.value;
             if (tmp.name == key)
                 //return tmp.value;
@@ -67,13 +76,24 @@ public:
     }
 
     QString getParam(QString key, QString pKey) {
-        foreach(HeadElem tmp, header) {
+        foreach(HeadElem tmp, headElems) {
             //qDebug() << "gv: " << tmp.name << ":" << tmp.value;
             if (tmp.name == key)
                 return tmp.params.value(pKey);
         }
         return "";
     }
+
+
+};
+
+class MimePart
+{
+public:
+    Header header;
+    QByteArray body;
+
+
 
     /*    QDataStream & operator<<(QDataStream& Stream, const Part& P)
         {
@@ -91,11 +111,13 @@ public:
     Mime(QByteArray *message); // Constructor
     ~Mime(); // Destructor
     static bool isMultipart(QByteArray *message);
+    static bool isMime(const QByteArray *message);
     QList<MimePart> parts() {
         return mPartList;
     }
     void splitParts(QByteArray *message);
-    QList<HeadElem> parseHeader(QByteArray *header);
+    static Header getHeader(const QByteArray *message);
+    static Header parseHeader(QByteArray *header);
     static void quotedPrintableDecode(const QByteArray& in, QByteArray& out);
 
 private:

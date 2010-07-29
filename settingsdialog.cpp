@@ -125,6 +125,8 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mimeParseBoxLayout = new QHBoxLayout();
     mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
     mimeParseBoxLayout->addWidget(mimeParseCheckBox);
+    mimeQPCheckBox = new QCheckBox(tr("Try to recognice quoted printable."), this);
+    mimeParseBoxLayout->addWidget(mimeQPCheckBox);
     mimeParseBox->setLayout(mimeParseBoxLayout);
 
     /*****************************************
@@ -193,6 +195,9 @@ void SettingsDialog::setSettings()
     // MIME-Parsing
     if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
 
+    // Qouted Printable
+    if (settings.value("mime/parseQP").toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
+
     //Language setting
     QString langKey = settings.value("int/lang").toString();
     QString langValue = lang.value(langKey);
@@ -230,6 +235,7 @@ void SettingsDialog::applySettings()
     settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
 
     settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
+    settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());
 
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
 

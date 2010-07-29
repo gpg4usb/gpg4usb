@@ -520,10 +520,35 @@ void GpgWin::decrypt()
     preventNoDataErr(&text);
     mCtx->decrypt(text, tmp);
     if (!tmp->isEmpty()) {
-        // is it mime?
-        if (settings.value("mime/parseMime").toBool()) {
-            parseMime(tmp);
+
+        /**
+         *   1) is it mime (content-type:)
+         *   2) parse header
+         *   2) choose action depending on content-type
+         */
+
+        if(Mime::isMime(tmp)) {
+            Header header = Mime::getHeader(tmp);
+
+            // is it multipart, is multipart-parsing enabled
+            if(header.getValue("Content-Type") == "multipart/mixed"
+               && settings.value("mime/parseMime").toBool()) {
+
+                    parseMime(tmp);
+
+            } else if(header.getValue("Content-Type") == "text/plain"
+               && settings.value("mime/parseQP").toBool()){
+
+                    if (header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
+                        QByteArray *decode = new QByteArray();
+                        Mime::quotedPrintableDecode(*tmp, *decode);
+                        //TODO: remove header
+                        tmp = decode;
+
+                    }
+            }
         }
+
         edit->setPlainText(QString::fromUtf8(*tmp));
     }
 }
@@ -546,11 +571,11 @@ void GpgWin::parseMime(QByteArray *message)
 
     Mime *mime = new Mime(message);
     foreach(MimePart tmp, mime->parts()) {
-        if (tmp.getValue("Content-Type") == "text/plain"
-                && tmp.getValue("Content-Transfer-Encoding") != "base64") {
+        if (tmp.header.getValue("Content-Type") == "text/plain"
+                && tmp.header.getValue("Content-Transfer-Encoding") != "base64") {
 
             QByteArray body;
-            if (tmp.getValue("Content-Transfer-Encoding") == "quoted-printable") {
+            if (tmp.header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
 
                 Mime::quotedPrintableDecode(tmp.body, body);
             } else {

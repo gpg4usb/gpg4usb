@@ -113,7 +113,7 @@ void Mime::splitParts(QByteArray *message)
     }
 }
 
-QList<HeadElem> Mime::parseHeader(QByteArray *header)
+Header Mime::parseHeader(QByteArray *header)
 {
 
     QList<HeadElem> ret;
@@ -144,12 +144,27 @@ QList<HeadElem> Mime::parseHeader(QByteArray *header)
         }
         ret.append(elem);
     }
-    return ret;
+    return Header(ret);
+}
+
+Header Mime::getHeader(const QByteArray *message) {
+    int headEnd = message->indexOf("\n\n");
+    QByteArray header = message->mid(0, headEnd);
+    return parseHeader(&header);
 }
 
 bool Mime::isMultipart(QByteArray *message)
 {
     return message->startsWith("Content-Type: multipart/mixed;");
+}
+
+/**
+ * if Content-Type is specified, it should be mime
+ *
+ */
+bool Mime::isMime(const QByteArray *message)
+{
+    return message->startsWith("Content-Type:");
 }
 
 /***

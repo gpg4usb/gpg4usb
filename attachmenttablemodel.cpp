@@ -77,9 +77,9 @@ QVariant AttachmentTableModel::data(const QModelIndex &index, int role) const
         MimePart mp = listOfMimeparts.at(index.row());
 
         if (index.column() == 0)
-            return mp.getParam("Content-Type", "name");
+            return mp.header.getParam("Content-Type", "name");
         if (index.column() == 1)
-            return mp.getValue("Content-Type");
+            return mp.header.getValue("Content-Type");
 
     }
 
@@ -88,10 +88,10 @@ QVariant AttachmentTableModel::data(const QModelIndex &index, int role) const
     if (role == Qt::DecorationRole && index.column() == 0) {
         MimePart mp = listOfMimeparts.at(index.row());
         QString icon;
-        if (mp.getValue("Content-Type").startsWith("image")) {
+        if (mp.header.getValue("Content-Type").startsWith("image")) {
             icon = iconPath + "/mimetypes/image-x-generic.png";
         } else {
-            icon = mp.getValue("Content-Type").replace("/", "-");
+            icon = mp.header.getValue("Content-Type").replace("/", "-");
             icon = iconPath + "/mimetypes/" + icon + ".png";
         }
         if (!QFile::exists(icon)) icon = iconPath + "/mimetypes/unknown.png";

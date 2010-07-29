@@ -61,6 +61,7 @@ private:
     QCheckBox *windowSizeCheckBox;
     QCheckBox *saveCheckedKeysCheckBox;
     QCheckBox *mimeParseCheckBox;
+    QCheckBox *mimeQPCheckBox;
     QComboBox *langSelectBox;
     QHash<QString, QString> lang;
 
