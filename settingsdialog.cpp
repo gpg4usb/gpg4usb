@@ -129,7 +129,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mimeParseBoxLayout->addWidget(mimeQPCheckBox);
     mimeOpenAttachmentCheckBox = new QCheckBox(tr("Enable open with external app, saves file in tmp folder."), this);
     //mimeOpenAttachmentCheckBox->setWhatsThis("Open attachments <b>with</b>... neeeds temp foder..");
-    mimeOpenAttachmentCheckBox->setToolTip("Open attachments with Application for the filetype. <b>Needs saving the file to temporarly folder.</b> For now its your job to clean this folder up if you want.");
+    mimeOpenAttachmentCheckBox->setToolTip("Open attachments with Application for the filetype. <b>Needs saving the file to temporarly folder.</b> For now its your job to clean this folder up if you want. The Benefit of this option is more comfortable filehandling, but you should be aware that this files lay around unencrypted in folder 'attachments'.");
     /*
      * Here could be something like Qstring("?"), or an icon with an ?, with the action "show tooltip"
      */
