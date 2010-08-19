@@ -58,7 +58,6 @@ Attachments::Attachments(QString iconpath, QWidget *parent)
     tableView->horizontalHeader()->setStretchLastSection(true);
 
     QVBoxLayout *layout = new QVBoxLayout;
-    //layout->addWidget(mAttachmentTable);
     layout->addWidget(tableView);
     setLayout(layout);
     createActions();
@@ -69,6 +68,10 @@ void Attachments::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu(this);
     menu.addAction(saveFileAct);
+    // enable open with only if allowed by user
+    if(settings.value("mime/openAttachment").toBool())
+        menu.addAction(openFileAct);
+
     menu.exec(event->globalPos());
 }
 
@@ -78,6 +81,11 @@ void Attachments::createActions()
     saveFileAct->setToolTip(tr("Save this file"));
     saveFileAct->setIcon(QIcon(iconPath + "filesave.png"));
     connect(saveFileAct, SIGNAL(triggered()), this, SLOT(saveFile()));
+
+    openFileAct = new QAction(tr("Open File"), this);
+    openFileAct->setToolTip(tr("Open this file"));
+    openFileAct->setIcon(QIcon(iconPath + "fileopen.png"));
+    connect(openFileAct, SIGNAL(triggered()), this, SLOT(openFile()));
 
 }
 
@@ -119,7 +127,51 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
     out.writeRawData(outBuffer.data(), outBuffer.length());
 }
 
+/**
+ * WIP: TODO:
+ *   - create attachments dir if not existing
+ *   - ask for cleanup of dir on exit
+ *   - remove code-duplication with saveByteArrayToFile
+ */
+void Attachments::openFile() {
 
+    QString tmpPath = qApp->applicationDirPath() + "/attachments/";
+    //QDir p = QDir(qApp->applicationDirPath() + "/attachments/");
+    //if(!p.exists()) {
+    //    qDebug() << "creating " << p;
+    //    p.mkpath("/attachments/");
+    //}
+
+    QModelIndexList indexes = tableView->selectionModel()->selection().indexes();
+    MimePart mp = table->getMimePart(indexes.at(0).row());
+
+    qDebug() << "mime: " << mp.header.getValue("Content-Type");
+
+    QString filename = mp.header.getParam("Content-Type", "name");
+    // TODO: find out why filename is quoted
+    qDebug() << "file: " << filename;
+    filename.chop(1);
+    filename.remove(0, 1);
+    filename.prepend(tmpPath);
+
+    qDebug() << "file: " << filename;
+    QByteArray outBuffer = QByteArray::fromBase64(mp.body);
+
+
+    QFile outfile(filename);
+    if (!outfile.open(QFile::WriteOnly)) {
+        QMessageBox::warning(this, tr("File"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(filename)
+                             .arg(outfile.errorString()));
+        return;
+    }
+
+    QDataStream out(&outfile);
+    out.writeRawData(outBuffer.data(), outBuffer.length());
+
+    QDesktopServices::openUrl(QUrl("file://"+filename, QUrl::TolerantMode));
+}
 
 void Attachments::addMimePart(MimePart *mp)
 {

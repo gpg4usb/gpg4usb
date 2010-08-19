@@ -62,6 +62,7 @@ private:
     QCheckBox *saveCheckedKeysCheckBox;
     QCheckBox *mimeParseCheckBox;
     QCheckBox *mimeQPCheckBox;
+    QCheckBox *mimeOpenAttachmentCheckBox;
     QComboBox *langSelectBox;
     QHash<QString, QString> lang;
 
@@ -69,7 +70,7 @@ private:
     QHBoxLayout *iconStyleBoxLayout;
     QHBoxLayout *windowSizeBoxLayout;
     QHBoxLayout *saveCheckedKeysBoxLayout;
-    QHBoxLayout *mimeParseBoxLayout;
+    QVBoxLayout *mimeParseBoxLayout;
     QVBoxLayout *vbox;
     void setSettings();
 

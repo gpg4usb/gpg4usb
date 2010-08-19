@@ -122,11 +122,18 @@ SettingsDialog::SettingsDialog(QWidget *parent)
      *****************************************/
 
     mimeParseBox = new QGroupBox(tr("MIME-parsing (Experimental)"));
-    mimeParseBoxLayout = new QHBoxLayout();
+    mimeParseBoxLayout = new QVBoxLayout();
     mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
     mimeParseBoxLayout->addWidget(mimeParseCheckBox);
     mimeQPCheckBox = new QCheckBox(tr("Try to recognice quoted printable."), this);
     mimeParseBoxLayout->addWidget(mimeQPCheckBox);
+    mimeOpenAttachmentCheckBox = new QCheckBox(tr("Enable open with external app, saves file in tmp folder."), this);
+    //mimeOpenAttachmentCheckBox->setWhatsThis("Open attachments <b>with</b>... neeeds temp foder..");
+    mimeOpenAttachmentCheckBox->setToolTip("Open attachments with Application for the filetype. <b>Needs saving the file to temporarly folder.</b> For now its your job to clean this folder up if you want.");
+    /*
+     * Here could be something like Qstring("?"), or an icon with an ?, with the action "show tooltip"
+     */
+    mimeParseBoxLayout->addWidget(mimeOpenAttachmentCheckBox);
     mimeParseBox->setLayout(mimeParseBoxLayout);
 
     /*****************************************
@@ -198,6 +205,9 @@ void SettingsDialog::setSettings()
     // Qouted Printable
     if (settings.value("mime/parseQP").toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
 
+    // Open Attachments with external app
+    if (settings.value("mime/openAttachment").toBool()) mimeOpenAttachmentCheckBox->setCheckState(Qt::Checked);
+
     //Language setting
     QString langKey = settings.value("int/lang").toString();
     QString langValue = lang.value(langKey);
@@ -236,6 +246,7 @@ void SettingsDialog::applySettings()
 
     settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
     settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());
+    settings.setValue("mime/openAttachment" , mimeOpenAttachmentCheckBox->isChecked());
 
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
 

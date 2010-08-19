@@ -33,6 +33,10 @@
 #include "QMessageBox"
 #include "QContextMenuEvent"
 #include "QFileDialog"
+#include "QUrl"
+#include "QDesktopServices"
+#include "QSettings"
+#include "QApplication"
 
 class Attachments : public QWidget
 {
@@ -40,6 +44,7 @@ class Attachments : public QWidget
 
 public slots:
     void saveFile();
+    void openFile();
 
 public:
     Attachments(QString iconpath, QWidget *parent = 0);
@@ -49,9 +54,11 @@ private:
     void createActions();
     void saveByteArrayToFile(QByteArray outBuffer, QString filename);
     QAction *saveFileAct;
+    QAction *openFileAct;
     QString iconPath;
     AttachmentTableModel *table;
     QTableView *tableView;
+    QSettings settings;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);

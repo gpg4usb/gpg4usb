@@ -515,11 +515,11 @@ void GpgWin::encrypt()
 
 void GpgWin::decrypt()
 {
-    QByteArray *tmp = new QByteArray();
+    QByteArray *decrypted = new QByteArray();
     QByteArray text = edit->toPlainText().toAscii();
     preventNoDataErr(&text);
-    mCtx->decrypt(text, tmp);
-    if (!tmp->isEmpty()) {
+    mCtx->decrypt(text, decrypted);
+    if (!decrypted->isEmpty()) {
 
         /**
          *   1) is it mime (content-type:)
@@ -527,29 +527,30 @@ void GpgWin::decrypt()
          *   2) choose action depending on content-type
          */
 
-        if(Mime::isMime(tmp)) {
-            Header header = Mime::getHeader(tmp);
+        if(Mime::isMime(decrypted)) {
+            Header header = Mime::getHeader(decrypted);
 
             // is it multipart, is multipart-parsing enabled
             if(header.getValue("Content-Type") == "multipart/mixed"
                && settings.value("mime/parseMime").toBool()) {
 
-                    parseMime(tmp);
+                    parseMime(decrypted);
 
             } else if(header.getValue("Content-Type") == "text/plain"
                && settings.value("mime/parseQP").toBool()){
 
                     if (header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
-                        QByteArray *decode = new QByteArray();
-                        Mime::quotedPrintableDecode(*tmp, *decode);
+                        QByteArray *decoded = new QByteArray();
+                        Mime::quotedPrintableDecode(*decrypted, *decoded);
                         //TODO: remove header
-                        tmp = decode;
+                        decrypted = decoded;
 
                     }
             }
         }
 
-        edit->setPlainText(QString::fromUtf8(*tmp));
+        edit->setPlainText(QString::fromUtf8(*decrypted));
+        //edit->setPlainText(*decrypted);
     }
 }
 
@@ -560,11 +561,11 @@ void GpgWin::decrypt()
 void GpgWin::parseMime(QByteArray *message)
 {
 
-    if (! Mime::isMultipart(message)) {
+    /*if (! Mime::isMultipart(message)) {
         qDebug() << "no multipart";
         return;
-    }
-    qDebug() << "multipart";
+    }*/
+    //qDebug() << "multipart";
 
     QString pText;
     bool showmadock = false;
@@ -590,7 +591,7 @@ void GpgWin::parseMime(QByteArray *message)
         }
     }
 
-    *message = pText.toAscii();
+    *message = pText.toUtf8();
     if (showmadock) aDock->show();
 }
 
