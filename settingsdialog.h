@@ -46,6 +46,7 @@ private:
     QGroupBox *iconStyleBox;
     QGroupBox *windowSizeBox;
     QGroupBox *saveCheckedKeysBox;
+    QGroupBox *rememberPasswordBox;
     QGroupBox *mimeParseBox;
     QDialogButtonBox *buttonBox;
 
@@ -60,6 +61,7 @@ private:
     QRadioButton *iconAllButton;
     QCheckBox *windowSizeCheckBox;
     QCheckBox *saveCheckedKeysCheckBox;
+    QCheckBox *rememberPasswordCheckBox;
     QCheckBox *mimeParseCheckBox;
     QCheckBox *mimeQPCheckBox;
     QCheckBox *mimeOpenAttachmentCheckBox;
@@ -70,6 +72,7 @@ private:
     QHBoxLayout *iconStyleBoxLayout;
     QHBoxLayout *windowSizeBoxLayout;
     QHBoxLayout *saveCheckedKeysBoxLayout;
+    QHBoxLayout *rememberPasswordBoxLayout;
     QVBoxLayout *mimeParseBoxLayout;
     QVBoxLayout *vbox;
     void setSettings();

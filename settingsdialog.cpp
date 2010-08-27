@@ -137,6 +137,15 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mimeParseBox->setLayout(mimeParseBoxLayout);
 
     /*****************************************
+     * remember Password-Box
+     *****************************************/
+    rememberPasswordBox = new QGroupBox(tr("Remember Password"));
+    rememberPasswordBoxLayout = new QHBoxLayout();
+    rememberPasswordCheckBox = new QCheckBox(tr("Remember password till closing gpg4usb"), this);
+    rememberPasswordBoxLayout->addWidget(rememberPasswordCheckBox);
+    rememberPasswordBox->setLayout(rememberPasswordBoxLayout);
+
+    /*****************************************
      * Button-Box
      *****************************************/
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -152,6 +161,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     vbox->addWidget(windowSizeBox);
     vbox->addWidget(saveCheckedKeysBox);
     vbox->addWidget(mimeParseBox);
+    vbox->addWidget(rememberPasswordBox);
     vbox->addWidget(langBox);
     vbox->addWidget(buttonBox);
     setLayout(vbox);
@@ -199,6 +209,9 @@ void SettingsDialog::setSettings()
     // Keysaving
     if (settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
 
+    // Remember Password
+    if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
+
     // MIME-Parsing
     if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
 
@@ -243,6 +256,8 @@ void SettingsDialog::applySettings()
 
     settings.setValue("window/windowSave", windowSizeCheckBox->isChecked());
     settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
+    // TODO: clear passwordCache instantly on unset rememberPassword
+    settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
 
     settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
     settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());

@@ -1,11 +1,13 @@
 TODO:
 -----
 Release 0.2.5
-- minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable")
+- minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable") [DONE]
 - File-Encryption: Warning if file overwritten [DONE]
 - more doku on building gpg4usb (especially on windows)
 - doku for translating gpg4usb
 - add translation for french 
+- remember Password [DONE]
+- "Forget Password after X minutes"
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files

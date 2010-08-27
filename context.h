@@ -67,7 +67,7 @@ public:
     bool encrypt(QStringList *uidList, const QByteArray &inBuffer,
                  QByteArray *outBuffer);
     bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
-    void clearCache();
+    void clearPasswordCache();
     void exportSecretKey(QString uid, QByteArray *outBuffer);
     gpgme_key_t getKeyDetails(QString uid);
 
@@ -80,6 +80,7 @@ private:
     gpgme_error_t err;
     gpgme_error_t readToBuffer(gpgme_data_t in, QByteArray *outBuffer);
     QByteArray mPasswordCache;
+    QSettings settings;
     bool debug;
     void checkErr(gpgme_error_t err) const;
     void checkErr(gpgme_error_t err, QString comment) const;

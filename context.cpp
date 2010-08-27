@@ -315,9 +315,11 @@ bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
         QMessageBox::critical(0, "Error decrypting:", gpgme_strerror(err));
     }
+
     //if (err != GPG_ERR_NO_ERROR)
-    // always clear password cache. TODO: implement passwort save
-    clearCache();
+    if (! settings.value("general/rememberPassword").toBool()) {
+        clearPasswordCache();
+    }
 
     if (in) {
         gpgme_data_release(in);
@@ -382,7 +384,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
 
     if (last_was_bad) {
         s += "<i>Wrong password.</i><br><br>\n\n";
-        clearCache();
+        clearPasswordCache();
     }
 
     /** if uid provided */
@@ -429,7 +431,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
 }
 
 /** also from kgpgme.cpp, seems to clear password from mem */
-void Context::clearCache()
+void Context::clearPasswordCache()
 {
     if (mPasswordCache.size() > 0) {
         mPasswordCache.fill('\0');

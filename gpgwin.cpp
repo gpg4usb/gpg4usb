@@ -361,6 +361,9 @@ void GpgWin::closeEvent(QCloseEvent *event)
         event->ignore();
     }
 
+    // clear password from memory
+    mCtx->clearPasswordCache();
+
 }
 
 void GpgWin::open()
