@@ -17,23 +17,35 @@
 <context>
     <name>Attachments</name>
     <message>
-        <location filename="../../attachments.cpp" line="77"/>
-        <location filename="../../attachments.cpp" line="105"/>
+        <location filename="../../attachments.cpp" line="80"/>
+        <location filename="../../attachments.cpp" line="113"/>
         <source>Save File</source>
         <translation>Salvar Arquivo</translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="78"/>
+        <location filename="../../attachments.cpp" line="81"/>
         <source>Save this file</source>
         <translation>Salvar esse arquivo</translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="111"/>
+        <location filename="../../attachments.cpp" line="85"/>
+        <source>Open File</source>
+        <translation type="unfinished">Abrir Arquivo</translation>
+    </message>
+    <message>
+        <location filename="../../attachments.cpp" line="86"/>
+        <source>Open this file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../attachments.cpp" line="119"/>
+        <location filename="../../attachments.cpp" line="163"/>
         <source>File</source>
         <translation>Arquivo</translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="112"/>
+        <location filename="../../attachments.cpp" line="120"/>
+        <location filename="../../attachments.cpp" line="164"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Não escreveu o arquivo %1:
@@ -336,7 +348,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="219"/>
         <location filename="../../gpgwin.cpp" line="265"/>
-        <location filename="../../gpgwin.cpp" line="638"/>
+        <location filename="../../gpgwin.cpp" line="667"/>
         <source>&amp;File</source>
         <translation>&amp;Arquivo</translation>
     </message>
@@ -351,7 +363,7 @@
         <translation>A&amp;juda</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="452"/>
+        <location filename="../../gpgwin.cpp" line="455"/>
         <source>File</source>
         <translation>Arquivo</translation>
     </message>
@@ -422,7 +434,7 @@
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="327"/>
-        <location filename="../../gpgwin.cpp" line="478"/>
+        <location filename="../../gpgwin.cpp" line="481"/>
         <source>Ready</source>
         <translation>Pronto</translation>
     </message>
@@ -437,44 +449,44 @@
         <translation>Arquivos anexos:</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="397"/>
-        <location filename="../../gpgwin.cpp" line="437"/>
+        <location filename="../../gpgwin.cpp" line="400"/>
+        <location filename="../../gpgwin.cpp" line="440"/>
         <source>Application</source>
         <translation>Aplicação</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="398"/>
+        <location filename="../../gpgwin.cpp" line="401"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Não leu o arquivo %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="410"/>
+        <location filename="../../gpgwin.cpp" line="413"/>
         <source>File loaded</source>
         <translation>Arquivo carregado</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="425"/>
+        <location filename="../../gpgwin.cpp" line="428"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="438"/>
+        <location filename="../../gpgwin.cpp" line="441"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>O documento foi alterado.
 Deseja salvar as alterações?</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="453"/>
+        <location filename="../../gpgwin.cpp" line="456"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Não escreveu o arquivo %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="462"/>
+        <location filename="../../gpgwin.cpp" line="465"/>
         <source>Saved &apos;%1&apos;</source>
         <translatorcomment>i used inverse order because its more natural speak in this way</translatorcomment>
         <translation>&apos;%1&apos; salvo</translation>
@@ -484,34 +496,34 @@ Deseja salvar as alterações?</translation>
         <translation type="obsolete">&lt;center&gt; Este aplicativo permite a encriptação/decriptação&lt;br&gt;simplificada das suas mensagens de texto ou arquivos.&lt;br&gt;E é liberado sob licença GPL-V2.0&lt;br&gt;&lt;br&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Krill(ru)&lt;br&gt;Alessandro Benevenuto (pt-br)&lt;br&gt;&lt;br&gt;Caso tenha dúvidas e/ou sugestões, entre em&lt;br&gt;contatoatravés de gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;ou no canal xmpp&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="601"/>
+        <location filename="../../gpgwin.cpp" line="630"/>
         <source>Open Key</source>
         <translation>Abrir a Chave</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="601"/>
+        <location filename="../../gpgwin.cpp" line="630"/>
         <source>Key Files</source>
         <translation>Arquivos de Chaves</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="601"/>
+        <location filename="../../gpgwin.cpp" line="630"/>
         <source>All Files</source>
         <translation>Todos os Arquivos</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="605"/>
+        <location filename="../../gpgwin.cpp" line="634"/>
         <source>couldn&apos;t open file: </source>
         <translation>Não pode abrir o arquivo: </translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="224"/>
-        <location filename="../../gpgwin.cpp" line="639"/>
+        <location filename="../../gpgwin.cpp" line="668"/>
         <source>&amp;Editor</source>
         <translation>&amp;Editor</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="229"/>
-        <location filename="../../gpgwin.cpp" line="640"/>
+        <location filename="../../gpgwin.cpp" line="669"/>
         <source>&amp;Clipboard</source>
         <translation>Área de &amp;Transferência</translation>
     </message>
@@ -522,7 +534,7 @@ Deseja salvar as alterações?</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="239"/>
-        <location filename="../../gpgwin.cpp" line="629"/>
+        <location filename="../../gpgwin.cpp" line="658"/>
         <source>Import Key</source>
         <translation>Importar Chave</translation>
     </message>
@@ -537,17 +549,17 @@ Deseja salvar as alterações?</translation>
         <translation>Encriptar</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="484"/>
+        <location filename="../../gpgwin.cpp" line="487"/>
         <source>About </source>
         <translation>Sobre </translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="487"/>
+        <location filename="../../gpgwin.cpp" line="490"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
         <translation>&lt;center&gt;Esse programa serve para encriptar e&lt;br&gt;decriptar mensagens de texto ou arquivos.&lt;br&gt;E é liberado sob a licença GPL V2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;Caso tenha duvidas e/ou sugestões,&lt;br&gt;envie uma mensagem para&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;ou nos encontre no nosso canal xmppl:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="637"/>
+        <location filename="../../gpgwin.cpp" line="666"/>
         <source>Import Key From...</source>
         <translation>Importar Chave de...</translation>
     </message>
@@ -973,6 +985,26 @@ Fraca -&gt; Forte</translation>
         <translation>Tentar dividir os anexos das mensagens PGP-MIME encriptadas.</translation>
     </message>
     <message>
+        <location filename="../../settingsdialog.cpp" line="128"/>
+        <source>Try to recognize quoted printable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="130"/>
+        <source>Enable open with external app, saves file in tmp folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="142"/>
+        <source>Remember Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="144"/>
+        <source>Remember password till closing gpg4usb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>save window size and position on exit</source>
         <translation type="obsolete">Salvar posição e tamanho  da janela ao sair</translation>
     </message>
@@ -997,12 +1029,12 @@ Fraca -&gt; Forte</translation>
         <translation type="obsolete">Português do Brasil</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="258"/>
+        <location filename="../../settingsdialog.cpp" line="290"/>
         <source>English</source>
         <translation>Português do Brasil</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="244"/>
+        <location filename="../../settingsdialog.cpp" line="276"/>
         <source>System Default</source>
         <translation>Padrão do Sistema</translation>
     </message>

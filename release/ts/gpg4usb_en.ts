@@ -17,23 +17,35 @@
 <context>
     <name>Attachments</name>
     <message>
-        <location filename="../../attachments.cpp" line="77"/>
-        <location filename="../../attachments.cpp" line="105"/>
+        <location filename="../../attachments.cpp" line="80"/>
+        <location filename="../../attachments.cpp" line="113"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="78"/>
+        <location filename="../../attachments.cpp" line="81"/>
         <source>Save this file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="111"/>
+        <location filename="../../attachments.cpp" line="85"/>
+        <source>Open File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../attachments.cpp" line="86"/>
+        <source>Open this file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../attachments.cpp" line="119"/>
+        <location filename="../../attachments.cpp" line="163"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="112"/>
+        <location filename="../../attachments.cpp" line="120"/>
+        <location filename="../../attachments.cpp" line="164"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -42,53 +54,54 @@
 <context>
     <name>FileEncryptionDialog</name>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="43"/>
+        <location filename="../../fileencryptiondialog.cpp" line="42"/>
         <source>Encrypt / Decrypt File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="51"/>
+        <location filename="../../fileencryptiondialog.cpp" line="50"/>
         <location filename="../../fileencryptiondialog.cpp" line="166"/>
+        <location filename="../../fileencryptiondialog.cpp" line="177"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="52"/>
+        <location filename="../../fileencryptiondialog.cpp" line="51"/>
         <source>Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="62"/>
+        <location filename="../../fileencryptiondialog.cpp" line="61"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="58"/>
+        <location filename="../../fileencryptiondialog.cpp" line="57"/>
         <source>Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="64"/>
+        <location filename="../../fileencryptiondialog.cpp" line="63"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="82"/>
+        <location filename="../../fileencryptiondialog.cpp" line="81"/>
         <source>&amp;Encrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="84"/>
+        <location filename="../../fileencryptiondialog.cpp" line="83"/>
         <source>&amp;Decrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="113"/>
+        <location filename="../../fileencryptiondialog.cpp" line="112"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="139"/>
+        <location filename="../../fileencryptiondialog.cpp" line="138"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -101,6 +114,11 @@
         <location filename="../../fileencryptiondialog.cpp" line="167"/>
         <source>Cannot write file %1:
 %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileencryptiondialog.cpp" line="178"/>
+        <source>File exists! Do you want to overwrite it?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -289,7 +307,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="219"/>
         <location filename="../../gpgwin.cpp" line="265"/>
-        <location filename="../../gpgwin.cpp" line="638"/>
+        <location filename="../../gpgwin.cpp" line="667"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -304,7 +322,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="452"/>
+        <location filename="../../gpgwin.cpp" line="455"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -350,7 +368,7 @@
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="327"/>
-        <location filename="../../gpgwin.cpp" line="478"/>
+        <location filename="../../gpgwin.cpp" line="481"/>
         <source>Ready</source>
         <translation type="unfinished"></translation>
     </message>
@@ -365,73 +383,73 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="397"/>
-        <location filename="../../gpgwin.cpp" line="437"/>
+        <location filename="../../gpgwin.cpp" line="400"/>
+        <location filename="../../gpgwin.cpp" line="440"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="398"/>
+        <location filename="../../gpgwin.cpp" line="401"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="410"/>
+        <location filename="../../gpgwin.cpp" line="413"/>
         <source>File loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="425"/>
+        <location filename="../../gpgwin.cpp" line="428"/>
         <source>%1[*] - %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="438"/>
+        <location filename="../../gpgwin.cpp" line="441"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="453"/>
+        <location filename="../../gpgwin.cpp" line="456"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="462"/>
+        <location filename="../../gpgwin.cpp" line="465"/>
         <source>Saved &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="601"/>
+        <location filename="../../gpgwin.cpp" line="630"/>
         <source>Open Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="601"/>
+        <location filename="../../gpgwin.cpp" line="630"/>
         <source>Key Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="601"/>
+        <location filename="../../gpgwin.cpp" line="630"/>
         <source>All Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="605"/>
+        <location filename="../../gpgwin.cpp" line="634"/>
         <source>couldn&apos;t open file: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="224"/>
-        <location filename="../../gpgwin.cpp" line="639"/>
+        <location filename="../../gpgwin.cpp" line="668"/>
         <source>&amp;Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="229"/>
-        <location filename="../../gpgwin.cpp" line="640"/>
+        <location filename="../../gpgwin.cpp" line="669"/>
         <source>&amp;Clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -442,7 +460,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="239"/>
-        <location filename="../../gpgwin.cpp" line="629"/>
+        <location filename="../../gpgwin.cpp" line="658"/>
         <source>Import Key</source>
         <translation type="unfinished"></translation>
     </message>
@@ -467,17 +485,17 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="484"/>
+        <location filename="../../gpgwin.cpp" line="487"/>
         <source>About </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="487"/>
+        <location filename="../../gpgwin.cpp" line="490"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="637"/>
+        <location filename="../../gpgwin.cpp" line="666"/>
         <source>Import Key From...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -894,6 +912,26 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../settingsdialog.cpp" line="128"/>
+        <source>Try to recognize quoted printable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="130"/>
+        <source>Enable open with external app, saves file in tmp folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="142"/>
+        <source>Remember Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="144"/>
+        <source>Remember password till closing gpg4usb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../settingsdialog.cpp" line="97"/>
         <source>Save Checked Keys</source>
         <translation type="unfinished"></translation>
@@ -914,12 +952,12 @@ Weak -&gt; Strong</source>
         <translation type="obsolete">English</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="258"/>
+        <location filename="../../settingsdialog.cpp" line="290"/>
         <source>English</source>
         <translation type="unfinished">English</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="244"/>
+        <location filename="../../settingsdialog.cpp" line="276"/>
         <source>System Default</source>
         <translation type="unfinished"></translation>
     </message>

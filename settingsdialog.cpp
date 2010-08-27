@@ -125,7 +125,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mimeParseBoxLayout = new QVBoxLayout();
     mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
     mimeParseBoxLayout->addWidget(mimeParseCheckBox);
-    mimeQPCheckBox = new QCheckBox(tr("Try to recognice quoted printable."), this);
+    mimeQPCheckBox = new QCheckBox(tr("Try to recognize quoted printable."), this);
     mimeParseBoxLayout->addWidget(mimeQPCheckBox);
     mimeOpenAttachmentCheckBox = new QCheckBox(tr("Enable open with external app, saves file in tmp folder."), this);
     //mimeOpenAttachmentCheckBox->setWhatsThis("Open attachments <b>with</b>... neeeds temp foder..");
