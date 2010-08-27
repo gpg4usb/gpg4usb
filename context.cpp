@@ -313,14 +313,18 @@ bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
         }
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
-        QMessageBox::critical(0, "Error encrypting:", gpgme_strerror(err));
+        QMessageBox::critical(0, "Error decrypting:", gpgme_strerror(err));
     }
-    if (err != GPG_ERR_NO_ERROR)
-        clearCache();
-    if (in)
+    //if (err != GPG_ERR_NO_ERROR)
+    // always clear password cache. TODO: implement passwort save
+    clearCache();
+
+    if (in) {
         gpgme_data_release(in);
-    if (out)
+    }
+    if (out) {
         gpgme_data_release(out);
+    }
     return (err == GPG_ERR_NO_ERROR);
 }
 
@@ -388,24 +392,25 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
         s += "<b>Enter Password for</b><br>\n" + gpg_hint + "\n";
     }
 
-    if (m_cache.isEmpty()) {
+    if (mPasswordCache.isEmpty()) {
         QString password = QInputDialog::getText(0, "Enter Password",
                            s, QLineEdit::Password,
                            "", &result, Qt::Window);
 
-        if (result) m_cache = password.toAscii();
-    } else
-        result = false;
+        if (result) mPasswordCache = password.toAscii();
+    } else {
+        result = true;
+    }
 
     if (result) {
 
 #ifndef _WIN32
-        if (write(fd, m_cache.data(), m_cache.length()) == -1) {
+        if (write(fd, mPasswordCache.data(), mPasswordCache.length()) == -1) {
             qDebug() << "something is terribly broken";
         }
 #else
         DWORD written;
-        WriteFile((HANDLE) fd, m_cache.data(), m_cache.length(), &written, 0);
+        WriteFile((HANDLE) fd, mPasswordCache.data(), mPasswordCache.length(), &written, 0);
 #endif
 
         returnValue = 0;
@@ -426,23 +431,25 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
 /** also from kgpgme.cpp, seems to clear password from mem */
 void Context::clearCache()
 {
-    if (m_cache.size() > 0) {
-        m_cache.fill('\0');
-        m_cache.truncate(0);
+    if (mPasswordCache.size() > 0) {
+        mPasswordCache.fill('\0');
+        mPasswordCache.truncate(0);
     }
 }
 
 // error-handling
 void Context::checkErr(gpgme_error_t err, QString comment) const
 {
-    if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
+    //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
+    if (err != GPG_ERR_NO_ERROR) {
         qDebug() << "[Error " << comment << "] Source: " << gpgme_strsource(err) << " String: " << gpgme_strerror(err);
     }
 }
 
 void Context::checkErr(gpgme_error_t err) const
 {
-    if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
+    //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
+    if (err != GPG_ERR_NO_ERROR) {
         qDebug() << "[Error] Source: " << gpgme_strsource(err) << " String: " << gpgme_strerror(err);
     }
 }

@@ -79,7 +79,7 @@ private:
     gpgme_data_t in, out;
     gpgme_error_t err;
     gpgme_error_t readToBuffer(gpgme_data_t in, QByteArray *outBuffer);
-    QByteArray m_cache;
+    QByteArray mPasswordCache;
     bool debug;
     void checkErr(gpgme_error_t err) const;
     void checkErr(gpgme_error_t err, QString comment) const;
