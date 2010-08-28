@@ -377,7 +377,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
                                   const char * /*passphrase_info*/,
                                   int last_was_bad, int fd)
 {
-    gpgme_error_t returnValue = GPG_ERR_CANCELED;
+    gpgme_error_t returnValue; // = GPG_ERR_CANCELED;
     QString s;
     QString gpg_hint = uid_hint;
     bool result;
@@ -394,17 +394,23 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
         s += "<b>Enter Password for</b><br>\n" + gpg_hint + "\n";
     }
 
+    // password saved? if yes, do'nt ask and take from buffer
     if (mPasswordCache.isEmpty()) {
         QString password = QInputDialog::getText(0, "Enter Password",
                            s, QLineEdit::Password,
                            "", &result, Qt::Window);
 
-        if (result) mPasswordCache = password.toAscii();
-    } else {
-        result = true;
-    }
+        // user canceld password entry?
+        if (result) {
+            mPasswordCache = password.toAscii();
+        } else {
+            return GPG_ERR_CANCELED;
+        }
+    } //else {
+      //  result = true;
+    //}
 
-    if (result) {
+    //if (result) {
 
 #ifndef _WIN32
         if (write(fd, mPasswordCache.data(), mPasswordCache.length()) == -1) {
@@ -415,8 +421,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
         WriteFile((HANDLE) fd, mPasswordCache.data(), mPasswordCache.length(), &written, 0);
 #endif
 
-        returnValue = 0;
-    }
+        returnValue = GPG_ERR_NO_ERROR;
 
 #ifndef _WIN32
     if (write(fd, "\n", 1) == -1) {
@@ -426,6 +431,8 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
     DWORD written;
     WriteFile((HANDLE) fd, "\n", 1, &written, 0);
 #endif
+
+    //}
 
     return returnValue;
 }
