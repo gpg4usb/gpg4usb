@@ -11,8 +11,8 @@ DEPENDPATH += .
 INCLUDEPATH += . \
     ./include
 
-# CONFIG += release static
-CONFIG += debug
+CONFIG += release static
+# CONFIG += debug
 
 # Input
 HEADERS += attachments.h \
@@ -42,7 +42,7 @@ RC_FILE = gpg4usb.rc
 
 # comment out line below for static building
 LIBS += -lgpgme \
-    -lgpg-error
+     -lgpg-error
 DEFINES += _FILE_OFFSET_BITS=64
 TRANSLATIONS = release/ts/gpg4usb_en.ts \
     release/ts/gpg4usb_de.ts \

@@ -135,12 +135,12 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
  */
 void Attachments::openFile() {
 
-    QString tmpPath = qApp->applicationDirPath() + "/attachments/";
+    QString attachmentDir = qApp->applicationDirPath() + "/attachments/";
     //QDir p = QDir(qApp->applicationDirPath() + "/attachments/");
-    //if(!p.exists()) {
-    //    qDebug() << "creating " << p;
-    //    p.mkpath("/attachments/");
-    //}
+    if(!QDir(attachmentDir).exists()) {
+        qDebug() << "creating " << attachmentDir;
+        QDir().mkpath(attachmentDir);
+    }
 
     QModelIndexList indexes = tableView->selectionModel()->selection().indexes();
     MimePart mp = table->getMimePart(indexes.at(0).row());
@@ -152,7 +152,7 @@ void Attachments::openFile() {
     qDebug() << "file: " << filename;
     filename.chop(1);
     filename.remove(0, 1);
-    filename.prepend(tmpPath);
+    filename.prepend(attachmentDir);
 
     qDebug() << "file: " << filename;
     QByteArray outBuffer = QByteArray::fromBase64(mp.body);
