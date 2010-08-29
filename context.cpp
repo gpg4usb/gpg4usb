@@ -423,7 +423,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
         qDebug() << "something is terribly broken";
     }
 #else
-   // DWORD written;
+    DWORD written;
     WriteFile((HANDLE) fd, "\n", 1, &written, 0);
 #endif
 
