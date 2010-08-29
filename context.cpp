@@ -378,25 +378,25 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
                                   int last_was_bad, int fd)
 {
     gpgme_error_t returnValue = GPG_ERR_CANCELED;
-    QString s;
-    QString gpg_hint = uid_hint;
+    QString passwordDialogMessage;
+    QString gpgHint = uid_hint;
     bool result;
 
     if (last_was_bad) {
-        s += "<i>Wrong password.</i><br><br>\n\n";
+        passwordDialogMessage += "<i>Wrong password.</i><br><br>\n\n";
         clearPasswordCache();
     }
 
     /** if uid provided */
-    if (!gpg_hint.isEmpty()) {
+    if (!gpgHint.isEmpty()) {
         // remove UID, leave only username & email
-        gpg_hint.remove(0, gpg_hint.indexOf(" "));
-        s += "<b>Enter Password for</b><br>\n" + gpg_hint + "\n";
+        gpgHint.remove(0, gpgHint.indexOf(" "));
+        passwordDialogMessage += "<b>Enter Password for</b><br>\n" + gpgHint + "\n";
     }
 
     if (mPasswordCache.isEmpty()) {
         QString password = QInputDialog::getText(0, "Enter Password",
-                           s, QLineEdit::Password,
+                           passwordDialogMessage, QLineEdit::Password,
                            "", &result, Qt::Window);
 
         if (result) mPasswordCache = password.toAscii();
