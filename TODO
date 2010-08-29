@@ -7,7 +7,16 @@ Release 0.2.5
 - doku for translating gpg4usb [DONE]
 - add translation for french 
 - remember Password [DONE]
-- "Forget Password after X minutes"
+	- checkbox in password dialog to remember password
+	- Timer to remember password for x minutes?
+- open-with functionality for attachments (needs temp dir for saving attachments) [DONE]
+	- graphical feedback if there are files in attachments-dir: monitor attachments-directory, show icon in statusbar if files inside
+		-  context menu for icon: clean attachments-dir
+	- remind user on closing if files left in attachments-dir
+	- attachments dir as default option for "save"
+- reorganise settings-dialog, have different tabs for simple, advanced and experimantal options
+- update gpg binary to version 1.4.10(b)
+- update gpgme-library
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files
