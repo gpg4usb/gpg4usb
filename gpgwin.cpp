@@ -324,7 +324,31 @@ void GpgWin::createToolBars()
 
 void GpgWin::createStatusBar()
 {
-    statusBar()->showMessage(tr("Ready"));
+    QWidget *langBox = new QWidget();
+    QHBoxLayout *vbox2 = new QHBoxLayout();
+
+    langBox->setLayout(vbox2);
+
+//    langBox->addMenuAction(appendSelectedKeysAct);
+
+
+    statusBar()->showMessage(tr("Ready"),2000);
+    statusBar()->setContentsMargins(0,0,0,0);
+    QLabel *label;
+    QPixmap *pixmap;
+	QMenu *menu;
+	pixmap = new QPixmap(iconPath + "statusbar_txt3.png");
+    label = new QLabel(statusBar());
+    label->setPixmap(*pixmap);
+    langBox->setLayout(vbox2);
+    menu = new QMenu(label);
+    QMenu *filemenu;
+    filemenu= menu->addMenu(tr("&File"));
+	label->setStatusTip("Es liegen Dateien im Attachments-Ordner");
+	label->setWhatsThis("Attachment vorhanden");
+
+    statusBar()->insertPermanentWidget(0,label,0);
+    statusBar()->setFixedHeight(30);
 }
 
 void GpgWin::createDockWindows()
@@ -346,8 +370,6 @@ void GpgWin::createDockWindows()
     // hide till attachmendt is decrypted
     viewMenu->addAction(aDock->toggleViewAction());
     aDock->hide();
-
-
 }
 
 void GpgWin::closeEvent(QCloseEvent *event)

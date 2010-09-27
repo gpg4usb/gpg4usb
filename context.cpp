@@ -261,25 +261,33 @@ bool Context::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByteArr
     recipients[uidList->count()] = NULL;
 
     //If the last parameter isnt 0, a private copy of data is made
-    err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
-    checkErr(err);
-    err = gpgme_data_new(&out);
-    checkErr(err);
-
-    err = gpgme_op_encrypt(mCtx, recipients, GPGME_ENCRYPT_ALWAYS_TRUST, in, out);
-    checkErr(err);
-
-    err = readToBuffer(out, outBuffer);
-    checkErr(err);
-
+    if (mCtx) {
+		err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
+		checkErr(err);
+        if (!err) {
+			err = gpgme_data_new(&out);
+			checkErr(err);
+	        if (!err) {
+				err = gpgme_op_encrypt(mCtx, recipients, GPGME_ENCRYPT_ALWAYS_TRUST, in, out);
+				checkErr(err);
+				if (!err) {
+					err = readToBuffer(out, outBuffer);
+					checkErr(err);
+				}
+			}
+		}
+	}
     /* unref all keys */
     for (int i = 0; i <= uidList->count(); i++) {
         gpgme_key_unref(recipients[i]);
     }
-    gpgme_data_release(in);
-    gpgme_data_release(out);
-
-    return true;
+    if (in) {
+        gpgme_data_release(in);
+    }
+    if (out) {
+        gpgme_data_release(out);
+    }
+    return (err == GPG_ERR_NO_ERROR);
 }
 
 /** Decrypt QByteAarray, return QByteArray
