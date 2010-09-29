@@ -149,6 +149,7 @@ private:
     QLabel *passwordLabel;
     QLabel *repeatpwLabel;
     QLabel *errorLabel;
+    QLabel *statusBarIcon;
 
     QSettings settings;
     QString curFile;

@@ -324,31 +324,21 @@ void GpgWin::createToolBars()
 
 void GpgWin::createStatusBar()
 {
-    QWidget *langBox = new QWidget();
-    QHBoxLayout *vbox2 = new QHBoxLayout();
-
-    langBox->setLayout(vbox2);
-
-//    langBox->addMenuAction(appendSelectedKeysAct);
-
+    QWidget *statusBarBox = new QWidget();
+    QHBoxLayout *statusBarBoxLayout = new QHBoxLayout();
 
     statusBar()->showMessage(tr("Ready"),2000);
-    statusBar()->setContentsMargins(0,0,0,0);
-    QLabel *label;
     QPixmap *pixmap;
-	QMenu *menu;
-	pixmap = new QPixmap(iconPath + "statusbar_txt3.png");
-    label = new QLabel(statusBar());
-    label->setPixmap(*pixmap);
-    langBox->setLayout(vbox2);
-    menu = new QMenu(label);
-    QMenu *filemenu;
-    filemenu= menu->addMenu(tr("&File"));
-	label->setStatusTip("Es liegen Dateien im Attachments-Ordner");
-	label->setWhatsThis("Attachment vorhanden");
 
-    statusBar()->insertPermanentWidget(0,label,0);
-    statusBar()->setFixedHeight(30);
+	pixmap = new QPixmap(iconPath + "statusbar_icon.png");
+    statusBarIcon = new QLabel(statusBar());
+    statusBarIcon->setPixmap(*pixmap);
+    statusBarBox->setLayout(statusBarBoxLayout);
+    
+	statusBarIcon->setStatusTip(tr("Files have been saved to attachment subdirectory"));
+
+    statusBar()->insertPermanentWidget(0,statusBarIcon,0);
+    statusBarIcon->hide();
 }
 
 void GpgWin::createDockWindows()
@@ -617,7 +607,10 @@ void GpgWin::parseMime(QByteArray *message)
     }
 
     *message = pText.toUtf8();
-    if (showmadock) aDock->show();
+    if (showmadock) {
+		aDock->show();
+		statusBarIcon->show();
+	}
 }
 
 /**
