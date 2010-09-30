@@ -63,6 +63,8 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
 
 void KeyList::refresh()
 {
+	QStringList *keyList;
+	keyList = getChecked();
     // while filling the table, sort enabled causes errors
     mKeyList->setSortingEnabled(false);
     mKeyList->clearContents();
@@ -95,6 +97,7 @@ void KeyList::refresh()
         ++row;
     }
     mKeyList->setSortingEnabled(true);
+    setChecked(keyList);
 }
 
 

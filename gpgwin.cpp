@@ -718,9 +718,11 @@ void GpgWin::appendSelectedKeys()
 
 void GpgWin::fileEncryption()
 {
-    new FileEncryptionDialog(mCtx, iconPath, this);
-
+	QStringList *keyList;
+	keyList = mKeyList->getChecked();
+    new FileEncryptionDialog(mCtx, iconPath, *keyList, this);
 }
+
 void GpgWin::openSettingsDialog()
 {
     new SettingsDialog(this);

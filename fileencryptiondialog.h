@@ -34,7 +34,7 @@ class FileEncryptionDialog : public QDialog
     Q_OBJECT
 
 public:
-    FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QWidget *parent = 0);
+    FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QStringList keyList , QWidget *parent = 0);
 
 public slots:
     void selectInputFile();

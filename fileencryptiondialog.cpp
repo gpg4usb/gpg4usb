@@ -34,7 +34,7 @@
 
 #include "fileencryptiondialog.h"
 
-FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QWidget *parent)
+FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QStringList keyList, QWidget *parent)
         : QDialog(parent)
 
 {
@@ -76,7 +76,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
     mKeyList->hide();
     mKeyList->setColumnWidth(2, 150);
     mKeyList->setColumnWidth(3, 150);
-
+	mKeyList->setChecked(&keyList);
     /* Setup Action */
     radioEnc = new QRadioButton(tr("&Encrypt"));
     connect(radioEnc, SIGNAL(clicked()), this, SLOT(showKeyList()));
