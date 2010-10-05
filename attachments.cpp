@@ -146,16 +146,16 @@ void Attachments::openFile() {
     QModelIndexList indexes = tableView->selectionModel()->selection().indexes();
     MimePart mp = table->getMimePart(indexes.at(0).row());
 
-    qDebug() << "mime: " << mp.header.getValue("Content-Type");
+//    qDebug() << "mime: " << mp.header.getValue("Content-Type");
 
     QString filename = mp.header.getParam("Content-Type", "name");
     // TODO: find out why filename is quoted
-    qDebug() << "file: " << filename;
+//    qDebug() << "file: " << filename;
     filename.chop(1);
     filename.remove(0, 1);
     filename.prepend(attachmentDir);
 
-    qDebug() << "file: " << filename;
+  //  qDebug() << "file: " << filename;
     QByteArray outBuffer = QByteArray::fromBase64(mp.body);
 
 

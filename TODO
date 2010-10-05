@@ -25,7 +25,10 @@ attachments:
 		- decrypting
 		- encrypting
 	- status-tip "saved file" when saving file for "open with"
-- reorganise settings-dialog, have different tabs for simple, advanced and experimantal options
+- Settings-Dialog:
+	- reorganise, have different tabs for simple, advanced and experimantal options
+	- questionary mark icon behind some options showing tooltip with further help when
+	  clicked (e.g. for "open attachments")
 - update gpgme-library
 - clean header if quoted printable decoded
 
@@ -46,11 +49,9 @@ Later:
 
 - more internationalisation:
   - menu entry for changing character encoding
-  - configuration framework, for saving language & charencoding preferences
   - hints (on webpage?) which webmailer sends which encoding-header
 
 - Drag and drop capabilities. Especially to encrypt / decrypt text, but would also be nice for files as well as import public and private keys.
-- Password caching options (always, for X minutes, never)
 
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
@@ -68,6 +69,5 @@ usability:
 BUGS
 ----
 - key generation on windows 7 64-bit may fail
-- 0.2.3 hangs on windows xp sp3 32bit sometimes
 - on windows an empty directory gnupg in application-data is created, find out how to disable
-
+- cancel decryption on windows hangs programm -> possibly bug in gpgme
