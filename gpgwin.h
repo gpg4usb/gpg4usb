@@ -80,6 +80,7 @@ public slots:
     void fileEncryption();
     void openSettingsDialog();
     void openTutorial();
+    void checkAttachmentFolder();
 //    void dropEvent(QDropEvent *event);
 
 private:

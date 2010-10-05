@@ -45,6 +45,11 @@ GpgWin::GpgWin()
 
     /* List of binary Attachments */
     mAttachments = new Attachments(iconPath);
+    
+    /* test attachmentdir for files alll 15s */
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(checkAttachmentFolder()));
+    timer->start(5000);
 
     createActions();
     createMenus();
@@ -327,18 +332,18 @@ void GpgWin::createStatusBar()
     QWidget *statusBarBox = new QWidget();
     QHBoxLayout *statusBarBoxLayout = new QHBoxLayout();
 
-    statusBar()->showMessage(tr("Ready"),2000);
     QPixmap *pixmap;
 
-	pixmap = new QPixmap(iconPath + "statusbar_icon.png");
+    // icon which should be shown if there are files in attachments-folder
+    pixmap = new QPixmap(iconPath + "statusbar_icon.png");
     statusBarIcon = new QLabel(statusBar());
     statusBarIcon->setPixmap(*pixmap);
-    statusBarBox->setLayout(statusBarBoxLayout);
-    
-	statusBarIcon->setStatusTip(tr("Files have been saved to attachment subdirectory"));
-
     statusBar()->insertPermanentWidget(0,statusBarIcon,0);
-    statusBarIcon->hide();
+    statusBarIcon->hide();  
+        
+    statusBar()->showMessage(tr("Ready"),2000);
+    statusBarBox->setLayout(statusBarBoxLayout);
+
 }
 
 void GpgWin::createDockWindows()
@@ -609,8 +614,31 @@ void GpgWin::parseMime(QByteArray *message)
     *message = pText.toUtf8();
     if (showmadock) {
 		aDock->show();
-		statusBarIcon->show();
 	}
+}
+
+void GpgWin::checkAttachmentFolder() {
+    // TODO: always check?
+    if(!settings.value("mime/parseMime").toBool()) {
+        return;
+    }
+    
+    QString attachmentDir = qApp->applicationDirPath() + "/attachments/";
+    // filenum minus . and ..
+    uint filenum = QDir(attachmentDir).count() - 2 ;
+    if(filenum > 0) {
+        QString statusText;
+        if(filenum == 1) {
+            statusText = tr("There is one unencrypted file in attachment folder");
+        } else {
+            statusText = tr("There are ") + QString::number(filenum) +  tr(" unencrypted files in attachment folder");
+        }
+        statusBarIcon->setStatusTip(statusText);
+        statusBarIcon->show();
+    } else {
+        statusBarIcon->hide();
+    }
+
 }
 
 /**

@@ -135,6 +135,7 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
  */
 void Attachments::openFile() {
 
+    // TODO: make attachmentdir constant or configurable
     QString attachmentDir = qApp->applicationDirPath() + "/attachments/";
     //QDir p = QDir(qApp->applicationDirPath() + "/attachments/");
     if(!QDir(attachmentDir).exists()) {
