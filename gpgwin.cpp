@@ -69,7 +69,7 @@ GpgWin::GpgWin()
                 loadFile(args[1]);
         }
     }
-
+qDebug() << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 }
 
 void GpgWin::restoreSettings()
@@ -625,7 +625,7 @@ void GpgWin::checkAttachmentFolder() {
     
     QString attachmentDir = qApp->applicationDirPath() + "/attachments/";
     // filenum minus . and ..
-    uint filenum = QDir(attachmentDir).count() - 2 ;
+    int filenum = QDir(attachmentDir).count() - 2 ;
     if(filenum > 0) {
         QString statusText;
         if(filenum == 1) {

@@ -243,7 +243,7 @@ bool Context::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByteArr
     outBuffer->resize(0);
 
     if (uidList->count() == 0) {
-        QMessageBox::critical(0, "No Key Selected", "No Key Selected");
+        QMessageBox::critical(0, tr("No Key Selected"), tr("No Key Selected"));
         return false;
     }
 
@@ -311,7 +311,7 @@ bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
                 if (!err) {
                     result = gpgme_op_decrypt_result(mCtx);
                     if (result->unsupported_algorithm) {
-                        QMessageBox::critical(0, "Unsupported algorithm", result->unsupported_algorithm);
+                        QMessageBox::critical(0, tr("Unsupported algorithm"), result->unsupported_algorithm);
                     } else {
                         err = readToBuffer(out, outBuffer);
                         checkErr(err);
@@ -321,7 +321,7 @@ bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
         }
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
-        QMessageBox::critical(0, "Error decrypting:", gpgme_strerror(err));
+        QMessageBox::critical(0, tr("Error decrypting:"), gpgme_strerror(err));
     }
 
     //if (err != GPG_ERR_NO_ERROR)
@@ -391,7 +391,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
     bool result;
 
     if (last_was_bad) {
-        passwordDialogMessage += "<i>Wrong password.</i><br><br>\n\n";
+        passwordDialogMessage += "<i>"+tr("Wrong password")+".</i><br><br>\n\n";
         clearPasswordCache();
     }
 
@@ -403,7 +403,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
     }
 
     if (mPasswordCache.isEmpty()) {
-        QString password = QInputDialog::getText(0, "Enter Password",
+        QString password = QInputDialog::getText(0, tr("Enter Password"),
                            passwordDialogMessage, QLineEdit::Password,
                            "", &result, Qt::Window);
 
