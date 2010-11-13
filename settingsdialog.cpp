@@ -30,72 +30,59 @@
 #include <QApplication>
 #include <QDir>
 #include <QTranslator>
+#include <QtGui>
 
 class QLabel;
 class QButtonGroup;
 class QGroupBox;
 
-SettingsDialog::SettingsDialog(QWidget *parent)
+ SettingsDialog::SettingsDialog(QWidget *parent)
         : QDialog(parent)
 {
-    setWindowTitle(tr("Settings"));
-    resize(500, 200);
-    setModal(true);
+
+     tabWidget = new QTabWidget;
+     generalTab = new GeneralTab;
+     appearanceTab = new AppearanceTab;
+     mimeTab = new MimeTab;
+
+     tabWidget->addTab(generalTab, tr("General"));
+     tabWidget->addTab(appearanceTab, tr("Appearance"));
+     tabWidget->addTab(mimeTab, tr("PGP/Mime"));
+
+     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
+                                      | QDialogButtonBox::Cancel);
+
+     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+
+     QVBoxLayout *mainLayout = new QVBoxLayout;
+     mainLayout->addWidget(tabWidget);
+     mainLayout->addWidget(buttonBox);
+     setLayout(mainLayout);
+
+     setWindowTitle(tr("Tab Dialog"));
+
+    exec(); 
+}
+
+ GeneralTab::GeneralTab(QWidget *parent)
+     : QWidget(parent)
+ {
 
     /*****************************************
-     * Icon-Size-Box
+     * remember Password-Box
      *****************************************/
-    iconSizeBox = new QGroupBox(tr("Iconsize"));
-    iconSizeGroup = new QButtonGroup();
-    iconSizeSmall = new QRadioButton(tr("small"));
-    iconSizeMedium = new QRadioButton(tr("medium"));
-    iconSizeLarge = new QRadioButton(tr("large"));
-
-    iconSizeGroup->addButton(iconSizeSmall, 1);
-    iconSizeGroup->addButton(iconSizeMedium, 2);
-    iconSizeGroup->addButton(iconSizeLarge, 3);
-
-    iconSizeBoxLayout = new QHBoxLayout();
-    iconSizeBoxLayout->addWidget(iconSizeSmall);
-    iconSizeBoxLayout->addWidget(iconSizeMedium);
-    iconSizeBoxLayout->addWidget(iconSizeLarge);
-
-    iconSizeBox->setLayout(iconSizeBoxLayout);
-
-    /*****************************************
-     * Icon-Style-Box
-     *****************************************/
-    iconStyleBox = new QGroupBox(tr("Iconstyle"));
-    iconStyleGroup = new QButtonGroup();
-    iconTextButton = new QRadioButton(tr("just text"));
-    iconIconsButton = new QRadioButton(tr("just icons"));
-    iconAllButton = new QRadioButton(tr("text and icons"));
-
-    iconStyleGroup->addButton(iconTextButton, 1);
-    iconStyleGroup->addButton(iconIconsButton, 2);
-    iconStyleGroup->addButton(iconAllButton, 3);
-
-    iconStyleBoxLayout = new QHBoxLayout();
-    iconStyleBoxLayout->addWidget(iconTextButton);
-    iconStyleBoxLayout->addWidget(iconIconsButton);
-    iconStyleBoxLayout->addWidget(iconAllButton);
-
-    iconStyleBox->setLayout(iconStyleBoxLayout);
-
-    /*****************************************
-     * Window-Size-Box
-     *****************************************/
-    windowSizeBox = new QGroupBox(tr("Windowstate"));
-    windowSizeBoxLayout = new QHBoxLayout();
-    windowSizeCheckBox = new QCheckBox(tr("Save window size and position on exit."), this);
-    windowSizeBoxLayout->addWidget(windowSizeCheckBox);
-    windowSizeBox->setLayout(windowSizeBoxLayout);
+    QGroupBox *rememberPasswordBox = new QGroupBox(tr("Remember Password"));
+    QHBoxLayout *rememberPasswordBoxLayout = new QHBoxLayout();
+    rememberPasswordCheckBox = new QCheckBox(tr("Remember password until closing gpg4usb"), this);
+    rememberPasswordBoxLayout->addWidget(rememberPasswordCheckBox);
+    rememberPasswordBox->setLayout(rememberPasswordBoxLayout);
 
     /*****************************************
      * Save-Checked-Keys-Box
      *****************************************/
-    saveCheckedKeysBox = new QGroupBox(tr("Save Checked Keys"));
-    saveCheckedKeysBoxLayout = new QHBoxLayout();
+    QGroupBox *saveCheckedKeysBox = new QGroupBox(tr("Save Checked Keys"));
+    QHBoxLayout *saveCheckedKeysBoxLayout = new QHBoxLayout();
     saveCheckedKeysCheckBox = new QCheckBox(tr("Save checked private keys on exit and restore them on next start."), this);
     saveCheckedKeysBoxLayout->addWidget(saveCheckedKeysCheckBox);
     saveCheckedKeysBox->setLayout(saveCheckedKeysBoxLayout);
@@ -104,29 +91,68 @@ SettingsDialog::SettingsDialog(QWidget *parent)
      * Language Select Box
      *****************************************/
     QGroupBox *langBox = new QGroupBox(tr("Language"));
-    QVBoxLayout *vbox2 = new QVBoxLayout();
+    QVBoxLayout *langBoxLayout = new QVBoxLayout();
     langSelectBox = new QComboBox;
-    lang = listLanguages();
+        lang = listLanguages();
 
     foreach(QString l , lang) {
         langSelectBox->addItem(l);
     }
 
-    vbox2->addWidget(langSelectBox);
+    langBoxLayout->addWidget(langSelectBox);
     QLabel *langNote = new QLabel(tr("Language change is applied after restarting program."));
-    vbox2->addWidget(langNote);
-    langBox->setLayout(vbox2);
+    langBoxLayout->addWidget(langNote);
+    langBox->setLayout(langBoxLayout);
 
-    /*****************************************
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(rememberPasswordBox);
+        mainLayout->addWidget(saveCheckedKeysBox);
+        mainLayout->addWidget(langBox);
+    setSettings();
+    mainLayout->addStretch(1);
+    setLayout(mainLayout);
+ }
+
+
+// http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
+QHash<QString, QString> GeneralTab::listLanguages()
+{
+    QHash<QString, QString> languages;
+
+    languages.insert("", tr("System Default"));
+
+    QString appPath = qApp->applicationDirPath();
+    QDir qmDir = QDir(appPath + "/ts/");
+    QStringList fileNames =
+        qmDir.entryList(QStringList("gpg4usb_*.qm"));
+
+    for (int i = 0; i < fileNames.size(); ++i) {
+        QString locale = fileNames[i];
+        locale.remove(0, locale.indexOf('_') + 1);
+        locale.chop(3);
+
+        QTranslator translator;
+        translator.load(fileNames[i], qmDir.absolutePath());
+        QString language = translator.translate("SettingsDialog",
+                                                "English");
+        languages.insert(locale, language);
+    }
+    return languages;
+}
+
+
+ MimeTab::MimeTab(QWidget *parent)
+     : QWidget(parent)
+ {
+     /*****************************************
      * MIME-Parsing-Box
      *****************************************/
 
-    mimeParseBox = new QGroupBox(tr("MIME-parsing (Experimental)"));
-    mimeParseBoxLayout = new QVBoxLayout();
+    QGroupBox *mimeParseBox = new QGroupBox(tr("MIME-parsing (Experimental)"));
+    QVBoxLayout *mimeParseBoxLayout = new QVBoxLayout();
+
     mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
-    mimeParseBoxLayout->addWidget(mimeParseCheckBox);
     mimeQPCheckBox = new QCheckBox(tr("Try to recognize quoted printable."), this);
-    mimeParseBoxLayout->addWidget(mimeQPCheckBox);
     mimeOpenAttachmentCheckBox = new QCheckBox(tr("Enable opening with external applications."
                                                   "\nRead statustip carefully for further information."), this);
     mimeOpenAttachmentCheckBox->setToolTip(tr("Open attachments with default application for the filetype. "
@@ -138,44 +164,182 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     /*
      * Here could be something like Qstring("?"), or an icon with an ?, with the action "show tooltip"
      */
+    mimeParseBoxLayout->addWidget(mimeParseCheckBox);
     mimeParseBoxLayout->addWidget(mimeOpenAttachmentCheckBox);
+    mimeParseBoxLayout->addWidget(mimeQPCheckBox);
     mimeParseBox->setLayout(mimeParseBoxLayout);
 
-    /*****************************************
-     * remember Password-Box
-     *****************************************/
-    rememberPasswordBox = new QGroupBox(tr("Remember Password"));
-    rememberPasswordBoxLayout = new QHBoxLayout();
-    rememberPasswordCheckBox = new QCheckBox(tr("Remember password until closing gpg4usb"), this);
-    rememberPasswordBoxLayout->addWidget(rememberPasswordCheckBox);
-    rememberPasswordBox->setLayout(rememberPasswordBoxLayout);
+     QVBoxLayout *mainLayout = new QVBoxLayout;
+     mainLayout->addWidget(mimeParseBox);
+     mainLayout->addStretch(1);
+     setLayout(mainLayout);
+     setSettings();
+ }
 
-    /*****************************************
-     * Button-Box
-     *****************************************/
-    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(applySettings()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+ AppearanceTab::AppearanceTab(QWidget *parent)
+     : QWidget(parent)
+ {
+     /*****************************************
+      * Icon-Size-Box
+      *****************************************/
+     QGroupBox *iconSizeBox = new QGroupBox(tr("Iconsize"));
+     iconSizeGroup = new QButtonGroup();
+     iconSizeSmall = new QRadioButton(tr("small"));
+     iconSizeMedium = new QRadioButton(tr("medium"));
+     iconSizeLarge = new QRadioButton(tr("large"));
 
-    /*****************************************
-     * Main V-Box
-     *****************************************/
-    vbox = new QVBoxLayout();
-    vbox->addWidget(iconSizeBox);
-    vbox->addWidget(iconStyleBox);
-    vbox->addWidget(windowSizeBox);
-    vbox->addWidget(saveCheckedKeysBox);
-    vbox->addWidget(mimeParseBox);
-    vbox->addWidget(rememberPasswordBox);
-    vbox->addWidget(langBox);
-    vbox->addWidget(buttonBox);
-    setLayout(vbox);
+     iconSizeGroup->addButton(iconSizeSmall, 1);
+     iconSizeGroup->addButton(iconSizeMedium, 2);
+     iconSizeGroup->addButton(iconSizeLarge, 3);
 
+     QHBoxLayout *iconSizeBoxLayout = new QHBoxLayout();
+     iconSizeBoxLayout->addWidget(iconSizeSmall);
+     iconSizeBoxLayout->addWidget(iconSizeMedium);
+     iconSizeBoxLayout->addWidget(iconSizeLarge);
+
+     iconSizeBox->setLayout(iconSizeBoxLayout);
+
+     /*****************************************
+      * Icon-Style-Box
+      *****************************************/
+     QGroupBox *iconStyleBox = new QGroupBox(tr("Iconstyle"));
+     iconStyleGroup = new QButtonGroup();
+     iconTextButton = new QRadioButton(tr("just text"));
+     iconIconsButton = new QRadioButton(tr("just icons"));
+     iconAllButton = new QRadioButton(tr("text and icons"));
+
+     iconStyleGroup->addButton(iconTextButton, 1);
+     iconStyleGroup->addButton(iconIconsButton, 2);
+     iconStyleGroup->addButton(iconAllButton, 3);
+
+     QHBoxLayout *iconStyleBoxLayout = new QHBoxLayout();
+     iconStyleBoxLayout->addWidget(iconTextButton);
+     iconStyleBoxLayout->addWidget(iconIconsButton);
+     iconStyleBoxLayout->addWidget(iconAllButton);
+
+     iconStyleBox->setLayout(iconStyleBoxLayout);
+
+     /*****************************************
+      * Window-Size-Box
+      *****************************************/
+     QGroupBox *windowSizeBox = new QGroupBox(tr("Windowstate"));
+     QHBoxLayout *windowSizeBoxLayout = new QHBoxLayout();
+     windowSizeCheckBox = new QCheckBox(tr("Save window size and position on exit."), this);
+     windowSizeBoxLayout->addWidget(windowSizeCheckBox);
+     windowSizeBox->setLayout(windowSizeBoxLayout);
+
+     QVBoxLayout *mainLayout = new QVBoxLayout;
+//     layout->addWidget(topLabel);
+//     layout->addWidget(applicationsListBox);
+//     layout->addWidget(alwaysCheckBox);
+     mainLayout->addWidget(iconSizeBox);
+     mainLayout->addWidget(iconStyleBox);
+     mainLayout->addWidget(windowSizeBox);
     setSettings();
-    exec();
-}
+     setLayout(mainLayout);
+ }
 
-/**********************************
+ void GeneralTab::setSettings()
+ {
+     QSettings settings;
+     // Keysaving
+     if (settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
+
+     // Remember Password
+     if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
+
+     //Language setting
+     QString langKey = settings.value("int/lang").toString();
+     QString langValue = lang.value(langKey);
+     qDebug() << langKey << langValue ;
+     if (langKey != "") {
+        langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
+    }
+ }
+
+ void AppearanceTab::setSettings()
+ {
+     QSettings settings;
+
+     //Iconsize
+     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+     switch (iconSize.height()) {
+     case 12: iconSizeSmall->setChecked(true);
+         break;
+     case 24:iconSizeMedium->setChecked(true);
+         break;
+     case 32:iconSizeLarge->setChecked(true);
+         break;
+     }
+     // Iconstyle
+     Qt::ToolButtonStyle iconStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
+     switch (iconStyle) {
+     case Qt::ToolButtonTextOnly: iconTextButton->setChecked(true);
+         break;
+     case Qt::ToolButtonIconOnly:iconIconsButton->setChecked(true);
+         break;
+     case Qt::ToolButtonTextUnderIcon:iconAllButton->setChecked(true);
+         break;
+     default:
+         break;
+     }
+
+     // Window Save and Position
+     if (settings.value("window/windowSave").toBool()) windowSizeCheckBox->setCheckState(Qt::Checked);
+
+ }
+
+ void MimeTab::setSettings()
+ {
+     QSettings settings;
+
+     // MIME-Parsing
+     if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
+
+     // Qouted Printable
+     if (settings.value("mime/parseQP").toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
+
+     // Open Attachments with external app
+     if (settings.value("mime/openAttachment").toBool()) mimeOpenAttachmentCheckBox->setCheckState(Qt::Checked);
+ }
+
+ void GeneralTab::applySettings()
+ {
+     QSettings settings;
+     settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
+     // TODO: clear passwordCache instantly on unset rememberPassword
+     settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
+     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
+qDebug() << lang.key(langSelectBox->currentText());
+foreach (QString l,lang){qDebug() << l;}
+ }
+
+ void AppearanceTab::applySettings()
+ {
+     QSettings settings;
+     switch (iconStyleGroup->checkedId()) {
+     case 1: settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextOnly);
+         break;
+     case 2:settings.setValue("toolbar/iconstyle", Qt::ToolButtonIconOnly);
+         break;
+     case 3:settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon);
+         break;
+     }
+
+    settings.setValue("window/windowSave", windowSizeCheckBox->isChecked());
+
+ }
+
+ void MimeTab::applySettings()
+ {
+     QSettings settings;
+     settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
+     settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());
+     settings.setValue("mime/openAttachment" , mimeOpenAttachmentCheckBox->isChecked());
+
+ }
+
+ /**********************************
  * Read the settings from config
  * and set the buttons and checkboxes
  * appropriately
@@ -184,52 +348,17 @@ void SettingsDialog::setSettings()
 {
     QSettings settings;
 
-    //Iconsize
-    QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
-    switch (iconSize.height()) {
-    case 12: iconSizeSmall->setChecked(true);
-        break;
-    case 24:iconSizeMedium->setChecked(true);
-        break;
-    case 32:iconSizeLarge->setChecked(true);
-        break;
-    }
 
-    // Iconstyle
-    Qt::ToolButtonStyle iconStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
-    switch (iconStyle) {
-    case Qt::ToolButtonTextOnly: iconTextButton->setChecked(true);
-        break;
-    case Qt::ToolButtonIconOnly:iconIconsButton->setChecked(true);
-        break;
-    case Qt::ToolButtonTextUnderIcon:iconAllButton->setChecked(true);
-        break;
-    default:
-        break;
-    }
 
-    // Window Save and Position
-    if (settings.value("window/windowSave").toBool()) windowSizeCheckBox->setCheckState(Qt::Checked);
 
-    // Keysaving
-    if (settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
+}
 
-    // Remember Password
-    if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
-
-    // MIME-Parsing
-    if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
-
-    // Qouted Printable
-    if (settings.value("mime/parseQP").toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
-
-    // Open Attachments with external app
-    if (settings.value("mime/openAttachment").toBool()) mimeOpenAttachmentCheckBox->setCheckState(Qt::Checked);
-
-    //Language setting
-    QString langKey = settings.value("int/lang").toString();
-    QString langValue = lang.value(langKey);
-    langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
+void SettingsDialog::accept()
+{
+    generalTab->applySettings();
+    mimeTab->applySettings();
+    appearanceTab->applySettings();
+    close();
 }
 
 /***********************************
@@ -239,36 +368,8 @@ void SettingsDialog::setSettings()
 void SettingsDialog::applySettings()
 {
     QSettings settings;
-    //settings.setValue("geometry", saveGeometry());
 
-    switch (iconSizeGroup->checkedId()) {
-    case 1: settings.setValue("toolbar/iconsize", QSize(12, 12));
-        break;
-    case 2:settings.setValue("toolbar/iconsize", QSize(24, 24));
-        break;
-    case 3:settings.setValue("toolbar/iconsize", QSize(32, 32));
-        break;
-    }
 
-    switch (iconStyleGroup->checkedId()) {
-    case 1: settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextOnly);
-        break;
-    case 2:settings.setValue("toolbar/iconstyle", Qt::ToolButtonIconOnly);
-        break;
-    case 3:settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon);
-        break;
-    }
-
-    settings.setValue("window/windowSave", windowSizeCheckBox->isChecked());
-    settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
-    // TODO: clear passwordCache instantly on unset rememberPassword
-    settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
-
-    settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
-    settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());
-    settings.setValue("mime/openAttachment" , mimeOpenAttachmentCheckBox->isChecked());
-
-    settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
 
     accept();
 }

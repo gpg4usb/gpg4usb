@@ -33,6 +33,63 @@
 #include <QCheckBox>
 #include <QHash>
 
+ class QFileInfo;
+ class QTabWidget;
+
+ class GeneralTab : public QWidget
+ {
+     Q_OBJECT
+
+ public:
+     GeneralTab(QWidget *parent = 0);
+     void setSettings();
+     void applySettings();
+ private:
+     QCheckBox *rememberPasswordCheckBox;
+     QCheckBox *saveCheckedKeysCheckBox;
+     QComboBox *langSelectBox;
+     QHash<QString, QString> lang;
+private slots:
+    QHash<QString, QString> listLanguages();
+
+ };
+
+ class MimeTab : public QWidget
+ {
+     Q_OBJECT
+
+ public:
+     MimeTab(QWidget *parent = 0);
+     void setSettings();
+     void applySettings();
+     QCheckBox *mimeParseCheckBox;
+     QCheckBox *mimeQPCheckBox;
+     QCheckBox *mimeOpenAttachmentCheckBox;
+
+ };
+
+ class AppearanceTab : public QWidget
+ {
+     Q_OBJECT
+
+ public:
+     //void setSettings();
+     AppearanceTab(QWidget *parent = 0);
+     void setSettings();
+     void applySettings();
+ private:
+     QButtonGroup *iconStyleGroup;
+     QRadioButton *iconSizeSmall;
+     QRadioButton *iconSizeMedium;
+     QRadioButton *iconSizeLarge;
+     QButtonGroup *iconSizeGroup;
+     QRadioButton *iconTextButton;
+     QRadioButton *iconIconsButton;
+     QRadioButton *iconAllButton;
+     QCheckBox *windowSizeCheckBox;
+
+ };
+
 
 class SettingsDialog : public QDialog
 {
@@ -40,18 +97,16 @@ class SettingsDialog : public QDialog
 
 public:
     SettingsDialog(QWidget *parent = 0);
-
+    GeneralTab *generalTab;
+    MimeTab *mimeTab;
+    AppearanceTab *appearanceTab;
+public slots:
+    void accept();
 private:
-    QGroupBox *iconSizeBox;
-    QGroupBox *iconStyleBox;
-    QGroupBox *windowSizeBox;
-    QGroupBox *saveCheckedKeysBox;
-    QGroupBox *rememberPasswordBox;
-    QGroupBox *mimeParseBox;
+     QTabWidget *tabWidget; // new
+
     QDialogButtonBox *buttonBox;
 
-    QButtonGroup *iconSizeGroup;
-    QButtonGroup *iconStyleGroup;
 
     QRadioButton *iconSizeSmall;
     QRadioButton *iconSizeMedium;
