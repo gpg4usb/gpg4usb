@@ -9,7 +9,7 @@ Release 0.2.5
 - remember Password [DONE]
 - open-with functionality for attachments (needs temp dir for saving attachments) [DONE]
 - graphical feedback if there are files in attachments-dir: monitor attachments-directory, show icon in statusbar if files inside [DONE]
-- update gpg binary to version 1.4.10(b)
+- update gpg binary to version 1.4.11[DONE]
 
 Release 0.2.6
 - more doku on building gpg4usb (especially on windows)
@@ -29,6 +29,7 @@ attachments:
 	- reorganise, have different tabs for simple, advanced and experimantal options
 	- questionary mark icon behind some options showing tooltip with further help when
 	  clicked (e.g. for "open attachments")
+	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - update gpgme-library
 - clean header if quoted printable decoded
 
