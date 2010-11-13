@@ -1,6 +1,6 @@
-/* gpgme.h - Public interface to GnuPG Made Easy.                   -*- c -*-
+/* gpgme.h - Public interface to GnuPG Made Easy.
    Copyright (C) 2000 Werner Koch (dd9jn)
-   Copyright (C) 2001, 2002, 2003, 2004, 2005, 2007, 2009 g10 Code GmbH
+   Copyright (C) 2001, 2002, 2003, 2004, 2005, 2007 g10 Code GmbH
 
    This file is part of GPGME.
  
@@ -16,8 +16,7 @@
    
    You should have received a copy of the GNU Lesser General Public
    License along with this program; if not, see <http://www.gnu.org/licenses/>.
- 
-   File: src/gpgme.h.  Generated from gpgme.h.in by configure.  */
+ */
 
 #ifndef GPGME_H
 #define GPGME_H
@@ -71,19 +70,9 @@ extern "C" {
    not use this symbol in your application, use gpgme_check_version
    instead.  The purpose of this macro is to let autoconf (using the
    AM_PATH_GPGME macro) check that this header matches the installed
-   library.  */
-#define GPGME_VERSION "1.2.0"
-
-/* Check for a matching _FILE_OFFSET_BITS definition.  */
-#if 64
-#ifndef _FILE_OFFSET_BITS
-#error GPGME was compiled with _FILE_OFFSET_BITS = 64, please see the section "Largefile support (LFS)" in the GPGME manual.
-#else
-#if (_FILE_OFFSET_BITS) != (64)
-#error GPGME was compiled with a different value for _FILE_OFFSET_BITS, namely 64, please see the section "Largefile support (LFS)" in the GPGME manual.
-#endif
-#endif
-#endif
+   library.  Warning: Do not edit the next line.  configure will do
+   that for you!  */
+#define GPGME_VERSION "1.1.6"
 
 
 
@@ -185,10 +174,7 @@ typedef enum
     GPGME_DATA_ENCODING_NONE   = 0,	/* Not specified.  */
     GPGME_DATA_ENCODING_BINARY = 1,
     GPGME_DATA_ENCODING_BASE64 = 2,
-    GPGME_DATA_ENCODING_ARMOR  = 3,	/* Either PEM or OpenPGP Armor.  */
-    GPGME_DATA_ENCODING_URL    = 4,     /* LF delimited URL list.        */
-    GPGME_DATA_ENCODING_URLESC = 5,     /* Ditto, but percent escaped.   */
-    GPGME_DATA_ENCODING_URL0   = 6      /* Nul delimited URL list.       */
+    GPGME_DATA_ENCODING_ARMOR  = 3	/* Either PEM or OpenPGP Armor.  */
   }
 gpgme_data_encoding_t;
 
@@ -315,7 +301,6 @@ typedef enum
     GPGME_PROTOCOL_OpenPGP = 0,  /* The default mode.  */
     GPGME_PROTOCOL_CMS     = 1,
     GPGME_PROTOCOL_GPGCONF = 2,  /* Special code for gpgconf.  */
-    GPGME_PROTOCOL_ASSUAN  = 3,  /* Low-level access to an Assuan server.  */
     GPGME_PROTOCOL_UNKNOWN = 255
   }
 gpgme_protocol_t;
@@ -326,16 +311,9 @@ gpgme_protocol_t;
 #define GPGME_KEYLIST_MODE_EXTERN		2
 #define GPGME_KEYLIST_MODE_SIGS			4
 #define GPGME_KEYLIST_MODE_SIG_NOTATIONS	8
-#define GPGME_KEYLIST_MODE_EPHEMERAL            128
 #define GPGME_KEYLIST_MODE_VALIDATE		256
 
 typedef unsigned int gpgme_keylist_mode_t;
-
-
-/* The available export mode flags.  */
-#define GPGME_EXPORT_MODE_EXTERN                2
-
-typedef unsigned int gpgme_export_mode_t;
 
 
 /* Flags for the audit log functions.  */
@@ -386,98 +364,98 @@ typedef struct _gpgme_sig_notation *gpgme_sig_notation_t;
 /* The possible stati for the edit operation.  */
 typedef enum
   {
-    GPGME_STATUS_EOF = 0,
+    GPGME_STATUS_EOF,
     /* mkstatus processing starts here */
-    GPGME_STATUS_ENTER = 1,
-    GPGME_STATUS_LEAVE = 2,
-    GPGME_STATUS_ABORT = 3,
+    GPGME_STATUS_ENTER,
+    GPGME_STATUS_LEAVE,
+    GPGME_STATUS_ABORT,
 
-    GPGME_STATUS_GOODSIG = 4,
-    GPGME_STATUS_BADSIG = 5,
-    GPGME_STATUS_ERRSIG = 6,
+    GPGME_STATUS_GOODSIG,
+    GPGME_STATUS_BADSIG,
+    GPGME_STATUS_ERRSIG,
 
-    GPGME_STATUS_BADARMOR = 7,
+    GPGME_STATUS_BADARMOR,
 
-    GPGME_STATUS_RSA_OR_IDEA = 8,
-    GPGME_STATUS_KEYEXPIRED = 9,
-    GPGME_STATUS_KEYREVOKED = 10,
+    GPGME_STATUS_RSA_OR_IDEA,
+    GPGME_STATUS_KEYEXPIRED,
+    GPGME_STATUS_KEYREVOKED,
 
-    GPGME_STATUS_TRUST_UNDEFINED = 11,
-    GPGME_STATUS_TRUST_NEVER = 12,
-    GPGME_STATUS_TRUST_MARGINAL = 13,
-    GPGME_STATUS_TRUST_FULLY = 14,
-    GPGME_STATUS_TRUST_ULTIMATE = 15,
+    GPGME_STATUS_TRUST_UNDEFINED,
+    GPGME_STATUS_TRUST_NEVER,
+    GPGME_STATUS_TRUST_MARGINAL,
+    GPGME_STATUS_TRUST_FULLY,
+    GPGME_STATUS_TRUST_ULTIMATE,
 
-    GPGME_STATUS_SHM_INFO = 16,
-    GPGME_STATUS_SHM_GET = 17,
-    GPGME_STATUS_SHM_GET_BOOL = 18,
-    GPGME_STATUS_SHM_GET_HIDDEN = 19,
+    GPGME_STATUS_SHM_INFO,
+    GPGME_STATUS_SHM_GET,
+    GPGME_STATUS_SHM_GET_BOOL,
+    GPGME_STATUS_SHM_GET_HIDDEN,
 
-    GPGME_STATUS_NEED_PASSPHRASE = 20,
-    GPGME_STATUS_VALIDSIG = 21,
-    GPGME_STATUS_SIG_ID = 22,
-    GPGME_STATUS_ENC_TO = 23,
-    GPGME_STATUS_NODATA = 24,
-    GPGME_STATUS_BAD_PASSPHRASE = 25,
-    GPGME_STATUS_NO_PUBKEY = 26,
-    GPGME_STATUS_NO_SECKEY = 27,
-    GPGME_STATUS_NEED_PASSPHRASE_SYM = 28,
-    GPGME_STATUS_DECRYPTION_FAILED = 29,
-    GPGME_STATUS_DECRYPTION_OKAY = 30,
-    GPGME_STATUS_MISSING_PASSPHRASE = 31,
-    GPGME_STATUS_GOOD_PASSPHRASE = 32,
-    GPGME_STATUS_GOODMDC = 33,
-    GPGME_STATUS_BADMDC = 34,
-    GPGME_STATUS_ERRMDC = 35,
-    GPGME_STATUS_IMPORTED = 36,
-    GPGME_STATUS_IMPORT_OK = 37,
-    GPGME_STATUS_IMPORT_PROBLEM = 38,
-    GPGME_STATUS_IMPORT_RES = 39,
-    GPGME_STATUS_FILE_START = 40,
-    GPGME_STATUS_FILE_DONE = 41,
-    GPGME_STATUS_FILE_ERROR = 42,
+    GPGME_STATUS_NEED_PASSPHRASE,
+    GPGME_STATUS_VALIDSIG,
+    GPGME_STATUS_SIG_ID,
+    GPGME_STATUS_ENC_TO,
+    GPGME_STATUS_NODATA,
+    GPGME_STATUS_BAD_PASSPHRASE,
+    GPGME_STATUS_NO_PUBKEY,
+    GPGME_STATUS_NO_SECKEY,
+    GPGME_STATUS_NEED_PASSPHRASE_SYM,
+    GPGME_STATUS_DECRYPTION_FAILED,
+    GPGME_STATUS_DECRYPTION_OKAY,
+    GPGME_STATUS_MISSING_PASSPHRASE,
+    GPGME_STATUS_GOOD_PASSPHRASE,
+    GPGME_STATUS_GOODMDC,
+    GPGME_STATUS_BADMDC,
+    GPGME_STATUS_ERRMDC,
+    GPGME_STATUS_IMPORTED,
+    GPGME_STATUS_IMPORT_OK,
+    GPGME_STATUS_IMPORT_PROBLEM,
+    GPGME_STATUS_IMPORT_RES,
+    GPGME_STATUS_FILE_START,
+    GPGME_STATUS_FILE_DONE,
+    GPGME_STATUS_FILE_ERROR,
 
-    GPGME_STATUS_BEGIN_DECRYPTION = 43,
-    GPGME_STATUS_END_DECRYPTION = 44,
-    GPGME_STATUS_BEGIN_ENCRYPTION = 45,
-    GPGME_STATUS_END_ENCRYPTION = 46,
+    GPGME_STATUS_BEGIN_DECRYPTION,
+    GPGME_STATUS_END_DECRYPTION,
+    GPGME_STATUS_BEGIN_ENCRYPTION,
+    GPGME_STATUS_END_ENCRYPTION,
 
-    GPGME_STATUS_DELETE_PROBLEM = 47,
-    GPGME_STATUS_GET_BOOL = 48,
-    GPGME_STATUS_GET_LINE = 49,
-    GPGME_STATUS_GET_HIDDEN = 50,
-    GPGME_STATUS_GOT_IT = 51,
-    GPGME_STATUS_PROGRESS = 52,
-    GPGME_STATUS_SIG_CREATED = 53,
-    GPGME_STATUS_SESSION_KEY = 54,
-    GPGME_STATUS_NOTATION_NAME = 55,
-    GPGME_STATUS_NOTATION_DATA = 56,
-    GPGME_STATUS_POLICY_URL = 57,
-    GPGME_STATUS_BEGIN_STREAM = 58,
-    GPGME_STATUS_END_STREAM = 59,
-    GPGME_STATUS_KEY_CREATED = 60,
-    GPGME_STATUS_USERID_HINT = 61,
-    GPGME_STATUS_UNEXPECTED = 62,
-    GPGME_STATUS_INV_RECP = 63,
-    GPGME_STATUS_NO_RECP = 64,
-    GPGME_STATUS_ALREADY_SIGNED = 65,
-    GPGME_STATUS_SIGEXPIRED = 66,
-    GPGME_STATUS_EXPSIG = 67,
-    GPGME_STATUS_EXPKEYSIG = 68,
-    GPGME_STATUS_TRUNCATED = 69,
-    GPGME_STATUS_ERROR = 70,
-    GPGME_STATUS_NEWSIG = 71,
-    GPGME_STATUS_REVKEYSIG = 72,
-    GPGME_STATUS_SIG_SUBPACKET = 73,
-    GPGME_STATUS_NEED_PASSPHRASE_PIN = 74,
-    GPGME_STATUS_SC_OP_FAILURE = 75,
-    GPGME_STATUS_SC_OP_SUCCESS = 76,
-    GPGME_STATUS_CARDCTRL = 77,
-    GPGME_STATUS_BACKUP_KEY_CREATED = 78,
-    GPGME_STATUS_PKA_TRUST_BAD = 79,
-    GPGME_STATUS_PKA_TRUST_GOOD = 80,
+    GPGME_STATUS_DELETE_PROBLEM,
+    GPGME_STATUS_GET_BOOL,
+    GPGME_STATUS_GET_LINE,
+    GPGME_STATUS_GET_HIDDEN,
+    GPGME_STATUS_GOT_IT,
+    GPGME_STATUS_PROGRESS,
+    GPGME_STATUS_SIG_CREATED,
+    GPGME_STATUS_SESSION_KEY,
+    GPGME_STATUS_NOTATION_NAME,
+    GPGME_STATUS_NOTATION_DATA,
+    GPGME_STATUS_POLICY_URL,
+    GPGME_STATUS_BEGIN_STREAM,
+    GPGME_STATUS_END_STREAM,
+    GPGME_STATUS_KEY_CREATED,
+    GPGME_STATUS_USERID_HINT,
+    GPGME_STATUS_UNEXPECTED,
+    GPGME_STATUS_INV_RECP,
+    GPGME_STATUS_NO_RECP,
+    GPGME_STATUS_ALREADY_SIGNED,
+    GPGME_STATUS_SIGEXPIRED,
+    GPGME_STATUS_EXPSIG,
+    GPGME_STATUS_EXPKEYSIG,
+    GPGME_STATUS_TRUNCATED,
+    GPGME_STATUS_ERROR,
+    GPGME_STATUS_NEWSIG,
+    GPGME_STATUS_REVKEYSIG,
+    GPGME_STATUS_SIG_SUBPACKET,
+    GPGME_STATUS_NEED_PASSPHRASE_PIN,
+    GPGME_STATUS_SC_OP_FAILURE,
+    GPGME_STATUS_SC_OP_SUCCESS,
+    GPGME_STATUS_CARDCTRL,
+    GPGME_STATUS_BACKUP_KEY_CREATED,
+    GPGME_STATUS_PKA_TRUST_BAD,
+    GPGME_STATUS_PKA_TRUST_GOOD,
 
-    GPGME_STATUS_PLAINTEXT = 81
+    GPGME_STATUS_PLAINTEXT
   }
 gpgme_status_code_t;
 
@@ -540,11 +518,8 @@ struct _gpgme_subkey
   /* True if subkey is qualified for signatures according to German law.  */
   unsigned int is_qualified : 1;
 
-  /* True if the secret key is stored on a smart card.  */
-  unsigned int is_cardkey : 1;
-
   /* Internal to GPGME, do not use.  */
-  unsigned int _unused : 21;
+  unsigned int _unused : 22;
   
   /* Public key algorithm supported by this subkey.  */
   gpgme_pubkey_algo_t pubkey_algo;
@@ -566,9 +541,6 @@ struct _gpgme_subkey
 
   /* The expiration timestamp, 0 if the subkey does not expire.  */
   long int expires;
-
-  /* The serial number of a smart card holding this key or NULL.  */
-  char *card_number;
 };
 typedef struct _gpgme_subkey *gpgme_subkey_t;
 
@@ -774,8 +746,6 @@ typedef gpgme_error_t (*gpgme_edit_cb_t) (void *opaque,
 					  gpgme_status_code_t status,
 					  const char *args, int fd);
 
-
-
 
 /* Context management functions.  */
 
@@ -970,11 +940,6 @@ void gpgme_set_io_cbs (gpgme_ctx_t ctx, gpgme_io_cbs_t io_cbs);
 /* Get the current I/O callback functions.  */
 void gpgme_get_io_cbs (gpgme_ctx_t ctx, gpgme_io_cbs_t io_cbs);
 
-/* Wrappers around the internal I/O functions for use with
-   gpgme_passphrase_cb_t and gpgme_edit_cb_t.  */
-ssize_t gpgme_io_read (int fd, void *buffer, size_t count);
-ssize_t gpgme_io_write (int fd, const void *buffer, size_t count);
-
 /* Process the pending operation and, if HANG is non-zero, wait for
    the pending operation to finish.  */
 gpgme_ctx_t gpgme_wait (gpgme_ctx_t ctx, gpgme_error_t *status, int hang);
@@ -1155,9 +1120,6 @@ unsigned long gpgme_key_sig_get_ulong_attr (gpgme_key_t key, int uid_idx,
 /* Cancel a pending asynchronous operation.  */
 gpgme_error_t gpgme_cancel (gpgme_ctx_t ctx);
 
-/* Cancel a pending operation asynchronously.  */
-gpgme_error_t gpgme_cancel_async (gpgme_ctx_t ctx);
-
 
 struct _gpgme_invalid_key
 {
@@ -1182,8 +1144,7 @@ gpgme_encrypt_result_t gpgme_op_encrypt_result (gpgme_ctx_t ctx);
 /* The valid encryption flags.  */
 typedef enum
   {
-    GPGME_ENCRYPT_ALWAYS_TRUST = 1,
-    GPGME_ENCRYPT_NO_ENCRYPT_TO = 2
+    GPGME_ENCRYPT_ALWAYS_TRUST = 1
   }
 gpgme_encrypt_flags_t;
 
@@ -1506,38 +1467,21 @@ gpgme_error_t gpgme_op_import (gpgme_ctx_t ctx, gpgme_data_t keydata);
 gpgme_error_t gpgme_op_import_ext (gpgme_ctx_t ctx, gpgme_data_t keydata,
 				   int *nr) _GPGME_DEPRECATED;
 
-/* Import the keys from the array KEYS into the keyring.  */
-gpgme_error_t gpgme_op_import_keys_start (gpgme_ctx_t ctx, gpgme_key_t keys[]);
-gpgme_error_t gpgme_op_import_keys (gpgme_ctx_t ctx, gpgme_key_t keys[]);
-
-
 
 /* Export the keys found by PATTERN into KEYDATA.  */
 gpgme_error_t gpgme_op_export_start (gpgme_ctx_t ctx, const char *pattern,
-				     gpgme_export_mode_t mode,
+				     unsigned int reserved,
 				     gpgme_data_t keydata);
 gpgme_error_t gpgme_op_export (gpgme_ctx_t ctx, const char *pattern,
-			       gpgme_export_mode_t mode,
-                               gpgme_data_t keydata);
+			       unsigned int reserved, gpgme_data_t keydata);
 
 gpgme_error_t gpgme_op_export_ext_start (gpgme_ctx_t ctx,
 					 const char *pattern[],
-					 gpgme_export_mode_t mode,
+					 unsigned int reserved,
 					 gpgme_data_t keydata);
 gpgme_error_t gpgme_op_export_ext (gpgme_ctx_t ctx, const char *pattern[],
-				   gpgme_export_mode_t mode,
+				   unsigned int reserved,
 				   gpgme_data_t keydata);
-
-/* Export the keys from the array KEYS into KEYDATA.  */
-gpgme_error_t gpgme_op_export_keys_start (gpgme_ctx_t ctx,
-                                          gpgme_key_t keys[],
-                                          gpgme_export_mode_t mode,
-                                          gpgme_data_t keydata);
-gpgme_error_t gpgme_op_export_keys (gpgme_ctx_t ctx,
-                                    gpgme_key_t keys[],
-                                    gpgme_export_mode_t mode,
-                                    gpgme_data_t keydata);
-
 
 
 /* Key generation.  */
@@ -1709,59 +1653,11 @@ gpgme_error_t gpgme_op_getauditlog_start (gpgme_ctx_t ctx, gpgme_data_t output,
 gpgme_error_t gpgme_op_getauditlog (gpgme_ctx_t ctx, gpgme_data_t output, 
                                     unsigned int flags);
 
-
 
-/* Low-level Assuan protocol access.  */
-typedef gpgme_error_t (*gpgme_assuan_data_cb_t) 
-     (void *opaque, const void *data, size_t datalen);
-
-typedef gpgme_error_t (*gpgme_assuan_inquire_cb_t)
-     (void *opaque, const char *name, const char *args,
-      gpgme_data_t *r_data);
-
-typedef gpgme_error_t (*gpgme_assuan_status_cb_t)
-     (void *opaque, const char *status, const char *args);
-
-struct _gpgme_op_assuan_result
-{
-  /* The result of the actual assuan command.  An OK is indicated by a
-     value of 0 and an ERR by the respective error error value.  */
-  gpgme_error_t err;
-};
-typedef struct _gpgme_op_assuan_result *gpgme_assuan_result_t;
-
-
-/* Return the result of the last Assuan command. */
-gpgme_assuan_result_t gpgme_op_assuan_result (gpgme_ctx_t ctx);
-
-/* Send the Assuan COMMAND and return results via the callbacks.
-   Asynchronous variant. */
-gpgme_error_t gpgme_op_assuan_transact_start (gpgme_ctx_t ctx, 
-                                              const char *command,
-                                              gpgme_assuan_data_cb_t data_cb,
-                                              void *data_cb_value,
-                                              gpgme_assuan_inquire_cb_t inq_cb,
-                                              void *inq_cb_value,
-                                              gpgme_assuan_status_cb_t stat_cb,
-                                              void *stat_cb_value);
-
-/* Send the Assuan COMMAND and return results via the callbacks.
-   Synchronous variant. */
-gpgme_error_t gpgme_op_assuan_transact (gpgme_ctx_t ctx, 
-                                        const char *command,
-                                        gpgme_assuan_data_cb_t data_cb,
-                                        void *data_cb_value,
-                                        gpgme_assuan_inquire_cb_t inq_cb,
-                                        void *inq_cb_value,
-                                        gpgme_assuan_status_cb_t stat_cb,
-                                        void *stat_cb_value);
-
-
-
-/* Interface to gpgconf(1).  */
+/* Interface to gpg-conf.  */
 
 /* The expert level at which a configuration option or group of
-   options should be displayed.  See the gpgconf(1) documentation for
+   options should be displayed.  See the gpg-conf documentation for
    more details.  */
 typedef enum
   {
@@ -1774,7 +1670,7 @@ typedef enum
 gpgme_conf_level_t;
 
 
-/* The data type of a configuration option argument.  See the gpgconf(1)
+/* The data type of a configuration option argument.  See the gpg-conf
    documentation for more details.  */
 typedef enum
   {
@@ -1785,17 +1681,10 @@ typedef enum
     GPGME_CONF_UINT32 = 3,
 
     /* Complex types.  */
-    GPGME_CONF_FILENAME = 32,
-    GPGME_CONF_LDAP_SERVER = 33,
-    GPGME_CONF_KEY_FPR = 34,
-    GPGME_CONF_PUB_KEY = 35,
-    GPGME_CONF_SEC_KEY = 36,
-    GPGME_CONF_ALIAS_LIST = 37
+    GPGME_CONF_PATHNAME = 32,
+    GPGME_CONF_LDAP_SERVER = 33
   }
 gpgme_conf_type_t;
-
-/* For now, compatibility.  */
-#define GPGME_CONF_PATHNAME GPGME_CONF_FILENAME
 
 
 /* This represents a single argument for a configuration option.
@@ -1925,20 +1814,8 @@ gpgme_error_t gpgme_op_conf_save (gpgme_ctx_t ctx, gpgme_conf_comp_t comp);
 
 /* Various functions.  */
 
-/* Check that the library fulfills the version requirement.  Note:
-   This is here only for the case where a user takes a pointer from
-   the old version of this function.  The new version and macro for
-   run-time checks are below.  */
+/* Check that the library fulfills the version requirement.  */
 const char *gpgme_check_version (const char *req_version);
-
-/* Check that the library fulfills the version requirement and check
-   for struct layout mismatch involving bitfields.  */
-const char *gpgme_check_version_internal (const char *req_version,
-					  size_t offset_sig_validity);
-
-#define gpgme_check_version(req_version)				\
-  gpgme_check_version_internal (req_version,				\
-				offsetof (struct _gpgme_signature, validity))
 
 /* Get the information about the configured and installed engines.  A
    pointer to the first engine in the statically allocated linked list
@@ -1958,10 +1835,6 @@ gpgme_error_t gpgme_set_engine_info (gpgme_protocol_t proto,
 /* Verify that the engine implementing PROTO is installed and
    available.  */
 gpgme_error_t gpgme_engine_check_version (gpgme_protocol_t proto);
-
-
-void gpgme_result_ref (void *result);
-void gpgme_result_unref (void *result);
 
 
 /* Deprecated types.  */
