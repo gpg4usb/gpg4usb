@@ -310,17 +310,20 @@ void GpgWin::createMenus()
 void GpgWin::createToolBars()
 {
     cryptToolBar = addToolBar(tr("Crypt"));
+    cryptToolBar->setObjectName("cryptToolBar");
     cryptToolBar->addAction(encryptAct);
     cryptToolBar->addAction(decryptAct);
     cryptToolBar->addAction(fileEncryptionAct);
     viewMenu->addAction(cryptToolBar->toggleViewAction());
 
     keyToolBar = addToolBar(tr("Key"));
+    keyToolBar->setObjectName("keyToolBar");
     keyToolBar->addAction(importKeyDialogAct);
     keyToolBar->addAction(openKeyManagementAct);
     viewMenu->addAction(keyToolBar->toggleViewAction());
 
     editToolBar = addToolBar(tr("Edit"));
+    editToolBar->setObjectName("editToolBar");
     editToolBar->addAction(copyAct);
     editToolBar->addAction(pasteAct);
     editToolBar->addAction(selectallAct);
@@ -351,6 +354,7 @@ void GpgWin::createDockWindows()
     /** KeyList-Dockwindow
      */
     dock = new QDockWidget(tr("Encrypt for:"), this);
+    dock->setObjectName("EncryptDock");
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     addDockWidget(Qt::RightDockWidgetArea, dock);
     dock->setWidget(mKeyList);
@@ -359,6 +363,7 @@ void GpgWin::createDockWindows()
     /** Attachments-Dockwindow
       */
     aDock = new QDockWidget(tr("Attached files:"), this);
+    aDock->setObjectName("AttachmentDock");
     aDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea);
     addDockWidget(Qt::BottomDockWidgetArea, aDock);
     aDock->setWidget(mAttachments);
