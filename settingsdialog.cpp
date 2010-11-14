@@ -147,30 +147,38 @@ QHash<QString, QString> GeneralTab::listLanguages()
      /*****************************************
      * MIME-Parsing-Box
      *****************************************/
+     QGroupBox *mimeQPBox = new QGroupBox(tr("Decode quoted printable"));
+     QVBoxLayout  *mimeQPBoxLayout = new QVBoxLayout();
+     mimeQPCheckBox = new QCheckBox(tr("Try to recognize quoted printable."), this);
+     mimeQPBoxLayout->addWidget(mimeQPCheckBox);
+     mimeQPBox->setLayout(mimeQPBoxLayout);
 
-    QGroupBox *mimeParseBox = new QGroupBox(tr("MIME-parsing (Experimental)"));
-    QVBoxLayout *mimeParseBoxLayout = new QVBoxLayout();
 
-    mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
-    mimeQPCheckBox = new QCheckBox(tr("Try to recognize quoted printable."), this);
-    mimeOpenAttachmentCheckBox = new QCheckBox(tr("Enable opening with external applications."
-                                                  "\nRead statustip carefully for further information."), this);
-    mimeOpenAttachmentCheckBox->setToolTip(tr("Open attachments with default application for the filetype. "
-                                            "There are at least two possible problems with this behaviour:<br> "
-                                           "1) <b>File needs to be saved unencrypted to attachments folder.</b> "
-                                           "Its your job to clean this folder.<br> "
-                                           "2) The external application may have its own temp files."));
-                                           
-    /*
-     * Here could be something like Qstring("?"), or an icon with an ?, with the action "show tooltip"
-     */
-    mimeParseBoxLayout->addWidget(mimeParseCheckBox);
-    mimeParseBoxLayout->addWidget(mimeOpenAttachmentCheckBox);
-    mimeParseBoxLayout->addWidget(mimeQPCheckBox);
-    mimeParseBox->setLayout(mimeParseBoxLayout);
+     QGroupBox *mimeParseBox = new QGroupBox(tr("Parse PGP/MIME (Experimental)"));
+     QVBoxLayout  *mimeParseBoxLayout = new QVBoxLayout();
+     mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
+     mimeParseBoxLayout->addWidget(mimeParseCheckBox);
+     mimeParseBox->setLayout(mimeParseBoxLayout);
+
+     QGroupBox *mimeOpenAttachmentBox = new QGroupBox(tr("Open with external application (Experimental)"));
+     QVBoxLayout  *mimeOpenAttachmentBoxLayout = new QVBoxLayout();
+     QLabel *mimeOpenAttachmentText = new QLabel(tr("Open attachments with default application for the filetype.<br> "
+                                                 "There are at least two possible problems with this behaviour:"
+                                                "<ol><li>File needs to be saved unencrypted to attachments folder.<br> "
+                                                "Its your job to clean this folder.</li>"
+                                                "<li>The external application may have its own temp files.</li></ol>"));
+
+    //mimeOpenAttachmentBox->setDisabled(true);
+     mimeOpenAttachmentCheckBox = new QCheckBox(tr("Enable opening with external applications."), this);
+
+     mimeOpenAttachmentBoxLayout->addWidget(mimeOpenAttachmentText);
+     mimeOpenAttachmentBoxLayout->addWidget(mimeOpenAttachmentCheckBox);
+     mimeOpenAttachmentBox->setLayout(mimeOpenAttachmentBoxLayout);
 
      QVBoxLayout *mainLayout = new QVBoxLayout;
      mainLayout->addWidget(mimeParseBox);
+     mainLayout->addWidget(mimeOpenAttachmentBox);
+     mainLayout->addWidget(mimeQPBox);
      mainLayout->addStretch(1);
      setLayout(mainLayout);
      setSettings();
