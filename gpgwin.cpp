@@ -69,7 +69,6 @@ GpgWin::GpgWin()
                 loadFile(args[1]);
         }
     }
-qDebug() << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 }
 
 void GpgWin::restoreSettings()
@@ -515,7 +514,7 @@ void GpgWin::about()
                             "<b>Developer:</b><br>"
                             "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                             "<b>Translation:</b><br>"
-                            "Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)<br><br>"
+                            "Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es), Serse (it) <br><br>"
                             "If you have any questions and/or<br>"
                             "suggestions, contact us at<br>"
                             "gpg4usb at cpunk.de</a><br><br>"

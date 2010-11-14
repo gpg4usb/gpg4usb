@@ -139,7 +139,6 @@ void Attachments::openFile() {
     QString attachmentDir = qApp->applicationDirPath() + "/attachments/";
     //QDir p = QDir(qApp->applicationDirPath() + "/attachments/");
     if(!QDir(attachmentDir).exists()) {
-        qDebug() << "creating " << attachmentDir;
         QDir().mkpath(attachmentDir);
     }
 

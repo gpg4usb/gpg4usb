@@ -11,8 +11,8 @@ DEPENDPATH += .
 INCLUDEPATH += . \
     ./include
 
-CONFIG += release static
-# CONFIG += debug
+# CONFIG += release static
+CONFIG += debug
 
 # Input
 HEADERS += attachments.h \

@@ -44,11 +44,13 @@
      GeneralTab(QWidget *parent = 0);
      void setSettings();
      void applySettings();
+
  private:
      QCheckBox *rememberPasswordCheckBox;
      QCheckBox *saveCheckedKeysCheckBox;
      QComboBox *langSelectBox;
      QHash<QString, QString> lang;
+
 private slots:
     QHash<QString, QString> listLanguages();
 
@@ -62,10 +64,11 @@ private slots:
      MimeTab(QWidget *parent = 0);
      void setSettings();
      void applySettings();
+
+ private:
      QCheckBox *mimeParseCheckBox;
      QCheckBox *mimeQPCheckBox;
      QCheckBox *mimeOpenAttachmentCheckBox;
-
  };
 
  class AppearanceTab : public QWidget
@@ -77,6 +80,7 @@ private slots:
      AppearanceTab(QWidget *parent = 0);
      void setSettings();
      void applySettings();
+
  private:
      QButtonGroup *iconStyleGroup;
      QRadioButton *iconSizeSmall;
@@ -87,7 +91,6 @@ private slots:
      QRadioButton *iconIconsButton;
      QRadioButton *iconAllButton;
      QCheckBox *windowSizeCheckBox;
-
  };
 
 
@@ -100,42 +103,13 @@ public:
     GeneralTab *generalTab;
     MimeTab *mimeTab;
     AppearanceTab *appearanceTab;
+
 public slots:
     void accept();
+
 private:
-     QTabWidget *tabWidget; // new
-
+    QTabWidget *tabWidget;
     QDialogButtonBox *buttonBox;
-
-
-    QRadioButton *iconSizeSmall;
-    QRadioButton *iconSizeMedium;
-    QRadioButton *iconSizeLarge;
-    QRadioButton *iconTextButton;
-    QRadioButton *iconIconsButton;
-    QRadioButton *iconAllButton;
-    QCheckBox *windowSizeCheckBox;
-    QCheckBox *saveCheckedKeysCheckBox;
-    QCheckBox *rememberPasswordCheckBox;
-    QCheckBox *mimeParseCheckBox;
-    QCheckBox *mimeQPCheckBox;
-    QCheckBox *mimeOpenAttachmentCheckBox;
-    QComboBox *langSelectBox;
-    QHash<QString, QString> lang;
-
-    QHBoxLayout *iconSizeBoxLayout;
-    QHBoxLayout *iconStyleBoxLayout;
-    QHBoxLayout *windowSizeBoxLayout;
-    QHBoxLayout *saveCheckedKeysBoxLayout;
-    QHBoxLayout *rememberPasswordBoxLayout;
-    QVBoxLayout *mimeParseBoxLayout;
     QVBoxLayout *vbox;
-    void setSettings();
-
-
-private slots:
-    void applySettings();
-
-    QHash<QString, QString> listLanguages();
 };
 #endif  // __SETTINGSDIALOG_H__

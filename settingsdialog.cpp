@@ -65,6 +65,15 @@ class QGroupBox;
     exec(); 
 }
 
+ void SettingsDialog::accept()
+ {
+     generalTab->applySettings();
+     mimeTab->applySettings();
+     appearanceTab->applySettings();
+     close();
+ }
+
+
  GeneralTab::GeneralTab(QWidget *parent)
      : QWidget(parent)
  {
@@ -113,6 +122,40 @@ class QGroupBox;
     setLayout(mainLayout);
  }
 
+ /**********************************
+ * Read the settings from config
+ * and set the buttons and checkboxes
+ * appropriately
+ **********************************/
+ void GeneralTab::setSettings()
+ {
+     QSettings settings;
+     // Keysaving
+     if (settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
+
+     // Remember Password
+     if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
+
+     //Language setting
+     QString langKey = settings.value("int/lang").toString();
+     QString langValue = lang.value(langKey);
+     if (langKey != "") {
+        langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
+    }
+ }
+
+ /***********************************
+  * get the values of the buttons and
+  * write them to settings-file
+  *************************************/
+ void GeneralTab::applySettings()
+ {
+     QSettings settings;
+     settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
+     // TODO: clear passwordCache instantly on unset rememberPassword
+     settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
+     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
+ }
 
 // http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
 QHash<QString, QString> GeneralTab::listLanguages()
@@ -184,6 +227,39 @@ QHash<QString, QString> GeneralTab::listLanguages()
      setSettings();
  }
 
+ /**********************************
+ * Read the settings from config
+ * and set the buttons and checkboxes
+ * appropriately
+ **********************************/
+ void MimeTab::setSettings()
+ {
+     QSettings settings;
+
+     // MIME-Parsing
+     if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
+
+     // Qouted Printable
+     if (settings.value("mime/parseQP").toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
+
+     // Open Attachments with external app
+     if (settings.value("mime/openAttachment").toBool()) mimeOpenAttachmentCheckBox->setCheckState(Qt::Checked);
+ }
+
+
+ /***********************************
+  * get the values of the buttons and
+  * write them to settings-file
+  *************************************/
+ void MimeTab::applySettings()
+ {
+     QSettings settings;
+     settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
+     settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());
+     settings.setValue("mime/openAttachment" , mimeOpenAttachmentCheckBox->isChecked());
+
+ }
+
  AppearanceTab::AppearanceTab(QWidget *parent)
      : QWidget(parent)
  {
@@ -237,9 +313,6 @@ QHash<QString, QString> GeneralTab::listLanguages()
      windowSizeBox->setLayout(windowSizeBoxLayout);
 
      QVBoxLayout *mainLayout = new QVBoxLayout;
-//     layout->addWidget(topLabel);
-//     layout->addWidget(applicationsListBox);
-//     layout->addWidget(alwaysCheckBox);
      mainLayout->addWidget(iconSizeBox);
      mainLayout->addWidget(iconStyleBox);
      mainLayout->addWidget(windowSizeBox);
@@ -247,24 +320,11 @@ QHash<QString, QString> GeneralTab::listLanguages()
      setLayout(mainLayout);
  }
 
- void GeneralTab::setSettings()
- {
-     QSettings settings;
-     // Keysaving
-     if (settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
-
-     // Remember Password
-     if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
-
-     //Language setting
-     QString langKey = settings.value("int/lang").toString();
-     QString langValue = lang.value(langKey);
-     qDebug() << langKey << langValue ;
-     if (langKey != "") {
-        langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
-    }
- }
-
+ /**********************************
+ * Read the settings from config
+ * and set the buttons and checkboxes
+ * appropriately
+ **********************************/
  void AppearanceTab::setSettings()
  {
      QSettings settings;
@@ -297,34 +357,22 @@ QHash<QString, QString> GeneralTab::listLanguages()
 
  }
 
- void MimeTab::setSettings()
- {
-     QSettings settings;
-
-     // MIME-Parsing
-     if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
-
-     // Qouted Printable
-     if (settings.value("mime/parseQP").toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
-
-     // Open Attachments with external app
-     if (settings.value("mime/openAttachment").toBool()) mimeOpenAttachmentCheckBox->setCheckState(Qt::Checked);
- }
-
- void GeneralTab::applySettings()
- {
-     QSettings settings;
-     settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
-     // TODO: clear passwordCache instantly on unset rememberPassword
-     settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
-     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
-qDebug() << lang.key(langSelectBox->currentText());
-foreach (QString l,lang){qDebug() << l;}
- }
-
+ /***********************************
+  * get the values of the buttons and
+  * write them to settings-file
+  *************************************/
  void AppearanceTab::applySettings()
  {
      QSettings settings;
+     switch (iconSizeGroup->checkedId()) {
+     case 1: settings.setValue("toolbar/iconsize", QSize(12, 12));
+         break;
+     case 2:settings.setValue("toolbar/iconsize", QSize(24, 24));
+         break;
+     case 3:settings.setValue("toolbar/iconsize", QSize(32, 32));
+         break;
+     }
+
      switch (iconStyleGroup->checkedId()) {
      case 1: settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextOnly);
          break;
@@ -335,76 +383,9 @@ foreach (QString l,lang){qDebug() << l;}
      }
 
     settings.setValue("window/windowSave", windowSizeCheckBox->isChecked());
-
  }
 
- void MimeTab::applySettings()
- {
-     QSettings settings;
-     settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
-     settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());
-     settings.setValue("mime/openAttachment" , mimeOpenAttachmentCheckBox->isChecked());
-
- }
-
- /**********************************
- * Read the settings from config
- * and set the buttons and checkboxes
- * appropriately
- **********************************/
-void SettingsDialog::setSettings()
-{
-    QSettings settings;
 
 
 
-
-}
-
-void SettingsDialog::accept()
-{
-    generalTab->applySettings();
-    mimeTab->applySettings();
-    appearanceTab->applySettings();
-    close();
-}
-
-/***********************************
- * get the values of the buttons and
- * write them to settings-file
- *************************************/
-void SettingsDialog::applySettings()
-{
-    QSettings settings;
-
-
-
-    accept();
-}
-
-// http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
-QHash<QString, QString> SettingsDialog::listLanguages()
-{
-    QHash<QString, QString> languages;
-
-    languages.insert("", tr("System Default"));
-
-    QString appPath = qApp->applicationDirPath();
-    QDir qmDir = QDir(appPath + "/ts/");
-    QStringList fileNames =
-        qmDir.entryList(QStringList("gpg4usb_*.qm"));
-
-    for (int i = 0; i < fileNames.size(); ++i) {
-        QString locale = fileNames[i];
-        locale.remove(0, locale.indexOf('_') + 1);
-        locale.chop(3);
-
-        QTranslator translator;
-        translator.load(fileNames[i], qmDir.absolutePath());
-        QString language = translator.translate("SettingsDialog",
-                                                "English");
-        languages.insert(locale, language);
-    }
-    return languages;
-}
 
