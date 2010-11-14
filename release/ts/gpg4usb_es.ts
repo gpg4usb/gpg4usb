@@ -2,6 +2,59 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="es_ES">
 <context>
+    <name>AppearanceTab</name>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="269"/>
+        <source>Iconsize</source>
+        <translation type="unfinished">Tamaño Icono</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="271"/>
+        <source>small</source>
+        <translation type="unfinished">pequeño</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="272"/>
+        <source>medium</source>
+        <translation type="unfinished">medio</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="273"/>
+        <source>large</source>
+        <translation type="unfinished">grande</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="289"/>
+        <source>Iconstyle</source>
+        <translation type="unfinished">Estilo Icono</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="291"/>
+        <source>just text</source>
+        <translation type="unfinished">solo texto</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="292"/>
+        <source>just icons</source>
+        <translation type="unfinished">solo iconos</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="293"/>
+        <source>text and icons</source>
+        <translation type="unfinished">texto e iconos</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="309"/>
+        <source>Windowstate</source>
+        <translation type="unfinished">Estado ventana</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="311"/>
+        <source>Save window size and position on exit.</source>
+        <translation type="unfinished">Guardar tamaño y posicion ventana al salir.</translation>
+    </message>
+</context>
+<context>
     <name>AttachmentTableModel</name>
     <message>
         <location filename="../../attachmenttablemodel.cpp" line="113"/>
@@ -129,6 +182,44 @@
     </message>
 </context>
 <context>
+    <name>GeneralTab</name>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="84"/>
+        <source>Remember Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="86"/>
+        <source>Remember password until closing gpg4usb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="93"/>
+        <source>Save Checked Keys</source>
+        <translation type="unfinished">Guardar Llaves Comprobadas</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="95"/>
+        <source>Save checked private keys on exit and restore them on next start.</source>
+        <translation type="unfinished">Guardar llaves privadas comprobadas al salir y restaurarlas en proximo arranque.</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="102"/>
+        <source>Language</source>
+        <translation type="unfinished">Idioma</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="112"/>
+        <source>Language change is applied after restarting program.</source>
+        <translation type="unfinished">Cambio idioma se aplica despues de reiniciar el programa.</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="165"/>
+        <source>System Default</source>
+        <translation type="unfinished">Por Defecto</translation>
+    </message>
+</context>
+<context>
     <name>GpgME::Context</name>
     <message>
         <location filename="../../context.cpp" line="246"/>
@@ -159,7 +250,7 @@
 <context>
     <name>GpgWin</name>
     <message>
-        <location filename="../../gpgwin.cpp" line="125"/>
+        <location filename="../../gpgwin.cpp" line="129"/>
         <source>&amp;Open...</source>
         <translation>&amp;Abrir...</translation>
     </message>
@@ -168,12 +259,12 @@
         <translation type="obsolete">Crtl+O</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="128"/>
+        <location filename="../../gpgwin.cpp" line="132"/>
         <source>Open an existing file</source>
         <translation>Abrir un archivo existente</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="131"/>
+        <location filename="../../gpgwin.cpp" line="135"/>
         <source>&amp;Save</source>
         <translation>&amp;Guardar</translation>
     </message>
@@ -182,22 +273,22 @@
         <translation type="obsolete">Crtl+S</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="134"/>
+        <location filename="../../gpgwin.cpp" line="138"/>
         <source>Save the current File</source>
         <translation>Guardar el archivo actual</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="137"/>
+        <location filename="../../gpgwin.cpp" line="141"/>
         <source>Save &amp;As</source>
         <translation>Guardar &amp;Como</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="140"/>
+        <location filename="../../gpgwin.cpp" line="144"/>
         <source>Save the current File as...</source>
         <translation>Guardar el Archivo actual como...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="143"/>
+        <location filename="../../gpgwin.cpp" line="147"/>
         <source>&amp;Print</source>
         <translation>&amp;Imprimir</translation>
     </message>
@@ -206,12 +297,12 @@
         <translation type="obsolete">Crtl+P</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="146"/>
+        <location filename="../../gpgwin.cpp" line="150"/>
         <source>Print Document</source>
         <translation>Imprimir Documento</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="149"/>
+        <location filename="../../gpgwin.cpp" line="153"/>
         <source>&amp;Quit</source>
         <translation>&amp;Salir</translation>
     </message>
@@ -220,32 +311,32 @@
         <translation type="obsolete">Crtl+Q</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="152"/>
+        <location filename="../../gpgwin.cpp" line="156"/>
         <source>Quit Program</source>
         <translation>Salir del Programa</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="157"/>
+        <location filename="../../gpgwin.cpp" line="161"/>
         <source>&amp;Undo</source>
         <translation>&amp;Deshacer</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="159"/>
+        <location filename="../../gpgwin.cpp" line="163"/>
         <source>Undo Last Edit Action</source>
         <translation>Deshacer Ultima Accion Editar</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="162"/>
+        <location filename="../../gpgwin.cpp" line="166"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="164"/>
+        <location filename="../../gpgwin.cpp" line="168"/>
         <source>Redo Last Edit Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="167"/>
+        <location filename="../../gpgwin.cpp" line="171"/>
         <source>&amp;Paste</source>
         <translation>&amp;Pegar</translation>
     </message>
@@ -254,12 +345,12 @@
         <translation type="obsolete">Crtl+V</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="170"/>
+        <location filename="../../gpgwin.cpp" line="174"/>
         <source>Paste Text From Clipboard</source>
         <translation>Pegar Texto desde Portapapeles</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="173"/>
+        <location filename="../../gpgwin.cpp" line="177"/>
         <source>Cu&amp;t</source>
         <translation>Corta&amp;r</translation>
     </message>
@@ -268,12 +359,12 @@
         <translation type="obsolete">Crtl+X</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="176"/>
+        <location filename="../../gpgwin.cpp" line="180"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
         <translation>Cortar contenido seleccion actual al portapapeles</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="180"/>
+        <location filename="../../gpgwin.cpp" line="184"/>
         <source>&amp;Copy</source>
         <translation>&amp;Copiar</translation>
     </message>
@@ -282,12 +373,12 @@
         <translation type="obsolete">Crtl+C</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="183"/>
+        <location filename="../../gpgwin.cpp" line="187"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
         <translation>Copiar contenido seleccion actual al portapapeles</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="187"/>
+        <location filename="../../gpgwin.cpp" line="191"/>
         <source>Select &amp;All</source>
         <translation>Seleccionar &amp;Todo</translation>
     </message>
@@ -296,22 +387,22 @@
         <translation type="obsolete">Crtl+A</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="190"/>
+        <location filename="../../gpgwin.cpp" line="194"/>
         <source>Select the whole text</source>
         <translation>Seleccionar todo el texto</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="193"/>
+        <location filename="../../gpgwin.cpp" line="197"/>
         <source>Se&amp;ttings</source>
         <translation>Con&amp;figuracion</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="194"/>
+        <location filename="../../gpgwin.cpp" line="198"/>
         <source>Open settings dialog</source>
         <translation>Abrir dialogo configuracion</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="200"/>
+        <location filename="../../gpgwin.cpp" line="204"/>
         <source>&amp;Encrypt</source>
         <translation>&amp;Cifrar</translation>
     </message>
@@ -320,12 +411,12 @@
         <translation type="obsolete">Crtl+E</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="203"/>
+        <location filename="../../gpgwin.cpp" line="207"/>
         <source>Encrypt Message</source>
         <translation>Cifrar Mensaje</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="206"/>
+        <location filename="../../gpgwin.cpp" line="210"/>
         <source>&amp;Decrypt</source>
         <translation>&amp;Descifrar</translation>
     </message>
@@ -334,255 +425,269 @@
         <translation type="obsolete">Crtl+D</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="209"/>
+        <location filename="../../gpgwin.cpp" line="213"/>
         <source>Decrypt Message</source>
         <translation>Descifrar Mensaje</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="212"/>
+        <location filename="../../gpgwin.cpp" line="216"/>
         <source>&amp;File Encryption</source>
         <translation>&amp;Cifrado Archivo</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="214"/>
+        <location filename="../../gpgwin.cpp" line="218"/>
         <source>Encrypt/Decrypt File</source>
         <translation>Cifrar / Descifrar Archivo</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="219"/>
-        <location filename="../../gpgwin.cpp" line="265"/>
-        <location filename="../../gpgwin.cpp" line="682"/>
+        <location filename="../../gpgwin.cpp" line="223"/>
+        <location filename="../../gpgwin.cpp" line="269"/>
+        <location filename="../../gpgwin.cpp" line="714"/>
         <source>&amp;File</source>
         <translation>&amp;Archivo</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="221"/>
+        <location filename="../../gpgwin.cpp" line="225"/>
         <source>Import New Key From File</source>
         <translation>Importar Nueva Llave Desde Archivo</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="224"/>
-        <location filename="../../gpgwin.cpp" line="683"/>
+        <location filename="../../gpgwin.cpp" line="228"/>
+        <location filename="../../gpgwin.cpp" line="715"/>
         <source>&amp;Editor</source>
         <translation>&amp;Editor</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="226"/>
+        <location filename="../../gpgwin.cpp" line="230"/>
         <source>Import New Key From Editor</source>
         <translation>Importar Nueva Llave Desde Editor</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="229"/>
-        <location filename="../../gpgwin.cpp" line="684"/>
+        <location filename="../../gpgwin.cpp" line="233"/>
+        <location filename="../../gpgwin.cpp" line="716"/>
         <source>&amp;Clipboard</source>
         <translation>&amp;Portapapeles</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="231"/>
+        <location filename="../../gpgwin.cpp" line="235"/>
         <source>Import New Key From Clipboard</source>
         <translation>Importar Nueva Llave Desde Portapapeles</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="234"/>
+        <location filename="../../gpgwin.cpp" line="238"/>
         <source>Key Management</source>
         <translation>Administar Llaves</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="236"/>
+        <location filename="../../gpgwin.cpp" line="240"/>
         <source>Open Keymanagement</source>
         <translation>Abrir Administrar Llaves</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="239"/>
-        <location filename="../../gpgwin.cpp" line="673"/>
+        <location filename="../../gpgwin.cpp" line="243"/>
+        <location filename="../../gpgwin.cpp" line="705"/>
         <source>Import Key</source>
         <translation>Importar Llave</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="241"/>
+        <location filename="../../gpgwin.cpp" line="245"/>
         <source>Open Import New Key Dialog</source>
         <translation>Abrir Dialogo Importar Nueva Llave</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="246"/>
+        <location filename="../../gpgwin.cpp" line="250"/>
         <source>&amp;About</source>
         <translation>&amp;Acerca de</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="248"/>
+        <location filename="../../gpgwin.cpp" line="252"/>
         <source>Show the application&apos;s About box</source>
         <translation>Mostrar caja Acerca de programa</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="251"/>
+        <location filename="../../gpgwin.cpp" line="255"/>
         <source>Online &amp;Tutorial</source>
         <translation>Tutorial &amp;Online</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="253"/>
+        <location filename="../../gpgwin.cpp" line="257"/>
         <source>Open Online Tutorial</source>
         <translation>Abrir Tutorial Online</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="258"/>
+        <location filename="../../gpgwin.cpp" line="262"/>
         <source>Append Selected Key(s) To Text</source>
         <translation>Adjuntar Llave(s) Seleccionadas Al Texto</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="259"/>
+        <location filename="../../gpgwin.cpp" line="263"/>
         <source>Append The Selected Keys To Text in Editor</source>
         <translation>Adjuntar Llaves Seleccionadas Al Texto en Editor</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="273"/>
+        <location filename="../../gpgwin.cpp" line="277"/>
         <source>&amp;Edit</source>
         <translation>&amp;Editar</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="284"/>
+        <location filename="../../gpgwin.cpp" line="288"/>
         <source>&amp;Crypt</source>
         <translation>&amp;Cifrar</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="290"/>
+        <location filename="../../gpgwin.cpp" line="294"/>
         <source>&amp;Keys</source>
         <translation>&amp;Llaves</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="291"/>
+        <location filename="../../gpgwin.cpp" line="295"/>
         <source>&amp;Import Key From...</source>
         <translation>&amp;Importar Llave Desde...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="298"/>
+        <location filename="../../gpgwin.cpp" line="302"/>
         <source>&amp;View</source>
         <translation>&amp;Ver</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="300"/>
+        <location filename="../../gpgwin.cpp" line="304"/>
         <source>&amp;Help</source>
         <translation>&amp;Ayuda</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="307"/>
+        <location filename="../../gpgwin.cpp" line="311"/>
         <source>Crypt</source>
         <translation>Cifrar</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="313"/>
+        <location filename="../../gpgwin.cpp" line="318"/>
         <source>Key</source>
         <translation>Llave</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="318"/>
+        <location filename="../../gpgwin.cpp" line="324"/>
         <source>Edit</source>
         <translation>Editar</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="330"/>
-        <location filename="../../gpgwin.cpp" line="493"/>
+        <location filename="../../gpgwin.cpp" line="346"/>
+        <location filename="../../gpgwin.cpp" line="502"/>
         <source>Ready</source>
         <translation>Listo</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="338"/>
-        <source>Files have been saved to attachment subdirectory</source>
+        <location filename="../../gpgwin.cpp" line="511"/>
+        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="348"/>
+        <location filename="../../gpgwin.cpp" line="636"/>
+        <source>There is one unencrypted file in attachment folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="638"/>
+        <source>There are </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="638"/>
+        <source> unencrypted files in attachment folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="355"/>
         <source>Encrypt for:</source>
         <translation>Cifrar para:</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="356"/>
+        <location filename="../../gpgwin.cpp" line="364"/>
         <source>Attached files:</source>
         <translation>Archivos Adjuntos:</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="412"/>
-        <location filename="../../gpgwin.cpp" line="452"/>
+        <location filename="../../gpgwin.cpp" line="421"/>
+        <location filename="../../gpgwin.cpp" line="461"/>
         <source>Application</source>
         <translation>Programa</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="413"/>
+        <location filename="../../gpgwin.cpp" line="422"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>No puedo leer archivo %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="425"/>
+        <location filename="../../gpgwin.cpp" line="434"/>
         <source>File loaded</source>
         <translation>Archivo cargado</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="440"/>
+        <location filename="../../gpgwin.cpp" line="449"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="453"/>
+        <location filename="../../gpgwin.cpp" line="462"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>El documento ha sido modificado.
 Quiere usted guardar los cambios?</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="467"/>
+        <location filename="../../gpgwin.cpp" line="476"/>
         <source>File</source>
         <translation>Archivo</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="468"/>
+        <location filename="../../gpgwin.cpp" line="477"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>No puedo escribir archivo %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="477"/>
+        <location filename="../../gpgwin.cpp" line="486"/>
         <source>Saved &apos;%1&apos;</source>
         <translation>Guardado &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="499"/>
+        <location filename="../../gpgwin.cpp" line="508"/>
         <source>About </source>
         <translation>Acerca de&apos;</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="502"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
         <translatorcomment>duplicate entry</translatorcomment>
-        <translation>&lt;center&gt;Este Programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos.&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es)&lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/ o &lt;br&gt;sugerencia, contacte con nosotros en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
+        <translation type="obsolete">&lt;center&gt;Este Programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos.&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es)&lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/ o &lt;br&gt;sugerencia, contacte con nosotros en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
         <translation type="obsolete">&lt;center&gt;Este Programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos.&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es)&lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/ o &lt;br&gt;sugerencia, contacte con nosotros en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="645"/>
+        <location filename="../../gpgwin.cpp" line="677"/>
         <source>Open Key</source>
         <translation>Abrir Llave</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="645"/>
+        <location filename="../../gpgwin.cpp" line="677"/>
         <source>Key Files</source>
         <translation>Archivos de Llaves</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="645"/>
+        <location filename="../../gpgwin.cpp" line="677"/>
         <source>All Files</source>
         <translation>Todos Archivos</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="649"/>
+        <location filename="../../gpgwin.cpp" line="681"/>
         <source>couldn&apos;t open file: </source>
         <translation>no se pudo abrir el archivo:</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="681"/>
+        <location filename="../../gpgwin.cpp" line="713"/>
         <source>Import Key From...</source>
         <translation>Importar Llave Desde...</translation>
     </message>
@@ -935,123 +1040,143 @@ Para acelerar el proceso use su computador
     </message>
 </context>
 <context>
+    <name>MimeTab</name>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="193"/>
+        <source>Decode quoted printable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="195"/>
+        <source>Try to recognize quoted printable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="200"/>
+        <source>Parse PGP/MIME (Experimental)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="202"/>
+        <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
+        <translation type="unfinished">Intentar dividir adjuntos de mensajes PGP-MIME.</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="206"/>
+        <source>Open with external application (Experimental)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="208"/>
+        <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="215"/>
+        <source>Enable opening with external applications.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsDialog</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="41"/>
         <source>Settings</source>
-        <translation>Configuracion</translation>
+        <translation type="obsolete">Configuracion</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="48"/>
         <source>Iconsize</source>
-        <translation>Tamaño Icono</translation>
+        <translation type="obsolete">Tamaño Icono</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="50"/>
         <source>small</source>
-        <translation>pequeño</translation>
+        <translation type="obsolete">pequeño</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="51"/>
         <source>medium</source>
-        <translation>medio</translation>
+        <translation type="obsolete">medio</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="52"/>
         <source>large</source>
-        <translation>grande</translation>
+        <translation type="obsolete">grande</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="68"/>
         <source>Iconstyle</source>
-        <translation>Estilo Icono</translation>
+        <translation type="obsolete">Estilo Icono</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="70"/>
         <source>just text</source>
-        <translation>solo texto</translation>
+        <translation type="obsolete">solo texto</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="71"/>
         <source>just icons</source>
-        <translation>solo iconos</translation>
+        <translation type="obsolete">solo iconos</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="72"/>
         <source>text and icons</source>
-        <translation>texto e iconos</translation>
+        <translation type="obsolete">texto e iconos</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="88"/>
         <source>Windowstate</source>
-        <translation>Estado ventana</translation>
+        <translation type="obsolete">Estado ventana</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="90"/>
         <source>Save window size and position on exit.</source>
-        <translation>Guardar tamaño y posicion ventana al salir.</translation>
+        <translation type="obsolete">Guardar tamaño y posicion ventana al salir.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="99"/>
         <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation>Guardar llaves privadas comprobadas al salir y restaurarlas en proximo arranque.</translation>
+        <translation type="obsolete">Guardar llaves privadas comprobadas al salir y restaurarlas en proximo arranque.</translation>
     </message>
     <message>
         <source>save window size and position on exit</source>
         <translation type="obsolete">guardar tamaño y posicion ventana al salir</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="97"/>
         <source>Save Checked Keys</source>
-        <translation>Guardar Llaves Comprobadas</translation>
+        <translation type="obsolete">Guardar Llaves Comprobadas</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="106"/>
         <source>Language</source>
-        <translation>Idioma</translation>
+        <translation type="obsolete">Idioma</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="116"/>
         <source>Language change is applied after restarting program.</source>
-        <translation>Cambio idioma se aplica despues de reiniciar el programa.</translation>
+        <translation type="obsolete">Cambio idioma se aplica despues de reiniciar el programa.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="124"/>
         <source>MIME-parsing (Experimental)</source>
-        <translation>MIME-analisis (Experimental)</translation>
+        <translation type="obsolete">MIME-analisis (Experimental)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="126"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation>Intentar dividir adjuntos de mensajes PGP-MIME.</translation>
+        <translation type="obsolete">Intentar dividir adjuntos de mensajes PGP-MIME.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="128"/>
-        <source>Try to recognize quoted printable.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="130"/>
-        <source>Enable open with external app, saves file in tmp folder.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="142"/>
-        <source>Remember Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="144"/>
-        <source>Remember password till closing gpg4usb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="276"/>
         <source>System Default</source>
-        <translation>Por Defecto</translation>
+        <translation type="obsolete">Por Defecto</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="290"/>
+        <location filename="../../settingsdialog.cpp" line="48"/>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="49"/>
+        <source>Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="50"/>
+        <source>PGP/Mime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="63"/>
+        <source>Tab Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="179"/>
         <source>English</source>
         <translation>Español</translation>
     </message>
