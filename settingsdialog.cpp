@@ -60,7 +60,7 @@ class QGroupBox;
      mainLayout->addWidget(buttonBox);
      setLayout(mainLayout);
 
-     setWindowTitle(tr("Tab Dialog"));
+     setWindowTitle(tr("Settings"));
 
     exec(); 
 }

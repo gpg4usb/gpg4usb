@@ -6,52 +6,52 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="269"/>
         <source>Iconsize</source>
-        <translation type="unfinished">Размер значков</translation>
+        <translation>Размер значков</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="271"/>
         <source>small</source>
-        <translation type="unfinished">Маленький</translation>
+        <translation>Маленький</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="272"/>
         <source>medium</source>
-        <translation type="unfinished">Средний</translation>
+        <translation>Средний</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="273"/>
         <source>large</source>
-        <translation type="unfinished">Большой</translation>
+        <translation>Большой</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="289"/>
         <source>Iconstyle</source>
-        <translation type="unfinished">Стиль панелей инструментов</translation>
+        <translation>Стиль панелей инструментов</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="291"/>
         <source>just text</source>
-        <translation type="unfinished">Только текст</translation>
+        <translation>Только текст</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="292"/>
         <source>just icons</source>
-        <translation type="unfinished">Только значки</translation>
+        <translation>Только значки</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="293"/>
         <source>text and icons</source>
-        <translation type="unfinished">Значки и текст</translation>
+        <translation>Значки и текст</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="309"/>
         <source>Windowstate</source>
-        <translation type="unfinished">Настройки окна</translation>
+        <translation>Настройки окна</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="311"/>
         <source>Save window size and position on exit.</source>
-        <translation type="unfinished">Запоминать размер и положение окна при выходе.</translation>
+        <translation>Запоминать размер и положение окна при выходе.</translation>
     </message>
 </context>
 <context>
@@ -87,12 +87,12 @@
     <message>
         <location filename="../../attachments.cpp" line="85"/>
         <source>Open File</source>
-        <translation type="unfinished">Открыть файл</translation>
+        <translation>Открыть файл</translation>
     </message>
     <message>
         <location filename="../../attachments.cpp" line="86"/>
         <source>Open this file</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть этот файл</translation>
     </message>
     <message>
         <location filename="../../attachments.cpp" line="119"/>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="178"/>
         <source>File exists! Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Такой файл уже существует. Перезаписать его?</translation>
     </message>
     <message>
         <source>Files</source>
@@ -194,37 +194,37 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="84"/>
         <source>Remember Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомнить Пароль</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="86"/>
         <source>Remember password until closing gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation>Помнить Пароль до завершения gpg4usb</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="93"/>
         <source>Save Checked Keys</source>
-        <translation type="unfinished">Сохранение выбора ключей</translation>
+        <translation>Сохранение выбора ключей</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="95"/>
         <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation type="unfinished">Запоминать отмеченные ключи при выходе и выделять их при следующем запуске.</translation>
+        <translation>Запоминать отмеченные ключи при выходе и выделять их при следующем запуске.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="102"/>
         <source>Language</source>
-        <translation type="unfinished">Язык</translation>
+        <translation>Язык</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="112"/>
         <source>Language change is applied after restarting program.</source>
-        <translation type="unfinished">Изменение языка вступит в силу после перезапуска программы.</translation>
+        <translation>Изменение языка вступит в силу после перезапуска программы.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="165"/>
         <source>System Default</source>
-        <translation type="unfinished">Стандартнай язык системы</translation>
+        <translation>Стандартнай язык системы</translation>
     </message>
 </context>
 <context>
@@ -232,27 +232,27 @@
     <message>
         <location filename="../../context.cpp" line="246"/>
         <source>No Key Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Не выбран Ключ</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="314"/>
         <source>Unsupported algorithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Неподдерживаемый алгоритмм</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="324"/>
         <source>Error decrypting:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка расшифровки:</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="394"/>
         <source>Wrong password</source>
-        <translation type="unfinished"></translation>
+        <translation>Неверный Пароль</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="406"/>
         <source>Enter Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите  Пароль</translation>
     </message>
 </context>
 <context>
@@ -320,12 +320,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="166"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Сделать заново</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="168"/>
         <source>Redo Last Edit Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Вернуть последнее изменение</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="171"/>
@@ -618,22 +618,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="511"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="636"/>
         <source>There is one unencrypted file in attachment folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Имеется один незашифрованный файл в папке вложений</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="638"/>
         <source>There are </source>
-        <translation type="unfinished"></translation>
+        <translation>Имеются</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="638"/>
         <source> unencrypted files in attachment folder</source>
-        <translation type="unfinished"></translation>
+        <translation>незашифрованные файлы в папке вложений</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="677"/>
@@ -1003,44 +1003,45 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="193"/>
         <source>Decode quoted printable</source>
-        <translation type="unfinished"></translation>
+        <translation>Декодировка quoted printable</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="195"/>
         <source>Try to recognize quoted printable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пробовать распозновать quoted printable.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="200"/>
         <source>Parse PGP/MIME (Experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>Обрабатывать PGP/MIME (экспериментально)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="202"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation type="unfinished">Пробовать отделять вложения писем, зашифрованных PGP-MIME.</translation>
+        <translation>Пробовать отделять вложения писем, зашифрованных PGP-MIME.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="206"/>
         <source>Open with external application (Experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>Открывать файлы вложений внешней программой (экспериментально)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="208"/>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Открытие вложений программами по умолчанию для их типов файлов.&lt;br&gt; Есть по крайней мере две возможные проблемы с такой настройкой:&lt;ol&gt;&lt;li&gt;Файлы потребуется сохранять незашифрованными в папку вложений.&lt;br&gt; Это ваша работа, зачищать эту папку.&lt;/li&gt;&lt;li&gt;Внешняя программа может иметь собственные временные файлы.&lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="215"/>
         <source>Enable opening with external applications.</source>
-        <translation type="unfinished"></translation>
+        <translation>Активировать открытие файлов внешней программой.</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
+        <location filename="../../settingsdialog.cpp" line="63"/>
         <source>Settings</source>
-        <translation type="obsolete">Настройки</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Iconsize</source>
@@ -1119,22 +1120,21 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="48"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="49"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Внешний вид</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="50"/>
         <source>PGP/Mime</source>
-        <translation type="unfinished"></translation>
+        <translation>PGP/Mime</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="63"/>
         <source>Tab Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Настройки</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="179"/>

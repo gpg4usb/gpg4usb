@@ -1053,7 +1053,7 @@ Weak -&gt; Strong</source>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="63"/>
-        <source>Tab Dialog</source>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

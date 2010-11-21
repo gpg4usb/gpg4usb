@@ -6,52 +6,52 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="269"/>
         <source>Iconsize</source>
-        <translation type="unfinished">Optionen</translation>
+        <translation>Icongröße</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="271"/>
         <source>small</source>
-        <translation type="unfinished">klein</translation>
+        <translation>klein</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="272"/>
         <source>medium</source>
-        <translation type="unfinished">mittel</translation>
+        <translation>mittel</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="273"/>
         <source>large</source>
-        <translation type="unfinished">gross</translation>
+        <translation>gross</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="289"/>
         <source>Iconstyle</source>
-        <translation type="unfinished">Iconstil</translation>
+        <translation>Iconstil</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="291"/>
         <source>just text</source>
-        <translation type="unfinished">Nur Text</translation>
+        <translation>Nur Text</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="292"/>
         <source>just icons</source>
-        <translation type="unfinished">Nur Icons</translation>
+        <translation>Nur Icons</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="293"/>
         <source>text and icons</source>
-        <translation type="unfinished">Text und Icons</translation>
+        <translation>Text und Icons</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="309"/>
         <source>Windowstate</source>
-        <translation type="unfinished">Fenstereinstellungen</translation>
+        <translation>Fenstereinstellungen</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="311"/>
         <source>Save window size and position on exit.</source>
-        <translation type="unfinished">Speichere Fenstergröße und -position beim Beenden.</translation>
+        <translation>Speichere Fenstergröße und -position beim Beenden.</translation>
     </message>
 </context>
 <context>
@@ -217,37 +217,37 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="84"/>
         <source>Remember Password</source>
-        <translation type="unfinished">Behalte das Passwort</translation>
+        <translation>Behalte das Passwort</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="86"/>
         <source>Remember password until closing gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation>Behalte das Passwort, bis das Programm geschlossen wird</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="93"/>
         <source>Save Checked Keys</source>
-        <translation type="unfinished">Schlüsselspeicherung</translation>
+        <translation>Speichere ausgewählte Schlüssel</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="95"/>
         <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation type="unfinished">Speichere ausgewählte private Schlüssel beim Beenden und stelle diese beim nächsten Start wieder her.</translation>
+        <translation>Speichere ausgewählte private Schlüssel beim Beenden und stelle diese beim nächsten Start wieder her.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="102"/>
         <source>Language</source>
-        <translation type="unfinished">Sprache</translation>
+        <translation>Sprache</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="112"/>
         <source>Language change is applied after restarting program.</source>
-        <translation type="unfinished">DIe Änderung der Sprache wird beim nächsten Progrmmstart übernommen.</translation>
+        <translation>DIe Änderung der Sprache wird beim nächsten Progrmmstart übernommen.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="165"/>
         <source>System Default</source>
-        <translation type="unfinished">Systemstandard</translation>
+        <translation>Systemstandard</translation>
     </message>
 </context>
 <context>
@@ -255,27 +255,27 @@
     <message>
         <location filename="../../context.cpp" line="246"/>
         <source>No Key Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Kein Schlüssel ausgewählt</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="314"/>
         <source>Unsupported algorithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht unterstützter Algorithmus</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="324"/>
         <source>Error decrypting:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Entschlüsseln:</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="394"/>
         <source>Wrong password</source>
-        <translation type="unfinished"></translation>
+        <translation>Falsches Passwort</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="406"/>
         <source>Enter Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte Passwort eingeben</translation>
     </message>
 </context>
 <context>
@@ -582,22 +582,22 @@
     <message>
         <location filename="../../gpgwin.cpp" line="511"/>
         <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;kontaktieren sie uns unter&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen Sie uns in unserem xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="636"/>
         <source>There is one unencrypted file in attachment folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Es gibt unverschlüsselte Dateien im Attachment Ordner</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="638"/>
         <source>There are </source>
-        <translation type="unfinished"></translation>
+        <translation>Es gibt</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="638"/>
         <source> unencrypted files in attachment folder</source>
-        <translation type="unfinished"></translation>
+        <translation>unverschlüsselte Dateien im Attachment Ordner</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="355"/>
@@ -1075,44 +1075,45 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="193"/>
         <source>Decode quoted printable</source>
-        <translation type="unfinished"></translation>
+        <translation>Entschlüssele Quoted Printable</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="195"/>
         <source>Try to recognize quoted printable.</source>
-        <translation type="unfinished">Versuche Quoted Printable Text zu erkennen.</translation>
+        <translation>Versuche Quoted Printable Text zu erkennen.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="200"/>
         <source>Parse PGP/MIME (Experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>Parse PGP/MIME (Experimentell)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="202"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation type="unfinished">Versuche, die Anhänge von PGP-MIME verschlüsselten Nachrichten zu extrahieren.</translation>
+        <translation>Versuche, die Anhänge von PGP-MIME verschlüsselten Nachrichten zu extrahieren.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="206"/>
         <source>Open with external application (Experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffne mit einer externen Anwendung (Experimentell)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="208"/>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffne Anhänge mit der Standardanwendung des Dateityps.&lt;br&gt;Es dabei mindestens zwei mögliche Probleme:&lt;ol&gt;&lt;li&gt;Dateien müssen unverschlüsselt im Attachment-Ordner gespeichert werden.&lt;br&gt;Es ist ihre Aufgabe, hier aufzuräumen.&lt;/li&gt;&lt;li&gt;Die externe Anwendung hat möglicherweise ihre eigenen temporären Dateien.&lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="215"/>
         <source>Enable opening with external applications.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiviere das Öffnen mit externen Anwendungen.</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
+        <location filename="../../settingsdialog.cpp" line="63"/>
         <source>Settings</source>
-        <translation type="obsolete">Einstellungen</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Iconsize</source>
@@ -1210,22 +1211,17 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="48"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="49"/>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Aussehen</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="50"/>
         <source>PGP/Mime</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="63"/>
-        <source>Tab Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>PGP/Mime</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="179"/>
