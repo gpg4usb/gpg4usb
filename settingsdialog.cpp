@@ -366,13 +366,10 @@ QHash<QString, QString> GeneralTab::listLanguages()
      QSettings settings;
      switch (iconSizeGroup->checkedId()) {
      case 1: settings.setValue("toolbar/iconsize", QSize(12, 12));
-		qDebug() << "small";
          break;
      case 2:settings.setValue("toolbar/iconsize", QSize(24, 24));
-     qDebug() << "middle";
          break;
      case 3:settings.setValue("toolbar/iconsize", QSize(32, 32));
-     qDebug() << "big";
          break;
      }
 
