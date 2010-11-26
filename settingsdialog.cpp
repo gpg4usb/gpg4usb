@@ -240,7 +240,7 @@ QHash<QString, QString> GeneralTab::listLanguages()
      if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
 
      // Qouted Printable
-     if (settings.value("mime/parseQP").toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
+     if (settings.value("mime/parseQP",true).toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
 
      // Open Attachments with external app
      if (settings.value("mime/openAttachment").toBool()) mimeOpenAttachmentCheckBox->setCheckState(Qt::Checked);
