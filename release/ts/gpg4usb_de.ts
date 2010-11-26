@@ -242,7 +242,7 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="112"/>
         <source>Language change is applied after restarting program.</source>
-        <translation>DIe Änderung der Sprache wird beim nächsten Progrmmstart übernommen.</translation>
+        <translation type="unfinished">DIe Änderung der Sprache wird beim nächsten Programmstart übernommen.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="165"/>
