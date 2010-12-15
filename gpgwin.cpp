@@ -688,6 +688,9 @@ void GpgWin::importKeyFromFile()
 
 void GpgWin::openKeyManagement()
 {
+
+    mCtx->verify(QByteArray());
+
     if (!keyMgmt) {
         keyMgmt = new KeyMgmt(mCtx, iconPath);
 //        keyMgmt->resize(800, 400);

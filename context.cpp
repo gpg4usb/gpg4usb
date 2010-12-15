@@ -491,6 +491,119 @@ void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByte
     *stdErr = gpg.readAllStandardError();
 }
 
+
+/***
+  * return type should contain:
+  * -> list of sigs
+  * -> valid
+  */
+void Context::verify(QByteArray in) {
+
+    static const char test_text1[] = "Just GNU it!\n";
+    static const char test_sig1[] =
+            "-----BEGIN PGP SIGNATURE-----\n"
+            "Version: GnuPG v1.0.4-2 (GNU/Linux)\n"
+            "Comment: For info see http://www.gnupg.org\n"
+            "\n"
+            "iJcEABECAFcFAjoS8/E1FIAAAAAACAAkZm9vYmFyLjF0aGlzIGlzIGEgbm90YXRp\n"
+            "b24gZGF0YSB3aXRoIDIgbGluZXMaGmh0dHA6Ly93d3cuZ3Uub3JnL3BvbGljeS8A\n"
+            "CgkQLXJ8x2hpdzQLyQCbBW/fgU8ZeWSlWPM1F8umHX17bAAAoIfSNDSp5zM85XcG\n"
+            "iwxMrf+u8v4r\n"
+            "=88Zo\n"
+            "-----END PGP SIGNATURE-----\n";
+
+    gpgme_error_t err;
+    gpgme_data_t sig, text;
+    gpgme_verify_result_t result;
+
+    err = gpgme_data_new_from_mem(&text, test_text1, strlen (test_text1), 0);
+    checkErr(err);
+    err = gpgme_data_new_from_mem(&sig, test_sig1, strlen (test_sig1), 0);
+    checkErr(err);
+
+    /** gpgme_op_verify (gpgme_ctx_t CTX,
+          gpgme_data_t SIG, gpgme_data_t SIGNED_TEXT,
+          gpgme_data_t PLAIN)
+
+If SIG is a detached
+     signature, then the signed text should be provided in SIGNED_TEXT
+     and PLAIN should be a null pointer.  Otherwise, if SIG is a normal
+     (or cleartext) signature, SIGNED_TEXT should be a null pointer and
+     PLAIN should be a writable data object
+      *
+      */
+    err = gpgme_op_verify (mCtx, sig, text, NULL);
+    result = gpgme_op_verify_result (mCtx);
+
+    gpgme_signature_t sign;
+    sign = result->signatures;
+
+    qDebug() << "sig summary: " <<  sign->summary;
+    qDebug() << "sig fingerprint: " <<  sign->fpr;
+    qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
+    qDebug() << "sig validity: " <<  sign->validity;
+    qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
+
+    qDebug() << "GPGME_VALIDITY_UNKNOWN (for validity) : " << GPGME_VALIDITY_UNKNOWN;
+    // GPG_ERR_BAD_SIGNATURE GPGME_SIGSUM_RED GPG_ERR_BAD_DATA
+    qDebug() << "GPG_ERR_NO_ERROR (for validity-reason) : " << GPG_ERR_NO_ERROR;
+
+    static const char test_sig2[] =
+        "-----BEGIN PGP MESSAGE-----\n"
+        "\n"
+        "owGbwMvMwCSoW1RzPCOz3IRxjXQSR0lqcYleSUWJTZOvjVdpcYmCu1+oQmaJIleH\n"
+        "GwuDIBMDGysTSIqBi1MApi+nlGGuwDeHao53HBr+FoVGP3xX+kvuu9fCMJvl6IOf\n"
+        "y1kvP4y+8D5a11ang0udywsA\n"
+        "=Crq6\n"
+        "-----END PGP MESSAGE-----\n";
+
+    err = gpgme_data_new_from_mem (&sig, test_sig2, strlen (test_sig2), 0);
+    checkErr(err);
+    err = gpgme_data_new (&text);
+    checkErr(err);
+    err = gpgme_op_verify (mCtx, sig, NULL, text);
+    checkErr(err);
+
+    result = gpgme_op_verify_result (mCtx);
+
+    sign = result->signatures;
+
+    qDebug() << "sig summary: " <<  sign->summary;
+    qDebug() << "sig fingerprint: " <<  sign->fpr;
+    qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
+    qDebug() << "sig validity: " <<  sign->validity;
+    qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
+
+
+
+}
+
+/***
+  * return type should contain:
+  * -> list of sigs
+  * -> valid
+  * -> decrypted message
+  */
+void Context::decryptVerify(QByteArray in) {
+
+/*    gpgme_error_t err;
+    gpgme_data_t in, out;
+
+    gpgme_decrypt_result_t decrypt_result;
+    gpgme_verify_result_t verify_result;
+
+    err = gpgme_op_decrypt_verify (mCtx, in, out);
+    decrypt_result = gpgme_op_decrypt_result (mCtx);
+
+    verify_result = gpgme_op_verify_result (mCtx);
+ */
+
+}
+
+void Context::sign(const QByteArray &inBuffer, QByteArray *outBuffer) {
+
+}
+
 }
 
 
