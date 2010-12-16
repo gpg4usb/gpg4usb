@@ -81,6 +81,7 @@ public slots:
     void openSettingsDialog();
     void openTutorial();
     void checkAttachmentFolder();
+    void sign();
 //    void dropEvent(QDropEvent *event);
 
 private:
@@ -121,6 +122,7 @@ private:
     QAction *quitAct;
     QAction *encryptAct;
     QAction *decryptAct;
+    QAction *signAct;
     QAction *importKeyDialogAct;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
@@ -131,8 +133,8 @@ private:
     QAction *cutAct;
     QAction *pasteAct;
     QAction *selectallAct;
-	QAction *undoAct;
-	QAction *redoAct;
+    QAction *undoAct;
+    QAction *redoAct;
     QAction *aboutAct;
     QAction *fileEncryptionAct;
     QAction *openSettingsAct;

@@ -218,6 +218,12 @@ void GpgWin::createActions()
     fileEncryptionAct->setToolTip(tr("Encrypt/Decrypt File"));
     connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(fileEncryption()));
 
+    signAct = new QAction(tr("&Sign"), this);
+    //signAct->setIcon(QIcon(iconPath + "encrypted.png"));
+    //signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E));
+    signAct->setToolTip(tr("Sign Message"));
+    connect(signAct, SIGNAL(triggered()), this, SLOT(sign()));
+
     /** Key Menu
      */
     importKeyFromFileAct = new QAction(tr("&File"), this);
@@ -288,6 +294,7 @@ void GpgWin::createMenus()
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
+    cryptMenu->addAction(signAct);
     cryptMenu->addSeparator();
     cryptMenu->addAction(fileEncryptionAct);
 
@@ -540,7 +547,7 @@ void GpgWin::encrypt()
 void GpgWin::decrypt()
 {
     QByteArray *decrypted = new QByteArray();
-    QByteArray text = edit->toPlainText().toAscii();
+    QByteArray text = edit->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
     mCtx->decrypt(text, decrypted);
     if (!decrypted->isEmpty()) {
@@ -689,8 +696,6 @@ void GpgWin::importKeyFromFile()
 void GpgWin::openKeyManagement()
 {
 
-    mCtx->verify(QByteArray());
-
     if (!keyMgmt) {
         keyMgmt = new KeyMgmt(mCtx, iconPath);
 //        keyMgmt->resize(800, 400);
@@ -698,6 +703,21 @@ void GpgWin::openKeyManagement()
     keyMgmt->show();
     keyMgmt->raise();
     keyMgmt->activateWindow();
+}
+
+void GpgWin::sign() {
+    // test-stuff that does not belong here ;-)
+    //mCtx->verify(QByteArray());
+    //mCtx->sign(QByteArray(), new QByteArray());
+    // end of test
+
+    QStringList *uidList = mKeyList->getChecked();
+
+    QByteArray *tmp = new QByteArray();
+    if (mCtx->sign(uidList, edit->toPlainText().toUtf8(), tmp)) {
+        QString *tmp2 = new QString(*tmp);
+        edit->setPlainText(*tmp2);
+    }
 }
 
 void GpgWin::importKeyDialog()

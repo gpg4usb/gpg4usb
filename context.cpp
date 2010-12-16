@@ -602,8 +602,83 @@ void Context::decryptVerify(QByteArray in) {
 
 void Context::sign(const QByteArray &inBuffer, QByteArray *outBuffer) {
 
+    gpgme_error_t err;
+    gpgme_data_t in, out;
+    gpgme_sign_result_t result;
+
+    err = gpgme_data_new_from_mem (&in, "Hallo Leute\n", 12, 0);
+    checkErr(err);
+
+    err = gpgme_data_new (&out);
+    checkErr(err);
+/*
+    `GPGME_SIG_MODE_NORMAL'
+          A normal signature is made, the output includes the plaintext
+          and the signature.
+
+    `GPGME_SIG_MODE_DETACH'
+          A detached signature is made.
+
+    `GPGME_SIG_MODE_CLEAR'
+          A clear text signature is made.  The ASCII armor and text
+          mode settings of the context are ignored.
+
+*/
+    //err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_NORMAL);
+    err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_CLEAR);
+    checkErr(err);
+    result = gpgme_op_sign_result (mCtx);
+
+    err = readToBuffer(out, outBuffer);
+
+    qDebug() << "sig: " << QString::fromUtf8(*outBuffer);
+
 }
 
+bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {
+
+    gpgme_error_t err;
+    gpgme_data_t in, out;
+    gpgme_sign_result_t result;
+
+    if (uidList->count() == 0) {
+        QMessageBox::critical(0, tr("No Key Selected"), tr("No Key Selected"));
+        return false;
+    }
+
+    // at start or end?
+    gpgme_signers_clear(mCtx);
+
+    //gpgme_encrypt_result_t e_result;
+    gpgme_key_t signers[uidList->count()+1];
+
+
+    // TODO: do we really need array? adding one key in loop should be ok
+    for (int i = 0; i < uidList->count(); i++) {
+        // the last 0 is for public keys, 1 would return private keys
+        gpgme_op_keylist_start(mCtx, uidList->at(i).toAscii().constData(), 0);
+        gpgme_op_keylist_next(mCtx, &signers[i]);
+        gpgme_op_keylist_end(mCtx);
+
+        err = gpgme_signers_add (mCtx, signers[i]);
+        checkErr(err);
+    }
+
+     err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
+     checkErr(err);
+     err = gpgme_data_new (&out);
+     checkErr(err);
+
+     err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_CLEAR);
+     checkErr (err);
+     result = gpgme_op_sign_result (mCtx);
+     err = readToBuffer(out, outBuffer);
+
+     gpgme_data_release(in);
+     gpgme_data_release(out);
+
+     return (err == GPG_ERR_NO_ERROR);
+}
 }
 
 

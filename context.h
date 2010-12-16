@@ -73,6 +73,7 @@ public:
     void verify(QByteArray in);
     void decryptVerify(QByteArray in);
     void sign(const QByteArray &inBuffer, QByteArray *outBuffer);
+    bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );
 
 signals:
     void keyDBChanged();
