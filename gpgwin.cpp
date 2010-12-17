@@ -224,6 +224,13 @@ void GpgWin::createActions()
     signAct->setToolTip(tr("Sign Message"));
     connect(signAct, SIGNAL(triggered()), this, SLOT(sign()));
 
+    verifyAct = new QAction(tr("&Verify"), this);
+    //signAct->setIcon(QIcon(iconPath + "encrypted.png"));
+    //signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E));
+    verifyAct->setToolTip(tr("Verify Message"));
+    connect(verifyAct, SIGNAL(triggered()), this, SLOT(verify()));
+
+
     /** Key Menu
      */
     importKeyFromFileAct = new QAction(tr("&File"), this);
@@ -295,6 +302,7 @@ void GpgWin::createMenus()
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
     cryptMenu->addAction(signAct);
+    cryptMenu->addAction(verifyAct);
     cryptMenu->addSeparator();
     cryptMenu->addAction(fileEncryptionAct);
 
@@ -718,6 +726,12 @@ void GpgWin::sign() {
         QString *tmp2 = new QString(*tmp);
         edit->setPlainText(*tmp2);
     }
+}
+
+void GpgWin::verify() {
+
+    mCtx->verify(edit->toPlainText().toUtf8());
+
 }
 
 void GpgWin::importKeyDialog()

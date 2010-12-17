@@ -497,8 +497,31 @@ void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByte
   * -> list of sigs
   * -> valid
   */
-void Context::verify(QByteArray in) {
+void Context::verify(QByteArray inBuffer) {
 
+    gpgme_data_t in;
+    gpgme_error_t err;
+    gpgme_signature_t sign;
+    gpgme_verify_result_t result;
+
+    err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
+    checkErr(err);
+
+    err = gpgme_op_verify (mCtx, in, NULL, in);
+    checkErr(err);
+
+    result = gpgme_op_verify_result (mCtx);
+
+    sign = result->signatures;
+
+    qDebug() << "sig summary: " <<  sign->summary;
+    qDebug() << "sig fingerprint: " <<  sign->fpr;
+    qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
+    qDebug() << "sig validity: " <<  sign->validity;
+    qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
+
+
+    /*
     static const char test_text1[] = "Just GNU it!\n";
     static const char test_sig1[] =
             "-----BEGIN PGP SIGNATURE-----\n"
@@ -520,7 +543,7 @@ void Context::verify(QByteArray in) {
     checkErr(err);
     err = gpgme_data_new_from_mem(&sig, test_sig1, strlen (test_sig1), 0);
     checkErr(err);
-
+*/
     /** gpgme_op_verify (gpgme_ctx_t CTX,
           gpgme_data_t SIG, gpgme_data_t SIGNED_TEXT,
           gpgme_data_t PLAIN)
@@ -532,7 +555,8 @@ If SIG is a detached
      PLAIN should be a writable data object
       *
       */
-    err = gpgme_op_verify (mCtx, sig, text, NULL);
+
+/*    err = gpgme_op_verify (mCtx, sig, text, NULL);
     result = gpgme_op_verify_result (mCtx);
 
     gpgme_signature_t sign;
@@ -574,7 +598,7 @@ If SIG is a detached
     qDebug() << "sig validity: " <<  sign->validity;
     qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
 
-
+*/
 
 }
 

@@ -82,6 +82,7 @@ public slots:
     void openTutorial();
     void checkAttachmentFolder();
     void sign();
+    void verify();
 //    void dropEvent(QDropEvent *event);
 
 private:
@@ -123,6 +124,7 @@ private:
     QAction *encryptAct;
     QAction *decryptAct;
     QAction *signAct;
+    QAction *verifyAct;
     QAction *importKeyDialogAct;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
