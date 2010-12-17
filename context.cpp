@@ -514,12 +514,14 @@ void Context::verify(QByteArray inBuffer) {
 
     sign = result->signatures;
 
-    qDebug() << "sig summary: " <<  sign->summary;
-    qDebug() << "sig fingerprint: " <<  sign->fpr;
-    qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
-    qDebug() << "sig validity: " <<  sign->validity;
-    qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
-
+    while (sign) {
+        qDebug() << "sig summary: " <<  sign->summary;
+        qDebug() << "sig fingerprint: " <<  sign->fpr;
+        qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
+        qDebug() << "sig validity: " <<  sign->validity;
+        qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
+        sign = sign->next;
+    }
 
     /*
     static const char test_text1[] = "Just GNU it!\n";
