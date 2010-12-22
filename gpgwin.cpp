@@ -32,7 +32,7 @@ GpgWin::GpgWin()
     QString appPath = qApp->applicationDirPath();
     iconPath = appPath + "/icons/";
 
-    edit = new QPlainTextEdit();
+    edit = new TextEdit();
     setCentralWidget(edit);
 //    setAcceptDrops(true);
 
@@ -69,6 +69,7 @@ GpgWin::GpgWin()
                 loadFile(args[1]);
         }
     }
+    setAcceptDrops(true);
 }
 
 void GpgWin::restoreSettings()
@@ -188,6 +189,10 @@ void GpgWin::createActions()
                            "clipboard"));
     connect(copyAct, SIGNAL(triggered()), edit, SLOT(copy()));
 
+    commentAct = new QAction(tr("Co&mment"), this);
+    commentAct->setToolTip(tr("Insert > in front of every line"));
+    connect(commentAct, SIGNAL(triggered()), edit, SLOT(comment()));
+
     selectallAct = new QAction(tr("Select &All"), this);
     selectallAct->setIcon(QIcon(iconPath + "edit.png"));
     selectallAct->setShortcut(QKeySequence::SelectAll);
@@ -295,6 +300,7 @@ void GpgWin::createMenus()
     editMenu->addAction(cutAct);
     editMenu->addAction(pasteAct);
     editMenu->addAction(selectallAct);
+    editMenu->addAction(commentAct);
     editMenu->addSeparator();
     editMenu->addAction(openSettingsAct);
 
@@ -795,7 +801,6 @@ void GpgWin::fileEncryption()
 void GpgWin::openSettingsDialog()
 {
     new SettingsDialog(this);
-//  restoreSettings();
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     this->setIconSize(iconSize);
@@ -803,4 +808,19 @@ void GpgWin::openSettingsDialog()
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     this->setToolButtonStyle(buttonStyle);
+}
+void GpgWin::dropEvent(QDropEvent* event)
+{
+    edit->setPlainText(event->mimeData()->text());
+    qDebug() << "drop event main";
+    //qDebug() << "hallo";
+//    event->acceptProposedAction();
+}
+
+void GpgWin::dragEnterEvent(QDragEnterEvent *event)
+{
+    //qDebug() << "hallo";
+    qDebug() << event->mimeData()->text();
+    if (event->mimeData()->hasFormat("text/plain"))
+        event->acceptProposedAction();
 }

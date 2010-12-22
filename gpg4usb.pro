@@ -25,7 +25,8 @@ HEADERS += attachments.h \
     keygenthread.h \
     keydetailsdialog.h \
     settingsdialog.h \
-    attachmenttablemodel.h
+    attachmenttablemodel.h \
+    textedit.h
 SOURCES += attachments.cpp \
     context.cpp \
     gpgwin.cpp \
@@ -37,7 +38,8 @@ SOURCES += attachments.cpp \
     keygenthread.cpp \
     keydetailsdialog.cpp \
     settingsdialog.cpp \
-    attachmenttablemodel.cpp
+    attachmenttablemodel.cpp \
+    textedit.cpp
 RC_FILE = gpg4usb.rc
 
 # comment out line below for static building

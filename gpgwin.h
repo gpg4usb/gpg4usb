@@ -27,6 +27,7 @@
 #include "attachments.h"
 #include "mime.h"
 #include "keymgmt.h"
+#include "textedit.h"
 
 class QMainWindow;
 class QPlainTextEdit;
@@ -61,6 +62,8 @@ public:
 
 protected:
     void closeEvent(QCloseEvent *event);
+    void dropEvent(QDropEvent* event);
+    void dragEnterEvent(QDragEnterEvent* event);
 
 public slots:
     void encrypt();
@@ -101,7 +104,7 @@ private:
     void parseMime(QByteArray *message);
     QString strippedName(const QString &fullFileName);
 
-    QPlainTextEdit *edit;
+    TextEdit *edit;
     QMenu *fileMenu;
     QMenu *editMenu;
     QMenu *cryptMenu;
@@ -132,6 +135,7 @@ private:
     QAction *appendSelectedKeysAct;
     QAction *openKeyManagementAct;
     QAction *copyAct;
+    QAction *commentAct;
     QAction *cutAct;
     QAction *pasteAct;
     QAction *selectallAct;
