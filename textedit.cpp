@@ -25,11 +25,8 @@ void TextEdit::dropEvent(QDropEvent* event)
 
 void TextEdit::comment()
 {
-    QString test=this->toPlainText();
-    qDebug() << "-------------";
-    qDebug() << test;
-    test.replace("\n","\n>",Qt::CaseSensitive);
-    test.insert(0,QString(">"));
-    qDebug() << "-------------";
-    qDebug() << test;
+    QString text=this->toPlainText();
+    text.replace("\n","\n> ",Qt::CaseSensitive);
+    text.insert(0,QString("> "));
+    this->setPlainText(text);
 }
