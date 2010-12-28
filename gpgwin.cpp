@@ -34,7 +34,6 @@ GpgWin::GpgWin()
 
     edit = new TextEdit();
     setCentralWidget(edit);
-//    setAcceptDrops(true);
 
     setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
@@ -69,7 +68,6 @@ GpgWin::GpgWin()
                 loadFile(args[1]);
         }
     }
-    setAcceptDrops(true);
 }
 
 void GpgWin::restoreSettings()
@@ -808,19 +806,4 @@ void GpgWin::openSettingsDialog()
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     this->setToolButtonStyle(buttonStyle);
-}
-void GpgWin::dropEvent(QDropEvent* event)
-{
-    edit->setPlainText(event->mimeData()->text());
-    qDebug() << "drop event main";
-    //qDebug() << "hallo";
-//    event->acceptProposedAction();
-}
-
-void GpgWin::dragEnterEvent(QDragEnterEvent *event)
-{
-    //qDebug() << "hallo";
-    qDebug() << event->mimeData()->text();
-    if (event->mimeData()->hasFormat("text/plain"))
-        event->acceptProposedAction();
 }

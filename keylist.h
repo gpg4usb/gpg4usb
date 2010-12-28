@@ -57,9 +57,11 @@ private:
     QTableWidget *mKeyList;
     QString iconPath;
     QMenu *popupMenu;
+    void dropAction();
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
-};
+    void dragEnterEvent(QDragEnterEvent *event);
+    void dropEvent(QDropEvent* event);};
 
 #endif // __KEYLIST_H__

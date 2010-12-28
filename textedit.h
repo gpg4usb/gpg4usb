@@ -12,8 +12,13 @@ class TextEdit : public QPlainTextEdit
     Q_OBJECT
 public:
     TextEdit(QWidget *parent=0);
+
+private:
+    bool isKey(QString key);
+
 public slots:
     void comment();
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent* event);

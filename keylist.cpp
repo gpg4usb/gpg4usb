@@ -58,13 +58,14 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
 
     popupMenu = new QMenu(this);
     connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
+    setAcceptDrops(true);
     refresh();
 }
 
 void KeyList::refresh()
 {
-	QStringList *keyList;
-	keyList = getChecked();
+    QStringList *keyList;
+    keyList = getChecked();
     // while filling the table, sort enabled causes errors
     mKeyList->setSortingEnabled(false);
     mKeyList->clearContents();
@@ -159,4 +160,40 @@ void KeyList::contextMenuEvent(QContextMenuEvent *event)
 void KeyList::addMenuAction(QAction *act)
 {
     popupMenu->addAction(act);
+}
+void KeyList::dropEvent(QDropEvent* event)
+{
+    //foreach (QUrl tmp, event->mimeData()->urls())
+    if (event->mimeData()->hasUrls())
+    {
+        foreach (QUrl tmp, event->mimeData()->urls())
+        {
+            QFile file;
+            file.setFileName(tmp.toLocalFile());
+            if (!file.open(QIODevice::ReadOnly)) {
+                qDebug() << tr("Couldn't Open File: ") + tmp.toString();
+            }
+            QByteArray inBuffer = file.readAll();
+            mCtx->importKey(inBuffer);
+
+            qDebug() << tmp.toString();
+        }
+    } else
+    {
+        QByteArray inBuffer(event->mimeData()->text().toUtf8());
+        mCtx->importKey(inBuffer);
+
+        qDebug() << event->mimeData()->text();
+    }
+
+}
+
+void KeyList::dragEnterEvent(QDragEnterEvent *event)
+{
+    event->acceptProposedAction();
+}
+
+void KeyList::dropAction()
+{
+    qDebug() << "own action";
 }
