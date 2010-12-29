@@ -150,7 +150,6 @@ void FileEncryptionDialog::executeAction()
     }
 
     QByteArray inBuffer = infile.readAll();
-
     QByteArray *outBuffer = new QByteArray();
 
     if (radioEnc->isChecked()) {
@@ -162,6 +161,16 @@ void FileEncryptionDialog::executeAction()
     }
 
     QFile outfile(outputFileEdit->text());
+    if (outfile.exists()){
+        QMessageBox::StandardButton ret;
+        ret = QMessageBox::warning(this, tr("File"),
+                                           tr("File exists! Do you want to overwrite it?"),
+                                           QMessageBox::Ok|QMessageBox::Cancel);
+        if (ret == QMessageBox::Cancel){
+            return;
+        }
+    }
+
     if (!outfile.open(QFile::WriteOnly)) {
         QMessageBox::warning(this, tr("File"),
                              tr("Cannot write file %1:\n%2.")
@@ -172,15 +181,8 @@ void FileEncryptionDialog::executeAction()
 
     QDataStream out(&outfile);
     out.writeRawData(outBuffer->data(), outBuffer->length());
-
-    QMessageBox::StandardButton ret;
-    ret = QMessageBox::warning(this, tr("File"),
-                                       tr("File exists! Do you want to overwrite it?"),
-                                       QMessageBox::Ok|QMessageBox::Cancel);
-    if (ret == QMessageBox::Ok){
-                accept();
-                QMessageBox::information(0, "Done", "Output saved to " + outputFileEdit->text());
-    }
+    QMessageBox::information(0, "Done", "Output saved to " + outputFileEdit->text());
+    accept();
 }
 
 void FileEncryptionDialog::showKeyList()
