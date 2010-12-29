@@ -29,7 +29,7 @@ void TextEdit::dropEvent(QDropEvent* event)
     //event->acceptProposedAction();
 }
 
-void TextEdit::comment()
+void TextEdit::quote()
 {
     QString text=this->toPlainText();
     text.replace("\n","\n> ",Qt::CaseSensitive);

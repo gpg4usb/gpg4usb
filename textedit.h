@@ -17,7 +17,7 @@ private:
     bool isKey(QString key);
 
 public slots:
-    void comment();
+    void quote();
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event);

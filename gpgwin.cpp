@@ -187,9 +187,10 @@ void GpgWin::createActions()
                            "clipboard"));
     connect(copyAct, SIGNAL(triggered()), edit, SLOT(copy()));
 
-    commentAct = new QAction(tr("Co&mment"), this);
-    commentAct->setToolTip(tr("Insert > in front of every line"));
-    connect(commentAct, SIGNAL(triggered()), edit, SLOT(comment()));
+    quoteAct = new QAction(tr("&Quote"), this);
+    quoteAct->setIcon(QIcon(iconPath + "quote.png"));
+    quoteAct->setToolTip(tr("Insert > in front of every line"));
+    connect(quoteAct, SIGNAL(triggered()), edit, SLOT(quote()));
 
     selectallAct = new QAction(tr("Select &All"), this);
     selectallAct->setIcon(QIcon(iconPath + "edit.png"));
@@ -298,13 +299,14 @@ void GpgWin::createMenus()
     editMenu->addAction(cutAct);
     editMenu->addAction(pasteAct);
     editMenu->addAction(selectallAct);
-    editMenu->addAction(commentAct);
+    editMenu->addAction(quoteAct);
     editMenu->addSeparator();
     editMenu->addAction(openSettingsAct);
 
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
+    cryptMenu->addSeparator();
     cryptMenu->addAction(signAct);
     cryptMenu->addAction(verifyAct);
     cryptMenu->addSeparator();
@@ -345,6 +347,7 @@ void GpgWin::createToolBars()
     editToolBar->addAction(copyAct);
     editToolBar->addAction(pasteAct);
     editToolBar->addAction(selectallAct);
+    editToolBar->addAction(quoteAct);
     viewMenu->addAction(editToolBar->toggleViewAction());
 }
 

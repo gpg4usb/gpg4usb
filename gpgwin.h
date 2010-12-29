@@ -133,7 +133,7 @@ private:
     QAction *appendSelectedKeysAct;
     QAction *openKeyManagementAct;
     QAction *copyAct;
-    QAction *commentAct;
+    QAction *quoteAct;
     QAction *cutAct;
     QAction *pasteAct;
     QAction *selectallAct;
