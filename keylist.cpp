@@ -170,7 +170,6 @@ void KeyList::dropEvent(QDropEvent* event)
     QDialog *dialog = new QDialog();
 
     dialog->setWindowTitle(tr("Import Keys"));
-    dialog->setModal(true);
     QLabel *label;
     label = new QLabel(tr("Import keys from dropped files, if possible?"));
 
@@ -193,17 +192,17 @@ void KeyList::dropEvent(QDropEvent* event)
     if (settings.value("general/confirmImportKeys",Qt::Checked).toBool())
     {
         dialog->exec();
+        if (dialog->result() == QDialog::Rejected) {
+            return;
+        }
+        if (checkBox->isChecked()){
+           settings.setValue("general/confirmImportKeys", false);
+        } else {
+            settings.setValue("general/confirmImportKeys", true);
+
+        }
     }
 
-    if (dialog->result() == QDialog::Rejected) {
-        return;
-    }
-
-    if (checkBox->isChecked()){
-        settings.setValue("general/confirmImportKeys", Qt::Unchecked);
-    } else {
-        settings.setValue("general/confirmImportKeys", Qt::Checked);
-    }
 
     if (event->mimeData()->hasUrls())
     {
@@ -216,14 +215,10 @@ void KeyList::dropEvent(QDropEvent* event)
                 }
                 QByteArray inBuffer = file.readAll();
                 mCtx->importKey(inBuffer);
-
-                qDebug() << tmp.toString();
         }
    } else  {
             QByteArray inBuffer(event->mimeData()->text().toUtf8());
             mCtx->importKey(inBuffer);
-
-            qDebug() << event->mimeData()->text();
   }
 
 
@@ -235,7 +230,3 @@ void KeyList::dragEnterEvent(QDragEnterEvent *event)
     event->acceptProposedAction();
 }
 
-void KeyList::dropAction()
-{
-    qDebug() << "own action";
-}
