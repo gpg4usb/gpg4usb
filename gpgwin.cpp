@@ -306,9 +306,9 @@ void GpgWin::createMenus()
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
-    cryptMenu->addSeparator();
+    /*cryptMenu->addSeparator();
     cryptMenu->addAction(signAct);
-    cryptMenu->addAction(verifyAct);
+    cryptMenu->addAction(verifyAct);*/
     cryptMenu->addSeparator();
     cryptMenu->addAction(fileEncryptionAct);
 
