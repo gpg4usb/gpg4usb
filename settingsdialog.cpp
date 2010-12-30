@@ -97,6 +97,15 @@ class QGroupBox;
     saveCheckedKeysBox->setLayout(saveCheckedKeysBoxLayout);
 
     /*****************************************
+     * Key-Impport-Confirmation Box
+     *****************************************/
+    QGroupBox *importConfirmationBox = new QGroupBox(tr("Confirm key import"));
+    QHBoxLayout *importConfirmationBoxLayout = new QHBoxLayout();
+    importConfirmationCheckBox= new QCheckBox(tr("Ask for confirmation to import, if keyfiles are dropped on the keylist."), this);
+    importConfirmationBoxLayout->addWidget(importConfirmationCheckBox);
+    importConfirmationBox->setLayout(importConfirmationBoxLayout);
+
+    /*****************************************
      * Language Select Box
      *****************************************/
     QGroupBox *langBox = new QGroupBox(tr("Language"));
@@ -115,8 +124,9 @@ class QGroupBox;
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(rememberPasswordBox);
-        mainLayout->addWidget(saveCheckedKeysBox);
-        mainLayout->addWidget(langBox);
+    mainLayout->addWidget(saveCheckedKeysBox);
+    mainLayout->addWidget(importConfirmationBox);
+    mainLayout->addWidget(langBox);
     setSettings();
     mainLayout->addStretch(1);
     setLayout(mainLayout);
@@ -136,11 +146,15 @@ class QGroupBox;
      // Remember Password
      if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
 
-     //Language setting
+     // Language setting
      QString langKey = settings.value("int/lang").toString();
      QString langValue = lang.value(langKey);
      if (langKey != "") {
         langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
+    }
+    // Ask for confirmation to import, if keyfiles are dropped on keylist
+     if (settings.value("general/confirmImportKeys",Qt::Checked).toBool()){
+        importConfirmationCheckBox->setCheckState(Qt::Checked);
     }
  }
 
@@ -155,6 +169,7 @@ class QGroupBox;
      // TODO: clear passwordCache instantly on unset rememberPassword
      settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
      settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
+     settings.setValue("general/confirmImportKeys", importConfirmationCheckBox->isChecked());
  }
 
 // http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3

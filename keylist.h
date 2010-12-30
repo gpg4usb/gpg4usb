@@ -39,10 +39,10 @@ class KeyList : public QWidget
     Q_OBJECT
 
 public:
+    KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent = 0);
     void setColumnWidth(int row, int size);
     void addMenuAction(QAction *act);
 
-    KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent = 0);
     QStringList *getChecked();
     QStringList *getPrivateChecked();
     void setChecked(QStringList *keyIds);

@@ -189,7 +189,7 @@ void GpgWin::createActions()
 
     quoteAct = new QAction(tr("&Quote"), this);
     quoteAct->setIcon(QIcon(iconPath + "quote.png"));
-    quoteAct->setToolTip(tr("Insert > in front of every line"));
+    quoteAct->setToolTip(tr("Insert \">\" in front of every line"));
     connect(quoteAct, SIGNAL(triggered()), edit, SLOT(quote()));
 
     selectallAct = new QAction(tr("Select &All"), this);

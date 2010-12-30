@@ -32,7 +32,9 @@ attachments:
 	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - update gpgme-library
 - clean header if quoted printable decoded
-
+- add quote button
+- fix overwrite file bug in file encryption [DONE]
+- add drag'n'drop features for keys [DONE]
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files

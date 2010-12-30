@@ -47,7 +47,9 @@
 
  private:
      QCheckBox *rememberPasswordCheckBox;
+     QCheckBox *importConfirmationcheckBox;
      QCheckBox *saveCheckedKeysCheckBox;
+     QCheckBox *importConfirmationCheckBox;
      QComboBox *langSelectBox;
      QHash<QString, QString> lang;
 

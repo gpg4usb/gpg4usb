@@ -19,6 +19,7 @@
  *      MA 02110-1301, USA.
  */
 
+
 #include "keylist.h"
 
 KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
@@ -163,28 +164,69 @@ void KeyList::addMenuAction(QAction *act)
 }
 void KeyList::dropEvent(QDropEvent* event)
 {
-    //foreach (QUrl tmp, event->mimeData()->urls())
+//    importKeyDialog();
+    QSettings settings;
+
+    QDialog *dialog = new QDialog();
+
+    dialog->setWindowTitle(tr("Import Keys"));
+    dialog->setModal(true);
+    QLabel *label;
+    label = new QLabel(tr("Import keys from dropped files, if possible?"));
+
+    // "always import keys"-CheckBox
+    QCheckBox *checkBox = new QCheckBox(tr("Don't Ask Me Again."));
+    if (settings.value("general/confirmImportKeys").toBool()) checkBox->setCheckState(Qt::Unchecked);
+
+    // Buttons for ok and cancel
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    connect(buttonBox, SIGNAL(accepted()), dialog, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), dialog, SLOT(reject()));
+
+    QVBoxLayout *vbox = new QVBoxLayout();
+    vbox->addWidget(label);
+    vbox->addWidget(checkBox);
+    vbox->addWidget(buttonBox);
+
+    dialog->setLayout(vbox);
+
+    if (settings.value("general/confirmImportKeys",Qt::Checked).toBool())
+    {
+        dialog->exec();
+    }
+
+    if (dialog->result() == QDialog::Rejected) {
+        return;
+    }
+
+    if (checkBox->isChecked()){
+        settings.setValue("general/confirmImportKeys", Qt::Unchecked);
+    } else {
+        settings.setValue("general/confirmImportKeys", Qt::Checked);
+    }
+
     if (event->mimeData()->hasUrls())
     {
         foreach (QUrl tmp, event->mimeData()->urls())
         {
-            QFile file;
-            file.setFileName(tmp.toLocalFile());
-            if (!file.open(QIODevice::ReadOnly)) {
-                qDebug() << tr("Couldn't Open File: ") + tmp.toString();
-            }
-            QByteArray inBuffer = file.readAll();
+                QFile file;
+                file.setFileName(tmp.toLocalFile());
+                if (!file.open(QIODevice::ReadOnly)) {
+                    qDebug() << tr("Couldn't Open File: ") + tmp.toString();
+                }
+                QByteArray inBuffer = file.readAll();
+                mCtx->importKey(inBuffer);
+
+                qDebug() << tmp.toString();
+        }
+   } else  {
+            QByteArray inBuffer(event->mimeData()->text().toUtf8());
             mCtx->importKey(inBuffer);
 
-            qDebug() << tmp.toString();
-        }
-    } else
-    {
-        QByteArray inBuffer(event->mimeData()->text().toUtf8());
-        mCtx->importKey(inBuffer);
+            qDebug() << event->mimeData()->text();
+  }
 
-        qDebug() << event->mimeData()->text();
-    }
+
 
 }
 
