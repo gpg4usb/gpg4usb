@@ -31,10 +31,21 @@ void TextEdit::dropEvent(QDropEvent* event)
 
 void TextEdit::quote()
 {
-    QString text=this->toPlainText();
-    text.replace("\n","\n> ",Qt::CaseSensitive);
-    text.insert(0,QString("> "));
-    this->setPlainText(text);
+
+    QTextCursor cursor(this->document());
+
+    // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
+    cursor.beginEditBlock();
+    cursor.setPosition(0);
+    cursor.insertText("> ");
+    while (!cursor.isNull() && !cursor.atEnd()) {
+        cursor.movePosition(QTextCursor::EndOfLine);
+        cursor.movePosition(QTextCursor::NextCharacter);
+        if(!cursor.atEnd())
+            cursor.insertText("> ");
+    }
+    cursor.endEditBlock();
+
 }
 
 bool TextEdit::isKey(QString key)
