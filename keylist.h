@@ -29,7 +29,6 @@ class QVBoxLayout;
 class QTableWidgetItem;
 class QLabel;
 class QMessageBox;
-class QtGui;
 class QTableWidget;
 class QPushButton;
 class QMenu;

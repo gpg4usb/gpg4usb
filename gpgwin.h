@@ -73,11 +73,7 @@ public slots:
     //void deleteSelectedKeys();
     void appendSelectedKeys();
     void openKeyManagement();
-    void print();
     void about();
-    bool save();
-    bool saveAs();
-    void open();
     void fileEncryption();
     void openSettingsDialog();
     void openTutorial();
@@ -92,15 +88,10 @@ private:
     void createToolBars();
     void createStatusBar();
     void createDockWindows();
-    bool saveFile(const QString &fileName);
-    void loadFile(const QString &fileName);
-    void setCurrentFile(const QString &fileName);
-    bool maybeSave();
     void restoreSettings();
     void saveSettings();
     void preventNoDataErr(QByteArray *in);
     void parseMime(QByteArray *message);
-    QString strippedName(const QString &fullFileName);
 
     TextEdit *edit;
     QMenu *fileMenu;

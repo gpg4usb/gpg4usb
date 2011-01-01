@@ -3,21 +3,37 @@
 
 #include <QPlainTextEdit>
 
-class QtGui;
-class QApplication;
+#include <QtGui>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QFileInfo>
+#include <QApplication>
+#include <QFile>
+
 class QWidget;
+class QString;
 
 class TextEdit : public QPlainTextEdit
 {
     Q_OBJECT
 public:
     TextEdit(QWidget *parent=0);
-
-private:
-    bool isKey(QString key);
+    void setCurrentFile(const QString &fileName);
+    void loadFile(const QString &fileName);
+    bool maybeSave();
 
 public slots:
     void quote();
+    bool save();
+    bool saveAs();
+    void open();
+    void print();
+
+private:
+    bool isKey(QString key);
+    bool saveFile(const QString &fileName);
+    QString strippedName(const QString &fullFileName);
+    QString curFile;
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event);

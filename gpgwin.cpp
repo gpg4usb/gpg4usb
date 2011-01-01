@@ -55,7 +55,7 @@ GpgWin::GpgWin()
     createToolBars();
     createStatusBar();
     createDockWindows();
-    setCurrentFile("");
+    edit->setCurrentFile("");
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
     restoreSettings();
@@ -65,7 +65,7 @@ GpgWin::GpgWin()
     if (args.size() > 1) {
         if (!args[1].startsWith("-")) {
             if (QFile::exists(args[1]))
-                loadFile(args[1]);
+                edit->loadFile(args[1]);
         }
     }
 }
@@ -129,25 +129,25 @@ void GpgWin::createActions()
     openAct->setIcon(QIcon(iconPath + "fileopen.png"));
     openAct->setShortcut(QKeySequence::Open);
     openAct->setToolTip(tr("Open an existing file"));
-    connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
+    connect(openAct, SIGNAL(triggered()), edit, SLOT(open()));
 
     saveAct = new QAction(tr("&Save"), this);
     saveAct->setIcon(QIcon(iconPath + "filesave.png"));
     saveAct->setShortcut(QKeySequence::Save);
     saveAct->setToolTip(tr("Save the current File"));
-    connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
+    connect(saveAct, SIGNAL(triggered()), edit, SLOT(save()));
 
     saveAsAct = new QAction(tr("Save &As"), this);
     saveAsAct->setIcon(QIcon(iconPath + "filesaveas.png"));
     saveAsAct->setShortcut(QKeySequence::SaveAs);
     saveAsAct->setToolTip(tr("Save the current File as..."));
-    connect(saveAsAct, SIGNAL(triggered()), this, SLOT(saveAs()));
+    connect(saveAsAct, SIGNAL(triggered()), edit, SLOT(saveAs()));
 
     printAct = new QAction(tr("&Print"), this);
     printAct->setIcon(QIcon(iconPath + "fileprint.png"));
     printAct->setShortcut(QKeySequence::Print);
     printAct->setToolTip(tr("Print Document"));
-    connect(printAct, SIGNAL(triggered()), this, SLOT(print()));
+    connect(printAct, SIGNAL(triggered()), edit, SLOT(print()));
 
     quitAct = new QAction(tr("&Quit"), this);
 //    quitAct->setShortcut(QKeySequence::Quit);
@@ -397,7 +397,7 @@ void GpgWin::closeEvent(QCloseEvent *event)
 {
     /** ask to save changes, if text modified
      */
-    if (maybeSave()) {
+    if (edit->maybeSave()) {
         saveSettings();
         event->accept();
     } else {
@@ -407,122 +407,6 @@ void GpgWin::closeEvent(QCloseEvent *event)
     // clear password from memory
     mCtx->clearPasswordCache();
 
-}
-
-void GpgWin::open()
-{
-    if (maybeSave()) {
-        QString fileName = QFileDialog::getOpenFileName(this);
-        if (!fileName.isEmpty())
-            loadFile(fileName);
-    }
-}
-
-bool GpgWin::save()
-{
-    if (curFile.isEmpty()) {
-        return saveAs();
-    } else {
-        return saveFile(curFile);
-    }
-}
-
-bool GpgWin::saveAs()
-{
-    QString fileName = QFileDialog::getSaveFileName(this);
-    if (fileName.isEmpty())
-        return false;
-
-    return saveFile(fileName);
-}
-
-void GpgWin::loadFile(const QString &fileName)
-{
-    QFile file(fileName);
-    if (!file.open(QFile::ReadOnly | QFile::Text)) {
-        QMessageBox::warning(this, tr("Application"),
-                             tr("Cannot read file %1:\n%2.")
-                             .arg(fileName)
-                             .arg(file.errorString()));
-        return;
-    }
-
-    QTextStream in(&file);
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    edit->setPlainText(in.readAll());
-    QApplication::restoreOverrideCursor();
-
-    setCurrentFile(fileName);
-    statusBar()->showMessage(tr("File loaded"), 2000);
-}
-
-void GpgWin::setCurrentFile(const QString &fileName)
-{
-    curFile = fileName;
-    edit->document()->setModified(false);
-    setWindowModified(false);
-
-    QString shownName;
-    if (curFile.isEmpty())
-        shownName = "untitled.txt";
-    else
-        shownName = strippedName(curFile);
-
-    setWindowTitle(tr("%1[*] - %2").arg(shownName).arg(qApp->applicationName()));
-}
-
-QString GpgWin::strippedName(const QString &fullFileName)
-{
-    return QFileInfo(fullFileName).fileName();
-}
-
-bool GpgWin::maybeSave()
-{
-    if (edit->document()->isModified()) {
-        QMessageBox::StandardButton ret;
-        ret = QMessageBox::warning(this, tr("Application"),
-                                   tr("The document has been modified.\nDo you want to save your changes?"),
-                                   QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
-        if (ret == QMessageBox::Save)
-            return save();
-        else if (ret == QMessageBox::Cancel)
-            return false;
-    }
-    return true;
-}
-
-bool GpgWin::saveFile(const QString &fileName)
-{
-    QFile file(fileName);
-    if (!file.open(QFile::WriteOnly | QFile::Text)) {
-        QMessageBox::warning(this, tr("File"),
-                             tr("Cannot write file %1:\n%2.")
-                             .arg(fileName)
-                             .arg(file.errorString()));
-        return false;
-    }
-    QTextStream out(&file);
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    out << edit->toPlainText();
-    QApplication::restoreOverrideCursor();
-    statusBar()->showMessage(tr("Saved '%1'").arg(fileName), 2000);
-    return true;
-}
-
-void GpgWin::print()
-{
-#ifndef QT_NO_PRINTER
-    QTextDocument *document = edit->document();
-    QPrinter printer;
-
-    QPrintDialog *dlg = new QPrintDialog(&printer, this);
-    if (dlg->exec() != QDialog::Accepted)
-        return;
-
-    document->print(&printer);
-
-    statusBar()->showMessage(tr("Ready"), 2000);
-#endif
 }
 
 void GpgWin::about()
