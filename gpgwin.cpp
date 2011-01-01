@@ -437,16 +437,17 @@ void GpgWin::encrypt()
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-    if (mCtx->encrypt(uidList, edit->toPlainText().toUtf8(), tmp)) {
+//    if (mCtx->encrypt(uidList, edit.curTextPage.toPlainText().toUtf8(), tmp)) {
+    if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
-        edit->setPlainText(*tmp2);
+        edit->curTextPage()->setPlainText(*tmp2);
     }
 }
 
 void GpgWin::decrypt()
 {
     QByteArray *decrypted = new QByteArray();
-    QByteArray text = edit->toPlainText().toAscii(); // TODO: toUtf8() here?
+    QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
     mCtx->decrypt(text, decrypted);
     if (!decrypted->isEmpty()) {
@@ -479,7 +480,7 @@ void GpgWin::decrypt()
             }
         }
 
-        edit->setPlainText(QString::fromUtf8(*decrypted));
+        edit->curTextPage()->setPlainText(QString::fromUtf8(*decrypted));
         //edit->setPlainText(*decrypted);
     }
 }
@@ -566,7 +567,7 @@ void GpgWin::preventNoDataErr(QByteArray *in)
 
 void GpgWin::importKeyFromEdit()
 {
-    mCtx->importKey(edit->toPlainText().toAscii());
+    mCtx->importKey(edit->curTextPage()->toPlainText().toAscii());
 }
 
 void GpgWin::importKeyFromClipboard()
@@ -613,15 +614,15 @@ void GpgWin::sign() {
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-    if (mCtx->sign(uidList, edit->toPlainText().toUtf8(), tmp)) {
+    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
-        edit->setPlainText(*tmp2);
+        edit->curTextPage()->setPlainText(*tmp2);
     }
 }
 
 void GpgWin::verify() {
 
-    mCtx->verify(edit->toPlainText().toUtf8());
+    mCtx->verify(edit->curTextPage()->toPlainText().toUtf8());
 
 }
 
@@ -673,7 +674,7 @@ void GpgWin::appendSelectedKeys()
     QByteArray *keyArray = new QByteArray();
 
     mCtx->exportKeys(mKeyList->getSelected(), keyArray);
-    edit->appendPlainText(*keyArray);
+    edit->curTextPage()->appendPlainText(*keyArray);
 }
 
 void GpgWin::fileEncryption()

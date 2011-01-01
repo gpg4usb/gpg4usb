@@ -30,35 +30,55 @@
 #include <QFileInfo>
 #include <QApplication>
 #include <QFile>
+#include "editorpage.h"
 
 class QWidget;
 class QString;
+class QTabWidget;
 
-class TextEdit : public QPlainTextEdit
+class TextEdit : public QWidget
 {
     Q_OBJECT
 public:
-    TextEdit(QWidget *parent=0);
+    TextEdit();
     void setCurrentFile(const QString &fileName);
     void loadFile(const QString &fileName);
     bool maybeSave();
+    QPlainTextEdit* curTextPage();
 
 public slots:
     void quote();
-    bool save();
+    void save();
     bool saveAs();
     void open();
     void print();
 
 private:
     bool isKey(QString key);
-    bool saveFile(const QString &fileName);
     QString strippedName(const QString &fullFileName);
     QString curFile;
+    int countPage;
+    QTabWidget *tabWidget;
+   bool maybeSaveFile();
+    EditorPage *curPage();
+    void setCursorPosition();
+
+private slots:
+    void removeTab(int index);
+    void cut();
+    void copy();
+    void paste();
+    void undo();
+    void redo();
+    void selectAll();
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent* event);
+    void newFile();
+    bool saveFile(const QString &fileName);
+    bool closeFile();
+
 
 };
 #endif // TEXTEDIT
