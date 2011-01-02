@@ -79,7 +79,7 @@ void TextEdit::newTab()
     EditorPage *page = new EditorPage();
     tabWidget->addTab(page, header);
     tabWidget->setCurrentIndex(tabWidget->count() - 1);
-
+    page->getTextPage()->setFocus();
     connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
 //    setCursorPosition();
  }
@@ -102,13 +102,13 @@ void TextEdit::open()
                 QApplication::setOverrideCursor(Qt::WaitCursor);
                 page->getTextPage()->setPlainText(in.readAll());
                 page->setFilePath(fileName);
-
                 QTextDocument *document = page->getTextPage()->document();
                 document->setModified(false);
 
                 tabWidget->addTab(page, strippedName(fileName));
                 tabWidget->setCurrentIndex(tabWidget->count() - 1);
                 QApplication::restoreOverrideCursor();
+                page->getTextPage()->setFocus();
                 connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
                 //       setCursorPosition();
                 //enableAction(true)
@@ -426,3 +426,30 @@ void TextEdit::showModified() {
     else
         tabWidget->setTabText(index, title.remove(0,2));
 }
+
+void TextEdit::switchTabUp() {
+    if (tabWidget->count() > 1)
+    {
+        if (tabWidget->count() == tabWidget->currentIndex()+1){
+            tabWidget->setCurrentIndex(0);
+        }
+        else
+        {
+            tabWidget->setCurrentIndex(tabWidget->currentIndex()+1);
+        }
+    }
+}
+
+void TextEdit::switchTabDown() {
+    if (tabWidget->count() > 1)
+    {
+        if (tabWidget->currentIndex()==1) {
+            tabWidget->setCurrentIndex(tabWidget->count()-1);
+        }
+        else
+        {
+            tabWidget->setCurrentIndex(tabWidget->currentIndex()-1);
+        }
+    }
+}
+

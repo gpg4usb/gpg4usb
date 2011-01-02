@@ -32,12 +32,12 @@ GpgWin::GpgWin()
     QString appPath = qApp->applicationDirPath();
     iconPath = appPath + "/icons/";
 
-    edit = new TextEdit();
-    setCentralWidget(edit);
 
     setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
 
+    edit = new TextEdit();
+    setCentralWidget(edit);
 
     /* the list of Keys available*/
     mKeyList = new KeyList(mCtx, iconPath);
@@ -61,7 +61,9 @@ GpgWin::GpgWin()
 
     // open filename if provided as first command line parameter
     QStringList args = qApp->arguments();
+    qDebug() << args.size();
     if (args.size() > 1) {
+
         if (!args[1].startsWith("-")) {
             if (QFile::exists(args[1]))
                 edit->loadFile(args[1]);
@@ -288,6 +290,19 @@ void GpgWin::createActions()
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
     appendSelectedKeysAct->setToolTip(tr("Append The Selected Keys To Text in Editor"));
     connect(appendSelectedKeysAct, SIGNAL(triggered()), this, SLOT(appendSelectedKeys()));
+
+
+    /** Key-Shortcuts for Tab-Switchung-Action
+     */
+    switchTabUpAct = new QAction(this);
+    switchTabUpAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Tab));
+    connect(switchTabUpAct, SIGNAL(triggered()), edit, SLOT(switchTabUp()));
+    this->addAction(switchTabUpAct);
+
+    switchTabDownAct = new QAction(this);
+    switchTabDownAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Shift+ Qt::Key_Tab));
+    connect(switchTabDownAct, SIGNAL(triggered()), edit, SLOT(switchTabDown()));
+    this->addAction(switchTabDownAct);
 }
 
 void GpgWin::createMenus()

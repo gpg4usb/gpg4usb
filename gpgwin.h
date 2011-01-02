@@ -109,6 +109,8 @@ private:
     QDialog *genkeyDialog;
 
     QAction *newTabAct;
+    QAction *switchTabUpAct;
+    QAction *switchTabDownAct;
     QAction *openAct;
     QAction *saveAct;
     QAction *saveAsAct;

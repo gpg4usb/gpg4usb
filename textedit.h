@@ -54,6 +54,8 @@ public slots:
     void newTab();
     void showModified();
     void closeTab();
+    void switchTabUp();
+    void switchTabDown();
 
 private:
     QString strippedName(const QString &fullFileName);
