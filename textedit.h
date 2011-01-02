@@ -53,6 +53,7 @@ public slots:
     void open();
     void print();
     void newTab();
+    void showModified();
 
 private:
     bool isKey(QString key);

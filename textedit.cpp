@@ -77,9 +77,11 @@ void TextEdit::newTab()
     QString header = "new " +
                      QString::number(++countPage);
 
-    tabWidget->addTab(new EditorPage(), header);
+    EditorPage *page = new EditorPage();
+    tabWidget->addTab(page, header);
     tabWidget->setCurrentIndex(tabWidget->count() - 1);
 
+    connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
 //    setCursorPosition();
  }
 
@@ -91,11 +93,12 @@ void TextEdit::open()
     setCurrentFile(fileName);
     if (!fileName.isEmpty())
     {
-        EditorPage *page = new EditorPage(fileName);
         QFile file(fileName);
 
         if (file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
+            EditorPage *page = new EditorPage(fileName);
+
             QTextStream in(&file);
 			QApplication::setOverrideCursor(Qt::WaitCursor);
 			page->getTextPage()->setPlainText(in.readAll());
@@ -106,9 +109,11 @@ void TextEdit::open()
 
             tabWidget->addTab(page, strippedName(fileName));
             tabWidget->setCurrentIndex(tabWidget->count() - 1);
-			QApplication::restoreOverrideCursor();
+        QApplication::restoreOverrideCursor();
+            connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
            //       setCursorPosition();
-            //enableAction(true);
+            //enableAction(true)
+
         }
         else
         {
@@ -430,3 +435,13 @@ void TextEdit::print()
 #endif
 }
 
+/** put a * in front of every modified document tab
+  */
+void TextEdit::showModified() {
+    int index=tabWidget->currentIndex();
+    QString title= tabWidget->tabText(index);
+    if(curTextPage()->document()->isModified())
+        tabWidget->setTabText(index, title.prepend("* "));
+    else
+        tabWidget->setTabText(index, title.remove(0,2));
+}

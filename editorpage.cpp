@@ -32,7 +32,7 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
     mainLayout = new QHBoxLayout();
     mainLayout->setSpacing(0);
     mainLayout->addWidget(textPage);
-    
+    mainLayout->setContentsMargins(0,0,0,0);
     setLayout(mainLayout);
     setAttribute(Qt::WA_DeleteOnClose);
 }
