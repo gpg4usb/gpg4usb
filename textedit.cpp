@@ -42,7 +42,7 @@ TextEdit::TextEdit()
 
     connect(tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(removeTab(int)));
 //    connect(tabWidget, SIGNAL(currentChanged(int)), this, SLOT(curSyntaxHiglight()));
-    newFile();
+    newTab();
     setAcceptDrops(true);
 }
 
@@ -72,7 +72,7 @@ TextEdit::TextEdit()
     }
 }
 */
-void TextEdit::newFile()
+void TextEdit::newTab()
 {
     QString header = "new " +
                      QString::number(++countPage);
@@ -89,7 +89,6 @@ void TextEdit::open()
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"),
                                                     QDir::currentPath());
     setCurrentFile(fileName);
-
     if (!fileName.isEmpty())
     {
         EditorPage *page = new EditorPage(fileName);
@@ -100,6 +99,7 @@ void TextEdit::open()
             QTextStream in(&file);
 			QApplication::setOverrideCursor(Qt::WaitCursor);
 			page->getTextPage()->setPlainText(in.readAll());
+			page->setFilePath(fileName);
 
             QTextDocument *document = page->getTextPage()->document();
             document->setModified(false);
@@ -124,18 +124,14 @@ void TextEdit::open()
 void TextEdit::save()
 {
     QString fileName = curPage()->getFilePath();
+	qDebug() <<fileName;
 
-    // åñëè òåêóùàÿ ñòðàíèöà íå ñîäåðæèò
-    // ïóòè ê ôàéëó òî
     if (fileName.isEmpty())
     {
-        // ñîõðàíÿåì åå ïîä íîâûì èìåíåì
         saveAs();
     }
     else
     {
-        // èíà÷å ñîõðàíÿåì ôàéë
-        // ïîä òåêóùåì èìåíåì
         saveFile(fileName);
     }
 }
@@ -149,32 +145,31 @@ bool TextEdit::saveFile(const QString &fileName)
     }
 
 
-    QFile textFile(fileName);
+    QFile file(fileName);
 
-    // åñëè óäàëîñü îòêðûòü ôàéë òî
-    if (textFile.open(QIODevice::WriteOnly | QIODevice::Text))
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
-        QTextStream outputStream(&textFile);
+        QTextStream outputStream(&file);
         EditorPage *page = curPage();
 
-        // çàïèñûâàåì â íåãî âåñü òåêñò,
-        // êîòîðûé áûë íà ñòðàíèöå
         outputStream << page->getTextPage()->toPlainText();
 
-        // ïîìå÷àåì äîêóìåíò ÷òî îí íå èçìåíÿëñÿ
         QTextDocument *document = page->getTextPage()->document();
         document->setModified(false);
 
         int curIndex = tabWidget->currentIndex();
         tabWidget->setTabText(curIndex, strippedName(fileName));
-
+		page->setFilePath(fileName);
   //      statusBar()->showMessage(tr("File saved"), 2000);
 
         return true;
     }
     else
     {
-    //    statusBar()->showMessage(tr("Error save file"), 2000);
+        QMessageBox::warning(this, tr("File"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(fileName)
+                             .arg(file.errorString()));
 
         return false;
     }
@@ -278,7 +273,6 @@ bool TextEdit::maybeSave()
 {
     EditorPage *page = curPage();
 
-    // åñëè íå îñòàëîñü íè îäíîé çàêëàäêè òî
     if (page == 0)
     {
         return false;
@@ -286,33 +280,27 @@ bool TextEdit::maybeSave()
 
     QTextDocument *document = page->getTextPage()->document();
 
-    // åñëè áûëè èçìåíåíèÿ â òåêñòå òî
     if (document->isModified())
     {
-        int result = QMessageBox::information(this, tr("Save"),tr("Save file ?"),
-                                              QMessageBox::Yes, QMessageBox::No,
-                                              QMessageBox::Cancel);
+        QString filePath = page->getFilePath();
+        QMessageBox::StandardButton result;
 
+        result = QMessageBox::warning(this, tr("Application"),
+                                   tr("The document has been modified:")+"\n"+filePath+"\n\n"+tr("Do you want to save your changes?"),
+                                   QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
 
-        if (result == QMessageBox::Yes)
+        if (result == QMessageBox::Save)
         {
-            // ïîëó÷àåì ïóòü äî ôàéëà êîòîðûé õðàíèò êàæäàÿ ñòðàíèöà
-            QString filePath = page->getFilePath();
-
-            // åñëè ýòî íîâûé ôàéë è ïóòè ó íåãî íåò, òî
             if (filePath == "")
             {
-                // äàåì ïîëüçîâàòåëþ ñîõðàíèòü åãî
-                // ïîä íîâûì èìåíåì
                 return saveAs();
             }
             else
             {
-                // èíà÷å ñîõðàíÿåì ñ òåêóùèì èìåíåì
                 return saveFile(filePath);
             }
         }
-        else if (result == QMessageBox::No)
+        else if (result == QMessageBox::Discard)
         {
             return true;
         }
@@ -401,7 +389,7 @@ void TextEdit::loadFile(const QString &fileName)
     QApplication::setOverrideCursor(Qt::WaitCursor);
     curTextPage()->setPlainText(in.readAll());
     QApplication::restoreOverrideCursor();
-
+	curPage()->setFilePath(fileName);
     setCurrentFile(fileName);
    // statusBar()->showMessage(tr("File loaded"), 2000);
 }
@@ -441,3 +429,4 @@ void TextEdit::print()
     //statusBar()->showMessage(tr("Ready"), 2000);
 #endif
 }
+

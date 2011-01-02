@@ -125,6 +125,11 @@ void GpgWin::createActions()
 {
     /** Main Menu
       */
+    newTabAct = new QAction(tr("&New Tab..."), this);
+//    openAct->setShortcut(QKeySequence::Open);
+    newTabAct->setToolTip(tr("Open a new tab"));
+    connect(newTabAct, SIGNAL(triggered()), edit, SLOT(newTab()));
+
     openAct = new QAction(tr("&Open..."), this);
     openAct->setIcon(QIcon(iconPath + "fileopen.png"));
     openAct->setShortcut(QKeySequence::Open);
@@ -284,6 +289,7 @@ void GpgWin::createActions()
 void GpgWin::createMenus()
 {
     fileMenu = menuBar()->addMenu(tr("&File"));
+    fileMenu->addAction(newTabAct);
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveAct);
     fileMenu->addAction(saveAsAct);

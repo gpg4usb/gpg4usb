@@ -52,6 +52,7 @@ public slots:
     bool saveAs();
     void open();
     void print();
+    void newTab();
 
 private:
     bool isKey(QString key);
@@ -59,7 +60,7 @@ private:
     QString curFile;
     int countPage;
     QTabWidget *tabWidget;
-   bool maybeSaveFile();
+    bool maybeSaveFile();
     EditorPage *curPage();
     void setCursorPosition();
 
@@ -75,10 +76,7 @@ private slots:
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent* event);
-    void newFile();
     bool saveFile(const QString &fileName);
     bool closeFile();
-
-
 };
 #endif // TEXTEDIT

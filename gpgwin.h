@@ -108,6 +108,7 @@ private:
     QDockWidget *aDock;
     QDialog *genkeyDialog;
 
+    QAction *newTabAct;
     QAction *openAct;
     QAction *saveAct;
     QAction *saveAsAct;

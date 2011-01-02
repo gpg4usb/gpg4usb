@@ -57,4 +57,7 @@ void EditorPage::setFilePath(const QString &filePath)
 
 
 
-
+void setSaveState()
+{
+   // curPage()->setFilePath("");
+}

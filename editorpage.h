@@ -40,6 +40,8 @@ private:
     QPlainTextEdit *textPage;
     QHBoxLayout *mainLayout;
     QString fullFilePath;
+    void setSaveState();
+
 };
 
 #endif // TEXTPAGE_H
