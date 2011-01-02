@@ -222,6 +222,7 @@ void TextEdit::closeTab()
 {
     removeTab(tabWidget->currentIndex());
 }
+
 void TextEdit::removeTab(int index)
 {
     if (tabWidget->count() != 0)

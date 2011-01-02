@@ -35,6 +35,7 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
     mainLayout->setContentsMargins(0,0,0,0);
     setLayout(mainLayout);
     setAttribute(Qt::WA_DeleteOnClose);
+    textPage->setFocus();
 }
 
 
