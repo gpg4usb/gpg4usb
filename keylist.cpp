@@ -171,10 +171,10 @@ void KeyList::dropEvent(QDropEvent* event)
 
     dialog->setWindowTitle(tr("Import Keys"));
     QLabel *label;
-    label = new QLabel(tr("Import keys from dropped files, if possible?"));
+    label = new QLabel(tr("You've dropped something on the keylist.\n gpg4usb will now try to import key(s).")+"\n");
 
     // "always import keys"-CheckBox
-    QCheckBox *checkBox = new QCheckBox(tr("Don't Ask Me Again."));
+    QCheckBox *checkBox = new QCheckBox(tr("Always import without bothering."));
     if (settings.value("general/confirmImportKeys").toBool()) checkBox->setCheckState(Qt::Unchecked);
 
     // Buttons for ok and cancel

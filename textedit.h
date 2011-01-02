@@ -41,7 +41,6 @@ class TextEdit : public QWidget
     Q_OBJECT
 public:
     TextEdit();
-    void setCurrentFile(const QString &fileName);
     void loadFile(const QString &fileName);
     bool maybeSave();
     QPlainTextEdit* curTextPage();
@@ -54,11 +53,10 @@ public slots:
     void print();
     void newTab();
     void showModified();
+    void closeTab();
 
 private:
-    bool isKey(QString key);
     QString strippedName(const QString &fullFileName);
-    QString curFile;
     int countPage;
     QTabWidget *tabWidget;
     bool maybeSaveFile();

@@ -55,7 +55,6 @@ GpgWin::GpgWin()
     createToolBars();
     createStatusBar();
     createDockWindows();
-    edit->setCurrentFile("");
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
     restoreSettings();
@@ -125,9 +124,9 @@ void GpgWin::createActions()
 {
     /** Main Menu
       */
-    newTabAct = new QAction(tr("&New Tab..."), this);
-//    openAct->setShortcut(QKeySequence::Open);
-    newTabAct->setToolTip(tr("Open a new tab"));
+    newTabAct = new QAction(tr("&New"), this);
+    newTabAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_T));
+    newTabAct->setToolTip(tr("Open a new file"));
     connect(newTabAct, SIGNAL(triggered()), edit, SLOT(newTab()));
 
     openAct = new QAction(tr("&Open..."), this);
@@ -142,7 +141,7 @@ void GpgWin::createActions()
     saveAct->setToolTip(tr("Save the current File"));
     connect(saveAct, SIGNAL(triggered()), edit, SLOT(save()));
 
-    saveAsAct = new QAction(tr("Save &As"), this);
+    saveAsAct = new QAction(tr("Save &As")+"...", this);
     saveAsAct->setIcon(QIcon(iconPath + "filesaveas.png"));
     saveAsAct->setShortcut(QKeySequence::SaveAs);
     saveAsAct->setToolTip(tr("Save the current File as..."));
@@ -153,6 +152,11 @@ void GpgWin::createActions()
     printAct->setShortcut(QKeySequence::Print);
     printAct->setToolTip(tr("Print Document"));
     connect(printAct, SIGNAL(triggered()), edit, SLOT(print()));
+
+    closeTabAct = new QAction(tr("&Close"), this);
+    closeTabAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_W));
+    closeTabAct->setToolTip(tr("Close file"));
+    connect(closeTabAct, SIGNAL(triggered()), edit, SLOT(closeTab()));
 
     quitAct = new QAction(tr("&Quit"), this);
 //    quitAct->setShortcut(QKeySequence::Quit);
@@ -194,7 +198,7 @@ void GpgWin::createActions()
 
     quoteAct = new QAction(tr("&Quote"), this);
     quoteAct->setIcon(QIcon(iconPath + "quote.png"));
-    quoteAct->setToolTip(tr("Insert \">\" in front of every line"));
+    quoteAct->setToolTip(tr("Quote whole text"));
     connect(quoteAct, SIGNAL(triggered()), edit, SLOT(quote()));
 
     selectallAct = new QAction(tr("Select &All"), this);
@@ -291,10 +295,13 @@ void GpgWin::createMenus()
     fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(newTabAct);
     fileMenu->addAction(openAct);
+    fileMenu->addSeparator();
     fileMenu->addAction(saveAct);
     fileMenu->addAction(saveAsAct);
+    fileMenu->addSeparator();
     fileMenu->addAction(printAct);
     fileMenu->addSeparator();
+    fileMenu->addAction(closeTabAct);
     fileMenu->addAction(quitAct);
 
     editMenu = menuBar()->addMenu(tr("&Edit"));

@@ -99,9 +99,9 @@ class QGroupBox;
     /*****************************************
      * Key-Impport-Confirmation Box
      *****************************************/
-    QGroupBox *importConfirmationBox = new QGroupBox(tr("Confirm key import"));
+    QGroupBox *importConfirmationBox = new QGroupBox(tr("Confirm drag'n'drop key import"));
     QHBoxLayout *importConfirmationBoxLayout = new QHBoxLayout();
-    importConfirmationCheckBox= new QCheckBox(tr("Ask for confirmation to import, if keyfiles are dropped on the keylist."), this);
+    importConfirmationCheckBox= new QCheckBox(tr("Import files dropped on the keylist without confirmation."), this);
     importConfirmationBoxLayout->addWidget(importConfirmationCheckBox);
     importConfirmationBox->setLayout(importConfirmationBoxLayout);
 

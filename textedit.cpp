@@ -41,9 +41,8 @@ TextEdit::TextEdit()
     setLayout(layout);
 
     connect(tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(removeTab(int)));
-//    connect(tabWidget, SIGNAL(currentChanged(int)), this, SLOT(curSyntaxHiglight()));
     newTab();
-    setAcceptDrops(true);
+    setAcceptDrops(false);
 }
 
 
@@ -88,39 +87,39 @@ void TextEdit::newTab()
 
 void TextEdit::open()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"),
-                                                    QDir::currentPath());
-    setCurrentFile(fileName);
-    if (!fileName.isEmpty())
-    {
-        QFile file(fileName);
-
-        if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open file"),
+                                                          QDir::currentPath());
+    foreach (QString fileName,fileNames){
+        if (!fileName.isEmpty())
         {
-            EditorPage *page = new EditorPage(fileName);
+            QFile file(fileName);
 
-            QTextStream in(&file);
-			QApplication::setOverrideCursor(Qt::WaitCursor);
-			page->getTextPage()->setPlainText(in.readAll());
-			page->setFilePath(fileName);
+            if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+            {
+                EditorPage *page = new EditorPage(fileName);
 
-            QTextDocument *document = page->getTextPage()->document();
-            document->setModified(false);
+                QTextStream in(&file);
+                QApplication::setOverrideCursor(Qt::WaitCursor);
+                page->getTextPage()->setPlainText(in.readAll());
+                page->setFilePath(fileName);
 
-            tabWidget->addTab(page, strippedName(fileName));
-            tabWidget->setCurrentIndex(tabWidget->count() - 1);
-        QApplication::restoreOverrideCursor();
-            connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
-           //       setCursorPosition();
-            //enableAction(true)
+                QTextDocument *document = page->getTextPage()->document();
+                document->setModified(false);
 
-        }
-        else
-        {
-			    QMessageBox::warning(this, tr("Application"),
-                             tr("Cannot read file %1:\n%2.")
-                             .arg(fileName)
-                             .arg(file.errorString()));   
+                tabWidget->addTab(page, strippedName(fileName));
+                tabWidget->setCurrentIndex(tabWidget->count() - 1);
+                QApplication::restoreOverrideCursor();
+                connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
+                //       setCursorPosition();
+                //enableAction(true)
+            }
+            else
+            {
+                QMessageBox::warning(this, tr("Application"),
+                                     tr("Cannot read file %1:\n%2.")
+                                     .arg(fileName)
+                                     .arg(file.errorString()));
+            }
         }
     }
 }
@@ -219,6 +218,10 @@ bool TextEdit::closeFile()
 }
 
 
+void TextEdit::closeTab()
+{
+    removeTab(tabWidget->currentIndex());
+}
 void TextEdit::removeTab(int index)
 {
     if (tabWidget->count() != 0)
@@ -373,13 +376,6 @@ void TextEdit::quote()
 
 }
 
-bool TextEdit::isKey(QString key)
-{
-    qDebug() << key.contains("-----BEGIN PGP PUBLIC KEY BLOCK-----", Qt::CaseSensitive);
-    return true;
-}
-
-
 void TextEdit::loadFile(const QString &fileName)
 {
     QFile file(fileName);
@@ -394,24 +390,8 @@ void TextEdit::loadFile(const QString &fileName)
     QApplication::setOverrideCursor(Qt::WaitCursor);
     curTextPage()->setPlainText(in.readAll());
     QApplication::restoreOverrideCursor();
-	curPage()->setFilePath(fileName);
-    setCurrentFile(fileName);
+    curPage()->setFilePath(fileName);
    // statusBar()->showMessage(tr("File loaded"), 2000);
-}
-
-void TextEdit::setCurrentFile(const QString &fileName)
-{
-    curFile = fileName;
-    curTextPage()->document()->setModified(false);
-    setWindowModified(false);
-
-    QString shownName;
-    if (curFile.isEmpty())
-        shownName = "untitled.txt";
-    else
-        shownName = strippedName(curFile);
-
-    //setWindowTitle(tr("%1[*] - %2").arg(shownName).arg(qApp->applicationName()));
 }
 
 QString TextEdit::strippedName(const QString &fullFileName)

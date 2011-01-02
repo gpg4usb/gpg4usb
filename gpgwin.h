@@ -113,6 +113,7 @@ private:
     QAction *saveAct;
     QAction *saveAsAct;
     QAction *printAct;
+    QAction *closeTabAct;
     QAction *quitAct;
     QAction *encryptAct;
     QAction *decryptAct;
@@ -151,7 +152,6 @@ private:
     QLabel *statusBarIcon;
 
     QSettings settings;
-    QString curFile;
     KeyList *mKeyList;
     Attachments *mAttachments;
     GpgME::Context *mCtx;
