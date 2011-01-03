@@ -44,21 +44,23 @@ int main(int argc, char *argv[])
 
     QSettings settings;
     QString lang = settings.value("int/lang", QLocale::system().name()).toString();
-    if (lang.isEmpty()) lang = QLocale::system().name();
-	
+    if (lang.isEmpty()) {
+        lang = QLocale::system().name();
+    }
+
     //internationalize
     QTranslator translator;
     translator.load("ts/gpg4usb_" +  lang,
                     qApp->applicationDirPath());
     app.installTranslator(&translator);
 
-	// make shortcuts system and language independent
+    // make shortcuts system and language independent
     QTranslator translator2;
-    #ifdef _WIN32
-		translator2.load("ts/qt_windows_" + lang, qApp->applicationDirPath());
-	#else
-		translator2.load("ts/qt_linux_" + lang, qApp->applicationDirPath());
-	#endif
+#ifdef _WIN32
+    translator2.load("ts/qt_windows_" + lang, qApp->applicationDirPath());
+#else
+    translator2.load("ts/qt_linux_" + lang, qApp->applicationDirPath());
+#endif
     app.installTranslator(&translator2);
 
     GpgWin *window = new GpgWin();
