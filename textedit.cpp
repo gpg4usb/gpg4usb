@@ -282,10 +282,15 @@ bool TextEdit::maybeSave()
 {
     EditorPage *page = curPage();
 
-    if (page == 0)
+    if(tabWidget->count() == 0) {
+        return true;
+    }
+
+    // whats this supposed to do? it blocks closing program when all tabs closed
+    /*if (page == 0)
     {
         return false;
-    }
+    }*/
 
     QTextDocument *document = page->getTextPage()->document();
 

@@ -423,6 +423,7 @@ void GpgWin::createDockWindows()
 
 void GpgWin::closeEvent(QCloseEvent *event)
 {
+
     /** ask to save changes, if text modified
      */
     if (edit->maybeSave()) {
