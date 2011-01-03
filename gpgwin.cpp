@@ -435,7 +435,6 @@ void GpgWin::closeEvent(QCloseEvent *event)
 
     // clear password from memory
     mCtx->clearPasswordCache();
-    qDebug() << "reached end";
 
 }
 
