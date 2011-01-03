@@ -392,6 +392,8 @@ void TextEdit::loadFile(const QString &fileName)
     curTextPage()->setPlainText(in.readAll());
     QApplication::restoreOverrideCursor();
     curPage()->setFilePath(fileName);
+    tabWidget->setTabText(tabWidget->currentIndex(), strippedName(fileName));
+
    // statusBar()->showMessage(tr("File loaded"), 2000);
 }
 

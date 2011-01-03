@@ -18,6 +18,7 @@ Release 0.2.6
 	- Timer to remember password for x minutes?
 attachments:
 	- context menu for files left in attachment dir-icon: clean attachments-dir
+	- settings option "check attachment-dir all 10s and warn user"
 	- remind user on closing if files left in attachments-dir
 	- attachments dir as default option for "save"
 	- clean attachments when:
@@ -38,6 +39,7 @@ attachments:
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files
+	- attachments-widget should be inlined in editor-tabs
 - Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
 - check pointer usage (const/references)
 - check class / includes

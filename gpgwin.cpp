@@ -320,8 +320,8 @@ void GpgWin::createMenus()
     fileMenu->addAction(quitAct);
 
     editMenu = menuBar()->addMenu(tr("&Edit"));
-    editMenu->addAction(redoAct);
     editMenu->addAction(undoAct);
+    editMenu->addAction(redoAct);
     editMenu->addSeparator();
     editMenu->addAction(copyAct);
     editMenu->addAction(cutAct);
