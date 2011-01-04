@@ -195,7 +195,10 @@ bool TextEdit::closeFile()
 void TextEdit::closeTab()
 {
     removeTab(tabWidget->currentIndex());
-    curPage()->getTextPage()->setFocus();
+    if (tabWidget->count() != 0)
+    {
+        curPage()->getTextPage()->setFocus();
+    }
 }
 
 void TextEdit::removeTab(int index)
