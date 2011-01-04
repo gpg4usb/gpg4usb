@@ -45,32 +45,6 @@ TextEdit::TextEdit()
     setAcceptDrops(false);
 }
 
-
-/*void TextEditor::closeEvent(QCloseEvent *event)
-{
-    int  curIndex = tabWidget->count();
-    bool answ     = true;
-
-
-    while (curIndex >= 1 && answ == true)
-    {
-        answ = closeFile();
-
-        curIndex--;
-    }
-
-
-    if (answ == true)
-    {
-        writeSettings();
-        event->accept();
-    }
-    else
-    {
-        event->ignore();
-    }
-}
-*/
 void TextEdit::newTab()
 {
     QString header = "new " +
@@ -278,6 +252,38 @@ void TextEdit::selectAll()
     curTextPage()->selectAll();
 }
 
+/*void TextEditor::closeEvent(QCloseEvent *event)
+{
+    int  curIndex = tabWidget->count();
+    bool answ     = true;
+
+
+    while (curIndex >= 1 && answ == true)
+    {
+        answ = closeFile();
+
+        curIndex--;
+    }
+
+
+    if (answ == true)
+    {
+        writeSettings();
+        event->accept();
+    }
+    else
+    {
+        event->ignore();
+    }
+}
+*/
+
+/*!
+    Checks if there are unsaved documents, returns true if this is the case.
+    If it returns true, the close event is aborted.
+    TODO: rename to "hasUnsavedDocuments",
+          merge code from commented function above
+*/
 bool TextEdit::maybeSave()
 {
     EditorPage *page = curPage();
@@ -286,7 +292,6 @@ bool TextEdit::maybeSave()
         return true;
     }
 
-    // whats this supposed to do? it blocks closing program when all tabs closed
     /*if (page == 0)
     {
         return false;
