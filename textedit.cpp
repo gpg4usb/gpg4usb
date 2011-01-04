@@ -208,6 +208,7 @@ void TextEdit::removeTab(int index)
             curPage()->close();
 
             tabWidget->removeTab(index);
+            curPage()->getTextPage()->setFocus();
         }
     }
 
