@@ -195,6 +195,7 @@ bool TextEdit::closeFile()
 void TextEdit::closeTab()
 {
     removeTab(tabWidget->currentIndex());
+    curPage()->getTextPage()->setFocus();
 }
 
 void TextEdit::removeTab(int index)
@@ -208,7 +209,6 @@ void TextEdit::removeTab(int index)
             curPage()->close();
 
             tabWidget->removeTab(index);
-            curPage()->getTextPage()->setFocus();
         }
     }
 
