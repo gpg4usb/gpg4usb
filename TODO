@@ -49,6 +49,9 @@ Release 0.3
 Release 0.4
 - adding signing and verifying
 - nice for verify: import key from keyserver
+- refactoring and cleanup:
+	- gpgwin.cpp -> mainwindow.cpp
+	- context.cpp -> gpgcontext.cpp
 
 Later:
 
