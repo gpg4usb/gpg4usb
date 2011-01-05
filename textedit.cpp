@@ -168,7 +168,7 @@ bool TextEdit::closeFile()
     if (tabWidget->count() != 0)
     {
 
-        if (maybeSave())
+        if (maybeSaveCurrentTab())
         {
             int tabIndex = tabWidget->currentIndex();
             tabWidget->setCurrentIndex(tabIndex);
@@ -205,7 +205,7 @@ void TextEdit::removeTab(int index)
 {
     if (tabWidget->count() != 0)
     {
-        if (maybeSave())
+        if (maybeSaveCurrentTab())
         {
             tabWidget->setCurrentIndex(index);
 
@@ -282,38 +282,92 @@ void TextEdit::selectAll()
 }
 */
 
-/*!
-    Checks if there are unsaved documents, returns true if this is the case.
-    If it returns false, the close event is aborted.
-    TODO: rename to "okToQuit" or similar,
-          merge code from commented function above
-*/
-bool TextEdit::maybeSave()
-{
-    // if no tab open, closing prog should be fine
-    //if(tabWidget->count() == 0) {
-    //    return true;
-    //}
+ /**
+  * Check if current may need to be saved
+  * If it returns false, the close event is aborted.
+  */
+bool TextEdit::maybeSaveCurrentTab() {
+    EditorPage *page = curPage();
+    QTextDocument *document = page->getTextPage()->document();
 
-    QHash<int, QString> unsavedDocs;
+    if (document->isModified())
+    {
+        QString filePath = page->getFilePath();
+        QMessageBox::StandardButton result;
+
+        result = QMessageBox::warning(this, tr("Application"),
+                                   tr("The document has been modified:")+"\n"+filePath+"\n\n"+tr("Do you want to save your changes?"),
+                                   QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+
+        if (result == QMessageBox::Save)
+        {
+            if (filePath == "")
+            {
+                return saveAs();
+            }
+            else
+            {
+                return saveFile(filePath);
+            }
+        }
+        else if (result == QMessageBox::Discard)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+/*!
+    Checks if there are unsaved documents in any tab,
+    which may need to be saved.
+
+    If it returns false, the close event is aborted.
+*/
+bool TextEdit::maybeSaveAnyTab()
+{
+
+    QHash<int, QString> unsavedDocs;  // this list could be used to implement gedit like "unsaved changed"-dialog
 
     for(int i=0; i < tabWidget->count(); i++) {
         EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
         if(ep->getTextPage()->document()->isModified()) {
-            unsavedDocs.insert(i, tabWidget->tabText(i));
+            QString docname = tabWidget->tabText(i);
+            docname.remove(0,2);
+            unsavedDocs.insert(i, docname);
         }
     }
 
-    QHashIterator<int, QString> i(unsavedDocs);
-    while (i.hasNext()) {
-        i.next();
-        qDebug() << "unsaved: " << i.key() << ": " << i.value() << endl;
-    }
+    /*
+     * only 1 unsaved document -> set modified tab as current
+     * and show normal unsaved doc dialog
+     */
+    if(unsavedDocs.size() == 1) {
+        int modifiedTab = unsavedDocs.keys().at(0);
+        tabWidget->setCurrentIndex(modifiedTab);
+        maybeSaveCurrentTab();
 
-    if(unsavedDocs.size() > 0) {
+    /*
+     * more than one unsaved documents
+     */
+    } else if(unsavedDocs.size() > 0) {
+
+        QString docList;
+        QHashIterator<int, QString> i (unsavedDocs);
+        while (i.hasNext()) {
+            i.next();
+            qDebug() << "unsaved: " << i.key() << ": " << i.value();
+            docList.append(i.value()).append("\n");
+        }
+
         QMessageBox::StandardButton result;
         result = QMessageBox::warning(this, tr("Application"),
-                                      tr("There are unsaved Changes"),
+                                      tr("There are unsaved Changes in the following Documents:\n")
+                                      + docList,
                                       QMessageBox::Discard | QMessageBox::Cancel);
 
         if (result == QMessageBox::Discard) {
@@ -321,10 +375,22 @@ bool TextEdit::maybeSave()
         } else {
             return false;
         }
+
+    /*
+     * no unsaved documents
+     */
     } else {
         return true;
     }
 
+    // code should never reach this statement
+    return false;
+
+
+    // if no tab open, closing prog should be fine
+    //if(tabWidget->count() == 0) {
+    //    return true;
+    //}
     /*if (page == 0)
     {
         return false;

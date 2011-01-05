@@ -42,7 +42,8 @@ class TextEdit : public QWidget
 public:
     TextEdit();
     void loadFile(const QString &fileName);
-    bool maybeSave();
+    bool maybeSaveAnyTab();
+    bool maybeSaveCurrentTab();
     QPlainTextEdit* curTextPage();
 
 public slots:

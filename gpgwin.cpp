@@ -424,9 +424,11 @@ void GpgWin::createDockWindows()
 void GpgWin::closeEvent(QCloseEvent *event)
 {
 
-    /** ask to save changes, if text modified
+    /**
+     * ask to save changes, if there are
+     * modified documents in any tab
      */
-    if (edit->maybeSave()) {
+    if (edit->maybeSaveAnyTab()) {
         saveSettings();
         event->accept();
     } else {
