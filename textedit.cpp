@@ -284,15 +284,44 @@ void TextEdit::selectAll()
 
 /*!
     Checks if there are unsaved documents, returns true if this is the case.
-    If it returns true, the close event is aborted.
-    TODO: rename to "hasUnsavedDocuments",
+    If it returns false, the close event is aborted.
+    TODO: rename to "okToQuit" or similar,
           merge code from commented function above
 */
 bool TextEdit::maybeSave()
 {
-    EditorPage *page = curPage();
+    // if no tab open, closing prog should be fine
+    //if(tabWidget->count() == 0) {
+    //    return true;
+    //}
 
-    if(tabWidget->count() == 0) {
+    QHash<int, QString> unsavedDocs;
+
+    for(int i=0; i < tabWidget->count(); i++) {
+        EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
+        if(ep->getTextPage()->document()->isModified()) {
+            unsavedDocs.insert(i, tabWidget->tabText(i));
+        }
+    }
+
+    QHashIterator<int, QString> i(unsavedDocs);
+    while (i.hasNext()) {
+        i.next();
+        qDebug() << "unsaved: " << i.key() << ": " << i.value() << endl;
+    }
+
+    if(unsavedDocs.size() > 0) {
+        QMessageBox::StandardButton result;
+        result = QMessageBox::warning(this, tr("Application"),
+                                      tr("There are unsaved Changes"),
+                                      QMessageBox::Discard | QMessageBox::Cancel);
+
+        if (result == QMessageBox::Discard) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
         return true;
     }
 
@@ -301,6 +330,8 @@ bool TextEdit::maybeSave()
         return false;
     }*/
 
+    /*
+    EditorPage *page = curPage();
     QTextDocument *document = page->getTextPage()->document();
 
     if (document->isModified())
@@ -332,7 +363,7 @@ bool TextEdit::maybeSave()
             return false;
         }
     }
-    return true;
+    return true;*/
 }
 
 
