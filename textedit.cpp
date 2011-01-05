@@ -165,59 +165,67 @@ bool TextEdit::saveAs()
 
 bool TextEdit::closeFile()
 {
-    if (tabWidget->count() != 0)
-    {
+    if (tabWidget->count() != 0) {
 
-        if (maybeSaveCurrentTab())
-        {
+/*
+        // maybesave is also called in removeTab, so not necesarry here
+        if (maybeSaveCurrentTab()) {
+
+            // get current index and set it then back?
             int tabIndex = tabWidget->currentIndex();
             tabWidget->setCurrentIndex(tabIndex);
 
+            // removetab is going to call close
             curPage()->close();
-
             tabWidget->removeTab(tabIndex);
 
-
-            if (tabWidget->count() == 0)
-            {
+            if (tabWidget->count() == 0) {
  //               enableAction(false);
             }
-
             return true;
         }
-
         return false;
+        */
+
+        int tabIndex = tabWidget->currentIndex();
+        tabWidget->removeTab(tabIndex);
+
     }
     return false;
 }
 
-
+/**
+ * close current tab
+ */
 void TextEdit::closeTab()
 {
     removeTab(tabWidget->currentIndex());
-    if (tabWidget->count() != 0)
-    {
+    if (tabWidget->count() != 0) {
         curPage()->getTextPage()->setFocus();
     }
 }
 
 void TextEdit::removeTab(int index)
 {
-    if (tabWidget->count() != 0)
-    {
-        if (maybeSaveCurrentTab())
-        {
-            tabWidget->setCurrentIndex(index);
+    if (tabWidget->count() == 0) {
+        return;
+    }
 
-            curPage()->close();
+    int lastIndex = tabWidget->currentIndex();
+    tabWidget->setCurrentIndex(index);
 
-            tabWidget->removeTab(index);
+    if (maybeSaveCurrentTab()) {
+        //curPage()->close();
+        tabWidget->removeTab(index);
+
+        if(index >= lastIndex) {
+            tabWidget->setCurrentIndex(lastIndex);
+        } else {
+            tabWidget->setCurrentIndex(lastIndex-1);
         }
     }
 
-
-    if (tabWidget->count() == 0)
-    {
+    if (tabWidget->count() == 0) {
       //  enableAction(false);
     }
 }
@@ -301,36 +309,30 @@ bool TextEdit::maybeSaveCurrentTab() {
                                    tr("The document has been modified:")+"\n"+filePath+"\n\n"+tr("Do you want to save your changes?"),
                                    QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
 
-        if (result == QMessageBox::Save)
-        {
-            if (filePath == "")
-            {
+        if (result == QMessageBox::Save) {
+            if (filePath == "") {
                 return saveAs();
-            }
-            else
-            {
+            } else {
                 return saveFile(filePath);
             }
-        }
-        else if (result == QMessageBox::Discard)
-        {
+        } else if (result == QMessageBox::Discard) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
     return true;
 }
 
-/*!
-    Checks if there are unsaved documents in any tab,
-    which may need to be saved. Call this function before
-    closing the programme or all tabs.
 
-    If it returns false, the close event should be aborted.
-*/
+
+/**
+ *  Checks if there are unsaved documents in any tab,
+ *  which may need to be saved. Call this function before
+ *  closing the programme or all tabs.
+ *
+ *   If it returns false, the close event should be aborted.
+ */
 bool TextEdit::maybeSaveAnyTab()
 {
 
@@ -340,6 +342,7 @@ bool TextEdit::maybeSaveAnyTab()
         EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
         if(ep->getTextPage()->document()->isModified()) {
             QString docname = tabWidget->tabText(i);
+            // remove * before name of modified doc
             docname.remove(0,2);
             unsavedDocs.insert(i, docname);
         }
