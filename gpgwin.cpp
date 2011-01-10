@@ -69,6 +69,7 @@ GpgWin::GpgWin()
                 edit->loadFile(args[1]);
         }
     }
+    edit->curTextPage()->setFocus();
 }
 
 void GpgWin::restoreSettings()
