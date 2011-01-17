@@ -333,8 +333,6 @@ bool TextEdit::saveTab(int i) {
             } else {
                 return saveFile(filePath);
             }
- 
-
 }
 /**
  *  Checks if there are unsaved documents in any tab,
@@ -359,6 +357,12 @@ bool TextEdit::maybeSaveAnyTab()
     }
 
     /*
+    * no unsaved documents
+    */
+    if (unsavedDocs.size() == 1) {
+        return true;
+    }
+    /*
      * only 1 unsaved document -> set modified tab as current
      * and show normal unsaved doc dialog
      */
@@ -371,14 +375,12 @@ bool TextEdit::maybeSaveAnyTab()
     /*
      * more than one unsaved documents
      */
-    } else if(unsavedDocs.size() > 1) {
-
-        QString docList;
+    }
+    if(unsavedDocs.size() > 1) {
         QHashIterator<int, QString> i (unsavedDocs);
         while (i.hasNext()) {
             i.next();
             qDebug() << "unsaved: " << i.key() << ": " << i.value();
-            docList.append(i.value()).append("\n");
         }
 
         QuitDialog *dialog;
@@ -386,32 +388,39 @@ bool TextEdit::maybeSaveAnyTab()
 
 
         int result = dialog->exec();
-        // return true, if app can be closed
+        // return true, if discard is clicked, so app can be closed
         if (result == QDialog::Rejected){
             if (dialog->isDiscarded()){
                 return true;
             } else {
                 return false;
             }
+
         } else {
+            bool allsaved=true;
             QList <int> tabIdsToSave = dialog->getTabIdsToSave();
             foreach (int tabId, tabIdsToSave){
-                qDebug() << "handling for save" << tabId;
-
+                qDebug() << "testtabid" << tabId;
             }
 
-            return true;
+            foreach (int tabId, tabIdsToSave){
+                qDebug() << "tabIdtosave in quitdialog: " << tabId;
+                tabWidget->setCurrentIndex(tabId);
+                if (! maybeSaveCurrentTab()) {
+                    allsaved=false;
+                }
+                qDebug() << "handling for save" << tabId;
+                if (allsaved) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         }
-
-        /*
-     * no unsaved documents
-     */
-    } else {
-        return true;
     }
-
     // code should never reach this statement
     return false;
+
 }
 
 

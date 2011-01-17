@@ -47,10 +47,10 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString
     mFileList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     mFileList->setFocusPolicy(Qt::NoFocus);
     mFileList->horizontalHeader()->setStretchLastSection( true );
-
     // fill the table
-    while (i.hasNext()) {
-        i.next();
+    i.toBack(); //jump to the end of list to fill the table backwards
+    while (i.hasPrevious()) {
+        i.previous();
         mFileList->setRowCount(mFileList->rowCount()+1);
 
         // checkbox in front of filename
@@ -119,7 +119,7 @@ QList <int> QuitDialog::getTabIdsToSave()
     QList <int> tabIdsToSave;
     for (int i = 0; i < mFileList->rowCount(); i++) {
         if (mFileList->item(i, 0)->checkState() == Qt::Checked) {
-            qDebug() << mFileList->item(i, 2)->text();
+            qDebug() << "tabidtosave: " << mFileList->item(i, 2)->text();
             tabIdsToSave << mFileList->item(i, 2)->text().toInt();
         }
     }
