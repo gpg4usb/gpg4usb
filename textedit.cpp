@@ -22,12 +22,13 @@
 #include "QDebug"
 #include "QUrl"
 #include "textedit.h"
-
+#include "quitdialog.h"
 class QFileDialog;
 class QMessageBox;
 
-TextEdit::TextEdit()
+TextEdit::TextEdit(QString iconPath)
 {
+    mIconPath = iconPath;
     countPage         = 0;
     tabWidget = new QTabWidget(this);
     tabWidget->setMovable(true);
@@ -304,7 +305,6 @@ bool TextEdit::maybeSaveCurrentTab() {
     {
         QString filePath = page->getFilePath();
         QMessageBox::StandardButton result;
-
         result = QMessageBox::warning(this, tr("Unsaved document"),
                                    tr("The document has been modified:")+"\n"+filePath+"\n\n"+tr("Do you want to save your changes?"),
                                    QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
@@ -324,8 +324,18 @@ bool TextEdit::maybeSaveCurrentTab() {
     return true;
 }
 
+bool TextEdit::saveTab(int i) {
+    EditorPage *page = qobject_cast<EditorPage *> (tabWidget->widget(i));
+ 
+        QString filePath = page->getFilePath();
+            if (filePath == "") {
+                return saveAs();
+            } else {
+                return saveFile(filePath);
+            }
+ 
 
-
+}
 /**
  *  Checks if there are unsaved documents in any tab,
  *  which may need to be saved. Call this function before
@@ -361,7 +371,7 @@ bool TextEdit::maybeSaveAnyTab()
     /*
      * more than one unsaved documents
      */
-    } else if(unsavedDocs.size() > 0) {
+    } else if(unsavedDocs.size() > 1) {
 
         QString docList;
         QHashIterator<int, QString> i (unsavedDocs);
@@ -371,19 +381,29 @@ bool TextEdit::maybeSaveAnyTab()
             docList.append(i.value()).append("\n");
         }
 
-        QMessageBox::StandardButton result;
-        result = QMessageBox::warning(this, tr("Unsaved documents"),
-                                      tr("There are unsaved changes in the following documents:\n")
-                                      + docList,
-                                      QMessageBox::Discard | QMessageBox::Cancel);
+        QuitDialog *dialog;
+        dialog=new QuitDialog(this, unsavedDocs, mIconPath);
 
-        if (result == QMessageBox::Discard) {
-            return true;
+
+        int result = dialog->exec();
+        // return true, if app can be closed
+        if (result == QDialog::Rejected){
+            if (dialog->isDiscarded()){
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            QList <int> tabIdsToSave = dialog->getTabIdsToSave();
+            foreach (int tabId, tabIdsToSave){
+                qDebug() << "handling for save" << tabId;
+
+            }
+
+            return true;
         }
 
-    /*
+        /*
      * no unsaved documents
      */
     } else {
@@ -414,7 +434,6 @@ void TextEdit::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasFormat("text/plain"))
         qDebug() << "enter textedit drag action";
-
         event->acceptProposedAction();
 }
 
@@ -503,6 +522,7 @@ void TextEdit::showModified() {
 }
 
 void TextEdit::switchTabUp() {
+        qDebug() << "hallo";
     if (tabWidget->count() > 1)
     {
         if (tabWidget->count() == tabWidget->currentIndex()+1){
@@ -516,6 +536,7 @@ void TextEdit::switchTabUp() {
 }
 
 void TextEdit::switchTabDown() {
+    qDebug() << "hallo";
     if (tabWidget->count() > 1)
     {
         if (tabWidget->currentIndex()==1) {
@@ -526,5 +547,31 @@ void TextEdit::switchTabDown() {
             tabWidget->setCurrentIndex(tabWidget->currentIndex()-1);
         }
     }
+    this->removeTab(0);;
 }
 
+int TextEdit::getUnsavedDocumentsNumber() {
+    int number=0;
+    for(int i=0; i < tabWidget->count(); i++) {
+        EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
+        if(ep->getTextPage()->document()->isModified()) {
+            number++;
+         }
+    }
+    return number;
+}
+
+QHash<int, QString> TextEdit::unsavedDocuments() {
+    QHash<int, QString> unsavedDocs;  // this list could be used to implement gedit like "unsaved changed"-dialog
+
+    for(int i=0; i < tabWidget->count(); i++) {
+        EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
+        if(ep->getTextPage()->document()->isModified()) {
+            QString docname = tabWidget->tabText(i);
+            // remove * before name of modified doc
+            docname.remove(0,2);
+            unsavedDocs.insert(i, docname);
+        }
+    }
+    return unsavedDocs;
+}

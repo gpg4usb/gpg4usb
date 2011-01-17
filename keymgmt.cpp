@@ -25,10 +25,10 @@
 #include "keymgmt.h"
 
 
-KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
+KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconPath)
 {
     mCtx = ctx;
-    mIconPath = iconpath;
+    mIconPath = iconPath;
 
     /* the list of Keys available*/
     mKeyList = new KeyList(mCtx, mIconPath);

@@ -21,16 +21,13 @@
 
 #include <QWidget>
 #include <QDialogButtonBox>
-#include <QGroupBox>
-#include <QLineEdit>
 #include <QLabel>
 #include <QPushButton>
-#include <QGridLayout>
-#include <QRadioButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QFileDialog>
 #include <QDebug>
+#include <QFileDialog>
+#include <QRadioButton>
 
 #include "fileencryptiondialog.h"
 
@@ -76,7 +73,8 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath
     mKeyList->hide();
     mKeyList->setColumnWidth(2, 150);
     mKeyList->setColumnWidth(3, 150);
-	mKeyList->setChecked(&keyList);
+    mKeyList->setChecked(&keyList);
+
     /* Setup Action */
     radioEnc = new QRadioButton(tr("&Encrypt"));
     connect(radioEnc, SIGNAL(clicked()), this, SLOT(showKeyList()));

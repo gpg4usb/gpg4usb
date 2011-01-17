@@ -40,11 +40,13 @@ class TextEdit : public QWidget
 {
     Q_OBJECT
 public:
-    TextEdit();
+    TextEdit(QString iconPath);
     void loadFile(const QString &fileName);
     bool maybeSaveAnyTab();
     bool maybeSaveCurrentTab();
     QPlainTextEdit* curTextPage();
+    int getUnsavedDocumentsNumber();
+    QHash<int, QString> unsavedDocuments();
 
 public slots:
     void quote();
@@ -60,11 +62,13 @@ public slots:
 
 private:
     QString strippedName(const QString &fullFileName);
-    int countPage;
-    QTabWidget *tabWidget;
     bool maybeSaveFile();
     EditorPage *curPage();
     void setCursorPosition();
+    QString mIconPath;
+    int countPage;
+    QTabWidget *tabWidget;
+    bool saveTab(int i);
 
 private slots:
     void removeTab(int index);
