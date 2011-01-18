@@ -350,16 +350,16 @@ bool TextEdit::maybeSaveAnyTab()
         EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
         if(ep->getTextPage()->document()->isModified()) {
             QString docname = tabWidget->tabText(i);
-            // remove * before name of modified doc
+            // remove * before name of modified doc (has to be placed after saving)
             docname.remove(0,2);
             unsavedDocs.insert(i, docname);
         }
     }
-
+	qDebug() << unsavedDocs.size();
     /*
     * no unsaved documents
     */
-    if (unsavedDocs.size() == 1) {
+    if (unsavedDocs.size() == 0) {
         return true;
     }
     /*
@@ -410,11 +410,11 @@ bool TextEdit::maybeSaveAnyTab()
                     allsaved=false;
                 }
                 qDebug() << "handling for save" << tabId;
-                if (allsaved) {
-                    return true;
-                } else {
-                    return false;
-                }
+            }
+            if (allsaved) {
+				return true;
+            } else {
+				return false;
             }
         }
     }
