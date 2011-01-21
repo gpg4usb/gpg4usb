@@ -66,7 +66,6 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString
         // tab-index in hidden column
         QTableWidgetItem *tmp2 = new QTableWidgetItem(QString::number(i.key()));
         mFileList->setItem(row, 2, tmp2);
-    qDebug() << "tmp2:" << tmp2->text();
         ++row;
     }
     /*
@@ -83,15 +82,24 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString
     QWidget *warnBox = new QWidget(this);
     warnBox->setLayout(warnBoxLayout);
 
+    /*
+     *  Two labels on top and under the filelist
+     */
     QLabel *checkLabel = new QLabel(tr("Check the files you want to save"));
-
     QLabel *notelabel = new QLabel(tr("NOTE: If you don't save these files, all changes are lost.")+"\n");
 
+    /*
+     *  Buttonbox
+     */
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Discard |QDialogButtonBox::Save | QDialogButtonBox::Cancel);
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
     QPushButton* btnNoKey = buttonBox->button(QDialogButtonBox::Discard);
     connect(btnNoKey, SIGNAL(clicked()), SLOT(myDiscard()));
+
+    /*
+     *  Set the layout
+     */
     QVBoxLayout *vbox = new QVBoxLayout();
     vbox->addWidget(warnBox);
     vbox->addWidget(checkLabel);
@@ -99,7 +107,6 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString
     vbox->addWidget(notelabel);
     vbox->addWidget(buttonBox);
     this->setLayout(vbox);
-
 }
 
 
@@ -119,7 +126,6 @@ QList <int> QuitDialog::getTabIdsToSave()
     QList <int> tabIdsToSave;
     for (int i = 0; i < mFileList->rowCount(); i++) {
         if (mFileList->item(i, 0)->checkState() == Qt::Checked) {
-            qDebug() << "tabidtosave: " << mFileList->item(i, 2)->text();
             tabIdsToSave << mFileList->item(i, 2)->text().toInt();
         }
     }

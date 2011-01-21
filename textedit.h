@@ -45,7 +45,6 @@ public:
     bool maybeSaveAnyTab();
     bool maybeSaveCurrentTab();
     QPlainTextEdit* curTextPage();
-    int getUnsavedDocumentsNumber();
     QHash<int, QString> unsavedDocuments();
 
 public slots:
@@ -68,7 +67,6 @@ private:
     QString mIconPath;
     int countPage;
     QTabWidget *tabWidget;
-    bool saveTab(int i);
 
 private slots:
     void removeTab(int index);
@@ -80,9 +78,8 @@ private slots:
     void selectAll();
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event);
-    void dropEvent(QDropEvent* event);
+//    void dragEnterEvent(QDragEnterEvent *event);
+//    void dropEvent(QDropEvent* event);
     bool saveFile(const QString &fileName);
-    bool closeFile();
 };
 #endif // TEXTEDIT

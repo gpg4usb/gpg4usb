@@ -298,12 +298,12 @@ void GpgWin::createActions()
     switchTabUpAct = new QAction(this);
     switchTabUpAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Tab));
     connect(switchTabUpAct, SIGNAL(triggered()), edit, SLOT(switchTabUp()));
-    //this->addAction(switchTabUpAct);
+    this->addAction(switchTabUpAct);
 
     switchTabDownAct = new QAction(this);
     switchTabDownAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Shift+ Qt::Key_Tab));
     connect(switchTabDownAct, SIGNAL(triggered()), edit, SLOT(switchTabDown()));
-    //this->addAction(switchTabDownAct);
+    this->addAction(switchTabDownAct);
 }
 
 void GpgWin::createMenus()

@@ -164,37 +164,6 @@ bool TextEdit::saveAs()
 }
 
 
-bool TextEdit::closeFile()
-{
-    if (tabWidget->count() != 0) {
-
-/*
-        // maybesave is also called in removeTab, so not necesarry here
-        if (maybeSaveCurrentTab()) {
-
-            // get current index and set it then back?
-            int tabIndex = tabWidget->currentIndex();
-            tabWidget->setCurrentIndex(tabIndex);
-
-            // removetab is going to call close
-            curPage()->close();
-            tabWidget->removeTab(tabIndex);
-
-            if (tabWidget->count() == 0) {
- //               enableAction(false);
-            }
-            return true;
-        }
-        return false;
-        */
-
-        int tabIndex = tabWidget->currentIndex();
-        tabWidget->removeTab(tabIndex);
-
-    }
-    return false;
-}
-
 /**
  * close current tab
  */
@@ -265,32 +234,6 @@ void TextEdit::selectAll()
     curTextPage()->selectAll();
 }
 
-/*void TextEditor::closeEvent(QCloseEvent *event)
-{
-    int  curIndex = tabWidget->count();
-    bool answ     = true;
-
-
-    while (curIndex >= 1 && answ == true)
-    {
-        answ = closeFile();
-
-        curIndex--;
-    }
-
-
-    if (answ == true)
-    {
-        writeSettings();
-        event->accept();
-    }
-    else
-    {
-        event->ignore();
-    }
-}
-*/
-
  /**
   * Check if current may need to be saved.
   * Call this function before closing the currently active tab-
@@ -324,16 +267,6 @@ bool TextEdit::maybeSaveCurrentTab() {
     return true;
 }
 
-bool TextEdit::saveTab(int i) {
-    EditorPage *page = qobject_cast<EditorPage *> (tabWidget->widget(i));
- 
-        QString filePath = page->getFilePath();
-            if (filePath == "") {
-                return saveAs();
-            } else {
-                return saveFile(filePath);
-            }
-}
 /**
  *  Checks if there are unsaved documents in any tab,
  *  which may need to be saved. Call this function before
@@ -343,21 +276,11 @@ bool TextEdit::saveTab(int i) {
  */
 bool TextEdit::maybeSaveAnyTab()
 {
+    // get a list of all unsaved documents and their tabids
+    QHash<int, QString> unsavedDocs = this->unsavedDocuments();
 
-    QHash<int, QString> unsavedDocs;  // this list could be used to implement gedit like "unsaved changed"-dialog
-
-    for(int i=0; i < tabWidget->count(); i++) {
-        EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
-        if(ep->getTextPage()->document()->isModified()) {
-            QString docname = tabWidget->tabText(i);
-            // remove * before name of modified doc (has to be placed after saving)
-            docname.remove(0,2);
-            unsavedDocs.insert(i, docname);
-        }
-    }
-	qDebug() << unsavedDocs.size();
     /*
-    * no unsaved documents
+    * no unsaved documents, so app can be closed
     */
     if (unsavedDocs.size() == 0) {
         return true;
@@ -369,47 +292,36 @@ bool TextEdit::maybeSaveAnyTab()
     if(unsavedDocs.size() == 1) {
         int modifiedTab = unsavedDocs.keys().at(0);
         tabWidget->setCurrentIndex(modifiedTab);
-
         return maybeSaveCurrentTab();
+    }
 
     /*
      * more than one unsaved documents
      */
-    }
     if(unsavedDocs.size() > 1) {
         QHashIterator<int, QString> i (unsavedDocs);
-        while (i.hasNext()) {
-            i.next();
-            qDebug() << "unsaved: " << i.key() << ": " << i.value();
-        }
 
         QuitDialog *dialog;
         dialog=new QuitDialog(this, unsavedDocs, mIconPath);
-
-
         int result = dialog->exec();
-        // return true, if discard is clicked, so app can be closed
+
+        // if result is QDialog::Rejected, discard or cancel was clicked
         if (result == QDialog::Rejected){
+            // return true, if discard is clicked, so app can be closed
             if (dialog->isDiscarded()){
                 return true;
             } else {
                 return false;
             }
-
         } else {
             bool allsaved=true;
             QList <int> tabIdsToSave = dialog->getTabIdsToSave();
-            foreach (int tabId, tabIdsToSave){
-                qDebug() << "testtabid" << tabId;
-            }
 
             foreach (int tabId, tabIdsToSave){
-                qDebug() << "tabIdtosave in quitdialog: " << tabId;
                 tabWidget->setCurrentIndex(tabId);
                 if (! maybeSaveCurrentTab()) {
                     allsaved=false;
                 }
-                qDebug() << "handling for save" << tabId;
             }
             if (allsaved) {
 				return true;
@@ -420,14 +332,12 @@ bool TextEdit::maybeSaveAnyTab()
     }
     // code should never reach this statement
     return false;
-
 }
 
 
 QPlainTextEdit* TextEdit::curTextPage()
 {
     EditorPage *curTextPage = qobject_cast<EditorPage *>(tabWidget->currentWidget());
-
     return curTextPage->getTextPage();
 }
 
@@ -435,29 +345,7 @@ QPlainTextEdit* TextEdit::curTextPage()
 EditorPage* TextEdit::curPage()
 {
     EditorPage *curPage = qobject_cast<EditorPage *>(tabWidget->currentWidget());
-
     return curPage;
-}
-
-void TextEdit::dragEnterEvent(QDragEnterEvent *event)
-{
-    if (event->mimeData()->hasFormat("text/plain"))
-        qDebug() << "enter textedit drag action";
-        event->acceptProposedAction();
-}
-
-void TextEdit::dropEvent(QDropEvent* event)
-{
-    curTextPage()->setPlainText(event->mimeData()->text());
-
-    qDebug() << "enter textedit drop action";
-    qDebug() << event->mimeData()->text();
-    foreach (QUrl tmp, event->mimeData()->urls())
-    {
-        qDebug() << "hallo" << tmp;
-    }
-
-    //event->acceptProposedAction();
 }
 
 void TextEdit::quote()
@@ -475,7 +363,6 @@ void TextEdit::quote()
             cursor.insertText("> ");
     }
     cursor.endEditBlock();
-
 }
 
 void TextEdit::loadFile(const QString &fileName)
@@ -531,44 +418,28 @@ void TextEdit::showModified() {
 }
 
 void TextEdit::switchTabUp() {
-        qDebug() << "hallo";
     if (tabWidget->count() > 1)
     {
         if (tabWidget->count() == tabWidget->currentIndex()+1){
             tabWidget->setCurrentIndex(0);
-        }
-        else
-        {
+        }  else  {
             tabWidget->setCurrentIndex(tabWidget->currentIndex()+1);
         }
     }
 }
 
 void TextEdit::switchTabDown() {
-    qDebug() << "hallo";
     if (tabWidget->count() > 1)
     {
         if (tabWidget->currentIndex()==1) {
             tabWidget->setCurrentIndex(tabWidget->count()-1);
-        }
-        else
-        {
+        }  else  {
             tabWidget->setCurrentIndex(tabWidget->currentIndex()-1);
         }
     }
-    this->removeTab(0);;
+    this->removeTab(0);
 }
 
-int TextEdit::getUnsavedDocumentsNumber() {
-    int number=0;
-    for(int i=0; i < tabWidget->count(); i++) {
-        EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
-        if(ep->getTextPage()->document()->isModified()) {
-            number++;
-         }
-    }
-    return number;
-}
 
 QHash<int, QString> TextEdit::unsavedDocuments() {
     QHash<int, QString> unsavedDocs;  // this list could be used to implement gedit like "unsaved changed"-dialog
@@ -584,3 +455,23 @@ QHash<int, QString> TextEdit::unsavedDocuments() {
     }
     return unsavedDocs;
 }
+
+/*void TextEdit::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasFormat("text/plain"))
+        qDebug() << "enter textedit drag action";
+        event->acceptProposedAction();
+}
+
+void TextEdit::dropEvent(QDropEvent* event)
+{
+    curTextPage()->setPlainText(event->mimeData()->text());
+
+    foreach (QUrl tmp, event->mimeData()->urls())
+    {
+        qDebug() << "hallo" << tmp;
+    }
+
+    //event->acceptProposedAction();
+}
+*/
