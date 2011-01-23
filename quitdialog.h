@@ -22,22 +22,9 @@
 #ifndef __QUITDIALOG_H__
 #define __QUITDIALOG_H__
 
-
-class QMainWindow;
-class QWidget;
-class iostream;
-class QtGui;
-class QString;
-class QFileDialog;
-class QStringList;
-class QIcon;
-class QAction;
-class QMenu;
-class QApplication;
-class QProgresssBar;
-
-#include "keygenthread.h"
 #include "context.h"
+class QTableWidget;
+
 class QuitDialog : public QDialog
 {
     Q_OBJECT
@@ -48,7 +35,6 @@ public:
     QList <int> getTabIdsToSave();
 
 private slots:
-//    void accept();
     void myDiscard();
 
 private:

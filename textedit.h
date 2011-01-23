@@ -43,17 +43,68 @@ public:
     TextEdit(QString iconPath);
     void loadFile(const QString &fileName);
     bool maybeSaveAnyTab();
-    bool maybeSaveCurrentTab();
     QPlainTextEdit* curTextPage();
     QHash<int, QString> unsavedDocuments();
 
 public slots:
     void quote();
+
+    /****************************************************************************************
+     * Name:                save
+     * Description:         Saves the content of the current tab, if it has a filepath
+     *                      otherwise it calls saveAs for the current tab
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:
+    */
     void save();
+
+    /****************************************************************************************
+     * Name:                SaveAs
+     * Description:         Opens a savefiledialog and calls saveFile with the choosen filename
+     * Parameters:          none
+     * Return Values:       just returns the return value of the saveFile method
+     * Change on members:   none
+    */
     bool saveAs();
+
+    /****************************************************************************************
+     * Name:                open
+     * Description:         shows an OpenFileDoalog and opens the file in a new tab
+     *                      shows an error dialog, if the open fails
+     *                      sets the focus to the tab of the opened file
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void open();
+
+    /****************************************************************************************
+     * Name:                print
+     * Description:         opens print dialog for the current tab
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void print();
+
+    /****************************************************************************************
+     * Name:                newTab()
+     * Description:         Adds a new tab with the title "untitled"+countpage+".txt"
+     *                      Sets the focus to the new tab
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   increases countPage per 1
+    */
     void newTab();
+
+    /****************************************************************************************
+     * Name:
+     * Description:
+     * Parameters:
+     * Return Values:
+     * Change on members:
+    */
     void showModified();
     void closeTab();
     void switchTabUp();
@@ -67,8 +118,16 @@ private:
     QString mIconPath;
     int countPage;
     QTabWidget *tabWidget;
+    bool maybeSaveCurrentTab(bool askToSave);
 
 private slots:
+    /****************************************************************************************
+     * Name:                removeTab
+     * Description:         Removes the tab on index
+     * Parameters:          int index, shows the index of the tab to remove
+     * Return Values:       none
+     * Change on members:   none
+    */
     void removeTab(int index);
     void cut();
     void copy();
@@ -80,6 +139,14 @@ private slots:
 protected:
 //    void dragEnterEvent(QDragEnterEvent *event);
 //    void dropEvent(QDropEvent* event);
+    /****************************************************************************************
+     * Name:                saveFile
+     * Description:         Saves the content of currentTab to the file filename
+     * Parameters:          QString filename contains the full path of the file to save
+     * Return Values:       true, if the file was saved succesfully
+     *                      false, if parameter filename is empty or the saving failed
+     * Change on members:   sets isModified of the current tab to false
+    */
     bool saveFile(const QString &fileName);
 };
 #endif // TEXTEDIT

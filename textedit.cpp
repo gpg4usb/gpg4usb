@@ -20,7 +20,6 @@
  */
 
 #include "QDebug"
-#include "QUrl"
 #include "textedit.h"
 #include "quitdialog.h"
 class QFileDialog;
@@ -29,7 +28,7 @@ class QMessageBox;
 TextEdit::TextEdit(QString iconPath)
 {
     mIconPath = iconPath;
-    countPage         = 0;
+    countPage = 0;
     tabWidget = new QTabWidget(this);
     tabWidget->setMovable(true);
     tabWidget->setTabsClosable(true);
@@ -48,8 +47,8 @@ TextEdit::TextEdit(QString iconPath)
 
 void TextEdit::newTab()
 {
-    QString header = "new " +
-                     QString::number(++countPage);
+    QString header = tr("untitled") +
+                     QString::number(++countPage)+".txt";
 
     EditorPage *page = new EditorPage();
     tabWidget->addTab(page, header);
@@ -59,18 +58,15 @@ void TextEdit::newTab()
 //    setCursorPosition();
  }
 
-
 void TextEdit::open()
 {
     QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open file"),
                                                           QDir::currentPath());
     foreach (QString fileName,fileNames){
-        if (!fileName.isEmpty())
-        {
+        if (!fileName.isEmpty()) {
             QFile file(fileName);
 
-            if (file.open(QIODevice::ReadOnly | QIODevice::Text))
-            {
+            if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
                 EditorPage *page = new EditorPage(fileName);
 
                 QTextStream in(&file);
@@ -87,9 +83,7 @@ void TextEdit::open()
                 connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
                 //       setCursorPosition();
                 //enableAction(true)
-            }
-            else
-            {
+            } else {
                 QMessageBox::warning(this, tr("Application"),
                                      tr("Cannot read file %1:\n%2.")
                                      .arg(fileName)
@@ -99,35 +93,28 @@ void TextEdit::open()
     }
 }
 
-
 void TextEdit::save()
 {
     QString fileName = curPage()->getFilePath();
-	qDebug() <<fileName;
 
-    if (fileName.isEmpty())
-    {
+    if (fileName.isEmpty()) {
+        //QString docname = tabWidget->tabText(tabWidget->currentIndex());
+        //docname.remove(0,2);
         saveAs();
-    }
-    else
-    {
+    } else {
         saveFile(fileName);
     }
 }
 
-
 bool TextEdit::saveFile(const QString &fileName)
 {
-    if (fileName.isEmpty())
-    {
+    if (fileName.isEmpty()) {
         return false;
     }
 
-
     QFile file(fileName);
 
-    if (file.open(QIODevice::WriteOnly | QIODevice::Text))
-    {
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream outputStream(&file);
         EditorPage *page = curPage();
 
@@ -138,18 +125,15 @@ bool TextEdit::saveFile(const QString &fileName)
 
         int curIndex = tabWidget->currentIndex();
         tabWidget->setTabText(curIndex, strippedName(fileName));
-		page->setFilePath(fileName);
+        page->setFilePath(fileName);
   //      statusBar()->showMessage(tr("File saved"), 2000);
 
         return true;
-    }
-    else
-    {
+    } else {
         QMessageBox::warning(this, tr("File"),
                              tr("Cannot write file %1:\n%2.")
                              .arg(fileName)
                              .arg(file.errorString()));
-
         return false;
     }
 }
@@ -157,9 +141,8 @@ bool TextEdit::saveFile(const QString &fileName)
 
 bool TextEdit::saveAs()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save file"),
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save file "),
                                                     QDir::currentPath());
-
     return saveFile(fileName);
 }
 
@@ -177,15 +160,18 @@ void TextEdit::closeTab()
 
 void TextEdit::removeTab(int index)
 {
+    // Do nothing, if no tab is opened
     if (tabWidget->count() == 0) {
         return;
     }
 
+    // get the index of the actual current tab
     int lastIndex = tabWidget->currentIndex();
+
+    // set the focus to argument index
     tabWidget->setCurrentIndex(index);
 
-    if (maybeSaveCurrentTab()) {
-        //curPage()->close();
+    if (maybeSaveCurrentTab(true)) {
         tabWidget->removeTab(index);
 
         if(index >= lastIndex) {
@@ -200,39 +186,6 @@ void TextEdit::removeTab(int index)
     }
 }
 
-void TextEdit::cut()
-{
-    curTextPage()->cut();
-}
-
-
-void TextEdit::copy()
-{
-    curTextPage()->copy();
-}
-
-
-void TextEdit::paste()
-{
-    curTextPage()->paste();
-}
-
-
-void TextEdit::undo()
-{
-    curTextPage()->undo();
-}
-
-
-void TextEdit::redo()
-{
-    curTextPage()->redo();
-}
-
-void TextEdit::selectAll()
-{
-    curTextPage()->selectAll();
-}
 
  /**
   * Check if current may need to be saved.
@@ -240,20 +193,27 @@ void TextEdit::selectAll()
   *
   * If it returns false, the close event should be aborted.
   */
-bool TextEdit::maybeSaveCurrentTab() {
+bool TextEdit::maybeSaveCurrentTab(bool askToSave) {
     EditorPage *page = curPage();
     QTextDocument *document = page->getTextPage()->document();
 
-    if (document->isModified())
-    {
-        QString filePath = page->getFilePath();
+    if (document->isModified()) {
         QMessageBox::StandardButton result;
-        result = QMessageBox::warning(this, tr("Unsaved document"),
-                                   tr("The document has been modified:")+"\n"+filePath+"\n\n"+tr("Do you want to save your changes?"),
-                                   QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
 
-        if (result == QMessageBox::Save) {
+        // write title of tab to docname and remove the leading *
+        QString docname = tabWidget->tabText(tabWidget->currentIndex());
+        docname.remove(0,2);
+
+        QString filePath = page->getFilePath();
+        if (askToSave) {
+            result = QMessageBox::warning(this, tr("Unsaved document"),
+                                   tr("The document has been modified:")+"\n\n"+docname+"\n\n\n"+tr("Do you want to save your changes?"),
+                                   QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+        }
+        if ((result == QMessageBox::Save) || (!askToSave)) {
             if (filePath == "") {
+                //QString docname = tabWidget->tabText(tabWidget->currentIndex());
+                //docname.remove(0,2);
                 return saveAs();
             } else {
                 return saveFile(filePath);
@@ -292,7 +252,7 @@ bool TextEdit::maybeSaveAnyTab()
     if(unsavedDocs.size() == 1) {
         int modifiedTab = unsavedDocs.keys().at(0);
         tabWidget->setCurrentIndex(modifiedTab);
-        return maybeSaveCurrentTab();
+        return maybeSaveCurrentTab(true);
     }
 
     /*
@@ -317,16 +277,16 @@ bool TextEdit::maybeSaveAnyTab()
             bool allsaved=true;
             QList <int> tabIdsToSave = dialog->getTabIdsToSave();
 
-            foreach (int tabId, tabIdsToSave){
+            foreach (int tabId, tabIdsToSave) {
                 tabWidget->setCurrentIndex(tabId);
-                if (! maybeSaveCurrentTab()) {
+                if (! maybeSaveCurrentTab(false)) {
                     allsaved=false;
                 }
             }
             if (allsaved) {
-				return true;
+                return true;
             } else {
-				return false;
+                return false;
             }
         }
     }
@@ -359,8 +319,9 @@ void TextEdit::quote()
     while (!cursor.isNull() && !cursor.atEnd()) {
         cursor.movePosition(QTextCursor::EndOfLine);
         cursor.movePosition(QTextCursor::NextCharacter);
-        if(!cursor.atEnd())
+        if(!cursor.atEnd()) {
             cursor.insertText("> ");
+        }
     }
     cursor.endEditBlock();
 }
@@ -397,9 +358,9 @@ void TextEdit::print()
     QPrinter printer;
 
     QPrintDialog *dlg = new QPrintDialog(&printer, this);
-    if (dlg->exec() != QDialog::Accepted)
+    if (dlg->exec() != QDialog::Accepted) {
         return;
-
+    }
     document->print(&printer);
 
     //statusBar()->showMessage(tr("Ready"), 2000);
@@ -411,36 +372,32 @@ void TextEdit::print()
 void TextEdit::showModified() {
     int index=tabWidget->currentIndex();
     QString title= tabWidget->tabText(index);
-    if(curTextPage()->document()->isModified())
+    // if doc is modified now, add leading * to title,
+    // otherwise remove the leading * from the title
+    if(curTextPage()->document()->isModified()) {
         tabWidget->setTabText(index, title.prepend("* "));
-    else
+    } else {
         tabWidget->setTabText(index, title.remove(0,2));
+    }
 }
 
 void TextEdit::switchTabUp() {
-    if (tabWidget->count() > 1)
-    {
-        if (tabWidget->count() == tabWidget->currentIndex()+1){
-            tabWidget->setCurrentIndex(0);
-        }  else  {
-            tabWidget->setCurrentIndex(tabWidget->currentIndex()+1);
-        }
+    if (tabWidget->count() > 1) {
+        int newindex=(tabWidget->currentIndex()+1)%(tabWidget->count());
+        tabWidget->setCurrentIndex(newindex);
     }
 }
 
 void TextEdit::switchTabDown() {
-    if (tabWidget->count() > 1)
-    {
-        if (tabWidget->currentIndex()==1) {
-            tabWidget->setCurrentIndex(tabWidget->count()-1);
-        }  else  {
-            tabWidget->setCurrentIndex(tabWidget->currentIndex()-1);
-        }
+    if (tabWidget->count() > 1) {
+        int newindex=(tabWidget->currentIndex()-1+tabWidget->count())%tabWidget->count();
+        tabWidget->setCurrentIndex(newindex);
     }
-    this->removeTab(0);
 }
 
-
+/*
+ *   return a hash of tabindexes and title of unsaved tabs
+ */
 QHash<int, QString> TextEdit::unsavedDocuments() {
     QHash<int, QString> unsavedDocs;  // this list could be used to implement gedit like "unsaved changed"-dialog
 
@@ -454,6 +411,36 @@ QHash<int, QString> TextEdit::unsavedDocuments() {
         }
     }
     return unsavedDocs;
+}
+
+void TextEdit::cut()
+{
+    curTextPage()->cut();
+}
+
+void TextEdit::copy()
+{
+    curTextPage()->copy();
+}
+
+void TextEdit::paste()
+{
+    curTextPage()->paste();
+}
+
+void TextEdit::undo()
+{
+    curTextPage()->undo();
+}
+
+void TextEdit::redo()
+{
+    curTextPage()->redo();
+}
+
+void TextEdit::selectAll()
+{
+    curTextPage()->selectAll();
 }
 
 /*void TextEdit::dragEnterEvent(QDragEnterEvent *event)

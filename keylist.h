@@ -26,11 +26,8 @@
 
 class QWidget;
 class QVBoxLayout;
-class QTableWidgetItem;
 class QLabel;
-class QMessageBox;
 class QTableWidget;
-class QPushButton;
 class QMenu;
 
 class KeyList : public QWidget

@@ -32,7 +32,6 @@ GpgWin::GpgWin()
     QString appPath = qApp->applicationDirPath();
     iconPath = appPath + "/icons/";
 
-
     setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
 
@@ -61,14 +60,13 @@ GpgWin::GpgWin()
 
     // open filename if provided as first command line parameter
     QStringList args = qApp->arguments();
-    qDebug() << args.size();
     if (args.size() > 1) {
-
         if (!args[1].startsWith("-")) {
             if (QFile::exists(args[1]))
                 edit->loadFile(args[1]);
         }
     }
+
     edit->curTextPage()->setFocus();
 }
 
@@ -451,7 +449,7 @@ void GpgWin::about()
                             "<b>Developer:</b><br>"
                             "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                             "<b>Translation:</b><br>"
-                            "Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es), Serse (it) <br><br>"
+                            "Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) <br><br>"
                             "If you have any questions and/or<br>"
                             "suggestions, contact us at<br>"
                             "gpg4usb at cpunk.de</a><br><br>"
@@ -491,28 +489,21 @@ void GpgWin::decrypt()
 
         if(Mime::isMime(decrypted)) {
             Header header = Mime::getHeader(decrypted);
-
             // is it multipart, is multipart-parsing enabled
             if(header.getValue("Content-Type") == "multipart/mixed"
                && settings.value("mime/parseMime").toBool()) {
-
                     parseMime(decrypted);
-
             } else if(header.getValue("Content-Type") == "text/plain"
                && settings.value("mime/parseQP").toBool()){
-
-                    if (header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
-                        QByteArray *decoded = new QByteArray();
-                        Mime::quotedPrintableDecode(*decrypted, *decoded);
-                        //TODO: remove header
-                        decrypted = decoded;
-
-                    }
+                if (header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
+                    QByteArray *decoded = new QByteArray();
+                    Mime::quotedPrintableDecode(*decrypted, *decoded);
+                    //TODO: remove header
+                    decrypted = decoded;
+                }
             }
         }
-
         edit->curTextPage()->setPlainText(QString::fromUtf8(*decrypted));
-        //edit->setPlainText(*decrypted);
     }
 }
 

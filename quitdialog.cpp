@@ -23,7 +23,6 @@
 #include <QtGui>
 #include <QTableWidget>
 #include "quitdialog.h"
-class QMessageBox;
 
 QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString iconPath)
     : QDialog(parent)

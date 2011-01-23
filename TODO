@@ -36,6 +36,7 @@ attachments:
 - add quote button
 - fix overwrite file bug in file encryption [DONE]
 - add drag'n'drop features for keys [DONE]
+- add posibility to change password of key
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files
