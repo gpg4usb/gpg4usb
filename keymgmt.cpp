@@ -23,7 +23,7 @@
 #include <QtGui>
 
 #include "keymgmt.h"
-
+#include "keygendialog.h"
 
 KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconPath)
 {
@@ -229,94 +229,7 @@ void KeyMgmt::exportKeyToClipboard()
 
 void KeyMgmt::generateKeyDialog()
 {
-    QStringList errorMessages;
-    genkeyDialog = new QDialog();
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-
-    genkeyDialog->setWindowTitle(tr("Generate Key"));
-    genkeyDialog->setModal(true);
-
-    nameLabel = new QLabel(tr("Name:"));
-    emailLabel = new QLabel(tr("E-Mailaddress::"));
-    commentLabel = new QLabel(tr("Comment:"));
-    keySizeLabel = new QLabel(tr("KeySize (in Bit):"));
-    dateLabel = new QLabel(tr("Expiration Date:"));
-    passwordLabel = new QLabel(tr("Password:"));
-    repeatpwLabel = new QLabel(tr("Repeat Password:"));
-    expireLabel = new QLabel(tr("Never Expire"));
-    pwStrengthLabel = new QLabel(tr("Password: Strength\nWeak -> Strong"));
-    errorLabel = new QLabel(tr(""));
-    nameEdit = new QLineEdit(genkeyDialog);
-    emailEdit = new QLineEdit(genkeyDialog);
-    commentEdit = new QLineEdit(genkeyDialog);
-
-    keySizeSpinBox = new QSpinBox(genkeyDialog);
-    keySizeSpinBox->setRange(768, 8192);
-    keySizeSpinBox->setValue(2048);
-
-    keySizeSpinBox->setSingleStep(256);
-
-    dateEdit = new QDateEdit(QDate::currentDate().addYears(5), genkeyDialog);
-    dateEdit->setMinimumDate(QDate::currentDate());
-    dateEdit->setDisplayFormat("dd/MM/yyyy");
-    dateEdit->setCalendarPopup(true);
-    dateEdit->setEnabled(false);
-
-    expireCheckBox = new QCheckBox(genkeyDialog);
-    expireCheckBox->setCheckState(Qt::Checked);
-
-    passwordEdit = new QLineEdit(genkeyDialog);
-    repeatpwEdit = new QLineEdit(genkeyDialog);
-
-    passwordEdit->setEchoMode(QLineEdit::Password);
-    repeatpwEdit->setEchoMode(QLineEdit::Password);
-
-    pwStrengthSlider = new QSlider(genkeyDialog);
-    pwStrengthSlider->setOrientation(Qt::Horizontal);
-    pwStrengthSlider->setMaximum(6);
-    pwStrengthSlider->setDisabled(true);
-    pwStrengthSlider->setToolTip(tr("Password Strength"));
-    pwStrengthSlider->setTickPosition(QSlider::TicksBelow);
-
-    QGridLayout *vbox1 = new QGridLayout;
-    vbox1->addWidget(nameLabel, 0, 0);
-    vbox1->addWidget(nameEdit, 0, 1);
-    vbox1->addWidget(emailLabel, 1, 0);
-    vbox1->addWidget(emailEdit, 1, 1);
-    vbox1->addWidget(commentLabel, 2, 0);
-    vbox1->addWidget(commentEdit, 2, 1);
-    vbox1->addWidget(dateLabel, 3, 0);
-    vbox1->addWidget(dateEdit, 3, 1);
-    vbox1->addWidget(expireCheckBox, 3, 2);
-    vbox1->addWidget(expireLabel, 3, 3);
-    vbox1->addWidget(keySizeLabel, 4, 0);
-    vbox1->addWidget(keySizeSpinBox, 4, 1);
-    vbox1->addWidget(passwordLabel, 5, 0);
-    vbox1->addWidget(passwordEdit, 5, 1);
-    vbox1->addWidget(pwStrengthLabel, 5, 3);
-    vbox1->addWidget(repeatpwLabel, 6, 0);
-    vbox1->addWidget(repeatpwEdit, 6, 1);
-    vbox1->addWidget(pwStrengthSlider, 6, 3);
-
-    QWidget *nameList = new QWidget(genkeyDialog);
-    nameList->setLayout(vbox1);
-
-    QVBoxLayout *vbox2 = new QVBoxLayout();
-    vbox2->addWidget(nameList);
-    vbox2->addWidget(errorLabel);
-    vbox2->addWidget(buttonBox);
-
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(keyGenAccept()));
-    connect(buttonBox, SIGNAL(rejected()), genkeyDialog, SLOT(reject()));
-
-    connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
-    connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
-    genkeyDialog->setLayout(vbox2);
-    genkeyDialog->show();
-
-    if (genkeyDialog->exec() == QDialog::Accepted) {
-
-    }
+    KeyGenDialog *dialog = new KeyGenDialog(mCtx);
 }
 
 

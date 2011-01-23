@@ -141,8 +141,16 @@ bool TextEdit::saveFile(const QString &fileName)
 
 bool TextEdit::saveAs()
 {
+    EditorPage *page = curPage();
+    QString path;
+    if(page->getFilePath() != "") {
+        path = page->getFilePath();
+    } else {
+        path = tabWidget->tabText(tabWidget->currentIndex()).remove(0,2);
+    }
+
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save file "),
-                                                    QDir::currentPath());
+                                                    path);
     return saveFile(fileName);
 }
 
@@ -207,7 +215,8 @@ bool TextEdit::maybeSaveCurrentTab(bool askToSave) {
         QString filePath = page->getFilePath();
         if (askToSave) {
             result = QMessageBox::warning(this, tr("Unsaved document"),
-                                   tr("The document has been modified:")+"\n\n"+docname+"\n\n\n"+tr("Do you want to save your changes?"),
+                                   tr("<h3>The document \"%1\" has been modified.<br/>Do you want to save your changes?</h3>").arg(docname)+
+                                   tr("<b>Note:</b> If you don't save these files, all changes are lost.<br/>"),
                                    QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
         }
         if ((result == QMessageBox::Save) || (!askToSave)) {

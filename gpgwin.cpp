@@ -284,6 +284,10 @@ void GpgWin::createActions()
     openTutorialAct->setToolTip(tr("Open Online Tutorial"));
     connect(openTutorialAct, SIGNAL(triggered()), this, SLOT(openTutorial()));
 
+    openTranslateAct = new QAction(tr("Translate gpg4usb"), this);
+    openTranslateAct->setToolTip(tr("Translate gpg4usb yourself"));
+    connect(openTranslateAct, SIGNAL(triggered()), this, SLOT(openTranslate()));
+
     /** Popup-Menu-Action for KeyList
      */
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
@@ -351,6 +355,7 @@ void GpgWin::createMenus()
 
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(openTutorialAct);
+    helpMenu->addAction(openTranslateAct);
     helpMenu->addAction(aboutAct);
 }
 
@@ -455,6 +460,10 @@ void GpgWin::about()
                             "gpg4usb at cpunk.de</a><br><br>"
                             "or feel free to meet us in our xmpp-channel:<br>"
                             "gpg4usb at conference.jabber.ccc.de</center>"));
+}
+
+void GpgWin::openTranslate() {
+    QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu_translate.html"));
 }
 
 void GpgWin::openTutorial() {

@@ -66,6 +66,8 @@ protected:
 public slots:
     void encrypt();
     void decrypt();
+    void sign();
+    void verify();
     void importKeyFromFile();
     void importKeyFromEdit();
     void importKeyFromClipboard();
@@ -78,8 +80,7 @@ public slots:
     void openSettingsDialog();
     void openTutorial();
     void checkAttachmentFolder();
-    void sign();
-    void verify();
+    void openTranslate();
 //    void dropEvent(QDropEvent *event);
 
 private:
@@ -137,6 +138,7 @@ private:
     QAction *aboutAct;
     QAction *fileEncryptionAct;
     QAction *openSettingsAct;
+    QAction *openTranslateAct;
     QAction *openTutorialAct;
     QLineEdit *nameEdit;
     QLineEdit *emailEdit;

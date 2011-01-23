@@ -73,7 +73,7 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString
     QPixmap *pixmap = new QPixmap(iconPath + "error.png");
     QLabel *warnicon = new QLabel();
     warnicon->setPixmap(*pixmap);
-    QLabel *warnlabel = new QLabel(tr("%1 files contain unsaved information.").arg(row)+"\n"+tr("Save the changes before closing?"));
+    QLabel *warnlabel = new QLabel(tr("<h3>%1 files contain unsaved information.<br/>Save the changes before closing?</h3>").arg(row));
     QHBoxLayout *warnBoxLayout = new QHBoxLayout();
     warnBoxLayout->addWidget(warnicon);
     warnBoxLayout->addWidget(warnlabel);
@@ -84,8 +84,8 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString
     /*
      *  Two labels on top and under the filelist
      */
-    QLabel *checkLabel = new QLabel(tr("Check the files you want to save"));
-    QLabel *notelabel = new QLabel(tr("NOTE: If you don't save these files, all changes are lost.")+"\n");
+    QLabel *checkLabel = new QLabel(tr("Check the files you want to save:"));
+    QLabel *notelabel = new QLabel(tr("<b>Note:</b> If you don't save these files, all changes are lost.<br/>"));
 
     /*
      *  Buttonbox
