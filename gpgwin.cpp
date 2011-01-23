@@ -126,7 +126,11 @@ void GpgWin::createActions()
     /** Main Menu
       */
     newTabAct = new QAction(tr("&New"), this);
-    newTabAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_T));
+    QList<QKeySequence> newTabActShortcutList;
+    newTabActShortcutList.append(QKeySequence (Qt::CTRL + Qt::Key_N));
+    newTabActShortcutList.append(QKeySequence (Qt::CTRL + Qt::Key_T));
+    newTabAct->setShortcuts(newTabActShortcutList);
+
     newTabAct->setToolTip(tr("Open a new file"));
     connect(newTabAct, SIGNAL(triggered()), edit, SLOT(newTab()));
 
