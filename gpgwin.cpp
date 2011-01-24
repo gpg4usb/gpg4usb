@@ -159,7 +159,7 @@ void GpgWin::createActions()
     connect(printAct, SIGNAL(triggered()), edit, SLOT(print()));
 
     closeTabAct = new QAction(tr("&Close"), this);
-    closeTabAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_W));
+    closeTabAct->setShortcut(QKeySequence::Close);
     closeTabAct->setToolTip(tr("Close file"));
     connect(closeTabAct, SIGNAL(triggered()), edit, SLOT(closeTab()));
 
@@ -214,7 +214,7 @@ void GpgWin::createActions()
 
     openSettingsAct = new QAction(tr("Se&ttings"), this);
     openSettingsAct->setToolTip(tr("Open settings dialog"));
-//    openSettingsAct->setShortcut(QKeySequence::Preferences);
+    openSettingsAct->setShortcut(QKeySequence::Preferences);
     connect(openSettingsAct, SIGNAL(triggered()), this, SLOT(openSettingsDialog()));
 
     /** Crypt Menu
