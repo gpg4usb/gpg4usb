@@ -23,7 +23,6 @@ HEADERS += attachments.h \
     fileencryptiondialog.h \
     mime.h \
     keygenthread.h \
-    keygendialog.h \
     keydetailsdialog.h \
     settingsdialog.h \
     attachmenttablemodel.h \
@@ -39,7 +38,6 @@ SOURCES += attachments.cpp \
     fileencryptiondialog.cpp \
     mime.cpp \
     keygenthread.cpp \
-    keygendialog.cpp \
     keydetailsdialog.cpp \
     settingsdialog.cpp \
     attachmenttablemodel.cpp \

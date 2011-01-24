@@ -46,7 +46,7 @@ class KeyMgmt : public QMainWindow
     Q_OBJECT
 
 public:
-    KeyMgmt(GpgME::Context* ctx, QString iconPath);
+    KeyMgmt(GpgME::Context* ctx, QString iconpath);
 
 public slots:
     void importKeyFromFile();
