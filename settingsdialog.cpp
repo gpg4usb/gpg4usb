@@ -39,7 +39,6 @@ class QGroupBox;
  SettingsDialog::SettingsDialog(QWidget *parent)
         : QDialog(parent)
 {
-
      tabWidget = new QTabWidget;
      generalTab = new GeneralTab;
      appearanceTab = new AppearanceTab;

@@ -39,6 +39,7 @@ attachments:
 - add posibility to change password of key
 - check and add missing statusbar messages
 - add editorpage-method setmodified
+- tab switching tab down doesn't work right in windows
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files
