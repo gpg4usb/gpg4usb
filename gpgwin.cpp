@@ -164,7 +164,7 @@ void GpgWin::createActions()
     connect(closeTabAct, SIGNAL(triggered()), edit, SLOT(closeTab()));
 
     quitAct = new QAction(tr("&Quit"), this);
-//    quitAct->setShortcut(QKeySequence::Quit);
+    quitAct->setShortcut(QKeySequence::Quit);
     quitAct->setIcon(QIcon(iconPath + "exit.png"));
     quitAct->setToolTip(tr("Quit Program"));
     connect(quitAct, SIGNAL(triggered()), this, SLOT(close()));
