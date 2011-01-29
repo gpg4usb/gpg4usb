@@ -1,17 +1,18 @@
 TODO:
 -----
-Release 0.2.5
-- minimal MIME support (understand and decode "Content-Encoding" header, e.g. "quoted printable") [DONE]
-	- enable by Default
-- File-Encryption: Warning if file overwritten [DONE]
-- doku for translating gpg4usb [DONE]
-- add translation for french 
-- remember Password [DONE]
-- open-with functionality for attachments (needs temp dir for saving attachments) [DONE]
-- graphical feedback if there are files in attachments-dir: monitor attachments-directory, show icon in statusbar if files inside [DONE]
-- update gpg binary to version 1.4.11[DONE]
+Release 0.3
+- add quote button [DONE]
+- fix overwrite file bug in file encryption [DONE]
+- add drag'n'drop features for keys [DONE]
+- list keys to delete in warning dialog [DONE]
+- undoable encrypt and decrypt  [DONE]
+- updated the windows qt libraries to 4.7 [DONE] 
+- added tabs, including quitdialog listing modified files [DONE]
+- list keys to delete in warning dialog [DONE]
+- undoable encrypt and decrypt  [DONE]
+- decryption of empty messages is possible now [DONE]
 
-Release 0.2.6
+Release 0.3.1
 - more doku on building gpg4usb (especially on windows)
 - remember Password:
 	- checkbox in password dialog to remember password
@@ -27,30 +28,18 @@ attachments:
 		- encrypting
 	- status-tip "saved file" when saving file for "open with"
 - Settings-Dialog:
-	- reorganise, have different tabs for simple, advanced and experimantal options
-	- questionary mark icon behind some options showing tooltip with further help when
-	  clicked (e.g. for "open attachments")
 	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - update gpgme-library
 - clean header if quoted printable decoded
-- add quote button [DONE]
-- fix overwrite file bug in file encryption [DONE]
-- add drag'n'drop features for keys [DONE]
 - add posibility to change password of key
 - check and add missing statusbar messages
-- add editorpage-method setmodified
-- list keys to delete in warning dialog [DONE]
-- undoable encrypt and decrypt  [DONE]
-
-Release 0.3
+- make keylist browsabel with keyboard
+- check class / includes
+- check pointer usage (const/references)
+- Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
 - PGP-MIME, find and show inline encrypted files
 	- attachments-widget should be inlined in editor-tabs
-- Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
-- check pointer usage (const/references)
-- check class / includes
-- setup crosscompile-environment for building against glibc2.3 
-- Qt 4.6 / new gpg-binaries / new gpgme libs
-- make keylist browsabel with keyboard
+
 
 Release 0.4
 - adding signing and verifying
