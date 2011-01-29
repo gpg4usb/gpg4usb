@@ -479,10 +479,15 @@ void GpgWin::encrypt()
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-//    if (mCtx->encrypt(uidList, edit.curTextPage.toPlainText().toUtf8(), tmp)) {
     if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
-        edit->curTextPage()->setPlainText(*tmp2);
+
+        // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
+        QTextCursor cursor(edit->curTextPage()->document());
+        cursor.beginEditBlock();
+        edit->curTextPage()->selectAll();
+        edit->curTextPage()->insertPlainText(*tmp2);
+        cursor.endEditBlock();
     }
 }
 
@@ -516,7 +521,12 @@ void GpgWin::decrypt()
                 }
             }
         }
-        edit->curTextPage()->setPlainText(QString::fromUtf8(*decrypted));
+        // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
+        QTextCursor cursor(edit->curTextPage()->document());
+        cursor.beginEditBlock();
+        edit->curTextPage()->selectAll();
+        edit->curTextPage()->insertPlainText(QString::fromUtf8(*decrypted));
+        cursor.endEditBlock();
     }
 }
 

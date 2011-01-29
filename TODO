@@ -33,14 +33,14 @@ attachments:
 	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - update gpgme-library
 - clean header if quoted printable decoded
-- add quote button
+- add quote button [DONE]
 - fix overwrite file bug in file encryption [DONE]
 - add drag'n'drop features for keys [DONE]
 - add posibility to change password of key
 - check and add missing statusbar messages
 - add editorpage-method setmodified
-- tab switching tab down doesn't work right in windows
-- list keys to delete in warning dialog
+- list keys to delete in warning dialog [DONE]
+- undoable encrypt and decrypt  [DONE]
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files
