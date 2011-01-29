@@ -515,7 +515,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="163"/>
         <source>Close file</source>
-        <translation>&amp;Schliesse die Datei</translation>
+        <translation>Schliesse die Datei</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="176"/>
@@ -946,7 +946,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="78"/>
         <source>Import From &amp;File</source>
-        <translation>Import aus &amp;Datei</translation>
+        <translation>&amp;Import aus Datei</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="80"/>
@@ -966,7 +966,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="88"/>
         <source>Export To &amp;Clipboard</source>
-        <translation>Export in &amp;Zwischenablage</translation>
+        <translation>&amp;Export in Zwischenablage</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="90"/>
@@ -996,7 +996,7 @@ also geben sie ihn nicht weiter.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="102"/>
         <source>Delete Checked Key(s)</source>
-        <translation>Lösche markierte Schlüssel</translation>
+        <translation>Lösche &amp;markierte Schlüssel</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="103"/>
@@ -1007,7 +1007,7 @@ also geben sie ihn nicht weiter.</translation>
         <location filename="../../keymgmt.cpp" line="107"/>
         <location filename="../../keymgmt.cpp" line="236"/>
         <source>Generate Key</source>
-        <translation>Erzeuge neuen Schlüssel</translation>
+        <translation>Erzeuge &amp;neuen Schlüssel</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="108"/>
@@ -1343,7 +1343,7 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../textedit.cpp" line="50"/>
         <source>untitled</source>
-        <translation>Unbekanntes Dokument</translation>
+        <translation>untitled</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="63"/>

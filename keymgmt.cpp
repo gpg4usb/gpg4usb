@@ -171,7 +171,7 @@ void KeyMgmt::deleteSelectedKeys()
 
 void KeyMgmt::deleteCheckedKeys()
 {
-    deleteKeysWithWarning(mKeyList->getSelected());
+    deleteKeysWithWarning(mKeyList->getChecked());
 }
 
 void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
