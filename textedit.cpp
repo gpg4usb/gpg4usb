@@ -115,12 +115,14 @@ bool TextEdit::saveFile(const QString &fileName)
     QFile file(fileName);
 
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream outputStream(&file);
         EditorPage *page = curPage();
 
+        QTextStream outputStream(&file);
+        QApplication::setOverrideCursor(Qt::WaitCursor);
         outputStream << page->getTextPage()->toPlainText();
-
+        QApplication::restoreOverrideCursor();
         QTextDocument *document = page->getTextPage()->document();
+
         document->setModified(false);
 
         int curIndex = tabWidget->currentIndex();
