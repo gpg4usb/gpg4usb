@@ -497,37 +497,35 @@ void GpgWin::decrypt()
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
     mCtx->decrypt(text, decrypted);
-    if (!decrypted->isEmpty()) {
-
-        /**
+    /**
          *   1) is it mime (content-type:)
          *   2) parse header
          *   2) choose action depending on content-type
          */
 
-        if(Mime::isMime(decrypted)) {
-            Header header = Mime::getHeader(decrypted);
-            // is it multipart, is multipart-parsing enabled
-            if(header.getValue("Content-Type") == "multipart/mixed"
-               && settings.value("mime/parseMime").toBool()) {
-                    parseMime(decrypted);
-            } else if(header.getValue("Content-Type") == "text/plain"
-               && settings.value("mime/parseQP").toBool()){
-                if (header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
-                    QByteArray *decoded = new QByteArray();
-                    Mime::quotedPrintableDecode(*decrypted, *decoded);
-                    //TODO: remove header
-                    decrypted = decoded;
-                }
+    if(Mime::isMime(decrypted)) {
+        Header header = Mime::getHeader(decrypted);
+        // is it multipart, is multipart-parsing enabled
+        if(header.getValue("Content-Type") == "multipart/mixed"
+           && settings.value("mime/parseMime").toBool()) {
+            parseMime(decrypted);
+        } else if(header.getValue("Content-Type") == "text/plain"
+                  && settings.value("mime/parseQP").toBool()){
+            if (header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
+                QByteArray *decoded = new QByteArray();
+                Mime::quotedPrintableDecode(*decrypted, *decoded);
+                //TODO: remove header
+                decrypted = decoded;
             }
         }
-        // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
-        QTextCursor cursor(edit->curTextPage()->document());
-        cursor.beginEditBlock();
-        edit->curTextPage()->selectAll();
-        edit->curTextPage()->insertPlainText(QString::fromUtf8(*decrypted));
-        cursor.endEditBlock();
+
     }
+    // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
+    QTextCursor cursor(edit->curTextPage()->document());
+    cursor.beginEditBlock();
+    edit->curTextPage()->selectAll();
+    edit->curTextPage()->insertPlainText(QString::fromUtf8(*decrypted));
+    cursor.endEditBlock();
 }
 
 /**
