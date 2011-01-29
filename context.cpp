@@ -162,7 +162,6 @@ gpgme_key_t Context::getKeyDetails(QString uid)
     if (!key) {
         gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 0);
     }
-
     return key;
 }
 
@@ -220,7 +219,6 @@ GpgKeyList Context::listKeys()
 
 void Context::deleteKeys(QStringList *uidList)
 {
-
     QString tmp;
     gpgme_key_t key;
 

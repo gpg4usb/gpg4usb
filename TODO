@@ -40,6 +40,7 @@ attachments:
 - check and add missing statusbar messages
 - add editorpage-method setmodified
 - tab switching tab down doesn't work right in windows
+- list keys to delete in warning dialog
 
 Release 0.3
 - PGP-MIME, find and show inline encrypted files
@@ -49,6 +50,7 @@ Release 0.3
 - check class / includes
 - setup crosscompile-environment for building against glibc2.3 
 - Qt 4.6 / new gpg-binaries / new gpgme libs
+- make keylist browsabel with keyboard
 
 Release 0.4
 - adding signing and verifying

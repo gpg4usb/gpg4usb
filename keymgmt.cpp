@@ -176,15 +176,22 @@ void KeyMgmt::deleteCheckedKeys()
 
 void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
 {
-
     /**
      * TODO: Different Messages for private/public key, check if
      * more than one selected... compare to seahorse "delete-dialog"
      */
 
-    int ret = QMessageBox::question(this, tr("Deleting Keys"),
-                                    tr("Are you sure that you want to delete the selected keys?.\n"
-                                       "The action can not be undone."),
+    QString keynames;
+    foreach (QString uid, *uidList) {
+        keynames.append(mCtx->getKeyDetails(uid)->uids->name);
+        keynames.append("<i> &lt;");
+        keynames.append(mCtx->getKeyDetails(uid)->uids->email);
+        keynames.append("&gt; </i><br/>");
+    }
+
+    int ret = QMessageBox::warning(this, tr("Deleting Keys"),
+                                    tr("<b>Are you sure that you want to delete the following keys?.</b><br/><br/>")+keynames+
+                                    tr("<br/>The action can not be undone."),
                                     QMessageBox::No | QMessageBox::Yes);
 
     if (ret == QMessageBox::Yes) {

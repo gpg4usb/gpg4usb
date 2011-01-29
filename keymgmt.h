@@ -53,8 +53,8 @@ public slots:
     void importKeyFromClipboard();
     void exportKeyToFile();
     void exportKeyToClipboard();
-    void deleteCheckedKeys();
     void deleteSelectedKeys();
+    void deleteCheckedKeys();
     void generateKeyDialog();
     void expireBoxChanged();
     void passwordEditChanged();

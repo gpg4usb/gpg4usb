@@ -220,9 +220,6 @@ void KeyList::dropEvent(QDropEvent* event)
             QByteArray inBuffer(event->mimeData()->text().toUtf8());
             mCtx->importKey(inBuffer);
   }
-
-
-
 }
 
 void KeyList::dragEnterEvent(QDragEnterEvent *event)
