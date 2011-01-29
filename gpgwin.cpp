@@ -449,21 +449,28 @@ void GpgWin::closeEvent(QCloseEvent *event)
 
 void GpgWin::about()
 {
-    QMessageBox::about(this, tr("About ") + qApp->applicationName(),
-                       "<center><h2>" + qApp->applicationName() + " "
-                       + qApp->applicationVersion() + "</h2></center>"
-                       + tr("<center>This Application allows you to do simple<br>"
-                            "encryption/decryption of your text-message or file.<br>"
-                            "It's licensed under the GPL v2.0<br><br>"
-                            "<b>Developer:</b><br>"
-                            "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
-                            "<b>Translation:</b><br>"
-                            "Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) <br><br>"
-                            "If you have any questions and/or<br>"
-                            "suggestions, contact us at<br>"
-                            "gpg4usb at cpunk.de</a><br><br>"
-                            "or feel free to meet us in our xmpp-channel:<br>"
-                            "gpg4usb at conference.jabber.ccc.de</center>"));
+    QPixmap *pixmap = new QPixmap(iconPath + "gpg4usb-logo.png");
+    QString *title = new QString(tr("About ") + qApp->applicationName());
+    QString *text = new QString("<center><h2>" + qApp->applicationName() + " "
+                                + qApp->applicationVersion() + "</h2></center>"
+                                + tr("<center>This Application allows you to do simple<br>"
+                                     "encryption/decryption of your text-message or file.<br>"
+                                     "It's licensed under the GPL v2.0<br><br>"
+                                     "<b>Developer:</b><br>"
+                                     "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
+                                     "<b>Translation:</b><br>"
+                                     "Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) <br><br>"
+                                     "If you have any questions and/or<br>"
+                                     "suggestions, contact us at<br>"
+                                     "gpg4usb at cpunk.de</a><br><br>"
+                                     "or feel free to meet us in our xmpp-channel:<br>"
+                                     "gpg4usb at conference.jabber.ccc.de</center>"));
+
+    QMessageBox::about(this, *title, *text);
+/*    aboutBox.setText(*text);
+    aboutBox.setIconPixmap(*pixmap);
+    aboutBox.setWindowTitle(*title);
+    aboutBox.exec();*/
 }
 
 void GpgWin::openTranslate() {
