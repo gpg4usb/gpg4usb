@@ -69,6 +69,7 @@ GpgWin::GpgWin()
     }
 
     edit->curTextPage()->setFocus();
+    this->setWindowTitle(qApp->applicationName());
 }
 
 void GpgWin::restoreSettings()
@@ -465,17 +466,38 @@ void GpgWin::about()
                                      "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                                      "<b>Translation:</b><br>"
                                      "Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) <br><br>"
-                                     "If you have any questions and/or<br>"
-                                     "suggestions, contact us at<br>"
-                                     "gpg4usb at cpunk.de</a><br><br>"
-                                     "or feel free to meet us in our xmpp-channel:<br>"
+                                     "If you have any questions and/or suggestions,<br/>"
+                                     "contact us at gpg4usb at cpunk.de or feel<br>"
+                                     "free to meet us in our xmpp-channel:<br>"
                                      "gpg4usb at conference.jabber.ccc.de</center>"));
 
-    QMessageBox::about(this, *title, *text);
-/*    aboutBox.setText(*text);
+    /*QMessageBox::about(this, *title, *text);
+    QMessageBox aboutBox(this);
+    aboutBox.setText(*text);
     aboutBox.setIconPixmap(*pixmap);
     aboutBox.setWindowTitle(*title);
     aboutBox.exec();*/
+
+    QDialog *dialog = new QDialog(this);
+    dialog->setWindowTitle(*title);
+    QPushButton *closeButton = new QPushButton(tr("&Close"));
+    connect(closeButton, SIGNAL(clicked()), dialog, SLOT(close()));
+
+    QGridLayout *layout = new QGridLayout(dialog);
+    QLabel *pixmapLabel = new QLabel();
+    pixmapLabel->setPixmap(*pixmap);
+    layout->addWidget(pixmapLabel, 0, 0, 1, -1, Qt::AlignCenter);
+    QLabel *aboutLabel = new QLabel();
+    aboutLabel->setText(*text);
+    layout->addWidget(aboutLabel, 1, 0, 1, -1);
+    layout->addItem(new QSpacerItem(20, 10, QSizePolicy::Minimum,
+                                    QSizePolicy::Fixed), 2, 1, 1, 1);
+    layout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding), 3, 0, 1, 1);
+    layout->addWidget(closeButton, 3, 1, 1, 1);
+    layout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding), 3, 2, 1, 1);
+
+    dialog->exec();
+
 }
 
 void GpgWin::openTranslate() {
