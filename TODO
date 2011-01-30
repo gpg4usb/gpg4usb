@@ -39,7 +39,7 @@ attachments:
 - Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
 - PGP-MIME, find and show inline encrypted files
 	- attachments-widget should be inlined in editor-tabs
-
+- export key: default filename to <keyowner-name>.key
 
 Release 0.4
 - adding signing and verifying
