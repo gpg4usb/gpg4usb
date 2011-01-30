@@ -459,7 +459,7 @@ void GpgWin::about()
     QString *title = new QString(tr("About ") + qApp->applicationName());
     QString *text = new QString("<center><h2>" + qApp->applicationName() + " "
                                 + qApp->applicationVersion() + "</h2></center>"
-                                + tr("<center>This application allows you simple encryption <br/>"
+                                + tr("<center>This application allows simple encryption <br/>"
                                      "and decryption of text messages or files.<br>"
                                      "It's licensed under the GPL v2.0<br><br>"
                                      "<b>Developer:</b><br>"
