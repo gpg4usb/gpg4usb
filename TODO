@@ -40,6 +40,7 @@ attachments:
 - PGP-MIME, find and show inline encrypted files
 	- attachments-widget should be inlined in editor-tabs
 - export key: default filename to <keyowner-name>.key
+- show keydetails-dialog in keylist on mainwindow
 
 Release 0.4
 - adding signing and verifying
