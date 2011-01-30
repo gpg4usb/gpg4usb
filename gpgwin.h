@@ -27,6 +27,7 @@
 #include "attachments.h"
 #include "mime.h"
 #include "keymgmt.h"
+#include "keydetailsdialog.h"
 #include "textedit.h"
 
 class QMainWindow;
@@ -74,6 +75,7 @@ public slots:
     void importKeyDialog();
     //void deleteSelectedKeys();
     void appendSelectedKeys();
+    void showKeyDetails();
     void openKeyManagement();
     void about();
     void fileEncryption();
@@ -127,6 +129,7 @@ private:
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
     QAction *appendSelectedKeysAct;
+    QAction *showKeyDetailsAct;
     QAction *openKeyManagementAct;
     QAction *copyAct;
     QAction *quoteAct;

@@ -56,6 +56,7 @@ GpgWin::GpgWin()
     createDockWindows();
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
+    mKeyList->addMenuAction(showKeyDetailsAct);
     restoreSettings();
 
     // open filename if provided as first command line parameter
@@ -298,6 +299,10 @@ void GpgWin::createActions()
     appendSelectedKeysAct->setToolTip(tr("Append The Selected Keys To Text in Editor"));
     connect(appendSelectedKeysAct, SIGNAL(triggered()), this, SLOT(appendSelectedKeys()));
 
+    // TODO: find central place for shared actions, to avoid code-duplication with keymgmt.cpp
+    showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
+    showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
+    connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(showKeyDetails()));
 
     /** Key-Shortcuts for Tab-Switchung-Action
      */
@@ -732,11 +737,19 @@ void GpgWin::appendSelectedKeys()
     edit->curTextPage()->appendPlainText(*keyArray);
 }
 
+void GpgWin::showKeyDetails()
+{
+    // TODO: first...?
+    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+    new KeyDetailsDialog(mCtx, key);
+}
+
+
 void GpgWin::fileEncryption()
 {
 	QStringList *keyList;
 	keyList = mKeyList->getChecked();
-    new FileEncryptionDialog(mCtx, iconPath, *keyList, this);
+        new FileEncryptionDialog(mCtx, iconPath, *keyList, this);
 }
 
 void GpgWin::openSettingsDialog()
