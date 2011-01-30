@@ -320,6 +320,7 @@ bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
         QMessageBox::critical(0, tr("Error decrypting:"), gpgme_strerror(err));
+        return false;
     }
 
     //if (err != GPG_ERR_NO_ERROR)

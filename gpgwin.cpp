@@ -503,7 +503,12 @@ void GpgWin::decrypt()
     QByteArray *decrypted = new QByteArray();
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
-    mCtx->decrypt(text, decrypted);
+
+    // try decrypt, if fail do nothing, especially don't replace text
+    if(!mCtx->decrypt(text, decrypted)) {
+        return;
+    }
+        ;
     /**
          *   1) is it mime (content-type:)
          *   2) parse header
