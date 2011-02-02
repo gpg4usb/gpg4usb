@@ -128,7 +128,6 @@ void KeyMgmt::createMenus()
     keyMenu->addSeparator();
     keyMenu->addAction(deleteCheckedKeysAct);
     keyMenu->addAction(generateKeyDialogAct);
-
 }
 
 void KeyMgmt::createToolBars()
@@ -322,14 +321,12 @@ void KeyMgmt::generateKeyDialog()
     genkeyDialog->show();
 
     if (genkeyDialog->exec() == QDialog::Accepted) {
-
     }
 }
 
 
 void KeyMgmt::keyGenAccept()
 {
-
     QString errorString = "";
     QString keyGenParams = "";
     /**
@@ -342,9 +339,7 @@ void KeyMgmt::keyGenAccept()
         errorString.append(tr("  Password and Repeat don't match.  "));
     }
 
-
     if (errorString.isEmpty()) {
-
         /**
          * create the string for key generation
          */
@@ -397,7 +392,6 @@ void KeyMgmt::keyGenAccept()
 
         dialog->close();
     } else {
-
         /**
          * create error message
          */
@@ -418,7 +412,6 @@ void KeyMgmt::expireBoxChanged()
     } else {
         dateEdit->setEnabled(true);
     }
-
 }
 
 void KeyMgmt::passwordEditChanged()

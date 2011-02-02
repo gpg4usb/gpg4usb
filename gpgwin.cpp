@@ -250,7 +250,6 @@ void GpgWin::createActions()
     verifyAct->setToolTip(tr("Verify Message"));
     connect(verifyAct, SIGNAL(triggered()), this, SLOT(verify()));
 
-
     /** Key Menu
      */
     importKeyFromFileAct = new QAction(tr("&File"), this);
@@ -397,7 +396,6 @@ void GpgWin::createStatusBar()
 {
     QWidget *statusBarBox = new QWidget();
     QHBoxLayout *statusBarBoxLayout = new QHBoxLayout();
-
     QPixmap *pixmap;
 
     // icon which should be shown if there are files in attachments-folder
@@ -405,11 +403,9 @@ void GpgWin::createStatusBar()
     statusBarIcon = new QLabel(statusBar());
     statusBarIcon->setPixmap(*pixmap);
     statusBar()->insertPermanentWidget(0,statusBarIcon,0);
-    statusBarIcon->hide();  
-        
+    statusBarIcon->hide();          
     statusBar()->showMessage(tr("Ready"),2000);
     statusBarBox->setLayout(statusBarBoxLayout);
-
 }
 
 void GpgWin::createDockWindows()
@@ -450,7 +446,6 @@ void GpgWin::closeEvent(QCloseEvent *event)
 
     // clear password from memory
     mCtx->clearPasswordCache();
-
 }
 
 void GpgWin::about()
@@ -470,7 +465,6 @@ void GpgWin::about()
                                      "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"
                                      "contact page</a> or send a mail to our<br/> mailing list at"
                                      " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>."));
-
 
     QDialog *dialog = new QDialog(this);
     dialog->setWindowTitle(*title);
@@ -492,7 +486,6 @@ void GpgWin::about()
     layout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding), 3, 2, 1, 1);
 
     dialog->exec();
-
 }
 
 void GpgWin::openTranslate() {
@@ -530,13 +523,12 @@ void GpgWin::decrypt()
     if(!mCtx->decrypt(text, decrypted)) {
         return;
     }
-        ;
+
     /**
          *   1) is it mime (content-type:)
          *   2) parse header
          *   2) choose action depending on content-type
          */
-
     if(Mime::isMime(decrypted)) {
         Header header = Mime::getHeader(decrypted);
         // is it multipart, is multipart-parsing enabled
@@ -552,7 +544,6 @@ void GpgWin::decrypt()
                 decrypted = decoded;
             }
         }
-
     }
     // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
     QTextCursor cursor(edit->curTextPage()->document());
@@ -568,7 +559,6 @@ void GpgWin::decrypt()
   */
 void GpgWin::parseMime(QByteArray *message)
 {
-
     /*if (! Mime::isMultipart(message)) {
         qDebug() << "no multipart";
         return;
@@ -585,14 +575,11 @@ void GpgWin::parseMime(QByteArray *message)
 
             QByteArray body;
             if (tmp.header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
-
                 Mime::quotedPrintableDecode(tmp.body, body);
             } else {
                 body = tmp.body;
             }
-
             pText.append(QString(body));
-
         } else {
             (mAttachments->addMimePart(&tmp));
             showmadock = true;
@@ -601,8 +588,8 @@ void GpgWin::parseMime(QByteArray *message)
 
     *message = pText.toUtf8();
     if (showmadock) {
-		aDock->show();
-	}
+        aDock->show();
+    }
 }
 
 void GpgWin::checkAttachmentFolder() {
@@ -626,7 +613,6 @@ void GpgWin::checkAttachmentFolder() {
     } else {
         statusBarIcon->hide();
     }
-
 }
 
 /**
@@ -672,7 +658,6 @@ void GpgWin::importKeyFromFile()
 
 void GpgWin::openKeyManagement()
 {
-
     if (!keyMgmt) {
         keyMgmt = new KeyMgmt(mCtx, iconPath);
 //        keyMgmt->resize(800, 400);
@@ -682,7 +667,8 @@ void GpgWin::openKeyManagement()
     keyMgmt->activateWindow();
 }
 
-void GpgWin::sign() {
+void GpgWin::sign()
+{
     // test-stuff that does not belong here ;-)
     //mCtx->verify(QByteArray());
     //mCtx->sign(QByteArray(), new QByteArray());
@@ -697,15 +683,13 @@ void GpgWin::sign() {
     }
 }
 
-void GpgWin::verify() {
-
+void GpgWin::verify()
+{
     mCtx->verify(edit->curTextPage()->toPlainText().toUtf8());
-
 }
 
 void GpgWin::importKeyDialog()
 {
-
     QDialog *dialog = new QDialog();
 
     dialog->setWindowTitle(tr("Import Key"));
@@ -726,13 +710,11 @@ void GpgWin::importKeyDialog()
     vbox1->addWidget(radio1);
     vbox1->addWidget(radio2);
     vbox1->addWidget(radio3);
-
     groupBox->setLayout(vbox1);
 
     QVBoxLayout *vbox2 = new QVBoxLayout();
     vbox2->addWidget(groupBox);
     vbox2->addWidget(buttonBox);
-
     dialog->setLayout(vbox2);
 
     if (dialog->exec() == QDialog::Accepted) {
@@ -740,7 +722,6 @@ void GpgWin::importKeyDialog()
         if (radio2->isChecked()) importKeyFromEdit();
         if (radio3->isChecked()) importKeyFromClipboard();
     }
-
 }
 
 /**
