@@ -214,12 +214,12 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="101"/>
         <source>Confirm drag&apos;n&apos;drop key import</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтвержение импорта ключа перетаскиванием мышью</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="103"/>
         <source>Import files dropped on the keylist without confirmation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Без подтверждения импортировать файл, перетянутый мышью в список ключей.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="110"/>
@@ -312,12 +312,12 @@
         <location filename="../../gpgwin.cpp" line="163"/>
         <location filename="../../gpgwin.cpp" line="477"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="165"/>
         <source>Close file</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть файл</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="168"/>
@@ -342,7 +342,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="181"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Сделать заново</translation>
+        <translation>&amp;Вернуть отмену</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="183"/>
@@ -382,12 +382,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="206"/>
         <source>&amp;Quote</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Цитировать</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="208"/>
         <source>Quote whole text</source>
-        <translation type="unfinished"></translation>
+        <translation>Цитировать весь текст</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="211"/>
@@ -427,22 +427,22 @@
     <message>
         <location filename="../../gpgwin.cpp" line="241"/>
         <source>&amp;Sign</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Подписать</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="244"/>
         <source>Sign Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Подписать сообщение</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="247"/>
         <source>&amp;Verify</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Проверить</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="250"/>
         <source>Verify Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверить сообщение</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="258"/>
@@ -498,12 +498,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="130"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Создать</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="136"/>
         <source>Open a new file</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть новый файл</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="236"/>
@@ -513,7 +513,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="238"/>
         <source>Encrypt/Decrypt File</source>
-        <translation>За-/Расшифровать файл</translation>
+        <translation>Зашифровать/Расшифровать файл</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="271"/>
@@ -543,12 +543,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="293"/>
         <source>Translate gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевести gpg4usb</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="294"/>
         <source>Translate gpg4usb yourself</source>
-        <translation type="unfinished"></translation>
+        <translation>Самостоятельно перевести gpg4usb</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="299"/>
@@ -563,12 +563,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="304"/>
         <source>Show Keydetails</source>
-        <translation type="unfinished">Показать свойства ключа</translation>
+        <translation>Показать свойства ключа</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="305"/>
         <source>Show Details for this Key</source>
-        <translation type="unfinished">Показать детали для этого ключа</translation>
+        <translation>Показать детали для этого ключа</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="356"/>
@@ -686,7 +686,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../gpgwin.cpp" line="462"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="620"/>
@@ -836,23 +836,24 @@ Make sure you keep it save.</source>
     <message>
         <location filename="../../keylist.cpp" line="172"/>
         <source>Import Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт ключей</translation>
     </message>
     <message>
         <location filename="../../keylist.cpp" line="174"/>
         <source>You&apos;ve dropped something on the keylist.
  gpg4usb will now try to import key(s).</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы перетащили что-то в список ключей.
+gpg4usb попробует импортировать ключ(и).</translation>
     </message>
     <message>
         <location filename="../../keylist.cpp" line="177"/>
         <source>Always import without bothering.</source>
-        <translation type="unfinished"></translation>
+        <translation>Всегда импортировать, не создавая дубликатов.</translation>
     </message>
     <message>
         <location filename="../../keylist.cpp" line="214"/>
         <source>Couldn&apos;t Open File: </source>
-        <translation type="unfinished">Не удалось открыть файл: </translation>
+        <translation>Не удалось открыть файл: </translation>
     </message>
 </context>
 <context>
@@ -997,12 +998,12 @@ Make sure you keep it save.</source>
     <message>
         <location filename="../../keymgmt.cpp" line="193"/>
         <source>&lt;b&gt;Are you sure that you want to delete the following keys?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Вы уверены, что хотите стереть следующие ключи?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="194"/>
         <source>&lt;br/&gt;The action can not be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;Это действие нельзя будет отменить.</translation>
     </message>
     <message>
         <source>Are you sure that you want to delete the selected keys?.
@@ -1139,22 +1140,22 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../quitdialog.cpp" line="30"/>
         <source>Unsaved files</source>
-        <translation type="unfinished"></translation>
+        <translation>Несохранённые файлы</translation>
     </message>
     <message>
         <location filename="../../quitdialog.cpp" line="76"/>
         <source>&lt;h3&gt;%1 files contain unsaved information.&lt;br/&gt;Save the changes before closing?&lt;/h3&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h3&gt;%1 файлов содержат несохранённую информацию.&lt;br/&gt;Сохранить изменения перед закрытием?&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../../quitdialog.cpp" line="87"/>
         <source>Check the files you want to save:</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверьте файлы, которые следует сохранить:</translation>
     </message>
     <message>
         <location filename="../../quitdialog.cpp" line="88"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Внимание:&lt;/b&gt; Если не сохранить файлы, все изменения будут потеряны.&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
@@ -1273,57 +1274,58 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../textedit.cpp" line="50"/>
         <source>untitled</source>
-        <translation type="unfinished"></translation>
+        <translation>безымянный</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="63"/>
         <source>Open file</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть файл</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="87"/>
         <location filename="../../textedit.cpp" line="344"/>
         <source>Application</source>
-        <translation type="unfinished">Приложение</translation>
+        <translation>Приложение</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="88"/>
         <location filename="../../textedit.cpp" line="345"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished">Не удалось прочесть файл %1:
+        <translation>Не удалось прочесть файл %1:
 %2.</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="135"/>
         <source>File</source>
-        <translation type="unfinished">Файл</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="136"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось записать файл %1:
+%2.</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="154"/>
         <source>Save file </source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить файл</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="219"/>
         <source>Unsaved document</source>
-        <translation type="unfinished"></translation>
+        <translation>Несохранённый документ</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="220"/>
         <source>&lt;h3&gt;The document &quot;%1&quot; has been modified.&lt;br/&gt;Do you want to save your changes?&lt;/h3&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h3&gt;Документ &quot;%1&quot; был редактирован.&lt;br/&gt;Вы хотите сохранить изменения?&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="221"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Внимание:&lt;/b&gt; Если не сохранить файлы, все изменения будут потеряны.&lt;br/&gt;</translation>
     </message>
 </context>
 </TS>
