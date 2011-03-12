@@ -29,6 +29,7 @@
 #include "keymgmt.h"
 #include "keydetailsdialog.h"
 #include "textedit.h"
+#include "keyserverimportdialog.h"
 
 class QMainWindow;
 class QPlainTextEdit;
@@ -72,6 +73,7 @@ public slots:
     void importKeyFromFile();
     void importKeyFromEdit();
     void importKeyFromClipboard();
+    void importKeyFromKeyServer();
     void importKeyDialog();
     //void deleteSelectedKeys();
     void appendSelectedKeys();
@@ -128,6 +130,8 @@ private:
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
+    QAction *importKeyFromKeyServerAct;
+
     QAction *appendSelectedKeysAct;
     QAction *showKeyDetailsAct;
     QAction *openKeyManagementAct;
@@ -164,6 +168,7 @@ private:
     GpgME::Context *mCtx;
     QString iconPath;
     KeyMgmt *keyMgmt;
+    KeyServerImportDialog *importDialog;
 };
 
 #endif // __GPGWIN_H__

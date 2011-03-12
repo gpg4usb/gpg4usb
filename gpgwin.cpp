@@ -267,6 +267,10 @@ void GpgWin::createActions()
     importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
+    importKeyFromKeyServerAct = new QAction(tr("&Keyserver"), this);
+    importKeyFromKeyServerAct->setToolTip(tr("Import New Key From Keyserver"));
+    connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(importKeyFromKeyServer()));
+
     openKeyManagementAct = new QAction(tr("Key Management"), this);
     openKeyManagementAct->setIcon(QIcon(iconPath + "keymgmt.png"));
     openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
@@ -346,9 +350,9 @@ void GpgWin::createMenus()
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
-    /*cryptMenu->addSeparator();
+    cryptMenu->addSeparator();
     cryptMenu->addAction(signAct);
-    cryptMenu->addAction(verifyAct);*/
+    cryptMenu->addAction(verifyAct);
     cryptMenu->addSeparator();
     cryptMenu->addAction(fileEncryptionAct);
 
@@ -358,6 +362,7 @@ void GpgWin::createMenus()
     importKeyMenu->addAction(importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
     importKeyMenu->addAction(importKeyFromClipboardAct);
+    importKeyMenu->addAction(importKeyFromKeyServerAct);
     keyMenu->addAction(openKeyManagementAct);
 
     viewMenu = menuBar()->addMenu(tr("&View"));
@@ -638,7 +643,11 @@ void GpgWin::importKeyFromClipboard()
     QClipboard *cb = QApplication::clipboard();
     mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
 }
-
+void GpgWin::importKeyFromKeyServer()
+{
+    importDialog = new KeyServerImportDialog(this);
+    importDialog->show();
+}
 void GpgWin::importKeyFromFile()
 {
     QFile file;
