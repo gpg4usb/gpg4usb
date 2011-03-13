@@ -28,7 +28,7 @@
 KeyServerImportDialog::KeyServerImportDialog(QWidget *parent)
     : QDialog(parent)
 {
-    //text = new QString();
+    message->setAutoFillBackground(true);
 
     closeButton = createButton(tr("&Close"), SLOT(close()));
     importButton = createButton(tr("&Import"), SLOT(import()));
@@ -71,33 +71,7 @@ static void updateComboBox(QComboBox *comboBox)
 void KeyServerImportDialog::import()
 {
     updateComboBox(keyServerComboBox);
-    message->setText("hallo");
-    message->setAutoFillBackground(true);
-    QPalette filesFoundPalette = message->palette();
-    filesFoundPalette.setColor(QPalette::Background, "#20ff20");
-    message->setPalette(filesFoundPalette);
-}
-
-void KeyServerImportDialog::showKeys(const QStringList &keys)
-{
-    /*for (int i = 0; i < keys.size(); ++i) {
-        QFile file(currentDir.absoluteFilePath(keys[i]));
-        qint64 size = QFileInfo(file).size();
-
-        QTableWidgetItem *fileNameItem = new QTableWidgetItem(keys[i]);
-        fileNameItem->setFlags(fileNameItem->flags() ^ Qt::ItemIsEditable);
-        QTableWidgetItem *sizeItem = new QTableWidgetItem(tr("%1 KB")
-                                             .arg(int((size + 1023) / 1024)));
-        sizeItem->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        sizeItem->setFlags(sizeItem->flags() ^ Qt::ItemIsEditable);
-
-        int row = keysTree->rowCount();
-        keysTree->insertRow(row);
-        keysTree->setItem(row, 0, fileNameItem);
-        keysTree->setItem(row, 1, sizeItem);
-    }
-    message->setText(tr("%1 key(s) found").arg(keys.size()) +
-                             (" (Double click on a key to import it)"));*/
+    setMessage("keys imported",false);
 }
 
 QPushButton *KeyServerImportDialog::createButton(const QString &text, const char *member)
@@ -133,6 +107,17 @@ void KeyServerImportDialog::createKeysTree()
     //connect(keysTree, SIGNAL(cellActivated(int,int)),
     //        this, SLOT(importKeyOfItem(int,int)));
 }
+void KeyServerImportDialog::setMessage(const QString &text, bool error)
+{
+    message->setText(text);
+    QPalette filesFoundPalette = message->palette();
+    if (error) {
+        filesFoundPalette.setColor(QPalette::Background, "#20ff20");
+    } else {
+        filesFoundPalette.setColor(QPalette::Background, "#ff0000");
+    }
+    message->setPalette(filesFoundPalette);
+}
 
 void KeyServerImportDialog::importKeyOfItem(int row, int /* column */)
 {
@@ -141,61 +126,32 @@ void KeyServerImportDialog::importKeyOfItem(int row, int /* column */)
     */
 }
 
-/*
- * newly added
- */
 void KeyServerImportDialog::search()
 {
-    QString keyserver = keyServerComboBox->currentText();
-    QString searchstring = searchLineEdit->text();
-
-    QUrl url = keyserver+":11371/pks/lookup?search="+searchstring+"&op=index&options=mr";
+    QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?search="+searchLineEdit->text()+"&op=index&options=mr";
     reply = qnam.get(QNetworkRequest(url));
-    qDebug() << "error while download";
     connect(reply, SIGNAL(finished()),
             this, SLOT(searchFinished()));
-    qDebug() << "error while download";
-}
-
-void KeyServerImportDialog::setMessage(const QString &text, int type)
-{
-
 }
 
 void KeyServerImportDialog::searchFinished()
 {
     QString firstLine = QString(reply->readLine(1024));
-
+    // TODO: die liste erstmal leeren, bevor sie neu betankt wird
     QVariant redirectionTarget = reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
     if (reply->error()) {
-        message->setAutoFillBackground(true);
-        QPalette filesFoundPalette = message->palette();
-        filesFoundPalette.setColor(QPalette::Background, "#20ff20");
-        message->setPalette(filesFoundPalette);
-        message->setText("Error while contacting keyserver!");
+        setMessage("Error while contacting keyserver!",true);
     } else {
         qDebug() << "downloaded";
     }
-
     if (firstLine.contains("Error"))
     {
         QString text= QString(reply->readLine(1024));
-
         if (text.contains("Too many responses")) {
-            message->setAutoFillBackground(true);
-            QPalette filesFoundPalette = message->palette();
-            filesFoundPalette.setColor(QPalette::Background, "#20ff20");
-            message->setPalette(filesFoundPalette);
-            message->setText("Too many responses from keyserver!");
-            qDebug() << "Too many responses";
+            setMessage("Too many responses from keyserver!",true);
         }
         if (text.contains("No keys found")) {
-            message->setAutoFillBackground(true);
-            QPalette filesFoundPalette = message->palette();
-            filesFoundPalette.setColor(QPalette::Background, "#20ff20");
-            message->setPalette(filesFoundPalette);
-            message->setText("No keys found containing the search string!");
-            qDebug() << "No keys found";
+            setMessage("No keys found containing the search string!",true);
         }
     } else {
         char buff[1024];
@@ -209,9 +165,6 @@ void KeyServerImportDialog::searchFinished()
                 l << line[1] << line2[1];
                 qDebug() << "l:" << l;
                 items.append(new QTreeWidgetItem((QTreeWidget*) 0,l));
-
-//                keysTree->insertTopLevelItem(parentItem);
-
             } else {
                 if (line[0] == "uid") {
                     QStringList l;
@@ -219,28 +172,9 @@ void KeyServerImportDialog::searchFinished()
                     items.last()->addChild(new QTreeWidgetItem((QTreeWidget*) 0, l));
                 }
             }
-
         }
-        qDebug() << items.size();
      keysTree->insertTopLevelItems(0,items);
     }
     reply->deleteLater();
     reply = 0;
-
-    //qDebug() << *text;
-    // TODO linebreak OS-unabhängig machen
-    //QStringList zeilen = QString( *text ).split('\n');
-
-    //qDebug() << zeilen.count();
-    // use this line to get the key, if get request with keyid is sent
-    //QString key = zeilen[3];
-  /*  int count=-1;
-    foreach (QString zeile, zeilen) {
-        count++;
-        if (zeile.startsWith("pub:",Qt::CaseSensitive)) {
-            qDebug() << "pub";
-        }
-        qDebug() << zeile;
-    }*/
 }
-

@@ -60,11 +60,11 @@ private slots:
     void search();
 
 private:
-    void showKeys(const QStringList &files);
+    void createKeysTree();
+    void setMessage(const QString &text, bool error);
     QPushButton *createButton(const QString &text, const char *member);
     QComboBox *createComboBox(const QString &text = QString());
-    void createKeysTree();
-    void setMessage(const QString &text, int type);
+
     QLineEdit *searchLineEdit;
     QComboBox *keyServerComboBox;
     QLabel *searchLabel;
@@ -74,10 +74,8 @@ private:
     QPushButton *importButton;
     QPushButton *searchButton;
     QTreeWidget *keysTree;
-    QDir currentDir;
     QUrl url;
     QNetworkAccessManager qnam;
     QNetworkReply *reply;
-    //QString *text;
 };
 #endif
