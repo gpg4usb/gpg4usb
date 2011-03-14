@@ -9,7 +9,6 @@ Release 0.3
 - updated the windows qt libraries to 4.7 [DONE] 
 - added tabs, including quitdialog listing modified files [DONE]
 - list keys to delete in warning dialog [DONE]
-- undoable encrypt and decrypt  [DONE]
 - decryption of empty messages is possible now [DONE]
 
 Release 0.3.1
@@ -41,6 +40,7 @@ attachments:
 	- attachments-widget should be inlined in editor-tabs
 - export key: default filename to <keyowner-name>.key
 - show keydetails-dialog in keylist on mainwindow
+- make email adress from keylist copyable
 
 Release 0.4
 - adding signing and verifying
@@ -48,6 +48,8 @@ Release 0.4
 - refactoring and cleanup:
 	- gpgwin.cpp -> mainwindow.cpp
 	- context.cpp -> gpgcontext.cpp
+- save state on closing as encrypted file, allow recovery with password on next star
+	- generate functional key for user
 
 Later:
 
