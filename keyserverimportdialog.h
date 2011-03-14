@@ -28,6 +28,8 @@
 #include <QNetworkAccessManager>
 #include <QUrl>
 
+#include "context.h"
+
 QT_BEGIN_NAMESPACE
 class QNetworkReply;
 class QComboBox;
@@ -51,19 +53,21 @@ class KeyServerImportDialog : public QDialog
     Q_OBJECT
 
 public:
-    KeyServerImportDialog(QWidget *parent = 0);
+    KeyServerImportDialog(GpgME::Context *ctx, QWidget *parent = 0);
 
 private slots:
     void import();
     void importKeyOfItem(int row, int column);
     void searchFinished();
+    void importFinished();
     void search();
 
 private:
-    void createKeysTree();
+    void createKeysTable();
     void setMessage(const QString &text, bool error);
     QPushButton *createButton(const QString &text, const char *member);
     QComboBox *createComboBox(const QString &text = QString());
+    GpgME::Context *mCtx;
 
     QLineEdit *searchLineEdit;
     QComboBox *keyServerComboBox;
@@ -73,9 +77,10 @@ private:
     QPushButton *closeButton;
     QPushButton *importButton;
     QPushButton *searchButton;
-    QTreeWidget *keysTree;
+    QTableWidget *keysTable;
     QUrl url;
     QNetworkAccessManager qnam;
     QNetworkReply *reply;
+    QNetworkReply *reply2;
 };
 #endif

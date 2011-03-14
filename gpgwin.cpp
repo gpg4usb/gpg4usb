@@ -645,7 +645,7 @@ void GpgWin::importKeyFromClipboard()
 }
 void GpgWin::importKeyFromKeyServer()
 {
-    importDialog = new KeyServerImportDialog(this);
+    importDialog = new KeyServerImportDialog(mCtx, this);
     importDialog->show();
 }
 void GpgWin::importKeyFromFile()

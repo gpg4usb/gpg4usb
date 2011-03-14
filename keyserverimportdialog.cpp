@@ -25,9 +25,11 @@
 
 #include "keyserverimportdialog.h"
 
-KeyServerImportDialog::KeyServerImportDialog(QWidget *parent)
+KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *parent)
     : QDialog(parent)
 {
+    mCtx = ctx;
+    message = new QLabel;
     message->setAutoFillBackground(true);
 
     closeButton = createButton(tr("&Close"), SLOT(close()));
@@ -38,10 +40,7 @@ KeyServerImportDialog::KeyServerImportDialog(QWidget *parent)
 
     searchLabel = new QLabel(tr("Seacrh string:"));
     keyServerLabel = new QLabel(tr("Keyserver:"));
-    message = new QLabel;
-
-    createKeysTree();
-
+    createKeysTable();
     QHBoxLayout *buttonsLayout = new QHBoxLayout;
     buttonsLayout->addStretch();
     buttonsLayout->addWidget(importButton);
@@ -53,7 +52,7 @@ KeyServerImportDialog::KeyServerImportDialog(QWidget *parent)
     mainLayout->addWidget(searchButton,1, 2);
     mainLayout->addWidget(keyServerLabel, 2, 0);
     mainLayout->addWidget(keyServerComboBox, 2, 1);
-    mainLayout->addWidget(keysTree, 3, 0, 1, 3);
+    mainLayout->addWidget(keysTable, 3, 0, 1, 3);
     mainLayout->addWidget(message, 4, 0, 1, 3);
     mainLayout->addLayout(buttonsLayout, 5, 0, 1, 3);
     setLayout(mainLayout);
@@ -66,12 +65,6 @@ static void updateComboBox(QComboBox *comboBox)
 {
     if (comboBox->findText(comboBox->currentText()) == -1)
         comboBox->addItem(comboBox->currentText());
-}
-
-void KeyServerImportDialog::import()
-{
-    updateComboBox(keyServerComboBox);
-    setMessage("keys imported",false);
 }
 
 QPushButton *KeyServerImportDialog::createButton(const QString &text, const char *member)
@@ -90,23 +83,23 @@ QComboBox *KeyServerImportDialog::createComboBox(const QString &text)
     return comboBox;
 }
 
-void KeyServerImportDialog::createKeysTree()
+void KeyServerImportDialog::createKeysTable()
 {
-    keysTree = new QTreeWidget();
-    keysTree->setColumnCount(2);
+    keysTable = new QTableWidget();
+    keysTable->setColumnCount(3);
+    keysTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    keysTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QStringList labels;
-    labels << tr("KeyID") << tr("UID");
-    keysTree->setHeaderLabels(labels);
-    /*keysTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-    keysTree->setHorizontalHeaderLabels(labels);
-    keysTree->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
-    keysTree->verticalHeader()->hide();
-    keysTree->setShowGrid(false);*/
+    labels << tr("KeyID") << tr("UID") << tr("Keylength");
+    keysTable->setHorizontalHeaderLabels(labels);
+    keysTable->verticalHeader()->hide();
+    keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
 
     //connect(keysTree, SIGNAL(cellActivated(int,int)),
     //        this, SLOT(importKeyOfItem(int,int)));
 }
+
 void KeyServerImportDialog::setMessage(const QString &text, bool error)
 {
     message->setText(text);
@@ -137,7 +130,7 @@ void KeyServerImportDialog::search()
 void KeyServerImportDialog::searchFinished()
 {
     QString firstLine = QString(reply->readLine(1024));
-    // TODO: die liste erstmal leeren, bevor sie neu betankt wird
+
     QVariant redirectionTarget = reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
     if (reply->error()) {
         setMessage("Error while contacting keyserver!",true);
@@ -154,27 +147,70 @@ void KeyServerImportDialog::searchFinished()
             setMessage("No keys found containing the search string!",true);
         }
     } else {
+        keysTable->clearContents();
+        int row = 0;
         char buff[1024];
         QList <QTreeWidgetItem*> items;
         while (reply->readLine(buff,sizeof(buff)) !=-1) {
             QStringList line= QString(buff).split(":");
-            qDebug() << line;
+            //      qDebug() << line;
             if (line[0] == "pub") {
+                keysTable->setRowCount(row+1);
                 QStringList line2 = QString(reply->readLine()).split(":");
                 QStringList l;
                 l << line[1] << line2[1];
-                qDebug() << "l:" << l;
-                items.append(new QTreeWidgetItem((QTreeWidget*) 0,l));
+                QTableWidgetItem *tmp1 = new QTableWidgetItem(line[1]);
+                keysTable->setItem(row, 0, tmp1);
+                QTableWidgetItem *tmp2 = new QTableWidgetItem(line2[1]);
+                keysTable->setItem(row, 1, tmp2);
+                QTableWidgetItem *tmp3 = new QTableWidgetItem(line[3]);
+                keysTable->setItem(row, 2, tmp3);
+                row++;
             } else {
                 if (line[0] == "uid") {
                     QStringList l;
                     l << "" << line[1];
-                    items.last()->addChild(new QTreeWidgetItem((QTreeWidget*) 0, l));
+                    int height=keysTable->rowHeight(row-1);
+                    keysTable->setRowHeight(row-1,height+16);
+                    QString tmp=keysTable->item(row-1,1)->text();
+                    tmp.append(QString("\n")+line[1]);
+                    QTableWidgetItem *tmp1 = new QTableWidgetItem(tmp);
+                    keysTable->setItem(row-1,1,tmp1);
                 }
             }
         }
-     keysTree->insertTopLevelItems(0,items);
+        //keysTree->insertTopLevelItems(0,items);
+        keysTable->resizeColumnsToContents();
     }
     reply->deleteLater();
     reply = 0;
 }
+
+void KeyServerImportDialog::import()
+{
+    updateComboBox(keyServerComboBox);
+    QString keyid = keysTable->item(keysTable->currentRow(),0)->text();
+    QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?op=get&search=0x"+keyid+"&options=mr";
+    reply2 = qnam.get(QNetworkRequest(url));
+    connect(reply2, SIGNAL(finished()),
+            this, SLOT(importFinished()));
+}
+void KeyServerImportDialog::importFinished()
+{
+    QByteArray *key = new QByteArray();
+    key->append(reply2->readAll());
+
+    // TODO: die liste erstmal leeren, bevor sie neu betankt wird
+    QVariant redirectionTarget = reply2->attribute(QNetworkRequest::RedirectionTargetAttribute);
+    if (reply2->error()) {
+        setMessage("Error while contacting keyserver!",true);
+    } else {
+        qDebug() << "downloaded";
+    }
+    qDebug() << *key;
+    mCtx->importKey(*key);
+    setMessage("key imported",false);
+    reply2->deleteLater();
+    reply2 = 0;
+}
+
