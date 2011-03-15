@@ -57,7 +57,6 @@ public:
 
 private slots:
     void import();
-    void importKeyOfItem(int row, int column);
     void searchFinished();
     void importFinished();
     void search();
@@ -80,7 +79,7 @@ private:
     QTableWidget *keysTable;
     QUrl url;
     QNetworkAccessManager qnam;
-    QNetworkReply *reply;
-    QNetworkReply *reply2;
+    QNetworkReply *searchreply;
+    QNetworkReply *importreply;
 };
 #endif

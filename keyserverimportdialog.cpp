@@ -91,13 +91,13 @@ void KeyServerImportDialog::createKeysTable()
     keysTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QStringList labels;
-    labels << tr("KeyID") << tr("UID") << tr("Keylength");
+    labels << tr("KeyID") << tr("UID") << tr("Keysize (in Bit)");
     keysTable->setHorizontalHeaderLabels(labels);
     keysTable->verticalHeader()->hide();
     keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
 
-    //connect(keysTree, SIGNAL(cellActivated(int,int)),
-    //        this, SLOT(importKeyOfItem(int,int)));
+    connect(keysTable, SIGNAL(cellActivated(int,int)),
+            this, SLOT(import()));
 }
 
 void KeyServerImportDialog::setMessage(const QString &text, bool error)
@@ -112,34 +112,27 @@ void KeyServerImportDialog::setMessage(const QString &text, bool error)
     message->setPalette(filesFoundPalette);
 }
 
-void KeyServerImportDialog::importKeyOfItem(int row, int /* column */)
-{
-    /*QTableWidgetItem *item = keysTree->item(row, 0);
-    QDesktopServices::openUrl(QUrl::fromLocalFile(currentDir.absoluteFilePath(item->text())));
-    */
-}
-
 void KeyServerImportDialog::search()
 {
     QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?search="+searchLineEdit->text()+"&op=index&options=mr";
-    reply = qnam.get(QNetworkRequest(url));
-    connect(reply, SIGNAL(finished()),
+    searchreply = qnam.get(QNetworkRequest(url));
+    connect(searchreply, SIGNAL(finished()),
             this, SLOT(searchFinished()));
 }
 
 void KeyServerImportDialog::searchFinished()
 {
-    QString firstLine = QString(reply->readLine(1024));
+    QString firstLine = QString(searchreply->readLine(1024));
 
-    QVariant redirectionTarget = reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
-    if (reply->error()) {
+    QVariant redirectionTarget = searchreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+    if (searchreply->error()) {
         setMessage("Error while contacting keyserver!",true);
     } else {
         qDebug() << "downloaded";
     }
     if (firstLine.contains("Error"))
     {
-        QString text= QString(reply->readLine(1024));
+        QString text= QString(searchreply->readLine(1024));
         if (text.contains("Too many responses")) {
             setMessage("Too many responses from keyserver!",true);
         }
@@ -151,12 +144,12 @@ void KeyServerImportDialog::searchFinished()
         int row = 0;
         char buff[1024];
         QList <QTreeWidgetItem*> items;
-        while (reply->readLine(buff,sizeof(buff)) !=-1) {
+        while (searchreply->readLine(buff,sizeof(buff)) !=-1) {
             QStringList line= QString(buff).split(":");
             //      qDebug() << line;
             if (line[0] == "pub") {
                 keysTable->setRowCount(row+1);
-                QStringList line2 = QString(reply->readLine()).split(":");
+                QStringList line2 = QString(searchreply->readLine()).split(":");
                 QStringList l;
                 l << line[1] << line2[1];
                 QTableWidgetItem *tmp1 = new QTableWidgetItem(line[1]);
@@ -164,6 +157,8 @@ void KeyServerImportDialog::searchFinished()
                 QTableWidgetItem *tmp2 = new QTableWidgetItem(line2[1]);
                 keysTable->setItem(row, 1, tmp2);
                 QTableWidgetItem *tmp3 = new QTableWidgetItem(line[3]);
+                keysTable->setItem(row, 2, tmp3);
+                QTableWidgetItem *tmp4 = new QTableWidgetItem(line[3]);
                 keysTable->setItem(row, 2, tmp3);
                 row++;
             } else {
@@ -182,8 +177,8 @@ void KeyServerImportDialog::searchFinished()
         //keysTree->insertTopLevelItems(0,items);
         keysTable->resizeColumnsToContents();
     }
-    reply->deleteLater();
-    reply = 0;
+    searchreply->deleteLater();
+    searchreply = 0;
 }
 
 void KeyServerImportDialog::import()
@@ -191,18 +186,18 @@ void KeyServerImportDialog::import()
     updateComboBox(keyServerComboBox);
     QString keyid = keysTable->item(keysTable->currentRow(),0)->text();
     QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?op=get&search=0x"+keyid+"&options=mr";
-    reply2 = qnam.get(QNetworkRequest(url));
-    connect(reply2, SIGNAL(finished()),
+    importreply = qnam.get(QNetworkRequest(url));
+    connect(importreply, SIGNAL(finished()),
             this, SLOT(importFinished()));
 }
 void KeyServerImportDialog::importFinished()
 {
     QByteArray *key = new QByteArray();
-    key->append(reply2->readAll());
+    key->append(importreply->readAll());
 
     // TODO: die liste erstmal leeren, bevor sie neu betankt wird
-    QVariant redirectionTarget = reply2->attribute(QNetworkRequest::RedirectionTargetAttribute);
-    if (reply2->error()) {
+    QVariant redirectionTarget = importreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+    if (importreply->error()) {
         setMessage("Error while contacting keyserver!",true);
     } else {
         qDebug() << "downloaded";
@@ -210,7 +205,7 @@ void KeyServerImportDialog::importFinished()
     qDebug() << *key;
     mCtx->importKey(*key);
     setMessage("key imported",false);
-    reply2->deleteLater();
-    reply2 = 0;
+    importreply->deleteLater();
+    importreply = 0;
 }
 
