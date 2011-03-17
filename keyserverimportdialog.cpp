@@ -86,15 +86,15 @@ QComboBox *KeyServerImportDialog::createComboBox(const QString &text)
 void KeyServerImportDialog::createKeysTable()
 {
     keysTable = new QTableWidget();
-    keysTable->setColumnCount(3);
+    keysTable->setColumnCount(4);
     keysTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     keysTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QStringList labels;
-    labels << tr("KeyID") << tr("UID") << tr("Keysize (in Bit)");
+    labels << tr("KeyID") << tr("UID") << tr("Keysize") << tr("Creation date");
     keysTable->setHorizontalHeaderLabels(labels);
     keysTable->verticalHeader()->hide();
-    keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+    keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
 
     connect(keysTable, SIGNAL(cellActivated(int,int)),
             this, SLOT(import()));
@@ -127,8 +127,7 @@ void KeyServerImportDialog::searchFinished()
     QVariant redirectionTarget = searchreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
     if (searchreply->error()) {
         setMessage("Error while contacting keyserver!",true);
-    } else {
-        qDebug() << "downloaded";
+        return;
     }
     if (firstLine.contains("Error"))
     {
@@ -152,14 +151,14 @@ void KeyServerImportDialog::searchFinished()
                 QStringList line2 = QString(searchreply->readLine()).split(":");
                 QStringList l;
                 l << line[1] << line2[1];
-                QTableWidgetItem *tmp1 = new QTableWidgetItem(line[1]);
-                keysTable->setItem(row, 0, tmp1);
-                QTableWidgetItem *tmp2 = new QTableWidgetItem(line2[1]);
-                keysTable->setItem(row, 1, tmp2);
-                QTableWidgetItem *tmp3 = new QTableWidgetItem(line[3]);
-                keysTable->setItem(row, 2, tmp3);
-                QTableWidgetItem *tmp4 = new QTableWidgetItem(line[3]);
-                keysTable->setItem(row, 2, tmp3);
+                QTableWidgetItem *keyid = new QTableWidgetItem(line[1]);
+                keysTable->setItem(row, 0, keyid);
+                QTableWidgetItem *uid = new QTableWidgetItem(line2[1]);
+                keysTable->setItem(row, 1, uid);
+                QTableWidgetItem *keysize = new QTableWidgetItem(line[3]);
+                keysTable->setItem(row, 2, keysize);
+                QTableWidgetItem *creationdate = new QTableWidgetItem(QDateTime::fromTime_t(line[4].toInt()).toString("dd. MMM. yyyy"));
+                keysTable->setItem(row, 3, creationdate);
                 row++;
             } else {
                 if (line[0] == "uid") {
