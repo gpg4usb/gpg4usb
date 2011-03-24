@@ -86,12 +86,12 @@ QComboBox *KeyServerImportDialog::createComboBox(const QString &text)
 void KeyServerImportDialog::createKeysTable()
 {
     keysTable = new QTableWidget();
-    keysTable->setColumnCount(4);
+    keysTable->setColumnCount(3);
     keysTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     keysTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QStringList labels;
-    labels << tr("KeyID") << tr("UID") << tr("Keysize") << tr("Creation date");
+    labels  << tr("UID") << tr("Creation date") << tr("KeyID");
     keysTable->setHorizontalHeaderLabels(labels);
     keysTable->verticalHeader()->hide();
     keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
@@ -105,9 +105,9 @@ void KeyServerImportDialog::setMessage(const QString &text, bool error)
     message->setText(text);
     QPalette filesFoundPalette = message->palette();
     if (error) {
-        filesFoundPalette.setColor(QPalette::Background, "#20ff20");
+        filesFoundPalette.setColor(QPalette::Background, "#ff8080");
     } else {
-        filesFoundPalette.setColor(QPalette::Background, "#ff0000");
+        filesFoundPalette.setColor(QPalette::Background, "#0dff6e");
     }
     message->setPalette(filesFoundPalette);
 }
@@ -126,17 +126,17 @@ void KeyServerImportDialog::searchFinished()
 
     QVariant redirectionTarget = searchreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
     if (searchreply->error()) {
-        setMessage("Error while contacting keyserver!",true);
-        return;
+        setMessage(tr("Couldn't contact keyserver!"),true);
+
     }
     if (firstLine.contains("Error"))
     {
         QString text= QString(searchreply->readLine(1024));
         if (text.contains("Too many responses")) {
-            setMessage("Too many responses from keyserver!",true);
+            setMessage(tr("Too many responses from keyserver!"),true);
         }
         if (text.contains("No keys found")) {
-            setMessage("No keys found containing the search string!",true);
+            setMessage(tr("No keys found containing the search string!"),true);
         }
     } else {
         keysTable->clearContents();
@@ -145,31 +145,25 @@ void KeyServerImportDialog::searchFinished()
         QList <QTreeWidgetItem*> items;
         while (searchreply->readLine(buff,sizeof(buff)) !=-1) {
             QStringList line= QString(buff).split(":");
-            //      qDebug() << line;
             if (line[0] == "pub") {
                 keysTable->setRowCount(row+1);
                 QStringList line2 = QString(searchreply->readLine()).split(":");
-                QStringList l;
-                l << line[1] << line2[1];
-                QTableWidgetItem *keyid = new QTableWidgetItem(line[1]);
-                keysTable->setItem(row, 0, keyid);
                 QTableWidgetItem *uid = new QTableWidgetItem(line2[1]);
-                keysTable->setItem(row, 1, uid);
-                QTableWidgetItem *keysize = new QTableWidgetItem(line[3]);
-                keysTable->setItem(row, 2, keysize);
+                keysTable->setItem(row, 0, uid);
                 QTableWidgetItem *creationdate = new QTableWidgetItem(QDateTime::fromTime_t(line[4].toInt()).toString("dd. MMM. yyyy"));
-                keysTable->setItem(row, 3, creationdate);
+                keysTable->setItem(row, 1, creationdate);
+                QTableWidgetItem *keyid = new QTableWidgetItem(line[1]);
+                keysTable->setItem(row, 2, keyid);
                 row++;
             } else {
                 if (line[0] == "uid") {
                     QStringList l;
-                    l << "" << line[1];
                     int height=keysTable->rowHeight(row-1);
                     keysTable->setRowHeight(row-1,height+16);
-                    QString tmp=keysTable->item(row-1,1)->text();
+                    QString tmp=keysTable->item(row-1,0)->text();
                     tmp.append(QString("\n")+line[1]);
                     QTableWidgetItem *tmp1 = new QTableWidgetItem(tmp);
-                    keysTable->setItem(row-1,1,tmp1);
+                    keysTable->setItem(row-1,0,tmp1);
                 }
             }
         }
@@ -183,12 +177,13 @@ void KeyServerImportDialog::searchFinished()
 void KeyServerImportDialog::import()
 {
     updateComboBox(keyServerComboBox);
-    QString keyid = keysTable->item(keysTable->currentRow(),0)->text();
+    QString keyid = keysTable->item(keysTable->currentRow(),2)->text();
     QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?op=get&search=0x"+keyid+"&options=mr";
     importreply = qnam.get(QNetworkRequest(url));
     connect(importreply, SIGNAL(finished()),
             this, SLOT(importFinished()));
 }
+
 void KeyServerImportDialog::importFinished()
 {
     QByteArray *key = new QByteArray();
@@ -197,11 +192,9 @@ void KeyServerImportDialog::importFinished()
     // TODO: die liste erstmal leeren, bevor sie neu betankt wird
     QVariant redirectionTarget = importreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
     if (importreply->error()) {
-        setMessage("Error while contacting keyserver!",true);
-    } else {
-        qDebug() << "downloaded";
+        setMessage(tr("Error while contacting keyserver!"),true);
+        return;
     }
-    qDebug() << *key;
     mCtx->importKey(*key);
     setMessage("key imported",false);
     importreply->deleteLater();
