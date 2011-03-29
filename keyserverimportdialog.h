@@ -73,6 +73,7 @@ private:
     QLabel *searchLabel;
     QLabel *keyServerLabel;
     QLabel *message;
+    QLabel *icon;
     QPushButton *closeButton;
     QPushButton *importButton;
     QPushButton *searchButton;

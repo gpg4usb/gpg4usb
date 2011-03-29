@@ -22,7 +22,7 @@
 
 #include <QtGui>
 #include <QtNetwork>
-
+#include <QPixmap>
 #include "keyserverimportdialog.h"
 
 KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *parent)
@@ -30,8 +30,10 @@ KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *paren
 {
     mCtx = ctx;
     message = new QLabel;
-    message->setAutoFillBackground(true);
-
+    icon = new QLabel;
+ QIcon undoicon = QIcon::fromTheme("dialog-information");
+    QPixmap pixmap = undoicon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
+    icon->setPixmap(pixmap);
     closeButton = createButton(tr("&Close"), SLOT(close()));
     importButton = createButton(tr("&Import"), SLOT(import()));
     searchButton = createButton(tr("&Search"), SLOT(search()));
@@ -53,12 +55,14 @@ KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *paren
     mainLayout->addWidget(keyServerLabel, 2, 0);
     mainLayout->addWidget(keyServerComboBox, 2, 1);
     mainLayout->addWidget(keysTable, 3, 0, 1, 3);
-    mainLayout->addWidget(message, 4, 0, 1, 3);
+    mainLayout->addWidget(icon, 4, 0, 1, 3);
+    mainLayout->addWidget(message, 4, 1, 1, 3);
     mainLayout->addLayout(buttonsLayout, 5, 0, 1, 3);
     setLayout(mainLayout);
 
     setWindowTitle(tr("Import Keys from Keyserver"));
     resize(700, 300);
+    setModal(true);
 }
 
 static void updateComboBox(QComboBox *comboBox)
@@ -95,21 +99,26 @@ void KeyServerImportDialog::createKeysTable()
     keysTable->setHorizontalHeaderLabels(labels);
     keysTable->verticalHeader()->hide();
     keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
-
+    setMessage("doubleclick on a key to import it", false);
     connect(keysTable, SIGNAL(cellActivated(int,int)),
             this, SLOT(import()));
+
 }
 
 void KeyServerImportDialog::setMessage(const QString &text, bool error)
 {
     message->setText(text);
-    QPalette filesFoundPalette = message->palette();
     if (error) {
-        filesFoundPalette.setColor(QPalette::Background, "#ff8080");
+        QIcon undoicon = QIcon::fromTheme("dialog-error");
+        QPixmap pixmap = undoicon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
+        icon->setPixmap(pixmap);
+
     } else {
-        filesFoundPalette.setColor(QPalette::Background, "#0dff6e");
+        QIcon undoicon = QIcon::fromTheme("dialog-information");
+        QPixmap pixmap = undoicon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
+        icon->setPixmap(pixmap);
+
     }
-    message->setPalette(filesFoundPalette);
 }
 
 void KeyServerImportDialog::search()
@@ -166,6 +175,7 @@ void KeyServerImportDialog::searchFinished()
                     keysTable->setItem(row-1,0,tmp1);
                 }
             }
+            setMessage(tr("%1 keys found. Doubleclick a key to import it.").arg(row),false);
         }
         //keysTree->insertTopLevelItems(0,items);
         keysTable->resizeColumnsToContents();
