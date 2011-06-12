@@ -29,25 +29,38 @@ KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *paren
     : QDialog(parent)
 {
     mCtx = ctx;
-    message = new QLabel;
-    icon = new QLabel;
- QIcon undoicon = QIcon::fromTheme("dialog-information");
-    QPixmap pixmap = undoicon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
-    icon->setPixmap(pixmap);
+
+    // Buttons
     closeButton = createButton(tr("&Close"), SLOT(close()));
     importButton = createButton(tr("&Import"), SLOT(import()));
     searchButton = createButton(tr("&Search"), SLOT(search()));
-    searchLineEdit = new QLineEdit();
-    keyServerComboBox = createComboBox("http://pgp.mit.edu");
 
+    // Line edit for search string
     searchLabel = new QLabel(tr("Seacrh string:"));
+    searchLineEdit = new QLineEdit();
+
+    // combobox for keyserverlist
     keyServerLabel = new QLabel(tr("Keyserver:"));
+    keyServerComboBox = createComboBox();
+
+    // table containing the keys found
     createKeysTable();
+    message = new QLabel;
+    icon = new QLabel;
+
+    // Layout for messagebox
+    QHBoxLayout *messageLayout= new QHBoxLayout;
+    messageLayout->addWidget(icon);
+    messageLayout->addWidget(message);
+    messageLayout->addStretch();
+
+    // Layout for import and close button
     QHBoxLayout *buttonsLayout = new QHBoxLayout;
     buttonsLayout->addStretch();
     buttonsLayout->addWidget(importButton);
     buttonsLayout->addWidget(closeButton);
 
+    //
     QGridLayout *mainLayout = new QGridLayout;
     mainLayout->addWidget(searchLabel, 1, 0);
     mainLayout->addWidget(searchLineEdit, 1, 1);
@@ -55,20 +68,13 @@ KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *paren
     mainLayout->addWidget(keyServerLabel, 2, 0);
     mainLayout->addWidget(keyServerComboBox, 2, 1);
     mainLayout->addWidget(keysTable, 3, 0, 1, 3);
-    mainLayout->addWidget(icon, 4, 0, 1, 3);
-    mainLayout->addWidget(message, 4, 1, 1, 3);
+    mainLayout->addLayout(messageLayout, 4, 0, 1, 3);
     mainLayout->addLayout(buttonsLayout, 5, 0, 1, 3);
     setLayout(mainLayout);
 
     setWindowTitle(tr("Import Keys from Keyserver"));
     resize(700, 300);
     setModal(true);
-}
-
-static void updateComboBox(QComboBox *comboBox)
-{
-    if (comboBox->findText(comboBox->currentText()) == -1)
-        comboBox->addItem(comboBox->currentText());
 }
 
 QPushButton *KeyServerImportDialog::createButton(const QString &text, const char *member)
@@ -78,31 +84,42 @@ QPushButton *KeyServerImportDialog::createButton(const QString &text, const char
     return button;
 }
 
-QComboBox *KeyServerImportDialog::createComboBox(const QString &text)
+QComboBox *KeyServerImportDialog::createComboBox()
 {
     QComboBox *comboBox = new QComboBox;
     comboBox->setEditable(true);
-    comboBox->addItem(text);
     comboBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+    // Read keylist from ini-file and fill it into combobox
+    QSettings settings;
+    comboBox->addItems(settings.value("keyserver/keyServerList").toStringList());
     return comboBox;
+}
+
+static void updateComboBox(QComboBox *comboBox)
+{
+    if (comboBox->findText(comboBox->currentText()) == -1)
+        comboBox->addItem(comboBox->currentText());
 }
 
 void KeyServerImportDialog::createKeysTable()
 {
     keysTable = new QTableWidget();
     keysTable->setColumnCount(3);
+    // always a whole row is marked
     keysTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     keysTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    // Make just one row selectable
+    keysTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
     QStringList labels;
     labels  << tr("UID") << tr("Creation date") << tr("KeyID");
+    keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
     keysTable->setHorizontalHeaderLabels(labels);
     keysTable->verticalHeader()->hide();
-    keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
-    setMessage("doubleclick on a key to import it", false);
+
     connect(keysTable, SIGNAL(cellActivated(int,int)),
             this, SLOT(import()));
-
 }
 
 void KeyServerImportDialog::setMessage(const QString &text, bool error)
@@ -112,12 +129,10 @@ void KeyServerImportDialog::setMessage(const QString &text, bool error)
         QIcon undoicon = QIcon::fromTheme("dialog-error");
         QPixmap pixmap = undoicon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
         icon->setPixmap(pixmap);
-
     } else {
         QIcon undoicon = QIcon::fromTheme("dialog-information");
         QPixmap pixmap = undoicon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
         icon->setPixmap(pixmap);
-
     }
 }
 
@@ -131,12 +146,12 @@ void KeyServerImportDialog::search()
 
 void KeyServerImportDialog::searchFinished()
 {
+    keysTable->clearContents();
     QString firstLine = QString(searchreply->readLine(1024));
 
     QVariant redirectionTarget = searchreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
     if (searchreply->error()) {
         setMessage(tr("Couldn't contact keyserver!"),true);
-
     }
     if (firstLine.contains("Error"))
     {
@@ -148,12 +163,12 @@ void KeyServerImportDialog::searchFinished()
             setMessage(tr("No keys found containing the search string!"),true);
         }
     } else {
-        keysTable->clearContents();
         int row = 0;
         char buff[1024];
         QList <QTreeWidgetItem*> items;
         while (searchreply->readLine(buff,sizeof(buff)) !=-1) {
             QStringList line= QString(buff).split(":");
+            //TODO: have a look at two following pub lines
             if (line[0] == "pub") {
                 keysTable->setRowCount(row+1);
                 QStringList line2 = QString(searchreply->readLine()).split(":");
@@ -186,12 +201,17 @@ void KeyServerImportDialog::searchFinished()
 
 void KeyServerImportDialog::import()
 {
-    updateComboBox(keyServerComboBox);
-    QString keyid = keysTable->item(keysTable->currentRow(),2)->text();
-    QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?op=get&search=0x"+keyid+"&options=mr";
-    importreply = qnam.get(QNetworkRequest(url));
-    connect(importreply, SIGNAL(finished()),
-            this, SLOT(importFinished()));
+    if ( keysTable->currentRow() > -1 ) {
+
+        //TODO: just updateCombobox, when import is successful
+        updateComboBox(keyServerComboBox);
+        QString keyid = keysTable->item(keysTable->currentRow(),2)->text();
+
+        QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?op=get&search=0x"+keyid+"&options=mr";
+        importreply = qnam.get(QNetworkRequest(url));
+        connect(importreply, SIGNAL(finished()),
+                this, SLOT(importFinished()));
+   }
 }
 
 void KeyServerImportDialog::importFinished()
@@ -206,8 +226,16 @@ void KeyServerImportDialog::importFinished()
         return;
     }
     mCtx->importKey(*key);
-    setMessage("key imported",false);
+    setMessage("Key imported",false);
+
+    // Add keyserver to list in config-file, if it isn't contained
+    QSettings settings;
+    QStringList keyServerList = settings.value("keyserver/keyServerList").toStringList();
+    if (!keyServerList.contains(keyServerComboBox->currentText()))
+    {
+        keyServerList.append(keyServerComboBox->currentText());
+        settings.setValue("keyserver/keyServerList", keyServerList);
+    }
     importreply->deleteLater();
     importreply = 0;
 }
-

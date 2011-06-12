@@ -42,11 +42,6 @@ class QPalette;
 class QTreeWidget;
 class QTreeWidgetItem;
 QT_END_NAMESPACE
-struct key {
-    QString name;
-    int fingerprint;
-    QStringList uids;
-};
 
 class KeyServerImportDialog : public QDialog
 {
@@ -64,10 +59,11 @@ private slots:
 private:
     void createKeysTable();
     void setMessage(const QString &text, bool error);
-    QPushButton *createButton(const QString &text, const char *member);
-    QComboBox *createComboBox(const QString &text = QString());
-    GpgME::Context *mCtx;
+    void close();
 
+    QPushButton *createButton(const QString &text, const char *member);
+    QComboBox *createComboBox();
+    GpgME::Context *mCtx;
     QLineEdit *searchLineEdit;
     QComboBox *keyServerComboBox;
     QLabel *searchLabel;
