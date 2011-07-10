@@ -59,6 +59,7 @@ Attachments::Attachments(QString iconpath, QWidget *parent)
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(tableView);
+    layout->setContentsMargins(0,0,0,0);
     setLayout(layout);
     createActions();
 
