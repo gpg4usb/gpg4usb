@@ -725,12 +725,14 @@ void GpgWin::importKeyDialog()
     QRadioButton *radio1 = new QRadioButton(tr("&File"));
     QRadioButton *radio2 = new QRadioButton(tr("&Editor"));
     QRadioButton *radio3 = new QRadioButton(tr("&Clipboard"));
+    QRadioButton *radio4 = new QRadioButton(tr("&Keyserver"));
     radio1->setChecked(true);
 
     QVBoxLayout *vbox1 = new QVBoxLayout();
     vbox1->addWidget(radio1);
     vbox1->addWidget(radio2);
     vbox1->addWidget(radio3);
+    vbox1->addWidget(radio4);
     groupBox->setLayout(vbox1);
 
     QVBoxLayout *vbox2 = new QVBoxLayout();
@@ -742,6 +744,7 @@ void GpgWin::importKeyDialog()
         if (radio1->isChecked()) importKeyFromFile();
         if (radio2->isChecked()) importKeyFromEdit();
         if (radio3->isChecked()) importKeyFromClipboard();
+        if (radio4->isChecked()) importKeyFromKeyServer();
     }
 }
 

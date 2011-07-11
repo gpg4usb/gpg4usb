@@ -147,6 +147,7 @@ void KeyServerImportDialog::search()
 void KeyServerImportDialog::searchFinished()
 {
     keysTable->clearContents();
+    keysTable->setRowCount(0);
     QString firstLine = QString(searchreply->readLine(1024));
 
     QVariant redirectionTarget = searchreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
@@ -161,6 +162,9 @@ void KeyServerImportDialog::searchFinished()
         }
         if (text.contains("No keys found")) {
             setMessage(tr("No keys found containing the search string!"),true);
+        }
+        if (text.contains("Insufficiently specific words")) {
+            setMessage(tr("Insufficiently specific search string!"),true);
         }
     } else {
         int row = 0;
