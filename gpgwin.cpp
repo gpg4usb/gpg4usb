@@ -631,6 +631,10 @@ void GpgWin::preventNoDataErr(QByteArray *in)
     if (block_start > 0 && in->at(block_start - 1) != '\n') {
         in->insert(block_start, '\n');
     }
+    block_start = in->indexOf("-----BEGIN PGP SIGNED MESSAGE-----");
+    if (block_start > 0 && in->at(block_start - 1) != '\n') {
+        in->insert(block_start, '\n');
+    }
 }
 
 void GpgWin::importKeyFromEdit()
@@ -694,7 +698,10 @@ void GpgWin::sign()
 
 void GpgWin::verify()
 {
-    int error = mCtx->verify(edit->curTextPage()->toPlainText().toUtf8());
+    QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
+    preventNoDataErr(&text);
+
+    int error = mCtx->verify(text);
     if (error == 0) {
         edit->curPage()->showVerifyLabel(true);
     } else {
