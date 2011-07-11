@@ -109,11 +109,11 @@ public slots:
     void closeTab();
     void switchTabUp();
     void switchTabDown();
+    EditorPage *curPage();
 
 private:
     QString strippedName(const QString &fullFileName);
     bool maybeSaveFile();
-    EditorPage *curPage();
     void setCursorPosition();
     QString mIconPath;
     int countPage;

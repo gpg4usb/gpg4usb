@@ -70,7 +70,7 @@ public:
     void clearPasswordCache();
     void exportSecretKey(QString uid, QByteArray *outBuffer);
     gpgme_key_t getKeyDetails(QString uid);
-    void verify(QByteArray in);
+    int verify(QByteArray in);
     void decryptVerify(QByteArray in);
     void sign(const QByteArray &inBuffer, QByteArray *outBuffer);
     bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );

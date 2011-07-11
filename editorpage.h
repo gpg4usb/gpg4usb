@@ -23,8 +23,9 @@
 #define EDITORPAGE_H
 #include <QPlainTextEdit>
 
-class QHBoxLayout;
+class QVBoxLayout;
 class QString;
+class QLabel;
 
 class EditorPage : public QWidget
 {
@@ -35,11 +36,13 @@ public:
     const QString& getFilePath() const;
     void setFilePath(const QString &filePath);
     QPlainTextEdit *getTextPage();
+    void showVerifyLabel(bool showLabel);
 
 private:
     QPlainTextEdit *textPage;
-    QHBoxLayout *mainLayout;
+    QVBoxLayout *mainLayout;
     QString fullFilePath;
+    QLabel *verifyLabel;
     void setSaveState();
 
 };

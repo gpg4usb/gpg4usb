@@ -496,8 +496,9 @@ void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByte
   * -> list of sigs
   * -> valid
   */
-void Context::verify(QByteArray inBuffer) {
+int Context::verify(QByteArray inBuffer) {
 
+    int error=0;
     gpgme_data_t in;
     gpgme_error_t err;
     gpgme_signature_t sign;
@@ -517,6 +518,9 @@ void Context::verify(QByteArray inBuffer) {
         qDebug() << "sig summary: " <<  sign->summary;
         qDebug() << "sig fingerprint: " <<  sign->fpr;
         qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
+        if (sign->status != 0) {
+            error = 1;
+        }
         qDebug() << "sig validity: " <<  sign->validity;
         qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
         sign = sign->next;
@@ -600,7 +604,7 @@ If SIG is a detached
     qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
 
 */
-
+    return error;
 }
 
 /***

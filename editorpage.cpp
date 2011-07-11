@@ -28,10 +28,16 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
                                                        fullFilePath(filePath)
 {
     textPage   = new QPlainTextEdit();
-
-    mainLayout = new QHBoxLayout();
+    verifyLabel = new QLabel("Verified");
+    verifyLabel->setAutoFillBackground(1);
+    QPalette verifyPalette = verifyLabel->palette();
+    verifyPalette.setColor(QPalette::Background, "#CBFDCB");
+    verifyLabel->setPalette(verifyPalette);
+    this->showVerifyLabel(false);
+    mainLayout = new QVBoxLayout();
     mainLayout->setSpacing(0);
     mainLayout->addWidget(textPage);
+    mainLayout->addWidget(verifyLabel);
     mainLayout->setContentsMargins(0,0,0,0);
     setLayout(mainLayout);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -56,7 +62,14 @@ void EditorPage::setFilePath(const QString &filePath)
     fullFilePath = filePath;
 }
 
-
+void EditorPage::showVerifyLabel(bool showLabel)
+{
+    if (showLabel == true) {
+        verifyLabel->show();
+    } else {
+        verifyLabel->hide();
+    }
+}
 
 void setSaveState()
 {

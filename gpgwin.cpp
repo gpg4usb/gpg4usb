@@ -694,7 +694,12 @@ void GpgWin::sign()
 
 void GpgWin::verify()
 {
-    mCtx->verify(edit->curTextPage()->toPlainText().toUtf8());
+    int error = mCtx->verify(edit->curTextPage()->toPlainText().toUtf8());
+    if (error == 0) {
+        edit->curPage()->showVerifyLabel(true);
+    } else {
+        edit->curPage()->showVerifyLabel(false);
+    }
 }
 
 void GpgWin::importKeyDialog()
