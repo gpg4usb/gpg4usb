@@ -25,7 +25,7 @@ attachments:
 		- opening new file in editor
 		- decrypting
 		- encrypting
-	- status-tip "saved file" when saving file for "open with"
+	- status-tip "saved file" when saving file for "open with" [DONE]
 - Settings-Dialog:
 	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - update gpgme-library
@@ -38,9 +38,15 @@ attachments:
 - Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
 - PGP-MIME, find and show inline encrypted files
 	- attachments-widget should be inlined in editor-tabs
-- export key: default filename to <keyowner-name>.key
-- show keydetails-dialog in keylist on mainwindow
+- export key: default filename to <keyowner-name>.asc
+- show keydetails-dialog in keylist on mainwindow [DONE]
 - make email adress from keylist copyable
+
+BUGS: 
+- Sometimes two or more stars are shown at modified documents
+- enter "satann keyserverimport and it crashes
+- what should be shown in verify message?
+- show, if message is partially verified(how)?
 
 Release 0.4
 - adding signing and verifying
