@@ -447,20 +447,22 @@ void Context::clearPasswordCache()
 }
 
 // error-handling
-void Context::checkErr(gpgme_error_t err, QString comment) const
+int Context::checkErr(gpgme_error_t err, QString comment) const
 {
     //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
     if (err != GPG_ERR_NO_ERROR) {
         qDebug() << "[Error " << comment << "] Source: " << gpgme_strsource(err) << " String: " << gpgme_strerror(err);
     }
+    return err;
 }
 
-void Context::checkErr(gpgme_error_t err) const
+int Context::checkErr(gpgme_error_t err) const
 {
     //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
     if (err != GPG_ERR_NO_ERROR) {
         qDebug() << "[Error] Source: " << gpgme_strsource(err) << " String: " << gpgme_strerror(err);
     }
+    return err;
 }
 
 
@@ -508,7 +510,11 @@ int Context::verify(QByteArray inBuffer) {
     checkErr(err);
 
     err = gpgme_op_verify (mCtx, in, NULL, in);
-    checkErr(err);
+    error = checkErr(err);
+
+    if (error != 0) {
+        return 1;
+    }
 
     result = gpgme_op_verify_result (mCtx);
 

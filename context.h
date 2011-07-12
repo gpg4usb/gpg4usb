@@ -86,8 +86,8 @@ private:
     QByteArray mPasswordCache;
     QSettings settings;
     bool debug;
-    void checkErr(gpgme_error_t err) const;
-    void checkErr(gpgme_error_t err, QString comment) const;
+    int checkErr(gpgme_error_t err) const;
+    int checkErr(gpgme_error_t err, QString comment) const;
 
     static gpgme_error_t passphraseCb(void *hook, const char *uid_hint,
                                       const char *passphrase_info,
