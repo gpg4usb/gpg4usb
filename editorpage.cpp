@@ -29,10 +29,7 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
 {
     textPage   = new QPlainTextEdit();
     verifyLabel = new QLabel("Verified");
-    verifyLabel->setAutoFillBackground(1);
-    QPalette verifyPalette = verifyLabel->palette();
-    verifyPalette.setColor(QPalette::Background, "#CBFDCB");
-    verifyLabel->setPalette(verifyPalette);
+    verifyLabel->setObjectName("verifyLabel");
     this->showVerifyLabel(false);
     mainLayout = new QVBoxLayout();
     mainLayout->setSpacing(0);
