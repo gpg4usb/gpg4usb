@@ -232,6 +232,6 @@ void KeyList::dragEnterEvent(QDragEnterEvent *event)
  */
 void KeyList::markKeys(QStringList *keyIds) {
     foreach(QString id, *keyIds) {
-        qDebug() << id;
+        qDebug() << "marked: " << id;
      }
 }
