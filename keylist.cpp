@@ -227,3 +227,11 @@ void KeyList::dragEnterEvent(QDragEnterEvent *event)
     event->acceptProposedAction();
 }
 
+/** set background color for Keys and put them to top
+ *
+ */
+void KeyList::markKeys(QStringList *keyIds) {
+    foreach(QString id, *keyIds) {
+        qDebug() << id;
+     }
+}

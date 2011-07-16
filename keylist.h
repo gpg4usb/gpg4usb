@@ -44,6 +44,7 @@ public:
     void setChecked(QStringList *keyIds);
     //QStringList *getPrivateChecked();
     QStringList *getSelected();
+    void markKeys(QStringList *keyIds);
 
 public slots:
     void refresh();
