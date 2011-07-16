@@ -214,6 +214,12 @@ void GpgWin::createActions()
     selectallAct->setToolTip(tr("Select the whole text"));
     connect(selectallAct, SIGNAL(triggered()), edit, SLOT(selectAll()));
 
+    cleanDoubleLinebreaksAct = new QAction(tr("Remove double &Linebreaks"), this);
+    //cleanDoubleLineBreaksAct->setIcon(QIcon(iconPath + "edit.png"));
+    //cleanDoubleLineBreaksAct->setShortcut(QKeySequence::SelectAll);
+    cleanDoubleLinebreaksAct->setToolTip(tr("Remove double linebreaks, e.g. in pasted text from webmailer"));
+    connect(cleanDoubleLinebreaksAct, SIGNAL(triggered()), this, SLOT(cleanDoubleLinebreaks()));
+
     openSettingsAct = new QAction(tr("Se&ttings"), this);
     openSettingsAct->setToolTip(tr("Open settings dialog"));
     openSettingsAct->setShortcut(QKeySequence::Preferences);
@@ -344,6 +350,7 @@ void GpgWin::createMenus()
     editMenu->addAction(pasteAct);
     editMenu->addAction(selectallAct);
     editMenu->addAction(quoteAct);
+    editMenu->addAction(cleanDoubleLinebreaksAct);
     editMenu->addSeparator();
     editMenu->addAction(openSettingsAct);
 
@@ -789,4 +796,15 @@ void GpgWin::openSettingsDialog()
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     this->setToolButtonStyle(buttonStyle);
+}
+
+void GpgWin::cleanDoubleLinebreaks() {
+    QString content = edit->curTextPage()->toPlainText();
+    content.replace("\n\n", "\n");
+    QTextCursor cursor(edit->curTextPage()->document());
+    // TODO: own utils method for following:
+    cursor.beginEditBlock();
+    edit->curTextPage()->selectAll();
+    edit->curTextPage()->insertPlainText(content);
+    cursor.endEditBlock();
 }

@@ -85,6 +85,7 @@ public slots:
     void openTutorial();
     void checkAttachmentFolder();
     void openTranslate();
+    void cleanDoubleLinebreaks();
 //    void dropEvent(QDropEvent *event);
 
 private:
@@ -131,6 +132,7 @@ private:
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
     QAction *importKeyFromKeyServerAct;
+    QAction *cleanDoubleLinebreaksAct;
 
     QAction *appendSelectedKeysAct;
     QAction *showKeyDetailsAct;
