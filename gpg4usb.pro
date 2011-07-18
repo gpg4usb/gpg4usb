@@ -29,8 +29,7 @@ HEADERS += attachments.h \
     textedit.h \
     editorpage.h \
     quitdialog.h \
-    keyserverimportdialog.h \
-    verifyinfo.h
+    keyserverimportdialog.h
 SOURCES += attachments.cpp \
     context.cpp \
     gpgwin.cpp \
@@ -46,8 +45,7 @@ SOURCES += attachments.cpp \
     textedit.cpp \
     editorpage.cpp \
     quitdialog.cpp \
-    keyserverimportdialog.cpp \
-    verifyinfo.cpp
+    keyserverimportdialog.cpp
 RC_FILE = gpg4usb.rc
 
 # comment out line below for static building

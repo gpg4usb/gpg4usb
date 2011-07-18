@@ -713,12 +713,25 @@ void GpgWin::verify()
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
 
-    int error = mCtx->verify(text);
-    if (error == 0) {
-        edit->curPage()->showVerifyLabel(true);
-    } else {
+    gpgme_signature_t sign = mCtx->verify(text);
+    if (sign == NULL) {
         edit->curPage()->showVerifyLabel(false);
+        return;
     }
+
+    while (sign) {
+        qDebug() << "sig summary: " <<  sign->summary;
+        qDebug() << "sig fingerprint: " <<  sign->fpr;
+        qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
+        qDebug() << "sig validity: " <<  sign->validity;
+        qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
+        if (gpg_err_code(sign->status) == 9) {
+            qDebug() << "kein passender Schlüssel gefunden. Vom Schlüsselserver importieren?";
+        }
+        sign = sign->next;
+    }
+
+
 }
 
 void GpgWin::importKeyDialog()
