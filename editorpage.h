@@ -24,6 +24,7 @@
 #include <QPlainTextEdit>
 
 class QVBoxLayout;
+class QHBoxLayout;
 class QString;
 class QLabel;
 
@@ -37,10 +38,14 @@ public:
     void setFilePath(const QString &filePath);
     QPlainTextEdit *getTextPage();
     void showVerifyLabel(bool showLabel);
+    void showNotificationWidget(QWidget *widget);
 
 private:
     QPlainTextEdit *textPage;
     QVBoxLayout *mainLayout;
+    QHBoxLayout *notificationWidgetLayout;
+    QWidget *notificationWidget;
+    QMenu *verifyMenu;
     QString fullFilePath;
     QLabel *verifyLabel;
     void setSaveState();

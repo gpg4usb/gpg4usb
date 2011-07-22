@@ -45,6 +45,8 @@ Context::Context()
      *  subsystem in GPGME. (from the info page) */
     gpgme_check_version(NULL);
 
+    // TODO: Set gpgme_language to config
+    // http://lavica.fesb.hr/cgi-bin/info2html?%28gpgme%29Locale
     setlocale(LC_ALL, "");
     /** set locale, because tests do also */
     gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));

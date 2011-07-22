@@ -28,13 +28,13 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
                                                        fullFilePath(filePath)
 {
     textPage   = new QPlainTextEdit();
-    verifyLabel = new QLabel("Verified");
-    verifyLabel->setObjectName("verifyLabel");
-    this->showVerifyLabel(false);
+
+    //notificationWidget = new QWidget(this);
+    //this->showVerifyLabel(false);
     mainLayout = new QVBoxLayout();
     mainLayout->setSpacing(0);
     mainLayout->addWidget(textPage);
-    mainLayout->addWidget(verifyLabel);
+    //mainLayout->addWidget(notificationWidget);
     mainLayout->setContentsMargins(0,0,0,0);
     setLayout(mainLayout);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -59,13 +59,21 @@ void EditorPage::setFilePath(const QString &filePath)
     fullFilePath = filePath;
 }
 
+void EditorPage::showNotificationWidget(QWidget *widget)
+{
+    //notificationWidget = widget;
+    //notificationWidget->show();
+    mainLayout->addWidget(widget);
+}
+
 void EditorPage::showVerifyLabel(bool showLabel)
 {
     if (showLabel == true) {
-        verifyLabel->show();
+        notificationWidget->show();
     } else {
-        verifyLabel->hide();
+        notificationWidget->hide();
     }
+
 }
 
 void setSaveState()

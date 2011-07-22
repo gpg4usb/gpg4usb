@@ -22,6 +22,7 @@
 #include "gpgwin.h"
 #include "fileencryptiondialog.h"
 #include "settingsdialog.h"
+#include "verifynotification.h"
 
 GpgWin::GpgWin()
 {
@@ -710,15 +711,21 @@ void GpgWin::sign()
 
 void GpgWin::verify()
 {
+    bool verified=false;
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
 
     gpgme_signature_t sign = mCtx->verify(text);
+
     if (sign == NULL) {
-        edit->curPage()->showVerifyLabel(false);
         return;
+    } else {
+        // TODO: should get verifynotification get the whole signature for analysizing
+        VerifyNotification *vn = new VerifyNotification();
+        edit->curPage()->showNotificationWidget(vn);
     }
 
+    //
     while (sign) {
         qDebug() << "sig summary: " <<  sign->summary;
         qDebug() << "sig fingerprint: " <<  sign->fpr;
@@ -729,8 +736,8 @@ void GpgWin::verify()
             qDebug() << "kein passender Schlüssel gefunden. Vom Schlüsselserver importieren?";
         }
         sign = sign->next;
-    }
 
+    }
 
 }
 
