@@ -98,6 +98,7 @@ private:
     void saveSettings();
     void preventNoDataErr(QByteArray *in);
     void parseMime(QByteArray *message);
+    bool isCompletedlySigned(const QByteArray &text);
 
     TextEdit *edit;
     QMenu *fileMenu;

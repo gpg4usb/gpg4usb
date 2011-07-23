@@ -708,12 +708,24 @@ void GpgWin::sign()
         cursor.endEditBlock();
     }
 }
+bool GpgWin::isCompletedlySigned(const QByteArray &text) {
+
+    if (text.startsWith("-----BEGIN PGP SIGNED MESSAGE-----") && text.endsWith("-----END PGP SIGNATURE-----")) {
+        qDebug() << "totally signed";
+        return true;
+    } else {
+        qDebug("partially signed");
+        return false;
+    }
+}
 
 void GpgWin::verify()
 {
     bool verified=false;
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
+
+    isCompletedlySigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
 
