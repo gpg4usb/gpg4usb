@@ -3,7 +3,7 @@
 VerifyNotification::VerifyNotification(QWidget *parent) :
     QWidget(parent)
 {
-    QLabel *verifyLabel = new QLabel("Verified");
+    verifyLabel = new QLabel("Verified");
 
     QHBoxLayout *notificationWidgetLayout = new QHBoxLayout();
     notificationWidgetLayout->setContentsMargins(0,0,0,0);
@@ -25,6 +25,10 @@ VerifyNotification::VerifyNotification(QWidget *parent) :
     verifyButton->setMenu(verifyMenu);
     notificationWidgetLayout->addStretch(1);
     notificationWidgetLayout->addWidget(verifyButton);
+}
 
-
+void VerifyNotification::setVerifyLabel(QString text)
+{
+    verifyLabel->setText(text);
+    return;
 }

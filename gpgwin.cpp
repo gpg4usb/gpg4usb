@@ -708,15 +708,20 @@ void GpgWin::sign()
         cursor.endEditBlock();
     }
 }
-bool GpgWin::isCompletedlySigned(const QByteArray &text) {
-
+/*
+  * isSigned returns:
+  * - 0, if text isn't signed at all
+  * - 1, if text is partially signed
+  * - 2, if text is completly signed
+  */
+int GpgWin::isSigned(const QByteArray &text) {
     if (text.startsWith("-----BEGIN PGP SIGNED MESSAGE-----") && text.endsWith("-----END PGP SIGNATURE-----")) {
-        qDebug() << "totally signed";
-        return true;
-    } else {
-        qDebug("partially signed");
-        return false;
+        return 2;
     }
+    if (text.contains("-----BEGIN PGP SIGNED MESSAGE-----") && text.contains("-----END PGP SIGNATURE-----")) {
+        return 1;
+    }
+    return 0;
 }
 
 void GpgWin::verify()
@@ -725,7 +730,7 @@ void GpgWin::verify()
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
 
-    isCompletedlySigned(text);
+    isSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
 
@@ -734,10 +739,10 @@ void GpgWin::verify()
     } else {
         // TODO: should get verifynotification get the whole signature for analysizing
         VerifyNotification *vn = new VerifyNotification();
+        vn->setVerifyLabel(QString("Verified"));
         edit->curPage()->showNotificationWidget(vn);
     }
 
-    //
     while (sign) {
         qDebug() << "sig summary: " <<  sign->summary;
         qDebug() << "sig fingerprint: " <<  sign->fpr;
@@ -748,9 +753,7 @@ void GpgWin::verify()
             qDebug() << "kein passender Schlüssel gefunden. Vom Schlüsselserver importieren?";
         }
         sign = sign->next;
-
     }
-
 }
 
 void GpgWin::importKeyDialog()

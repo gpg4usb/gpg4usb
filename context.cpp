@@ -519,21 +519,7 @@ gpgme_signature_t Context::verify(QByteArray inBuffer) {
     }
 
     result = gpgme_op_verify_result (mCtx);
-
     sign = result->signatures;
-
-/*    while (sign) {
-        qDebug() << "sig summary: " <<  sign->summary;
-        qDebug() << "sig fingerprint: " <<  sign->fpr;
-        qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
-        if (sign->status != 0) {
-            error = 1;
-        }
-        qDebug() << "sig validity: " <<  sign->validity;
-        qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
-        sign = sign->next;
-    }
-*/
     return sign;
 }
 
