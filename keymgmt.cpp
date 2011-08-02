@@ -85,6 +85,10 @@ void KeyMgmt::createActions()
     importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
+    importKeyFromKeyServerAct = new QAction(tr("&Keyserver"), this);
+    importKeyFromKeyServerAct->setToolTip(tr("Import New Key From Keyserver"));
+    connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(importKeyFromKeyServer()));
+
     exportKeyToClipboardAct = new QAction(tr("Export To &Clipboard"), this);
     exportKeyToClipboardAct->setIcon(QIcon(mIconPath + "export_key_to_clipbaord.png"));
     exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
@@ -122,6 +126,7 @@ void KeyMgmt::createMenus()
     keyMenu = menuBar()->addMenu(tr("&Key"));
     keyMenu->addAction(importKeyFromFileAct);
     keyMenu->addAction(importKeyFromClipboardAct);
+    keyMenu->addAction(importKeyFromKeyServerAct);
     keyMenu->addSeparator();
     keyMenu->addAction(exportKeyToFileAct);
     keyMenu->addAction(exportKeyToClipboardAct);
@@ -155,6 +160,12 @@ void KeyMgmt::importKeyFromFile()
 
         mCtx->importKey(inBuffer);
     }
+}
+
+void KeyMgmt::importKeyFromKeyServer()
+{
+    importDialog = new KeyServerImportDialog(mCtx, this);
+    importDialog->show();
 }
 
 void KeyMgmt::importKeyFromClipboard()

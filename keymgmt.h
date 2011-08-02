@@ -40,6 +40,7 @@ class QSlider;
 #include "keylist.h"
 #include "keygenthread.h"
 #include "keydetailsdialog.h"
+#include "keyserverimportdialog.h"
 
 class KeyMgmt : public QMainWindow
 {
@@ -51,6 +52,7 @@ public:
 public slots:
     void importKeyFromFile();
     void importKeyFromClipboard();
+    void importKeyFromKeyServer();
     void exportKeyToFile();
     void exportKeyToClipboard();
     void deleteSelectedKeys();
@@ -80,6 +82,7 @@ private:
     QAction *importKeyFromFileAct;
     QAction *importKeyFromEditAct;
     QAction *importKeyFromClipboardAct;
+    QAction *importKeyFromKeyServerAct;
     QAction *exportKeyToFileAct;
     QAction *exportKeyToClipboardAct;
     QAction *deleteCheckedKeysAct;
@@ -111,6 +114,7 @@ private:
     QDateTimeEdit *dateEdit;
     QCheckBox *expireCheckBox;
     QSlider *pwStrengthSlider;
+    KeyServerImportDialog *importDialog;
 
 protected:
     void closeEvent(QCloseEvent *event);
