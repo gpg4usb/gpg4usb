@@ -44,7 +44,7 @@ GpgWin::GpgWin()
 
     /* List of binary Attachments */
     mAttachments = new Attachments(iconPath);
-    
+
     /* test attachmentdir for files alll 15s */
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(checkAttachmentFolder()));
@@ -416,7 +416,7 @@ void GpgWin::createStatusBar()
     statusBarIcon = new QLabel(statusBar());
     statusBarIcon->setPixmap(*pixmap);
     statusBar()->insertPermanentWidget(0,statusBarIcon,0);
-    statusBarIcon->hide();          
+    statusBarIcon->hide();
     statusBar()->showMessage(tr("Ready"),2000);
     statusBarBox->setLayout(statusBarBoxLayout);
 }
@@ -610,7 +610,7 @@ void GpgWin::checkAttachmentFolder() {
     if(!settings.value("mime/parseMime").toBool()) {
         return;
     }
-    
+
     QString attachmentDir = qApp->applicationDirPath() + "/attachments/";
     // filenum minus . and ..
     int filenum = QDir(attachmentDir).count() - 2 ;
@@ -698,7 +698,7 @@ void GpgWin::sign()
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {        
+    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
         // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
         QTextCursor cursor(edit->curTextPage()->document());
@@ -726,34 +726,56 @@ int GpgWin::isSigned(const QByteArray &text) {
 
 void GpgWin::verify()
 {
-    bool verified=false;
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
 
-    isSigned(text);
+    int textIsSigned = isSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
 
     if (sign == NULL) {
         return;
-    } else {
-        // TODO: should get verifynotification get the whole signature for analysizing
-        VerifyNotification *vn = new VerifyNotification();
-        vn->setVerifyLabel(QString("Verified"));
-        edit->curPage()->showNotificationWidget(vn);
     }
 
+    VerifyNotification *vn = new VerifyNotification(mCtx,this);
+    QString verifyLabelText;
+    switch (textIsSigned)
+    {
+    case 2: verifyLabelText="Message is completly signed by: ";
+        break;
+    case 1: verifyLabelText="Message is partially signed by: ";
+        break;
+    }
     while (sign) {
+        if (gpg_err_code(sign->status) == 9) {
+            verifyLabelText.append("Key with keyid ");
+            verifyLabelText.append(sign->fpr);
+            qDebug() << "sign->fpr:" << sign->fpr;
+            verifyLabelText.append(" not present.");
+            *vn->keysNotInList << sign->fpr;
+        } else {
+            QString name = mKeyList->getKeyNameByFpr(sign->fpr);
+            QString email = "<"+mKeyList->getKeyEmailByFpr(sign->fpr)+">";
+            if ( email == "<>" ) {
+                email="";
+            }
+            verifyLabelText.append(name);
+            verifyLabelText.append(email);
+            verifyLabelText.append(gpg_strerror(sign->status));
+        }
+        verifyLabelText.append(".\n");
         qDebug() << "sig summary: " <<  sign->summary;
         qDebug() << "sig fingerprint: " <<  sign->fpr;
         qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
         qDebug() << "sig validity: " <<  sign->validity;
         qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
-        if (gpg_err_code(sign->status) == 9) {
-            qDebug() << "kein passender Schlüssel gefunden. Vom Schlüsselserver importieren?";
-        }
         sign = sign->next;
     }
+    // Remove the last linebreak
+    verifyLabelText.remove(verifyLabelText.length()-1,1);
+
+    vn->setVerifyLabel(verifyLabelText);
+    edit->curPage()->showNotificationWidget(vn);
 }
 
 void GpgWin::importKeyDialog()
@@ -816,8 +838,8 @@ void GpgWin::showKeyDetails()
 
 void GpgWin::fileEncryption()
 {
-	QStringList *keyList;
-	keyList = mKeyList->getChecked();
+        QStringList *keyList;
+        keyList = mKeyList->getChecked();
         new FileEncryptionDialog(mCtx, iconPath, *keyList, this);
 }
 

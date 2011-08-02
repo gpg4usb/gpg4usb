@@ -180,6 +180,9 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
      * more than one selected... compare to seahorse "delete-dialog"
      */
 
+    if (uidList->isEmpty()) {
+        return;
+    }
     QString keynames;
     foreach (QString uid, *uidList) {
         keynames.append(mCtx->getKeyDetails(uid)->uids->name);

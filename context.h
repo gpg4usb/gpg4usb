@@ -44,6 +44,7 @@ public:
     QString name;
     QString email;
     bool privkey;
+    QString fpr;
 };
 
 typedef QLinkedList< GpgKey > GpgKeyList;

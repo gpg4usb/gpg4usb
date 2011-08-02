@@ -29,15 +29,17 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
     this->iconPath = iconpath;
 
     mKeyList = new QTableWidget(this);
-    mKeyList->setColumnCount(5);
+    mKeyList->setColumnCount(6);
     mKeyList->verticalHeader()->hide();
     mKeyList->setShowGrid(false);
     mKeyList->setColumnWidth(0, 24);
     mKeyList->setColumnWidth(1, 20);
     mKeyList->sortByColumn(2, Qt::AscendingOrder);
     mKeyList->setSelectionBehavior(QAbstractItemView::SelectRows);
-    // id of key
+    // hide id and fingerprint of key
     mKeyList->setColumnHidden(4, true);
+    mKeyList->setColumnHidden(5, true);
+
     // tableitems not editable
     mKeyList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     // no focus (rectangle around tableitems)
@@ -47,7 +49,7 @@ KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
     mKeyList->setAlternatingRowColors(true);
 
     QStringList labels;
-    labels << "" << "" << tr("Name") << tr("EMail") << "id";
+    labels << "" << "" << tr("Name") << tr("EMail") << "id" << "fpr";
     mKeyList->setHorizontalHeaderLabels(labels);
     mKeyList->horizontalHeader()->setStretchLastSection(true);
 
@@ -95,6 +97,8 @@ void KeyList::refresh()
         mKeyList->setItem(row, 3, tmp3);
         QTableWidgetItem *tmp4 = new QTableWidgetItem(it->id);
         mKeyList->setItem(row, 4, tmp4);
+        QTableWidgetItem *tmp5 = new QTableWidgetItem(it->fpr);
+        mKeyList->setItem(row, 5, tmp5);
         it++;
         ++row;
     }
@@ -102,6 +106,27 @@ void KeyList::refresh()
     setChecked(keyList);
 }
 
+QString KeyList::getKeyNameByFpr(QString fpr)
+{
+    QString id;
+    for (int i = 0; i < mKeyList->rowCount(); i++) {
+        if (mKeyList->item(i, 5)->text() == fpr) {
+            id=mKeyList->item(i,2)->text();
+        }
+    }
+    return id;
+}
+
+QString KeyList::getKeyEmailByFpr(QString fpr)
+{
+    QString id;
+    for (int i = 0; i < mKeyList->rowCount(); i++) {
+        if (mKeyList->item(i, 5)->text() == fpr) {
+            id=mKeyList->item(i,3)->text();
+        }
+    }
+    return id;
+}
 
 QStringList *KeyList::getChecked()
 {
@@ -162,6 +187,7 @@ void KeyList::addMenuAction(QAction *act)
 {
     popupMenu->addAction(act);
 }
+
 void KeyList::dropEvent(QDropEvent* event)
 {
 //    importKeyDialog();
@@ -202,7 +228,6 @@ void KeyList::dropEvent(QDropEvent* event)
 
         }
     }
-
 
     if (event->mimeData()->hasUrls())
     {
