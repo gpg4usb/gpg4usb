@@ -63,13 +63,13 @@ int main(int argc, char *argv[])
 #endif
     app.installTranslator(&translator2);
 
-	// css
-	QFile file(qApp->applicationDirPath() + "/css/default.css");
+    // css
+    QFile file(qApp->applicationDirPath() + "/css/default.css");
     file.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(file.readAll());
-	qApp->setStyleSheet(styleSheet);
-	//qDebug() << "css: " << styleSheet;
-	
+    qApp->setStyleSheet(styleSheet);
+    qDebug() << "css: " << styleSheet;
+
     GpgWin *window = new GpgWin();
     window->show();
 

@@ -753,6 +753,7 @@ void GpgWin::verify()
             qDebug() << "sign->fpr:" << sign->fpr;
             verifyLabelText.append(" not present.");
             *vn->keysNotInList << sign->fpr;
+            vn->setProperty("keyNotFound", true);
         } else {
             QString name = mKeyList->getKeyNameByFpr(sign->fpr);
             QString email = "<"+mKeyList->getKeyEmailByFpr(sign->fpr)+">";
@@ -762,6 +763,7 @@ void GpgWin::verify()
             verifyLabelText.append(name);
             verifyLabelText.append(email);
             verifyLabelText.append(gpg_strerror(sign->status));
+            vn->setProperty("keyFound", true);
         }
         verifyLabelText.append(".\n");
         qDebug() << "sig summary: " <<  sign->summary;
@@ -775,7 +777,8 @@ void GpgWin::verify()
     verifyLabelText.remove(verifyLabelText.length()-1,1);
 
     vn->setVerifyLabel(verifyLabelText);
-    edit->curPage()->showNotificationWidget(vn);
+    edit->curPage()->removeNoteByClass("verifyNotification");
+    edit->curPage()->showNotificationWidget(vn, "verifyNotification");
 }
 
 void GpgWin::importKeyDialog()

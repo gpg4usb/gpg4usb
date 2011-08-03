@@ -1,16 +1,5 @@
 TODO:
 -----
-Release 0.3
-- add quote button [DONE]
-- fix overwrite file bug in file encryption [DONE]
-- add drag'n'drop features for keys [DONE]
-- list keys to delete in warning dialog [DONE]
-- undoable encrypt and decrypt  [DONE]
-- updated the windows qt libraries to 4.7 [DONE] 
-- added tabs, including quitdialog listing modified files [DONE]
-- list keys to delete in warning dialog [DONE]
-- decryption of empty messages is possible now [DONE]
-
 Release 0.3.1
 - more doku on building gpg4usb (especially on windows)
 - remember Password:
@@ -41,6 +30,10 @@ attachments:
 - export key: default filename to <keyowner-name>.asc
 - show keydetails-dialog in keylist on mainwindow [DONE]
 - make email adress from keylist copyable
+- key should blink short in keylist after import
+- show keys which verified message in different colour
+- css
+
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents

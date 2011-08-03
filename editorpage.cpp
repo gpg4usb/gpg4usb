@@ -41,7 +41,6 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
     textPage->setFocus();
 }
 
-
 const QString& EditorPage::getFilePath() const
 {
     return fullFilePath;
@@ -53,17 +52,28 @@ QPlainTextEdit* EditorPage::getTextPage()
     return textPage;
 }
 
-
 void EditorPage::setFilePath(const QString &filePath)
 {
     fullFilePath = filePath;
 }
 
-void EditorPage::showNotificationWidget(QWidget *widget)
+void EditorPage::showNotificationWidget(QWidget *widget, const char *className)
 {
-    //notificationWidget = widget;
-    //notificationWidget->show();
+    widget->setProperty(className,true);
+    qDebug() << "bla2" << widget->property(className);
+
     mainLayout->addWidget(widget);
+}
+
+void EditorPage::removeNoteByClass(const char *className) {
+    qDebug() << "length:" << this->children().length();
+
+    foreach(QObject *tmp, this->children()) {
+        qDebug() << "bla" << tmp->property(className);
+        if (tmp->property(className) == true) {
+            mainLayout->removeWidget(qobject_cast <QWidget*> (tmp));
+        }
+    }
 }
 
 void EditorPage::showVerifyLabel(bool showLabel)

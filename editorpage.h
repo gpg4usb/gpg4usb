@@ -38,7 +38,8 @@ public:
     void setFilePath(const QString &filePath);
     QPlainTextEdit *getTextPage();
     void showVerifyLabel(bool showLabel);
-    void showNotificationWidget(QWidget *widget);
+    void showNotificationWidget(QWidget *widget, const char *className);
+    void removeNoteByClass(const char *className);
 
 private:
     QPlainTextEdit *textPage;

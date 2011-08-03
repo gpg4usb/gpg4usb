@@ -13,7 +13,7 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
 
 //    notificationWidget = new QWidget(this);
 
-    this->setStyleSheet("background-color: #CBFDCB;");
+    //this->setStyleSheet("background-color: #CBFDCB;");
     this->setLayout(notificationWidgetLayout);
 
     QAction *importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
