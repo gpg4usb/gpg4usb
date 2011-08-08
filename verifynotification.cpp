@@ -5,26 +5,22 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
     QWidget(parent)
 {
     mCtx = ctx;
-    verifyLabel = new QLabel("Verified");
+    verifyLabel = new QLabel(this);
 
-    QHBoxLayout *notificationWidgetLayout = new QHBoxLayout();
+    notificationWidgetLayout = new QHBoxLayout(this);
     notificationWidgetLayout->setContentsMargins(0,0,0,0);
     notificationWidgetLayout->addWidget(verifyLabel,2);
 
-//    notificationWidget = new QWidget(this);
-
-    //this->setStyleSheet("background-color: #CBFDCB;");
     this->setLayout(notificationWidgetLayout);
 
     QAction *importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
     connect(importFromKeyserverAct, SIGNAL(triggered()), this, SLOT(importFromKeyserver()));
 
-    QMenu *detailMenu = new QMenu();
+    QMenu *detailMenu = new QMenu(this);
     detailMenu->addAction(importFromKeyserverAct);
     keysNotInList = new QStringList();
-    QPushButton *verifyButton = new QPushButton("Details");
+    QPushButton *verifyButton = new QPushButton("Details",this);
     verifyButton->setMenu(detailMenu);
-   // notificationWidgetLayout->addStretch(1);
     notificationWidgetLayout->addWidget(verifyButton);
 }
 

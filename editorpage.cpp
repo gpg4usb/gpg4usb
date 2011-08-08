@@ -65,25 +65,16 @@ void EditorPage::showNotificationWidget(QWidget *widget, const char *className)
     mainLayout->addWidget(widget);
 }
 
-void EditorPage::removeNoteByClass(const char *className) {
+void EditorPage::hideNoteByClass(const char *className)
+{
     qDebug() << "length:" << this->children().length();
-
-    foreach(QObject *tmp, this->children()) {
-        qDebug() << "bla" << tmp->property(className);
-        if (tmp->property(className) == true) {
-            mainLayout->removeWidget(qobject_cast <QWidget*> (tmp));
+    QList<QWidget *> widgets = findChildren<QWidget *>();
+    foreach(QWidget * widget, widgets)
+    {
+        if (widget->property(className) == true) {
+                widget->hide();
         }
     }
-}
-
-void EditorPage::showVerifyLabel(bool showLabel)
-{
-    if (showLabel == true) {
-        notificationWidget->show();
-    } else {
-        notificationWidget->hide();
-    }
-
 }
 
 void setSaveState()

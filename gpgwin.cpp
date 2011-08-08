@@ -732,6 +732,7 @@ void GpgWin::verify()
     int textIsSigned = isSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
+    edit->curPage()->hideNoteByClass("verifyNotification");
 
     if (sign == NULL) {
         return;
@@ -777,7 +778,6 @@ void GpgWin::verify()
     verifyLabelText.remove(verifyLabelText.length()-1,1);
 
     vn->setVerifyLabel(verifyLabelText);
-    edit->curPage()->removeNoteByClass("verifyNotification");
     edit->curPage()->showNotificationWidget(vn, "verifyNotification");
 }
 

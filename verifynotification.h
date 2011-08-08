@@ -29,7 +29,7 @@ public slots:
 private:
     QLabel *verifyLabel;
     GpgME::Context *mCtx;
-
+    QHBoxLayout *notificationWidgetLayout;
 };
 
 #endif // VERIFYNOTIFICATION_H
