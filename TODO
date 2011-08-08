@@ -33,7 +33,7 @@ attachments:
 - key should blink short in keylist after import
 - show keys which verified message in different colour
 - css
-
+- save the last used directory in open file dialog
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents

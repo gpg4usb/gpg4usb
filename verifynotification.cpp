@@ -13,11 +13,16 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
 
     this->setLayout(notificationWidgetLayout);
 
-    QAction *importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
+    importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
     connect(importFromKeyserverAct, SIGNAL(triggered()), this, SLOT(importFromKeyserver()));
 
-    QMenu *detailMenu = new QMenu(this);
+    showVerifyDetailsAct = new QAction(tr("Show detailed verify information"), this);
+    connect(showVerifyDetailsAct, SIGNAL(triggered()), this, SLOT(showVerifyDetails()));
+
+    detailMenu = new QMenu(this);
+    detailMenu->addAction(showVerifyDetailsAct);
     detailMenu->addAction(importFromKeyserverAct);
+    importFromKeyserverAct->setVisible(false);
     keysNotInList = new QStringList();
     QPushButton *verifyButton = new QPushButton("Details",this);
     verifyButton->setMenu(detailMenu);
@@ -34,5 +39,22 @@ void VerifyNotification::importFromKeyserver(){
 void VerifyNotification::setVerifyLabel(QString text)
 {
     verifyLabel->setText(text);
+    return;
+}
+
+void VerifyNotification::addImportAction()
+{
+    importFromKeyserverAct->setVisible(true);
+    return;
+}
+void VerifyNotification::removeImportAction()
+{
+    importFromKeyserverAct->setVisible(false);
+    return;
+}
+
+void VerifyNotification::showVerifyDetails()
+{
+    QMessageBox::information(this,tr("Details"),tr("key verified"),QMessageBox::Cancel | QMessageBox::Ok);
     return;
 }

@@ -19,17 +19,23 @@ class VerifyNotification : public QWidget
 public:
     explicit VerifyNotification(GpgME::Context *ctx,QWidget *parent = 0 );
     void setVerifyLabel(QString text);
+    void addImportAction();
+    void removeImportAction();
     QStringList *keysNotInList;
 
 signals:
 
 public slots:
     void importFromKeyserver();
+    void showVerifyDetails();
 
 private:
+    QMenu *detailMenu;
     QLabel *verifyLabel;
     GpgME::Context *mCtx;
     QHBoxLayout *notificationWidgetLayout;
+    QAction *importFromKeyserverAct;
+    QAction *showVerifyDetailsAct;
 };
 
 #endif // VERIFYNOTIFICATION_H

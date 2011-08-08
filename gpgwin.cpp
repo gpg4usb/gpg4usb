@@ -747,6 +747,7 @@ void GpgWin::verify()
     case 1: verifyLabelText="Message is partially signed by: ";
         break;
     }
+    bool unknownKeyFound=false;
     while (sign) {
         if (gpg_err_code(sign->status) == 9) {
             verifyLabelText.append("Key with keyid ");
@@ -755,6 +756,7 @@ void GpgWin::verify()
             verifyLabelText.append(" not present.");
             *vn->keysNotInList << sign->fpr;
             vn->setProperty("keyNotFound", true);
+            unknownKeyFound=true;
         } else {
             QString name = mKeyList->getKeyNameByFpr(sign->fpr);
             QString email = "<"+mKeyList->getKeyEmailByFpr(sign->fpr)+">";
@@ -773,6 +775,11 @@ void GpgWin::verify()
         qDebug() << "sig validity: " <<  sign->validity;
         qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
         sign = sign->next;
+    }
+    if (unknownKeyFound) {
+        vn->addImportAction();
+    } else {
+        vn->removeImportAction();
     }
     // Remove the last linebreak
     verifyLabelText.remove(verifyLabelText.length()-1,1);
