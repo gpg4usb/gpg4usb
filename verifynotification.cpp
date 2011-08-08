@@ -27,9 +27,19 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
     QPushButton *verifyButton = new QPushButton("Details",this);
     verifyButton->setMenu(detailMenu);
     notificationWidgetLayout->addWidget(verifyButton);
+
+    verifyDetailText = new QString();
 }
 
-void VerifyNotification::importFromKeyserver(){
+void VerifyNotification::setVerifyDetailText (QString text)
+{
+    verifyDetailText->clear();
+    verifyDetailText->append(text);
+    return;
+}
+
+void VerifyNotification::importFromKeyserver()
+{
     KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,this);
     foreach (QString keyid, *keysNotInList) {
         importDialog->import(keyid);
@@ -55,6 +65,6 @@ void VerifyNotification::removeImportAction()
 
 void VerifyNotification::showVerifyDetails()
 {
-    QMessageBox::information(this,tr("Details"),tr("key verified"),QMessageBox::Cancel | QMessageBox::Ok);
+    QMessageBox::information(this,tr("Details"),QString(*verifyDetailText), QMessageBox::Ok);
     return;
 }

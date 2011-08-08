@@ -22,6 +22,7 @@ public:
     void addImportAction();
     void removeImportAction();
     QStringList *keysNotInList;
+    void setVerifyDetailText(QString text);
 
 signals:
 
@@ -36,6 +37,6 @@ private:
     QHBoxLayout *notificationWidgetLayout;
     QAction *importFromKeyserverAct;
     QAction *showVerifyDetailsAct;
+    QString *verifyDetailText;
 };
-
 #endif // VERIFYNOTIFICATION_H

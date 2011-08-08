@@ -60,14 +60,11 @@ void EditorPage::setFilePath(const QString &filePath)
 void EditorPage::showNotificationWidget(QWidget *widget, const char *className)
 {
     widget->setProperty(className,true);
-    qDebug() << "bla2" << widget->property(className);
-
     mainLayout->addWidget(widget);
 }
 
 void EditorPage::hideNoteByClass(const char *className)
 {
-    qDebug() << "length:" << this->children().length();
     QList<QWidget *> widgets = findChildren<QWidget *>();
     foreach(QWidget * widget, widgets)
     {

@@ -726,9 +726,10 @@ int GpgWin::isSigned(const QByteArray &text) {
 
 void GpgWin::verify()
 {
+
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
-
+    QString *verifyDetailText = new QString();
     int textIsSigned = isSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
@@ -739,6 +740,7 @@ void GpgWin::verify()
     }
 
     VerifyNotification *vn = new VerifyNotification(mCtx,this);
+    //vn->keysNotInList->clear();
     QString verifyLabelText;
     switch (textIsSigned)
     {
@@ -750,10 +752,11 @@ void GpgWin::verify()
     bool unknownKeyFound=false;
     while (sign) {
         if (gpg_err_code(sign->status) == 9) {
-            verifyLabelText.append("Key with keyid ");
-            verifyLabelText.append(sign->fpr);
-            qDebug() << "sign->fpr:" << sign->fpr;
-            verifyLabelText.append(" not present.");
+            verifyLabelText.append("Key with keyid "+QString(sign->fpr)+" not present.");
+
+            verifyDetailText->append("Message signed by: \n");
+            verifyDetailText->append("Key with keyid "+QString(sign->fpr)+" not present.");
+
             *vn->keysNotInList << sign->fpr;
             vn->setProperty("keyNotFound", true);
             unknownKeyFound=true;
@@ -763,19 +766,30 @@ void GpgWin::verify()
             if ( email == "<>" ) {
                 email="";
             }
-            verifyLabelText.append(name);
-            verifyLabelText.append(email);
-            verifyLabelText.append(gpg_strerror(sign->status));
+            verifyDetailText->append("Message successfully verified for: \n");
+            verifyDetailText->append("Name: "+name+"\n");
+            verifyDetailText->append("EMail: "+email);
+
+            verifyLabelText.append(name+email);
+//            verifyLabelText.append(gpg_strerror(sign->status));
             vn->setProperty("keyFound", true);
         }
-        verifyLabelText.append(".\n");
-        qDebug() << "sig summary: " <<  sign->summary;
+        verifyLabelText.append("\n");
+        verifyDetailText->append("\nFingerprint: ");
+        verifyDetailText->append(sign->fpr);
+        verifyDetailText->append("\nsig status: ");
+        verifyDetailText->append(gpg_strerror(sign->status));
+        verifyDetailText->append("\nsig validity reason: ");
+//        verifyDetailText->append(sign->validity_reason);
+        verifyDetailText->append(gpgme_strerror(sign->validity_reason));
+        verifyDetailText->append("\n\n");
         qDebug() << "sig fingerprint: " <<  sign->fpr;
         qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
         qDebug() << "sig validity: " <<  sign->validity;
         qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
         sign = sign->next;
     }
+    vn->setVerifyDetailText(*verifyDetailText);
     if (unknownKeyFound) {
         vn->addImportAction();
     } else {
