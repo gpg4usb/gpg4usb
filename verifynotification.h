@@ -18,25 +18,33 @@ class VerifyNotification : public QWidget
     Q_OBJECT
 public:
     explicit VerifyNotification(GpgME::Context *ctx,QWidget *parent = 0 );
+    // set the text of verifynotification
     void setVerifyLabel(QString text);
-    void addImportAction();
-    void removeImportAction();
+    // show the import action in menu
+    void showImportAction();
+    // hide the import action in menu
+    void hideImportAction();
+    // List holding the keys in signature, which are not in the keylist
     QStringList *keysNotInList;
+    // set text shown in verifydetails dialog
     void setVerifyDetailText(QString text);
 
 signals:
 
 public slots:
+    // import missing key from keyserver
     void importFromKeyserver();
+    // show verify details
     void showVerifyDetails();
 
 private:
-    QMenu *detailMenu;
-    QLabel *verifyLabel;
-    GpgME::Context *mCtx;
-    QHBoxLayout *notificationWidgetLayout;
+    QMenu *detailMenu; // Menu for te Button in verfiyNotification
     QAction *importFromKeyserverAct;
     QAction *showVerifyDetailsAct;
-    QString *verifyDetailText;
+    QString *verifyDetailText; // Text showed in VerifiyNotification
+    QPushButton *detailsButton; // Button shown in verifynotification
+    QLabel *verifyLabel; // Label holding the text shown in verifyNotification
+    GpgME::Context *mCtx;
+    QHBoxLayout *notificationWidgetLayout;
 };
 #endif // VERIFYNOTIFICATION_H

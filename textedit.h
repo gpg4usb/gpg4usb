@@ -41,12 +41,49 @@ class TextEdit : public QWidget
     Q_OBJECT
 public:
     TextEdit(QString iconPath);
+    // load the contents of fileName into current tab
+    /****************************************************************************************
+     * Name:                loadFile
+     * Description:         Load the content of file into the current textpage
+     * Parameters:          Qstring containg the filename
+     * Return Values:       the pointer to the currently activated textpage
+     * Change on members:   textpage is filles with filecontents
+    */
     void loadFile(const QString &fileName);
+
+    /****************************************************************************************
+     * Name:                maybeSaveAnyTab
+     * Description:         ask if tabs should be saved
+     * Parameters:          none
+     * Return Values        false, if the close event should be aborted.
+     * Change on members:   none
+    */
     bool maybeSaveAnyTab();
+    /****************************************************************************************
+     * Name:                curTextPage
+     * Description:         The currently activated Page
+     * Parameters:          none
+     * Return Values:       the pointer to the currently activated textpage
+     * Change on members:
+    */
     QPlainTextEdit* curTextPage();
+    /****************************************************************************************
+     * Name:                unsavedDocuments
+     * Description:         List of currently unsaved tabs
+     * Parameters:          none
+     * Return Values:       a hash of tabindexes and title of unsaved tabs
+     * Change on members:
+    */
     QHash<int, QString> unsavedDocuments();
 
 public slots:
+    /****************************************************************************************
+     * Name:                quote
+     * Description:         Insert a ">" at the begining of every line of current textedit
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:
+    */
     void quote();
 
     /****************************************************************************************
@@ -99,26 +136,65 @@ public slots:
     void newTab();
 
     /****************************************************************************************
-     * Name:
-     * Description:
-     * Parameters:
-     * Return Values:
-     * Change on members:
+     * Name:                showModified
+     * Description:         show an "*" in tabtitle, if textedit is modified
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   add "*" to title of current tab, if current textedit is modified
     */
     void showModified();
+    /****************************************************************************************
+     * Name:                closeTab
+     * Description:         closes the tab choosen
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   decreases countPage per 1
+    */
     void closeTab();
+    /****************************************************************************************
+     * Name:                switchTabUp
+     * Description:         switch to next tab
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   increase tabWidget->count() per 1
+    */
     void switchTabUp();
+    /****************************************************************************************
+     * Name:                switchTabDown
+     * Description:         switch to next tab
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   decrease tabWidget->count() per 1
+    */
     void switchTabDown();
+    /****************************************************************************************
+     * Name:                curPage
+     * Description:         return pointer to the currently activated tabpage
+     * Parameters:          none
+     * Return Values:       pointer to the currently activated tabpage
+     * Change on members:   none
+    */
     EditorPage *curPage();
 
 private:
+    /****************************************************************************************
+     * Name:                strippedName
+     * Description:         return just filename
+     * Parameters:          a filename path
+     * Return Values:       QStirng containig the filename
+     * Change on members:   none
+    */
     QString strippedName(const QString &fullFileName);
     bool maybeSaveFile();
-    void setCursorPosition();
+    bool maybeSaveCurrentTab(bool askToSave);
+
     QString mIconPath;
+    /****************************************************************************************
+     * Name:                countPage
+     * Description:         int cotaining the number of added tabs
+    */
     int countPage;
     QTabWidget *tabWidget;
-    bool maybeSaveCurrentTab(bool askToSave);
 
 private slots:
     /****************************************************************************************
@@ -129,11 +205,59 @@ private slots:
      * Change on members:   none
     */
     void removeTab(int index);
+
+    /****************************************************************************************
+     * Name:                cut
+     * Description:         cut selected text in current textpage
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void cut();
+
+    /****************************************************************************************
+     * Name:                copy
+     * Description:         copy selected text of current textpage to clipboard
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void copy();
+
+    /****************************************************************************************
+     * Name:                paste
+     * Description:         paste text from clipboard to current textpage
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void paste();
+
+    /****************************************************************************************
+     * Name:                undo
+     * Description:         undo last change in current textpage
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
+
     void undo();
+    /****************************************************************************************
+     * Name:                redo
+     * Description:         redo last change in current textpage
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void redo();
+
+    /****************************************************************************************
+     * Name:                selectAll
+     * Description:         select all in current textpage
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void selectAll();
 
 protected:

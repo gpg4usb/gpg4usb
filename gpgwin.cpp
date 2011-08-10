@@ -744,44 +744,39 @@ void GpgWin::verify()
     QString verifyLabelText;
     switch (textIsSigned)
     {
-    case 2: verifyLabelText="Message is completly signed by: ";
+    case 2: verifyLabelText=tr("Text is completly signed by the following key(s): ");
+            verifyDetailText->append(tr("Text is completly signed by the following key(s): ")+" \n\n");
         break;
-    case 1: verifyLabelText="Message is partially signed by: ";
+    case 1: verifyLabelText=tr("Text is partially signed by the following key(s): ");
+            verifyDetailText->append(tr("Text is partially signed by the following key(s): ")+" \n\n");
         break;
     }
     bool unknownKeyFound=false;
-    while (sign) {
-        if (gpg_err_code(sign->status) == 9) {
-            verifyLabelText.append("Key with keyid "+QString(sign->fpr)+" not present.");
 
-            verifyDetailText->append("Message signed by: \n");
-            verifyDetailText->append("Key with keyid "+QString(sign->fpr)+" not present.");
+    while (sign) {
+        verifyDetailText->append(tr("Fingerprint: ")+QString(sign->fpr)+"\n");
+        if (gpg_err_code(sign->status) == 9) {
+            verifyLabelText.append(tr("Key not present with Fingerprint: ")+QString(sign->fpr));
 
             *vn->keysNotInList << sign->fpr;
             vn->setProperty("keyNotFound", true);
             unknownKeyFound=true;
+            verifyDetailText->append(tr("Signature status: "));
+            verifyDetailText->append(gpg_strerror(sign->status));
+            verifyDetailText->append("\nsig validity reason: "+QString(gpgme_strerror(sign->validity_reason))+"\n");
         } else {
             QString name = mKeyList->getKeyNameByFpr(sign->fpr);
             QString email = "<"+mKeyList->getKeyEmailByFpr(sign->fpr)+">";
             if ( email == "<>" ) {
                 email="";
             }
-            verifyDetailText->append("Message successfully verified for: \n");
-            verifyDetailText->append("Name: "+name+"\n");
-            verifyDetailText->append("EMail: "+email);
+            verifyDetailText->append(tr("Name: ")+name+"\n");
+            verifyDetailText->append(tr("EMail: ")+email);
 
             verifyLabelText.append(name+email);
-//            verifyLabelText.append(gpg_strerror(sign->status));
             vn->setProperty("keyFound", true);
         }
         verifyLabelText.append("\n");
-        verifyDetailText->append("\nFingerprint: ");
-        verifyDetailText->append(sign->fpr);
-        verifyDetailText->append("\nsig status: ");
-        verifyDetailText->append(gpg_strerror(sign->status));
-        verifyDetailText->append("\nsig validity reason: ");
-//        verifyDetailText->append(sign->validity_reason);
-        verifyDetailText->append(gpgme_strerror(sign->validity_reason));
         verifyDetailText->append("\n\n");
         qDebug() << "sig fingerprint: " <<  sign->fpr;
         qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
@@ -790,11 +785,14 @@ void GpgWin::verify()
         sign = sign->next;
     }
     vn->setVerifyDetailText(*verifyDetailText);
+
+    // If an unknown key is found, enable the importfromkeyserveraction
     if (unknownKeyFound) {
-        vn->addImportAction();
+        vn->showImportAction();
     } else {
-        vn->removeImportAction();
+        vn->hideImportAction();
     }
+
     // Remove the last linebreak
     verifyLabelText.remove(verifyLabelText.length()-1,1);
 

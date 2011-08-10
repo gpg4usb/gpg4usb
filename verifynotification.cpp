@@ -24,9 +24,9 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
     detailMenu->addAction(importFromKeyserverAct);
     importFromKeyserverAct->setVisible(false);
     keysNotInList = new QStringList();
-    QPushButton *verifyButton = new QPushButton("Details",this);
-    verifyButton->setMenu(detailMenu);
-    notificationWidgetLayout->addWidget(verifyButton);
+    detailsButton = new QPushButton("Details",this);
+    detailsButton->setMenu(detailMenu);
+    notificationWidgetLayout->addWidget(detailsButton);
 
     verifyDetailText = new QString();
 }
@@ -52,12 +52,12 @@ void VerifyNotification::setVerifyLabel(QString text)
     return;
 }
 
-void VerifyNotification::addImportAction()
+void VerifyNotification::showImportAction()
 {
     importFromKeyserverAct->setVisible(true);
     return;
 }
-void VerifyNotification::removeImportAction()
+void VerifyNotification::hideImportAction()
 {
     importFromKeyserverAct->setVisible(false);
     return;
