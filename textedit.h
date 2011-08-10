@@ -41,7 +41,7 @@ class TextEdit : public QWidget
     Q_OBJECT
 public:
     TextEdit(QString iconPath);
-    // load the contents of fileName into current tab
+
     /****************************************************************************************
      * Name:                loadFile
      * Description:         Load the content of file into the current textpage
@@ -261,8 +261,8 @@ private slots:
     void selectAll();
 
 protected:
-//    void dragEnterEvent(QDragEnterEvent *event);
-//    void dropEvent(QDropEvent* event);
+    // void dragEnterEvent(QDragEnterEvent *event);
+    // void dropEvent(QDropEvent* event);
     /****************************************************************************************
      * Name:                saveFile
      * Description:         Saves the content of currentTab to the file filename

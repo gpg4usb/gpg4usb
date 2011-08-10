@@ -6,12 +6,7 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
 {
     mCtx = ctx;
     verifyLabel = new QLabel(this);
-
-    notificationWidgetLayout = new QHBoxLayout(this);
-    notificationWidgetLayout->setContentsMargins(0,0,0,0);
-    notificationWidgetLayout->addWidget(verifyLabel,2);
-
-    this->setLayout(notificationWidgetLayout);
+    verifyDetailText = new QString();
 
     importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
     connect(importFromKeyserverAct, SIGNAL(triggered()), this, SLOT(importFromKeyserver()));
@@ -23,12 +18,18 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
     detailMenu->addAction(showVerifyDetailsAct);
     detailMenu->addAction(importFromKeyserverAct);
     importFromKeyserverAct->setVisible(false);
+
     keysNotInList = new QStringList();
+
     detailsButton = new QPushButton("Details",this);
     detailsButton->setMenu(detailMenu);
+    notificationWidgetLayout = new QHBoxLayout(this);
+    notificationWidgetLayout->setContentsMargins(0,0,0,0);
+    notificationWidgetLayout->addWidget(verifyLabel,2);
     notificationWidgetLayout->addWidget(detailsButton);
 
-    verifyDetailText = new QString();
+    this->setLayout(notificationWidgetLayout);
+
 }
 
 void VerifyNotification::setVerifyDetailText (QString text)

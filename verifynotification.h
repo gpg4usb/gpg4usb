@@ -19,15 +19,46 @@ class VerifyNotification : public QWidget
 public:
     explicit VerifyNotification(GpgME::Context *ctx,QWidget *parent = 0 );
     // set the text of verifynotification
+    /****************************************************************************************
+     * Name:                setVerifyLabel
+     * Description:         set the text of verify notification
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void setVerifyLabel(QString text);
-    // show the import action in menu
+    /****************************************************************************************
+     * Name:                showImportAction
+     * Description:         show the action in detailsmenu
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void showImportAction();
-    // hide the import action in menu
+    /****************************************************************************************
+     * Name:                hideImportAction
+     * Description:         hide the action in detailsmenu
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void hideImportAction();
-    // List holding the keys in signature, which are not in the keylist
+
+    /****************************************************************************************
+     * Name:                setVerifyDetailText
+     * Description:         set the text of verify-detail dialog
+     * Parameters:          QString containing the text
+     * Return Values:       none
+     * Change on members:   verifyDetailText changes to text
+    */
+    void setVerifyDetailText(QString text);
+
+    /****************************************************************************************
+     * Name:                keysNotInList
+     * Description:         List holding the keys in signature, which are not in the keylist
+    */
     QStringList *keysNotInList;
     // set text shown in verifydetails dialog
-    void setVerifyDetailText(QString text);
 
 signals:
 
