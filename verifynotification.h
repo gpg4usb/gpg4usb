@@ -35,6 +35,7 @@ public:
      * Change on members:   none
     */
     void showImportAction();
+
     /****************************************************************************************
      * Name:                hideImportAction
      * Description:         hide the action in detailsmenu
@@ -45,27 +46,41 @@ public:
     void hideImportAction();
 
     /****************************************************************************************
-     * Name:                setVerifyDetailText
-     * Description:         set the text of verify-detail dialog
-     * Parameters:          QString containing the text
+     * Name:                addVerifyLabel
+     * Description:         add the Label labeled "text" to verifylabellist
+     * Parameters:          QString containing the text and
+     *                      status string (should be "ok","warning", or "critical")
      * Return Values:       none
-     * Change on members:   verifyDetailText changes to text
+     * Change on members:   Label is added to verifyList
     */
-    void setVerifyDetailText(QString text);
+    void addVerifyLabel(QString text, QString status);
 
     /****************************************************************************************
      * Name:                keysNotInList
      * Description:         List holding the keys in signature, which are not in the keylist
     */
     QStringList *keysNotInList;
-    // set text shown in verifydetails dialog
-
+    QWidget *verifyLabelList;
+    QVBoxLayout *verifyLabelListLayout;
 signals:
 
 public slots:
-    // import missing key from keyserver
+    /****************************************************************************************
+     * Name:                importFromKeyserver
+     * Description:         import signaturekey missing in keylist from keyserver
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void importFromKeyserver();
-    // show verify details
+
+    /****************************************************************************************
+     * Name:                showVerifyDetails
+     * Description:         show verify details dialog
+     * Parameters:          none
+     * Return Values:       none
+     * Change on members:   none
+    */
     void showVerifyDetails();
 
 private:

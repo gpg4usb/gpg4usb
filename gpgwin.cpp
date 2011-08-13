@@ -784,7 +784,7 @@ void GpgWin::verify()
         qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
         sign = sign->next;
     }
-    vn->setVerifyDetailText(*verifyDetailText);
+    //vn->setVerifyDetailText(*verifyDetailText);
 
     // If an unknown key is found, enable the importfromkeyserveraction
     if (unknownKeyFound) {
@@ -795,8 +795,11 @@ void GpgWin::verify()
 
     // Remove the last linebreak
     verifyLabelText.remove(verifyLabelText.length()-1,1);
+        vn->addVerifyLabel(verifyLabelText,"ok");
+        vn->addVerifyLabel(verifyLabelText,"warning");
+        vn->addVerifyLabel(verifyLabelText,"critical");
 
-    vn->setVerifyLabel(verifyLabelText);
+//    vn->setVerifyLabel(verifyLabelText);
     edit->curPage()->showNotificationWidget(vn, "verifyNotification");
 }
 

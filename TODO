@@ -34,7 +34,7 @@ attachments:
 - show keys which verified message in different colour
 - css
 - save the last used directory in open file dialog
-
+- move attachmentswidget to editorpage
 BUGS: 
 - Sometimes two or more stars are shown at modified documents
 - enter "satann keyserverimport and it crashes
