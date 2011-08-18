@@ -176,8 +176,10 @@ void KeyServerImportDialog::searchFinished()
             if (line[0] == "pub") {
                 keysTable->setRowCount(row+1);
                 QStringList line2 = QString(searchreply->readLine()).split(":");
-                QTableWidgetItem *uid = new QTableWidgetItem(line2[1]);
-                keysTable->setItem(row, 0, uid);
+                if (line2.size() > 1) {
+                    QTableWidgetItem *uid = new QTableWidgetItem(line2[1]);
+                    keysTable->setItem(row, 0, uid);
+                }
                 QTableWidgetItem *creationdate = new QTableWidgetItem(QDateTime::fromTime_t(line[4].toInt()).toString("dd. MMM. yyyy"));
                 keysTable->setItem(row, 1, creationdate);
                 QTableWidgetItem *keyid = new QTableWidgetItem(line[1]);
@@ -220,7 +222,6 @@ void KeyServerImportDialog::import()
 
 void KeyServerImportDialog::import(QString keyId)
 {
-    qDebug() << keyId;
     QUrl url = "http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x"+keyId+"&options=mr";
     importreply = qnam.get(QNetworkRequest(url));
     connect(importreply, SIGNAL(finished()),
@@ -232,7 +233,6 @@ void KeyServerImportDialog::importFinished()
     QByteArray *key = new QByteArray();
     key->append(importreply->readAll());
 
-    // TODO: die liste erstmal leeren, bevor sie neu betankt wird
     QVariant redirectionTarget = importreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
     if (importreply->error()) {
         setMessage(tr("Error while contacting keyserver!"),true);

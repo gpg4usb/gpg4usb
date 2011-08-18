@@ -5,17 +5,8 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
     QWidget(parent)
 {
     mCtx = ctx;
-
-    //text shown in verify notification
     verifyLabel = new QLabel(this);
-  //  QLabel *verifyLabel2 = new QLabel(this);
-  //  verifyLabel2->setText("hallo");
-
-    // Text contained in detilsdialog
     verifyDetailText = new QString();
-
-    // List kontaining the signature keys not contained in keylist
-    keysNotInList = new QStringList();
 
     importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
     connect(importFromKeyserverAct, SIGNAL(triggered()), this, SLOT(importFromKeyserver()));
@@ -23,46 +14,28 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
     showVerifyDetailsAct = new QAction(tr("Show detailed verify information"), this);
     connect(showVerifyDetailsAct, SIGNAL(triggered()), this, SLOT(showVerifyDetails()));
 
-    // Menu for the details button
     detailMenu = new QMenu(this);
     detailMenu->addAction(showVerifyDetailsAct);
     detailMenu->addAction(importFromKeyserverAct);
     importFromKeyserverAct->setVisible(false);
 
-    // the details button
+    keysNotInList = new QStringList();
+
     detailsButton = new QPushButton("Details",this);
     detailsButton->setMenu(detailMenu);
-    verifyLabelList = new QWidget(this);
-    verifyLabelListLayout = new QVBoxLayout(this);
-    verifyLabelList->setLayout(verifyLabelListLayout);
-    //addVerifyLabel(verifyLabel->text(),QString("ok"));
-    verifyLabel->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
-//    verifyLabelListLayout->addWidget(verifyLabel2);
-    //verifyLabel2->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     notificationWidgetLayout = new QHBoxLayout(this);
-    verifyLabelListLayout->setContentsMargins(0,0,0,0);
     notificationWidgetLayout->setContentsMargins(0,0,0,0);
-    notificationWidgetLayout->addWidget(verifyLabelList);
+    notificationWidgetLayout->addWidget(verifyLabel,2);
     notificationWidgetLayout->addWidget(detailsButton);
-    detailsButton->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
 
     this->setLayout(notificationWidgetLayout);
+
 }
 
-void VerifyNotification::addVerifyLabel(QString text, QString status)
+void VerifyNotification::setVerifyDetailText (QString text)
 {
-    QLabel *label = new QLabel(text);
-    label->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
-//    label->setContentsMargins(0,0,0,0);
-
-    verifyLabelListLayout->addWidget(label);
-
-    label->setObjectName(status);
-}
-
-void VerifyNotification::setVerifyLabel(QString text)
-{
-    verifyLabel->setText(text);
+    verifyDetailText->clear();
+    verifyDetailText->append(text);
     return;
 }
 
@@ -72,6 +45,13 @@ void VerifyNotification::importFromKeyserver()
     foreach (QString keyid, *keysNotInList) {
         importDialog->import(keyid);
     }
+}
+
+void VerifyNotification::setVerifyLabel(QString text, QString status)
+{
+    verifyLabel->setText(text);
+    verifyLabel->setObjectName(status);
+    return;
 }
 
 void VerifyNotification::showImportAction()

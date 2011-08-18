@@ -497,9 +497,10 @@ void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByte
 
 
 /***
-  * return type should contain:
+  * TODO: return type should contain:
   * -> list of sigs
   * -> valid
+  * -> errors
   */
 gpgme_signature_t Context::verify(QByteArray inBuffer) {
 

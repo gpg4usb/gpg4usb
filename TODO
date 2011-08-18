@@ -1,7 +1,40 @@
 TODO:
 -----
 Release 0.3.1
+- export key: default filename to <keyowner-name>.asc
+- make email adress from keylist copyable
+- show keydetails-dialog in keylist on mainwindow [DONE]
+- key should blink short in keylist after import
+- show keys which verified message in different colour
+- css
+- save the last used directory in open file dialog
+- set gpgme error language to chosen language (context.cpp:49)
+- in verifycation dialog import multiple keys
+- inform user about verification errors
+- enum for verify status 
+- put sign/verify to toolbar and add shortcuts
+
+BUGS: 
+- Sometimes two or more stars are shown at modified documents
+- enter "satan" keyserverimport and it crashes [DONE]
+- what should be shown in verify message?
+- show, if message is partially verified(how)?
+
+Release 0.3.2
+- check and add missing statusbar messages
+- set mainwindow-statusbar text via signal
 - more doku on building gpg4usb (especially on windows)
+- check class / includes
+- check pointer usage (const/references)
+- add posibility to change password of key
+- make keylist browsable with keyboard
+- update gpgme-library
+- Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
+- clean header if quoted printable decoded
+- PGP-MIME, find and show inline encrypted files
+	- attachments-widget should be inlined in editor-tabs
+- Settings-Dialog:
+	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - remember Password:
 	- checkbox in password dialog to remember password
 	- Timer to remember password for x minutes?
@@ -15,32 +48,6 @@ attachments:
 		- decrypting
 		- encrypting
 	- status-tip "saved file" when saving file for "open with" [DONE]
-- Settings-Dialog:
-	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
-- update gpgme-library
-- clean header if quoted printable decoded
-- add posibility to change password of key
-- check and add missing statusbar messages
-- make keylist browsabel with keyboard
-- check class / includes
-- check pointer usage (const/references)
-- Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
-- PGP-MIME, find and show inline encrypted files
-	- attachments-widget should be inlined in editor-tabs
-- export key: default filename to <keyowner-name>.asc
-- show keydetails-dialog in keylist on mainwindow [DONE]
-- make email adress from keylist copyable
-- key should blink short in keylist after import
-- show keys which verified message in different colour
-- css
-- save the last used directory in open file dialog
-- move attachmentswidget to editorpage
-BUGS: 
-- Sometimes two or more stars are shown at modified documents
-- enter "satann keyserverimport and it crashes
-- what should be shown in verify message?
-- show, if message is partially verified(how)?
-
 Release 0.4
 - adding signing and verifying
 - nice for verify: import key from keyserver

@@ -26,7 +26,7 @@ public:
      * Return Values:       none
      * Change on members:   none
     */
-    void setVerifyLabel(QString text);
+    void setVerifyLabel(QString text, QString status);
     /****************************************************************************************
      * Name:                showImportAction
      * Description:         show the action in detailsmenu
@@ -35,7 +35,6 @@ public:
      * Change on members:   none
     */
     void showImportAction();
-
     /****************************************************************************************
      * Name:                hideImportAction
      * Description:         hide the action in detailsmenu
@@ -46,41 +45,27 @@ public:
     void hideImportAction();
 
     /****************************************************************************************
-     * Name:                addVerifyLabel
-     * Description:         add the Label labeled "text" to verifylabellist
-     * Parameters:          QString containing the text and
-     *                      status string (should be "ok","warning", or "critical")
+     * Name:                setVerifyDetailText
+     * Description:         set the text of verify-detail dialog
+     * Parameters:          QString containing the text
      * Return Values:       none
-     * Change on members:   Label is added to verifyList
+     * Change on members:   verifyDetailText changes to text
     */
-    void addVerifyLabel(QString text, QString status);
+    void setVerifyDetailText(QString text);
 
     /****************************************************************************************
      * Name:                keysNotInList
      * Description:         List holding the keys in signature, which are not in the keylist
     */
     QStringList *keysNotInList;
-    QWidget *verifyLabelList;
-    QVBoxLayout *verifyLabelListLayout;
+    // set text shown in verifydetails dialog
+
 signals:
 
 public slots:
-    /****************************************************************************************
-     * Name:                importFromKeyserver
-     * Description:         import signaturekey missing in keylist from keyserver
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   none
-    */
+    // import missing key from keyserver
     void importFromKeyserver();
-
-    /****************************************************************************************
-     * Name:                showVerifyDetails
-     * Description:         show verify details dialog
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   none
-    */
+    // show verify details
     void showVerifyDetails();
 
 private:

@@ -726,6 +726,7 @@ int GpgWin::isSigned(const QByteArray &text) {
 
 void GpgWin::verify()
 {
+    QString status="ok";
 
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
@@ -756,6 +757,7 @@ void GpgWin::verify()
     while (sign) {
         verifyDetailText->append(tr("Fingerprint: ")+QString(sign->fpr)+"\n");
         if (gpg_err_code(sign->status) == 9) {
+            status="warning";
             verifyLabelText.append(tr("Key not present with Fingerprint: ")+QString(sign->fpr));
 
             *vn->keysNotInList << sign->fpr;
@@ -784,7 +786,7 @@ void GpgWin::verify()
         qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
         sign = sign->next;
     }
-    //vn->setVerifyDetailText(*verifyDetailText);
+    vn->setVerifyDetailText(*verifyDetailText);
 
     // If an unknown key is found, enable the importfromkeyserveraction
     if (unknownKeyFound) {
@@ -795,11 +797,8 @@ void GpgWin::verify()
 
     // Remove the last linebreak
     verifyLabelText.remove(verifyLabelText.length()-1,1);
-        vn->addVerifyLabel(verifyLabelText,"ok");
-        vn->addVerifyLabel(verifyLabelText,"warning");
-        vn->addVerifyLabel(verifyLabelText,"critical");
 
-//    vn->setVerifyLabel(verifyLabelText);
+    vn->setVerifyLabel(verifyLabelText,status);
     edit->curPage()->showNotificationWidget(vn, "verifyNotification");
 }
 

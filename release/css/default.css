@@ -8,8 +8,10 @@
     font: bold;
 }
 */
+
+*[keyNotFound="true"] { background-color: yellow }
+*[keyFound="true"] { background-color: green }
 QLabel#warning { background-color: #ececba }
 QLabel#ok { background-color: #ccffcc }
 QLabel#critical { background-color: #ff8080 }
-*[keyNotFound="true"] { background-color: yellow }
-*[keyFound="true"] { background-color: green }
+
