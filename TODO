@@ -2,7 +2,7 @@ TODO:
 -----
 Release 0.3.1
 - export key: default filename to <keyowner-name>.asc
-- make email adress from keylist copyable
+- make email adress from keylist copyable [DONE]
 - show keydetails-dialog in keylist on mainwindow [DONE]
 - key should blink short in keylist after import
 - show keys which verified message in different colour
@@ -11,8 +11,9 @@ Release 0.3.1
 - set gpgme error language to chosen language (context.cpp:49)
 - in verifycation dialog import multiple keys
 - inform user about verification errors
-- enum for verify status 
+- enum for verify status [DONE]
 - put sign/verify to toolbar and add shortcuts
+- umlaute are not handled correctly in signing
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents

@@ -68,7 +68,6 @@ int main(int argc, char *argv[])
     file.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(file.readAll());
     qApp->setStyleSheet(styleSheet);
-    qDebug() << "css: " << styleSheet;
 
     GpgWin *window = new GpgWin();
     window->show();

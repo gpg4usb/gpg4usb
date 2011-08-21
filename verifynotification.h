@@ -12,6 +12,12 @@
 #include "context.h"
 #include <gpgme.h>
 
+typedef enum
+{
+    VERIFY_ERROR_OK = 0,
+    VERIFY_ERROR_WARN = 1,
+    VERIFY_ERROR_CRITICAL = 2,
+}  verify_label_status;
 
 class VerifyNotification : public QWidget
 {
@@ -26,7 +32,7 @@ public:
      * Return Values:       none
      * Change on members:   none
     */
-    void setVerifyLabel(QString text, QString status);
+    void setVerifyLabel(QString text, verify_label_status verifyLabelStatus);
     /****************************************************************************************
      * Name:                showImportAction
      * Description:         show the action in detailsmenu

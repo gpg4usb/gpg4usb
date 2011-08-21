@@ -29,7 +29,6 @@ VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
     notificationWidgetLayout->addWidget(detailsButton);
 
     this->setLayout(notificationWidgetLayout);
-
 }
 
 void VerifyNotification::setVerifyDetailText (QString text)
@@ -47,10 +46,19 @@ void VerifyNotification::importFromKeyserver()
     }
 }
 
-void VerifyNotification::setVerifyLabel(QString text, QString status)
+void VerifyNotification::setVerifyLabel(QString text, verify_label_status verifyLabelStatus)
 {
     verifyLabel->setText(text);
-    verifyLabel->setObjectName(status);
+    switch (verifyLabelStatus) {
+    case VERIFY_ERROR_OK:       verifyLabel->setObjectName("ok");
+                                break;
+    case VERIFY_ERROR_WARN:     verifyLabel->setObjectName("warning");
+                                break;
+    case VERIFY_ERROR_CRITICAL: verifyLabel->setObjectName("critical");
+                                break;
+    default:
+                                break;
+    }
     return;
 }
 

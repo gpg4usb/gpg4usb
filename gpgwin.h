@@ -77,6 +77,7 @@ public slots:
     void importKeyDialog();
     //void deleteSelectedKeys();
     void appendSelectedKeys();
+    void copyMailAddressToClipboard();
     void showKeyDetails();
     void openKeyManagement();
     void about();
@@ -136,6 +137,7 @@ private:
     QAction *cleanDoubleLinebreaksAct;
 
     QAction *appendSelectedKeysAct;
+    QAction *copyMailAddressToClipboardAct;
     QAction *showKeyDetailsAct;
     QAction *openKeyManagementAct;
     QAction *copyAct;

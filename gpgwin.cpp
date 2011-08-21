@@ -57,6 +57,7 @@ GpgWin::GpgWin()
     createDockWindows();
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
+    mKeyList->addMenuAction(copyMailAddressToClipboardAct);
     mKeyList->addMenuAction(showKeyDetailsAct);
     restoreSettings();
 
@@ -309,6 +310,10 @@ void GpgWin::createActions()
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
     appendSelectedKeysAct->setToolTip(tr("Append The Selected Keys To Text in Editor"));
     connect(appendSelectedKeysAct, SIGNAL(triggered()), this, SLOT(appendSelectedKeys()));
+
+    copyMailAddressToClipboardAct = new QAction(tr("Copy EMail-address"), this);
+    copyMailAddressToClipboardAct->setToolTip(tr("Copy selected EMailaddress to clipboard"));
+    connect(copyMailAddressToClipboardAct, SIGNAL(triggered()), this, SLOT(copyMailAddressToClipboard()));
 
     // TODO: find central place for shared actions, to avoid code-duplication with keymgmt.cpp
     showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
@@ -598,7 +603,6 @@ void GpgWin::parseMime(QByteArray *message)
             showmadock = true;
         }
     }
-
     *message = pText.toUtf8();
     if (showmadock) {
         aDock->show();
@@ -676,7 +680,6 @@ void GpgWin::importKeyFromFile()
     }
 }
 
-
 void GpgWin::openKeyManagement()
 {
     if (!keyMgmt) {
@@ -726,8 +729,8 @@ int GpgWin::isSigned(const QByteArray &text) {
 
 void GpgWin::verify()
 {
-    QString status="ok";
-
+    QDateTime timestamp;
+    verify_label_status verifyStatus=VERIFY_ERROR_OK;
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
     QString *verifyDetailText = new QString();
@@ -747,45 +750,45 @@ void GpgWin::verify()
     {
     case 2: verifyLabelText=tr("Text is completly signed by the following key(s): ");
             verifyDetailText->append(tr("Text is completly signed by the following key(s): ")+" \n\n");
-        break;
+            break;
     case 1: verifyLabelText=tr("Text is partially signed by the following key(s): ");
             verifyDetailText->append(tr("Text is partially signed by the following key(s): ")+" \n\n");
-        break;
+            break;
     }
     bool unknownKeyFound=false;
 
     while (sign) {
-        verifyDetailText->append(tr("Fingerprint: ")+QString(sign->fpr)+"\n");
+        timestamp.setTime_t(sign->timestamp);
         if (gpg_err_code(sign->status) == 9) {
-            status="warning";
+            verifyStatus=VERIFY_ERROR_WARN;
             verifyLabelText.append(tr("Key not present with Fingerprint: ")+QString(sign->fpr));
 
             *vn->keysNotInList << sign->fpr;
             vn->setProperty("keyNotFound", true);
             unknownKeyFound=true;
-            verifyDetailText->append(tr("Signature status: "));
-            verifyDetailText->append(gpg_strerror(sign->status));
-            verifyDetailText->append("\nsig validity reason: "+QString(gpgme_strerror(sign->validity_reason))+"\n");
+            verifyDetailText->append(tr("Key not present:"));
+            //verifyDetailText->append(tr("Signature status: ")+gpg_strerror(sign->status)+"\nsig validity reason: "+QString(gpgme_strerror(sign->validity_reason))+"\n");
         } else {
             QString name = mKeyList->getKeyNameByFpr(sign->fpr);
-            QString email = "<"+mKeyList->getKeyEmailByFpr(sign->fpr)+">";
-            if ( email == "<>" ) {
-                email="";
+            QString email =mKeyList->getKeyEmailByFpr(sign->fpr);
+            qDebug() << email;
+            verifyDetailText->append(tr("Name: ")+name+"\n"+tr("EMail: ")+email);
+            verifyLabelText.append(name);
+            if (!email.isEmpty()) {
+                verifyLabelText.append("<"+email+">");
             }
-            verifyDetailText->append(tr("Name: ")+name+"\n");
-            verifyDetailText->append(tr("EMail: ")+email);
-
-            verifyLabelText.append(name+email);
             vn->setProperty("keyFound", true);
         }
+        verifyDetailText->append(tr("\nFingerprint: ")+QString(sign->fpr)+"\n\n");
         verifyLabelText.append("\n");
-        verifyDetailText->append("\n\n");
         qDebug() << "sig fingerprint: " <<  sign->fpr;
         qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
         qDebug() << "sig validity: " <<  sign->validity;
         qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
+        qDebug() << "timestamp: " << sign->timestamp;
         sign = sign->next;
     }
+    verifyDetailText->prepend("Text was signed on: "+timestamp.toString(Qt::SystemLocaleShortDate)+"\n\n");
     vn->setVerifyDetailText(*verifyDetailText);
 
     // If an unknown key is found, enable the importfromkeyserveraction
@@ -797,8 +800,7 @@ void GpgWin::verify()
 
     // Remove the last linebreak
     verifyLabelText.remove(verifyLabelText.length()-1,1);
-
-    vn->setVerifyLabel(verifyLabelText,status);
+    vn->setVerifyLabel(verifyLabelText,verifyStatus);
     edit->curPage()->showNotificationWidget(vn, "verifyNotification");
 }
 
@@ -850,6 +852,17 @@ void GpgWin::appendSelectedKeys()
 
     mCtx->exportKeys(mKeyList->getSelected(), keyArray);
     edit->curTextPage()->appendPlainText(*keyArray);
+}
+
+void GpgWin::copyMailAddressToClipboard()
+{
+
+    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+    QClipboard *cb = QApplication::clipboard();
+    mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
+    QString mail = key->uids->email;
+    cb->setText(mail);
+    //edit->curTextPage()->appendPlainText(*keyArray);
 }
 
 void GpgWin::showKeyDetails()
