@@ -14,10 +14,10 @@ Release 0.3.1
 - enum for verify status [DONE]
 - put sign/verify to toolbar and add shortcuts
 - umlaute are not handled correctly in signing
+- beautify icons for verify and sign
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents
-- enter "satan" keyserverimport and it crashes [DONE]
 - what should be shown in verify message?
 - show, if message is partially verified(how)?
 
@@ -81,6 +81,6 @@ usability:
 
 BUGS
 ----
-- key generation on windows 7 64-bit may fail
 - on windows an empty directory gnupg in application-data is created, find out how to disable
 - cancel decryption on windows hangs programm -> possibly bug in gpgme
+- entering wrong password for decrypt on windows hangs program -> possible bug in gpgme

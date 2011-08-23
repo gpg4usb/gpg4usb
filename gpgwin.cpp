@@ -247,14 +247,14 @@ void GpgWin::createActions()
     connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(fileEncryption()));
 
     signAct = new QAction(tr("&Sign"), this);
-    //signAct->setIcon(QIcon(iconPath + "encrypted.png"));
-    //signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E));
+    signAct->setIcon(QIcon(iconPath + "signature.png"));
+    signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S));
     signAct->setToolTip(tr("Sign Message"));
     connect(signAct, SIGNAL(triggered()), this, SLOT(sign()));
 
     verifyAct = new QAction(tr("&Verify"), this);
-    //signAct->setIcon(QIcon(iconPath + "encrypted.png"));
-    //signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E));
+    verifyAct->setIcon(QIcon(iconPath + "verify.png"));
+    verifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_V));
     verifyAct->setToolTip(tr("Verify Message"));
     connect(verifyAct, SIGNAL(triggered()), this, SLOT(verify()));
 
@@ -392,6 +392,8 @@ void GpgWin::createToolBars()
     cryptToolBar->setObjectName("cryptToolBar");
     cryptToolBar->addAction(encryptAct);
     cryptToolBar->addAction(decryptAct);
+    cryptToolBar->addAction(signAct);
+    cryptToolBar->addAction(verifyAct);
     cryptToolBar->addAction(fileEncryptionAct);
     viewMenu->addAction(cryptToolBar->toggleViewAction());
 
