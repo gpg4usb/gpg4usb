@@ -851,20 +851,16 @@ void GpgWin::importKeyDialog()
 void GpgWin::appendSelectedKeys()
 {
     QByteArray *keyArray = new QByteArray();
-
     mCtx->exportKeys(mKeyList->getSelected(), keyArray);
     edit->curTextPage()->appendPlainText(*keyArray);
 }
 
 void GpgWin::copyMailAddressToClipboard()
 {
-
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     QClipboard *cb = QApplication::clipboard();
-    mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
     QString mail = key->uids->email;
     cb->setText(mail);
-    //edit->curTextPage()->appendPlainText(*keyArray);
 }
 
 void GpgWin::showKeyDetails()

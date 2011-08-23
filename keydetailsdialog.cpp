@@ -134,7 +134,6 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key)
 
 void KeyDetailsDialog::exportPrivateKey()
 {
-
     int ret = QMessageBox::information(this, tr("Exporting private Key"),
                                        tr("You are about to export your private key.\n"
                                           "This is NOT your public key, so don't give it away.\n"
@@ -142,11 +141,11 @@ void KeyDetailsDialog::exportPrivateKey()
                                        QMessageBox::Cancel | QMessageBox::Ok);
 
     if (ret == QMessageBox::Ok) {
-
         QByteArray *keyArray = new QByteArray();
         mCtx->exportSecretKey(*keyid, keyArray);
-
-        QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files ") + " (*.asc *.txt);;All Files (*)");
+        gpgme_key_t key = mCtx->getKeyDetails(*keyid);
+        QString fileString = QString(key->uids->name) + " " + QString(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub_sec.asc";
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
             return;
@@ -155,7 +154,6 @@ void KeyDetailsDialog::exportPrivateKey()
         file.close();
         delete keyArray;
     }
-
 }
 
 QString KeyDetailsDialog::beautifyFingerprint(QString fingerprint)

@@ -1,7 +1,7 @@
 TODO:
 -----
 Release 0.3.1
-- export key: default filename to <keyowner-name>.asc
+- export key: default filename to <keyowner-name>.asc [DONE]
 - make email adress from keylist copyable [DONE]
 - show keydetails-dialog in keylist on mainwindow [DONE]
 - key should blink short in keylist after import

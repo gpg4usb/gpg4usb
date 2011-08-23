@@ -226,7 +226,10 @@ void KeyMgmt::exportKeyToFile()
     if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
         return;
     }
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getChecked()->first());
+    QString fileString = QString(key->uids->name) + " " + QString(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub.asc";
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
