@@ -495,7 +495,6 @@ void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByte
     *stdErr = gpg.readAllStandardError();
 }
 
-
 /***
   * TODO: return type should contain:
   * -> list of sigs
@@ -579,7 +578,6 @@ void Context::sign(const QByteArray &inBuffer, QByteArray *outBuffer) {
     err = readToBuffer(out, outBuffer);
 
     qDebug() << "sig: " << QString::fromUtf8(*outBuffer);
-
 }
 
 bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {

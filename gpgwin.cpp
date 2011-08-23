@@ -516,63 +516,6 @@ void GpgWin::openTutorial() {
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
 }
 
-void GpgWin::encrypt()
-{
-    QStringList *uidList = mKeyList->getChecked();
-
-    QByteArray *tmp = new QByteArray();
-    if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
-        QString *tmp2 = new QString(*tmp);
-
-        // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
-        QTextCursor cursor(edit->curTextPage()->document());
-        cursor.beginEditBlock();
-        edit->curTextPage()->selectAll();
-        edit->curTextPage()->insertPlainText(*tmp2);
-        cursor.endEditBlock();
-    }
-}
-
-void GpgWin::decrypt()
-{
-    QByteArray *decrypted = new QByteArray();
-    QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
-    preventNoDataErr(&text);
-
-    // try decrypt, if fail do nothing, especially don't replace text
-    if(!mCtx->decrypt(text, decrypted)) {
-        return;
-    }
-
-    /**
-         *   1) is it mime (content-type:)
-         *   2) parse header
-         *   2) choose action depending on content-type
-         */
-    if(Mime::isMime(decrypted)) {
-        Header header = Mime::getHeader(decrypted);
-        // is it multipart, is multipart-parsing enabled
-        if(header.getValue("Content-Type") == "multipart/mixed"
-           && settings.value("mime/parseMime").toBool()) {
-            parseMime(decrypted);
-        } else if(header.getValue("Content-Type") == "text/plain"
-                  && settings.value("mime/parseQP").toBool()){
-            if (header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
-                QByteArray *decoded = new QByteArray();
-                Mime::quotedPrintableDecode(*decrypted, *decoded);
-                //TODO: remove header
-                decrypted = decoded;
-            }
-        }
-    }
-    // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
-    QTextCursor cursor(edit->curTextPage()->document());
-    cursor.beginEditBlock();
-    edit->curTextPage()->selectAll();
-    edit->curTextPage()->insertPlainText(QString::fromUtf8(*decrypted));
-    cursor.endEditBlock();
-}
-
 /**
   * if this is mime, split text and attachments...
   * message contains only text afterwards
@@ -693,18 +636,14 @@ void GpgWin::openKeyManagement()
     keyMgmt->activateWindow();
 }
 
-void GpgWin::sign()
+void GpgWin::encrypt()
 {
-    // test-stuff that does not belong here ;-)
-    //mCtx->verify(QByteArray());
-    //mCtx->sign(QByteArray(), new QByteArray());
-    // end of test
-
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
+    if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
+
         // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
         QTextCursor cursor(edit->curTextPage()->document());
         cursor.beginEditBlock();
@@ -713,6 +652,64 @@ void GpgWin::sign()
         cursor.endEditBlock();
     }
 }
+
+void GpgWin::sign()
+{
+    QStringList *uidList = mKeyList->getChecked();
+
+    QByteArray *tmp = new QByteArray();
+    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
+        QString *tmp2 = new QString(*tmp);
+
+        // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
+        QTextCursor cursor(edit->curTextPage()->document());
+        cursor.beginEditBlock();
+        edit->curTextPage()->selectAll();
+        edit->curTextPage()->insertPlainText(*tmp2);
+        cursor.endEditBlock();
+    }
+}
+
+void GpgWin::decrypt()
+{
+    QByteArray *decrypted = new QByteArray();
+    QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
+    preventNoDataErr(&text);
+
+    // try decrypt, if fail do nothing, especially don't replace text
+    if(!mCtx->decrypt(text, decrypted)) {
+        return;
+    }
+
+    /**
+         *   1) is it mime (content-type:)
+         *   2) parse header
+         *   2) choose action depending on content-type
+         */
+    if(Mime::isMime(decrypted)) {
+        Header header = Mime::getHeader(decrypted);
+        // is it multipart, is multipart-parsing enabled
+        if(header.getValue("Content-Type") == "multipart/mixed"
+           && settings.value("mime/parseMime").toBool()) {
+            parseMime(decrypted);
+        } else if(header.getValue("Content-Type") == "text/plain"
+                  && settings.value("mime/parseQP").toBool()){
+            if (header.getValue("Content-Transfer-Encoding") == "quoted-printable") {
+                QByteArray *decoded = new QByteArray();
+                Mime::quotedPrintableDecode(*decrypted, *decoded);
+                //TODO: remove header
+                decrypted = decoded;
+            }
+        }
+    }
+    // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
+    QTextCursor cursor(edit->curTextPage()->document());
+    cursor.beginEditBlock();
+    edit->curTextPage()->selectAll();
+    edit->curTextPage()->insertPlainText(QString::fromUtf8(*decrypted));
+    cursor.endEditBlock();
+}
+
 /*
   * isSigned returns:
   * - 0, if text isn't signed at all
@@ -720,7 +717,7 @@ void GpgWin::sign()
   * - 2, if text is completly signed
   */
 int GpgWin::isSigned(const QByteArray &text) {
-    if (text.startsWith("-----BEGIN PGP SIGNED MESSAGE-----") && text.endsWith("-----END PGP SIGNATURE-----")) {
+    if (text.trimmed().startsWith("-----BEGIN PGP SIGNED MESSAGE-----") && text.trimmed().endsWith("-----END PGP SIGNATURE-----")) {
         return 2;
     }
     if (text.contains("-----BEGIN PGP SIGNED MESSAGE-----") && text.contains("-----END PGP SIGNATURE-----")) {
