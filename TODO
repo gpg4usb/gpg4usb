@@ -13,7 +13,7 @@ Release 0.3.1
 - inform user about verification errors
 - enum for verify status [DONE]
 - put sign/verify to toolbar and add shortcuts [DONE]
-- umlaute are not handled correctly in signing
+- umlaute are not handled correctly in signing [DONE]
 - beautify icons for verify and sign
 
 BUGS: 
@@ -25,7 +25,8 @@ Release 0.3.2
 - check and add missing statusbar messages
 - set mainwindow-statusbar text via signal
 - more doku on building gpg4usb (especially on windows)
-- check class / includes
+- check class / includes 
+- clear cache nach Programmende (siehe kbasket)
 - check pointer usage (const/references)
 - add posibility to change password of key
 - make keylist browsable with keyboard

@@ -658,7 +658,8 @@ void GpgWin::sign()
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
+    // TODO: toUtf8() here?
+    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toAscii(), tmp)) {
         QString *tmp2 = new QString(*tmp);
 
         // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
