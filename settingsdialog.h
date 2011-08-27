@@ -22,21 +22,30 @@
 #ifndef __SETTINGSDIALOG_H__
 #define __SETTINGSDIALOG_H__
 
-#include <QDialog>
-#include <QButtonGroup>
-#include <QGroupBox>
-#include <QRadioButton>
-#include <QDialogButtonBox>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QComboBox>
-#include <QCheckBox>
 #include <QHash>
+#include <QWidget>
+#include <QtGui>
 
- class QFileInfo;
- class QTabWidget;
+class QDialog;
+class QRadioButton;
+class QDialogButtonBox;
+class QHBoxLayout;
+class QVBoxLayout;
+class QComboBox;
+class QCheckBox;
+class QSettings;
+class QDebug;
+class QSettings;
+class QApplication;
+class QDir;
+class QTranslator;
+class QLabel;
+class QButtonGroup;
+class QGroupBox;
+class QFileInfo;
+class QTabWidget;
 
- class GeneralTab : public QWidget
+class GeneralTab : public QWidget
  {
      Q_OBJECT
 

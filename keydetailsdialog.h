@@ -22,6 +22,9 @@
 #ifndef __KEYDETAILSDIALOG_H__
 #define __KEYDETAILSDIALOG_H__
 
+#include "context.h"
+#include <gpgme.h>
+
 class QDateTime;
 class QVBoxLayout;
 class QDialogButtonBox;
@@ -30,10 +33,6 @@ class QGroupBox;
 class QLabel;
 class QGridLayout;
 class QPushButton;
-
-#include "context.h"
-
-#include <gpgme.h>
 
 class KeyDetailsDialog : public QDialog
 {

@@ -21,21 +21,6 @@
 
 #include "settingsdialog.h"
 
-#include <QWidget>
-#include <QSettings>
-#include <QDebug>
-#include <QLabel>
-#include <QButtonGroup>
-#include <QSettings>
-#include <QApplication>
-#include <QDir>
-#include <QTranslator>
-#include <QtGui>
-
-class QLabel;
-class QButtonGroup;
-class QGroupBox;
-
  SettingsDialog::SettingsDialog(QWidget *parent)
         : QDialog(parent)
 {

@@ -19,16 +19,6 @@
  *      MA 02110-1301, USA.
  */
 
-#include <QWidget>
-#include <QDialogButtonBox>
-#include <QLabel>
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QDebug>
-#include <QFileDialog>
-#include <QRadioButton>
-
 #include "fileencryptiondialog.h"
 
 FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QStringList keyList, QWidget *parent)

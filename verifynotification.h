@@ -1,16 +1,15 @@
 #ifndef VERIFYNOTIFICATION_H
 #define VERIFYNOTIFICATION_H
 
-#include <QLabel>
-#include <QHBoxLayout>
-#include <QMenu>
-#include <QPushButton>
-
-#include <QWidget>
-
 #include "keyserverimportdialog.h"
 #include "context.h"
 #include <gpgme.h>
+#include <QWidget>
+
+class QLabel;
+class QHBoxLayout;
+class QMenu;
+class QPushButton;
 
 typedef enum
 {

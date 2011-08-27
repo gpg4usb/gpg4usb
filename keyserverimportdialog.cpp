@@ -20,9 +20,6 @@
  *      MA 02110-1301, USA.
  */
 
-#include <QtGui>
-#include <QtNetwork>
-#include <QPixmap>
 #include "keyserverimportdialog.h"
 
 KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *parent)

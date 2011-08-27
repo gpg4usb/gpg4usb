@@ -22,16 +22,19 @@
 #ifndef __TEXTEDIT_H__
 #define __TEXTEDIT_H__
 
-#include <QPlainTextEdit>
-
-#include <QtGui>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QFileInfo>
-#include <QApplication>
-#include <QFile>
 #include "editorpage.h"
+#include "quitdialog.h"
 
+class QDebug;
+class QtGui;
+class QFileDialog;
+class QMessageBox;
+class QFileInfo;
+class QApplication;
+class QFile;
+class QPlainTextEdit;
+class QFileDialog;
+class QMessageBox;
 class QWidget;
 class QString;
 class QTabWidget;

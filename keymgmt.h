@@ -22,6 +22,12 @@
 #ifndef __KEYMGMT_H__
 #define __KEYMGMT_H__
 
+#include "context.h"
+#include "keylist.h"
+#include "keygenthread.h"
+#include "keydetailsdialog.h"
+#include "keyserverimportdialog.h"
+#include <QtGui>
 
 class QMainWindow;
 class QWidget;
@@ -35,12 +41,6 @@ class QAction;
 class QMenu;
 class QApplication;
 class QSlider;
-
-#include "context.h"
-#include "keylist.h"
-#include "keygenthread.h"
-#include "keydetailsdialog.h"
-#include "keyserverimportdialog.h"
 
 class KeyMgmt : public QMainWindow
 {

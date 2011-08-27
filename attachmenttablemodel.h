@@ -2,12 +2,11 @@
 #define ATTACHMENTTABLEMODEL_H
 
 #include "mime.h"
-
-#include <QAbstractTableModel>
-#include <QStandardItem>
 #include <QIcon>
 #include <QFile>
+#include <QAbstractTableModel>
 
+class QStandardItem;
 
 class AttachmentTableModel : public QAbstractTableModel
 {

@@ -23,6 +23,8 @@
 #define __QUITDIALOG_H__
 
 #include "context.h"
+#include <QtGui>
+
 class QTableWidget;
 
 class QuitDialog : public QDialog

@@ -19,8 +19,6 @@
  *      MA 02110-1301, USA.
  */
 
-#include <QtGui>
-
 #include "editorpage.h"
 
 

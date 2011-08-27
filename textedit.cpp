@@ -19,11 +19,7 @@
  *      MA 02110-1301, USA.
  */
 
-#include "QDebug"
 #include "textedit.h"
-#include "quitdialog.h"
-class QFileDialog;
-class QMessageBox;
 
 TextEdit::TextEdit(QString iconPath)
 {

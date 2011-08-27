@@ -22,12 +22,20 @@
 #ifndef __FILEENCRYPTIONDIALOG_H__
 #define __FILEENCRYPTIONDIALOG_H__
 
-#include <QDialog>
-#include <QLineEdit>
-#include <QRadioButton>
-
 #include "context.h"
 #include "keylist.h"
+
+class QDialog;
+class QLineEdit;
+class QWidget;
+class QDialogButtonBox;
+class QLabel;
+class QPushButton;
+class QHBoxLayout;
+class QVBoxLayout;
+class QDebug;
+class QFileDialog;
+class QRadioButton;
 
 class FileEncryptionDialog : public QDialog
 {

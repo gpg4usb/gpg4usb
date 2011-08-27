@@ -32,9 +32,6 @@
  */
 
 #include "mime.h"
-#include <QDebug>
-#include <QHashIterator>
-#include <QTextCodec>
 
 Mime::Mime(QByteArray *message)
 {

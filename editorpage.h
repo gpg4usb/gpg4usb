@@ -21,7 +21,9 @@
 
 #ifndef EDITORPAGE_H
 #define EDITORPAGE_H
+
 #include <QPlainTextEdit>
+#include <QtGui>
 
 class QVBoxLayout;
 class QHBoxLayout;

@@ -7,7 +7,6 @@ Release 0.3.1
 - key should blink short in keylist after import
 - show keys which verified message in different colour
 - css
-- save the last used directory in open file dialog
 - set gpgme error language to chosen language (context.cpp:49)
 - in verifycation dialog import multiple keys
 - inform user about verification errors
@@ -29,6 +28,7 @@ Release 0.3.2
 - clear cache nach Programmende (siehe kbasket)
 - check pointer usage (const/references)
 - add posibility to change password of key
+- save the last used directory in open file dialog
 - make keylist browsable with keyboard
 - update gpgme-library
 - Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")

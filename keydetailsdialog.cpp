@@ -20,7 +20,6 @@
  */
 
 #include "keydetailsdialog.h"
-//#include "QDebug"
 
 KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key)
 {

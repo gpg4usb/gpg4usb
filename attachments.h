@@ -24,19 +24,20 @@
 
 #include "mime.h"
 #include "attachmenttablemodel.h"
+#include <QtGui>
+#include <QWidget>
 
-#include "QWidget"
-#include "QTableView"
-#include "QHeaderView"
-#include "QVBoxLayout"
-#include "QMenu"
-#include "QMessageBox"
-#include "QContextMenuEvent"
-#include "QFileDialog"
-#include "QUrl"
-#include "QDesktopServices"
-#include "QSettings"
-#include "QApplication"
+class QTableView;
+class QHeaderView;
+class QVBoxLayout;
+class QMenu;
+class QMessageBox;
+class QContextMenuEvent;
+class QFileDialog;
+class QUrl;
+class QDesktopServices;
+class QSettings;
+class QApplication;
 
 class Attachments : public QWidget
 {

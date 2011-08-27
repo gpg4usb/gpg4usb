@@ -20,10 +20,7 @@
  *      MA 02110-1301, USA.
  */
 
-#include <QtGui>
-
 #include "keymgmt.h"
-
 
 KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
 {

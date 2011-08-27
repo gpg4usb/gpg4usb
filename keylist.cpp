@@ -19,7 +19,6 @@
  *      MA 02110-1301, USA.
  */
 
-
 #include "keylist.h"
 
 KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)

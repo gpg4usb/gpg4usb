@@ -20,8 +20,6 @@
  *      MA 02110-1301, USA.
  */
 
-#include <QtGui>
-#include <QTableWidget>
 #include "quitdialog.h"
 
 QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString iconPath)

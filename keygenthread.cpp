@@ -19,9 +19,7 @@
  *      MA 02110-1301, USA.
  */
 
-
 #include "keygenthread.h"
-
 
 KeyGenThread::KeyGenThread(QString keyGenParams, GpgME::Context *ctx)
 {

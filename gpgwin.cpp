@@ -20,9 +20,6 @@
  */
 
 #include "gpgwin.h"
-#include "fileencryptiondialog.h"
-#include "settingsdialog.h"
-#include "verifynotification.h"
 
 GpgWin::GpgWin()
 {

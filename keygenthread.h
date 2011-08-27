@@ -22,6 +22,7 @@
 #ifndef __KEYGENTHREAD_H__
 #define __KEYGENTHREAD_H__
 
+#include "context.h"
 #include <qthread.h>
 #include <iostream>
 #include <string>
@@ -29,8 +30,6 @@
 #include <QtGui>
 
 class QMessageBox;
-
-#include "context.h"
 
 class KeyGenThread : public QThread
 {

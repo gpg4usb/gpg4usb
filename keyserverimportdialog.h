@@ -23,14 +23,16 @@
 #ifndef KEYSERVERIMPORTDIALOG_H
 #define KEYSERVERIMPORTDIALOG_H
 
-#include <QDialog>
-#include <QDir>
-#include <QNetworkAccessManager>
-#include <QUrl>
-
 #include "context.h"
+#include <QNetworkAccessManager>
+#include <QtNetwork>
 
 QT_BEGIN_NAMESPACE
+class QDialog;
+class QDir;
+class QUrl;
+class QtGui;
+class QPixmap;
 class QNetworkReply;
 class QComboBox;
 class QLabel;

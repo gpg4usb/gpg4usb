@@ -22,10 +22,12 @@
 #ifndef __MIME_H__
 #define __MIME_H__
 
-#include <QByteArray>
+#include <QHashIterator>
 #include <QHash>
-#include <QDebug>
 
+class QByteArray;
+class QDebug;
+class QTextCodec;
 
 class HeadElem
 {

@@ -30,6 +30,9 @@
 #include "keydetailsdialog.h"
 #include "textedit.h"
 #include "keyserverimportdialog.h"
+#include "fileencryptiondialog.h"
+#include "settingsdialog.h"
+#include "verifynotification.h"
 
 class QMainWindow;
 class QPlainTextEdit;
