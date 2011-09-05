@@ -25,21 +25,32 @@
 int main(int argc, char *argv[])
 {
 
-#ifndef _WIN32
-    // do not use GPG_AGENTS like seahorse, because they may save
-    // a password an pc's not owned by user
-    unsetenv("GPG_AGENT_INFO");
-#endif
-
     QApplication app(argc, argv);
+
+    // get application path
+    QString appPath = qApp->applicationDirPath();
 
     app.setApplicationVersion("0.3.0");
     app.setApplicationName("gpg4usb");
 
+    // set environment variables
+    // TODO:
+    //   - unsetenv on windows?
+    //   - wputenv or wputenv_s on windows? http://msdn.microsoft.com/en-us/library/d6dtz42k(v=vs.80).aspx
+    #ifndef _WIN32
+        // do not use GPG_AGENTS like seahorse, because they may save
+        // a password an pc's not owned by user
+        unsetenv("GPG_AGENT_INFO");
+    #endif
+
+    // take care of gpg not creating directorys on harddisk
+    putenv(QString("GNUPGHOME=" + appPath + "/keydb").toAscii().data());
+
     // QSettings uses org-name for automatically setting path...
     app.setOrganizationName("conf");
+
     // specify default path & format for QSettings
-    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, qApp->applicationDirPath());
+    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, appPath);
     QSettings::setDefaultFormat(QSettings::IniFormat);
 
     QSettings settings;
@@ -51,15 +62,15 @@ int main(int argc, char *argv[])
     //internationalize
     QTranslator translator;
     translator.load("ts/gpg4usb_" +  lang,
-                    qApp->applicationDirPath());
+                    appPath);
     app.installTranslator(&translator);
 
     // make shortcuts system and language independent
     QTranslator translator2;
 #ifdef _WIN32
-    translator2.load("ts/qt_windows_" + lang, qApp->applicationDirPath());
+    translator2.load("ts/qt_windows_" + lang, appPath);
 #else
-    translator2.load("ts/qt_linux_" + lang, qApp->applicationDirPath());
+    translator2.load("ts/qt_linux_" + lang, appPath);
 #endif
     app.installTranslator(&translator2);
 
