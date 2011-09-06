@@ -8,12 +8,13 @@ Release 0.3.1
 - show keys which verified message in different colour
 - css
 - set gpgme error language to chosen language (context.cpp:49)
-- in verifycation dialog import multiple keys
+- in verifycation dialog import multiple keys 
 - inform user about verification errors
 - enum for verify status [DONE]
 - put sign/verify to toolbar and add shortcuts [DONE]
 - umlaute are not handled correctly in signing [DONE]
 - beautify icons for verify and sign
+- check class / includes [DONE]
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents
@@ -24,7 +25,6 @@ Release 0.3.2
 - check and add missing statusbar messages
 - set mainwindow-statusbar text via signal
 - more doku on building gpg4usb (especially on windows)
-- check class / includes 
 - clear cache nach Programmende (siehe kbasket)
 - check pointer usage (const/references)
 - add posibility to change password of key

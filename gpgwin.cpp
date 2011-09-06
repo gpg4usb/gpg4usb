@@ -56,6 +56,7 @@ GpgWin::GpgWin()
     mKeyList->addMenuAction(appendSelectedKeysAct);
     mKeyList->addMenuAction(copyMailAddressToClipboardAct);
     mKeyList->addMenuAction(showKeyDetailsAct);
+
     restoreSettings();
 
     // open filename if provided as first command line parameter
@@ -66,7 +67,6 @@ GpgWin::GpgWin()
                 edit->loadFile(args[1]);
         }
     }
-
     edit->curTextPage()->setFocus();
     this->setWindowTitle(qApp->applicationName());
 }
@@ -626,7 +626,6 @@ void GpgWin::openKeyManagement()
 {
     if (!keyMgmt) {
         keyMgmt = new KeyMgmt(mCtx, iconPath);
-//        keyMgmt->resize(800, 400);
     }
     keyMgmt->show();
     keyMgmt->raise();
@@ -756,7 +755,9 @@ void GpgWin::verify()
 
     while (sign) {
         timestamp.setTime_t(sign->timestamp);
-        if (gpg_err_code(sign->status) == 9) {
+        switch (gpg_err_code(sign->status))
+        {
+        case GPG_ERR_NO_PUBKEY:
             verifyStatus=VERIFY_ERROR_WARN;
             verifyLabelText.append(tr("Key not present with Fingerprint: ")+QString(sign->fpr));
 
@@ -765,7 +766,8 @@ void GpgWin::verify()
             unknownKeyFound=true;
             verifyDetailText->append(tr("Key not present:"));
             //verifyDetailText->append(tr("Signature status: ")+gpg_strerror(sign->status)+"\nsig validity reason: "+QString(gpgme_strerror(sign->validity_reason))+"\n");
-        } else {
+            break;
+        default:
             QString name = mKeyList->getKeyNameByFpr(sign->fpr);
             QString email =mKeyList->getKeyEmailByFpr(sign->fpr);
             qDebug() << email;
@@ -775,6 +777,7 @@ void GpgWin::verify()
                 verifyLabelText.append("<"+email+">");
             }
             vn->setProperty("keyFound", true);
+            break;
         }
         verifyDetailText->append(tr("\nFingerprint: ")+QString(sign->fpr)+"\n\n");
         verifyLabelText.append("\n");

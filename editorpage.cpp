@@ -26,13 +26,9 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
                                                        fullFilePath(filePath)
 {
     textPage   = new QPlainTextEdit();
-
-    //notificationWidget = new QWidget(this);
-    //this->showVerifyLabel(false);
     mainLayout = new QVBoxLayout();
     mainLayout->setSpacing(0);
     mainLayout->addWidget(textPage);
-    //mainLayout->addWidget(notificationWidget);
     mainLayout->setContentsMargins(0,0,0,0);
     setLayout(mainLayout);
     setAttribute(Qt::WA_DeleteOnClose);

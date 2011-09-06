@@ -150,10 +150,6 @@ bool TextEdit::saveAs()
     return saveFile(fileName);
 }
 
-
-/**
- * close current tab
- */
 void TextEdit::closeTab()
 {
     removeTab(tabWidget->currentIndex());
@@ -232,13 +228,6 @@ bool TextEdit::maybeSaveCurrentTab(bool askToSave) {
     return true;
 }
 
-/**
- *  Checks if there are unsaved documents in any tab,
- *  which may need to be saved. Call this function before
- *  closing the programme or all tabs.
- *
- *   If it returns false, the close event should be aborted.
- */
 bool TextEdit::maybeSaveAnyTab()
 {
     // get a list of all unsaved documents and their tabids
@@ -372,8 +361,6 @@ void TextEdit::print()
 #endif
 }
 
-/** put a * in front of every modified document tab
-  */
 void TextEdit::showModified() {
     int index=tabWidget->currentIndex();
     QString title= tabWidget->tabText(index);

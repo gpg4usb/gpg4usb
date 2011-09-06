@@ -39,44 +39,48 @@ class QWidget;
 class QString;
 class QTabWidget;
 
+/**
+ * @brief TextEdit class
+ * @copyright GNU Public License 2
+ */
 class TextEdit : public QWidget
 {
     Q_OBJECT
 public:
+    /**
+     * @brief
+     *
+     * @param iconPath
+     */
     TextEdit(QString iconPath);
 
-    /****************************************************************************************
-     * Name:                loadFile
-     * Description:         Load the content of file into the current textpage
-     * Parameters:          Qstring containg the filename
-     * Return Values:       the pointer to the currently activated textpage
-     * Change on members:   textpage is filles with filecontents
-    */
+    /**
+     * @brief Load the content of file into the current textpage
+     *
+     * @param fileName QString containing the filename to load
+     * @return nothing
+     */
     void loadFile(const QString &fileName);
 
-    /****************************************************************************************
-     * Name:                maybeSaveAnyTab
-     * Description:         ask if tabs should be saved
-     * Parameters:          none
-     * Return Values        false, if the close event should be aborted.
-     * Change on members:   none
-    */
+
+    /**
+     * @details Checks if there are unsaved documents in any tab,
+     *  which may need to be saved. Call this function before
+     *  closing the programme or all tabs.
+     * @return \li false, if the close event should be aborted.
+     *         \li true, otherwise
+     */
     bool maybeSaveAnyTab();
-    /****************************************************************************************
-     * Name:                curTextPage
-     * Description:         The currently activated Page
-     * Parameters:          none
-     * Return Values:       the pointer to the currently activated textpage
-     * Change on members:
-    */
+
+    /**
+     * @details textpage of the currently activated tab
+     */
     QPlainTextEdit* curTextPage();
-    /****************************************************************************************
-     * Name:                unsavedDocuments
-     * Description:         List of currently unsaved tabs
-     * Parameters:          none
-     * Return Values:       a hash of tabindexes and title of unsaved tabs
-     * Change on members:
-    */
+
+    /**
+     * @details  List of currently unsaved tabs
+     * @returns QHash<int, QString> Hash of tabindexes and title of unsaved tabs
+     */
     QHash<int, QString> unsavedDocuments();
 
 public slots:
@@ -87,6 +91,10 @@ public slots:
      * Return Values:       none
      * Change on members:
     */
+    /**
+     * @brief
+     *
+     */
     void quote();
 
     /****************************************************************************************
@@ -97,6 +105,10 @@ public slots:
      * Return Values:       none
      * Change on members:
     */
+    /**
+     * @brief
+     *
+     */
     void save();
 
     /****************************************************************************************
@@ -106,6 +118,10 @@ public slots:
      * Return Values:       just returns the return value of the saveFile method
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     bool saveAs();
 
     /****************************************************************************************
@@ -117,6 +133,10 @@ public slots:
      * Return Values:       none
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     void open();
 
     /****************************************************************************************
@@ -126,6 +146,10 @@ public slots:
      * Return Values:       none
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     void print();
 
     /****************************************************************************************
@@ -136,23 +160,21 @@ public slots:
      * Return Values:       none
      * Change on members:   increases countPage per 1
     */
+    /**
+     * @details Adds a new tab with the title "untitled"+countpage+".txt"
+     *                      Sets the focus to the new tab. Increase Tab-Count by one
+     */
     void newTab();
 
-    /****************************************************************************************
-     * Name:                showModified
-     * Description:         show an "*" in tabtitle, if textedit is modified
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   add "*" to title of current tab, if current textedit is modified
-    */
+    /**
+     * @details put a * in front of current tabs title, if current textedit is modified
+     */
     void showModified();
-    /****************************************************************************************
-     * Name:                closeTab
-     * Description:         closes the tab choosen
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   decreases countPage per 1
-    */
+
+    /**
+     * @details close the current tab and decrease TabWidget->count by \a 1
+     *
+     */
     void closeTab();
     /****************************************************************************************
      * Name:                switchTabUp
@@ -161,6 +183,10 @@ public slots:
      * Return Values:       none
      * Change on members:   increase tabWidget->count() per 1
     */
+    /**
+     * @brief
+     *
+     */
     void switchTabUp();
     /****************************************************************************************
      * Name:                switchTabDown
@@ -169,6 +195,10 @@ public slots:
      * Return Values:       none
      * Change on members:   decrease tabWidget->count() per 1
     */
+    /**
+     * @brief
+     *
+     */
     void switchTabDown();
     /****************************************************************************************
      * Name:                curPage
@@ -177,6 +207,10 @@ public slots:
      * Return Values:       pointer to the currently activated tabpage
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     EditorPage *curPage();
 
 private:
@@ -187,17 +221,31 @@ private:
      * Return Values:       QStirng containig the filename
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     * @param fullFileName
+     */
     QString strippedName(const QString &fullFileName);
+    /**
+     * @brief
+     *
+     */
     bool maybeSaveFile();
+    /**
+     * @brief
+     *
+     * @param askToSave
+     */
     bool maybeSaveCurrentTab(bool askToSave);
 
-    QString mIconPath;
+    QString mIconPath; /**< TODO */
     /****************************************************************************************
      * Name:                countPage
      * Description:         int cotaining the number of added tabs
     */
-    int countPage;
-    QTabWidget *tabWidget;
+    int countPage; /**< TODO */
+    QTabWidget *tabWidget; /**< TODO */
 
 private slots:
     /****************************************************************************************
@@ -207,6 +255,11 @@ private slots:
      * Return Values:       none
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     * @param index
+     */
     void removeTab(int index);
 
     /****************************************************************************************
@@ -216,6 +269,10 @@ private slots:
      * Return Values:       none
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     void cut();
 
     /****************************************************************************************
@@ -225,6 +282,10 @@ private slots:
      * Return Values:       none
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     void copy();
 
     /****************************************************************************************
@@ -234,6 +295,10 @@ private slots:
      * Return Values:       none
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     void paste();
 
     /****************************************************************************************
@@ -244,6 +309,10 @@ private slots:
      * Change on members:   none
     */
 
+    /**
+     * @brief
+     *
+     */
     void undo();
     /****************************************************************************************
      * Name:                redo
@@ -252,6 +321,10 @@ private slots:
      * Return Values:       none
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     void redo();
 
     /****************************************************************************************
@@ -261,6 +334,10 @@ private slots:
      * Return Values:       none
      * Change on members:   none
     */
+    /**
+     * @brief
+     *
+     */
     void selectAll();
 
 protected:
@@ -274,6 +351,11 @@ protected:
      *                      false, if parameter filename is empty or the saving failed
      * Change on members:   sets isModified of the current tab to false
     */
+    /**
+     * @brief
+     *
+     * @param fileName
+     */
     bool saveFile(const QString &fileName);
 };
 #endif // TEXTEDIT
