@@ -326,7 +326,6 @@ bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
         return false;
     }
 
-    //if (err != GPG_ERR_NO_ERROR)
     if (! settings.value("general/rememberPassword").toBool()) {
         clearPasswordCache();
     }
@@ -543,7 +542,6 @@ void Context::decryptVerify(QByteArray in) {
 
     verify_result = gpgme_op_verify_result (mCtx);
  */
-
 }
 
 void Context::sign(const QByteArray &inBuffer, QByteArray *outBuffer) {
@@ -552,11 +550,6 @@ void Context::sign(const QByteArray &inBuffer, QByteArray *outBuffer) {
     gpgme_data_t in, out;
     gpgme_sign_result_t result;
 
-    err = gpgme_data_new_from_mem (&in, "Hallo Leute\n", 12, 0);
-    checkErr(err);
-
-    err = gpgme_data_new (&out);
-    checkErr(err);
 /*
     `GPGME_SIG_MODE_NORMAL'
           A normal signature is made, the output includes the plaintext
@@ -568,16 +561,14 @@ void Context::sign(const QByteArray &inBuffer, QByteArray *outBuffer) {
     `GPGME_SIG_MODE_CLEAR'
           A clear text signature is made.  The ASCII armor and text
           mode settings of the context are ignored.
-
 */
+
     //err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_NORMAL);
     err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_CLEAR);
     checkErr(err);
     result = gpgme_op_sign_result (mCtx);
 
     err = readToBuffer(out, outBuffer);
-
-    qDebug() << "sig: " << QString::fromUtf8(*outBuffer);
 }
 
 bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {
@@ -587,7 +578,7 @@ bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray 
     gpgme_sign_result_t result;
 
     if (uidList->count() == 0) {
-        QMessageBox::critical(0, tr("No Key Selected"), tr("No Key Selected"));
+        QMessageBox::critical(0, tr("Key Selection"), tr("No Private Key Selected"));
         return false;
     }
 

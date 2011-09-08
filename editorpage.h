@@ -30,26 +30,68 @@ class QHBoxLayout;
 class QString;
 class QLabel;
 
+/**
+ * @brief Class for handling a single tab of tabwidget
+ *
+ */
 class EditorPage : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief
+     *
+     * @param filePath Path of the file handled in this tab
+     * @param parent Pointer to the parent widget
+     */
     EditorPage(const QString &filePath = "", QWidget *parent = 0);
+
+    /**
+     * @details Get the filepath of the currently activated tab.
+     */
     const QString& getFilePath() const;
+
+    /**
+     * @details Set filepath of currently activated tab.
+     *
+     * @param filePath The path to be set
+     */
     void setFilePath(const QString &filePath);
+
+    /**
+     * @details Return pointer tp the textedit of the currently activated tab.
+     *
+     */
     QPlainTextEdit *getTextPage();
+
+    /**
+     * @details Show additional widget at buttom of currently active tab
+     *
+     * @param widget The widget to be added
+     * @param className The name to handle the added widget
+     */
     void showNotificationWidget(QWidget *widget, const char *className);
+
+    /**
+     * @details Hide all widgets with the given className
+     *
+     * @param className The classname of the widgets to hide
+     */
     void hideNoteByClass(const char *className);
 
 private:
-    QPlainTextEdit *textPage;
-    QVBoxLayout *mainLayout;
-    QHBoxLayout *notificationWidgetLayout;
-    QWidget *notificationWidget;
-    QMenu *verifyMenu;
-    QString fullFilePath;
-    QLabel *verifyLabel;
+    QPlainTextEdit *textPage; /** The textedit of the tab */
+    QVBoxLayout *mainLayout; /** The layout for the tab */
+    QHBoxLayout *notificationWidgetLayout; /** layout for the notification-widget */
+    QWidget *notificationWidget; /** The notification widget shown at the buttom of the tab */
+    QMenu *verifyMenu; /** The menu in the notifiaction widget */
+    QString fullFilePath; /** The path to the file handled in the tab */
+    QLabel *verifyLabel; /** The label of the verify-notification widget */
+    /**
+     * @details bla
+     *
+     */
     void setSaveState();
 
 };

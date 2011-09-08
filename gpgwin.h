@@ -58,125 +58,272 @@ class QApplication;
 class QDockWidget;
 
 
+/**
+ * @brief
+ *
+ */
 class GpgWin : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief
+     *
+     */
     GpgWin();
 
 protected:
+    /**
+     * @details Close event shows a save dialog, if there are unsaved documents on exit.
+     * @param event
+     */
     void closeEvent(QCloseEvent *event);
 
 public slots:
+    /**
+     * @details encrypt the text of currently active textedit-page
+     * with the currently checked keys
+     */
     void encrypt();
+
+    /**
+     * @details Show a passphrase dialog and decrypt the text of currently active tab.
+     */
     void decrypt();
+
+    /**
+     * @details Sign the text of currently active tab with the checked private keys
+     */
     void sign();
+
+    /**
+     * @details Verify the text of currently active tab and show verify information.
+     * If document is signed with a key, which is not in keylist, show import missing
+     * key from keyserver in Menu of verifynotification.
+     */
     void verify();
+
+    /**
+     * @details Open File-Dialog and import the keys from the choosen file
+     * to keylist if possible.
+     */
     void importKeyFromFile();
+
+    /**
+     * @details Import keys from currently active tab to keylist if possible.
+     */
     void importKeyFromEdit();
+
+    /**
+     * @details Import keys from clipboard to keylist if possible.
+     */
     void importKeyFromClipboard();
+
+    /**
+     * @details Open an "Import key from keyserver"-dialog.
+     */
     void importKeyFromKeyServer();
+
+    /**
+     * @details Open a dialog, in which you can choose, where keys should be imported from.
+     */
     void importKeyDialog();
-    //void deleteSelectedKeys();
+
+    /**
+     * @details Append the selected keys to currently active textedit.
+     */
     void appendSelectedKeys();
+
+    /**
+     * @details Copy the mailaddress of selected key to clipboard.
+     * Method for keylists contextmenu.
+     */
     void copyMailAddressToClipboard();
+
+    /**
+     * @details Show detail-dialog for selected key.
+     */
     void showKeyDetails();
+
+    /**
+     * @details Open key management dialog.
+     */
     void openKeyManagement();
+
+    /**
+     * @details Open about-dialog.
+     */
     void about();
+
+    /**
+     * @details Open fileencrytion dialog.
+     */
     void fileEncryption();
+
+    /**
+     * @details Open settings-dialog.
+     */
     void openSettingsDialog();
+
+    /**
+     * @details Open online-tutorial in default browser.
+     */
     void openTutorial();
+
+    /**
+     * @details Show a warn message in status bar, if there are files in attachment folder.
+     */
     void checkAttachmentFolder();
+
+    /**
+     * @details Open online translation tutorial in default browser.
+     */
     void openTranslate();
+
+    /**
+     * @details Replace double linebreaks by single linebreaks in currently active tab.
+     */
     void cleanDoubleLinebreaks();
 //    void dropEvent(QDropEvent *event);
 
 private:
+    /**
+     * @details Create actions for the main-menu and the context-menu of the keylist.
+     */
     void createActions();
+
+    /**
+     * @details create the menu of the main-window.
+     */
     void createMenus();
+
+    /**
+     * @details Create toolbars (edit,crypt and key)
+     */
     void createToolBars();
+
+    /**
+     * @brief
+     *
+     */
     void createStatusBar();
+    /**
+     * @brief
+     *
+     */
     void createDockWindows();
+
+    /**
+     * @brief
+     *
+     */
     void restoreSettings();
+
+    /**
+     * @brief
+     *
+     */
     void saveSettings();
+
+    /**
+     * @details If text contains PGP-message, put a linebreak before the message,
+     * so that gpgme can decrypt correctly
+     *
+     * @param in Pointer to the QBytearray to check.
+     */
     void preventNoDataErr(QByteArray *in);
+
+    /**
+     * @brief
+     *
+     * @param message
+     */
     void parseMime(QByteArray *message);
+
+    /**
+     * @brief
+     *
+     * @param text
+     * @return \li 2, if the text is completly signed,
+     *          \li 1, if the text is partially signed,
+     *          \li 0, if the text is not signed at all.
+     */
     int isSigned(const QByteArray &text);
 
-    TextEdit *edit;
-    QMenu *fileMenu;
-    QMenu *editMenu;
-    QMenu *cryptMenu;
-    QMenu *helpMenu;
-    QMenu *keyMenu;
-    QMenu *viewMenu;
-    QMenu *importKeyMenu;
-    QToolBar *cryptToolBar;
-    QToolBar *editToolBar;
-    QToolBar *keyToolBar;
-    QDockWidget *dock;
-    QDockWidget *aDock;
-    QDialog *genkeyDialog;
+    TextEdit *edit; /**< TODO */
+    QMenu *fileMenu; /**< TODO */
+    QMenu *editMenu; /**< TODO */
+    QMenu *cryptMenu; /**< TODO */
+    QMenu *helpMenu; /**< TODO */
+    QMenu *keyMenu; /**< TODO */
+    QMenu *viewMenu; /**< TODO */
+    QMenu *importKeyMenu; /**< TODO */
+    QToolBar *cryptToolBar; /**< TODO */
+    QToolBar *editToolBar; /**< TODO */
+    QToolBar *keyToolBar; /**< TODO */
+    QDockWidget *dock; /**< TODO */
+    QDockWidget *aDock; /**< TODO */
+    QDialog *genkeyDialog; /**< TODO */
 
-    QAction *newTabAct;
-    QAction *switchTabUpAct;
-    QAction *switchTabDownAct;
-    QAction *openAct;
-    QAction *saveAct;
-    QAction *saveAsAct;
-    QAction *printAct;
-    QAction *closeTabAct;
-    QAction *quitAct;
-    QAction *encryptAct;
-    QAction *decryptAct;
-    QAction *signAct;
-    QAction *verifyAct;
-    QAction *importKeyDialogAct;
-    QAction *importKeyFromFileAct;
-    QAction *importKeyFromEditAct;
-    QAction *importKeyFromClipboardAct;
-    QAction *importKeyFromKeyServerAct;
-    QAction *cleanDoubleLinebreaksAct;
+    QAction *newTabAct; /**< TODO */
+    QAction *switchTabUpAct; /**< TODO */
+    QAction *switchTabDownAct; /**< TODO */
+    QAction *openAct; /**< TODO */
+    QAction *saveAct; /**< TODO */
+    QAction *saveAsAct; /**< TODO */
+    QAction *printAct; /**< TODO */
+    QAction *closeTabAct; /**< TODO */
+    QAction *quitAct; /**< TODO */
+    QAction *encryptAct; /**< TODO */
+    QAction *decryptAct; /**< TODO */
+    QAction *signAct; /**< TODO */
+    QAction *verifyAct; /**< TODO */
+    QAction *importKeyDialogAct; /**< TODO */
+    QAction *importKeyFromFileAct; /**< TODO */
+    QAction *importKeyFromEditAct; /**< TODO */
+    QAction *importKeyFromClipboardAct; /**< TODO */
+    QAction *importKeyFromKeyServerAct; /**< TODO */
+    QAction *cleanDoubleLinebreaksAct; /**< TODO */
 
-    QAction *appendSelectedKeysAct;
-    QAction *copyMailAddressToClipboardAct;
-    QAction *showKeyDetailsAct;
-    QAction *openKeyManagementAct;
-    QAction *copyAct;
-    QAction *quoteAct;
-    QAction *cutAct;
-    QAction *pasteAct;
-    QAction *selectallAct;
-    QAction *undoAct;
-    QAction *redoAct;
-    QAction *aboutAct;
-    QAction *fileEncryptionAct;
-    QAction *openSettingsAct;
-    QAction *openTranslateAct;
-    QAction *openTutorialAct;
-    QLineEdit *nameEdit;
-    QLineEdit *emailEdit;
-    QLineEdit *commentEdit;
-    QLineEdit *passwordEdit;
-    QLineEdit *repeatpwEdit;
-    QSpinBox *keysizeSpinBox;
-    QLabel *nameLabel;
-    QLabel *emailLabel;
-    QLabel *commentLabel;
-    QLabel *keysizeLabel;
-    QLabel *passwordLabel;
-    QLabel *repeatpwLabel;
-    QLabel *errorLabel;
-    QLabel *statusBarIcon;
+    QAction *appendSelectedKeysAct; /**< TODO */
+    QAction *copyMailAddressToClipboardAct; /**< TODO */
+    QAction *showKeyDetailsAct; /**< TODO */
+    QAction *openKeyManagementAct; /**< TODO */
+    QAction *copyAct; /**< TODO */
+    QAction *quoteAct; /**< TODO */
+    QAction *cutAct; /**< TODO */
+    QAction *pasteAct; /**< TODO */
+    QAction *selectallAct; /**< TODO */
+    QAction *undoAct; /**< TODO */
+    QAction *redoAct; /**< TODO */
+    QAction *aboutAct; /**< TODO */
+    QAction *fileEncryptionAct; /**< TODO */
+    QAction *openSettingsAct; /**< TODO */
+    QAction *openTranslateAct; /**< TODO */
+    QAction *openTutorialAct; /**< TODO */
+    QLineEdit *nameEdit; /**< TODO */
+    QLineEdit *emailEdit; /**< TODO */
+    QLineEdit *commentEdit; /**< TODO */
+    QLineEdit *passwordEdit; /**< TODO */
+    QLineEdit *repeatpwEdit; /**< TODO */
+    QSpinBox *keysizeSpinBox; /**< TODO */
+    QLabel *nameLabel; /**< TODO */
+    QLabel *emailLabel; /**< TODO */
+    QLabel *commentLabel; /**< TODO */
+    QLabel *keysizeLabel; /**< TODO */
+    QLabel *passwordLabel; /**< TODO */
+    QLabel *repeatpwLabel; /**< TODO */
+    QLabel *errorLabel; /**< TODO */
+    QLabel *statusBarIcon; /**< TODO */
 
-    QSettings settings;
-    KeyList *mKeyList;
-    Attachments *mAttachments;
-    GpgME::Context *mCtx;
-    QString iconPath;
-    KeyMgmt *keyMgmt;
-    KeyServerImportDialog *importDialog;
+    QSettings settings; /**< TODO */
+    KeyList *mKeyList; /**< TODO */
+    Attachments *mAttachments; /**< TODO */
+    GpgME::Context *mCtx; /**< TODO */
+    QString iconPath; /**< TODO */
+    KeyMgmt *keyMgmt; /**< TODO */
+    KeyServerImportDialog *importDialog; /**< TODO */
 };
 
 #endif // __GPGWIN_H__

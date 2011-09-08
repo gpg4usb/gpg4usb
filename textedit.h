@@ -41,7 +41,6 @@ class QTabWidget;
 
 /**
  * @brief TextEdit class
- * @copyright GNU Public License 2
  */
 class TextEdit : public QWidget
 {
@@ -239,13 +238,13 @@ private:
      */
     bool maybeSaveCurrentTab(bool askToSave);
 
-    QString mIconPath; /**< TODO */
+    QString mIconPath; /* TODO */
     /****************************************************************************************
      * Name:                countPage
      * Description:         int cotaining the number of added tabs
     */
-    int countPage; /**< TODO */
-    QTabWidget *tabWidget; /**< TODO */
+    int countPage; /* TODO */
+    QTabWidget *tabWidget; /* TODO */
 
 private slots:
     /****************************************************************************************

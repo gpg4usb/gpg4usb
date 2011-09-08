@@ -601,11 +601,13 @@ void GpgWin::importKeyFromClipboard()
     QClipboard *cb = QApplication::clipboard();
     mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
 }
+
 void GpgWin::importKeyFromKeyServer()
 {
     importDialog = new KeyServerImportDialog(mCtx, this);
     importDialog->show();
 }
+
 void GpgWin::importKeyFromFile()
 {
     QFile file;
@@ -651,7 +653,7 @@ void GpgWin::encrypt()
 
 void GpgWin::sign()
 {
-    QStringList *uidList = mKeyList->getChecked();
+    QStringList *uidList = mKeyList->getPrivateChecked();
 
     QByteArray *tmp = new QByteArray();
     // TODO: toUtf8() here?
@@ -793,9 +795,9 @@ void GpgWin::verify()
 
     // If an unknown key is found, enable the importfromkeyserveraction
     if (unknownKeyFound) {
-        vn->showImportAction();
+        vn->showImportAction(true);
     } else {
-        vn->hideImportAction();
+        vn->showImportAction(false);
     }
 
     // Remove the last linebreak

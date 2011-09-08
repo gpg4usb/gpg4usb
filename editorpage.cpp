@@ -21,7 +21,6 @@
 
 #include "editorpage.h"
 
-
 EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(parent),
                                                        fullFilePath(filePath)
 {
@@ -39,7 +38,6 @@ const QString& EditorPage::getFilePath() const
 {
     return fullFilePath;
 }
-
 
 QPlainTextEdit* EditorPage::getTextPage()
 {
