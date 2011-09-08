@@ -80,7 +80,7 @@ protected:
      */
     void closeEvent(QCloseEvent *event);
 
-public slots:
+private slots:
     /**
      * @details encrypt the text of currently active textedit-page
      * with the currently checked keys
@@ -199,30 +199,27 @@ private:
     void createMenus();
 
     /**
-     * @details Create toolbars (edit,crypt and key)
+     * @details Create edit-, crypt- and key-toolbars.
      */
     void createToolBars();
 
     /**
-     * @brief
-     *
+     * @details Create statusbar of mainwindow.
      */
     void createStatusBar();
+
     /**
-     * @brief
-     *
+     * @details Create keylist- and attachment-dockwindows.
      */
     void createDockWindows();
 
     /**
-     * @brief
-     *
+     * @details Load settings from ini-file.
      */
     void restoreSettings();
 
     /**
-     * @brief
-     *
+     * @details Save settings to ini-file.
      */
     void saveSettings();
 
@@ -251,13 +248,13 @@ private:
      */
     int isSigned(const QByteArray &text);
 
-    TextEdit *edit; /**< TODO */
-    QMenu *fileMenu; /**< TODO */
-    QMenu *editMenu; /**< TODO */
-    QMenu *cryptMenu; /**< TODO */
-    QMenu *helpMenu; /**< TODO */
-    QMenu *keyMenu; /**< TODO */
-    QMenu *viewMenu; /**< TODO */
+    TextEdit *edit; /** TODO */
+    QMenu *fileMenu; /** Submenu for file-operations*/
+    QMenu *editMenu; /** Submenu for text-operations*/
+    QMenu *cryptMenu; /** Submenu for crypt-operations */
+    QMenu *helpMenu; /** Submenu for help-operations */
+    QMenu *keyMenu; /** Submenu for key-operations */
+    QMenu *viewMenu; /** View submenu */
     QMenu *importKeyMenu; /**< TODO */
     QToolBar *cryptToolBar; /**< TODO */
     QToolBar *editToolBar; /**< TODO */
