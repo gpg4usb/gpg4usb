@@ -731,7 +731,7 @@ void GpgWin::verify()
     verify_label_status verifyStatus=VERIFY_ERROR_OK;
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
-    QString *verifyDetailText = new QString();
+    QString verifyDetailText;
     int textIsSigned = isSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
@@ -744,15 +744,6 @@ void GpgWin::verify()
     VerifyNotification *vn = new VerifyNotification(mCtx,this);
     //vn->keysNotInList->clear();
     QString verifyLabelText;
-    switch (textIsSigned)
-    {
-    case 2: verifyLabelText=tr("Text is completly signed by the following key(s): ");
-            verifyDetailText->append(tr("Text is completly signed by the following key(s): ")+" \n\n");
-            break;
-    case 1: verifyLabelText=tr("Text is partially signed by the following key(s): ");
-            verifyDetailText->append(tr("Text is partially signed by the following key(s): ")+" \n\n");
-            break;
-    }
     bool unknownKeyFound=false;
 
     while (sign) {
@@ -760,20 +751,22 @@ void GpgWin::verify()
         switch (gpg_err_code(sign->status))
         {
         case GPG_ERR_NO_PUBKEY:
+        {
             verifyStatus=VERIFY_ERROR_WARN;
             verifyLabelText.append(tr("Key not present with Fingerprint: ")+QString(sign->fpr));
-
             *vn->keysNotInList << sign->fpr;
             vn->setProperty("keyNotFound", true);
             unknownKeyFound=true;
-            verifyDetailText->append(tr("Key not present:"));
-            //verifyDetailText->append(tr("Signature status: ")+gpg_strerror(sign->status)+"\nsig validity reason: "+QString(gpgme_strerror(sign->validity_reason))+"\n");
+            verifyDetailText.append(tr("Key not present in keylist: ")+QString(sign->fpr)+"\n\n");
             break;
-        default:
+        }
+        case GPG_ERR_NO_ERROR:
+        {
+            qDebug() << "GPG_ERR_NO_ERR";
             QString name = mKeyList->getKeyNameByFpr(sign->fpr);
             QString email =mKeyList->getKeyEmailByFpr(sign->fpr);
-            qDebug() << email;
-            verifyDetailText->append(tr("Name: ")+name+"\n"+tr("EMail: ")+email);
+            verifyDetailText.append(tr("Name: ")+name+"\n"+tr("EMail: ")+email+"\n");
+            verifyDetailText.append(tr("Fingerprint: ")+QString(sign->fpr)+"\n\n");
             verifyLabelText.append(name);
             if (!email.isEmpty()) {
                 verifyLabelText.append("<"+email+">");
@@ -781,7 +774,16 @@ void GpgWin::verify()
             vn->setProperty("keyFound", true);
             break;
         }
-        verifyDetailText->append(tr("\nFingerprint: ")+QString(sign->fpr)+"\n\n");
+        default:
+        {
+            qDebug() << "switch default";
+            verifyDetailText.append(tr("Key with Fingerprint: ")+QString(sign->fpr)+"\n");
+            verifyDetailText.append(tr("Signature status: ")+gpg_strerror(sign->status)+"\n");
+            verifyDetailText.append(tr("Signature validity reason: ")+QString(gpgme_strerror(sign->validity_reason))+"\n");
+            verifyLabelText.append(tr("Error for key with fingerprint ")+QString(sign->fpr));
+            break;
+        }
+        }
         verifyLabelText.append("\n");
         qDebug() << "sig fingerprint: " <<  sign->fpr;
         qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
@@ -790,19 +792,33 @@ void GpgWin::verify()
         qDebug() << "timestamp: " << sign->timestamp;
         sign = sign->next;
     }
-    verifyDetailText->prepend("Text was signed on: "+timestamp.toString(Qt::SystemLocaleShortDate)+"\n\n");
-    vn->setVerifyDetailText(*verifyDetailText);
+
+    switch (textIsSigned)
+    {
+    case 2:
+    {
+        verifyLabelText.prepend(tr("Text is completly signed by: "));
+        verifyDetailText.prepend(tr("Text was completly signed on %1 by:\n\n").arg(timestamp.toString(Qt::SystemLocaleShortDate)));
+        break;
+    }
+    case 1:
+    {
+        verifyLabelText.prepend(tr("Text is partially signed by: "));
+        verifyDetailText.prepend(tr("Text was partially signed on %1 by:\n\n").arg(timestamp.toString(Qt::SystemLocaleShortDate)));
+        break;
+    }
+    }
 
     // If an unknown key is found, enable the importfromkeyserveraction
-    if (unknownKeyFound) {
-        vn->showImportAction(true);
-    } else {
-        vn->showImportAction(false);
-    }
+    vn->showImportAction(unknownKeyFound);
 
     // Remove the last linebreak
     verifyLabelText.remove(verifyLabelText.length()-1,1);
+    verifyDetailText.remove(verifyDetailText.length()-1,1);
+
     vn->setVerifyLabel(verifyLabelText,verifyStatus);
+    vn->setVerifyDetailText(verifyDetailText);
+
     edit->curPage()->showNotificationWidget(vn, "verifyNotification");
 }
 
