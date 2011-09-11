@@ -320,6 +320,14 @@ void TextEdit::quote()
     cursor.endEditBlock();
 }
 
+void TextEdit::fillTextEditWithText(QString text) {
+    QTextCursor cursor(curTextPage()->document());
+    cursor.beginEditBlock();
+    this->curTextPage()->selectAll();
+    this->curTextPage()->insertPlainText(text);
+    cursor.endEditBlock();
+}
+
 void TextEdit::loadFile(const QString &fileName)
 {
     QFile file(fileName);

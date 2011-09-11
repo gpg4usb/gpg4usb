@@ -54,7 +54,7 @@ public:
     TextEdit(QString iconPath);
 
     /**
-     * @brief Load the content of file into the current textpage
+     * @details Load the content of file into the current textpage
      *
      * @param fileName QString containing the filename to load
      * @return nothing
@@ -77,88 +77,48 @@ public:
     QPlainTextEdit* curTextPage();
 
     /**
-     * @details  List of currently unsaved tabs
-     * @returns QHash<int, QString> Hash of tabindexes and title of unsaved tabs
+     * @details  List of currently unsaved tabs.
+     * @returns QHash<int, QString> Hash of tabindexes and title of unsaved tabs.
      */
     QHash<int, QString> unsavedDocuments();
 
 public slots:
-    /****************************************************************************************
-     * Name:                quote
-     * Description:         Insert a ">" at the begining of every line of current textedit
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:
-    */
     /**
-     * @brief
-     *
+     * @details Insert a ">" at the begining of every line of current textedit.
      */
     void quote();
 
-    /****************************************************************************************
-     * Name:                save
-     * Description:         Saves the content of the current tab, if it has a filepath
-     *                      otherwise it calls saveAs for the current tab
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:
-    */
     /**
-     * @brief
-     *
+      * @details replace the text of currently active textedit with given text.
+      * @param text to fill on.
+      */
+    void fillTextEditWithText(QString text);
+
+    /**
+     * @details Saves the content of the current tab, if it has a filepath
+     * otherwise it calls saveAs for the current tab
      */
     void save();
 
-    /****************************************************************************************
-     * Name:                SaveAs
-     * Description:         Opens a savefiledialog and calls saveFile with the choosen filename
-     * Parameters:          none
-     * Return Values:       just returns the return value of the saveFile method
-     * Change on members:   none
-    */
     /**
-     * @brief
+     * @details Opens a savefiledialog and calls saveFile with the choosen filename.
      *
+     * @return Return the return value of the savefile method
      */
     bool saveAs();
 
-    /****************************************************************************************
-     * Name:                open
-     * Description:         shows an OpenFileDoalog and opens the file in a new tab
-     *                      shows an error dialog, if the open fails
-     *                      sets the focus to the tab of the opened file
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   none
-    */
     /**
-     * @brief
-     *
+     * @details Show an OpenFileDoalog and open the file in a new tab.
+     * Shows an error dialog, if the open fails.
+     * Set the focus to the tab of the opened file.
      */
     void open();
 
-    /****************************************************************************************
-     * Name:                print
-     * Description:         opens print dialog for the current tab
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   none
-    */
     /**
-     * @brief
-     *
+     * @details Open a print-dialog for the current tab
      */
     void print();
 
-    /****************************************************************************************
-     * Name:                newTab()
-     * Description:         Adds a new tab with the title "untitled"+countpage+".txt"
-     *                      Sets the focus to the new tab
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   increases countPage per 1
-    */
     /**
      * @details Adds a new tab with the title "untitled"+countpage+".txt"
      *                      Sets the focus to the new tab. Increase Tab-Count by one
@@ -175,62 +135,40 @@ public slots:
      *
      */
     void closeTab();
-    /****************************************************************************************
-     * Name:                switchTabUp
-     * Description:         switch to next tab
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   increase tabWidget->count() per 1
-    */
+
     /**
-     * @brief
+     * @details Switch to the next tab.
      *
      */
     void switchTabUp();
-    /****************************************************************************************
-     * Name:                switchTabDown
-     * Description:         switch to next tab
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   decrease tabWidget->count() per 1
-    */
+
     /**
-     * @brief
+     * @details Switch to the previous tab.
      *
      */
     void switchTabDown();
-    /****************************************************************************************
-     * Name:                curPage
-     * Description:         return pointer to the currently activated tabpage
-     * Parameters:          none
-     * Return Values:       pointer to the currently activated tabpage
-     * Change on members:   none
-    */
+
     /**
-     * @brief
+     * @details Return pointer to the currently activated tabpage.
      *
      */
     EditorPage *curPage();
 
 private:
-    /****************************************************************************************
-     * Name:                strippedName
-     * Description:         return just filename
-     * Parameters:          a filename path
-     * Return Values:       QStirng containig the filename
-     * Change on members:   none
-    */
     /**
-     * @brief
+     * @details return just a filename stripped of a whole path
      *
-     * @param fullFileName
+     * @param a filename path
+     * @return QString containing the filename
      */
     QString strippedName(const QString &fullFileName);
+
     /**
      * @brief
      *
      */
     bool maybeSaveFile();
+
     /**
      * @brief
      *
@@ -238,78 +176,39 @@ private:
      */
     bool maybeSaveCurrentTab(bool askToSave);
 
-    QString mIconPath; /* TODO */
+    QString mIconPath; /** Path to the apps icons */
     /****************************************************************************************
      * Name:                countPage
      * Description:         int cotaining the number of added tabs
     */
     int countPage; /* TODO */
-    QTabWidget *tabWidget; /* TODO */
+    QTabWidget *tabWidget; /** Widget containing the tabs of the editor */
 
 private slots:
-    /****************************************************************************************
-     * Name:                removeTab
-     * Description:         Removes the tab on index
-     * Parameters:          int index, shows the index of the tab to remove
-     * Return Values:       none
-     * Change on members:   none
-    */
     /**
-     * @brief
+     * @details Remove the tab with given index
      *
-     * @param index
+     * @param index Tab-number to remove
      */
     void removeTab(int index);
 
-    /****************************************************************************************
-     * Name:                cut
-     * Description:         cut selected text in current textpage
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   none
-    */
     /**
-     * @brief
-     *
+     * @details Cut selected text in current textpage.
      */
     void cut();
 
-    /****************************************************************************************
-     * Name:                copy
-     * Description:         copy selected text of current textpage to clipboard
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   none
-    */
     /**
-     * @brief
-     *
+     * @details Copy selected text of current textpage to clipboard.
      */
     void copy();
 
-    /****************************************************************************************
-     * Name:                paste
-     * Description:         paste text from clipboard to current textpage
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   none
-    */
     /**
-     * @brief
-     *
+     * @details Paste text from clipboard to current textpage.
      */
     void paste();
 
-    /****************************************************************************************
-     * Name:                undo
-     * Description:         undo last change in current textpage
-     * Parameters:          none
-     * Return Values:       none
-     * Change on members:   none
-    */
-
     /**
-     * @brief
+     * @details Undo last change in current textpage.
      *
      */
     void undo();

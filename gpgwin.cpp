@@ -124,7 +124,7 @@ void GpgWin::saveSettings()
 
 void GpgWin::createActions()
 {
-    /** Main Menu
+    /* Main Menu
       */
     newTabAct = new QAction(tr("&New"), this);
     QList<QKeySequence> newTabActShortcutList;
@@ -170,7 +170,7 @@ void GpgWin::createActions()
     quitAct->setToolTip(tr("Quit Program"));
     connect(quitAct, SIGNAL(triggered()), this, SLOT(close()));
 
-    /** Edit Menu
+    /* Edit Menu
      */
     undoAct = new QAction(tr("&Undo"), this);
     undoAct->setShortcut(QKeySequence::Undo);
@@ -224,7 +224,7 @@ void GpgWin::createActions()
     openSettingsAct->setShortcut(QKeySequence::Preferences);
     connect(openSettingsAct, SIGNAL(triggered()), this, SLOT(openSettingsDialog()));
 
-    /** Crypt Menu
+    /* Crypt Menu
      */
     encryptAct = new QAction(tr("&Encrypt"), this);
     encryptAct->setIcon(QIcon(iconPath + "encrypted.png"));
@@ -255,7 +255,7 @@ void GpgWin::createActions()
     verifyAct->setToolTip(tr("Verify Message"));
     connect(verifyAct, SIGNAL(triggered()), this, SLOT(verify()));
 
-    /** Key Menu
+    /* Key Menu
      */
     importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(iconPath + "misc_doc.png"));
@@ -286,7 +286,7 @@ void GpgWin::createActions()
     importKeyDialogAct->setToolTip(tr("Open Import New Key Dialog"));
     connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
 
-    /** About Menu
+    /* About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
     aboutAct->setIcon(QIcon(iconPath + "help.png"));
@@ -302,7 +302,7 @@ void GpgWin::createActions()
     openTranslateAct->setToolTip(tr("Translate gpg4usb yourself"));
     connect(openTranslateAct, SIGNAL(triggered()), this, SLOT(openTranslate()));
 
-    /** Popup-Menu-Action for KeyList
+    /* Popup-Menu-Action for KeyList
      */
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
     appendSelectedKeysAct->setToolTip(tr("Append The Selected Keys To Text in Editor"));
@@ -317,7 +317,7 @@ void GpgWin::createActions()
     showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
     connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(showKeyDetails()));
 
-    /** Key-Shortcuts for Tab-Switchung-Action
+    /* Key-Shortcuts for Tab-Switchung-Action
      */
     switchTabUpAct = new QAction(this);
     switchTabUpAct->setShortcut(QKeySequence::NextChild);
@@ -427,7 +427,7 @@ void GpgWin::createStatusBar()
 
 void GpgWin::createDockWindows()
 {
-    /** KeyList-Dockwindow
+    /* KeyList-Dockwindow
      */
     dock = new QDockWidget(tr("Encrypt for:"), this);
     dock->setObjectName("EncryptDock");
@@ -436,7 +436,7 @@ void GpgWin::createDockWindows()
     dock->setWidget(mKeyList);
     viewMenu->addAction(dock->toggleViewAction());
 
-    /** Attachments-Dockwindow
+    /* Attachments-Dockwindow
       */
     aDock = new QDockWidget(tr("Attached files:"), this);
     aDock->setObjectName("AttachmentDock");
@@ -450,7 +450,7 @@ void GpgWin::createDockWindows()
 
 void GpgWin::closeEvent(QCloseEvent *event)
 {
-    /**
+    /*
      * ask to save changes, if there are
      * modified documents in any tab
      */
@@ -513,7 +513,7 @@ void GpgWin::openTutorial() {
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
 }
 
-/**
+/*
   * if this is mime, split text and attachments...
   * message contains only text afterwards
   */
@@ -574,7 +574,7 @@ void GpgWin::checkAttachmentFolder() {
     }
 }
 
-/**
+/*
  * if there is no '\n' before the PGP-Begin-Block, but for example a whitespace,
  * GPGME doesn't recognise the Message as encrypted. This function adds '\n'
  * before the PGP-Begin-Block, if missing.
@@ -641,13 +641,7 @@ void GpgWin::encrypt()
     QByteArray *tmp = new QByteArray();
     if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
-
-        // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
-        QTextCursor cursor(edit->curTextPage()->document());
-        cursor.beginEditBlock();
-        edit->curTextPage()->selectAll();
-        edit->curTextPage()->insertPlainText(*tmp2);
-        cursor.endEditBlock();
+        edit->fillTextEditWithText(*tmp2);
     }
 }
 
@@ -659,13 +653,7 @@ void GpgWin::sign()
     // TODO: toUtf8() here?
     if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toAscii(), tmp)) {
         QString *tmp2 = new QString(*tmp);
-
-        // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
-        QTextCursor cursor(edit->curTextPage()->document());
-        cursor.beginEditBlock();
-        edit->curTextPage()->selectAll();
-        edit->curTextPage()->insertPlainText(*tmp2);
-        cursor.endEditBlock();
+        edit->fillTextEditWithText(*tmp2);
     }
 }
 
@@ -680,7 +668,7 @@ void GpgWin::decrypt()
         return;
     }
 
-    /**
+    /*
          *   1) is it mime (content-type:)
          *   2) parse header
          *   2) choose action depending on content-type
@@ -701,12 +689,7 @@ void GpgWin::decrypt()
             }
         }
     }
-    // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
-    QTextCursor cursor(edit->curTextPage()->document());
-    cursor.beginEditBlock();
-    edit->curTextPage()->selectAll();
-    edit->curTextPage()->insertPlainText(QString::fromUtf8(*decrypted));
-    cursor.endEditBlock();
+    edit->fillTextEditWithText(QString::fromUtf8(*decrypted));
 }
 
 /*
@@ -731,7 +714,6 @@ void GpgWin::verify()
     verify_label_status verifyStatus=VERIFY_ERROR_OK;
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     preventNoDataErr(&text);
-    QString verifyDetailText;
     int textIsSigned = isSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
@@ -755,31 +737,28 @@ void GpgWin::verify()
             verifyStatus=VERIFY_ERROR_WARN;
             verifyLabelText.append(tr("Key not present with Fingerprint: ")+QString(sign->fpr));
             *vn->keysNotInList << sign->fpr;
-            vn->setProperty("keyNotFound", true);
             unknownKeyFound=true;
-            verifyDetailText.append(tr("Key not present in keylist: ")+QString(sign->fpr)+"\n\n");
+            vn->addVerifyDetailLabel(tr("Key not present in keylist: ")+QString(sign->fpr),VERIFY_ERROR_WARN, false);
             break;
         }
         case GPG_ERR_NO_ERROR:
         {
-            qDebug() << "GPG_ERR_NO_ERR";
             QString name = mKeyList->getKeyNameByFpr(sign->fpr);
             QString email =mKeyList->getKeyEmailByFpr(sign->fpr);
-            verifyDetailText.append(tr("Name: ")+name+"\n"+tr("EMail: ")+email+"\n");
-            verifyDetailText.append(tr("Fingerprint: ")+QString(sign->fpr)+"\n\n");
             verifyLabelText.append(name);
             if (!email.isEmpty()) {
                 verifyLabelText.append("<"+email+">");
             }
-            vn->setProperty("keyFound", true);
+            vn->addVerifyDetailLabel(tr("Name: ")+name+"\n"+tr("EMail: ")+email+"\n"+tr("Fingerprint: ")+QString(sign->fpr),VERIFY_ERROR_OK, false);
             break;
         }
         default:
         {
-            qDebug() << "switch default";
-            verifyDetailText.append(tr("Key with Fingerprint: ")+QString(sign->fpr)+"\n");
-            verifyDetailText.append(tr("Signature status: ")+gpg_strerror(sign->status)+"\n");
-            verifyDetailText.append(tr("Signature validity reason: ")+QString(gpgme_strerror(sign->validity_reason))+"\n");
+            verifyStatus=VERIFY_ERROR_WARN;
+            vn->addVerifyDetailLabel(tr("Key with Fingerprint: ")+
+                                     QString(sign->fpr)+"\n"+tr("Signature status: ")+gpg_strerror(sign->status)+"\n"
+                                     +tr("Signature validity reason: ")+QString(gpgme_strerror(sign->validity_reason)),
+                                     VERIFY_ERROR_WARN, false);
             verifyLabelText.append(tr("Error for key with fingerprint ")+QString(sign->fpr));
             break;
         }
@@ -789,7 +768,6 @@ void GpgWin::verify()
         qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
         qDebug() << "sig validity: " <<  sign->validity;
         qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
-        qDebug() << "timestamp: " << sign->timestamp;
         sign = sign->next;
     }
 
@@ -798,13 +776,13 @@ void GpgWin::verify()
     case 2:
     {
         verifyLabelText.prepend(tr("Text is completly signed by: "));
-        verifyDetailText.prepend(tr("Text was completly signed on %1 by:\n\n").arg(timestamp.toString(Qt::SystemLocaleShortDate)));
+        vn->addVerifyDetailLabel(tr("Text was completly signed on %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleShortDate)),VERIFY_ERROR_NEUTRAL, true);
         break;
     }
     case 1:
     {
         verifyLabelText.prepend(tr("Text is partially signed by: "));
-        verifyDetailText.prepend(tr("Text was partially signed on %1 by:\n\n").arg(timestamp.toString(Qt::SystemLocaleShortDate)));
+        vn->addVerifyDetailLabel(tr("Text was partially signed on %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleShortDate)),VERIFY_ERROR_NEUTRAL, true);
         break;
     }
     }
@@ -814,10 +792,8 @@ void GpgWin::verify()
 
     // Remove the last linebreak
     verifyLabelText.remove(verifyLabelText.length()-1,1);
-    verifyDetailText.remove(verifyDetailText.length()-1,1);
 
     vn->setVerifyLabel(verifyLabelText,verifyStatus);
-    vn->setVerifyDetailText(verifyDetailText);
 
     edit->curPage()->showNotificationWidget(vn, "verifyNotification");
 }
@@ -861,7 +837,7 @@ void GpgWin::importKeyDialog()
     }
 }
 
-/**
+/*
  * Append the selected (not checked!) Key(s) To Textedit
  */
 void GpgWin::appendSelectedKeys()
@@ -909,10 +885,5 @@ void GpgWin::openSettingsDialog()
 void GpgWin::cleanDoubleLinebreaks() {
     QString content = edit->curTextPage()->toPlainText();
     content.replace("\n\n", "\n");
-    QTextCursor cursor(edit->curTextPage()->document());
-    // TODO: own utils method for following:
-    cursor.beginEditBlock();
-    edit->curTextPage()->selectAll();
-    edit->curTextPage()->insertPlainText(content);
-    cursor.endEditBlock();
+    edit->fillTextEditWithText(content);
 }

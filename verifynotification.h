@@ -41,6 +41,7 @@ typedef enum
     VERIFY_ERROR_OK = 0,
     VERIFY_ERROR_WARN = 1,
     VERIFY_ERROR_CRITICAL = 2,
+    VERIFY_ERROR_NEUTRAL =3,
 }  verify_label_status;
 
 /**
@@ -72,43 +73,40 @@ public:
      */
     void showImportAction(bool visible);
 
+    QStringList *keysNotInList; /** List with keys, which are in signature but not in keylist */
+
     /**
-     * @details Set the text of verify-detail dialog.
-     *
-     * @param text The text to be set.
-     */
-    void setVerifyDetailText(QString text);
-
-    /****************************************************************************************
-     * Name:                keysNotInList
-     * Description:         List holding the keys in signature, which are not in the keylist
-    */
-    QStringList *keysNotInList;
-
-signals:
+      * @details add text to the verifyDetailStringVector and associated status to the
+      * verifyDetailStatusVector
+      * @param text The text to be added
+      * @param status The status to be set
+      * @param prepend If prepend is true, prepend to the vectors,
+      *  otherwise append to the vectors
+      */
+    void addVerifyDetailLabel(QString text, verify_label_status status, bool prepend);
 
 public slots:
-    // import missing key from keyserver
     /**
-     * @brief
+     * @details Import the keys contained in keysNotInList from keyserver
      *
      */
     void importFromKeyserver();
-    // show verify details
+
     /**
-     * @brief
-     *
+     * @details Show a dialog with signing details.
      */
     void showVerifyDetails();
 
 private:
-    QMenu *detailMenu; // Menu for te Button in verfiyNotification /**< TODO */
-    QAction *importFromKeyserverAct; /**< TODO */
-    QAction *showVerifyDetailsAct; /**< TODO */
-    QString *verifyDetailText; // Text showed in VerifiyNotification /**< TODO */
-    QPushButton *detailsButton; // Button shown in verifynotification /**< TODO */
-    QLabel *verifyLabel; // Label holding the text shown in verifyNotification /**< TODO */
-    GpgME::Context *mCtx; /**< TODO */
-    QHBoxLayout *notificationWidgetLayout; /**< TODO */
+    QMenu *detailMenu; /** Menu for te Button in verfiyNotification */
+    QAction *importFromKeyserverAct; /** Action for importing keys from keyserver which are notin keylist */
+    QAction *showVerifyDetailsAct; /** Action for showing verify detail dialog */
+    QPushButton *detailsButton; /** Button shown in verifynotification */
+    QLabel *verifyLabel; /** Label holding the text shown in verifyNotification */
+    GpgME::Context *mCtx; /** GpgME Context */
+    QHBoxLayout *notificationWidgetLayout; /** Layout for verify-notification */
+    QVBoxLayout *verifyDetailListLayout;  /** Layout for verify-detail-dialog */
+    QVector<QString> verifyDetailStringVector; /** Vector containing the text for labels in verifydetaildialog */
+    QVector<verify_label_status> verifyDetailStatusVector; /** Vector containing the status for labels in verifydetaildialog */
 };
 #endif // VERIFYNOTIFICATION_H
