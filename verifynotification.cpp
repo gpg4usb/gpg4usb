@@ -21,10 +21,12 @@
 
 #include "verifynotification.h"
 
-VerifyNotification::VerifyNotification(GpgME::Context *ctx, QWidget *parent ) :
+VerifyNotification::VerifyNotification(QWidget *parent, GpgME::Context *ctx, KeyList *keyList, gpgme_signature_t sign ) :
     QWidget(parent)
 {
     mCtx = ctx;
+    mKeyList = keyList;
+    mSignature = sign;
     verifyLabel = new QLabel(this);
 
     importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
@@ -93,7 +95,7 @@ void VerifyNotification::showImportAction(bool visible)
 
 void VerifyNotification::showVerifyDetails()
 {
-    QDialog *verifyDetailsDialog = new QDialog(this);
+    /*QDialog *verifyDetailsDialog = new QDialog(this);
   //  QLabel *label = new QLabel(*verifyDetailText);
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, SIGNAL(rejected()), verifyDetailsDialog, SLOT(close()));
@@ -122,5 +124,6 @@ void VerifyNotification::showVerifyDetails()
     verifyDetailsDialog->show();
 
     //QMessageBox::information(this,tr("Details"),QString(*verifyDetailText), QMessageBox::Ok);
-    return;
+    return;*/
+    new VerifyDetailsDialog(this, mCtx, mKeyList, mSignature);
 }

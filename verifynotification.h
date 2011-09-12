@@ -24,6 +24,7 @@
 
 #include "keyserverimportdialog.h"
 #include "context.h"
+#include "verifydetailsdialog.h"
 #include <gpgme.h>
 #include <QWidget>
 
@@ -58,7 +59,7 @@ public:
      * @param ctx The GPGme-Context
      * @param parent The parent widget
      */
-    explicit VerifyNotification(GpgME::Context *ctx,QWidget *parent = 0 );
+    explicit VerifyNotification(QWidget *parent, GpgME::Context *ctx, KeyList *keyList, gpgme_signature_t sign);
     /**
      * @details Set the text and background-color of verify notification.
      *
@@ -104,6 +105,8 @@ private:
     QPushButton *detailsButton; /** Button shown in verifynotification */
     QLabel *verifyLabel; /** Label holding the text shown in verifyNotification */
     GpgME::Context *mCtx; /** GpgME Context */
+    KeyList *mKeyList;
+    gpgme_signature_t mSignature;
     QHBoxLayout *notificationWidgetLayout; /** Layout for verify-notification */
     QVBoxLayout *verifyDetailListLayout;  /** Layout for verify-detail-dialog */
     QVector<QString> verifyDetailStringVector; /** Vector containing the text for labels in verifydetaildialog */

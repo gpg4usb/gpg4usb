@@ -33,6 +33,7 @@
 #include "fileencryptiondialog.h"
 #include "settingsdialog.h"
 #include "verifynotification.h"
+#include "verifydetailsdialog.h"
 
 class QMainWindow;
 class QPlainTextEdit;

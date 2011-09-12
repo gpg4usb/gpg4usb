@@ -245,7 +245,7 @@ void GpgWin::createActions()
 
     signAct = new QAction(tr("&Sign"), this);
     signAct->setIcon(QIcon(iconPath + "signature.png"));
-    signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S));
+    signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
     signAct->setToolTip(tr("Sign Message"));
     connect(signAct, SIGNAL(triggered()), this, SLOT(sign()));
 
@@ -723,7 +723,8 @@ void GpgWin::verify()
         return;
     }
 
-    VerifyNotification *vn = new VerifyNotification(mCtx,this);
+    VerifyNotification *vn = new VerifyNotification(this, mCtx, mKeyList, sign);
+    //VerifyDetailsDialog *vd = new VerifyDetailsDialog(this, mCtx, mKeyList, sign);
     //vn->keysNotInList->clear();
     QString verifyLabelText;
     bool unknownKeyFound=false;
