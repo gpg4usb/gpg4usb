@@ -17,6 +17,8 @@ Release 0.3.1
 - check class / includes [DONE]
 - keydetailsdialog should have a parent [DONE]
 - Verifynotification margin left [DONE]
+- remove doubled functions (e.g. beautifyfingerprint and keymgmt functions like import)
+- take care of warnings in compiling
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents

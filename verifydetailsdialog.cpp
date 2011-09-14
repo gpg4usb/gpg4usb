@@ -62,7 +62,7 @@ QGroupBox* VerifyDetailsDialog::addDetailBox( gpgme_signature_t signature ) {
 
             grid->addWidget(new QLabel(mKeyList->getKeyNameByFpr(signature->fpr)), 0, 1);
             grid->addWidget(new QLabel(mKeyList->getKeyEmailByFpr(signature->fpr)), 1, 1);
-            grid->addWidget(new QLabel(signature->fpr), 2, 1);
+            grid->addWidget(new QLabel(beautifyFingerprint(signature->fpr)), 2, 1);
             grid->addWidget(new QLabel("OK"), 3, 1);
 
 
@@ -79,10 +79,17 @@ QGroupBox* VerifyDetailsDialog::addDetailBox( gpgme_signature_t signature ) {
         }
     }
 
-
-
     QGroupBox *sbox = new QGroupBox(tr("Key"));
     sbox->setLayout(grid);
     return sbox;
 
+}
+
+QString VerifyDetailsDialog::beautifyFingerprint(QString fingerprint)
+{
+    uint len = fingerprint.length();
+    if ((len > 0) && (len % 4 == 0))
+        for (uint n = 0; 4 *(n + 1) < len; ++n)
+            fingerprint.insert(5 * n + 4, ' ');
+    return fingerprint;
 }

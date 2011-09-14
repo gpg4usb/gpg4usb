@@ -251,6 +251,13 @@ private:
      */
     int isSigned(const QByteArray &text);
 
+    /**
+     * @details Put a space after every four chars of fingerprint.
+     *
+     * @param fingerprint
+     */
+    QString beautifyFingerprint(QString fingerprint);
+
     TextEdit *edit; /** TODO */
     QMenu *fileMenu; /** Submenu for file-operations*/
     QMenu *editMenu; /** Submenu for text-operations*/

@@ -724,7 +724,6 @@ void GpgWin::verify()
     }
 
     VerifyNotification *vn = new VerifyNotification(this, mCtx, mKeyList, sign);
-    //VerifyDetailsDialog *vd = new VerifyDetailsDialog(this, mCtx, mKeyList, sign);
     //vn->keysNotInList->clear();
     QString verifyLabelText;
     bool unknownKeyFound=false;
@@ -736,10 +735,9 @@ void GpgWin::verify()
         case GPG_ERR_NO_PUBKEY:
         {
             verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Key not present with Fingerprint: ")+QString(sign->fpr));
+            verifyLabelText.append(tr("Key not present with Fingerprint: ")+beautifyFingerprint(QString(sign->fpr)));
             *vn->keysNotInList << sign->fpr;
             unknownKeyFound=true;
-            vn->addVerifyDetailLabel(tr("Key not present in keylist: ")+QString(sign->fpr),VERIFY_ERROR_WARN, false);
             break;
         }
         case GPG_ERR_NO_ERROR:
@@ -750,17 +748,12 @@ void GpgWin::verify()
             if (!email.isEmpty()) {
                 verifyLabelText.append("<"+email+">");
             }
-            vn->addVerifyDetailLabel(tr("Name: ")+name+"\n"+tr("EMail: ")+email+"\n"+tr("Fingerprint: ")+QString(sign->fpr),VERIFY_ERROR_OK, false);
             break;
         }
         default:
         {
             verifyStatus=VERIFY_ERROR_WARN;
-            vn->addVerifyDetailLabel(tr("Key with Fingerprint: ")+
-                                     QString(sign->fpr)+"\n"+tr("Signature status: ")+gpg_strerror(sign->status)+"\n"
-                                     +tr("Signature validity reason: ")+QString(gpgme_strerror(sign->validity_reason)),
-                                     VERIFY_ERROR_WARN, false);
-            verifyLabelText.append(tr("Error for key with fingerprint ")+QString(sign->fpr));
+            verifyLabelText.append(tr("Error for key with fingerprint ")+beautifyFingerprint(QString(sign->fpr)));
             break;
         }
         }
@@ -887,4 +880,12 @@ void GpgWin::cleanDoubleLinebreaks() {
     QString content = edit->curTextPage()->toPlainText();
     content.replace("\n\n", "\n");
     edit->fillTextEditWithText(content);
+}
+
+QString GpgWin::beautifyFingerprint(QString fingerprint){
+    uint len = fingerprint.length();
+    if ((len > 0) && (len % 4 == 0))
+        for (uint n = 0; 4 *(n + 1) < len; ++n)
+            fingerprint.insert(5 * n + 4, ' ');
+    return fingerprint;
 }

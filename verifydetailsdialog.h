@@ -15,11 +15,7 @@ private:
     QGroupBox* addDetailBox( gpgme_signature_t signature );
     GpgME::Context* mCtx;
     KeyList* mKeyList;
-
-signals:
-
-public slots:
-
+    QString beautifyFingerprint(QString fingerprint);
 };
 
 #endif // __VERIFYDETAILSDIALOG_H__
