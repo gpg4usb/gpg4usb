@@ -41,11 +41,10 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::Context *ctx, Key
     importFromKeyserverAct->setVisible(false);
 
     keysNotInList = new QStringList();
-
     detailsButton = new QPushButton("Details",this);
     detailsButton->setMenu(detailMenu);
     notificationWidgetLayout = new QHBoxLayout(this);
-    notificationWidgetLayout->setContentsMargins(0,0,0,0);
+    notificationWidgetLayout->setContentsMargins(10,0,0,0);
     notificationWidgetLayout->addWidget(verifyLabel,2);
     notificationWidgetLayout->addWidget(detailsButton);
     this->setLayout(notificationWidgetLayout);

@@ -29,6 +29,7 @@
 #include "keyserverimportdialog.h"
 #include <QtGui>
 
+QT_BEGIN_NAMESPACE
 class QMainWindow;
 class QWidget;
 class iostream;
@@ -41,6 +42,7 @@ class QAction;
 class QMenu;
 class QApplication;
 class QSlider;
+QT_END_NAMESPACE
 
 class KeyMgmt : public QMainWindow
 {

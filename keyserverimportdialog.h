@@ -20,8 +20,8 @@
  *      MA 02110-1301, USA.
  */
 
-#ifndef KEYSERVERIMPORTDIALOG_H
-#define KEYSERVERIMPORTDIALOG_H
+#ifndef __KEYSERVERIMPORTDIALOG_H__
+#define __KEYSERVERIMPORTDIALOG_H__
 
 #include "context.h"
 #include <QNetworkAccessManager>
@@ -83,4 +83,4 @@ private:
     QNetworkReply *searchreply;
     QNetworkReply *importreply;
 };
-#endif
+#endif // __KEYSERVERIMPORTDIALOG_H__

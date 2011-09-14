@@ -15,8 +15,8 @@ Release 0.3.1
 - umlaute are not handled correctly in signing [DONE]
 - beautify icons for verify and sign
 - check class / includes [DONE]
-- keydetailsdialog should have a parent
-- Verifynotification margin left
+- keydetailsdialog should have a parent [DONE]
+- Verifynotification margin left [DONE]
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents

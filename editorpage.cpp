@@ -65,8 +65,3 @@ void EditorPage::hideNoteByClass(const char *className)
         }
     }
 }
-
-void setSaveState()
-{
-   // curPage()->setFilePath("");
-}

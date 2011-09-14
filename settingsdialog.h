@@ -26,6 +26,7 @@
 #include <QWidget>
 #include <QtGui>
 
+QT_BEGIN_NAMESPACE
 class QDialog;
 class QRadioButton;
 class QDialogButtonBox;
@@ -44,6 +45,7 @@ class QButtonGroup;
 class QGroupBox;
 class QFileInfo;
 class QTabWidget;
+QT_END_NAMESPACE
 
 class GeneralTab : public QWidget
  {

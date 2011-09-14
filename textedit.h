@@ -25,6 +25,7 @@
 #include "editorpage.h"
 #include "quitdialog.h"
 
+QT_BEGIN_NAMESPACE
 class QDebug;
 class QtGui;
 class QFileDialog;
@@ -38,6 +39,7 @@ class QMessageBox;
 class QWidget;
 class QString;
 class QTabWidget;
+QT_END_NAMESPACE
 
 /**
  * @brief TextEdit class
@@ -256,4 +258,4 @@ protected:
      */
     bool saveFile(const QString &fileName);
 };
-#endif // TEXTEDIT
+#endif // __TEXTEDIT_H__

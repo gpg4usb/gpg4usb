@@ -19,8 +19,8 @@
  *      MA 02110-1301, USA.
  */
 
-#ifndef VERIFYNOTIFICATION_H
-#define VERIFYNOTIFICATION_H
+#ifndef __VERIFYNOTIFICATION_H__
+#define __VERIFYNOTIFICATION_H__
 
 #include "keyserverimportdialog.h"
 #include "context.h"
@@ -28,14 +28,15 @@
 #include <gpgme.h>
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 class QLabel;
 class QHBoxLayout;
 class QMenu;
 class QPushButton;
+QT_END_NAMESPACE
 
 /**
  * @details Enumeration for the status of Verifylabel
- *
  */
 typedef enum
 {
@@ -47,7 +48,6 @@ typedef enum
 
 /**
  * @brief Class for handling the verifylabel shown at buttom of a textedit-page
- *
  */
 class VerifyNotification : public QWidget
 {
@@ -105,11 +105,11 @@ private:
     QPushButton *detailsButton; /** Button shown in verifynotification */
     QLabel *verifyLabel; /** Label holding the text shown in verifyNotification */
     GpgME::Context *mCtx; /** GpgME Context */
-    KeyList *mKeyList;
-    gpgme_signature_t mSignature;
+    KeyList *mKeyList; /** Table holding the keys */
+    gpgme_signature_t mSignature; /** List holding the signatures of text */
     QHBoxLayout *notificationWidgetLayout; /** Layout for verify-notification */
     QVBoxLayout *verifyDetailListLayout;  /** Layout for verify-detail-dialog */
     QVector<QString> verifyDetailStringVector; /** Vector containing the text for labels in verifydetaildialog */
     QVector<verify_label_status> verifyDetailStatusVector; /** Vector containing the status for labels in verifydetaildialog */
 };
-#endif // VERIFYNOTIFICATION_H
+#endif // __VERIFYNOTIFICATION_H__

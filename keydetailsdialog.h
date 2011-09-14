@@ -25,6 +25,7 @@
 #include "context.h"
 #include <gpgme.h>
 
+QT_BEGIN_NAMESPACE
 class QDateTime;
 class QVBoxLayout;
 class QDialogButtonBox;
@@ -33,13 +34,14 @@ class QGroupBox;
 class QLabel;
 class QGridLayout;
 class QPushButton;
+QT_END_NAMESPACE
 
 class KeyDetailsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key);
+    KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key, QWidget *parent = 0);
 
 private slots:
     void exportPrivateKey();

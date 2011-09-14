@@ -25,7 +25,9 @@
 #include "context.h"
 #include <QtGui>
 
+QT_BEGIN_NAMESPACE
 class QTableWidget;
+QT_END_NAMESPACE
 
 class QuitDialog : public QDialog
 {

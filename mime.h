@@ -25,9 +25,11 @@
 #include <QHashIterator>
 #include <QHash>
 
+QT_BEGIN_NAMESPACE
 class QByteArray;
 class QDebug;
 class QTextCodec;
+QT_END_NAMESPACE
 
 class HeadElem
 {

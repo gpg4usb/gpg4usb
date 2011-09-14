@@ -1,5 +1,5 @@
-#ifndef VERIFYDETAILSDIALOG_H
-#define VERIFYDETAILSDIALOG_H
+#ifndef __VERIFYDETAILSDIALOG_H__
+#define __VERIFYDETAILSDIALOG_H__
 
 #include "context.h"
 #include "keylist.h"
@@ -22,4 +22,4 @@ public slots:
 
 };
 
-#endif // VERIFYDETAILSDIALOG_H
+#endif // __VERIFYDETAILSDIALOG_H__

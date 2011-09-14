@@ -19,16 +19,18 @@
  *      MA 02110-1301, USA.
  */
 
-#ifndef EDITORPAGE_H
-#define EDITORPAGE_H
+#ifndef __EDITORPAGE_H__
+#define __EDITORPAGE_H__
 
 #include <QPlainTextEdit>
 #include <QtGui>
 
+QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QHBoxLayout;
 class QString;
 class QLabel;
+QT_END_NAMESPACE
 
 /**
  * @brief Class for handling a single tab of tabwidget
@@ -40,7 +42,7 @@ class EditorPage : public QWidget
 
 public:
     /**
-     * @brief
+     * @details Add layout and add plaintextedit
      *
      * @param filePath Path of the file handled in this tab
      * @param parent Pointer to the parent widget
@@ -61,7 +63,6 @@ public:
 
     /**
      * @details Return pointer tp the textedit of the currently activated tab.
-     *
      */
     QPlainTextEdit *getTextPage();
 
@@ -88,12 +89,6 @@ private:
     QMenu *verifyMenu; /** The menu in the notifiaction widget */
     QString fullFilePath; /** The path to the file handled in the tab */
     QLabel *verifyLabel; /** The label of the verify-notification widget */
-    /**
-     * @details bla
-     *
-     */
-    void setSaveState();
-
 };
 
-#endif // TEXTPAGE_H
+#endif // __TEXTPAGE_H__

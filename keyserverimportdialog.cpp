@@ -220,6 +220,7 @@ void KeyServerImportDialog::import()
 void KeyServerImportDialog::import(QString keyId)
 {
     QUrl url = "http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x"+keyId+"&options=mr";
+    qDebug() << "keyid in import: " << keyId;
     importreply = qnam.get(QNetworkRequest(url));
     connect(importreply, SIGNAL(finished()),
             this, SLOT(importFinished()));

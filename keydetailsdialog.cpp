@@ -21,7 +21,8 @@
 
 #include "keydetailsdialog.h"
 
-KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key)
+KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key, QWidget *parent)
+    : QDialog(parent)
 {
 
     mCtx = ctx;
@@ -126,6 +127,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key)
 
     this->setLayout(mvbox);
     this->setWindowTitle(tr("Keydetails"));
+    this->setModal(true);
     this->show();
 
     exec();

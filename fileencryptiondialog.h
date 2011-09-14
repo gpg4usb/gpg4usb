@@ -25,6 +25,7 @@
 #include "context.h"
 #include "keylist.h"
 
+QT_BEGIN_NAMESPACE
 class QDialog;
 class QLineEdit;
 class QWidget;
@@ -36,30 +37,70 @@ class QVBoxLayout;
 class QDebug;
 class QFileDialog;
 class QRadioButton;
+QT_END_NAMESPACE
 
+/**
+ * @brief
+ *
+ * @class FileEncryptionDialog fileencryptiondialog.h "fileencryptiondialog.h"
+ */
 class FileEncryptionDialog : public QDialog
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief
+     *
+     * @fn FileEncryptionDialog
+     * @param ctx
+     * @param iconPath
+     * @param keyList
+     * @param parent
+     */
     FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QStringList keyList , QWidget *parent = 0);
 
 public slots:
+    /**
+     * @details
+     *
+     * @fn selectInputFile
+     */
     void selectInputFile();
+    /**
+     * @brief
+     *
+     * @fn selectOutputFile
+     */
     void selectOutputFile();
+    /**
+     * @brief
+     *
+     * @fn executeAction
+     */
     void executeAction();
+    /**
+     * @brief
+     *
+     * @fn hideKeyList
+     */
     void hideKeyList();
+    /**
+     * @brief
+     *
+     * @fn showKeyList
+     */
     void showKeyList();
 
 private:
-    QLineEdit *outputFileEdit;
-    QLineEdit *inputFileEdit;
-    QRadioButton *radioEnc;
-    QRadioButton *radioDec;
+    QLineEdit *outputFileEdit; /**< TODO */
+    QLineEdit *inputFileEdit; /**< TODO */
+    QRadioButton *radioEnc; /**< TODO */
+    QRadioButton *radioDec; /**< TODO */
 
 protected:
-    GpgME::Context *mCtx;
-    KeyList *mKeyList;
+    GpgME::Context *mCtx; /**< TODO */
+    KeyList *mKeyList; /**< TODO */
 
 };
 #endif // __FILEENCRYPTIONDIALOG_H__

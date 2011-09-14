@@ -1,12 +1,14 @@
-#ifndef ATTACHMENTTABLEMODEL_H
-#define ATTACHMENTTABLEMODEL_H
+#ifndef __ATTACHMENTTABLEMODEL_H__
+#define __ATTACHMENTTABLEMODEL_H__
 
 #include "mime.h"
 #include <QIcon>
 #include <QFile>
 #include <QAbstractTableModel>
 
+QT_BEGIN_NAMESPACE
 class QStandardItem;
+QT_END_NAMESPACE
 
 class AttachmentTableModel : public QAbstractTableModel
 {
@@ -33,4 +35,4 @@ private:
 
 };
 
-#endif // ATTACHMENTTABLEMODEL_H
+#endif // __ATTACHMENTTABLEMODEL_H__

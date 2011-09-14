@@ -29,7 +29,9 @@
 #include <cmath>
 #include <QtGui>
 
+QT_BEGIN_NAMESPACE
 class QMessageBox;
+QT_END_NAMESPACE
 
 class KeyGenThread : public QThread
 {

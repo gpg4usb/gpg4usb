@@ -28,11 +28,13 @@
 #include <QLinkedList>
 #include <QtGui>
 
+QT_BEGIN_NAMESPACE
 class QMessageBox;
 class sstream;
 class QApplication;
 class QByteArray;
 class QString;
+QT_END_NAMESPACE
 
 class GpgKey
 {

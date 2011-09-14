@@ -27,6 +27,7 @@
 #include <QtGui>
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 class QTableView;
 class QHeaderView;
 class QVBoxLayout;
@@ -38,6 +39,7 @@ class QUrl;
 class QDesktopServices;
 class QSettings;
 class QApplication;
+QT_END_NAMESPACE
 
 class Attachments : public QWidget
 {

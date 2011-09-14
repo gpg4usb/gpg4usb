@@ -860,7 +860,7 @@ void GpgWin::showKeyDetails()
 {
     // TODO: first...?
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
-    new KeyDetailsDialog(mCtx, key);
+    new KeyDetailsDialog(mCtx, key, this);
 }
 
 

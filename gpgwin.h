@@ -35,6 +35,7 @@
 #include "verifynotification.h"
 #include "verifydetailsdialog.h"
 
+QT_BEGIN_NAMESPACE
 class QMainWindow;
 class QPlainTextEdit;
 class QWidget;
@@ -57,6 +58,7 @@ class QRadioButton;
 class QButtonGroup;
 class QApplication;
 class QDockWidget;
+QT_END_NAMESPACE
 
 
 /**

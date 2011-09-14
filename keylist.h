@@ -24,11 +24,13 @@
 
 #include "context.h"
 
+QT_BEGIN_NAMESPACE
 class QWidget;
 class QVBoxLayout;
 class QLabel;
 class QTableWidget;
 class QMenu;
+QT_END_NAMESPACE
 
 class KeyList : public QWidget
 {
