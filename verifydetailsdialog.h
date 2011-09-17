@@ -3,6 +3,7 @@
 
 #include "context.h"
 #include "keylist.h"
+#include "verifykeydetailbox.h"
 #include <QDialog>
 
 class VerifyDetailsDialog : public QDialog
@@ -12,10 +13,10 @@ public:
     explicit VerifyDetailsDialog(QWidget *parent, GpgME::Context* ctx, KeyList* mKeyList,  gpgme_signature_t signature);
 
 private:
-    QGroupBox* addDetailBox( gpgme_signature_t signature );
     GpgME::Context* mCtx;
     KeyList* mKeyList;
-    QString beautifyFingerprint(QString fingerprint);
+    QVBoxLayout* mVbox;
+    QDialogButtonBox* buttonBox;
 };
 
 #endif // __VERIFYDETAILSDIALOG_H__

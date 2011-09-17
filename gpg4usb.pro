@@ -31,7 +31,8 @@ HEADERS += attachments.h \
     quitdialog.h \
     keyserverimportdialog.h \
     verifynotification.h \
-    verifydetailsdialog.h
+    verifydetailsdialog.h \
+    verifykeydetailbox.h
 SOURCES += attachments.cpp \
     context.cpp \
     gpgwin.cpp \
@@ -49,7 +50,8 @@ SOURCES += attachments.cpp \
     quitdialog.cpp \
     keyserverimportdialog.cpp \
     verifynotification.cpp \
-    verifydetailsdialog.cpp
+    verifydetailsdialog.cpp \
+    verifykeydetailbox.cpp
 RC_FILE = gpg4usb.rc
 
 # comment out line below for static building
