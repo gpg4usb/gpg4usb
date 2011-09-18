@@ -1,7 +1,6 @@
 #ifndef __VERIFYKEYDETAILBOX_H__
 #define __VERIFYKEYDETAILBOX_H__
 
-#include "context.h"
 #include "keylist.h"
 #include "keyserverimportdialog.h"
 #include <QDialog>

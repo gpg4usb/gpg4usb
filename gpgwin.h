@@ -22,18 +22,12 @@
 #ifndef __GPGWIN_H__
 #define __GPGWIN_H__
 
-#include "context.h"
-#include "keylist.h"
 #include "attachments.h"
-#include "mime.h"
 #include "keymgmt.h"
-#include "keydetailsdialog.h"
 #include "textedit.h"
-#include "keyserverimportdialog.h"
 #include "fileencryptiondialog.h"
 #include "settingsdialog.h"
 #include "verifynotification.h"
-#include "verifydetailsdialog.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;

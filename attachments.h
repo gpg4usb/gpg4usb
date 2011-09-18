@@ -22,7 +22,6 @@
 #ifndef __ATTACHMENTS_H__
 #define __ATTACHMENTS_H__
 
-#include "mime.h"
 #include "attachmenttablemodel.h"
 #include <QtGui>
 #include <QWidget>

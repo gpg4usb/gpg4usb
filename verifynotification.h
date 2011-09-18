@@ -22,8 +22,6 @@
 #ifndef __VERIFYNOTIFICATION_H__
 #define __VERIFYNOTIFICATION_H__
 
-#include "keyserverimportdialog.h"
-#include "context.h"
 #include "verifydetailsdialog.h"
 #include <gpgme.h>
 #include <QWidget>

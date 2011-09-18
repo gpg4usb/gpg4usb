@@ -22,7 +22,6 @@
 #ifndef __KEYMGMT_H__
 #define __KEYMGMT_H__
 
-#include "context.h"
 #include "keylist.h"
 #include "keygenthread.h"
 #include "keydetailsdialog.h"

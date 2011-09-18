@@ -1,8 +1,6 @@
 #ifndef __VERIFYDETAILSDIALOG_H__
 #define __VERIFYDETAILSDIALOG_H__
 
-#include "context.h"
-#include "keylist.h"
 #include "verifykeydetailbox.h"
 #include <QDialog>
 
