@@ -13,9 +13,6 @@ class VerifyKeyDetailBox: public QGroupBox
 public:
     explicit VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, KeyList* mKeyList,  gpgme_signature_t signature);
 
-signals:
-    void clicked(const QString &text);
-
 private slots:
     void importFormKeyserver();
 
