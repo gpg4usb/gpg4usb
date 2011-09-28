@@ -758,10 +758,6 @@ void GpgWin::verify()
         }
         }
         verifyLabelText.append("\n");
-        qDebug() << "sig fingerprint: " <<  sign->fpr;
-        qDebug() << "sig status: " <<  sign->status << " - " << gpg_err_code(sign->status) << " - " << gpg_strerror(sign->status);
-        qDebug() << "sig validity: " <<  sign->validity;
-        qDebug() << "sig validity reason: " <<  sign->validity_reason << " - " << gpg_err_code(sign->validity_reason) << " - " << gpgme_strerror(sign->validity_reason);
         sign = sign->next;
     }
 
@@ -770,13 +766,11 @@ void GpgWin::verify()
     case 2:
     {
         verifyLabelText.prepend(tr("Text is completly signed by: "));
-        vn->addVerifyDetailLabel(tr("Text was completly signed on %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleShortDate)),VERIFY_ERROR_NEUTRAL, true);
         break;
     }
     case 1:
     {
         verifyLabelText.prepend(tr("Text is partially signed by: "));
-        vn->addVerifyDetailLabel(tr("Text was partially signed on %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleShortDate)),VERIFY_ERROR_NEUTRAL, true);
         break;
     }
     }

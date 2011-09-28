@@ -22,7 +22,6 @@
 #ifndef __QUITDIALOG_H__
 #define __QUITDIALOG_H__
 
-#include "context.h"
 #include <QtGui>
 
 QT_BEGIN_NAMESPACE

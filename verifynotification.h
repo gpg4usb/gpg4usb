@@ -74,15 +74,6 @@ public:
 
     QStringList *keysNotInList; /** List with keys, which are in signature but not in keylist */
 
-    /**
-      * @details add text to the verifyDetailStringVector and associated status to the
-      * verifyDetailStatusVector
-      * @param text The text to be added
-      * @param status The status to be set
-      * @param prepend If prepend is true, prepend to the vectors,
-      *  otherwise append to the vectors
-      */
-    void addVerifyDetailLabel(QString text, verify_label_status status, bool prepend);
 
 public slots:
     /**
@@ -106,7 +97,6 @@ private:
     KeyList *mKeyList; /** Table holding the keys */
     gpgme_signature_t mSignature; /** List holding the signatures of text */
     QHBoxLayout *notificationWidgetLayout; /** Layout for verify-notification */
-    QVBoxLayout *verifyDetailListLayout;  /** Layout for verify-detail-dialog */
     QVector<QString> verifyDetailStringVector; /** Vector containing the text for labels in verifydetaildialog */
     QVector<verify_label_status> verifyDetailStatusVector; /** Vector containing the status for labels in verifydetaildialog */
 };

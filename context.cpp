@@ -529,7 +529,7 @@ gpgme_signature_t Context::verify(QByteArray inBuffer) {
   * -> valid
   * -> decrypted message
   */
-void Context::decryptVerify(QByteArray in) {
+//void Context::decryptVerify(QByteArray in) {
 
 /*    gpgme_error_t err;
     gpgme_data_t in, out;
@@ -542,12 +542,12 @@ void Context::decryptVerify(QByteArray in) {
 
     verify_result = gpgme_op_verify_result (mCtx);
  */
-}
+//}
 
 void Context::sign(const QByteArray &inBuffer, QByteArray *outBuffer) {
 
     gpgme_error_t err;
-    gpgme_data_t in, out;
+    gpgme_data_t in=NULL, out=NULL;
     gpgme_sign_result_t result;
 
 /*

@@ -5,19 +5,21 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, Key
 {
     this->mCtx = ctx;
     this->mKeyList = keyList;
+    this->fpr=signature->fpr;
+    this->setTitle(signature->fpr);
 
-    QGridLayout *grid = new QGridLayout();
-    fpr=signature->fpr;
+    grid = new QGridLayout();
+
     switch (gpg_err_code(signature->status))
     {
         case GPG_ERR_NO_PUBKEY:
         {
-            QPushButton *importButton = new QPushButton("Import from keyserver");
+            QPushButton *importButton = new QPushButton(tr("Import from keyserver"));
             connect(importButton, SIGNAL(clicked()), this, SLOT(importFormKeyserver()));
 
             grid->addWidget(new QLabel(tr("Status:")), 0, 0);
             grid->addWidget(new QLabel(tr("Fingerprint:")), 1, 0);
-            grid->addWidget(new QLabel("Key not present in keylist"), 0, 1);
+            grid->addWidget(new QLabel(tr("Key not present in keylist")), 0, 1);
             grid->addWidget(new QLabel(signature->fpr), 1, 1);
             grid->addWidget(importButton, 2,0,2,1);
             break;
@@ -32,7 +34,7 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, Key
             grid->addWidget(new QLabel(mKeyList->getKeyNameByFpr(signature->fpr)), 0, 1);
             grid->addWidget(new QLabel(mKeyList->getKeyEmailByFpr(signature->fpr)), 1, 1);
             grid->addWidget(new QLabel(beautifyFingerprint(signature->fpr)), 2, 1);
-            grid->addWidget(new QLabel("OK"), 3, 1);
+            grid->addWidget(new QLabel(tr("OK")), 3, 1);
 
             break;
         }
@@ -47,12 +49,11 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, Key
             break;
         }
     }
-
     this->setLayout(grid);
 }
 
-void VerifyKeyDetailBox::importFormKeyserver() {
-    qDebug() << "clicked";
+void VerifyKeyDetailBox::importFormKeyserver()
+{
     KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,this);
     importDialog->import(fpr);
 }
@@ -65,5 +66,3 @@ QString VerifyKeyDetailBox::beautifyFingerprint(QString fingerprint)
             fingerprint.insert(5 * n + 4, ' ');
     return fingerprint;
 }
-
-

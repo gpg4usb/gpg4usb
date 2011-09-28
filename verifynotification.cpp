@@ -48,18 +48,6 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::Context *ctx, Key
     notificationWidgetLayout->addWidget(verifyLabel,2);
     notificationWidgetLayout->addWidget(detailsButton);
     this->setLayout(notificationWidgetLayout);
-    verifyDetailListLayout = new QVBoxLayout();
-}
-
-void VerifyNotification::addVerifyDetailLabel(QString text,verify_label_status status,bool prepend)
-{
-    if (prepend) {
-        verifyDetailStringVector.prepend(text);
-        verifyDetailStatusVector.prepend(status);
-    } else {
-        verifyDetailStringVector.append(text);
-        verifyDetailStatusVector.append(status);
-    }
 }
 
 void VerifyNotification::importFromKeyserver()
@@ -94,35 +82,5 @@ void VerifyNotification::showImportAction(bool visible)
 
 void VerifyNotification::showVerifyDetails()
 {
-    /*QDialog *verifyDetailsDialog = new QDialog(this);
-  //  QLabel *label = new QLabel(*verifyDetailText);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
-    connect(buttonBox, SIGNAL(rejected()), verifyDetailsDialog, SLOT(close()));
-    for (int i=0;i<verifyDetailStringVector.size();i++) {
-        QLabel *label = new QLabel(verifyDetailStringVector[i]);
-        verifyDetailListLayout->addWidget(label);
-        switch (verifyDetailStatusVector[i]) {
-        case VERIFY_ERROR_OK:       label->setObjectName("ok");
-                                    break;
-        case VERIFY_ERROR_WARN:     label->setObjectName("warning");
-                                    break;
-        case VERIFY_ERROR_CRITICAL: label->setObjectName("critical");
-                                    break;
-        default:
-                                    break;
-        }
-    }
-
-//    verifyDetailStatusVector.append(status);
-
-//    verifyDetailListLayout->addWidget(label);
-
-    verifyDetailListLayout->addWidget(buttonBox);
-
-    verifyDetailsDialog->setLayout(verifyDetailListLayout);
-    verifyDetailsDialog->show();
-
-    //QMessageBox::information(this,tr("Details"),QString(*verifyDetailText), QMessageBox::Ok);
-    return;*/
     new VerifyDetailsDialog(this, mCtx, mKeyList, mSignature);
 }

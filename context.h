@@ -59,7 +59,7 @@ class Context : public QObject
     Q_OBJECT
 
 public:
-    Context(); // Consttructor
+    Context(); // Constructor
     ~Context(); // Destructor
 
     void importKey(QByteArray inBuffer);
@@ -74,7 +74,7 @@ public:
     void exportSecretKey(QString uid, QByteArray *outBuffer);
     gpgme_key_t getKeyDetails(QString uid);
     gpgme_signature_t verify(QByteArray in);
-    void decryptVerify(QByteArray in);
+//    void decryptVerify(QByteArray in);
     void sign(const QByteArray &inBuffer, QByteArray *outBuffer);
     bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );
 

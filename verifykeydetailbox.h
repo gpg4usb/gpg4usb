@@ -19,8 +19,8 @@ private:
     GpgME::Context* mCtx;
     KeyList* mKeyList;
     QString beautifyFingerprint(QString fingerprint);
-    QVBoxLayout* mVbox;
     QString fpr;
+    QGridLayout *grid;
 };
 
 #endif // __VERIFYKEYDETAILBOX_H__
