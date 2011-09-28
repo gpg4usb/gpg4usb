@@ -49,6 +49,9 @@ class KeyMgmt : public QMainWindow
 
 public:
     KeyMgmt(GpgME::Context* ctx, QString iconpath);
+    QAction *importKeyFromClipboardAct;
+    QAction *importKeyFromFileAct;
+    QAction *importKeyFromKeyServerAct;
 
 public slots:
     void importKeyFromFile();
@@ -79,11 +82,8 @@ private:
     GpgME::Context *mCtx;
     QMenu *fileMenu;
     QMenu *keyMenu;
+    QMenu *importKeyMenu;
     QDialog *genkeyDialog;
-    QAction *importKeyFromFileAct;
-    QAction *importKeyFromEditAct;
-    QAction *importKeyFromClipboardAct;
-    QAction *importKeyFromKeyServerAct;
     QAction *exportKeyToFileAct;
     QAction *exportKeyToClipboardAct;
     QAction *deleteCheckedKeysAct;

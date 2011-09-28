@@ -102,25 +102,9 @@ private slots:
     void verify();
 
     /**
-     * @details Open File-Dialog and import the keys from the choosen file
-     * to keylist if possible.
-     */
-    void importKeyFromFile();
-
-    /**
      * @details Import keys from currently active tab to keylist if possible.
      */
     void importKeyFromEdit();
-
-    /**
-     * @details Import keys from clipboard to keylist if possible.
-     */
-    void importKeyFromClipboard();
-
-    /**
-     * @details Open an "Import key from keyserver"-dialog.
-     */
-    void importKeyFromKeyServer();
 
     /**
      * @details Open a dialog, in which you can choose, where keys should be imported from.
@@ -281,10 +265,7 @@ private:
     QAction *signAct; /**< TODO */
     QAction *verifyAct; /**< TODO */
     QAction *importKeyDialogAct; /**< TODO */
-    QAction *importKeyFromFileAct; /**< TODO */
     QAction *importKeyFromEditAct; /**< TODO */
-    QAction *importKeyFromClipboardAct; /**< TODO */
-    QAction *importKeyFromKeyServerAct; /**< TODO */
     QAction *cleanDoubleLinebreaksAct; /**< TODO */
 
     QAction *appendSelectedKeysAct; /**< TODO */

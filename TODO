@@ -19,6 +19,7 @@ Release 0.3.1
 - Verifynotification margin left [DONE]
 - remove doubled functions (e.g. beautifyfingerprint and keymgmt functions like import)
 - take care of warnings in compiling
+- also export public key on export of private key
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents

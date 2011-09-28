@@ -70,14 +70,14 @@ void KeyMgmt::createActions()
     closeAct->setShortcut(tr("Ctrl+Q"));
     closeAct->setIcon(QIcon(mIconPath + "exit.png"));
     closeAct->setToolTip(tr("Close Key Management"));
-    connect(closeAct, SIGNAL(triggered()), this, SLOT(close()));
+    connect(closeAct, SIGNAL(triggered()), this, SLOT(hide()));
 
-    importKeyFromFileAct = new QAction(tr("Import From &File"), this);
+    importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(mIconPath + "import_key_from_file.png"));
     importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
-    importKeyFromClipboardAct = new QAction(tr("Import From &Clipboard"), this);
+    importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
     importKeyFromClipboardAct->setIcon(QIcon(mIconPath + "import_key_from_clipboard.png"));
     importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
@@ -121,10 +121,11 @@ void KeyMgmt::createMenus()
     fileMenu->addAction(closeAct);
 
     keyMenu = menuBar()->addMenu(tr("&Key"));
-    keyMenu->addAction(importKeyFromFileAct);
-    keyMenu->addAction(importKeyFromClipboardAct);
-    keyMenu->addAction(importKeyFromKeyServerAct);
-    keyMenu->addSeparator();
+    importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
+//    importKeyMenu->setIcon(QIcon(mIconPath + "key_import.png"));
+    importKeyMenu->addAction(importKeyFromFileAct);
+    importKeyMenu->addAction(importKeyFromClipboardAct);
+    importKeyMenu->addAction(importKeyFromKeyServerAct);
     keyMenu->addAction(exportKeyToFileAct);
     keyMenu->addAction(exportKeyToClipboardAct);
     keyMenu->addSeparator();

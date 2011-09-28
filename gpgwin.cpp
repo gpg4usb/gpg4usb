@@ -24,7 +24,6 @@
 GpgWin::GpgWin()
 {
     mCtx = new GpgME::Context();
-    keyMgmt = NULL;  // initialized on first key-management-window open
 
     /* get path were app was started */
     QString appPath = qApp->applicationDirPath();
@@ -41,6 +40,9 @@ GpgWin::GpgWin()
 
     /* List of binary Attachments */
     mAttachments = new Attachments(iconPath);
+
+    keyMgmt = new KeyMgmt(mCtx, iconPath);
+    keyMgmt->hide();
 
     /* test attachmentdir for files alll 15s */
     QTimer *timer = new QTimer(this);
@@ -257,24 +259,11 @@ void GpgWin::createActions()
 
     /* Key Menu
      */
-    importKeyFromFileAct = new QAction(tr("&File"), this);
-    importKeyFromFileAct->setIcon(QIcon(iconPath + "misc_doc.png"));
-    importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
-    connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
     importKeyFromEditAct = new QAction(tr("&Editor"), this);
     importKeyFromEditAct->setIcon(QIcon(iconPath + "txt.png"));
     importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
-
-    importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
-    importKeyFromClipboardAct->setIcon(QIcon(iconPath + "button_paste.png"));
-    importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
-    connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
-
-    importKeyFromKeyServerAct = new QAction(tr("&Keyserver"), this);
-    importKeyFromKeyServerAct->setToolTip(tr("Import New Key From Keyserver"));
-    connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(importKeyFromKeyServer()));
 
     openKeyManagementAct = new QAction(tr("Key Management"), this);
     openKeyManagementAct->setIcon(QIcon(iconPath + "keymgmt.png"));
@@ -369,10 +358,11 @@ void GpgWin::createMenus()
     keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
     importKeyMenu->setIcon(QIcon(iconPath + "key_import.png"));
-    importKeyMenu->addAction(importKeyFromFileAct);
+    importKeyMenu->addAction(keyMgmt->importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
-    importKeyMenu->addAction(importKeyFromClipboardAct);
-    importKeyMenu->addAction(importKeyFromKeyServerAct);
+    importKeyMenu->addAction(keyMgmt->importKeyFromClipboardAct);
+    importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
+    importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
     keyMenu->addAction(openKeyManagementAct);
 
     viewMenu = menuBar()->addMenu(tr("&View"));
@@ -596,39 +586,8 @@ void GpgWin::importKeyFromEdit()
     mCtx->importKey(edit->curTextPage()->toPlainText().toAscii());
 }
 
-void GpgWin::importKeyFromClipboard()
-{
-    QClipboard *cb = QApplication::clipboard();
-    mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
-}
-
-void GpgWin::importKeyFromKeyServer()
-{
-    importDialog = new KeyServerImportDialog(mCtx, this);
-    importDialog->show();
-}
-
-void GpgWin::importKeyFromFile()
-{
-    QFile file;
-    QByteArray inBuffer;
-
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;" + tr("All Files") + " (*)");
-    if (! fileName.isNull()) {
-        file.setFileName(fileName);
-        if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("couldn't open file: ") + fileName;
-        }
-        QByteArray inBuffer = file.readAll();
-        mCtx->importKey(inBuffer);
-    }
-}
-
 void GpgWin::openKeyManagement()
 {
-    if (!keyMgmt) {
-        keyMgmt = new KeyMgmt(mCtx, iconPath);
-    }
     keyMgmt->show();
     keyMgmt->raise();
     keyMgmt->activateWindow();
@@ -818,10 +777,10 @@ void GpgWin::importKeyDialog()
     dialog->setLayout(vbox2);
 
     if (dialog->exec() == QDialog::Accepted) {
-        if (radio1->isChecked()) importKeyFromFile();
+        if (radio1->isChecked()) keyMgmt->importKeyFromFile();
         if (radio2->isChecked()) importKeyFromEdit();
-        if (radio3->isChecked()) importKeyFromClipboard();
-        if (radio4->isChecked()) importKeyFromKeyServer();
+        if (radio3->isChecked()) keyMgmt->importKeyFromClipboard();
+        if (radio4->isChecked()) keyMgmt->importKeyFromKeyServer();
     }
 }
 
