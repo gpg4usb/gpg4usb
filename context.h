@@ -51,6 +51,19 @@ public:
 
 typedef QLinkedList< GpgKey > GpgKeyList;
 
+class GpgSignature
+{
+public:
+    QString fpr;
+    QString name;
+    QString email;
+    gpgme_error_t signStatusCode;
+    QString signStatusString;
+    bool presentInKeyList;
+};
+
+typedef QLinkedList< GpgSignature > GpgSignatureList;
+
 namespace GpgME
 {
 

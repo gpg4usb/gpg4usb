@@ -215,7 +215,7 @@ void KeyMgmt::showKeyDetails()
     // TODO: first...?
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
 
-    new KeyDetailsDialog(mCtx, key, this);
+    new KeyDetailsDialog(mCtx, key);
 }
 
 void KeyMgmt::exportKeyToFile()

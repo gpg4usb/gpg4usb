@@ -101,6 +101,8 @@ private slots:
      */
     void verify();
 
+    void showKeyDetails();
+
     /**
      * @details Import keys from currently active tab to keylist if possible.
      */
@@ -121,11 +123,6 @@ private slots:
      * Method for keylists contextmenu.
      */
     void copyMailAddressToClipboard();
-
-    /**
-     * @details Show detail-dialog for selected key.
-     */
-    void showKeyDetails();
 
     /**
      * @details Open key management dialog.
@@ -270,7 +267,6 @@ private:
 
     QAction *appendSelectedKeysAct; /**< TODO */
     QAction *copyMailAddressToClipboardAct; /**< TODO */
-    QAction *showKeyDetailsAct; /**< TODO */
     QAction *openKeyManagementAct; /**< TODO */
     QAction *copyAct; /**< TODO */
     QAction *quoteAct; /**< TODO */
@@ -284,6 +280,7 @@ private:
     QAction *openSettingsAct; /**< TODO */
     QAction *openTranslateAct; /**< TODO */
     QAction *openTutorialAct; /**< TODO */
+    QAction *showKeyDetailsAct; /** < TODO */
     QLineEdit *nameEdit; /**< TODO */
     QLineEdit *emailEdit; /**< TODO */
     QLineEdit *commentEdit; /**< TODO */

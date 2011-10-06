@@ -18,8 +18,9 @@ Release 0.3.1
 - keydetailsdialog should have a parent [DONE]
 - Verifynotification margin left [DONE]
 - remove doubled functions (e.g. beautifyfingerprint and keymgmt functions like import)
-- take care of warnings in compiling
-- also export public key on export of private key
+- take care of warnings in compiling [DONE]
+- export public key on export of private key too
+- put keydetails to keylist
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents
