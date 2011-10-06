@@ -419,23 +419,23 @@ void GpgWin::createDockWindows()
 {
     /* KeyList-Dockwindow
      */
-    dock = new QDockWidget(tr("Encrypt for:"), this);
-    dock->setObjectName("EncryptDock");
-    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-    addDockWidget(Qt::RightDockWidgetArea, dock);
-    dock->setWidget(mKeyList);
-    viewMenu->addAction(dock->toggleViewAction());
+    encryptDock = new QDockWidget(tr("Encrypt for:"), this);
+    encryptDock->setObjectName("EncryptDock");
+    encryptDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    addDockWidget(Qt::RightDockWidgetArea, encryptDock);
+    encryptDock->setWidget(mKeyList);
+    viewMenu->addAction(encryptDock->toggleViewAction());
 
     /* Attachments-Dockwindow
       */
-    aDock = new QDockWidget(tr("Attached files:"), this);
-    aDock->setObjectName("AttachmentDock");
-    aDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea);
-    addDockWidget(Qt::BottomDockWidgetArea, aDock);
-    aDock->setWidget(mAttachments);
+    attachmentDock = new QDockWidget(tr("Attached files:"), this);
+    attachmentDock->setObjectName("AttachmentDock");
+    attachmentDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea);
+    addDockWidget(Qt::BottomDockWidgetArea, attachmentDock);
+    attachmentDock->setWidget(mAttachments);
     // hide till attachmendt is decrypted
-    viewMenu->addAction(aDock->toggleViewAction());
-    aDock->hide();
+    viewMenu->addAction(attachmentDock->toggleViewAction());
+    attachmentDock->hide();
 }
 
 void GpgWin::closeEvent(QCloseEvent *event)
@@ -537,7 +537,7 @@ void GpgWin::parseMime(QByteArray *message)
     }
     *message = pText.toUtf8();
     if (showmadock) {
-        aDock->show();
+        attachmentDock->show();
     }
 }
 

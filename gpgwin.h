@@ -226,54 +226,54 @@ private:
      */
     int isSigned(const QByteArray &text);
 
-    TextEdit *edit; /** TODO */
+    TextEdit *edit; /** Tabwidget holding the edit-windows */
     QMenu *fileMenu; /** Submenu for file-operations*/
     QMenu *editMenu; /** Submenu for text-operations*/
     QMenu *cryptMenu; /** Submenu for crypt-operations */
     QMenu *helpMenu; /** Submenu for help-operations */
     QMenu *keyMenu; /** Submenu for key-operations */
     QMenu *viewMenu; /** View submenu */
-    QMenu *importKeyMenu; /**< TODO */
-    QToolBar *cryptToolBar; /**< TODO */
-    QToolBar *editToolBar; /**< TODO */
-    QToolBar *keyToolBar; /**< TODO */
-    QDockWidget *dock; /**< TODO */
-    QDockWidget *aDock; /**< TODO */
-    QDialog *genkeyDialog; /**< TODO */
+    QMenu *importKeyMenu; /** Sumenu for import operations */
+    QToolBar *cryptToolBar; /** Toolbar holding crypt actions */
+    QToolBar *editToolBar; /** Toolbar holding edit actions */
+    QToolBar *keyToolBar; /** Toolbar holding key operations */
+    QDockWidget *encryptDock; /** Encrypt Dock*/
+    QDockWidget *attachmentDock; /** Attachment Dock */
+    QDialog *genkeyDialog; /** Dialog for key generation */
 
-    QAction *newTabAct; /**< TODO */
-    QAction *switchTabUpAct; /**< TODO */
-    QAction *switchTabDownAct; /**< TODO */
-    QAction *openAct; /**< TODO */
-    QAction *saveAct; /**< TODO */
-    QAction *saveAsAct; /**< TODO */
-    QAction *printAct; /**< TODO */
-    QAction *closeTabAct; /**< TODO */
-    QAction *quitAct; /**< TODO */
-    QAction *encryptAct; /**< TODO */
-    QAction *decryptAct; /**< TODO */
-    QAction *signAct; /**< TODO */
-    QAction *verifyAct; /**< TODO */
-    QAction *importKeyDialogAct; /**< TODO */
-    QAction *importKeyFromEditAct; /**< TODO */
-    QAction *cleanDoubleLinebreaksAct; /**< TODO */
+    QAction *newTabAct; /** Action to create new tab */
+    QAction *switchTabUpAct; /** Action to switch tab up*/
+    QAction *switchTabDownAct; /** Action to switch tab down */
+    QAction *openAct; /** Action to open file */
+    QAction *saveAct; /** Action to save file */
+    QAction *saveAsAct; /** Action to save file as */
+    QAction *printAct; /** Action to print */
+    QAction *closeTabAct; /** Action to print */
+    QAction *quitAct; /** Action to quit application */
+    QAction *encryptAct; /** Action to encrypt text */
+    QAction *decryptAct; /** Action to decrypt text */
+    QAction *signAct; /** Action to sign text */
+    QAction *verifyAct; /** Action to verify text */
+    QAction *importKeyDialogAct; /** Action to open key dialog */
+    QAction *importKeyFromEditAct; /** Action to import key from edit */
+    QAction *cleanDoubleLinebreaksAct; /** Action to remove double line breaks */
 
-    QAction *appendSelectedKeysAct; /**< TODO */
-    QAction *copyMailAddressToClipboardAct; /**< TODO */
-    QAction *openKeyManagementAct; /**< TODO */
-    QAction *copyAct; /**< TODO */
-    QAction *quoteAct; /**< TODO */
-    QAction *cutAct; /**< TODO */
-    QAction *pasteAct; /**< TODO */
-    QAction *selectallAct; /**< TODO */
-    QAction *undoAct; /**< TODO */
-    QAction *redoAct; /**< TODO */
-    QAction *aboutAct; /**< TODO */
-    QAction *fileEncryptionAct; /**< TODO */
-    QAction *openSettingsAct; /**< TODO */
-    QAction *openTranslateAct; /**< TODO */
-    QAction *openTutorialAct; /**< TODO */
-    QAction *showKeyDetailsAct; /** < TODO */
+    QAction *appendSelectedKeysAct; /** Action to append selected keys to edit */
+    QAction *copyMailAddressToClipboardAct; /** Action to copy mail to clipboard */
+    QAction *openKeyManagementAct; /** Action to open key management */
+    QAction *copyAct; /** Action to copy text */
+    QAction *quoteAct; /** Action to quote text */
+    QAction *cutAct; /** Action to cut text */
+    QAction *pasteAct; /** Action to paste text */
+    QAction *selectallAct; /** Action to select whole text */
+    QAction *undoAct; /** Action to undo last action */
+    QAction *redoAct; /** Action to redo last action */
+    QAction *aboutAct; /** Action to open about dialog */
+    QAction *fileEncryptionAct; /** Action to open file-encryption dialog */
+    QAction *openSettingsAct; /** Action to open settings dialog */
+    QAction *openTranslateAct; /** Action to open translate doc*/
+    QAction *openTutorialAct; /** Action to open tutorial */
+    QAction *showKeyDetailsAct; /** Action to open key-details dialog */
     QLineEdit *nameEdit; /**< TODO */
     QLineEdit *emailEdit; /**< TODO */
     QLineEdit *commentEdit; /**< TODO */
