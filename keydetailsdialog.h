@@ -42,6 +42,7 @@ class KeyDetailsDialog : public QDialog
 
 public:
     KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key, QWidget *parent = 0);
+    static QString beautifyFingerprint(QString fingerprint);
 
 private slots:
     void exportPrivateKey();
@@ -76,9 +77,6 @@ private:
     QLabel *expireVarLabel;
     QLabel *createdVarLabel;
     QLabel *algorithmVarLabel;
-
-
-    QString beautifyFingerprint(QString fingerprint);
 };
 
 #endif // __KEYDETAILSDIALOG_H__

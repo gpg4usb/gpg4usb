@@ -694,7 +694,7 @@ void GpgWin::verify()
         case GPG_ERR_NO_PUBKEY:
         {
             verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Key not present with Fingerprint: ")+beautifyFingerprint(QString(sign->fpr)));
+            verifyLabelText.append(tr("Key not present with Fingerprint: ")+KeyDetailsDialog::beautifyFingerprint(QString(sign->fpr)));
             *vn->keysNotInList << sign->fpr;
             unknownKeyFound=true;
             break;
@@ -712,7 +712,7 @@ void GpgWin::verify()
         default:
         {
             verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Error for key with fingerprint ")+beautifyFingerprint(QString(sign->fpr)));
+            verifyLabelText.append(tr("Error for key with fingerprint ")+KeyDetailsDialog::beautifyFingerprint(QString(sign->fpr)));
             break;
         }
         }
@@ -833,12 +833,4 @@ void GpgWin::cleanDoubleLinebreaks() {
     QString content = edit->curTextPage()->toPlainText();
     content.replace("\n\n", "\n");
     edit->fillTextEditWithText(content);
-}
-
-QString GpgWin::beautifyFingerprint(QString fingerprint){
-    uint len = fingerprint.length();
-    if ((len > 0) && (len % 4 == 0))
-        for (uint n = 0; 4 *(n + 1) < len; ++n)
-            fingerprint.insert(5 * n + 4, ' ');
-    return fingerprint;
 }
