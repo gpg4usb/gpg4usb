@@ -21,6 +21,7 @@ Release 0.3.1
 - take care of warnings in compiling [DONE]
 - export public key on export of private key too
 - put keydetails to keylist
+- dont hide verifynotification {DONE]
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents

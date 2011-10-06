@@ -676,7 +676,7 @@ void GpgWin::verify()
     int textIsSigned = isSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
-    edit->curPage()->hideNoteByClass("verifyNotification");
+    edit->curPage()->closeNoteByClass("verifyNotification");
 
     if (sign == NULL) {
         return;

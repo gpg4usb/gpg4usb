@@ -55,13 +55,13 @@ void EditorPage::showNotificationWidget(QWidget *widget, const char *className)
     mainLayout->addWidget(widget);
 }
 
-void EditorPage::hideNoteByClass(const char *className)
+void EditorPage::closeNoteByClass(const char *className)
 {
     QList<QWidget *> widgets = findChildren<QWidget *>();
     foreach(QWidget * widget, widgets)
     {
         if (widget->property(className) == true) {
-                widget->hide();
+                widget->close();
         }
     }
 }

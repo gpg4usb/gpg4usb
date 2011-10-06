@@ -79,7 +79,7 @@ public:
      *
      * @param className The classname of the widgets to hide
      */
-    void hideNoteByClass(const char *className);
+    void closeNoteByClass(const char *className);
 
 private:
     QPlainTextEdit *textPage; /** The textedit of the tab */
