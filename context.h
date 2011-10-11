@@ -98,6 +98,16 @@ public:
      */
     void preventNoDataErr(QByteArray *in);
 
+    /**
+     * @brief
+     *
+     * @param text
+     * @return \li 2, if the text is completly signed,
+     *          \li 1, if the text is partially signed,
+     *          \li 0, if the text is not signed at all.
+     */
+    int textIsSigned(const QByteArray &text);
+
 signals:
     void keyDBChanged();
 

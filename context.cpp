@@ -633,6 +633,22 @@ void Context::preventNoDataErr(QByteArray *in)
     }
 }
 
+/*
+  * isSigned returns:
+  * - 0, if text isn't signed at all
+  * - 1, if text is partially signed
+  * - 2, if text is completly signed
+  */
+int Context::textIsSigned(const QByteArray &text) {
+    if (text.trimmed().startsWith("-----BEGIN PGP SIGNED MESSAGE-----") && text.trimmed().endsWith("-----END PGP SIGNATURE-----")) {
+        return 2;
+    }
+    if (text.contains("-----BEGIN PGP SIGNED MESSAGE-----") && text.contains("-----END PGP SIGNATURE-----")) {
+        return 1;
+    }
+    return 0;
+}
+
 }
 
 

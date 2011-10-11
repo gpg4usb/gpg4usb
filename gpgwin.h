@@ -208,16 +208,6 @@ private:
      */
     void parseMime(QByteArray *message);
 
-    /**
-     * @brief
-     *
-     * @param text
-     * @return \li 2, if the text is completly signed,
-     *          \li 1, if the text is partially signed,
-     *          \li 0, if the text is not signed at all.
-     */
-    int isSigned(const QByteArray &text);
-
     TextEdit *edit; /** Tabwidget holding the edit-windows */
     QMenu *fileMenu; /** Submenu for file-operations*/
     QMenu *editMenu; /** Submenu for text-operations*/

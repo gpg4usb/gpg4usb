@@ -634,29 +634,13 @@ void GpgWin::decrypt()
     edit->fillTextEditWithText(QString::fromUtf8(*decrypted));
 }
 
-/*
-  * isSigned returns:
-  * - 0, if text isn't signed at all
-  * - 1, if text is partially signed
-  * - 2, if text is completly signed
-  */
-int GpgWin::isSigned(const QByteArray &text) {
-    if (text.trimmed().startsWith("-----BEGIN PGP SIGNED MESSAGE-----") && text.trimmed().endsWith("-----END PGP SIGNATURE-----")) {
-        return 2;
-    }
-    if (text.contains("-----BEGIN PGP SIGNED MESSAGE-----") && text.contains("-----END PGP SIGNATURE-----")) {
-        return 1;
-    }
-    return 0;
-}
-
 void GpgWin::verify()
 {
     QDateTime timestamp;
     verify_label_status verifyStatus=VERIFY_ERROR_OK;
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     mCtx->preventNoDataErr(&text);
-    int textIsSigned = isSigned(text);
+    int textIsSigned = mCtx->textIsSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
     edit->curPage()->closeNoteByClass("verifyNotification");
