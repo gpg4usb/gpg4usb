@@ -419,12 +419,12 @@ void GpgWin::createDockWindows()
 {
     /* KeyList-Dockwindow
      */
-    encryptDock = new QDockWidget(tr("Encrypt for:"), this);
-    encryptDock->setObjectName("EncryptDock");
-    encryptDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-    addDockWidget(Qt::RightDockWidgetArea, encryptDock);
-    encryptDock->setWidget(mKeyList);
-    viewMenu->addAction(encryptDock->toggleViewAction());
+    keylistDock = new QDockWidget(tr("Encrypt for:"), this);
+    keylistDock->setObjectName("EncryptDock");
+    keylistDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    addDockWidget(Qt::RightDockWidgetArea, keylistDock);
+    keylistDock->setWidget(mKeyList);
+    viewMenu->addAction(keylistDock->toggleViewAction());
 
     /* Attachments-Dockwindow
       */
@@ -564,23 +564,6 @@ void GpgWin::checkAttachmentFolder() {
     }
 }
 
-/*
- * if there is no '\n' before the PGP-Begin-Block, but for example a whitespace,
- * GPGME doesn't recognise the Message as encrypted. This function adds '\n'
- * before the PGP-Begin-Block, if missing.
- */
-void GpgWin::preventNoDataErr(QByteArray *in)
-{
-    int block_start = in->indexOf("-----BEGIN PGP MESSAGE-----");
-    if (block_start > 0 && in->at(block_start - 1) != '\n') {
-        in->insert(block_start, '\n');
-    }
-    block_start = in->indexOf("-----BEGIN PGP SIGNED MESSAGE-----");
-    if (block_start > 0 && in->at(block_start - 1) != '\n') {
-        in->insert(block_start, '\n');
-    }
-}
-
 void GpgWin::importKeyFromEdit()
 {
     mCtx->importKey(edit->curTextPage()->toPlainText().toAscii());
@@ -620,7 +603,7 @@ void GpgWin::decrypt()
 {
     QByteArray *decrypted = new QByteArray();
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
-    preventNoDataErr(&text);
+    mCtx->preventNoDataErr(&text);
 
     // try decrypt, if fail do nothing, especially don't replace text
     if(!mCtx->decrypt(text, decrypted)) {
@@ -672,7 +655,7 @@ void GpgWin::verify()
     QDateTime timestamp;
     verify_label_status verifyStatus=VERIFY_ERROR_OK;
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
-    preventNoDataErr(&text);
+    mCtx->preventNoDataErr(&text);
     int textIsSigned = isSigned(text);
 
     gpgme_signature_t sign = mCtx->verify(text);
@@ -809,7 +792,6 @@ void GpgWin::showKeyDetails()
     new KeyDetailsDialog(mCtx, key, this);
 }
 
-
 void GpgWin::fileEncryption()
 {
         QStringList *keyList;
@@ -829,7 +811,8 @@ void GpgWin::openSettingsDialog()
     this->setToolButtonStyle(buttonStyle);
 }
 
-void GpgWin::cleanDoubleLinebreaks() {
+void GpgWin::cleanDoubleLinebreaks()
+{
     QString content = edit->curTextPage()->toPlainText();
     content.replace("\n\n", "\n");
     edit->fillTextEditWithText(content);

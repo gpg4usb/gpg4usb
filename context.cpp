@@ -615,6 +615,24 @@ bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray 
 
      return (err == GPG_ERR_NO_ERROR);
 }
+
+/*
+ * if there is no '\n' before the PGP-Begin-Block, but for example a whitespace,
+ * GPGME doesn't recognise the Message as encrypted. This function adds '\n'
+ * before the PGP-Begin-Block, if missing.
+ */
+void Context::preventNoDataErr(QByteArray *in)
+{
+    int block_start = in->indexOf("-----BEGIN PGP MESSAGE-----");
+    if (block_start > 0 && in->at(block_start - 1) != '\n') {
+        in->insert(block_start, '\n');
+    }
+    block_start = in->indexOf("-----BEGIN PGP SIGNED MESSAGE-----");
+    if (block_start > 0 && in->at(block_start - 1) != '\n') {
+        in->insert(block_start, '\n');
+    }
+}
+
 }
 
 

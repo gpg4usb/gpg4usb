@@ -99,5 +99,8 @@ private:
     QHBoxLayout *notificationWidgetLayout; /** Layout for verify-notification */
     QVector<QString> verifyDetailStringVector; /** Vector containing the text for labels in verifydetaildialog */
     QVector<verify_label_status> verifyDetailStatusVector; /** Vector containing the status for labels in verifydetaildialog */
+
+private slots:
+    void refresh();
 };
 #endif // __VERIFYNOTIFICATION_H__

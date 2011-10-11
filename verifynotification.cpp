@@ -29,6 +29,8 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::Context *ctx, Key
     mSignature = sign;
     verifyLabel = new QLabel(this);
 
+    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
+
     importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
     connect(importFromKeyserverAct, SIGNAL(triggered()), this, SLOT(importFromKeyserver()));
 
@@ -83,4 +85,9 @@ void VerifyNotification::showImportAction(bool visible)
 void VerifyNotification::showVerifyDetails()
 {
     new VerifyDetailsDialog(this, mCtx, mKeyList, mSignature);
+}
+
+void VerifyNotification::refresh()
+{
+    qDebug() << "refresh signal called";
 }

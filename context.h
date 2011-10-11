@@ -90,6 +90,13 @@ public:
 //    void decryptVerify(QByteArray in);
     void sign(const QByteArray &inBuffer, QByteArray *outBuffer);
     bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );
+    /**
+     * @details If text contains PGP-message, put a linebreak before the message,
+     * so that gpgme can decrypt correctly
+     *
+     * @param in Pointer to the QBytearray to check.
+     */
+    void preventNoDataErr(QByteArray *in);
 
 signals:
     void keyDBChanged();

@@ -202,14 +202,6 @@ private:
     void saveSettings();
 
     /**
-     * @details If text contains PGP-message, put a linebreak before the message,
-     * so that gpgme can decrypt correctly
-     *
-     * @param in Pointer to the QBytearray to check.
-     */
-    void preventNoDataErr(QByteArray *in);
-
-    /**
      * @brief
      *
      * @param message
@@ -237,7 +229,7 @@ private:
     QToolBar *cryptToolBar; /** Toolbar holding crypt actions */
     QToolBar *editToolBar; /** Toolbar holding edit actions */
     QToolBar *keyToolBar; /** Toolbar holding key operations */
-    QDockWidget *encryptDock; /** Encrypt Dock*/
+    QDockWidget *keylistDock; /** Encrypt Dock*/
     QDockWidget *attachmentDock; /** Attachment Dock */
     QDialog *genkeyDialog; /** Dialog for key generation */
 

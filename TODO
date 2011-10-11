@@ -22,6 +22,7 @@ Release 0.3.1
 - export public key on export of private key too
 - put keydetails to keylist
 - dont hide verifynotification {DONE]
+- import from keyserver doesn't end, if network-connection is available, but no connection to keyserver
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents
