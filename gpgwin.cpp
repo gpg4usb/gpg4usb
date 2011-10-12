@@ -636,80 +636,18 @@ void GpgWin::decrypt()
 
 void GpgWin::verify()
 {
-    QDateTime timestamp;
-    verify_label_status verifyStatus=VERIFY_ERROR_OK;
-    QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
-    mCtx->preventNoDataErr(&text);
-    int textIsSigned = mCtx->textIsSigned(text);
-
-    gpgme_signature_t sign = mCtx->verify(text);
+    // At first close verifynotification, if existing
     edit->curPage()->closeNoteByClass("verifyNotification");
 
-    if (sign == NULL) {
-        return;
+    // create new verfiy notification
+    VerifyNotification *vn = new VerifyNotification(this, mCtx, mKeyList, edit->curTextPage());
+
+    // if signing information is found, show the notification, otherwise close it
+    if (vn->refresh()) {
+        edit->curPage()->showNotificationWidget(vn, "verifyNotification");
+    } else {
+        vn->close();
     }
-
-    VerifyNotification *vn = new VerifyNotification(this, mCtx, mKeyList, sign);
-    //vn->keysNotInList->clear();
-    QString verifyLabelText;
-    bool unknownKeyFound=false;
-
-    while (sign) {
-        timestamp.setTime_t(sign->timestamp);
-        switch (gpg_err_code(sign->status))
-        {
-        case GPG_ERR_NO_PUBKEY:
-        {
-            verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Key not present with Fingerprint: ")+KeyDetailsDialog::beautifyFingerprint(QString(sign->fpr)));
-            *vn->keysNotInList << sign->fpr;
-            unknownKeyFound=true;
-            break;
-        }
-        case GPG_ERR_NO_ERROR:
-        {
-            QString name = mKeyList->getKeyNameByFpr(sign->fpr);
-            QString email =mKeyList->getKeyEmailByFpr(sign->fpr);
-            verifyLabelText.append(name);
-            if (!email.isEmpty()) {
-                verifyLabelText.append("<"+email+">");
-            }
-            break;
-        }
-        default:
-        {
-            verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Error for key with fingerprint ")+KeyDetailsDialog::beautifyFingerprint(QString(sign->fpr)));
-            break;
-        }
-        }
-        verifyLabelText.append("\n");
-        sign = sign->next;
-    }
-
-    switch (textIsSigned)
-    {
-    case 2:
-    {
-        verifyLabelText.prepend(tr("Text is completly signed by: "));
-        break;
-    }
-    case 1:
-    {
-        verifyLabelText.prepend(tr("Text is partially signed by: "));
-        break;
-    }
-    }
-
-    // If an unknown key is found, enable the importfromkeyserveraction
-    vn->showImportAction(unknownKeyFound);
-
-    // Remove the last linebreak
-    verifyLabelText.remove(verifyLabelText.length()-1,1);
-
-    vn->setVerifyLabel(verifyLabelText,verifyStatus);
-
-    edit->curPage()->showNotificationWidget(vn, "verifyNotification");
 }
 
 void GpgWin::importKeyDialog()

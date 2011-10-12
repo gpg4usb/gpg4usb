@@ -649,6 +649,15 @@ int Context::textIsSigned(const QByteArray &text) {
     return 0;
 }
 
+QString Context::beautifyFingerprint(QString fingerprint)
+{
+    uint len = fingerprint.length();
+    if ((len > 0) && (len % 4 == 0))
+        for (uint n = 0; 4 *(n + 1) < len; ++n)
+            fingerprint.insert(5 * n + 4, ' ');
+    return fingerprint;
+}
+
 }
 
 

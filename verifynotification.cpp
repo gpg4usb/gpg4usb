@@ -21,12 +21,12 @@
 
 #include "verifynotification.h"
 
-VerifyNotification::VerifyNotification(QWidget *parent, GpgME::Context *ctx, KeyList *keyList, gpgme_signature_t sign ) :
+VerifyNotification::VerifyNotification(QWidget *parent, GpgME::Context *ctx, KeyList *keyList,QPlainTextEdit *edit) :
     QWidget(parent)
 {
     mCtx = ctx;
     mKeyList = keyList;
-    mSignature = sign;
+    mTextpage = edit;
     verifyLabel = new QLabel(this);
 
     connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
@@ -84,10 +84,79 @@ void VerifyNotification::showImportAction(bool visible)
 
 void VerifyNotification::showVerifyDetails()
 {
-    new VerifyDetailsDialog(this, mCtx, mKeyList, mSignature);
+    new VerifyDetailsDialog(this, mCtx, mKeyList, mTextpage);
 }
 
-void VerifyNotification::refresh()
+bool VerifyNotification::refresh()
 {
-    qDebug() << "refresh signal called";
+    verify_label_status verifyStatus=VERIFY_ERROR_OK;
+
+    QByteArray text = mTextpage->toPlainText().toAscii(); // TODO: toUtf8() here?
+    mCtx->preventNoDataErr(&text);
+    int textIsSigned = mCtx->textIsSigned(text);
+
+    gpgme_signature_t sign = mCtx->verify(text);
+
+    if (sign == NULL) {
+        return false;
+    }
+
+    QString verifyLabelText;
+    bool unknownKeyFound=false;
+
+    while (sign) {
+        switch (gpg_err_code(sign->status))
+        {
+        case GPG_ERR_NO_PUBKEY:
+        {
+            verifyStatus=VERIFY_ERROR_WARN;
+            verifyLabelText.append(tr("Key not present with Fingerprint: ")+mCtx->beautifyFingerprint(QString(sign->fpr)));
+            this->keysNotInList->append(sign->fpr);
+            unknownKeyFound=true;
+            break;
+        }
+        case GPG_ERR_NO_ERROR:
+        {
+            QString name = mKeyList->getKeyNameByFpr(sign->fpr);
+            QString email =mKeyList->getKeyEmailByFpr(sign->fpr);
+            verifyLabelText.append(name);
+            if (!email.isEmpty()) {
+                verifyLabelText.append("<"+email+">");
+            }
+            break;
+        }
+        default:
+        {
+            verifyStatus=VERIFY_ERROR_WARN;
+            verifyLabelText.append(tr("Error for key with fingerprint ")+mCtx->beautifyFingerprint(QString(sign->fpr)));
+            break;
+        }
+        }
+        verifyLabelText.append("\n");
+        sign = sign->next;
+    }
+
+    switch (textIsSigned)
+    {
+    case 2:
+    {
+        verifyLabelText.prepend(tr("Text is completly signed by: "));
+        break;
+    }
+    case 1:
+    {
+        verifyLabelText.prepend(tr("Text is partially signed by: "));
+        break;
+    }
+    }
+
+    // If an unknown key is found, enable the importfromkeyserveraction
+    this->showImportAction(unknownKeyFound);
+
+    // Remove the last linebreak
+    verifyLabelText.remove(verifyLabelText.length()-1,1);
+
+    this->setVerifyLabel(verifyLabelText,verifyStatus);
+
+    return true;
 }

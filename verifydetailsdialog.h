@@ -22,6 +22,7 @@
 #ifndef __VERIFYDETAILSDIALOG_H__
 #define __VERIFYDETAILSDIALOG_H__
 
+#include "editorpage.h"
 #include "verifykeydetailbox.h"
 #include <QDialog>
 
@@ -29,7 +30,7 @@ class VerifyDetailsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit VerifyDetailsDialog(QWidget *parent, GpgME::Context* ctx, KeyList* mKeyList,  gpgme_signature_t signature);
+    explicit VerifyDetailsDialog(QWidget *parent, GpgME::Context* ctx, KeyList* mKeyList, QPlainTextEdit *edit);
 
 private slots:
     void refresh();
@@ -38,6 +39,7 @@ private:
     GpgME::Context* mCtx;
     KeyList* mKeyList;
     QVBoxLayout* mVbox;
+    QPlainTextEdit *mTextpage; /** Textedit associated to the notification */
     QDialogButtonBox* buttonBox;
 };
 

@@ -22,6 +22,7 @@
 #ifndef __VERIFYNOTIFICATION_H__
 #define __VERIFYNOTIFICATION_H__
 
+#include "editorpage.h"
 #include "verifydetailsdialog.h"
 #include <gpgme.h>
 #include <QWidget>
@@ -57,7 +58,7 @@ public:
      * @param ctx The GPGme-Context
      * @param parent The parent widget
      */
-    explicit VerifyNotification(QWidget *parent, GpgME::Context *ctx, KeyList *keyList, gpgme_signature_t sign);
+    explicit VerifyNotification(QWidget *parent, GpgME::Context *ctx, KeyList *keyList,QPlainTextEdit *edit);
     /**
      * @details Set the text and background-color of verify notification.
      *
@@ -87,6 +88,11 @@ public slots:
      */
     void showVerifyDetails();
 
+    /**
+     * @details Refresh the contents of dialog.
+     */
+    bool refresh();
+
 private:
     QMenu *detailMenu; /** Menu for te Button in verfiyNotification */
     QAction *importFromKeyserverAct; /** Action for importing keys from keyserver which are notin keylist */
@@ -95,12 +101,10 @@ private:
     QLabel *verifyLabel; /** Label holding the text shown in verifyNotification */
     GpgME::Context *mCtx; /** GpgME Context */
     KeyList *mKeyList; /** Table holding the keys */
-    gpgme_signature_t mSignature; /** List holding the signatures of text */
+    QPlainTextEdit *mTextpage; /** Textedit associated to the notification */
     QHBoxLayout *notificationWidgetLayout; /** Layout for verify-notification */
     QVector<QString> verifyDetailStringVector; /** Vector containing the text for labels in verifydetaildialog */
     QVector<verify_label_status> verifyDetailStatusVector; /** Vector containing the status for labels in verifydetaildialog */
 
-private slots:
-    void refresh();
 };
 #endif // __VERIFYNOTIFICATION_H__

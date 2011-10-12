@@ -107,6 +107,7 @@ public:
      *          \li 0, if the text is not signed at all.
      */
     int textIsSigned(const QByteArray &text);
+    QString beautifyFingerprint(QString fingerprint);
 
 signals:
     void keyDBChanged();
