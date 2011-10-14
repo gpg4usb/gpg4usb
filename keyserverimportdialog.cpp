@@ -136,24 +136,26 @@ void KeyServerImportDialog::setMessage(const QString &text, bool error)
 void KeyServerImportDialog::search()
 {
     QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?search="+searchLineEdit->text()+"&op=index&options=mr";
-    searchreply = qnam.get(QNetworkRequest(url));
-    connect(searchreply, SIGNAL(finished()),
+    QNetworkReply* reply = qnam.get(QNetworkRequest(url));
+    connect(reply, SIGNAL(finished()),
             this, SLOT(searchFinished()));
 }
 
 void KeyServerImportDialog::searchFinished()
 {
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+
     keysTable->clearContents();
     keysTable->setRowCount(0);
-    QString firstLine = QString(searchreply->readLine(1024));
+    QString firstLine = QString(reply->readLine(1024));
 
-    QVariant redirectionTarget = searchreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
-    if (searchreply->error()) {
+    QVariant redirectionTarget = reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+    if (reply->error()) {
         setMessage(tr("Couldn't contact keyserver!"),true);
     }
     if (firstLine.contains("Error"))
     {
-        QString text= QString(searchreply->readLine(1024));
+        QString text= QString(reply->readLine(1024));
         if (text.contains("Too many responses")) {
             setMessage(tr("Too many responses from keyserver!"),true);
         }
@@ -167,12 +169,12 @@ void KeyServerImportDialog::searchFinished()
         int row = 0;
         char buff[1024];
         QList <QTreeWidgetItem*> items;
-        while (searchreply->readLine(buff,sizeof(buff)) !=-1) {
+        while (reply->readLine(buff,sizeof(buff)) !=-1) {
             QStringList line= QString(buff).split(":");
             //TODO: have a look at two following pub lines
             if (line[0] == "pub") {
                 keysTable->setRowCount(row+1);
-                QStringList line2 = QString(searchreply->readLine()).split(":");
+                QStringList line2 = QString(reply->readLine()).split(":");
                 if (line2.size() > 1) {
                     QTableWidgetItem *uid = new QTableWidgetItem(line2[1]);
                     keysTable->setItem(row, 0, uid);
@@ -198,8 +200,8 @@ void KeyServerImportDialog::searchFinished()
         //keysTree->insertTopLevelItems(0,items);
         keysTable->resizeColumnsToContents();
     }
-    searchreply->deleteLater();
-    searchreply = 0;
+    reply->deleteLater();
+    reply = 0;
 }
 
 void KeyServerImportDialog::import()
@@ -210,33 +212,33 @@ void KeyServerImportDialog::import()
         updateComboBox(keyServerComboBox);
         QString keyid = keysTable->item(keysTable->currentRow(),2)->text();
 
-        QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?op=get&search=0x"+keyid+"&options=mr";
-        importreply = qnam.get(QNetworkRequest(url));
-        connect(importreply, SIGNAL(finished()),
-                this, SLOT(importFinished()));
+        import(QStringList(keyid));
    }
 }
 
-void KeyServerImportDialog::import(QString keyId)
+void KeyServerImportDialog::import(QStringList keyIds)
 {
-    QUrl url = "http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x"+keyId+"&options=mr";
-    qDebug() << "keyid in import: " << keyId;
-    importreply = qnam.get(QNetworkRequest(url));
-    connect(importreply, SIGNAL(finished()),
-            this, SLOT(importFinished()));
+
+    foreach(QString keyId, keyIds) {
+        QUrl url = "http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x"+keyId+"&options=mr";
+        QNetworkReply *reply = qnam.get(QNetworkRequest(url));
+        connect(reply, SIGNAL(finished()),
+                this, SLOT(importFinished()));
+    }
 }
 
 void KeyServerImportDialog::importFinished()
 {
-    QByteArray *key = new QByteArray();
-    key->append(importreply->readAll());
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
 
-    QVariant redirectionTarget = importreply->attribute(QNetworkRequest::RedirectionTargetAttribute);
-    if (importreply->error()) {
+    QByteArray key = reply->readAll();
+
+    QVariant redirectionTarget = reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+    if (reply->error()) {
         setMessage(tr("Error while contacting keyserver!"),true);
         return;
     }
-    mCtx->importKey(*key);
+    mCtx->importKey(key.constData());
     setMessage("Key imported",false);
 
     // Add keyserver to list in config-file, if it isn't contained
@@ -247,6 +249,6 @@ void KeyServerImportDialog::importFinished()
         keyServerList.append(keyServerComboBox->currentText());
         settings.setValue("keyserver/keyServerList", keyServerList);
     }
-    importreply->deleteLater();
-    importreply = 0;
+    reply->deleteLater();
+    reply = 0;
 }
