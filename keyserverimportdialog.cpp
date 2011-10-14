@@ -212,6 +212,9 @@ void KeyServerImportDialog::import()
         updateComboBox(keyServerComboBox);
         QString keyid = keysTable->item(keysTable->currentRow(),2)->text();
 
+        // TODO: use string from combobox
+        // QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?op=get&search=0x"+keyid+"&options=mr";
+
         import(QStringList(keyid));
    }
 }
