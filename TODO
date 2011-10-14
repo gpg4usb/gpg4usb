@@ -23,6 +23,8 @@ Release 0.3.1
 - put keydetails to keylist
 - dont hide verifynotification {DONE]
 - import from keyserver doesn't end, if network-connection is available, but no connection to keyserver
+- refresh verify after import of keys
+- replace hardcoded urls in keyserverimport
 
 BUGS: 
 - Sometimes two or more stars are shown at modified documents
@@ -30,6 +32,7 @@ BUGS:
 - show, if message is partially verified(how)?
 
 Release 0.3.2
+- Change private key password (catch bad passphrase message)
 - Wizard on first start (Create Key, Import from older gpg4usb, import from gnupg)
 - GPLv3
 - check and add missing statusbar messages

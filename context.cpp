@@ -544,33 +544,6 @@ gpgme_signature_t Context::verify(QByteArray inBuffer) {
  */
 //}
 
-void Context::sign(const QByteArray &inBuffer, QByteArray *outBuffer) {
-
-    gpgme_error_t err;
-    gpgme_data_t in=NULL, out=NULL;
-    gpgme_sign_result_t result;
-
-/*
-    `GPGME_SIG_MODE_NORMAL'
-          A normal signature is made, the output includes the plaintext
-          and the signature.
-
-    `GPGME_SIG_MODE_DETACH'
-          A detached signature is made.
-
-    `GPGME_SIG_MODE_CLEAR'
-          A clear text signature is made.  The ASCII armor and text
-          mode settings of the context are ignored.
-*/
-
-    //err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_NORMAL);
-    err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_CLEAR);
-    checkErr(err);
-    result = gpgme_op_sign_result (mCtx);
-
-    err = readToBuffer(out, outBuffer);
-}
-
 bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {
 
     gpgme_error_t err;
@@ -605,10 +578,34 @@ bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray 
      err = gpgme_data_new (&out);
      checkErr(err);
 
+     /*
+         `GPGME_SIG_MODE_NORMAL'
+               A normal signature is made, the output includes the plaintext
+               and the signature.
+
+         `GPGME_SIG_MODE_DETACH'
+               A detached signature is made.
+
+         `GPGME_SIG_MODE_CLEAR'
+               A clear text signature is made.  The ASCII armor and text
+               mode settings of the context are ignored.
+     */
+
      err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_CLEAR);
      checkErr (err);
+
+     if (err == GPG_ERR_CANCELED) {
+         return false;
+     }
+
+     if (err != GPG_ERR_NO_ERROR) {
+         QMessageBox::critical(0, tr("Error signing:"), gpgme_strerror(err));
+         return false;
+     }
+
      result = gpgme_op_sign_result (mCtx);
      err = readToBuffer(out, outBuffer);
+     checkErr (err);
 
      gpgme_data_release(in);
      gpgme_data_release(out);
