@@ -63,19 +63,24 @@ void VerifyNotification::importFromKeyserver()
 
 void VerifyNotification::setVerifyLabel(QString text, verify_label_status verifyLabelStatus)
 {
+    QString color;
     verifyLabel->setText(text);
     switch (verifyLabelStatus) {
-    case VERIFY_ERROR_OK:       verifyLabel->setObjectName("ok");
+    case VERIFY_ERROR_OK:       color="#ccffcc";
                                 break;
-    case VERIFY_ERROR_WARN:     verifyLabel->setObjectName("warning");
+    case VERIFY_ERROR_WARN:     color="#ececba";
                                 break;
-    case VERIFY_ERROR_CRITICAL: verifyLabel->setObjectName("critical");
+    case VERIFY_ERROR_CRITICAL: color="#ff8080";
                                 break;
     default:
                                 break;
     }
-    return;
-}
+
+    verifyLabel->setAutoFillBackground(true);
+    QPalette status = verifyLabel->palette();
+    status.setColor(QPalette::Background, color);
+    verifyLabel->setPalette(status);
+}                    
 
 void VerifyNotification::showImportAction(bool visible)
 {
@@ -158,6 +163,6 @@ bool VerifyNotification::refresh()
     verifyLabelText.remove(verifyLabelText.length()-1,1);
 
     this->setVerifyLabel(verifyLabelText,verifyStatus);
-
+    qDebug() << verifyStatus;
     return true;
 }

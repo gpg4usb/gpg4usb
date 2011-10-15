@@ -30,21 +30,21 @@ VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::Context* ctx, K
     this->setWindowTitle(tr("Signaturedetails"));
 
     connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
-
-    mVbox = new QVBoxLayout();
-    this->setLayout(mVbox);
+    mainLayout = new QHBoxLayout();
+    this->setLayout(mainLayout);
     refresh();
-
     this->exec();
 }
 
 void VerifyDetailsDialog::refresh()
 {
-    // At first claer all children widgets
-    QList<QLabel *> allChildren = mVbox->findChildren<QLabel *>();
-    foreach (QLabel *label,allChildren) {
-        label->close();
+    if (mVbox) {
+        mVbox->close();
     }
+
+    mVbox = new QWidget();
+    mVboxLayout = new QVBoxLayout(mVbox);
+    mainLayout->addWidget(mVbox);
 
     // Get signature information of current text
     QByteArray text = mTextpage->toPlainText().toAscii(); // TODO: toUtf8() here?
@@ -60,12 +60,12 @@ void VerifyDetailsDialog::refresh()
     {
     case 2:
     {
-        mVbox->addWidget(new QLabel(tr("Text was completly signed on %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleShortDate))));
+        mVboxLayout->addWidget(new QLabel(tr("Text was completly signed on %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleShortDate))));
         break;
     }
     case 1:
     {
-        mVbox->addWidget(new QLabel(tr("Text was partially signed on %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleShortDate))));
+        mVboxLayout->addWidget(new QLabel(tr("Text was partially signed on %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleShortDate))));
         break;
     }
     }
@@ -74,11 +74,11 @@ void VerifyDetailsDialog::refresh()
     while (sign) {
         VerifyKeyDetailBox *sbox = new VerifyKeyDetailBox(this,mCtx,mKeyList,sign);
         sign = sign->next;
-        mVbox->addWidget(sbox);
+        mVboxLayout->addWidget(sbox);
     }
 
     // Button Box for close button
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
-    mVbox->addWidget(buttonBox);
+    mVboxLayout->addWidget(buttonBox);
 }

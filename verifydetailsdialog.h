@@ -36,9 +36,11 @@ private slots:
     void refresh();
 
 private:
-    GpgME::Context* mCtx;
-    KeyList* mKeyList;
-    QVBoxLayout* mVbox;
+    GpgME::Context *mCtx;
+    KeyList *mKeyList;
+    QHBoxLayout *mainLayout;
+    QVBoxLayout *mVboxLayout;
+    QWidget *mVbox;
     QPlainTextEdit *mTextpage; /** Textedit associated to the notification */
     QDialogButtonBox* buttonBox;
 };

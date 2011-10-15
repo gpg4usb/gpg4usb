@@ -221,7 +221,6 @@ void KeyServerImportDialog::import()
 
 void KeyServerImportDialog::import(QStringList keyIds)
 {
-
     foreach(QString keyId, keyIds) {
         QUrl url = "http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x"+keyId+"&options=mr";
         QNetworkReply *reply = qnam.get(QNetworkRequest(url));
