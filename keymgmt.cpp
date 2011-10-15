@@ -135,7 +135,8 @@ void KeyMgmt::createMenus()
 
 void KeyMgmt::createToolBars()
 {
-    QToolBar *keyToolBar = addToolBar(tr("Crypt"));
+    QToolBar *keyToolBar = addToolBar(tr("Key"));
+    keyToolBar->setObjectName("keytoolbar");
     keyToolBar->addAction(importKeyFromFileAct);
     keyToolBar->addAction(importKeyFromClipboardAct);
     keyToolBar->addSeparator();
