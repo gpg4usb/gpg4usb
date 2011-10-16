@@ -106,6 +106,18 @@ private slots:
      QCheckBox *windowSizeCheckBox;
  };
 
+ class KeyserverTab : public QWidget
+ {
+     Q_OBJECT
+ public:
+    KeyserverTab(QWidget *parent = 0);
+    void setSettings();
+    void applySettings();
+
+ private:
+    QComboBox *comboBox;
+    QLabel *label;
+};
 
 class SettingsDialog : public QDialog
 {
@@ -116,6 +128,7 @@ public:
     GeneralTab *generalTab;
     MimeTab *mimeTab;
     AppearanceTab *appearanceTab;
+    KeyserverTab *keyserverTab;
 
 public slots:
     void accept();

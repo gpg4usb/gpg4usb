@@ -21,46 +21,48 @@
 
 #include "settingsdialog.h"
 
- SettingsDialog::SettingsDialog(QWidget *parent)
-        : QDialog(parent)
+SettingsDialog::SettingsDialog(QWidget *parent)
+    : QDialog(parent)
 {
-     tabWidget = new QTabWidget;
-     generalTab = new GeneralTab;
-     appearanceTab = new AppearanceTab;
-     mimeTab = new MimeTab;
+    tabWidget = new QTabWidget;
+    generalTab = new GeneralTab;
+    appearanceTab = new AppearanceTab;
+    mimeTab = new MimeTab;
+    keyserverTab = new KeyserverTab;
 
-     tabWidget->addTab(generalTab, tr("General"));
-     tabWidget->addTab(appearanceTab, tr("Appearance"));
-     tabWidget->addTab(mimeTab, tr("PGP/Mime"));
+    tabWidget->addTab(generalTab, tr("General"));
+    tabWidget->addTab(appearanceTab, tr("Appearance"));
+    tabWidget->addTab(mimeTab, tr("PGP/Mime"));
+    tabWidget->addTab(keyserverTab, tr("Keyserver"));
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
+                                     | QDialogButtonBox::Cancel);
 
-     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
-                                      | QDialogButtonBox::Cancel);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(tabWidget);
+    mainLayout->addWidget(buttonBox);
+    setLayout(mainLayout);
 
-     QVBoxLayout *mainLayout = new QVBoxLayout;
-     mainLayout->addWidget(tabWidget);
-     mainLayout->addWidget(buttonBox);
-     setLayout(mainLayout);
-
-     setWindowTitle(tr("Settings"));
+    setWindowTitle(tr("Settings"));
 
     exec(); 
 }
 
- void SettingsDialog::accept()
- {
-     generalTab->applySettings();
-     mimeTab->applySettings();
-     appearanceTab->applySettings();
-     close();
- }
+void SettingsDialog::accept()
+{
+    generalTab->applySettings();
+    mimeTab->applySettings();
+    appearanceTab->applySettings();
+    keyserverTab->applySettings();
+    close();
+}
 
 
- GeneralTab::GeneralTab(QWidget *parent)
-     : QWidget(parent)
- {
+GeneralTab::GeneralTab(QWidget *parent)
+    : QWidget(parent)
+{
 
     /*****************************************
      * remember Password-Box
@@ -95,7 +97,7 @@
     QGroupBox *langBox = new QGroupBox(tr("Language"));
     QVBoxLayout *langBoxLayout = new QVBoxLayout();
     langSelectBox = new QComboBox;
-        lang = listLanguages();
+    lang = listLanguages();
 
     foreach(QString l , lang) {
         langSelectBox->addItem(l);
@@ -114,47 +116,47 @@
     setSettings();
     mainLayout->addStretch(1);
     setLayout(mainLayout);
- }
+}
 
- /**********************************
+/**********************************
  * Read the settings from config
  * and set the buttons and checkboxes
  * appropriately
  **********************************/
- void GeneralTab::setSettings()
- {
-     QSettings settings;
-     // Keysaving
-     if (settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
+void GeneralTab::setSettings()
+{
+    QSettings settings;
+    // Keysaving
+    if (settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
 
-     // Remember Password
-     if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
+    // Remember Password
+    if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
 
-     // Language setting
-     QString langKey = settings.value("int/lang").toString();
-     QString langValue = lang.value(langKey);
-     if (langKey != "") {
+    // Language setting
+    QString langKey = settings.value("int/lang").toString();
+    QString langValue = lang.value(langKey);
+    if (langKey != "") {
         langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
     }
     // Ask for confirmation to import, if keyfiles are dropped on keylist
-     if (settings.value("general/confirmImportKeys",Qt::Checked).toBool()){
+    if (settings.value("general/confirmImportKeys",Qt::Checked).toBool()){
         importConfirmationCheckBox->setCheckState(Qt::Checked);
     }
- }
+}
 
- /***********************************
+/***********************************
   * get the values of the buttons and
   * write them to settings-file
   *************************************/
- void GeneralTab::applySettings()
- {
-     QSettings settings;
-     settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
-     // TODO: clear passwordCache instantly on unset rememberPassword
-     settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
-     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
-     settings.setValue("general/confirmImportKeys", importConfirmationCheckBox->isChecked());
- }
+void GeneralTab::applySettings()
+{
+    QSettings settings;
+    settings.setValue("keys/keySave", saveCheckedKeysCheckBox->isChecked());
+    // TODO: clear passwordCache instantly on unset rememberPassword
+    settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
+    settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
+    settings.setValue("general/confirmImportKeys", importConfirmationCheckBox->isChecked());
+}
 
 // http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
 QHash<QString, QString> GeneralTab::listLanguages()
@@ -166,7 +168,7 @@ QHash<QString, QString> GeneralTab::listLanguages()
     QString appPath = qApp->applicationDirPath();
     QDir qmDir = QDir(appPath + "/ts/");
     QStringList fileNames =
-        qmDir.entryList(QStringList("gpg4usb_*.qm"));
+            qmDir.entryList(QStringList("gpg4usb_*.qm"));
 
     for (int i = 0; i < fileNames.size(); ++i) {
         QString locale = fileNames[i];
@@ -183,208 +185,247 @@ QHash<QString, QString> GeneralTab::listLanguages()
 }
 
 
- MimeTab::MimeTab(QWidget *parent)
-     : QWidget(parent)
- {
-     /*****************************************
+MimeTab::MimeTab(QWidget *parent)
+    : QWidget(parent)
+{
+    /*****************************************
      * MIME-Parsing-Box
      *****************************************/
-     QGroupBox *mimeQPBox = new QGroupBox(tr("Decode quoted printable"));
-     QVBoxLayout  *mimeQPBoxLayout = new QVBoxLayout();
-     mimeQPCheckBox = new QCheckBox(tr("Try to recognize quoted printable."), this);
-     mimeQPBoxLayout->addWidget(mimeQPCheckBox);
-     mimeQPBox->setLayout(mimeQPBoxLayout);
+    QGroupBox *mimeQPBox = new QGroupBox(tr("Decode quoted printable"));
+    QVBoxLayout  *mimeQPBoxLayout = new QVBoxLayout();
+    mimeQPCheckBox = new QCheckBox(tr("Try to recognize quoted printable."), this);
+    mimeQPBoxLayout->addWidget(mimeQPCheckBox);
+    mimeQPBox->setLayout(mimeQPBoxLayout);
 
 
-     QGroupBox *mimeParseBox = new QGroupBox(tr("Parse PGP/MIME (Experimental)"));
-     QVBoxLayout  *mimeParseBoxLayout = new QVBoxLayout();
-     mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
-     mimeParseBoxLayout->addWidget(mimeParseCheckBox);
-     mimeParseBox->setLayout(mimeParseBoxLayout);
+    QGroupBox *mimeParseBox = new QGroupBox(tr("Parse PGP/MIME (Experimental)"));
+    QVBoxLayout  *mimeParseBoxLayout = new QVBoxLayout();
+    mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
+    mimeParseBoxLayout->addWidget(mimeParseCheckBox);
+    mimeParseBox->setLayout(mimeParseBoxLayout);
 
-     QGroupBox *mimeOpenAttachmentBox = new QGroupBox(tr("Open with external application (Experimental)"));
-     QVBoxLayout  *mimeOpenAttachmentBoxLayout = new QVBoxLayout();
-     QLabel *mimeOpenAttachmentText = new QLabel(tr("Open attachments with default application for the filetype.<br> "
-                                                 "There are at least two possible problems with this behaviour:"
-                                                "<ol><li>File needs to be saved unencrypted to attachments folder.<br> "
-                                                "Its your job to clean this folder.</li>"
-                                                "<li>The external application may have its own temp files.</li></ol>"));
+    QGroupBox *mimeOpenAttachmentBox = new QGroupBox(tr("Open with external application (Experimental)"));
+    QVBoxLayout  *mimeOpenAttachmentBoxLayout = new QVBoxLayout();
+    QLabel *mimeOpenAttachmentText = new QLabel(tr("Open attachments with default application for the filetype.<br> "
+                                                   "There are at least two possible problems with this behaviour:"
+                                                   "<ol><li>File needs to be saved unencrypted to attachments folder.<br> "
+                                                   "Its your job to clean this folder.</li>"
+                                                   "<li>The external application may have its own temp files.</li></ol>"));
 
     //mimeOpenAttachmentBox->setDisabled(true);
-     mimeOpenAttachmentCheckBox = new QCheckBox(tr("Enable opening with external applications."), this);
+    mimeOpenAttachmentCheckBox = new QCheckBox(tr("Enable opening with external applications."), this);
 
-     mimeOpenAttachmentBoxLayout->addWidget(mimeOpenAttachmentText);
-     mimeOpenAttachmentBoxLayout->addWidget(mimeOpenAttachmentCheckBox);
-     mimeOpenAttachmentBox->setLayout(mimeOpenAttachmentBoxLayout);
+    mimeOpenAttachmentBoxLayout->addWidget(mimeOpenAttachmentText);
+    mimeOpenAttachmentBoxLayout->addWidget(mimeOpenAttachmentCheckBox);
+    mimeOpenAttachmentBox->setLayout(mimeOpenAttachmentBoxLayout);
 
-     QVBoxLayout *mainLayout = new QVBoxLayout;
-     mainLayout->addWidget(mimeParseBox);
-     mainLayout->addWidget(mimeOpenAttachmentBox);
-     mainLayout->addWidget(mimeQPBox);
-     mainLayout->addStretch(1);
-     setLayout(mainLayout);
-     setSettings();
- }
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(mimeParseBox);
+    mainLayout->addWidget(mimeOpenAttachmentBox);
+    mainLayout->addWidget(mimeQPBox);
+    mainLayout->addStretch(1);
+    setLayout(mainLayout);
+    setSettings();
+}
 
- /**********************************
+/**********************************
  * Read the settings from config
  * and set the buttons and checkboxes
  * appropriately
  **********************************/
- void MimeTab::setSettings()
- {
-     QSettings settings;
+void MimeTab::setSettings()
+{
+    QSettings settings;
 
-     // MIME-Parsing
-     if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
+    // MIME-Parsing
+    if (settings.value("mime/parsemime").toBool()) mimeParseCheckBox->setCheckState(Qt::Checked);
 
-     // Qouted Printable
-     if (settings.value("mime/parseQP",true).toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
+    // Qouted Printable
+    if (settings.value("mime/parseQP",true).toBool()) mimeQPCheckBox->setCheckState(Qt::Checked);
 
-     // Open Attachments with external app
-     if (settings.value("mime/openAttachment").toBool()) mimeOpenAttachmentCheckBox->setCheckState(Qt::Checked);
- }
+    // Open Attachments with external app
+    if (settings.value("mime/openAttachment").toBool()) mimeOpenAttachmentCheckBox->setCheckState(Qt::Checked);
+}
 
 
- /***********************************
+/***********************************
   * get the values of the buttons and
   * write them to settings-file
   *************************************/
- void MimeTab::applySettings()
- {
-     QSettings settings;
-     settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
-     settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());
-     settings.setValue("mime/openAttachment" , mimeOpenAttachmentCheckBox->isChecked());
+void MimeTab::applySettings()
+{
+    QSettings settings;
+    settings.setValue("mime/parsemime" , mimeParseCheckBox->isChecked());
+    settings.setValue("mime/parseQP" , mimeQPCheckBox->isChecked());
+    settings.setValue("mime/openAttachment" , mimeOpenAttachmentCheckBox->isChecked());
 
- }
+}
 
- AppearanceTab::AppearanceTab(QWidget *parent)
-     : QWidget(parent)
- {
-     /*****************************************
+AppearanceTab::AppearanceTab(QWidget *parent)
+    : QWidget(parent)
+{
+    /*****************************************
       * Icon-Size-Box
       *****************************************/
-     QGroupBox *iconSizeBox = new QGroupBox(tr("Iconsize"));
-     iconSizeGroup = new QButtonGroup();
-     iconSizeSmall = new QRadioButton(tr("small"));
-     iconSizeMedium = new QRadioButton(tr("medium"));
-     iconSizeLarge = new QRadioButton(tr("large"));
+    QGroupBox *iconSizeBox = new QGroupBox(tr("Iconsize"));
+    iconSizeGroup = new QButtonGroup();
+    iconSizeSmall = new QRadioButton(tr("small"));
+    iconSizeMedium = new QRadioButton(tr("medium"));
+    iconSizeLarge = new QRadioButton(tr("large"));
 
-     iconSizeGroup->addButton(iconSizeSmall, 1);
-     iconSizeGroup->addButton(iconSizeMedium, 2);
-     iconSizeGroup->addButton(iconSizeLarge, 3);
+    iconSizeGroup->addButton(iconSizeSmall, 1);
+    iconSizeGroup->addButton(iconSizeMedium, 2);
+    iconSizeGroup->addButton(iconSizeLarge, 3);
 
-     QHBoxLayout *iconSizeBoxLayout = new QHBoxLayout();
-     iconSizeBoxLayout->addWidget(iconSizeSmall);
-     iconSizeBoxLayout->addWidget(iconSizeMedium);
-     iconSizeBoxLayout->addWidget(iconSizeLarge);
+    QHBoxLayout *iconSizeBoxLayout = new QHBoxLayout();
+    iconSizeBoxLayout->addWidget(iconSizeSmall);
+    iconSizeBoxLayout->addWidget(iconSizeMedium);
+    iconSizeBoxLayout->addWidget(iconSizeLarge);
 
-     iconSizeBox->setLayout(iconSizeBoxLayout);
+    iconSizeBox->setLayout(iconSizeBoxLayout);
 
-     /*****************************************
+    /*****************************************
       * Icon-Style-Box
       *****************************************/
-     QGroupBox *iconStyleBox = new QGroupBox(tr("Iconstyle"));
-     iconStyleGroup = new QButtonGroup();
-     iconTextButton = new QRadioButton(tr("just text"));
-     iconIconsButton = new QRadioButton(tr("just icons"));
-     iconAllButton = new QRadioButton(tr("text and icons"));
+    QGroupBox *iconStyleBox = new QGroupBox(tr("Iconstyle"));
+    iconStyleGroup = new QButtonGroup();
+    iconTextButton = new QRadioButton(tr("just text"));
+    iconIconsButton = new QRadioButton(tr("just icons"));
+    iconAllButton = new QRadioButton(tr("text and icons"));
 
-     iconStyleGroup->addButton(iconTextButton, 1);
-     iconStyleGroup->addButton(iconIconsButton, 2);
-     iconStyleGroup->addButton(iconAllButton, 3);
+    iconStyleGroup->addButton(iconTextButton, 1);
+    iconStyleGroup->addButton(iconIconsButton, 2);
+    iconStyleGroup->addButton(iconAllButton, 3);
 
-     QHBoxLayout *iconStyleBoxLayout = new QHBoxLayout();
-     iconStyleBoxLayout->addWidget(iconTextButton);
-     iconStyleBoxLayout->addWidget(iconIconsButton);
-     iconStyleBoxLayout->addWidget(iconAllButton);
+    QHBoxLayout *iconStyleBoxLayout = new QHBoxLayout();
+    iconStyleBoxLayout->addWidget(iconTextButton);
+    iconStyleBoxLayout->addWidget(iconIconsButton);
+    iconStyleBoxLayout->addWidget(iconAllButton);
 
-     iconStyleBox->setLayout(iconStyleBoxLayout);
+    iconStyleBox->setLayout(iconStyleBoxLayout);
 
-     /*****************************************
+    /*****************************************
       * Window-Size-Box
       *****************************************/
-     QGroupBox *windowSizeBox = new QGroupBox(tr("Windowstate"));
-     QHBoxLayout *windowSizeBoxLayout = new QHBoxLayout();
-     windowSizeCheckBox = new QCheckBox(tr("Save window size and position on exit."), this);
-     windowSizeBoxLayout->addWidget(windowSizeCheckBox);
-     windowSizeBox->setLayout(windowSizeBoxLayout);
+    QGroupBox *windowSizeBox = new QGroupBox(tr("Windowstate"));
+    QHBoxLayout *windowSizeBoxLayout = new QHBoxLayout();
+    windowSizeCheckBox = new QCheckBox(tr("Save window size and position on exit."), this);
+    windowSizeBoxLayout->addWidget(windowSizeCheckBox);
+    windowSizeBox->setLayout(windowSizeBoxLayout);
 
-     QVBoxLayout *mainLayout = new QVBoxLayout;
-     mainLayout->addWidget(iconSizeBox);
-     mainLayout->addWidget(iconStyleBox);
-     mainLayout->addWidget(windowSizeBox);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(iconSizeBox);
+    mainLayout->addWidget(iconStyleBox);
+    mainLayout->addWidget(windowSizeBox);
+    mainLayout->addStretch(1);
     setSettings();
-     setLayout(mainLayout);
- }
+    setLayout(mainLayout);
+}
 
- /**********************************
+/**********************************
  * Read the settings from config
  * and set the buttons and checkboxes
  * appropriately
  **********************************/
- void AppearanceTab::setSettings()
- {
-     QSettings settings;
+void AppearanceTab::setSettings()
+{
+    QSettings settings;
 
-     //Iconsize
-     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
-     switch (iconSize.height()) {
-     case 12: iconSizeSmall->setChecked(true);
-         break;
-     case 24:iconSizeMedium->setChecked(true);
-         break;
-     case 32:iconSizeLarge->setChecked(true);
-         break;
-     }
-     // Iconstyle
-     Qt::ToolButtonStyle iconStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
-     switch (iconStyle) {
-     case Qt::ToolButtonTextOnly: iconTextButton->setChecked(true);
-         break;
-     case Qt::ToolButtonIconOnly:iconIconsButton->setChecked(true);
-         break;
-     case Qt::ToolButtonTextUnderIcon:iconAllButton->setChecked(true);
-         break;
-     default:
-         break;
-     }
+    //Iconsize
+    QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+    switch (iconSize.height()) {
+    case 12: iconSizeSmall->setChecked(true);
+        break;
+    case 24:iconSizeMedium->setChecked(true);
+        break;
+    case 32:iconSizeLarge->setChecked(true);
+        break;
+    }
+    // Iconstyle
+    Qt::ToolButtonStyle iconStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
+    switch (iconStyle) {
+    case Qt::ToolButtonTextOnly: iconTextButton->setChecked(true);
+        break;
+    case Qt::ToolButtonIconOnly:iconIconsButton->setChecked(true);
+        break;
+    case Qt::ToolButtonTextUnderIcon:iconAllButton->setChecked(true);
+        break;
+    default:
+        break;
+    }
 
-     // Window Save and Position
-     if (settings.value("window/windowSave").toBool()) windowSizeCheckBox->setCheckState(Qt::Checked);
+    // Window Save and Position
+    if (settings.value("window/windowSave").toBool()) windowSizeCheckBox->setCheckState(Qt::Checked);
 
- }
+}
 
- /***********************************
+/***********************************
   * get the values of the buttons and
   * write them to settings-file
   *************************************/
- void AppearanceTab::applySettings()
- {
-     QSettings settings;
-     switch (iconSizeGroup->checkedId()) {
-     case 1: settings.setValue("toolbar/iconsize", QSize(12, 12));
-         break;
-     case 2:settings.setValue("toolbar/iconsize", QSize(24, 24));
-         break;
-     case 3:settings.setValue("toolbar/iconsize", QSize(32, 32));
-         break;
-     }
+void AppearanceTab::applySettings()
+{
+    QSettings settings;
+    switch (iconSizeGroup->checkedId()) {
+    case 1: settings.setValue("toolbar/iconsize", QSize(12, 12));
+        break;
+    case 2:settings.setValue("toolbar/iconsize", QSize(24, 24));
+        break;
+    case 3:settings.setValue("toolbar/iconsize", QSize(32, 32));
+        break;
+    }
 
-     switch (iconStyleGroup->checkedId()) {
-     case 1: settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextOnly);
-         break;
-     case 2:settings.setValue("toolbar/iconstyle", Qt::ToolButtonIconOnly);
-         break;
-     case 3:settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon);
-         break;
-     }
+    switch (iconStyleGroup->checkedId()) {
+    case 1: settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextOnly);
+        break;
+    case 2:settings.setValue("toolbar/iconstyle", Qt::ToolButtonIconOnly);
+        break;
+    case 3:settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon);
+        break;
+    }
 
     settings.setValue("window/windowSave", windowSizeCheckBox->isChecked());
- }
+}
+
+KeyserverTab::KeyserverTab(QWidget *parent)
+    : QWidget(parent)
+{
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+
+    label = new QLabel(tr("Deafult Keyserver for import:"));
+    comboBox = new QComboBox;
+    comboBox->setEditable(true);
+    comboBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+    mainLayout->addWidget(label);
+    mainLayout->addWidget(comboBox);
+    mainLayout->addStretch(1);
+
+    // Read keylist from ini-file and fill it into combobox
+    QSettings settings;
+    comboBox->addItems(settings.value("keyserver/keyServerList").toStringList());
+    setSettings();
+}
 
 
+/**********************************
+ * Read the settings from config
+ * and set the buttons and checkboxes
+ * appropriately
+ **********************************/
+void KeyserverTab::setSettings()
+{
+    QSettings settings;
+    QString keyserver = settings.value("keyserver/defaultKeyServer").toString();
+    comboBox->setCurrentIndex(comboBox->findText(keyserver));
+}
 
-
-
+/***********************************
+  * get the values of the buttons and
+  * write them to settings-file
+  *************************************/
+void KeyserverTab::applySettings()
+{
+    QSettings settings;
+    settings.setValue("keyserver/defaultKeyServer",comboBox->currentText());
+}

@@ -85,7 +85,6 @@ void VerifyNotification::setVerifyLabel(QString text, verify_label_status verify
 void VerifyNotification::showImportAction(bool visible)
 {
     importFromKeyserverAct->setVisible(visible);
-    return;
 }
 
 void VerifyNotification::showVerifyDetails()
@@ -163,6 +162,6 @@ bool VerifyNotification::refresh()
     verifyLabelText.remove(verifyLabelText.length()-1,1);
 
     this->setVerifyLabel(verifyLabelText,verifyStatus);
-    qDebug() << verifyStatus;
+
     return true;
 }
