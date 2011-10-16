@@ -250,7 +250,7 @@ void KeyServerImportDialog::importFinished()
         return;
     }
     mCtx->importKey(key.constData());
-    setMessage("Key imported",false);
+    setMessage(tr("Key imported"),false);
 
     // Add keyserver to list in config-file, if it isn't contained
     QSettings settings;

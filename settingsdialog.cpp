@@ -392,7 +392,7 @@ KeyserverTab::KeyserverTab(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    label = new QLabel(tr("Deafult Keyserver for import:"));
+    label = new QLabel(tr("Default Keyserver for import:"));
     comboBox = new QComboBox;
     comboBox->setEditable(true);
     comboBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
