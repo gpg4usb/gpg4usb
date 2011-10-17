@@ -83,6 +83,7 @@ void KeyMgmt::createActions()
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
     importKeyFromKeyServerAct = new QAction(tr("&Keyserver"), this);
+    importKeyFromKeyServerAct->setIcon(QIcon(mIconPath + "import_key_from_server.png"));
     importKeyFromKeyServerAct->setToolTip(tr("Import New Key From Keyserver"));
     connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(importKeyFromKeyServer()));
 
@@ -139,6 +140,7 @@ void KeyMgmt::createToolBars()
     keyToolBar->setObjectName("keytoolbar");
     keyToolBar->addAction(importKeyFromFileAct);
     keyToolBar->addAction(importKeyFromClipboardAct);
+    keyToolBar->addAction(importKeyFromKeyServerAct);
     keyToolBar->addSeparator();
     keyToolBar->addAction(deleteCheckedKeysAct);
     keyToolBar->addSeparator();
