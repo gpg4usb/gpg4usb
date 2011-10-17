@@ -57,7 +57,6 @@ KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *paren
     buttonsLayout->addWidget(importButton);
     buttonsLayout->addWidget(closeButton);
 
-    //
     QGridLayout *mainLayout = new QGridLayout;
     mainLayout->addWidget(searchLabel, 1, 0);
     mainLayout->addWidget(searchLineEdit, 1, 1);
@@ -67,11 +66,11 @@ KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *paren
     mainLayout->addWidget(keysTable, 3, 0, 1, 3);
     mainLayout->addLayout(messageLayout, 4, 0, 1, 3);
     mainLayout->addLayout(buttonsLayout, 5, 0, 1, 3);
-    setLayout(mainLayout);
 
-    setWindowTitle(tr("Import Keys from Keyserver"));
-    resize(700, 300);
-    setModal(true);
+    this->setLayout(mainLayout);
+    this->setWindowTitle(tr("Import Keys from Keyserver"));
+    this->resize(700, 300);
+    this->setModal(true);
 }
 
 QPushButton *KeyServerImportDialog::createButton(const QString &text, const char *member)
@@ -84,19 +83,17 @@ QPushButton *KeyServerImportDialog::createButton(const QString &text, const char
 QComboBox *KeyServerImportDialog::createComboBox()
 {
     QComboBox *comboBox = new QComboBox;
-    comboBox->setEditable(true);
     comboBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
     // Read keylist from ini-file and fill it into combobox
     QSettings settings;
     comboBox->addItems(settings.value("keyserver/keyServerList").toStringList());
-    return comboBox;
-}
 
-static void updateComboBox(QComboBox *comboBox)
-{
-    if (comboBox->findText(comboBox->currentText()) == -1)
-        comboBox->addItem(comboBox->currentText());
+    // set default keyserver in combobox
+    QString keyserver = settings.value("keyserver/defaultKeyServer").toString();
+    comboBox->setCurrentIndex(comboBox->findText(keyserver));
+
+    return comboBox;
 }
 
 void KeyServerImportDialog::createKeysTable()
@@ -207,13 +204,8 @@ void KeyServerImportDialog::searchFinished()
 void KeyServerImportDialog::import()
 {
     if ( keysTable->currentRow() > -1 ) {
-
-        //TODO: just updateCombobox, when import is successful
-        updateComboBox(keyServerComboBox);
         QString keyid = keysTable->item(keysTable->currentRow(),2)->text();
 
-        // TODO: use string from combobox
-        //QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?op=get&search=0x"+keyid+"&options=mr";
         QUrl url = keyServerComboBox->currentText();
         import(QStringList(keyid), url);
    }
@@ -221,8 +213,9 @@ void KeyServerImportDialog::import()
 
 void KeyServerImportDialog::import(QStringList keyIds)
 {
-    // TODO: read default keyserver from settings
-    QUrl url("http://pgp.mit.edu");
+    QSettings settings;
+    QString keyserver=settings.value("keyserver/defaultKeyServer").toString();
+    QUrl url(keyserver);
     import(keyIds, url);
 }
 

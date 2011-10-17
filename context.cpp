@@ -472,10 +472,18 @@ int Context::checkErr(gpgme_error_t err) const
 
 void Context::exportSecretKey(QString uid, QByteArray *outBuffer)
 {
+    // export private key to outBuffer
     QStringList arguments;
     arguments << "--armor" << "--export-secret-key" << uid;
     QByteArray *err = new QByteArray();
     executeGpgCommand(arguments, outBuffer, err);
+
+    // append public key to outBuffer
+    QByteArray *pubKey = new QByteArray();
+    QStringList keyList;
+    keyList.append(uid);
+    exportKeys(&keyList,pubKey);
+    outBuffer->append(*pubKey);
 }
 
 /** return type should be gpgme_error_t*/

@@ -93,6 +93,20 @@ void GpgWin::restoreSettings()
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     this->setIconSize(iconSize);
 
+    // set list of keyserver if not defined
+    QStringList *keyServerDefaultList;
+    keyServerDefaultList = new QStringList("http://gpg-keyserver.de");
+    keyServerDefaultList->append("http://pgp.mit.edu");
+    keyServerDefaultList->append("http://pool.sks-keyservers.net");
+    keyServerDefaultList->append("http://subkeys.pgp.net");
+
+    QStringList keyServerList = settings.value("keyserver/keyServerList", *keyServerDefaultList).toStringList();
+    settings.setValue("keyserver/keyServerList", keyServerList);
+
+    // set default keyserver, if it's not set
+    QString defaultKeyServer = settings.value("keyserver/defaultKeyServer", QString("http://pgp.mit.edu")).toString();
+    settings.setValue("keyserver/defaultKeyServer", defaultKeyServer);
+
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     this->setToolButtonStyle(buttonStyle);

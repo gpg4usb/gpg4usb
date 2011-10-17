@@ -18,8 +18,8 @@ Release 0.3.1
 - dont hide verifynotification [DONE]
 - refresh verify after import of keys [DONE]
 - show, if message is partially verified(how)? [DONE]
-- replace hardcoded urls in keyserverimport (setting default keyserverlist still missing, set default in importfromkeyserverdialog)
-- export public key on export of private key too
+- replace hardcoded urls in keyserverimport (setting default keyserverlist still missing, set default in importfromkeyserverdialog) [DONE]
+- export public key on export of private key too [DONE]
 - beautify icons for verify and sign
 - set gpgme error language to chosen language (context.cpp:49)
 - stealth mode for windows (http://www.portablefreeware.com/forums/viewtopic.php?f=4&t=3713)
