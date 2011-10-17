@@ -141,12 +141,12 @@ bool VerifyNotification::refresh()
     {
     case 2:
     {
-        verifyLabelText.prepend(tr("Text is completely signed by: "));
+        verifyLabelText.prepend(tr("Text was completely signed by: "));
         break;
     }
     case 1:
     {
-        verifyLabelText.prepend(tr("Text is partially signed by: "));
+        verifyLabelText.prepend(tr("Text was partially signed by: "));
         break;
     }
     }
