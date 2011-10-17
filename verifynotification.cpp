@@ -55,9 +55,6 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::Context *ctx, Key
 void VerifyNotification::importFromKeyserver()
 {
     KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,this);
-    /*foreach (QString keyid, *keysNotInList) {
-        importDialog->import(keyid);
-    }*/
     importDialog->import(*keysNotInList);
 }
 
@@ -115,18 +112,17 @@ bool VerifyNotification::refresh()
         case GPG_ERR_NO_PUBKEY:
         {
             verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Key not present with Fingerprint: ")+mCtx->beautifyFingerprint(QString(sign->fpr)));
+            verifyLabelText.append(tr("Key not present with id 0x ")+QString(sign->fpr));
             this->keysNotInList->append(sign->fpr);
             unknownKeyFound=true;
             break;
         }
         case GPG_ERR_NO_ERROR:
         {
-            QString name = mKeyList->getKeyNameByFpr(sign->fpr);
-            QString email =mKeyList->getKeyEmailByFpr(sign->fpr);
-            verifyLabelText.append(name);
-            if (!email.isEmpty()) {
-                verifyLabelText.append("<"+email+">");
+            GpgKey key = mKeyList->getKeyByFpr(sign->fpr);
+            verifyLabelText.append(key.name);
+            if (!key.email.isEmpty()) {
+                verifyLabelText.append("<"+key.email+">");
             }
             break;
         }
@@ -145,7 +141,7 @@ bool VerifyNotification::refresh()
     {
     case 2:
     {
-        verifyLabelText.prepend(tr("Text is completly signed by: "));
+        verifyLabelText.prepend(tr("Text is completely signed by: "));
         break;
     }
     case 1:

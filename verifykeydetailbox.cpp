@@ -27,7 +27,6 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, Key
     this->mCtx = ctx;
     this->mKeyList = keyList;
     this->fpr=signature->fpr;
-    this->setTitle(signature->fpr);
 
     grid = new QGridLayout();
 
@@ -38,22 +37,27 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, Key
             QPushButton *importButton = new QPushButton(tr("Import from keyserver"));
             connect(importButton, SIGNAL(clicked()), this, SLOT(importFormKeyserver()));
 
+            this->setTitle(tr("Key not present with id 0x") + signature->fpr);
+
             grid->addWidget(new QLabel(tr("Status:")), 0, 0);
-            grid->addWidget(new QLabel(tr("Fingerprint:")), 1, 0);
+            //grid->addWidget(new QLabel(tr("Fingerprint:")), 1, 0);
             grid->addWidget(new QLabel(tr("Key not present in keylist")), 0, 1);
-            grid->addWidget(new QLabel(signature->fpr), 1, 1);
+            //grid->addWidget(new QLabel(signature->fpr), 1, 1);
             grid->addWidget(importButton, 2,0,2,1);
             break;
         }
         case GPG_ERR_NO_ERROR:
         {
+            GpgKey key = mKeyList->getKeyByFpr(signature->fpr);
+
+            this->setTitle(key.name);
             grid->addWidget(new QLabel(tr("Name:")), 0, 0);
             grid->addWidget(new QLabel(tr("EMail:")), 1, 0);
             grid->addWidget(new QLabel(tr("Fingerprint:")), 2, 0);
             grid->addWidget(new QLabel(tr("Status:")), 3, 0);
 
-            grid->addWidget(new QLabel(mKeyList->getKeyNameByFpr(signature->fpr)), 0, 1);
-            grid->addWidget(new QLabel(mKeyList->getKeyEmailByFpr(signature->fpr)), 1, 1);
+            grid->addWidget(new QLabel(key.name), 0, 1);
+            grid->addWidget(new QLabel(key.email), 1, 1);
             grid->addWidget(new QLabel(beautifyFingerprint(signature->fpr)), 2, 1);
             grid->addWidget(new QLabel(tr("OK")), 3, 1);
 
