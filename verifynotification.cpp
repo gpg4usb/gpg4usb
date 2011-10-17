@@ -30,6 +30,7 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::Context *ctx, Key
     verifyLabel = new QLabel(this);
 
     connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
+    connect(edit, SIGNAL(textChanged()), this, SLOT(close()));
 
     importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
     connect(importFromKeyserverAct, SIGNAL(triggered()), this, SLOT(importFromKeyserver()));
@@ -112,7 +113,7 @@ bool VerifyNotification::refresh()
         case GPG_ERR_NO_PUBKEY:
         {
             verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Key not present with id 0x ")+QString(sign->fpr));
+            verifyLabelText.append(tr("Key not present with id 0x")+QString(sign->fpr));
             this->keysNotInList->append(sign->fpr);
             unknownKeyFound=true;
             break;
