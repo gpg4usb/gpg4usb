@@ -56,18 +56,22 @@ void VerifyDetailsDialog::refresh()
     timestamp.setTime_t(sign->timestamp);
 
     // Set the title widget depending on sign status
-    switch (mCtx->textIsSigned(text))
-    {
-    case 2:
-    {
-        mVboxLayout->addWidget(new QLabel(tr("Text was completely signed on\n %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
-        break;
-    }
-    case 1:
-    {
-        mVboxLayout->addWidget(new QLabel(tr("Text was partially signed on\n %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
-        break;
-    }
+    if(gpg_err_code(sign->status) == GPG_ERR_BAD_SIGNATURE) {
+        mVboxLayout->addWidget(new QLabel(tr("Error Validating signature")));
+    } else {
+        switch (mCtx->textIsSigned(text))
+        {
+            case 2:
+            {
+                mVboxLayout->addWidget(new QLabel(tr("Text was completely signed on\n %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
+                break;
+            }
+            case 1:
+            {
+                mVboxLayout->addWidget(new QLabel(tr("Text was partially signed on\n %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
+                break;
+            }
+        }
     }
 
     // Add informationbox for every single key

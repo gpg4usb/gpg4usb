@@ -65,11 +65,17 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, Key
         }
         default:
         {
-            grid->addWidget(new QLabel(tr("Status:")), 0, 0);
-            grid->addWidget(new QLabel(tr("Fingerprint:")), 1, 0);
+            GpgKey key = mKeyList->getKeyById(signature->fpr);
+            this->setTitle(tr("Error for key with id 0x") + fpr);
+            grid->addWidget(new QLabel(tr("Name:")), 0, 0);
+            grid->addWidget(new QLabel(tr("EMail:")), 1, 0);
+            grid->addWidget(new QLabel(tr("Status:")), 2, 0);
+            grid->addWidget(new QLabel(tr("Fingerprint:")), 3, 0);
 
-            grid->addWidget(new QLabel(gpg_strerror(signature->status)), 0, 1);
-            grid->addWidget(new QLabel(beautifyFingerprint(signature->fpr)), 1, 1);
+            grid->addWidget(new QLabel(key.name), 0, 1);
+            grid->addWidget(new QLabel(key.email), 1, 1);
+            grid->addWidget(new QLabel(gpg_strerror(signature->status)), 2, 1);
+            grid->addWidget(new QLabel(beautifyFingerprint(key.fpr)), 3, 1);
 
             break;
         }

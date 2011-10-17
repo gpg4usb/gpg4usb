@@ -110,29 +110,42 @@ bool VerifyNotification::refresh()
     while (sign) {
         switch (gpg_err_code(sign->status))
         {
-        case GPG_ERR_NO_PUBKEY:
-        {
-            verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Key not present with id 0x")+QString(sign->fpr));
-            this->keysNotInList->append(sign->fpr);
-            unknownKeyFound=true;
-            break;
-        }
-        case GPG_ERR_NO_ERROR:
-        {
-            GpgKey key = mKeyList->getKeyByFpr(sign->fpr);
-            verifyLabelText.append(key.name);
-            if (!key.email.isEmpty()) {
-                verifyLabelText.append("<"+key.email+">");
+            case GPG_ERR_NO_PUBKEY:
+            {
+                verifyStatus=VERIFY_ERROR_WARN;
+                verifyLabelText.append(tr("Key not present with id 0x")+QString(sign->fpr));
+                this->keysNotInList->append(sign->fpr);
+                unknownKeyFound=true;
+                break;
             }
-            break;
-        }
-        default:
-        {
-            verifyStatus=VERIFY_ERROR_WARN;
-            verifyLabelText.append(tr("Error for key with fingerprint ")+mCtx->beautifyFingerprint(QString(sign->fpr)));
-            break;
-        }
+            case GPG_ERR_NO_ERROR:
+            {
+                GpgKey key = mKeyList->getKeyByFpr(sign->fpr);
+                verifyLabelText.append(key.name);
+                if (!key.email.isEmpty()) {
+                    verifyLabelText.append("<"+key.email+">");
+                }
+                break;
+            }
+            case GPG_ERR_BAD_SIGNATURE:
+            {
+                textIsSigned = 3;
+                verifyStatus=VERIFY_ERROR_CRITICAL;
+                GpgKey key = mKeyList->getKeyById(sign->fpr);
+                verifyLabelText.append(key.name);
+                if (!key.email.isEmpty()) {
+                    verifyLabelText.append("<"+key.email+">");
+                }
+                break;
+            }
+            default:
+            {
+                //textIsSigned = 3;
+                verifyStatus=VERIFY_ERROR_WARN;
+                //GpgKey key = mKeyList->getKeyByFpr(sign->fpr);
+                verifyLabelText.append(tr("Error for key with fingerprint ")+mCtx->beautifyFingerprint(QString(sign->fpr)));
+                break;
+            }
         }
         verifyLabelText.append("\n");
         sign = sign->next;
@@ -140,16 +153,21 @@ bool VerifyNotification::refresh()
 
     switch (textIsSigned)
     {
-    case 2:
-    {
-        verifyLabelText.prepend(tr("Text was completely signed by: "));
-        break;
-    }
-    case 1:
-    {
-        verifyLabelText.prepend(tr("Text was partially signed by: "));
-        break;
-    }
+        case 3:
+            {
+                verifyLabelText.prepend(tr("Error validating signature by: "));
+                break;
+            }
+        case 2:
+            {
+                verifyLabelText.prepend(tr("Text was completely signed by: "));
+                break;
+            }
+        case 1:
+            {
+                verifyLabelText.prepend(tr("Text was partially signed by: "));
+                break;
+            }
     }
 
     // If an unknown key is found, enable the importfromkeyserveraction

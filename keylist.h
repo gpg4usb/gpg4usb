@@ -44,6 +44,7 @@ public:
     QStringList *getChecked();
     QStringList *getPrivateChecked();
     GpgKey getKeyByFpr(QString fpr);
+    GpgKey getKeyById(QString id);
 
     void setChecked(QStringList *keyIds);
     //QStringList *getPrivateChecked();
