@@ -93,11 +93,20 @@ void KeyList::refresh()
         mKeyList->setItem(row, 2, tmp2);
         QTableWidgetItem *tmp3 = new QTableWidgetItem(it->email);
         tmp3->setToolTip(it->email);
+        // strike out expired keys
+        if(it->expired) {
+            QFont strike = tmp2->font();
+            strike.setStrikeOut(true);
+            tmp2->setFont(strike);
+            tmp3->setFont(strike);
+        }
         mKeyList->setItem(row, 3, tmp3);
         QTableWidgetItem *tmp4 = new QTableWidgetItem(it->id);
         mKeyList->setItem(row, 4, tmp4);
         QTableWidgetItem *tmp5 = new QTableWidgetItem(it->fpr);
         mKeyList->setItem(row, 5, tmp5);
+
+
         it++;
         ++row;
     }

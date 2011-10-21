@@ -186,11 +186,12 @@ GpgKeyList Context::listKeys()
             continue;
 
         gpgkey.id = key->subkeys->keyid;
+        gpgkey.fpr = key->subkeys->fpr;
+        gpgkey.expired = (key->expired != 0);
 
         if (key->uids) {
             gpgkey.name = key->uids->name;
             gpgkey.email = key->uids->email;
-            gpgkey.fpr = key->subkeys->fpr;
         }
         keys.append(gpgkey);
         gpgme_key_unref(key);
