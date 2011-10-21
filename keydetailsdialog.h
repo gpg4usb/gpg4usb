@@ -28,6 +28,7 @@
 QT_BEGIN_NAMESPACE
 class QDateTime;
 class QVBoxLayout;
+class QHBoxLayout;
 class QDialogButtonBox;
 class QDialog;
 class QGroupBox;
@@ -69,6 +70,7 @@ private:
     QLabel *createdLabel;
     QLabel *algorithmLabel;
     QLabel *fingerPrintLabel;
+    QLabel *keyidLabel;
 
     QLabel *nameVarLabel;
     QLabel *emailVarLabel;
@@ -77,6 +79,8 @@ private:
     QLabel *expireVarLabel;
     QLabel *createdVarLabel;
     QLabel *algorithmVarLabel;
+    QLabel *keyidVarLabel;
+
 };
 
 #endif // __KEYDETAILSDIALOG_H__

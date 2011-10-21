@@ -41,10 +41,13 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key, QWidget
     expireLabel = new QLabel(tr("Expires on: "));
     createdLabel = new QLabel(tr("Created on: "));
     algorithmLabel = new QLabel(tr("Algorithm: "));
+    keyidLabel = new QLabel(tr("Key ID: "));
 
     nameVarLabel = new QLabel(key->uids->name);
     emailVarLabel = new QLabel(key->uids->email);
     commentVarLabel = new QLabel(key->uids->comment);
+    keyidVarLabel = new QLabel(key->subkeys->keyid);
+
     //keySizeVarLabel = new QLabel();
     QString keySizeVal, keyExpireVal, keyCreatedVal, keyAlgoVal;
 
@@ -92,11 +95,13 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key, QWidget
     vboxKD->addWidget(expireLabel, 1, 0);
     vboxKD->addWidget(algorithmLabel, 3, 0);
     vboxKD->addWidget(createdLabel, 4, 0);
+    vboxKD->addWidget(keyidLabel, 5, 0);
 
     vboxKD->addWidget(keySizeVarLabel, 0, 1);
     vboxKD->addWidget(expireVarLabel, 1, 1);
     vboxKD->addWidget(algorithmVarLabel, 3, 1);
     vboxKD->addWidget(createdVarLabel, 4, 1);
+    vboxKD->addWidget(keyidVarLabel, 5, 1);
 
     ownerBox->setLayout(vboxOD);
     mvbox->addWidget(ownerBox);
@@ -121,6 +126,22 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key, QWidget
 
         privKeyBox->setLayout(vboxPK);
         mvbox->addWidget(privKeyBox);
+    }
+
+    if(key->expired) {
+        QHBoxLayout *expBox = new QHBoxLayout();
+        QIcon icon = QIcon::fromTheme("dialog-warning");
+        QPixmap pixmap = icon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
+
+        QLabel *iconLabel = new QLabel();
+        QLabel *expLabel = new QLabel(tr("Warning: Key expired"));
+        iconLabel->setPixmap(pixmap);
+        QFont font = expLabel->font();
+        font.setBold(true);
+        expLabel->setFont(font);
+        expBox->addWidget(iconLabel);
+        expBox->addWidget(expLabel);
+        mvbox->addLayout(expBox);
     }
 
     mvbox->addWidget(buttonBox);
