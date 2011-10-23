@@ -477,7 +477,7 @@ void GpgWin::about()
                                 + qApp->applicationVersion() + "</h2></center>"
                                 + tr("<center>This application allows simple encryption <br/>"
                                      "and decryption of text messages or files.<br>"
-                                     "It's licensed under the GPL v2.0<br><br>"
+                                     "It's licensed under the GPL v3<br><br>"
                                      "<b>Developer:</b><br>"
                                      "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                                      "<b>Translation:</b><br>"
