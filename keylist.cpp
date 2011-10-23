@@ -118,6 +118,7 @@ void KeyList::refresh()
  * note: privkey status is not returned
  */
 GpgKey KeyList::getKeyByFpr(QString fpr) {
+    qDebug() << "begin of getkeybyfpr";
     GpgKey key;
     for (int i = 0; i < mKeyList->rowCount(); i++) {
         if (mKeyList->item(i, 5)->text() == fpr) {
@@ -128,6 +129,7 @@ GpgKey KeyList::getKeyByFpr(QString fpr) {
             key.fpr = fpr;
         }
     }
+    qDebug() << "end of getkeybyfpr";
     return key;
 }
 

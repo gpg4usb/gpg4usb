@@ -32,15 +32,16 @@ VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::Context* ctx, K
     connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
     mainLayout = new QHBoxLayout();
     this->setLayout(mainLayout);
+
+    mVbox = new QWidget();
     refresh();
+
     this->exec();
 }
 
 void VerifyDetailsDialog::refresh()
 {
-    if (mVbox) {
-        mVbox->close();
-    }
+    mVbox->close();
 
     mVbox = new QWidget();
     mVboxLayout = new QVBoxLayout(mVbox);
@@ -73,7 +74,6 @@ void VerifyDetailsDialog::refresh()
             }
         }
     }
-
     // Add informationbox for every single key
     while (sign) {
         VerifyKeyDetailBox *sbox = new VerifyKeyDetailBox(this,mCtx,mKeyList,sign);
