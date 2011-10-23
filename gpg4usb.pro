@@ -11,8 +11,8 @@ DEPENDPATH += .
 INCLUDEPATH += . \
     ./include
 
-CONFIG += release static
-#CONFIG += debug
+#CONFIG += release static
+CONFIG += debug
 QT += network
 # Input
 HEADERS += attachments.h \
@@ -55,11 +55,12 @@ SOURCES += attachments.cpp \
 RC_FILE = gpg4usb.rc
 
 # comment out line below for static building
-#LIBS += -lgpgme \
-#     -lgpg-error \
+LIBS += -lgpgme \
+     -lgpg-error \
 
-INCLUDEPATH += ./winbuild/include 
-LIBS +=./winbuild/lib/libgpgme.a ./winbuild/lib/libgpg-error.a 
+# comment in for static buildding in windows
+#INCLUDEPATH += ./winbuild/include 
+#LIBS +=./winbuild/lib/libgpgme.a ./winbuild/lib/libgpg-error.a 
 
     
 DEFINES += _FILE_OFFSET_BITS=64
