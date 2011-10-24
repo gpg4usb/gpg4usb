@@ -158,6 +158,7 @@ void KeyServerImportDialog::searchFinished()
         if (text.contains("Too many responses")) {
             setMessage(tr("Too many responses from keyserver!"),true);
         } else if (text.contains("No keys found")) {
+            // if string looks like hex string, search again with 0x prepended
             QRegExp rx("[0-9A-Fa-f]*");
             QString query = searchLineEdit->text();
             if (rx.exactMatch(query)) {
