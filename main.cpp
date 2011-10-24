@@ -33,6 +33,9 @@ int main(int argc, char *argv[])
     app.setApplicationVersion("0.3.1");
     app.setApplicationName("gpg4usb");
 
+    // dont show icons in menus
+    app.setAttribute(Qt::AA_DontShowIconsInMenus);
+
     // set environment variables
     // TODO:
     //   - unsetenv on windows?
