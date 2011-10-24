@@ -149,18 +149,26 @@ void KeyServerImportDialog::searchFinished()
     QVariant redirectionTarget = reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
     if (reply->error()) {
         setMessage(tr("Couldn't contact keyserver!"),true);
+        //setMessage(reply->error());
+        qDebug() << reply->error();
     }
     if (firstLine.contains("Error"))
     {
         QString text= QString(reply->readLine(1024));
         if (text.contains("Too many responses")) {
             setMessage(tr("Too many responses from keyserver!"),true);
-        }
-        if (text.contains("No keys found")) {
+        } else if (text.contains("No keys found")) {
+            QRegExp rx("[0-9A-Fa-f]*");
+            QString query = searchLineEdit->text();
+            if (rx.exactMatch(query)) {
+               searchLineEdit->setText(query.prepend("0x"));
+               this->search();
+            }
             setMessage(tr("No keys found containing the search string!"),true);
-        }
-        if (text.contains("Insufficiently specific words")) {
+        } else if (text.contains("Insufficiently specific words")) {
             setMessage(tr("Insufficiently specific search string!"),true);
+        } else {
+            setMessage(text, true);
         }
     } else {
         int row = 0;
