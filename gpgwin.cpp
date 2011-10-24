@@ -442,13 +442,19 @@ void GpgWin::createDockWindows()
 
     /* Attachments-Dockwindow
       */
+    if(settings.value("mime/parseMime").toBool()) {
+        createAttachmentDock();
+    }
+}
+
+void GpgWin::createAttachmentDock() {
     attachmentDock = new QDockWidget(tr("Attached files:"), this);
     attachmentDock->setObjectName("AttachmentDock");
     attachmentDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea);
     addDockWidget(Qt::BottomDockWidgetArea, attachmentDock);
     attachmentDock->setWidget(mAttachments);
-    // hide till attachmendt is decrypted
-    viewMenu->addAction(attachmentDock->toggleViewAction());
+    // hide till attachment is decrypted
+    // viewMenu->addAction(attachmentDock->toggleViewAction());
     attachmentDock->hide();
 }
 
@@ -745,6 +751,11 @@ void GpgWin::openSettingsDialog()
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     this->setToolButtonStyle(buttonStyle);
+
+    if(settings.value("mime/parseMime").toBool()) {
+        createAttachmentDock();
+    }
+
 }
 
 void GpgWin::cleanDoubleLinebreaks()

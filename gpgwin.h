@@ -192,6 +192,11 @@ private:
     void createDockWindows();
 
     /**
+     * @details Create attachment-dockwindow.
+     */
+    void createAttachmentDock();
+
+    /**
      * @details Load settings from ini-file.
      */
     void restoreSettings();
