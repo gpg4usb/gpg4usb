@@ -95,6 +95,10 @@ void Attachments::saveFile()
 
     QModelIndexList indexes = tableView->selectionModel()->selection().indexes();
 
+    if (indexes.size() < 1) {
+        return;
+    }
+
     // only singe-selection possible now: TODO: foreach
     MimePart mp = table->getMimePart(indexes.at(0).row());
     QString filename = mp.header.getParam("Content-Type", "name");
