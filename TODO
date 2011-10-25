@@ -62,7 +62,7 @@ Release 0.3.3
 - remember Password:
 	- checkbox in password dialog to remember password
 	- Timer to remember password for x minutes?
-attachments:
+- attachments:
 	- context menu for files left in attachment dir-icon: clean attachments-dir
 	- settings option "check attachment-dir all 10s and warn user"
 	- remind user on closing if files left in attachments-dir
