@@ -23,15 +23,24 @@ Release 0.3.1
 - GPLv3 [DONE]
 - cross out expired keys and add warning in key properties [DONE]
 - stealth mode for windows (http://www.portablefreeware.com/forums/viewtopic.php?f=4&t=3713) [DONE]
+- keyid should be searchable in import from keyserver [DONE]
 - beautify icons for verify and sign
-- set gpgme error language to chosen language (context.cpp:49)
-- import from keyserver doesn't end, if network-connection is available, but no connection to keyserver  (?)
-- keyid should be searchable in import from keyserver (?)
-
-BUGS: 
-- Sometimes two or more stars are shown at modified documents
 
 Release 0.3.2
+- set gpgme error language to chosen language (context.cpp:49)
+- import from keyserver doesn't end, if network-connection is available, but no connection to keyserver  (?)
+- minimal steganography option: remove or add pgp-headers on demand
+- update gpgme-library
+- understandable message if no matching private key found for decryption
+- investigate in adding a offline help system 
+- investigate in embedding a steganography tool
+- refactoring and cleanup:
+	- gpgwin.cpp -> mainwindow.cpp
+	- context.cpp -> gpgcontext.cpp
+- optionally open new tab after encryption/decrytion 
+
+
+Release 0.3.3
 - Change private key password (catch bad passphrase message)
 - Wizard on first start (Create Key, Import from older gpg4usb, import from gnupg)
 - css
@@ -39,12 +48,11 @@ Release 0.3.2
 - check and add missing statusbar messages
 - set mainwindow-statusbar text via signal
 - more doku on building gpg4usb (especially on windows)
-- clear cache nach Programmende (siehe kbasket)
+- clear password-cache after quit (siehe kbasket)
 - check pointer usage (const/references)
 - add posibility to change password of key
 - save the last used directory in open file dialog
 - make keylist browsable with keyboard
-- update gpgme-library
 - Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
 - clean header if quoted printable decoded
 - PGP-MIME, find and show inline encrypted files
@@ -64,17 +72,13 @@ attachments:
 		- decrypting
 		- encrypting
 	- status-tip "saved file" when saving file for "open with" [DONE]
+
 Release 0.4
-- adding signing and verifying
-- nice for verify: import key from keyserver
-- refactoring and cleanup:
-	- gpgwin.cpp -> mainwindow.cpp
-	- context.cpp -> gpgcontext.cpp
-- save state on closing as encrypted file, allow recovery with password on next star
+- save state on closing as encrypted file, allow recovery with password on next start
 	- generate functional key for user
+- investigate using libqgpgme1 (qt binding for gpgme)
 
 Later:
-
 - more internationalisation:
   - menu entry for changing character encoding
   - hints (on webpage?) which webmailer sends which encoding-header
@@ -84,18 +88,13 @@ Later:
 - add a message-box with warning if someone's adding a secret-key to usb-keyring
 - sorting keys would be nice (e.g. a-z or complete manual)
 - Policy ( dialogs, what's warning, what an error )
-- Tabbed editor (including useful things like encrypted data opens in new tab)
 
 - some kind of locking for keydb, as gpg.conf uses lock-never, for ability to run on usb-drives (fat-formatted)
 
 - make use of GPGME IO-Callbacks from QT, read chapter 7.8.2 from GPGME info page
 
-usability:
-- dialog on closing unsaved document (discard/cancel/save) is not very user-friendly
-- undo / history
-
 BUGS
 ----
-- on windows an empty directory gnupg in application-data is created, find out how to disable
 - cancel decryption on windows hangs programm -> possibly bug in gpgme
 - entering wrong password for decrypt on windows hangs program -> possible bug in gpgme
+- Sometimes two or more stars are added to title of modified tabs
