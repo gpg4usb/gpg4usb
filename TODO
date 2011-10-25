@@ -98,3 +98,4 @@ BUGS
 - cancel decryption on windows hangs programm -> possibly bug in gpgme
 - entering wrong password for decrypt on windows hangs program -> possible bug in gpgme
 - Sometimes two or more stars are added to title of modified tabs
+
