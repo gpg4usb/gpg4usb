@@ -162,10 +162,12 @@ void KeyServerImportDialog::searchFinished()
             QRegExp rx("[0-9A-Fa-f]*");
             QString query = searchLineEdit->text();
             if (rx.exactMatch(query)) {
+               setMessage(tr("No keys found, input may be kexId, retrying search with 0x."),true);
                searchLineEdit->setText(query.prepend("0x"));
                this->search();
+            } else {
+                setMessage(tr("No keys found containing the search string!"),true);
             }
-            setMessage(tr("No keys found containing the search string!"),true);
         } else if (text.contains("Insufficiently specific words")) {
             setMessage(tr("Insufficiently specific search string!"),true);
         } else {
