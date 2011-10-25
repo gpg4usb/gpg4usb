@@ -39,7 +39,7 @@ GpgWin::GpgWin()
     mKeyList = new KeyList(mCtx, iconPath);
 
     /* List of binary Attachments */
-    mAttachments = new Attachments(iconPath);
+    attachmentDockCreated = false;
 
     keyMgmt = new KeyMgmt(mCtx, iconPath);
     keyMgmt->hide();
@@ -448,14 +448,28 @@ void GpgWin::createDockWindows()
 }
 
 void GpgWin::createAttachmentDock() {
+    if (attachmentDockCreated) {
+        return;
+    }
+    mAttachments = new Attachments(iconPath);
     attachmentDock = new QDockWidget(tr("Attached files:"), this);
     attachmentDock->setObjectName("AttachmentDock");
     attachmentDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea);
     addDockWidget(Qt::BottomDockWidgetArea, attachmentDock);
     attachmentDock->setWidget(mAttachments);
     // hide till attachment is decrypted
-    // viewMenu->addAction(attachmentDock->toggleViewAction());
+    viewMenu->addAction(attachmentDock->toggleViewAction());
     attachmentDock->hide();
+    attachmentDockCreated = true;
+}
+
+void GpgWin::closeAttachmentDock() {
+    if (!attachmentDockCreated) {
+        return;
+    }
+    attachmentDock->close();
+    attachmentDock->deleteLater();
+    attachmentDockCreated = false;
 }
 
 void GpgWin::closeEvent(QCloseEvent *event)
@@ -754,6 +768,8 @@ void GpgWin::openSettingsDialog()
 
     if(settings.value("mime/parseMime").toBool()) {
         createAttachmentDock();
+    } else if(attachmentDockCreated) {
+        closeAttachmentDock();
     }
 
 }

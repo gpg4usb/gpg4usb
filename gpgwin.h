@@ -197,6 +197,11 @@ private:
     void createAttachmentDock();
 
     /**
+     * @details close attachment-dockwindow.
+     */
+    void closeAttachmentDock();
+
+    /**
      * @details Load settings from ini-file.
      */
     void restoreSettings();
@@ -283,6 +288,7 @@ private:
     QString iconPath; /**< TODO */
     KeyMgmt *keyMgmt; /**< TODO */
     KeyServerImportDialog *importDialog; /**< TODO */
+    bool attachmentDockCreated;
 };
 
 #endif // __GPGWIN_H__
