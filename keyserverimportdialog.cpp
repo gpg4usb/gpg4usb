@@ -181,11 +181,23 @@ void KeyServerImportDialog::searchFinished()
             QStringList line= QString(buff).split(":");
             //TODO: have a look at two following pub lines
             if (line[0] == "pub") {
+                QString flags = line[line.size()-1];
+
+                // flags can be "d" for disabled, "r" for revoked
+                // or "e" for expired
+                if (flags.contains("r")) {
+                    qDebug() << "revoked";
+                }
+
                 keysTable->setRowCount(row+1);
                 QStringList line2 = QString(reply->readLine()).split(":");
+
                 if (line2.size() > 1) {
                     QTableWidgetItem *uid = new QTableWidgetItem(line2[1]);
                     keysTable->setItem(row, 0, uid);
+                    QFont strike = uid->font();
+                    strike.setStrikeOut(true);
+                    uid->setFont(strike);
                 }
                 QTableWidgetItem *creationdate = new QTableWidgetItem(QDateTime::fromTime_t(line[4].toInt()).toString("dd. MMM. yyyy"));
                 keysTable->setItem(row, 1, creationdate);
