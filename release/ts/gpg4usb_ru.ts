@@ -267,17 +267,17 @@
     <message>
         <location filename="../../context.cpp" line="554"/>
         <source>Key Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбор Ключа</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="554"/>
         <source>No Private Key Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Не выбран  Секретный Ключ</translation>
     </message>
     <message>
         <location filename="../../context.cpp" line="602"/>
         <source>Error signing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка подписания:</translation>
     </message>
 </context>
 <context>
@@ -416,12 +416,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="218"/>
         <source>Remove double &amp;Linebreaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить двойной &amp;перенос строк</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="221"/>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить двойной перенос строк, например в тексте, вставленном из браузера</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="225"/>
@@ -471,7 +471,7 @@
     <message>
         <location filename="../../gpgwin.cpp" line="669"/>
         <source>&amp;Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервера &amp;ключей</translation>
     </message>
     <message>
         <source>Import New Key From File</source>
@@ -590,12 +590,12 @@
     <message>
         <location filename="../../gpgwin.cpp" line="300"/>
         <source>Copy EMail-address</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать адрес eMail</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="301"/>
         <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать выбранный адрес eMail в Буфер Обмена</translation>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="305"/>
@@ -800,7 +800,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="149"/>
         <source>Key Files</source>
-        <translation type="unfinished">Файлы ключей</translation>
+        <translation>Файлы ключей</translation>
     </message>
     <message>
         <source>Key Files </source>
@@ -934,12 +934,12 @@ gpg4usb попробует импортировать ключ(и).</translation
     <message>
         <location filename="../../keymgmt.cpp" line="85"/>
         <source>&amp;Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер &amp;Ключей</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="86"/>
         <source>Import New Key From Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт нового ключа с сервера ключей</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="89"/>
@@ -1005,12 +1005,12 @@ gpg4usb попробует импортировать ключ(и).</translation
     <message>
         <location filename="../../keymgmt.cpp" line="124"/>
         <source>&amp;Import Key From...</source>
-        <translation type="unfinished">&amp;Импорт ключа из...</translation>
+        <translation>&amp;Импорт ключа из...</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="138"/>
         <source>Key</source>
-        <translation type="unfinished">Ключ</translation>
+        <translation>Ключ</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="75"/>
@@ -1021,7 +1021,7 @@ gpg4usb попробует импортировать ключ(и).</translation
     <message>
         <location filename="../../keymgmt.cpp" line="80"/>
         <source>&amp;Clipboard</source>
-        <translation type="unfinished">&amp;Буфера Обмена</translation>
+        <translation>&amp;Буфера Обмена</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="123"/>
@@ -1160,82 +1160,82 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="31"/>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="32"/>
         <source>&amp;Import</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Импорт</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="33"/>
         <source>&amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Поиск</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="36"/>
         <source>Search string:</source>
-        <translation type="unfinished"></translation>
+        <translation>Поисковый запрос:</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="40"/>
         <source>Keyserver:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер Ключей:</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="72"/>
         <source>Import Keys from Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт ключей с сервера ключей</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="113"/>
         <source>UID</source>
-        <translation type="unfinished"></translation>
+        <translation>Идентификатор пользователя (UID)</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="113"/>
         <source>Creation date</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата создания</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="113"/>
         <source>KeyID</source>
-        <translation type="unfinished"></translation>
+        <translation>Идентификатор Ключа (KeyID)</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="154"/>
         <source>Couldn&apos;t contact keyserver!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось связаться с сервером ключей!</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="160"/>
         <source>Too many responses from keyserver!</source>
-        <translation type="unfinished"></translation>
+        <translation>Слишком много ответов от сервера ключей!</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="163"/>
         <source>No keys found containing the search string!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не найдено Ключей, содержащих поисковый запрос!</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="166"/>
         <source>Insufficiently specific search string!</source>
-        <translation type="unfinished"></translation>
+        <translation>Поисковый запрос сформулирован слишком неопределённо!</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="198"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Найдено %1 ключей. Для импорта двойной клик по ключу.</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="249"/>
         <source>Error while contacting keyserver!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка в ходе связи с сервером ключей!</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="253"/>
         <source>Key imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Ключ импортирован</translation>
     </message>
 </context>
 <context>
@@ -1243,7 +1243,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="395"/>
         <source>Default Keyserver for import:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер ключей для импорта по умолчанию:</translation>
     </message>
 </context>
 <context>
@@ -1406,7 +1406,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="36"/>
         <source>Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер ключей</translation>
     </message>
     <message>
         <source>Tab Dialog</source>
@@ -1487,19 +1487,19 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="30"/>
         <source>Signaturedetails</source>
-        <translation type="unfinished"></translation>
+        <translation>Детали подписи</translation>
     </message>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="63"/>
         <source>Text was completly signed on %1 by:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Текст был %1 полностью подписан:</translation>
     </message>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="68"/>
         <source>Text was partially signed on %1 by:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Текст был %1 частично подписан:</translation>
     </message>
 </context>
 <context>
@@ -1507,41 +1507,41 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="38"/>
         <source>Import from keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт с сервера ключей</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="41"/>
         <location filename="../../verifykeydetailbox.cpp" line="53"/>
         <location filename="../../verifykeydetailbox.cpp" line="64"/>
         <source>Status:</source>
-        <translation type="unfinished"></translation>
+        <translation>Статус:</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="42"/>
         <location filename="../../verifykeydetailbox.cpp" line="52"/>
         <location filename="../../verifykeydetailbox.cpp" line="65"/>
         <source>Fingerprint:</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток:</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="43"/>
         <source>Key not present in keylist</source>
-        <translation type="unfinished"></translation>
+        <translation>Ключ отсутствует в списке ключей</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="50"/>
         <source>Name:</source>
-        <translation type="unfinished">Имя:</translation>
+        <translation>Имя:</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="51"/>
         <source>EMail:</source>
-        <translation type="unfinished"></translation>
+        <translation>eMail:</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="58"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1549,32 +1549,32 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../verifynotification.cpp" line="34"/>
         <source>Import missing key from Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт недостающего ключа с сервера ключей</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="37"/>
         <source>Show detailed verify information</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать детали подписи</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="118"/>
         <source>Key not present with Fingerprint: </source>
-        <translation type="unfinished"></translation>
+        <translation>Отсутствует ключ с отпечатком:</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="136"/>
         <source>Error for key with fingerprint </source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка ключа с отпечатком </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="148"/>
         <source>Text is completly signed by: </source>
-        <translation type="unfinished"></translation>
+        <translation>Текст полностью подписан:</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="153"/>
         <source>Text is partially signed by: </source>
-        <translation type="unfinished"></translation>
+        <translation>Текст частично подписан:</translation>
     </message>
 </context>
 </TS>
