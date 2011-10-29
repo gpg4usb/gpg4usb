@@ -22,7 +22,7 @@
 #ifndef __KEYLIST_H__
 #define __KEYLIST_H__
 
-#include "context.h"
+#include "gpgcontext.h"
 
 QT_BEGIN_NAMESPACE
 class QWidget;
@@ -37,7 +37,7 @@ class KeyList : public QWidget
     Q_OBJECT
 
 public:
-    KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent = 0);
+    KeyList(GpgME::GpgContext *ctx, QString iconpath, QWidget *parent = 0);
     void setColumnWidth(int row, int size);
     void addMenuAction(QAction *act);
 
@@ -55,7 +55,7 @@ public slots:
     void refresh();
 
 private:
-    GpgME::Context *mCtx;
+    GpgME::GpgContext *mCtx;
     QTableWidget *mKeyList;
     QString iconPath;
     QMenu *popupMenu;

@@ -20,7 +20,7 @@
  */
 
 #include <QApplication>
-#include "gpgwin.h"
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     QString styleSheet = QLatin1String(file.readAll());
     qApp->setStyleSheet(styleSheet);
 
-    GpgWin *window = new GpgWin();
+    MainWindow *window = new MainWindow();
     window->show();
 
     return app.exec();

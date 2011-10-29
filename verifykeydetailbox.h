@@ -31,13 +31,13 @@ class VerifyKeyDetailBox: public QGroupBox
 {
     Q_OBJECT
 public:
-    explicit VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, KeyList* mKeyList,  gpgme_signature_t signature);
+    explicit VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList,  gpgme_signature_t signature);
 
 private slots:
     void importFormKeyserver();
 
 private:
-    GpgME::Context* mCtx;
+    GpgME::GpgContext* mCtx;
     KeyList* mKeyList;
     QString beautifyFingerprint(QString fingerprint);
     QString fpr;

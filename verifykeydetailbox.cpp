@@ -21,7 +21,7 @@
 
 #include "verifykeydetailbox.h"
 
-VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::Context* ctx, KeyList* keyList, gpgme_signature_t signature) :
+VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, gpgme_signature_t signature) :
     QGroupBox(parent)
 {
     this->mCtx = ctx;

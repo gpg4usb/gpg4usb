@@ -22,7 +22,7 @@
 
 #include "keyserverimportdialog.h"
 
-KeyServerImportDialog::KeyServerImportDialog(GpgME::Context *ctx, QWidget *parent)
+KeyServerImportDialog::KeyServerImportDialog(GpgME::GpgContext *ctx, QWidget *parent)
     : QDialog(parent)
 {
     mCtx = ctx;

@@ -19,11 +19,11 @@
  *      along with gpg4usb.  If not, see <http://www.gnu.org/licenses/>
  */
 
-#include "gpgwin.h"
+#include "mainwindow.h"
 
-GpgWin::GpgWin()
+MainWindow::MainWindow()
 {
-    mCtx = new GpgME::Context();
+    mCtx = new GpgME::GpgContext();
 
     /* get path were app was started */
     QString appPath = qApp->applicationDirPath();
@@ -73,7 +73,7 @@ GpgWin::GpgWin()
     this->setWindowTitle(qApp->applicationName());
 }
 
-void GpgWin::restoreSettings()
+void MainWindow::restoreSettings()
 {
     // state sets pos & size of dock-widgets
     this->restoreState(settings.value("window/windowState").toByteArray());
@@ -118,7 +118,7 @@ void GpgWin::restoreSettings()
     }
 }
 
-void GpgWin::saveSettings()
+void MainWindow::saveSettings()
 {
     // window position and size
     settings.setValue("window/windowState", saveState());
@@ -138,7 +138,7 @@ void GpgWin::saveSettings()
     }
 }
 
-void GpgWin::createActions()
+void MainWindow::createActions()
 {
     /* Main Menu
       */
@@ -333,7 +333,7 @@ void GpgWin::createActions()
     this->addAction(switchTabDownAct);
 }
 
-void GpgWin::createMenus()
+void MainWindow::createMenus()
 {
     fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(newTabAct);
@@ -387,7 +387,7 @@ void GpgWin::createMenus()
     helpMenu->addAction(aboutAct);
 }
 
-void GpgWin::createToolBars()
+void MainWindow::createToolBars()
 {
     cryptToolBar = addToolBar(tr("Crypt"));
     cryptToolBar->setObjectName("cryptToolBar");
@@ -413,7 +413,7 @@ void GpgWin::createToolBars()
     viewMenu->addAction(editToolBar->toggleViewAction());
 }
 
-void GpgWin::createStatusBar()
+void MainWindow::createStatusBar()
 {
     QWidget *statusBarBox = new QWidget();
     QHBoxLayout *statusBarBoxLayout = new QHBoxLayout();
@@ -429,7 +429,7 @@ void GpgWin::createStatusBar()
     statusBarBox->setLayout(statusBarBoxLayout);
 }
 
-void GpgWin::createDockWindows()
+void MainWindow::createDockWindows()
 {
     /* KeyList-Dockwindow
      */
@@ -447,7 +447,7 @@ void GpgWin::createDockWindows()
     }
 }
 
-void GpgWin::createAttachmentDock() {
+void MainWindow::createAttachmentDock() {
     if (attachmentDockCreated) {
         return;
     }
@@ -463,7 +463,7 @@ void GpgWin::createAttachmentDock() {
     attachmentDockCreated = true;
 }
 
-void GpgWin::closeAttachmentDock() {
+void MainWindow::closeAttachmentDock() {
     if (!attachmentDockCreated) {
         return;
     }
@@ -472,7 +472,7 @@ void GpgWin::closeAttachmentDock() {
     attachmentDockCreated = false;
 }
 
-void GpgWin::closeEvent(QCloseEvent *event)
+void MainWindow::closeEvent(QCloseEvent *event)
 {
     /*
      * ask to save changes, if there are
@@ -489,7 +489,7 @@ void GpgWin::closeEvent(QCloseEvent *event)
     mCtx->clearPasswordCache();
 }
 
-void GpgWin::about()
+void MainWindow::about()
 {
     QPixmap *pixmap = new QPixmap(iconPath + "gpg4usb-logo.png");
     QString *title = new QString(tr("About ") + qApp->applicationName());
@@ -529,11 +529,11 @@ void GpgWin::about()
     dialog->exec();
 }
 
-void GpgWin::openTranslate() {
+void MainWindow::openTranslate() {
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu_translate.html"));
 }
 
-void GpgWin::openTutorial() {
+void MainWindow::openTutorial() {
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
 }
 
@@ -541,7 +541,7 @@ void GpgWin::openTutorial() {
   * if this is mime, split text and attachments...
   * message contains only text afterwards
   */
-void GpgWin::parseMime(QByteArray *message)
+void MainWindow::parseMime(QByteArray *message)
 {
     /*if (! Mime::isMultipart(message)) {
         qDebug() << "no multipart";
@@ -575,7 +575,7 @@ void GpgWin::parseMime(QByteArray *message)
     }
 }
 
-void GpgWin::checkAttachmentFolder() {
+void MainWindow::checkAttachmentFolder() {
     // TODO: always check?
     if(!settings.value("mime/parseMime").toBool()) {
         return;
@@ -598,19 +598,19 @@ void GpgWin::checkAttachmentFolder() {
     }
 }
 
-void GpgWin::importKeyFromEdit()
+void MainWindow::importKeyFromEdit()
 {
     mCtx->importKey(edit->curTextPage()->toPlainText().toAscii());
 }
 
-void GpgWin::openKeyManagement()
+void MainWindow::openKeyManagement()
 {
     keyMgmt->show();
     keyMgmt->raise();
     keyMgmt->activateWindow();
 }
 
-void GpgWin::encrypt()
+void MainWindow::encrypt()
 {
     QStringList *uidList = mKeyList->getChecked();
 
@@ -621,7 +621,7 @@ void GpgWin::encrypt()
     }
 }
 
-void GpgWin::sign()
+void MainWindow::sign()
 {
     QStringList *uidList = mKeyList->getPrivateChecked();
 
@@ -633,7 +633,7 @@ void GpgWin::sign()
     }
 }
 
-void GpgWin::decrypt()
+void MainWindow::decrypt()
 {
     QByteArray *decrypted = new QByteArray();
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
@@ -668,7 +668,7 @@ void GpgWin::decrypt()
     edit->fillTextEditWithText(QString::fromUtf8(*decrypted));
 }
 
-void GpgWin::verify()
+void MainWindow::verify()
 {
     // At first close verifynotification, if existing
     edit->curPage()->closeNoteByClass("verifyNotification");
@@ -684,7 +684,7 @@ void GpgWin::verify()
     }
 }
 
-void GpgWin::importKeyDialog()
+void MainWindow::importKeyDialog()
 {
     QDialog *dialog = new QDialog();
 
@@ -726,14 +726,14 @@ void GpgWin::importKeyDialog()
 /*
  * Append the selected (not checked!) Key(s) To Textedit
  */
-void GpgWin::appendSelectedKeys()
+void MainWindow::appendSelectedKeys()
 {
     QByteArray *keyArray = new QByteArray();
     mCtx->exportKeys(mKeyList->getSelected(), keyArray);
     edit->curTextPage()->appendPlainText(*keyArray);
 }
 
-void GpgWin::copyMailAddressToClipboard()
+void MainWindow::copyMailAddressToClipboard()
 {
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     QClipboard *cb = QApplication::clipboard();
@@ -741,21 +741,21 @@ void GpgWin::copyMailAddressToClipboard()
     cb->setText(mail);
 }
 
-void GpgWin::showKeyDetails()
+void MainWindow::showKeyDetails()
 {
     // TODO: first...?
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     new KeyDetailsDialog(mCtx, key, this);
 }
 
-void GpgWin::fileEncryption()
+void MainWindow::fileEncryption()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
         new FileEncryptionDialog(mCtx, iconPath, *keyList, this);
 }
 
-void GpgWin::openSettingsDialog()
+void MainWindow::openSettingsDialog()
 {
     new SettingsDialog(this);
     // Iconsize
@@ -774,7 +774,7 @@ void GpgWin::openSettingsDialog()
 
 }
 
-void GpgWin::cleanDoubleLinebreaks()
+void MainWindow::cleanDoubleLinebreaks()
 {
     QString content = edit->curTextPage()->toPlainText();
     content.replace("\n\n", "\n");

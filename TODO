@@ -24,7 +24,7 @@ Release 0.3.1
 - cross out expired keys and add warning in key properties [DONE]
 - stealth mode for windows (http://www.portablefreeware.com/forums/viewtopic.php?f=4&t=3713) [DONE]
 - keyid should be searchable in import from keyserver [DONE]
-- beautify icons for verify and sign
+- beautify icons for verify and sign [DONE]
 
 Release 0.3.2
 - set gpgme error language to chosen language (context.cpp:49)
@@ -34,9 +34,9 @@ Release 0.3.2
 - understandable message if no matching private key found for decryption
 - investigate in adding a offline help system 
 - investigate in embedding a steganography tool
-- refactoring and cleanup:
-	- gpgwin.cpp -> mainwindow.cpp
-	- context.cpp -> gpgcontext.cpp
+- refactoring and cleanup: [DONE]
+	- gpgwin.cpp -> mainwindow.cpp [DONE]
+	- context.cpp -> gpgcontext.cpp [DONE]
 - optionally open new tab after encryption/decrytion 
 
 

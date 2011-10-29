@@ -48,7 +48,7 @@ class KeyMgmt : public QMainWindow
     Q_OBJECT
 
 public:
-    KeyMgmt(GpgME::Context* ctx, QString iconpath);
+    KeyMgmt(GpgME::GpgContext* ctx, QString iconpath);
     QAction *importKeyFromClipboardAct;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromKeyServerAct;
@@ -79,7 +79,7 @@ private:
 
     KeyList *mKeyList;
     QString mIconPath;
-    GpgME::Context *mCtx;
+    GpgME::GpgContext *mCtx;
     QMenu *fileMenu;
     QMenu *keyMenu;
     QMenu *importKeyMenu;

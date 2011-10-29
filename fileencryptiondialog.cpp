@@ -21,7 +21,7 @@
 
 #include "fileencryptiondialog.h"
 
-FileEncryptionDialog::FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QStringList keyList, QWidget *parent)
+FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconPath, QStringList keyList, QWidget *parent)
         : QDialog(parent)
 
 {

@@ -19,7 +19,7 @@
  *      along with gpg4usb.  If not, see <http://www.gnu.org/licenses/>
  */
 
-#include "context.h"
+#include "gpgcontext.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -33,7 +33,7 @@ namespace GpgME
 /** Constructor
  *  Set up gpgme-context, set paths to app-run path
  */
-Context::Context()
+GpgContext::GpgContext()
 {
 
     /** get application path */
@@ -94,7 +94,7 @@ Context::Context()
 /** Destructor
  *  Release gpgme-context
  */
-Context::~Context()
+GpgContext::~GpgContext()
 {
     if (mCtx) gpgme_release(mCtx);
     mCtx = 0;
@@ -103,7 +103,7 @@ Context::~Context()
 /** Import Key from QByteArray
  *
  */
-void Context::importKey(QByteArray inBuffer)
+void GpgContext::importKey(QByteArray inBuffer)
 {
     err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
     checkErr(err);
@@ -116,7 +116,7 @@ void Context::importKey(QByteArray inBuffer)
 /** Generate New Key with values params
  *
  */
-void Context::generateKey(QString *params)
+void GpgContext::generateKey(QString *params)
 {
     err = gpgme_op_genkey(mCtx, params->toAscii().data(), NULL, NULL);
     checkErr(err);
@@ -126,7 +126,7 @@ void Context::generateKey(QString *params)
 /** Export Key to QByteArray
  *
  */
-bool Context::exportKeys(QStringList *uidList, QByteArray *outBuffer)
+bool GpgContext::exportKeys(QStringList *uidList, QByteArray *outBuffer)
 {
     size_t read_bytes;
     gpgme_data_t out = 0;
@@ -153,7 +153,7 @@ bool Context::exportKeys(QStringList *uidList, QByteArray *outBuffer)
     return true;
 }
 
-gpgme_key_t Context::getKeyDetails(QString uid)
+gpgme_key_t GpgContext::getKeyDetails(QString uid)
 {
     gpgme_key_t key;
 
@@ -168,7 +168,7 @@ gpgme_key_t Context::getKeyDetails(QString uid)
 
 /** List all availabe Keys (VERY much like kgpgme)
  */
-GpgKeyList Context::listKeys()
+GpgKeyList GpgContext::listKeys()
 {
     gpgme_error_t err;
     gpgme_key_t key;
@@ -220,7 +220,7 @@ GpgKeyList Context::listKeys()
 /** Delete keys
  */
 
-void Context::deleteKeys(QStringList *uidList)
+void GpgContext::deleteKeys(QStringList *uidList)
 {
     QString tmp;
     gpgme_key_t key;
@@ -237,7 +237,7 @@ void Context::deleteKeys(QStringList *uidList)
 /** Encrypt inBuffer for reciepients-uids, write
  *  result to outBuffer
  */
-bool Context::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer)
+bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer)
 {
 
     gpgme_data_t in = 0, out = 0;
@@ -294,7 +294,7 @@ bool Context::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByteArr
 /** Decrypt QByteAarray, return QByteArray
  *  mainly from http://basket.kde.org/ (kgpgme.cpp)
  */
-bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
+bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
 {
     gpgme_data_t in = 0, out = 0;
     gpgme_decrypt_result_t result = 0;
@@ -343,7 +343,7 @@ bool Context::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
  *   mainly from http://basket.kde.org/ (kgpgme.cpp)
  */
 #define BUF_SIZE (32 * 1024)
-gpgme_error_t Context::readToBuffer(gpgme_data_t in, QByteArray *outBuffer)
+gpgme_error_t GpgContext::readToBuffer(gpgme_data_t in, QByteArray *outBuffer)
 {
     int ret;
     gpgme_error_t err = GPG_ERR_NO_ERROR;
@@ -374,15 +374,15 @@ gpgme_error_t Context::readToBuffer(gpgme_data_t in, QByteArray *outBuffer)
 /** The Passphrase window, if not provided by env-Var GPG_AGENT_INFO
  *  originally copied from http://basket.kde.org/ (kgpgme.cpp), but modified
  */
-gpgme_error_t Context::passphraseCb(void *hook, const char *uid_hint,
+gpgme_error_t GpgContext::passphraseCb(void *hook, const char *uid_hint,
                                     const char *passphrase_info,
                                     int last_was_bad, int fd)
 {
-    Context *gpg = static_cast<Context*>(hook);
+    GpgContext *gpg = static_cast<GpgContext*>(hook);
     return gpg->passphrase(uid_hint, passphrase_info, last_was_bad, fd);
 }
 
-gpgme_error_t Context::passphrase(const char *uid_hint,
+gpgme_error_t GpgContext::passphrase(const char *uid_hint,
                                   const char * /*passphrase_info*/,
                                   int last_was_bad, int fd)
 {
@@ -440,7 +440,7 @@ gpgme_error_t Context::passphrase(const char *uid_hint,
 }
 
 /** also from kgpgme.cpp, seems to clear password from mem */
-void Context::clearPasswordCache()
+void GpgContext::clearPasswordCache()
 {
     if (mPasswordCache.size() > 0) {
         mPasswordCache.fill('\0');
@@ -449,7 +449,7 @@ void Context::clearPasswordCache()
 }
 
 // error-handling
-int Context::checkErr(gpgme_error_t err, QString comment) const
+int GpgContext::checkErr(gpgme_error_t err, QString comment) const
 {
     //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
     if (err != GPG_ERR_NO_ERROR) {
@@ -458,7 +458,7 @@ int Context::checkErr(gpgme_error_t err, QString comment) const
     return err;
 }
 
-int Context::checkErr(gpgme_error_t err) const
+int GpgContext::checkErr(gpgme_error_t err) const
 {
     //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
     if (err != GPG_ERR_NO_ERROR) {
@@ -470,7 +470,7 @@ int Context::checkErr(gpgme_error_t err) const
 
 /** export private key, TODO errohandling, e.g. like in seahorse (seahorse-gpg-op.c) **/
 
-void Context::exportSecretKey(QString uid, QByteArray *outBuffer)
+void GpgContext::exportSecretKey(QString uid, QByteArray *outBuffer)
 {
     // export private key to outBuffer
     QStringList arguments;
@@ -487,7 +487,7 @@ void Context::exportSecretKey(QString uid, QByteArray *outBuffer)
 }
 
 /** return type should be gpgme_error_t*/
-void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByteArray *stdErr)
+void GpgContext::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByteArray *stdErr)
 {
     gpgme_engine_info_t engine = gpgme_ctx_get_engine_info(mCtx);
 
@@ -508,7 +508,7 @@ void Context::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByte
   * -> valid
   * -> errors
   */
-gpgme_signature_t Context::verify(QByteArray inBuffer) {
+gpgme_signature_t GpgContext::verify(QByteArray inBuffer) {
 
     int error=0;
     gpgme_data_t in;
@@ -537,7 +537,7 @@ gpgme_signature_t Context::verify(QByteArray inBuffer) {
   * -> valid
   * -> decrypted message
   */
-//void Context::decryptVerify(QByteArray in) {
+//void GpgContext::decryptVerify(QByteArray in) {
 
 /*    gpgme_error_t err;
     gpgme_data_t in, out;
@@ -552,7 +552,7 @@ gpgme_signature_t Context::verify(QByteArray inBuffer) {
  */
 //}
 
-bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {
+bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {
 
     gpgme_error_t err;
     gpgme_data_t in, out;
@@ -626,7 +626,7 @@ bool Context::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray 
  * GPGME doesn't recognise the Message as encrypted. This function adds '\n'
  * before the PGP-Begin-Block, if missing.
  */
-void Context::preventNoDataErr(QByteArray *in)
+void GpgContext::preventNoDataErr(QByteArray *in)
 {
     int block_start = in->indexOf("-----BEGIN PGP MESSAGE-----");
     if (block_start > 0 && in->at(block_start - 1) != '\n') {
@@ -644,7 +644,7 @@ void Context::preventNoDataErr(QByteArray *in)
   * - 1, if text is partially signed
   * - 2, if text is completly signed
   */
-int Context::textIsSigned(const QByteArray &text) {
+int GpgContext::textIsSigned(const QByteArray &text) {
     if (text.trimmed().startsWith("-----BEGIN PGP SIGNED MESSAGE-----") && text.trimmed().endsWith("-----END PGP SIGNATURE-----")) {
         return 2;
     }
@@ -654,7 +654,7 @@ int Context::textIsSigned(const QByteArray &text) {
     return 0;
 }
 
-QString Context::beautifyFingerprint(QString fingerprint)
+QString GpgContext::beautifyFingerprint(QString fingerprint)
 {
     uint len = fingerprint.length();
     if ((len > 0) && (len % 4 == 0))

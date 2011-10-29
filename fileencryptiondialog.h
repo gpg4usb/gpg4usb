@@ -22,7 +22,7 @@
 #ifndef __FILEENCRYPTIONDIALOG_H__
 #define __FILEENCRYPTIONDIALOG_H__
 
-#include "context.h"
+#include "gpgcontext.h"
 #include "keylist.h"
 
 QT_BEGIN_NAMESPACE
@@ -58,7 +58,7 @@ public:
      * @param keyList
      * @param parent
      */
-    FileEncryptionDialog(GpgME::Context *ctx, QString iconPath, QStringList keyList , QWidget *parent = 0);
+    FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconPath, QStringList keyList , QWidget *parent = 0);
 
 public slots:
     /**
@@ -99,7 +99,7 @@ private:
     QRadioButton *radioDec; /**< TODO */
 
 protected:
-    GpgME::Context *mCtx; /**< TODO */
+    GpgME::GpgContext *mCtx; /**< TODO */
     KeyList *mKeyList; /**< TODO */
 
 };

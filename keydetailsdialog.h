@@ -22,7 +22,7 @@
 #ifndef __KEYDETAILSDIALOG_H__
 #define __KEYDETAILSDIALOG_H__
 
-#include "context.h"
+#include "gpgcontext.h"
 #include <gpgme.h>
 
 QT_BEGIN_NAMESPACE
@@ -42,7 +42,7 @@ class KeyDetailsDialog : public QDialog
     Q_OBJECT
 
 public:
-    KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key, QWidget *parent = 0);
+    KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWidget *parent = 0);
     static QString beautifyFingerprint(QString fingerprint);
 
 private slots:
@@ -50,7 +50,7 @@ private slots:
 
 private:
     QString *keyid;
-    GpgME::Context *mCtx;
+    GpgME::GpgContext *mCtx;
 
     QGroupBox *ownerBox;
     QGroupBox *keyBox;

@@ -21,7 +21,7 @@
 
 #include "verifydetailsdialog.h"
 
-VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::Context* ctx, KeyList* keyList, QPlainTextEdit *edit) :
+VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, QPlainTextEdit *edit) :
     QDialog(parent)
 {
     mCtx = ctx;

@@ -22,7 +22,7 @@
 
 #include "keymgmt.h"
 
-KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
+KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QString iconpath)
 {
     mCtx = ctx;
     mIconPath = iconpath;

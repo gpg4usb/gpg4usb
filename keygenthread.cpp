@@ -21,7 +21,7 @@
 
 #include "keygenthread.h"
 
-KeyGenThread::KeyGenThread(QString keyGenParams, GpgME::Context *ctx)
+KeyGenThread::KeyGenThread(QString keyGenParams, GpgME::GpgContext *ctx)
 {
     this->keyGenParams = keyGenParams;
     this->ctx = ctx;

@@ -22,7 +22,7 @@
 #ifndef __KEYGENTHREAD_H__
 #define __KEYGENTHREAD_H__
 
-#include "context.h"
+#include "gpgcontext.h"
 #include <qthread.h>
 #include <iostream>
 #include <string>
@@ -38,14 +38,14 @@ class KeyGenThread : public QThread
     Q_OBJECT
 
 public:
-    KeyGenThread(QString keyGenParams, GpgME::Context *ctx);
+    KeyGenThread(QString keyGenParams, GpgME::GpgContext *ctx);
 
 signals:
     void keyGenerated();
 
 private:
     QString keyGenParams;
-    GpgME::Context *ctx;
+    GpgME::GpgContext *ctx;
     bool abort;
     QMutex mutex;
 

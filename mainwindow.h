@@ -59,7 +59,7 @@ QT_END_NAMESPACE
  * @brief
  *
  */
-class GpgWin : public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
@@ -68,7 +68,7 @@ public:
      * @brief
      *
      */
-    GpgWin();
+    MainWindow();
 
 protected:
     /**
@@ -284,7 +284,7 @@ private:
     QSettings settings; /**< TODO */
     KeyList *mKeyList; /**< TODO */
     Attachments *mAttachments; /**< TODO */
-    GpgME::Context *mCtx; /**< TODO */
+    GpgME::GpgContext *mCtx; /**< TODO */
     QString iconPath; /**< TODO */
     KeyMgmt *keyMgmt; /**< TODO */
     KeyServerImportDialog *importDialog; /**< TODO */

@@ -16,8 +16,8 @@ CONFIG += debug
 QT += network
 # Input
 HEADERS += attachments.h \
-    context.h \
-    gpgwin.h \
+    gpgcontext.h \
+    mainwindow.h \
     keylist.h \
     keymgmt.h \
     fileencryptiondialog.h \
@@ -34,8 +34,8 @@ HEADERS += attachments.h \
     verifydetailsdialog.h \
     verifykeydetailbox.h
 SOURCES += attachments.cpp \
-    context.cpp \
-    gpgwin.cpp \
+    gpgcontext.cpp \
+    mainwindow.cpp \
     main.cpp \
     keylist.cpp \
     keymgmt.cpp \

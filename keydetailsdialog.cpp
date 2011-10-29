@@ -21,7 +21,7 @@
 
 #include "keydetailsdialog.h"
 
-KeyDetailsDialog::KeyDetailsDialog(GpgME::Context* ctx, gpgme_key_t key, QWidget *parent)
+KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWidget *parent)
     : QDialog(parent)
 {
 

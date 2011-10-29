@@ -21,7 +21,7 @@
 
 #include "keylist.h"
 
-KeyList::KeyList(GpgME::Context *ctx, QString iconpath, QWidget *parent)
+KeyList::KeyList(GpgME::GpgContext *ctx, QString iconpath, QWidget *parent)
         : QWidget(parent)
 {
     mCtx = ctx;

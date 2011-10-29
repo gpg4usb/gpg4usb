@@ -55,13 +55,13 @@ typedef QLinkedList< GpgKey > GpgKeyList;
 namespace GpgME
 {
 
-class Context : public QObject
+class GpgContext : public QObject
 {
     Q_OBJECT
 
 public:
-    Context(); // Constructor
-    ~Context(); // Destructor
+    GpgContext(); // Constructor
+    ~GpgContext(); // Destructor
 
     void importKey(QByteArray inBuffer);
     bool exportKeys(QStringList *uidList, QByteArray *outBuffer);
