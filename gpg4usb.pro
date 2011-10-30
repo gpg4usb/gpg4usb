@@ -22,6 +22,7 @@ HEADERS += attachments.h \
     keymgmt.h \
     fileencryptiondialog.h \
     mime.h \
+    keygendialog.h \
     keygenthread.h \
     keydetailsdialog.h \
     settingsdialog.h \
@@ -33,6 +34,7 @@ HEADERS += attachments.h \
     verifynotification.h \
     verifydetailsdialog.h \
     verifykeydetailbox.h
+
 SOURCES += attachments.cpp \
     gpgcontext.cpp \
     mainwindow.cpp \
@@ -41,6 +43,7 @@ SOURCES += attachments.cpp \
     keymgmt.cpp \
     fileencryptiondialog.cpp \
     mime.cpp \
+    keygendialog.cpp \
     keygenthread.cpp \
     keydetailsdialog.cpp \
     settingsdialog.cpp \

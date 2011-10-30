@@ -26,6 +26,7 @@
 #include "keygenthread.h"
 #include "keydetailsdialog.h"
 #include "keyserverimportdialog.h"
+#include "keygendialog.h"
 #include <QtGui>
 
 QT_BEGIN_NAMESPACE
@@ -62,19 +63,12 @@ public slots:
     void deleteSelectedKeys();
     void deleteCheckedKeys();
     void generateKeyDialog();
-    void expireBoxChanged();
-    void passwordEditChanged();
     void showKeyDetails();
-
-private slots:
-    void keyGenAccept();
-
 
 private:
     void createMenus();
     void createActions();
     void createToolBars();
-    int checkPassWordStrength();
     void deleteKeysWithWarning(QStringList *uidList);
 
     KeyList *mKeyList;

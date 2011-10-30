@@ -27,6 +27,9 @@ Release 0.3.1
 - beautify icons for verify and sign [DONE]
 
 Release 0.3.2
+- refactoring and cleanup: [DONE]
+	- gpgwin.cpp -> mainwindow.cpp [DONE]
+	- context.cpp -> gpgcontext.cpp [DONE]
 - set gpgme error language to chosen language (context.cpp:49)
 - import from keyserver doesn't end, if network-connection is available, but no connection to keyserver  (?)
 - minimal steganography option: remove or add pgp-headers on demand
@@ -34,11 +37,7 @@ Release 0.3.2
 - understandable message if no matching private key found for decryption
 - investigate in adding a offline help system 
 - investigate in embedding a steganography tool
-- refactoring and cleanup: [DONE]
-	- gpgwin.cpp -> mainwindow.cpp [DONE]
-	- context.cpp -> gpgcontext.cpp [DONE]
 - optionally open new tab after encryption/decrytion 
-
 
 Release 0.3.3
 - Change private key password (catch bad passphrase message)
