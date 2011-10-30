@@ -31,17 +31,11 @@
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
-class QWidget;
 class iostream;
-class QtGui;
-class QString;
 class QFileDialog;
-class QStringList;
 class QIcon;
 class QAction;
-class QMenu;
 class QApplication;
-class QSlider;
 QT_END_NAMESPACE
 
 class KeyMgmt : public QMainWindow
@@ -77,7 +71,6 @@ private:
     QMenu *fileMenu;
     QMenu *keyMenu;
     QMenu *importKeyMenu;
-    QDialog *genkeyDialog;
     QAction *exportKeyToFileAct;
     QAction *exportKeyToClipboardAct;
     QAction *deleteCheckedKeysAct;
@@ -85,30 +78,7 @@ private:
     QAction *generateKeyDialogAct;
     QAction *closeAct;
     QAction *showKeyDetailsAct;
-    KeyGenThread *keyGenThread;
     QMessageBox msgbox;
-    /**
-     * Variables For Key-Generation
-     */
-    QLabel *nameLabel;
-    QLabel *emailLabel;
-    QLabel *commentLabel;
-    QLabel *keySizeLabel;
-    QLabel *passwordLabel;
-    QLabel *repeatpwLabel;
-    QLabel *errorLabel;
-    QLabel *dateLabel;
-    QLabel *expireLabel;
-    QLabel *pwStrengthLabel;
-    QLineEdit *nameEdit;
-    QLineEdit *emailEdit;
-    QLineEdit *commentEdit;
-    QLineEdit *passwordEdit;
-    QLineEdit *repeatpwEdit;
-    QSpinBox *keySizeSpinBox;
-    QDateTimeEdit *dateEdit;
-    QCheckBox *expireCheckBox;
-    QSlider *pwStrengthSlider;
     KeyServerImportDialog *importDialog;
 
 protected:

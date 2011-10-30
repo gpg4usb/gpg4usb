@@ -28,14 +28,9 @@
 
 QT_BEGIN_NAMESPACE
 class QDateTime;
-class QVBoxLayout;
-class QHBoxLayout;
 class QDialogButtonBox;
 class QDialog;
-class QGroupBox;
-class QLabel;
 class QGridLayout;
-class QPushButton;
 QT_END_NAMESPACE
 
 class KeyGenDialog : public QDialog
