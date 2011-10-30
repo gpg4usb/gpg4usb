@@ -194,6 +194,16 @@ QStringList *KeyList::getSelected()
     return ret;
 }
 
+bool KeyList::containsPrivateKeys()
+{
+    for (int i = 0; i < mKeyList->rowCount(); i++) {
+        if (mKeyList->item(i, 1)) {
+            return  true;
+        }
+    }
+    return false;
+}
+
 void KeyList::setColumnWidth(int row, int size)
 {
     mKeyList->setColumnWidth(row, size);

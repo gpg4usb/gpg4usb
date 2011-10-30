@@ -50,6 +50,7 @@ public:
     //QStringList *getPrivateChecked();
     QStringList *getSelected();
     void markKeys(QStringList *keyIds);
+    bool containsPrivateKeys();
 
 public slots:
     void refresh();

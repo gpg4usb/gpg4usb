@@ -71,6 +71,16 @@ MainWindow::MainWindow()
     }
     edit->curTextPage()->setFocus();
     this->setWindowTitle(qApp->applicationName());
+    this->show();
+
+    // Show wizard, if the don't show wizard message box wasn't checked
+    // and keylist doesn't contain a private key
+    QSettings settings;
+   // if (settings.value("wizard/showWizard",true).toBool() && !mKeyList->containsPrivateKeys()) {
+        Wizard *wizard = new Wizard(mCtx,this);
+        wizard->show();
+        wizard->setModal(true);
+    //}
 }
 
 void MainWindow::restoreSettings()

@@ -28,6 +28,7 @@
 #include "fileencryptiondialog.h"
 #include "settingsdialog.h"
 #include "verifynotification.h"
+#include "wizard.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
