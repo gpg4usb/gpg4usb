@@ -421,6 +421,16 @@ void MainWindow::createToolBars()
     editToolBar->addAction(selectallAct);
     editToolBar->addAction(quoteAct);
     viewMenu->addAction(editToolBar->toggleViewAction());
+
+    QToolButton* toolButton = new QToolButton();
+    toolButton->setMenu(importKeyMenu);
+    toolButton->setPopupMode(QToolButton::InstantPopup);
+    toolButton->setIcon(QIcon(iconPath + "key_import.png"));
+    toolButton->setToolTip("Import key");
+    toolButton->setText("Import key from");
+    toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+        editToolBar->addWidget(toolButton);
+
 }
 
 void MainWindow::createStatusBar()
