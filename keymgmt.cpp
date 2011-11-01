@@ -136,14 +136,23 @@ void KeyMgmt::createToolBars()
 {
     QToolBar *keyToolBar = addToolBar(tr("Key"));
     keyToolBar->setObjectName("keytoolbar");
-    keyToolBar->addAction(importKeyFromFileAct);
-    keyToolBar->addAction(importKeyFromClipboardAct);
-    keyToolBar->addAction(importKeyFromKeyServerAct);
+
+    // add button with popup menu for import
+    QToolButton* toolButton = new QToolButton(this);
+    toolButton->setMenu(importKeyMenu);
+    toolButton->setPopupMode(QToolButton::InstantPopup);
+    toolButton->setIcon(QIcon(mIconPath + "key_import.png"));
+    toolButton->setToolTip("Import key");
+    toolButton->setText("Import key from");
+    toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    keyToolBar->addWidget(toolButton);
+
     keyToolBar->addSeparator();
     keyToolBar->addAction(deleteCheckedKeysAct);
     keyToolBar->addSeparator();
     keyToolBar->addAction(exportKeyToFileAct);
     keyToolBar->addAction(exportKeyToClipboardAct);
+
 }
 
 void KeyMgmt::importKeyFromFile()

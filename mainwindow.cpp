@@ -430,7 +430,6 @@ void MainWindow::createToolBars()
     toolButton->setText("Import key from");
     toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
         editToolBar->addWidget(toolButton);
-
 }
 
 void MainWindow::createStatusBar()
