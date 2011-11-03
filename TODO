@@ -38,6 +38,7 @@ Release 0.3.2
 - investigate in adding a offline help system 
 - investigate in embedding a steganography tool
 - optionally open new tab after encryption/decrytion 
+- create revocation file on key generation
 
 Release 0.3.3
 - Change private key password (catch bad passphrase message)
