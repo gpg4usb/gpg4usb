@@ -60,6 +60,8 @@ SOURCES += attachments.cpp \
 
 RC_FILE = gpg4usb.rc
 
+RESOURCES = gpg4usb.qrc
+
 # comment out line below for static building
 LIBS += -lgpgme \
      -lgpg-error \

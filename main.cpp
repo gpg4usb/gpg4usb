@@ -25,6 +25,8 @@
 int main(int argc, char *argv[])
 {
 
+    Q_INIT_RESOURCE(gpg4usb);
+
     QApplication app(argc, argv);
 
     // get application path

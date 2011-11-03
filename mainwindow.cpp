@@ -54,6 +54,7 @@ MainWindow::MainWindow()
     createToolBars();
     createStatusBar();
     createDockWindows();
+    createTrayIcon();
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
     mKeyList->addMenuAction(copyMailAddressToClipboardAct);
@@ -72,6 +73,7 @@ MainWindow::MainWindow()
     edit->curTextPage()->setFocus();
     this->setWindowTitle(qApp->applicationName());
     this->show();
+    trayIcon->show();
 
     // Show wizard, if the don't show wizard message box wasn't checked
     // and keylist doesn't contain a private key
@@ -464,6 +466,29 @@ void MainWindow::createDockWindows()
     if(settings.value("mime/parseMime").toBool()) {
         createAttachmentDock();
     }
+}
+
+void MainWindow::createTrayIcon() {
+
+    trayIconMenu = new QMenu(this);
+    trayIconMenu->addAction(quitAct);
+
+    trayIcon = new QSystemTrayIcon(this);
+
+    QIcon icon(":/tray.png");
+    trayIcon->setIcon(icon);
+    /*QByteArray category = qgetenv("SNI_CATEGORY");
+    if (!category.isEmpty()) {
+        trayIcon->setProperty("_qt_sni_category", QString::fromLocal8Bit(category));
+    }*/
+    trayIcon->setProperty("_qt_sni_category", qApp->applicationDirPath() + "/tmp");
+    trayIcon->setContextMenu(trayIconMenu);
+    //showTrayMessage("tray is ready", "no further text");
+}
+
+void MainWindow::showTrayMessage(QString title, QString body) {
+    //QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(":/icons/exit.png");
+    trayIcon->showMessage(title, body, QSystemTrayIcon::Information, 10000);
 }
 
 void MainWindow::createAttachmentDock() {
