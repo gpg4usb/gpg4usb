@@ -30,6 +30,7 @@ Release 0.3.2
 - refactoring and cleanup: [DONE]
 	- gpgwin.cpp -> mainwindow.cpp [DONE]
 	- context.cpp -> gpgcontext.cpp [DONE]
+- show keyrings (files with .gpg) in import from file dialog too
 - set gpgme error language to chosen language (context.cpp:49)
 - import from keyserver doesn't end, if network-connection is available, but no connection to keyserver  (?)
 - minimal steganography option: remove or add pgp-headers on demand

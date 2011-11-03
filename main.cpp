@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
         unsetenv("GPG_AGENT_INFO");
     #endif
 
+        qDebug() << getenv("GNUPGHOME");
     // take care of gpg not creating directorys on harddisk
     putenv(QString("GNUPGHOME=" + appPath + "/keydb").toAscii().data());
 

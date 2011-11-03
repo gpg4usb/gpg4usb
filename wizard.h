@@ -72,6 +72,28 @@ private:
     QVBoxLayout *layout;
 };
 
+class ImportPage : public QWizardPage
+{
+    Q_OBJECT
+
+public:
+    ImportPage(GpgME::GpgContext *ctx, QWidget *parent = 0);
+
+private slots:
+    bool importKeys();
+
+private:
+    int nextId() const;
+    QString getGnuPGHome();
+
+    QLabel *topLabel;
+    QVBoxLayout *layout;
+    GpgME::GpgContext *mCtx;
+    QCheckBox *privateKeysCheckBox;
+    QCheckBox *publicKeysCheckBox;
+    QPushButton *importKeyButton;
+};
+
 class ConclusionPage : public QWizardPage
 {
     Q_OBJECT
