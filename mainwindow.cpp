@@ -470,8 +470,25 @@ void MainWindow::createDockWindows()
 
 void MainWindow::createTrayIcon() {
 
+    QAction* minimizeAction = new QAction(tr("Mi&nimize"), this);
+    connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
+
+    QAction* maximizeAction = new QAction(tr("Ma&ximize"), this);
+    connect(maximizeAction, SIGNAL(triggered()), this, SLOT(showMaximized()));
+
+    QAction* restoreAction = new QAction(tr("&Restore"), this);
+    connect(restoreAction, SIGNAL(triggered()), this, SLOT(showNormal()));
+
+    QAction* quitAction = new QAction(tr("&Quit"), this);
+    connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
+
     trayIconMenu = new QMenu(this);
-    trayIconMenu->addAction(quitAct);
+    trayIconMenu->addAction(minimizeAction);
+    //trayIconMenu->addAction(maximizeAction);
+    trayIconMenu->addAction(restoreAction);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(quitAction);
+
 
     trayIcon = new QSystemTrayIcon(this);
 
@@ -483,12 +500,12 @@ void MainWindow::createTrayIcon() {
     }*/
     trayIcon->setProperty("_qt_sni_category", qApp->applicationDirPath() + "/tmp");
     trayIcon->setContextMenu(trayIconMenu);
-    //showTrayMessage("tray is ready", "no further text");
+
 }
 
 void MainWindow::showTrayMessage(QString title, QString body) {
-    //QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(":/icons/exit.png");
-    trayIcon->showMessage(title, body, QSystemTrayIcon::Information, 10000);
+    QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(QSystemTrayIcon::Information);
+    trayIcon->showMessage(title, body, icon, 15000);
 }
 
 void MainWindow::createAttachmentDock() {
@@ -518,6 +535,19 @@ void MainWindow::closeAttachmentDock() {
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+
+    // TODO: if close via tray, check for unsaved documents
+    if (trayIcon->isVisible()) {
+
+        showTrayMessage(tr("GPG4USB still alive"), tr("gpg4usb will keep running in the "
+                                          "system tray. To terminate the program, "
+                                          "choose <b>Quit</b> in the context menu "
+                                          "of the system tray entry."));
+
+        hide();
+        event->ignore();
+        return;
+    }
     /*
      * ask to save changes, if there are
      * modified documents in any tab
