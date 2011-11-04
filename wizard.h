@@ -80,10 +80,19 @@ public:
     ImportPage(GpgME::GpgContext *ctx, QWidget *parent = 0);
 
 private slots:
+    /**
+      * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
+      */
     bool importKeys();
 
 private:
     int nextId() const;
+
+    /**
+      * @details  String containing the gnupg-homedir
+      * @returns String containg the gnupg-homedir, but NULL, if the in windows registry entry
+      * doesn't exist or in linux ~/.gnupg doesn't exist
+      */
     QString getGnuPGHome();
 
     QLabel *topLabel;

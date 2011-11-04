@@ -170,8 +170,12 @@ QString ImportPage::getGnuPGHome()
 {
     QString gnuPGHome="";
     #ifdef _WIN32
-        QSettings gnuPGsettings("HKEY_CURRENT_USER\\Software\\GNU\\GNUPG\\Default", QSettings::Nativeformat);
-        gnuPGsettings.value();
+        QSettings gnuPGsettings("HKEY_CURRENT_USER\\Software\\GNU\\GNUPG", QSettings::NativeFormat);
+        gnuPGHome = gnuPGsettings.value("HomeDir").toString();
+        if (gnuPGHome.isEmpty()) {
+            return NULL;
+        }
+
     #else
         gnuPGHome=QDir::homePath()+"/.gnupg";
         if (! QFile(gnuPGHome).exists()) {
