@@ -157,7 +157,7 @@ void KeyMgmt::createToolBars()
 
 void KeyMgmt::importKeyFromFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;"+tr("Keyring files")+" (*.gpg);;All Files (*)");
     if (! fileName.isNull()) {
         QFile file;
         file.setFileName(fileName);
