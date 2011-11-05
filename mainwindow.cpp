@@ -78,11 +78,9 @@ MainWindow::MainWindow()
     // Show wizard, if the don't show wizard message box wasn't checked
     // and keylist doesn't contain a private key
     QSettings settings;
-   // if (settings.value("wizard/showWizard",true).toBool() && !mKeyList->containsPrivateKeys()) {
-        Wizard *wizard = new Wizard(mCtx,this);
-        wizard->show();
-        wizard->setModal(true);
-    //}
+    if (settings.value("wizard/showWizard",true).toBool() && !mKeyList->containsPrivateKeys()) {
+        startWizard();
+    }
 }
 
 void MainWindow::restoreSettings()
@@ -291,12 +289,12 @@ void MainWindow::createActions()
     importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
-    openKeyManagementAct = new QAction(tr("Key Management"), this);
+    openKeyManagementAct = new QAction(tr("&Key Management"), this);
     openKeyManagementAct->setIcon(QIcon(iconPath + "keymgmt.png"));
     openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
 
-    importKeyDialogAct = new QAction(tr("Import Key"), this);
+    importKeyDialogAct = new QAction(tr("&Import Key"), this);
     importKeyDialogAct->setIcon(QIcon(iconPath + "key_import.png"));
     importKeyDialogAct->setToolTip(tr("Open Import New Key Dialog"));
     connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
@@ -309,13 +307,16 @@ void MainWindow::createActions()
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
     openTutorialAct = new QAction(tr("Online &Tutorial"), this);
-    openTutorialAct->setIcon(QIcon(iconPath + "help.png"));
     openTutorialAct->setToolTip(tr("Open Online Tutorial"));
     connect(openTutorialAct, SIGNAL(triggered()), this, SLOT(openTutorial()));
 
     openTranslateAct = new QAction(tr("Translate gpg4usb"), this);
     openTranslateAct->setToolTip(tr("Translate gpg4usb yourself"));
     connect(openTranslateAct, SIGNAL(triggered()), this, SLOT(openTranslate()));
+
+    startWizardAct= new QAction(tr("Open &Wizard"), this);
+    startWizardAct->setToolTip(tr("Open the wizard"));
+    connect(startWizardAct, SIGNAL(triggered()), this, SLOT(startWizard()));
 
     /* Popup-Menu-Action for KeyList
      */
@@ -396,6 +397,7 @@ void MainWindow::createMenus()
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(openTutorialAct);
     helpMenu->addAction(openTranslateAct);
+    helpMenu->addAction(startWizardAct);
     helpMenu->addAction(aboutAct);
 }
 
@@ -609,6 +611,13 @@ void MainWindow::openTranslate() {
 
 void MainWindow::openTutorial() {
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
+}
+
+void MainWindow::startWizard()
+{
+    Wizard *wizard = new Wizard(mCtx,this);
+    wizard->show();
+    wizard->setModal(true);
 }
 
 /*

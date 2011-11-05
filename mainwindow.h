@@ -104,6 +104,8 @@ private slots:
 
     void showKeyDetails();
 
+    void startWizard();
+
     /**
      * @details Import keys from currently active tab to keylist if possible.
      */
@@ -276,6 +278,8 @@ private:
     QAction *openTranslateAct; /** Action to open translate doc*/
     QAction *openTutorialAct; /** Action to open tutorial */
     QAction *showKeyDetailsAct; /** Action to open key-details dialog */
+    QAction *startWizardAct; /** Action to open the wizard */
+
     QLineEdit *nameEdit; /**< TODO */
     QLineEdit *emailEdit; /**< TODO */
     QLineEdit *commentEdit; /**< TODO */
