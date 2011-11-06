@@ -502,7 +502,6 @@ void MainWindow::createTrayIcon() {
     }*/
     trayIcon->setProperty("_qt_sni_category", qApp->applicationDirPath() + "/tmp");
     trayIcon->setContextMenu(trayIconMenu);
-
 }
 
 void MainWindow::showTrayMessage(QString title, QString body) {
@@ -683,6 +682,10 @@ void MainWindow::checkAttachmentFolder() {
 
 void MainWindow::importKeyFromEdit()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     mCtx->importKey(edit->curTextPage()->toPlainText().toAscii());
 }
 
@@ -695,6 +698,10 @@ void MainWindow::openKeyManagement()
 
 void MainWindow::encrypt()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
@@ -706,6 +713,10 @@ void MainWindow::encrypt()
 
 void MainWindow::sign()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QStringList *uidList = mKeyList->getPrivateChecked();
 
     QByteArray *tmp = new QByteArray();
@@ -718,6 +729,10 @@ void MainWindow::sign()
 
 void MainWindow::decrypt()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QByteArray *decrypted = new QByteArray();
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     mCtx->preventNoDataErr(&text);
@@ -753,6 +768,10 @@ void MainWindow::decrypt()
 
 void MainWindow::verify()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     // At first close verifynotification, if existing
     edit->curPage()->closeNoteByClass("verifyNotification");
 
@@ -811,6 +830,10 @@ void MainWindow::importKeyDialog()
  */
 void MainWindow::appendSelectedKeys()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QByteArray *keyArray = new QByteArray();
     mCtx->exportKeys(mKeyList->getSelected(), keyArray);
     edit->curTextPage()->appendPlainText(*keyArray);
@@ -818,6 +841,10 @@ void MainWindow::appendSelectedKeys()
 
 void MainWindow::copyMailAddressToClipboard()
 {
+    if (mKeyList->getSelected()->isEmpty()) {
+        return;
+    }
+
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     QClipboard *cb = QApplication::clipboard();
     QString mail = key->uids->email;
@@ -826,9 +853,14 @@ void MainWindow::copyMailAddressToClipboard()
 
 void MainWindow::showKeyDetails()
 {
-    // TODO: first...?
+    if (mKeyList->getSelected()->isEmpty()) {
+        return;
+    }
+
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
-    new KeyDetailsDialog(mCtx, key, this);
+    if (key) {
+        new KeyDetailsDialog(mCtx, key, this);
+    }
 }
 
 void MainWindow::fileEncryption()
@@ -859,6 +891,10 @@ void MainWindow::openSettingsDialog()
 
 void MainWindow::cleanDoubleLinebreaks()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QString content = edit->curTextPage()->toPlainText();
     content.replace("\n\n", "\n");
     edit->fillTextEditWithText(content);

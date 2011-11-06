@@ -222,6 +222,10 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
 
 void KeyMgmt::showKeyDetails()
 {
+    if (mKeyList->getSelected()->isEmpty()) {
+        return;
+    }
+
     // TODO: first...?
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
 

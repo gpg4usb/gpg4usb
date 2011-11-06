@@ -30,7 +30,8 @@ Release 0.3.2
 - refactoring and cleanup: [DONE]
 	- gpgwin.cpp -> mainwindow.cpp [DONE]
 	- context.cpp -> gpgcontext.cpp [DONE]
-- show keyrings (files with .gpg) in import from file dialog too
+- show keyrings (files with .gpg) in import from file dialog too [DONE]
+- Wizard on first start (Create Key, Import from older gpg4usb, import from gnupg)
 - set gpgme error language to chosen language (context.cpp:49)
 - import from keyserver doesn't end, if network-connection is available, but no connection to keyserver  (?)
 - minimal steganography option: remove or add pgp-headers on demand
@@ -43,7 +44,6 @@ Release 0.3.2
 
 Release 0.3.3
 - Change private key password (catch bad passphrase message)
-- Wizard on first start (Create Key, Import from older gpg4usb, import from gnupg)
 - css
 - key should blink short in keylist after import
 - check and add missing statusbar messages

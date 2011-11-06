@@ -89,6 +89,10 @@ void TextEdit::open()
 
 void TextEdit::save()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
     QString fileName = curPage()->getFilePath();
 
     if (fileName.isEmpty()) {
@@ -137,6 +141,10 @@ bool TextEdit::saveFile(const QString &fileName)
 
 bool TextEdit::saveAs()
 {
+    if (tabWidget->count() == 0) {
+        return true;
+    }
+
     EditorPage *page = curPage();
     QString path;
     if(page->getFilePath() != "") {
@@ -296,6 +304,11 @@ QPlainTextEdit* TextEdit::curTextPage()
 }
 
 
+int TextEdit::tabCount()
+{
+    return tabWidget->count();
+}
+
 EditorPage* TextEdit::curPage()
 {
     EditorPage *curPage = qobject_cast<EditorPage *>(tabWidget->currentWidget());
@@ -304,6 +317,10 @@ EditorPage* TextEdit::curPage()
 
 void TextEdit::quote()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
     QTextCursor cursor(curTextPage()->document());
 
     // beginEditBlock and endEditBlock() let operation look like single undo/redo operation
@@ -355,6 +372,10 @@ QString TextEdit::strippedName(const QString &fullFileName)
 
 void TextEdit::print()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
 #ifndef QT_NO_PRINTER
     QTextDocument *document = curTextPage()->document();
     QPrinter printer;
@@ -415,31 +436,55 @@ QHash<int, QString> TextEdit::unsavedDocuments() {
 
 void TextEdit::cut()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
     curTextPage()->cut();
 }
 
 void TextEdit::copy()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
     curTextPage()->copy();
 }
 
 void TextEdit::paste()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
     curTextPage()->paste();
 }
 
 void TextEdit::undo()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
     curTextPage()->undo();
 }
 
 void TextEdit::redo()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
     curTextPage()->redo();
 }
 
 void TextEdit::selectAll()
 {
+    if (tabWidget->count() == 0) {
+        return;
+    }
+
     curTextPage()->selectAll();
 }
 

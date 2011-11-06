@@ -35,7 +35,6 @@ KeyGenDialog::KeyGenDialog(GpgME::GpgContext *ctx, QWidget *parent)
 
 void KeyGenDialog::generateKeyDialog()
 {
-
     nameLabel = new QLabel(tr("Name:"));
     emailLabel = new QLabel(tr("E-Mailaddress::"));
     commentLabel = new QLabel(tr("Comment:"));
