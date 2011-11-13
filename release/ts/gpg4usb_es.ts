@@ -1111,82 +1111,82 @@ Para acelerar el proceso use su computadora
     <name>AppearanceTab</name>
     <message>
         <source>Iconsize</source>
-        <translation type="unfinished">Tamaño Icono</translation>
+        <translation>Tamaño Icono</translation>
     </message>
     <message>
         <source>small</source>
-        <translation type="unfinished">pequeño</translation>
+        <translation>pequeño</translation>
     </message>
     <message>
         <source>medium</source>
-        <translation type="unfinished">mediano</translation>
+        <translation>mediano</translation>
     </message>
     <message>
         <source>large</source>
-        <translation type="unfinished">grande</translation>
+        <translation>grande</translation>
     </message>
     <message>
         <source>Iconstyle</source>
-        <translation type="unfinished">Estilo Icono</translation>
+        <translation>Estilo Icono</translation>
     </message>
     <message>
         <source>just text</source>
-        <translation type="unfinished">solo texto</translation>
+        <translation>solo texto</translation>
     </message>
     <message>
         <source>just icons</source>
-        <translation type="unfinished">solo iconos</translation>
+        <translation>solo iconos</translation>
     </message>
     <message>
         <source>text and icons</source>
-        <translation type="unfinished">texto e iconos</translation>
+        <translation>texto e iconos</translation>
     </message>
     <message>
         <source>Windowstate</source>
-        <translation type="unfinished">Ventana de Estado</translation>
+        <translation>Ventana de Estado</translation>
     </message>
     <message>
         <source>Save window size and position on exit.</source>
-        <translation type="unfinished">Guardar tamaño y posicion ventana al salir.</translation>
+        <translation>Guardar tamaño y posicion ventana al salir.</translation>
     </message>
 </context>
 <context>
     <name>AttachmentTableModel</name>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Nombre de archivo</translation>
+        <translation>Nombre de archivo</translation>
     </message>
     <message>
         <source>Contenttype</source>
-        <translation type="unfinished">Tipo de contenido</translation>
+        <translation>Tipo de contenido</translation>
     </message>
 </context>
 <context>
     <name>Attachments</name>
     <message>
         <source>Save File</source>
-        <translation type="unfinished">Guardar Archivo</translation>
+        <translation>Guardar Archivo</translation>
     </message>
     <message>
         <source>Save this file</source>
-        <translation type="unfinished">Guardar este archivo</translation>
+        <translation>Guardar este archivo</translation>
     </message>
     <message>
         <source>Open File</source>
-        <translation type="unfinished">Abrir Archivo</translation>
+        <translation>Abrir Archivo</translation>
     </message>
     <message>
         <source>Open this file</source>
-        <translation type="unfinished">Abrir este archivo</translation>
+        <translation>Abrir este archivo</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Archivo</translation>
+        <translation>Archivo</translation>
     </message>
     <message>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished">No puedo escribir archivo %1:
+        <translation>No puedo escribir archivo %1:
 %2.</translation>
     </message>
 </context>
@@ -1194,56 +1194,56 @@ Para acelerar el proceso use su computadora
     <name>FileEncryptionDialog</name>
     <message>
         <source>Encrypt / Decrypt File</source>
-        <translation type="unfinished">Cifrar / Descifrar Archivo</translation>
+        <translation>Cifrar / Descifrar Archivo</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Archivo</translation>
+        <translation>Archivo</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished">Accion</translation>
+        <translation>Accion</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished">Entrada</translation>
+        <translation>Entrada</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished">Salida</translation>
+        <translation>Salida</translation>
     </message>
     <message>
         <source>&amp;Encrypt</source>
-        <translation type="unfinished">&amp;Cifrar</translation>
+        <translation>&amp;Cifrar</translation>
     </message>
     <message>
         <source>&amp;Decrypt</source>
-        <translation type="unfinished">&amp;Descifrar</translation>
+        <translation>&amp;Descifrar</translation>
     </message>
     <message>
         <source>Open File</source>
-        <translation type="unfinished">Abrir Archivo</translation>
+        <translation>Abrir Archivo</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished">Guardar Archivo</translation>
+        <translation>Guardar Archivo</translation>
     </message>
     <message>
         <source>couldn&apos;t open file: </source>
-        <translation type="unfinished">no se pudo abrir el archivo:</translation>
+        <translation>no se pudo abrir el archivo:</translation>
     </message>
     <message>
         <source>File exists! Do you want to overwrite it?</source>
-        <translation type="unfinished">El archivo existe! ¿Quiere sobreescribirlo?</translation>
+        <translation>El archivo existe! ¿Quiere sobreescribirlo?</translation>
     </message>
     <message>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished">No puedo escribir archivo %1:
+        <translation>No puedo escribir archivo %1:
 %2.</translation>
     </message>
 </context>
@@ -1251,715 +1251,715 @@ Para acelerar el proceso use su computadora
     <name>GeneralTab</name>
     <message>
         <source>Remember Password</source>
-        <translation type="unfinished">Recordar Contraseña</translation>
+        <translation>Recordar Contraseña</translation>
     </message>
     <message>
         <source>Remember password until closing gpg4usb</source>
-        <translation type="unfinished">Recordar contraseña hasta cerrar gpg4usb</translation>
+        <translation>Recordar contraseña hasta cerrar gpg4usb</translation>
     </message>
     <message>
         <source>Save Checked Keys</source>
-        <translation type="unfinished">Guardar Llaves Verificadas</translation>
+        <translation>Guardar Llaves Verificadas</translation>
     </message>
     <message>
         <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation type="unfinished">Guardar llaves privadas verificadas al salir y restaurarlas en proximo arranque.</translation>
+        <translation>Guardar llaves privadas verificadas al salir y restaurarlas en proximo arranque.</translation>
     </message>
     <message>
         <source>Confirm drag&apos;n&apos;drop key import</source>
-        <translation type="unfinished">Confirmar importar llave arrastrar y soltar</translation>
+        <translation>Confirmar importar llave arrastrar y soltar</translation>
     </message>
     <message>
         <source>Import files dropped on the keylist without confirmation.</source>
-        <translation type="unfinished">Importar archivos soltados en la lista de llaves sin confirmacion.</translation>
+        <translation>Importar archivos soltados en la lista de llaves sin confirmacion.</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished">Idioma</translation>
+        <translation>Idioma</translation>
     </message>
     <message>
         <source>Language change is applied after restarting program.</source>
-        <translation type="unfinished">Cambio idioma se aplicara despues de reiniciar el programa.</translation>
+        <translation>Cambio idioma se aplicara despues de reiniciar el programa.</translation>
     </message>
     <message>
         <source>System Default</source>
-        <translation type="unfinished">Por Defecto</translation>
+        <translation>Por Defecto</translation>
     </message>
 </context>
 <context>
     <name>GpgME::Context</name>
     <message>
         <source>No Key Selected</source>
-        <translation type="unfinished">Ninguna llave seleccionada</translation>
+        <translation>Ninguna llave seleccionada</translation>
     </message>
     <message>
         <source>Unsupported algorithm</source>
-        <translation type="unfinished">Algoritmo incompatible</translation>
+        <translation>Algoritmo incompatible</translation>
     </message>
     <message>
         <source>Error decrypting:</source>
-        <translation type="unfinished">Error al descifrar:</translation>
+        <translation>Error al descifrar:</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished">Contraseña incorrecta</translation>
+        <translation>Contraseña incorrecta</translation>
     </message>
     <message>
         <source>Enter Password</source>
-        <translation type="unfinished">Ingresar Contraseña</translation>
+        <translation>Ingresar Contraseña</translation>
     </message>
     <message>
         <source>Key Selection</source>
-        <translation type="unfinished">Seleccionar Llave</translation>
+        <translation>Seleccionar Llave</translation>
     </message>
     <message>
         <source>No Private Key Selected</source>
-        <translation type="unfinished">No se Selecciono Llave Privada</translation>
+        <translation>No se Selecciono Llave Privada</translation>
     </message>
     <message>
         <source>Error signing:</source>
-        <translation type="unfinished">Error al firmar:</translation>
+        <translation>Error al firmar:</translation>
     </message>
 </context>
 <context>
     <name>GpgWin</name>
     <message>
         <source>&amp;New</source>
-        <translation type="unfinished">&amp;Nuevo</translation>
+        <translation>&amp;Nuevo</translation>
     </message>
     <message>
         <source>Open a new file</source>
-        <translation type="unfinished">Abrir nuevo archivo</translation>
+        <translation>Abrir nuevo archivo</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished">&amp;Abrir...</translation>
+        <translation>&amp;Abrir...</translation>
     </message>
     <message>
         <source>Open an existing file</source>
-        <translation type="unfinished">Abrir archivo existente</translation>
+        <translation>Abrir archivo existente</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">&amp;Guardar</translation>
+        <translation>&amp;Guardar</translation>
     </message>
     <message>
         <source>Save the current File</source>
-        <translation type="unfinished">Guardar archivo actual</translation>
+        <translation>Guardar archivo actual</translation>
     </message>
     <message>
         <source>Save &amp;As</source>
-        <translation type="unfinished">Guardar &amp;Como</translation>
+        <translation>Guardar &amp;Como</translation>
     </message>
     <message>
         <source>Save the current File as...</source>
-        <translation type="unfinished">Guardar Archivo actual como...</translation>
+        <translation>Guardar Archivo actual como...</translation>
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished">&amp;Imprimir</translation>
+        <translation>&amp;Imprimir</translation>
     </message>
     <message>
         <source>Print Document</source>
-        <translation type="unfinished">Imprimir Documento</translation>
+        <translation>Imprimir Documento</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Cerrar</translation>
+        <translation>&amp;Cerrar</translation>
     </message>
     <message>
         <source>Close file</source>
-        <translation type="unfinished">Cerrar archivo</translation>
+        <translation>Cerrar archivo</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Salir</translation>
+        <translation>&amp;Salir</translation>
     </message>
     <message>
         <source>Quit Program</source>
-        <translation type="unfinished">Salir del Programa</translation>
+        <translation>Salir del Programa</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished">&amp;Deshacer</translation>
+        <translation>&amp;Deshacer</translation>
     </message>
     <message>
         <source>Undo Last Edit Action</source>
-        <translation type="unfinished">Deshacer Ultima Accion Editar</translation>
+        <translation>Deshacer Ultima Accion Editar</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished">&amp;Rehacer</translation>
+        <translation>&amp;Rehacer</translation>
     </message>
     <message>
         <source>Redo Last Edit Action</source>
-        <translation type="unfinished">Rehacer ultima accion editar</translation>
+        <translation>Rehacer ultima accion editar</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished">&amp;Pegar</translation>
+        <translation>&amp;Pegar</translation>
     </message>
     <message>
         <source>Paste Text From Clipboard</source>
-        <translation type="unfinished">Pegar Texto desde Portapapeles</translation>
+        <translation>Pegar Texto desde Portapapeles</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation type="unfinished">Corta&amp;r</translation>
+        <translation>Corta&amp;r</translation>
     </message>
     <message>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation type="unfinished">Cortar contenido de la seleccion actual al portapapeles</translation>
+        <translation>Cortar contenido de la seleccion actual al portapapeles</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished">&amp;Copiar</translation>
+        <translation>&amp;Copiar</translation>
     </message>
     <message>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation type="unfinished">Copiar contenido de la seleccion actual al portapapeles</translation>
+        <translation>Copiar contenido de la seleccion actual al portapapeles</translation>
     </message>
     <message>
         <source>&amp;Quote</source>
-        <translation type="unfinished">&amp;Poner comillas</translation>
+        <translation>&amp;Poner comillas</translation>
     </message>
     <message>
         <source>Quote whole text</source>
-        <translation type="unfinished">Poner comillas a todo el texto</translation>
+        <translation>Poner comillas a todo el texto</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished">Seleccionar &amp;Todo</translation>
+        <translation>Seleccionar &amp;Todo</translation>
     </message>
     <message>
         <source>Select the whole text</source>
-        <translation type="unfinished">Seleccionar todo el texto</translation>
+        <translation>Seleccionar todo el texto</translation>
     </message>
     <message>
         <source>Remove double &amp;Linebreaks</source>
-        <translation type="unfinished">Quitar doble  &amp;Fin de linea</translation>
+        <translation>Quitar doble  &amp;Fin de linea</translation>
     </message>
     <message>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="unfinished">Quitar dobel fin de linea, p.ej. en texto pegado desde webmailer</translation>
+        <translation>Quitar dobel fin de linea, p.ej. en texto pegado desde webmailer</translation>
     </message>
     <message>
         <source>Se&amp;ttings</source>
-        <translation type="unfinished">Con&amp;figuracion</translation>
+        <translation>Con&amp;figuracion</translation>
     </message>
     <message>
         <source>Open settings dialog</source>
-        <translation type="unfinished">Abrir dialogo configuracion</translation>
+        <translation>Abrir dialogo configuracion</translation>
     </message>
     <message>
         <source>&amp;Encrypt</source>
-        <translation type="unfinished">&amp;Cifrar</translation>
+        <translation>&amp;Cifrar</translation>
     </message>
     <message>
         <source>Encrypt Message</source>
-        <translation type="unfinished">Cifrar Mensaje</translation>
+        <translation>Cifrar Mensaje</translation>
     </message>
     <message>
         <source>&amp;Decrypt</source>
-        <translation type="unfinished">&amp;Descifrar</translation>
+        <translation>&amp;Descifrar</translation>
     </message>
     <message>
         <source>Decrypt Message</source>
-        <translation type="unfinished">Descifrar Mensaje</translation>
+        <translation>Descifrar Mensaje</translation>
     </message>
     <message>
         <source>&amp;File Encryption</source>
-        <translation type="unfinished">&amp;Cifrado Archivo</translation>
+        <translation>&amp;Cifrado Archivo</translation>
     </message>
     <message>
         <source>Encrypt/Decrypt File</source>
-        <translation type="unfinished">Cifrar / Descifrar Archivo</translation>
+        <translation>Cifrar / Descifrar Archivo</translation>
     </message>
     <message>
         <source>&amp;Sign</source>
-        <translation type="unfinished">&amp;Firmar</translation>
+        <translation>&amp;Firmar</translation>
     </message>
     <message>
         <source>Sign Message</source>
-        <translation type="unfinished">Firmar Mensaje</translation>
+        <translation>Firmar Mensaje</translation>
     </message>
     <message>
         <source>&amp;Verify</source>
-        <translation type="unfinished">&amp;Verificar</translation>
+        <translation>&amp;Verificar</translation>
     </message>
     <message>
         <source>Verify Message</source>
-        <translation type="unfinished">Verificar Mensaje</translation>
+        <translation>Verificar Mensaje</translation>
     </message>
     <message>
         <source>&amp;Editor</source>
-        <translation type="unfinished">&amp;Editor</translation>
+        <translation>&amp;Editor</translation>
     </message>
     <message>
         <source>Import New Key From Editor</source>
-        <translation type="unfinished">Importar Nueva Llave Desde Editor</translation>
+        <translation>Importar Nueva Llave Desde Editor</translation>
     </message>
     <message>
         <source>Key Management</source>
-        <translation type="unfinished">Administrador de Llaves</translation>
+        <translation>Administrador de Llaves</translation>
     </message>
     <message>
         <source>Open Keymanagement</source>
-        <translation type="unfinished">Abrir Administrador de Llaves</translation>
+        <translation>Abrir Administrador de Llaves</translation>
     </message>
     <message>
         <source>Import Key</source>
-        <translation type="unfinished">Importar Llave</translation>
+        <translation>Importar Llave</translation>
     </message>
     <message>
         <source>Open Import New Key Dialog</source>
-        <translation type="unfinished">Abrir Dialogo Importar Nueva Llave</translation>
+        <translation>Abrir Dialogo Importar Nueva Llave</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished">&amp;Acerca de</translation>
+        <translation>&amp;Acerca de</translation>
     </message>
     <message>
         <source>Show the application&apos;s About box</source>
-        <translation type="unfinished">Mostrar recuadro Acerca de del programa</translation>
+        <translation>Mostrar recuadro Acerca de del programa</translation>
     </message>
     <message>
         <source>Online &amp;Tutorial</source>
-        <translation type="unfinished">Tutorial &amp;En linea</translation>
+        <translation>Tutorial &amp;En linea</translation>
     </message>
     <message>
         <source>Open Online Tutorial</source>
-        <translation type="unfinished">Abrir Tutorial En linea</translation>
+        <translation>Abrir Tutorial En linea</translation>
     </message>
     <message>
         <source>Translate gpg4usb</source>
-        <translation type="unfinished">Traducir gpg4usb</translation>
+        <translation>Traducir gpg4usb</translation>
     </message>
     <message>
         <source>Translate gpg4usb yourself</source>
-        <translation type="unfinished">Traduzca usted mismo gpg4usb</translation>
+        <translation>Traduzca usted mismo gpg4usb</translation>
     </message>
     <message>
         <source>Append Selected Key(s) To Text</source>
-        <translation type="unfinished">Adjuntar Llave(s) Seleccionada(s) Al Texto</translation>
+        <translation>Adjuntar Llave(s) Seleccionada(s) Al Texto</translation>
     </message>
     <message>
         <source>Append The Selected Keys To Text in Editor</source>
-        <translation type="unfinished">Adjuntar Llaves Seleccionadas Al Texto en Editor</translation>
+        <translation>Adjuntar Llaves Seleccionadas Al Texto en Editor</translation>
     </message>
     <message>
         <source>Copy EMail-address</source>
-        <translation type="unfinished">Copiar direcciones de Correo Electronico</translation>
+        <translation>Copiar direcciones de Correo Electronico</translation>
     </message>
     <message>
         <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="unfinished">Copiar direcciones de Correo Electronico seleccionadas a portapapeles</translation>
+        <translation>Copiar direcciones de Correo Electronico seleccionadas a portapapeles</translation>
     </message>
     <message>
         <source>Show Keydetails</source>
-        <translation type="unfinished">Mostrar Detalles de Llave</translation>
+        <translation>Mostrar Detalles de Llave</translation>
     </message>
     <message>
         <source>Show Details for this Key</source>
-        <translation type="unfinished">Mostrar Detalles para esta Llave</translation>
+        <translation>Mostrar Detalles para esta Llave</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">&amp;Archivo</translation>
+        <translation>&amp;Archivo</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished">&amp;Editar</translation>
+        <translation>&amp;Editar</translation>
     </message>
     <message>
         <source>&amp;Crypt</source>
-        <translation type="unfinished">&amp;Cifrar</translation>
+        <translation>&amp;Cifrar</translation>
     </message>
     <message>
         <source>&amp;Keys</source>
-        <translation type="unfinished">&amp;Llaves</translation>
+        <translation>&amp;Llaves</translation>
     </message>
     <message>
         <source>&amp;Import Key From...</source>
-        <translation type="unfinished">&amp;Importar Llave Desde...</translation>
+        <translation>&amp;Importar Llave Desde...</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">&amp;Ver</translation>
+        <translation>&amp;Ver</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished">&amp;Ayuda</translation>
+        <translation>&amp;Ayuda</translation>
     </message>
     <message>
         <source>Crypt</source>
-        <translation type="unfinished">Cifrar</translation>
+        <translation>Cifrar</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished">Llave</translation>
+        <translation>Llave</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Ready</source>
-        <translation type="unfinished">Listo</translation>
+        <translation>Listo</translation>
     </message>
     <message>
         <source>Encrypt for:</source>
-        <translation type="unfinished">Cifrar para:</translation>
+        <translation>Cifrar para:</translation>
     </message>
     <message>
         <source>Attached files:</source>
-        <translation type="unfinished">Archivos Adjuntos:</translation>
+        <translation>Archivos Adjuntos:</translation>
     </message>
     <message>
         <source>About </source>
-        <translation type="unfinished">Acerca de&apos;</translation>
+        <translation>Acerca de&apos;</translation>
     </message>
     <message>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="unfinished">&lt;center&gt;Este programa le permite hacer un facil&lt;br/&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o sugerencias, entre&lt;br/&gt;en nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un email a nuestra&lt;br/&gt; lista decorreo en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation>&lt;center&gt;Este programa le permite hacer un facil&lt;br/&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o sugerencias, entre&lt;br/&gt;en nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un email a nuestra&lt;br/&gt; lista decorreo en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>There is one unencrypted file in attachment folder</source>
-        <translation type="unfinished">Hay un archivo sin cifrar en carpeta adjuntos</translation>
+        <translation>Hay un archivo sin cifrar en carpeta adjuntos</translation>
     </message>
     <message>
         <source>There are </source>
-        <translation type="unfinished">Hay</translation>
+        <translation>Hay</translation>
     </message>
     <message>
         <source> unencrypted files in attachment folder</source>
-        <translation type="unfinished">archivos sin cifrar en carpeta adjuntos</translation>
+        <translation>archivos sin cifrar en carpeta adjuntos</translation>
     </message>
     <message>
         <source>Import Key From...</source>
-        <translation type="unfinished">Importar Llave Desde...</translation>
+        <translation>Importar Llave Desde...</translation>
     </message>
     <message>
         <source>&amp;Clipboard</source>
-        <translation type="unfinished">&amp;Portapapeles</translation>
+        <translation>&amp;Portapapeles</translation>
     </message>
     <message>
         <source>&amp;Keyserver</source>
-        <translation type="unfinished">&amp;Servidor de llaves</translation>
+        <translation>&amp;Servidor de llaves</translation>
     </message>
 </context>
 <context>
     <name>KeyDetailsDialog</name>
     <message>
         <source>Owner details</source>
-        <translation type="unfinished">Detalles del Propietario</translation>
+        <translation>Detalles del Propietario</translation>
     </message>
     <message>
         <source>Key details</source>
-        <translation type="unfinished">Detalles de la Llave</translation>
+        <translation>Detalles de la Llave</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished">Huella Digital</translation>
+        <translation>Huella Digital</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">Nombre:</translation>
+        <translation>Nombre:</translation>
     </message>
     <message>
         <source>E-Mailaddress:</source>
-        <translation type="unfinished">Direccion de Correo Electronico:</translation>
+        <translation>Direccion de Correo Electronico:</translation>
     </message>
     <message>
         <source>Comment:</source>
-        <translation type="unfinished">Comentario:</translation>
+        <translation>Comentario:</translation>
     </message>
     <message>
         <source>Key size:</source>
-        <translation type="unfinished">Tamaño de Llave:</translation>
+        <translation>Tamaño de Llave:</translation>
     </message>
     <message>
         <source>Expires on: </source>
-        <translation type="unfinished">Expira en:</translation>
+        <translation>Expira en:</translation>
     </message>
     <message>
         <source>Created on: </source>
-        <translation type="unfinished">Creado en:</translation>
+        <translation>Creado en:</translation>
     </message>
     <message>
         <source>Algorithm: </source>
-        <translation type="unfinished">Algoritmo:</translation>
+        <translation>Algoritmo:</translation>
     </message>
     <message>
         <source>Key ID: </source>
-        <translation type="unfinished">ID de Llave:</translation>
+        <translation>ID de Llave:</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished">Nunca</translation>
+        <translation>Nunca</translation>
     </message>
     <message>
         <source> / Never</source>
-        <translation type="unfinished"> / Nunca</translation>
+        <translation> / Nunca</translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation type="unfinished">Llave Privada</translation>
+        <translation>Llave Privada</translation>
     </message>
     <message>
         <source>Export Private Key</source>
-        <translation type="unfinished">Exportar llave Privada</translation>
+        <translation>Exportar llave Privada</translation>
     </message>
     <message>
         <source>Warning: Key expired</source>
-        <translation type="unfinished">Advertencia: Llave expirada</translation>
+        <translation>Advertencia: Llave expirada</translation>
     </message>
     <message>
         <source>Keydetails</source>
-        <translation type="unfinished">Detalles de Llave</translation>
+        <translation>Detalles de Llave</translation>
     </message>
     <message>
         <source>Exporting private Key</source>
-        <translation type="unfinished">Exportando Llave privada</translation>
+        <translation>Exportando Llave privada</translation>
     </message>
     <message>
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.</source>
-        <translation type="unfinished">Esta a punto de exportar su llave privada.
+        <translation>Esta a punto de exportar su llave privada.
 Esta NO es su llave publica, asi que no la revele.
 Guardela de forma segura.</translation>
     </message>
     <message>
         <source>Export Key To File</source>
-        <translation type="unfinished">Exportar Llave a Archivo</translation>
+        <translation>Exportar Llave a Archivo</translation>
     </message>
     <message>
         <source>Key Files</source>
-        <translation type="unfinished">Archivos de Llaves</translation>
+        <translation>Archivos de Llaves</translation>
     </message>
 </context>
 <context>
     <name>KeyList</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nombre</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <source>EMail</source>
-        <translation type="unfinished">Correo Electrónico</translation>
+        <translation>Correo Electrónico</translation>
     </message>
     <message>
         <source>Import Keys</source>
-        <translation type="unfinished">Importar Llaves</translation>
+        <translation>Importar Llaves</translation>
     </message>
     <message>
         <source>You&apos;ve dropped something on the keylist.
  gpg4usb will now try to import key(s).</source>
-        <translation type="unfinished">Usted ha soltado algo en la lista de llaves
+        <translation>Usted ha soltado algo en la lista de llaves
 gpg4usb intentara ahora importar la(s) llave(s).</translation>
     </message>
     <message>
         <source>Always import without bothering.</source>
-        <translation type="unfinished">Siempre importar sin molestias.</translation>
+        <translation>Siempre importar sin molestias.</translation>
     </message>
     <message>
         <source>Couldn&apos;t Open File: </source>
-        <translation type="unfinished">No se pudo Abrir el Archivo: </translation>
+        <translation>No se pudo Abrir el Archivo: </translation>
     </message>
 </context>
 <context>
     <name>KeyMgmt</name>
     <message>
         <source>Keymanagement</source>
-        <translation type="unfinished">Administrador der Llaves</translation>
+        <translation>Administrador der Llaves</translation>
     </message>
     <message>
         <source>&amp;Close Key Management</source>
-        <translation type="unfinished">&amp;Cerrar Administrador de Llaves</translation>
+        <translation>&amp;Cerrar Administrador de Llaves</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished">Crtl+Q</translation>
+        <translation>Crtl+Q</translation>
     </message>
     <message>
         <source>Close Key Management</source>
-        <translation type="unfinished">Cerrar Administrador de Llaves</translation>
+        <translation>Cerrar Administrador de Llaves</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">&amp;Archivo</translation>
+        <translation>&amp;Archivo</translation>
     </message>
     <message>
         <source>Import New Key From File</source>
-        <translation type="unfinished">Importar Nueva Llave Desde Archivo</translation>
+        <translation>Importar Nueva Llave Desde Archivo</translation>
     </message>
     <message>
         <source>&amp;Clipboard</source>
-        <translation type="unfinished">&amp;Portapapeles</translation>
+        <translation>&amp;Portapapeles</translation>
     </message>
     <message>
         <source>Import New Key From Clipboard</source>
-        <translation type="unfinished">Importar Nueva Llave Desde Portapapeles</translation>
+        <translation>Importar Nueva Llave Desde Portapapeles</translation>
     </message>
     <message>
         <source>&amp;Keyserver</source>
-        <translation type="unfinished">&amp;Servidor de llaves</translation>
+        <translation>&amp;Servidor de llaves</translation>
     </message>
     <message>
         <source>Import New Key From Keyserver</source>
-        <translation type="unfinished">Importar Nueva Llave desde Servidor de Llaves</translation>
+        <translation>Importar Nueva Llave desde Servidor de Llaves</translation>
     </message>
     <message>
         <source>Export To &amp;Clipboard</source>
-        <translation type="unfinished">Exportar A &amp;Portapapeles</translation>
+        <translation>Exportar A &amp;Portapapeles</translation>
     </message>
     <message>
         <source>Export Selected Key(s) To Clipboard</source>
-        <translation type="unfinished">Exportar Llave(s) Seleccionada(s) A Portapapeles</translation>
+        <translation>Exportar Llave(s) Seleccionada(s) A Portapapeles</translation>
     </message>
     <message>
         <source>Export To &amp;File</source>
-        <translation type="unfinished">Exportar A &amp;Archivo</translation>
+        <translation>Exportar A &amp;Archivo</translation>
     </message>
     <message>
         <source>Export Selected Key(s) To File</source>
-        <translation type="unfinished">Exportar Llave(s) Seleccionada(s) A Archivo</translation>
+        <translation>Exportar Llave(s) Seleccionada(s) A Archivo</translation>
     </message>
     <message>
         <source>Delete Selected Key(s)</source>
-        <translation type="unfinished">Borrar Llave(s) Seleccionada(s)</translation>
+        <translation>Borrar Llave(s) Seleccionada(s)</translation>
     </message>
     <message>
         <source>Delete the Selected keys</source>
-        <translation type="unfinished">Borrar las Llaves Seleccionadas</translation>
+        <translation>Borrar las Llaves Seleccionadas</translation>
     </message>
     <message>
         <source>Delete Checked Key(s)</source>
-        <translation type="unfinished">Borrar Llave(s) Verificadas</translation>
+        <translation>Borrar Llave(s) Verificadas</translation>
     </message>
     <message>
         <source>Delete the Checked keys</source>
-        <translation type="unfinished">Borrar las Llaves Verificadas</translation>
+        <translation>Borrar las Llaves Verificadas</translation>
     </message>
     <message>
         <source>Generate Key</source>
-        <translation type="unfinished">Crear Llave</translation>
+        <translation>Crear Llave</translation>
     </message>
     <message>
         <source>Generate New Key</source>
-        <translation type="unfinished">Crear Nueva Llave</translation>
+        <translation>Crear Nueva Llave</translation>
     </message>
     <message>
         <source>Show Keydetails</source>
-        <translation type="unfinished">Mostrar Detalles de Llave</translation>
+        <translation>Mostrar Detalles de Llave</translation>
     </message>
     <message>
         <source>Show Details for this Key</source>
-        <translation type="unfinished">Mostrar Detalles para esta Llave</translation>
+        <translation>Mostrar Detalles para esta Llave</translation>
     </message>
     <message>
         <source>&amp;Key</source>
-        <translation type="unfinished">&amp;Llave</translation>
+        <translation>&amp;Llave</translation>
     </message>
     <message>
         <source>&amp;Import Key From...</source>
-        <translation type="unfinished">&amp;Importar Llave Desde...</translation>
+        <translation>&amp;Importar Llave Desde...</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished">Llave</translation>
+        <translation>Llave</translation>
     </message>
     <message>
         <source>Open Key</source>
-        <translation type="unfinished">Abrir Llave</translation>
+        <translation>Abrir Llave</translation>
     </message>
     <message>
         <source>Key Files</source>
-        <translation type="unfinished">Archivos de Llaves</translation>
+        <translation>Archivos de Llaves</translation>
     </message>
     <message>
         <source>Couldn&apos;t Open File: </source>
-        <translation type="unfinished">No se pudo Abrir el Archivo: </translation>
+        <translation>No se pudo Abrir el Archivo: </translation>
     </message>
     <message>
         <source>Deleting Keys</source>
-        <translation type="unfinished">Borrando Llaves</translation>
+        <translation>Borrando Llaves</translation>
     </message>
     <message>
         <source>&lt;b&gt;Are you sure that you want to delete the following keys?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished">¿Esta usted seguro de querer borrar las siguientes llaves?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
+        <translation>¿Esta usted seguro de querer borrar las siguientes llaves?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;The action can not be undone.</source>
-        <translation type="unfinished">&lt;br/&gt; La accion no puede deshacerse.</translation>
+        <translation>&lt;br/&gt; La accion no puede deshacerse.</translation>
     </message>
     <message>
         <source>Export Key To File</source>
-        <translation type="unfinished">Exportar Llave a Archivo</translation>
+        <translation>Exportar Llave a Archivo</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">Nombre:</translation>
+        <translation>Nombre:</translation>
     </message>
     <message>
         <source>E-Mailaddress::</source>
-        <translation type="unfinished">Direccion de Correo Electronico:</translation>
+        <translation>Direccion de Correo Electronico:</translation>
     </message>
     <message>
         <source>Comment:</source>
-        <translation type="unfinished">Comentario:</translation>
+        <translation>Comentario:</translation>
     </message>
     <message>
         <source>KeySize (in Bit):</source>
-        <translation type="unfinished">Tamaño Llave (en Bit):</translation>
+        <translation>Tamaño Llave (en Bit):</translation>
     </message>
     <message>
         <source>Expiration Date:</source>
-        <translation type="unfinished">Fecha Expiracion:</translation>
+        <translation>Fecha Expiracion:</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation type="unfinished">Contraseña:</translation>
+        <translation>Contraseña:</translation>
     </message>
     <message>
         <source>Repeat Password:</source>
-        <translation type="unfinished">Repetir Contraseña:</translation>
+        <translation>Repetir Contraseña:</translation>
     </message>
     <message>
         <source>Never Expire</source>
-        <translation type="unfinished">Nunca Expira</translation>
+        <translation>Nunca Expira</translation>
     </message>
     <message>
         <source>Password: Strength
 Weak -&gt; Strong</source>
-        <translation type="unfinished">Contraseña: Fortaleza
+        <translation>Contraseña: Fortaleza
 Debil -&gt; Fuerte</translation>
     </message>
     <message>
         <source>Password Strength</source>
-        <translation type="unfinished">Fortaleza de la Contraseña</translation>
+        <translation>Fortaleza de la Contraseña</translation>
     </message>
     <message>
         <source>  Name must contain at least five characters.  
 </source>
-        <translation type="unfinished">El nombre debe contener al menos cinco caracteres. 
+        <translation>El nombre debe contener al menos cinco caracteres. 
 </translation>
     </message>
     <message>
         <source>  Password and Repeat don&apos;t match.  </source>
-        <translation type="unfinished">  Contraseña y Repetir no coinciden.  </translation>
+        <translation>  Contraseña y Repetir no coinciden.  </translation>
     </message>
     <message>
         <source>Generating Key...</source>
-        <translation type="unfinished">Creando Llave...</translation>
+        <translation>Creando Llave...</translation>
     </message>
     <message>
         <source>Collecting random data for key generation.
  This may take a while.
  To speed up the process use your computer
  (e.g. browse the net, listen to music,...)</source>
-        <translation type="unfinished">Recogiendo datos aleatorios para crear llave.
+        <translation>Recogiendo datos aleatorios para crear llave.
 Puede tardar un rato.
 Para acelerar el proceso use su computadora
 (ejemplo, navegar por la Red, oir musica,...)</translation>
@@ -1969,226 +1969,226 @@ Para acelerar el proceso use su computadora
     <name>KeyServerImportDialog</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Cerrar</translation>
+        <translation>&amp;Cerrar</translation>
     </message>
     <message>
         <source>&amp;Import</source>
-        <translation type="unfinished">&amp;Importar</translation>
+        <translation>&amp;Importar</translation>
     </message>
     <message>
         <source>&amp;Search</source>
-        <translation type="unfinished">&amp;Buscar</translation>
+        <translation>&amp;Buscar</translation>
     </message>
     <message>
         <source>Search string:</source>
-        <translation type="unfinished">Buscar cadena de caracteres:</translation>
+        <translation>Buscar cadena de caracteres:</translation>
     </message>
     <message>
         <source>Keyserver:</source>
-        <translation type="unfinished">Servidor de llaves:</translation>
+        <translation>Servidor de llaves:</translation>
     </message>
     <message>
         <source>Import Keys from Keyserver</source>
-        <translation type="unfinished">Importar Llaves desde el Servidor de Llaves</translation>
+        <translation>Importar Llaves desde el Servidor de Llaves</translation>
     </message>
     <message>
         <source>UID</source>
-        <translation type="unfinished">Tu ID</translation>
+        <translation>Tu ID</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished">Fecha de creacion</translation>
+        <translation>Fecha de creacion</translation>
     </message>
     <message>
         <source>KeyID</source>
-        <translation type="unfinished">ID de Llave</translation>
+        <translation>ID de Llave</translation>
     </message>
     <message>
         <source>Couldn&apos;t contact keyserver!</source>
-        <translation type="unfinished">¡No se puede contactar la servidor de llaves!</translation>
+        <translation>¡No se puede contactar la servidor de llaves!</translation>
     </message>
     <message>
         <source>Too many responses from keyserver!</source>
-        <translation type="unfinished">¡Demasiadas respuestas desde el servidor de llaves!</translation>
+        <translation>¡Demasiadas respuestas desde el servidor de llaves!</translation>
     </message>
     <message>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
-        <translation type="unfinished">No se encontraron llaves, el ingreso puede estar kexId, intentar buscar con 0x.</translation>
+        <translation>No se encontraron llaves, el ingreso puede estar kexId, intentar buscar con 0x.</translation>
     </message>
     <message>
         <source>No keys found containing the search string!</source>
-        <translation type="unfinished">¿No existen llaves con esa cadena de caracteres!</translation>
+        <translation>¿No existen llaves con esa cadena de caracteres!</translation>
     </message>
     <message>
         <source>Insufficiently specific search string!</source>
-        <translation type="unfinished">¡Cadena de caracteres insuficiente para busqueda!</translation>
+        <translation>¡Cadena de caracteres insuficiente para busqueda!</translation>
     </message>
     <message>
         <source>%1 keys found. Doubleclick a key to import it.</source>
-        <translation type="unfinished">%1 llaves encontradas. Pulse dos veces una llave para importarla.</translation>
+        <translation>%1 llaves encontradas. Pulse dos veces una llave para importarla.</translation>
     </message>
     <message>
         <source>Error while contacting keyserver!</source>
-        <translation type="unfinished">¡Error mientras contactaba al servidor de llaves!</translation>
+        <translation>¡Error mientras contactaba al servidor de llaves!</translation>
     </message>
     <message>
         <source>Key imported</source>
-        <translation type="unfinished">Llave importada</translation>
+        <translation>Llave importada</translation>
     </message>
 </context>
 <context>
     <name>KeyserverTab</name>
     <message>
         <source>Default Keyserver for import:</source>
-        <translation type="unfinished">Servidor de llaves por defecto para importar:</translation>
+        <translation>Servidor de llaves por defecto para importar:</translation>
     </message>
 </context>
 <context>
     <name>MimeTab</name>
     <message>
         <source>Decode quoted printable</source>
-        <translation type="unfinished">Descifrar quoted printable</translation>
+        <translation>Descifrar quoted printable</translation>
     </message>
     <message>
         <source>Try to recognize quoted printable.</source>
-        <translation type="unfinished">Intentar reconocer quoted printable.</translation>
+        <translation>Intentar reconocer quoted printable.</translation>
     </message>
     <message>
         <source>Parse PGP/MIME (Experimental)</source>
-        <translation type="unfinished">Analizar PGP/MIME (Experimental)</translation>
+        <translation>Analizar PGP/MIME (Experimental)</translation>
     </message>
     <message>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation type="unfinished">Intenta separar los archivos adjuntos de los mensajes cifrados PGP-MIME.</translation>
+        <translation>Intenta separar los archivos adjuntos de los mensajes cifrados PGP-MIME.</translation>
     </message>
     <message>
         <source>Open with external application (Experimental)</source>
-        <translation type="unfinished">Abrir con programa externo (Experimental)</translation>
+        <translation>Abrir con programa externo (Experimental)</translation>
     </message>
     <message>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
-        <translation type="unfinished">Abrir adjuntos con programa por defecto para el tipo de archivo &lt;br&gt;Hay al menos dos posibles problemas con esta opcion:&lt;ol&gt;&lt;li&gt;Se necesita guardar el archivo sin cifrar en la carpeta adjuntos &lt;br&gt;Es tarea suya limpiar esta carpeta &lt;/li&gt;&lt;li&gt;El programa externo puede tener sus propios archivos temporales &lt;/li&gt;&lt;/ol&gt;</translation>
+        <translation>Abrir adjuntos con programa por defecto para el tipo de archivo &lt;br&gt;Hay al menos dos posibles problemas con esta opcion:&lt;ol&gt;&lt;li&gt;Se necesita guardar el archivo sin cifrar en la carpeta adjuntos &lt;br&gt;Es tarea suya limpiar esta carpeta &lt;/li&gt;&lt;li&gt;El programa externo puede tener sus propios archivos temporales &lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
         <source>Enable opening with external applications.</source>
-        <translation type="unfinished">Permitir abrir con programas externos.</translation>
+        <translation>Permitir abrir con programas externos.</translation>
     </message>
 </context>
 <context>
     <name>QuitDialog</name>
     <message>
         <source>Unsaved files</source>
-        <translation type="unfinished">Archivos No guardados</translation>
+        <translation>Archivos No guardados</translation>
     </message>
     <message>
         <source>&lt;h3&gt;%1 files contain unsaved information.&lt;br/&gt;Save the changes before closing?&lt;/h3&gt;</source>
-        <translation type="unfinished">&lt;h3&gt;%1 archivos contienen informacion sin guardar.&lt;br/&gt;¿Guardar los cambios antes de cerrar?&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;%1 archivos contienen informacion sin guardar.&lt;br/&gt;¿Guardar los cambios antes de cerrar?&lt;/h3&gt;</translation>
     </message>
     <message>
         <source>Check the files you want to save:</source>
-        <translation type="unfinished">Verificar los archivos que usted quiere guardar:</translation>
+        <translation>Verificar los archivos que usted quiere guardar:</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios.&lt;br/&gt;</translation>
+        <translation>&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios.&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>General</source>
-        <translation type="unfinished">General</translation>
+        <translation>General</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished">Aspecto</translation>
+        <translation>Aspecto</translation>
     </message>
     <message>
         <source>PGP/Mime</source>
-        <translation type="unfinished">PGP/Mime</translation>
+        <translation>PGP/Mime</translation>
     </message>
     <message>
         <source>Keyserver</source>
-        <translation type="unfinished">Servidor de llaves</translation>
+        <translation>Servidor de llaves</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Configuracion</translation>
+        <translation>Configuracion</translation>
     </message>
     <message>
         <source>English</source>
-        <translation type="unfinished">Español</translation>
+        <translation>Español</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>untitled</source>
-        <translation type="unfinished">sin nombre</translation>
+        <translation>sin nombre</translation>
     </message>
     <message>
         <source>Open file</source>
-        <translation type="unfinished">Abrir archivo</translation>
+        <translation>Abrir archivo</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">Programa</translation>
+        <translation>Programa</translation>
     </message>
     <message>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished">No puedo leer archivo %1:
+        <translation>No puedo leer archivo %1:
 %2.</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Archivo</translation>
+        <translation>Archivo</translation>
     </message>
     <message>
         <source>Cannot write file %1:
 %2.</source>
-        <translation type="unfinished">No puedo escribir archivo %1:
+        <translation>No puedo escribir archivo %1:
 %2.</translation>
     </message>
     <message>
         <source>Save file </source>
-        <translation type="unfinished">Guardar archivo </translation>
+        <translation>Guardar archivo </translation>
     </message>
     <message>
         <source>Unsaved document</source>
-        <translation type="unfinished">Documento sin guardar</translation>
+        <translation>Documento sin guardar</translation>
     </message>
     <message>
         <source>&lt;h3&gt;The document &quot;%1&quot; has been modified.&lt;br/&gt;Do you want to save your changes?&lt;/h3&gt;</source>
-        <translation type="unfinished">&lt;h3&gt;El documento &quot;%1&quot; ha sido modificado.&lt;br/&gt;¿Quiere guardar sus cambios? &lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;El documento &quot;%1&quot; ha sido modificado.&lt;br/&gt;¿Quiere guardar sus cambios? &lt;/h3&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios.&lt;br/&gt;</translation>
+        <translation>&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios.&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
     <name>VerifyDetailsDialog</name>
     <message>
         <source>Signaturedetails</source>
-        <translation type="unfinished">Detalles de firma</translation>
+        <translation>Detalles de firma</translation>
     </message>
     <message>
         <source>Error Validating signature</source>
-        <translation type="unfinished">Error al Validar firma</translation>
+        <translation>Error al Validar firma</translation>
     </message>
     <message>
         <source>Text was completely signed on
  %1 by:
 </source>
-        <translation type="unfinished">El texto se registro completamente
+        <translation>El texto se registro completamente
  %1 por:</translation>
     </message>
     <message>
         <source>Text was partially signed on
  %1 by:
 </source>
-        <translation type="unfinished">El texto se registro parcialmente
+        <translation>El texto se registro parcialmente
  %1 por:</translation>
     </message>
 </context>
@@ -2196,70 +2196,70 @@ Para acelerar el proceso use su computadora
     <name>VerifyKeyDetailBox</name>
     <message>
         <source>Import from keyserver</source>
-        <translation type="unfinished">Importar desde servidor de llaves</translation>
+        <translation>Importar desde servidor de llaves</translation>
     </message>
     <message>
         <source>Key not present with id 0x</source>
-        <translation type="unfinished">Llave ausente con id 0x</translation>
+        <translation>Llave ausente con id 0x</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">Estado:</translation>
+        <translation>Estado:</translation>
     </message>
     <message>
         <source>Key not present in keylist</source>
-        <translation type="unfinished">Llave ausente en la lista de llaves</translation>
+        <translation>Llave ausente en la lista de llaves</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">Nombre:</translation>
+        <translation>Nombre:</translation>
     </message>
     <message>
         <source>EMail:</source>
-        <translation type="unfinished">Correo electronico:</translation>
+        <translation>Correo electronico:</translation>
     </message>
     <message>
         <source>Fingerprint:</source>
-        <translation type="unfinished">Huella Digital:</translation>
+        <translation>Huella Digital:</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Error for key with id 0x</source>
-        <translation type="unfinished">Error para llave con id 0x</translation>
+        <translation>Error para llave con id 0x</translation>
     </message>
 </context>
 <context>
     <name>VerifyNotification</name>
     <message>
         <source>Import missing key from Keyserver</source>
-        <translation type="unfinished">Importar llave faltante desde Servidor de llaves</translation>
+        <translation>Importar llave faltante desde Servidor de llaves</translation>
     </message>
     <message>
         <source>Show detailed verify information</source>
-        <translation type="unfinished">Mostrar informacion de verificacion detallada</translation>
+        <translation>Mostrar informacion de verificacion detallada</translation>
     </message>
     <message>
         <source>Key not present with id 0x</source>
-        <translation type="unfinished">Llave ausente con id 0x</translation>
+        <translation>Llave ausente con id 0x</translation>
     </message>
     <message>
         <source>Error for key with fingerprint </source>
-        <translation type="unfinished">Error para la llave con huella digital</translation>
+        <translation>Error para la llave con huella digital</translation>
     </message>
     <message>
         <source>Error validating signature by: </source>
-        <translation type="unfinished">Error al validar firma de:</translation>
+        <translation>Error al validar firma de:</translation>
     </message>
     <message>
         <source>Text was completely signed by: </source>
-        <translation type="unfinished">El texto fue completamente firmado por:</translation>
+        <translation>El texto fue completamente firmado por:</translation>
     </message>
     <message>
         <source>Text was partially signed by: </source>
-        <translation type="unfinished">El texto fue parcialmente firmado por:</translation>
+        <translation>El texto fue parcialmente firmado por:</translation>
     </message>
 </context>
 </TS>
