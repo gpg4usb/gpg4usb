@@ -612,6 +612,10 @@ void GpgWin::openKeyManagement()
 
 void GpgWin::encrypt()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
@@ -623,6 +627,10 @@ void GpgWin::encrypt()
 
 void GpgWin::sign()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QStringList *uidList = mKeyList->getPrivateChecked();
 
     QByteArray *tmp = new QByteArray();
@@ -635,6 +643,10 @@ void GpgWin::sign()
 
 void GpgWin::decrypt()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QByteArray *decrypted = new QByteArray();
     QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
     mCtx->preventNoDataErr(&text);
@@ -670,6 +682,10 @@ void GpgWin::decrypt()
 
 void GpgWin::verify()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     // At first close verifynotification, if existing
     edit->curPage()->closeNoteByClass("verifyNotification");
 
@@ -728,6 +744,10 @@ void GpgWin::importKeyDialog()
  */
 void GpgWin::appendSelectedKeys()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QByteArray *keyArray = new QByteArray();
     mCtx->exportKeys(mKeyList->getSelected(), keyArray);
     edit->curTextPage()->appendPlainText(*keyArray);
@@ -735,6 +755,10 @@ void GpgWin::appendSelectedKeys()
 
 void GpgWin::copyMailAddressToClipboard()
 {
+    if (mKeyList->getSelected()->isEmpty()) {
+        return;
+    }
+
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     QClipboard *cb = QApplication::clipboard();
     QString mail = key->uids->email;
@@ -743,9 +767,14 @@ void GpgWin::copyMailAddressToClipboard()
 
 void GpgWin::showKeyDetails()
 {
-    // TODO: first...?
+    if (mKeyList->getSelected()->isEmpty()) {
+        return;
+    }
+
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
-    new KeyDetailsDialog(mCtx, key, this);
+    if (key) {
+        new KeyDetailsDialog(mCtx, key, this);
+    }
 }
 
 void GpgWin::fileEncryption()
@@ -776,6 +805,10 @@ void GpgWin::openSettingsDialog()
 
 void GpgWin::cleanDoubleLinebreaks()
 {
+    if (edit->tabCount()==0) {
+        return;
+    }
+
     QString content = edit->curTextPage()->toPlainText();
     content.replace("\n\n", "\n");
     edit->fillTextEditWithText(content);

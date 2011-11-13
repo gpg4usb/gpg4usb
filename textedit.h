@@ -73,6 +73,7 @@ public:
      */
     bool maybeSaveAnyTab();
 
+    int tabCount();
     /**
      * @details textpage of the currently activated tab
      */
