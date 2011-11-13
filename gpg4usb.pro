@@ -70,4 +70,5 @@ TRANSLATIONS = release/ts/gpg4usb_en.ts \
     release/ts/gpg4usb_fr.ts \
     release/ts/gpg4usb_it.ts \
     release/ts/gpg4usb_pt_BR.ts \
-    release/ts/gpg4usb_es.ts
+    release/ts/gpg4usb_es.ts \
+    release/ts/gpg4usb_vi.ts
