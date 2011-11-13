@@ -1,1368 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es_ES">
+<TS version="2.0" language="es" sourcelanguage="en">
 <context>
-    <name>AppearanceTab</name>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="270"/>
-        <source>Iconsize</source>
-        <translation>Tamaño Icono</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="272"/>
-        <source>small</source>
-        <translation>pequeño</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="273"/>
-        <source>medium</source>
-        <translation>medio</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="274"/>
-        <source>large</source>
-        <translation>grande</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="290"/>
-        <source>Iconstyle</source>
-        <translation>Estilo Icono</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="292"/>
-        <source>just text</source>
-        <translation>solo texto</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="293"/>
-        <source>just icons</source>
-        <translation>solo iconos</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="294"/>
-        <source>text and icons</source>
-        <translation>texto e iconos</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="310"/>
-        <source>Windowstate</source>
-        <translation>Estado ventana</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="312"/>
-        <source>Save window size and position on exit.</source>
-        <translation>Guardar tamaño y posicion ventana al salir.</translation>
-    </message>
-</context>
-<context>
-    <name>AttachmentTableModel</name>
-    <message>
-        <location filename="../../attachmenttablemodel.cpp" line="113"/>
-        <source>Filename</source>
-        <translation>Nombre archivo</translation>
-    </message>
-    <message>
-        <location filename="../../attachmenttablemodel.cpp" line="116"/>
-        <source>Contenttype</source>
-        <translation>Tipo contenido</translation>
-    </message>
-</context>
-<context>
-    <name>Attachments</name>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">no se pudo abrir el archivo:</translation>
-    </message>
-    <message>
-        <location filename="../../attachments.cpp" line="81"/>
-        <location filename="../../attachments.cpp" line="114"/>
-        <source>Save File</source>
-        <translation>Guardar Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../attachments.cpp" line="82"/>
-        <source>Save this file</source>
-        <translation>Guardar este archivo</translation>
-    </message>
-    <message>
-        <location filename="../../attachments.cpp" line="86"/>
-        <source>Open File</source>
-        <translation>Abrir Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../attachments.cpp" line="87"/>
-        <source>Open this file</source>
-        <translation>Abrir este archivo</translation>
-    </message>
-    <message>
-        <location filename="../../attachments.cpp" line="120"/>
-        <location filename="../../attachments.cpp" line="164"/>
-        <source>File</source>
-        <translation>Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../attachments.cpp" line="121"/>
-        <location filename="../../attachments.cpp" line="165"/>
-        <source>Cannot write file %1:
-%2.</source>
-        <translation>No puedo escribir archivo %1:
-%2.</translation>
-    </message>
-</context>
-<context>
-    <name>FileEncryptionDialog</name>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="29"/>
-        <source>Encrypt / Decrypt File</source>
-        <translation>Cifrar / Descifrar Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="37"/>
-        <location filename="../../fileencryptiondialog.cpp" line="154"/>
-        <location filename="../../fileencryptiondialog.cpp" line="163"/>
-        <source>File</source>
-        <translation>Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="38"/>
-        <source>Action</source>
-        <translation>Accion</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="44"/>
-        <source>Input</source>
-        <translation>Entrada</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="48"/>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="50"/>
-        <source>Output</source>
-        <translation>Salida</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="69"/>
-        <source>&amp;Encrypt</source>
-        <translation>&amp;Cifrar</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="71"/>
-        <source>&amp;Decrypt</source>
-        <translation>&amp;Descifrar</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="100"/>
-        <source>Open File</source>
-        <translation>Abrir Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="126"/>
-        <source>Save File</source>
-        <translation>Guardar Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="137"/>
-        <source>couldn&apos;t open file: </source>
-        <translation>no se pudo abrir el archivo:</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="164"/>
-        <source>Cannot write file %1:
-%2.</source>
-        <translation>No puedo escribir el archivo %1:
-%2.</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="155"/>
-        <source>File exists! Do you want to overwrite it?</source>
-        <translation>El archivo existe! Quiere sobreescribirlo?</translation>
-    </message>
-</context>
-<context>
-    <name>GeneralTab</name>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="70"/>
-        <source>Remember Password</source>
-        <translation>Recordar Password</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="72"/>
-        <source>Remember password until closing gpg4usb</source>
-        <translation>Recordar password hasta cerrar gpg4usb</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="79"/>
-        <source>Save Checked Keys</source>
-        <translation>Guardar Llaves Comprobadas</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="81"/>
-        <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation>Guardar llaves privadas comprobadas al salir y restaurarlas en proximo arranque.</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="88"/>
-        <source>Confirm drag&apos;n&apos;drop key import</source>
-        <translation>Confirmar importar llave drag&apos;n&apos;drop</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="90"/>
-        <source>Import files dropped on the keylist without confirmation.</source>
-        <translation>Importar archivos soltados en la lista de llaves sin confirmacion.</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="97"/>
-        <source>Language</source>
-        <translation>Idioma</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="107"/>
-        <source>Language change is applied after restarting program.</source>
-        <translation>Cambio idioma se aplica despues de reiniciar el programa.</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="166"/>
-        <source>System Default</source>
-        <translation>Por Defecto</translation>
-    </message>
-</context>
-<context>
-    <name>GpgME::Context</name>
-    <message>
-        <location filename="../../context.cpp" line="247"/>
-        <source>No Key Selected</source>
-        <translation>Ninguna llave seleccionada</translation>
-    </message>
-    <message>
-        <location filename="../../context.cpp" line="315"/>
-        <source>Unsupported algorithm</source>
-        <translation>Algoritmo no soportado</translation>
-    </message>
-    <message>
-        <location filename="../../context.cpp" line="325"/>
-        <source>Error decrypting:</source>
-        <translation>Error al descifrar:</translation>
-    </message>
-    <message>
-        <location filename="../../context.cpp" line="395"/>
-        <source>Wrong password</source>
-        <translation>Password erronea</translation>
-    </message>
-    <message>
-        <location filename="../../context.cpp" line="407"/>
-        <source>Enter Password</source>
-        <translation>Entrar Password</translation>
-    </message>
-    <message>
-        <location filename="../../context.cpp" line="554"/>
-        <source>Key Selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../context.cpp" line="554"/>
-        <source>No Private Key Selected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../context.cpp" line="602"/>
-        <source>Error signing:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>GpgWin</name>
-    <message>
-        <location filename="../../gpgwin.cpp" line="140"/>
-        <source>&amp;Open...</source>
-        <translation>&amp;Abrir...</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Crtl+O</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="143"/>
-        <source>Open an existing file</source>
-        <translation>Abrir un archivo existente</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="146"/>
-        <source>&amp;Save</source>
-        <translation>&amp;Guardar</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Crtl+S</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="149"/>
-        <source>Save the current File</source>
-        <translation>Guardar el archivo actual</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="152"/>
-        <source>Save &amp;As</source>
-        <translation>Guardar &amp;Como</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="155"/>
-        <source>Save the current File as...</source>
-        <translation>Guardar el Archivo actual como...</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="158"/>
-        <source>&amp;Print</source>
-        <translation>&amp;Imprimir</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Crtl+P</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="161"/>
-        <source>Print Document</source>
-        <translation>Imprimir Documento</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="169"/>
-        <source>&amp;Quit</source>
-        <translation>&amp;Salir</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Crtl+Q</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="172"/>
-        <source>Quit Program</source>
-        <translation>Salir del Programa</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="177"/>
-        <source>&amp;Undo</source>
-        <translation>&amp;Deshacer</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="179"/>
-        <source>Undo Last Edit Action</source>
-        <translation>Deshacer Ultima Accion Editar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="182"/>
-        <source>&amp;Redo</source>
-        <translation>&amp;Rehacer</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="184"/>
-        <source>Redo Last Edit Action</source>
-        <translation>Rehacer ultima accion editar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="187"/>
-        <source>&amp;Paste</source>
-        <translation>&amp;Pegar</translation>
-    </message>
-    <message>
-        <source>Ctrl+V</source>
-        <translation type="obsolete">Crtl+V</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="190"/>
-        <source>Paste Text From Clipboard</source>
-        <translation>Pegar Texto desde Portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="193"/>
-        <source>Cu&amp;t</source>
-        <translation>Corta&amp;r</translation>
-    </message>
-    <message>
-        <source>Ctrl+X</source>
-        <translation type="obsolete">Crtl+X</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="196"/>
-        <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation>Cortar contenido seleccion actual al portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="200"/>
-        <source>&amp;Copy</source>
-        <translation>&amp;Copiar</translation>
-    </message>
-    <message>
-        <source>Ctrl+C</source>
-        <translation type="obsolete">Crtl+C</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="203"/>
-        <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation>Copiar contenido seleccion actual al portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="212"/>
-        <source>Select &amp;All</source>
-        <translation>Seleccionar &amp;Todo</translation>
-    </message>
-    <message>
-        <source>Ctrl+A</source>
-        <translation type="obsolete">Crtl+A</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="215"/>
-        <source>Select the whole text</source>
-        <translation>Seleccionar todo el texto</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="224"/>
-        <source>Se&amp;ttings</source>
-        <translation>Con&amp;figuracion</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="225"/>
-        <source>Open settings dialog</source>
-        <translation>Abrir dialogo configuracion</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="231"/>
-        <source>&amp;Encrypt</source>
-        <translation>&amp;Cifrar</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Crtl+E</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="234"/>
-        <source>Encrypt Message</source>
-        <translation>Cifrar Mensaje</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="237"/>
-        <source>&amp;Decrypt</source>
-        <translation>&amp;Descifrar</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Crtl+D</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="240"/>
-        <source>Decrypt Message</source>
-        <translation>Descifrar Mensaje</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="243"/>
-        <source>&amp;File Encryption</source>
-        <translation>&amp;Cifrado Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="245"/>
-        <source>Encrypt/Decrypt File</source>
-        <translation>Cifrar / Descifrar Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="248"/>
-        <source>&amp;Sign</source>
-        <translation>&amp;Firmar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="251"/>
-        <source>Sign Message</source>
-        <translation>Firmar Mensaje</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="254"/>
-        <source>&amp;Verify</source>
-        <translation>&amp;Verificar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="257"/>
-        <source>Verify Message</source>
-        <translation>Verificar Mensaje</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="324"/>
-        <location filename="../../gpgwin.cpp" line="666"/>
-        <source>&amp;File</source>
-        <translation>&amp;Archivo</translation>
-    </message>
-    <message>
-        <source>Import New Key From File</source>
-        <translation type="obsolete">Importar Nueva Llave Desde Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="263"/>
-        <location filename="../../gpgwin.cpp" line="667"/>
-        <source>&amp;Editor</source>
-        <translation>&amp;Editor</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="265"/>
-        <source>Import New Key From Editor</source>
-        <translation>Importar Nueva Llave Desde Editor</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="668"/>
-        <source>&amp;Clipboard</source>
-        <translation>&amp;Portapapeles</translation>
-    </message>
-    <message>
-        <source>Import New Key From Clipboard</source>
-        <translation type="obsolete">Importar Nueva Llave Desde Portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="268"/>
-        <source>Key Management</source>
-        <translation>Administar Llaves</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="270"/>
-        <source>Open Keymanagement</source>
-        <translation>Abrir Administrar Llaves</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="273"/>
-        <location filename="../../gpgwin.cpp" line="657"/>
-        <source>Import Key</source>
-        <translation>Importar Llave</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="275"/>
-        <source>Open Import New Key Dialog</source>
-        <translation>Abrir Dialogo Importar Nueva Llave</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="280"/>
-        <source>&amp;About</source>
-        <translation>&amp;Acerca de</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="282"/>
-        <source>Show the application&apos;s About box</source>
-        <translation>Mostrar caja Acerca de programa</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="285"/>
-        <source>Online &amp;Tutorial</source>
-        <translation>Tutorial &amp;Online</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="287"/>
-        <source>Open Online Tutorial</source>
-        <translation>Abrir Tutorial Online</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="290"/>
-        <source>Translate gpg4usb</source>
-        <translation>Traducir gpg4usb</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="291"/>
-        <source>Translate gpg4usb yourself</source>
-        <translation>Traduzca gpg4usb usted mismo</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="296"/>
-        <source>Append Selected Key(s) To Text</source>
-        <translation>Adjuntar Llave(s) Seleccionadas Al Texto</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="297"/>
-        <source>Append The Selected Keys To Text in Editor</source>
-        <translation>Adjuntar Llaves Seleccionadas Al Texto en Editor</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="300"/>
-        <source>Copy EMail-address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="301"/>
-        <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="305"/>
-        <source>Show Keydetails</source>
-        <translation>Mostrar Detalles Llave</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="306"/>
-        <source>Show Details for this Key</source>
-        <translation>Mostrar Detalles para esta Llave</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="336"/>
-        <source>&amp;Edit</source>
-        <translation>&amp;Editar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="349"/>
-        <source>&amp;Crypt</source>
-        <translation>&amp;Cifrar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="358"/>
-        <source>&amp;Keys</source>
-        <translation>&amp;Llaves</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="359"/>
-        <source>&amp;Import Key From...</source>
-        <translation>&amp;Importar Llave Desde...</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="368"/>
-        <source>&amp;View</source>
-        <translation>&amp;Ver</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="370"/>
-        <source>&amp;Help</source>
-        <translation>&amp;Ayuda</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="378"/>
-        <source>Crypt</source>
-        <translation>Cifrar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="387"/>
-        <source>Key</source>
-        <translation>Llave</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="393"/>
-        <source>Edit</source>
-        <translation>Editar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="414"/>
-        <source>Ready</source>
-        <translation>Listo</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="464"/>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Este programa le permite hacer un facil&lt;br/&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o sugerencias, entre&lt;br/&gt;en nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un email a nuestra&lt;br/&gt; lista decorreo en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="669"/>
-        <source>&amp;Keyserver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="obsolete">&lt;center&gt;Este programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o&lt;br&gt;sugerencias, contactenos en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="556"/>
-        <source>There is one unencrypted file in attachment folder</source>
-        <translation>Hay un archivo sin cifrar en carpeta adjuntos</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="558"/>
-        <source>There are </source>
-        <translation>Hay</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="558"/>
-        <source> unencrypted files in attachment folder</source>
-        <translation>archivos sin cifrar en carpeta adjuntos</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="422"/>
-        <source>Encrypt for:</source>
-        <translation>Cifrar para:</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="131"/>
-        <source>&amp;New</source>
-        <translation>&amp;Nuevo</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="137"/>
-        <source>Open a new file</source>
-        <translation>Abrir un archivo nuevo</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="164"/>
-        <location filename="../../gpgwin.cpp" line="478"/>
-        <source>&amp;Close</source>
-        <translation>&amp;Cerrar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="166"/>
-        <source>Close file</source>
-        <translation>Cerrar archivo</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="207"/>
-        <source>&amp;Quote</source>
-        <translation>&amp;Entrecomillar</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="209"/>
-        <source>Quote whole text</source>
-        <translation>Entrecomillar todo el texto</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="218"/>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="221"/>
-        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="431"/>
-        <source>Attached files:</source>
-        <translation>Archivos Adjuntos:</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation type="obsolete">Programa</translation>
-    </message>
-    <message>
-        <source>Cannot read file %1:
-%2.</source>
-        <translation type="obsolete">No puedo leer archivo %1:
-%2.</translation>
-    </message>
-    <message>
-        <source>File loaded</source>
-        <translation type="obsolete">Archivo cargado</translation>
-    </message>
-    <message>
-        <source>%1[*] - %2</source>
-        <translation type="obsolete">%1[*] - %2</translation>
-    </message>
-    <message>
-        <source>The document has been modified.
-Do you want to save your changes?</source>
-        <translation type="obsolete">El documento ha sido modificado.
-Quiere usted guardar los cambios?</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation type="obsolete">Archivo</translation>
-    </message>
-    <message>
-        <source>Cannot write file %1:
-%2.</source>
-        <translation type="obsolete">No puedo escribir archivo %1:
-%2.</translation>
-    </message>
-    <message>
-        <source>Saved &apos;%1&apos;</source>
-        <translation type="obsolete">Guardado &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="461"/>
-        <source>About </source>
-        <translation>Acerca de&apos;</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translatorcomment>duplicate entry</translatorcomment>
-        <translation type="obsolete">&lt;center&gt;Este Programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos.&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es)&lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/ o &lt;br&gt;sugerencia, contacte con nosotros en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="obsolete">&lt;center&gt;Este Programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos.&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es)&lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/ o &lt;br&gt;sugerencia, contacte con nosotros en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <source>Open Key</source>
-        <translation type="obsolete">Abrir Llave</translation>
-    </message>
-    <message>
-        <source>Key Files</source>
-        <translation type="obsolete">Archivos de Llaves</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation type="obsolete">Todos Archivos</translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">no se pudo abrir el archivo:</translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="665"/>
-        <source>Import Key From...</source>
-        <translation>Importar Llave Desde...</translation>
-    </message>
-</context>
-<context>
-    <name>KeyDetailsDialog</name>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="31"/>
-        <source>Owner details</source>
-        <translation>Detalles del Propietario</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="32"/>
-        <source>Key details</source>
-        <translation>Detalles de la Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="33"/>
-        <source>Fingerprint</source>
-        <translation>Huella Digital</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="37"/>
-        <source>Name:</source>
-        <translation>Nombre:</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="38"/>
-        <source>E-Mailaddress:</source>
-        <translation>Direccion de E-Mail:</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="39"/>
-        <source>Comment:</source>
-        <translation>Comentario:</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="40"/>
-        <source>Key size:</source>
-        <translation>Tamaño Llave:</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="41"/>
-        <source>Expires on: </source>
-        <translation>Expira en:</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="42"/>
-        <source>Created on: </source>
-        <translation>Creada en:</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="43"/>
-        <source>Algorithm: </source>
-        <translation>Algoritmo:</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="52"/>
-        <source>Never</source>
-        <translation>Nunca</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="64"/>
-        <source> / Never</source>
-        <translation> / Nunca</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="115"/>
-        <source>Private Key</source>
-        <translation>Llave Privada</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="118"/>
-        <source>Export Private Key</source>
-        <translation>Exportar llave Privada</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="129"/>
-        <source>Keydetails</source>
-        <translation>Detalles Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="138"/>
-        <source>Exporting private Key</source>
-        <translation>Exportando Llave privada</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="139"/>
-        <source>You are about to export your private key.
-This is NOT your public key, so don&apos;t give it away.
-Make sure you keep it save.</source>
-        <translation>Usted va a exportar su llave privada.
-Esta NO es su llave publica, asi que no la regale.
-Guardela de forma segura.</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="149"/>
-        <source>Export Key To File</source>
-        <translation>Exportar Llave a Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../keydetailsdialog.cpp" line="149"/>
-        <source>Key Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Key Files </source>
-        <translation type="obsolete">Archivos Llaves</translation>
-    </message>
-</context>
-<context>
-    <name>KeyList</name>
-    <message>
-        <location filename="../../keylist.cpp" line="51"/>
-        <source>Name</source>
-        <translation>Nombre</translation>
-    </message>
-    <message>
-        <location filename="../../keylist.cpp" line="51"/>
-        <source>EMail</source>
-        <translation>EMail</translation>
-    </message>
-    <message>
-        <location filename="../../keylist.cpp" line="197"/>
-        <source>Import Keys</source>
-        <translation>Importar Llaves</translation>
-    </message>
-    <message>
-        <location filename="../../keylist.cpp" line="199"/>
-        <source>You&apos;ve dropped something on the keylist.
- gpg4usb will now try to import key(s).</source>
-        <translation>Usted ha soltado algo en la lista de llaves
-gpg4usb intentara ahora importar la llave(s).</translation>
-    </message>
-    <message>
-        <location filename="../../keylist.cpp" line="202"/>
-        <source>Always import without bothering.</source>
-        <translation>Siempre importar sin problemas.</translation>
-    </message>
-    <message>
-        <location filename="../../keylist.cpp" line="238"/>
-        <source>Couldn&apos;t Open File: </source>
-        <translation>No pude Abrir el Archivo: </translation>
-    </message>
-</context>
-<context>
-    <name>KeyMgmt</name>
-    <message>
-        <location filename="../../keymgmt.cpp" line="62"/>
-        <source>Keymanagement</source>
-        <translation>Administrar Llaves</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="69"/>
-        <source>&amp;Close Key Management</source>
-        <translation>&amp;Cerrar Administrar Llaves</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="70"/>
-        <source>Ctrl+Q</source>
-        <translation>Crtl+Q</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="72"/>
-        <source>Close Key Management</source>
-        <translation>Cerrar Administrar Llaves</translation>
-    </message>
-    <message>
-        <source>Import From &amp;File</source>
-        <translation type="obsolete">Importar Desde &amp;Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="77"/>
-        <source>Import New Key From File</source>
-        <translation>Importar Nueva Llave Desde Archivo</translation>
-    </message>
-    <message>
-        <source>Import From &amp;Clipboard</source>
-        <translation type="obsolete">Importar Desde &amp;Portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="82"/>
-        <source>Import New Key From Clipboard</source>
-        <translation>Importar Nueva Llave desde Portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="85"/>
-        <source>&amp;Keyserver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="86"/>
-        <source>Import New Key From Keyserver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="89"/>
-        <source>Export To &amp;Clipboard</source>
-        <translation>Exportar A &amp;Portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="91"/>
-        <source>Export Selected Key(s) To Clipboard</source>
-        <translation>Exportar Llave(s) Seleccionada A Portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="94"/>
-        <source>Export To &amp;File</source>
-        <translation>Exportar A &amp;Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="96"/>
-        <source>Export Selected Key(s) To File</source>
-        <translation>Exportar Llave(s) Seleccionada A Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="99"/>
-        <source>Delete Selected Key(s)</source>
-        <translation>Borrar Llave(s) Seleccionada</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="100"/>
-        <source>Delete the Selected keys</source>
-        <translation>Borrar las Llaves Seleccionadas</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="103"/>
-        <source>Delete Checked Key(s)</source>
-        <translation>Borrar Llave(s) Marcada</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="104"/>
-        <source>Delete the Checked keys</source>
-        <translation>Borrar las Llaves Marcadas</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="108"/>
-        <location filename="../../keymgmt.cpp" line="258"/>
-        <source>Generate Key</source>
-        <translation>Crear Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="109"/>
-        <source>Generate New Key</source>
-        <translation>Crear Nueva Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="113"/>
-        <source>Show Keydetails</source>
-        <translation>Mostrar Detalles Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="114"/>
-        <source>Show Details for this Key</source>
-        <translation>Mostrar Detalles para esta Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="124"/>
-        <source>&amp;Import Key From...</source>
-        <translation type="unfinished">&amp;Importar Llave Desde...</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="138"/>
-        <source>Key</source>
-        <translation type="unfinished">Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="75"/>
-        <location filename="../../keymgmt.cpp" line="120"/>
-        <source>&amp;File</source>
-        <translation>&amp;Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="80"/>
-        <source>&amp;Clipboard</source>
-        <translation type="unfinished">&amp;Portapapeles</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="123"/>
-        <source>&amp;Key</source>
-        <translation>&amp;Llave</translation>
-    </message>
-    <message>
-        <source>Crypt</source>
-        <translation type="obsolete">Cifrar</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="151"/>
-        <source>Open Key</source>
-        <translation>Abrir Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="151"/>
-        <location filename="../../keymgmt.cpp" line="231"/>
-        <source>Key Files</source>
-        <translation>Archivos Llave</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="156"/>
-        <source>Couldn&apos;t Open File: </source>
-        <translation>No pude Abrir el Archivo:</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="204"/>
-        <source>Deleting Keys</source>
-        <translation>Borrando Llaves</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="205"/>
-        <source>&lt;b&gt;Are you sure that you want to delete the following keys?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation>Esta usted seguro de querer borrar las siguientes llaves?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="206"/>
-        <source>&lt;br/&gt;The action can not be undone.</source>
-        <translation>&lt;br/&gt; La accion no puede deshacerse.</translation>
-    </message>
-    <message>
-        <source>Are you sure that you want to delete the selected keys?.
-The action can not be undone.</source>
-        <translation type="obsolete">Esta seguro de querer borrar las llaves seleccionadas?.
-Esta accion no se puede deshacer.</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="231"/>
-        <source>Export Key To File</source>
-        <translation>Exportar Llave A Archivo</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="261"/>
-        <source>Name:</source>
-        <translation>Nombre:</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="262"/>
-        <source>E-Mailaddress::</source>
-        <translation>Direccion E-mail:</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="263"/>
-        <source>Comment:</source>
-        <translation>Comentario:</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="264"/>
-        <source>KeySize (in Bit):</source>
-        <translation>Tamaño Llave (en Bit):</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="265"/>
-        <source>Expiration Date:</source>
-        <translation>Fecha Expiracion:</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="266"/>
-        <source>Password:</source>
-        <translation>Password:</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="267"/>
-        <source>Repeat Password:</source>
-        <translation>Repetir Password:</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="268"/>
-        <source>Never Expire</source>
-        <translation>Nunca Expira</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="269"/>
-        <source>Password: Strength
-Weak -&gt; Strong</source>
-        <translation>Password: Fortaleza
-Debil -&gt; Fuerte</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="300"/>
-        <source>Password Strength</source>
-        <translation>Fortaleza Password</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="352"/>
-        <source>  Name must contain at least five characters.  
-</source>
-        <translation>El nombre debe contener al menos cinco caracteres. 
-</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="355"/>
-        <source>  Password and Repeat don&apos;t match.  </source>
-        <translation>  Password y Repeticion no coinciden.  </translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="392"/>
-        <source>Generating Key...</source>
-        <translation>Creando Llave...</translation>
-    </message>
-    <message>
-        <location filename="../../keymgmt.cpp" line="394"/>
-        <source>Collecting random data for key generation.
- This may take a while.
- To speed up the process use your computer
- (e.g. browse the net, listen to music,...)</source>
-        <translation>Recogiendo datos aleatorios para crear llave.
-Puede tardar un rato.
-Para acelerar el proceso use su computador
-(ejemplo, navegar por la Red, oir musica,...)</translation>
-    </message>
-</context>
-<context>
-    <name>KeyServerImportDialog</name>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="31"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Cerrar</translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="32"/>
-        <source>&amp;Import</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="33"/>
-        <source>&amp;Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="36"/>
-        <source>Search string:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="40"/>
-        <source>Keyserver:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="72"/>
-        <source>Import Keys from Keyserver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="113"/>
-        <source>UID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="113"/>
-        <source>Creation date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="113"/>
-        <source>KeyID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="154"/>
-        <source>Couldn&apos;t contact keyserver!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="160"/>
-        <source>Too many responses from keyserver!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="163"/>
-        <source>No keys found containing the search string!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="166"/>
-        <source>Insufficiently specific search string!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="198"/>
-        <source>%1 keys found. Doubleclick a key to import it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="249"/>
-        <source>Error while contacting keyserver!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../keyserverimportdialog.cpp" line="253"/>
-        <source>Key imported</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>KeyserverTab</name>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="395"/>
-        <source>Default Keyserver for import:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MimeTab</name>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="194"/>
-        <source>Decode quoted printable</source>
-        <translation>Decodificar quoted printable</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="196"/>
-        <source>Try to recognize quoted printable.</source>
-        <translation>Intentar reconocer quoted printable.</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="201"/>
-        <source>Parse PGP/MIME (Experimental)</source>
-        <translation>Analizar PGP/MIME (Experimental)</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="203"/>
-        <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation>Intentar dividir adjuntos de mensajes cifrados PGP-MIME.</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="207"/>
-        <source>Open with external application (Experimental)</source>
-        <translation>Abrir con programas externos (Experimental)</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="209"/>
-        <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
-        <translation>Abrir adjuntos con programa por defecto para el tipo de archivo &lt;br&gt;Hay al menos dos posibles problemas con esta opcion:&lt;ol&gt;&lt;li&gt;Se necesita guardar el archivo sin cifrar en la carpeta adjuntos &lt;br&gt;Es tarea de usted limpiar esta carpeta &lt;/li&gt;&lt;li&gt;El programa externo puede tener sus propios archivos temporales &lt;/li&gt;&lt;/ol&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="216"/>
-        <source>Enable opening with external applications.</source>
-        <translation>Permitir abrir con programas externos.</translation>
-    </message>
-</context>
-<context>
-    <name>QuitDialog</name>
-    <message>
-        <location filename="../../quitdialog.cpp" line="28"/>
-        <source>Unsaved files</source>
-        <translation>Archivos No guardados</translation>
-    </message>
-    <message>
-        <location filename="../../quitdialog.cpp" line="74"/>
-        <source>&lt;h3&gt;%1 files contain unsaved information.&lt;br/&gt;Save the changes before closing?&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;%1 archivos contienen informacion sin guardar.&lt;br/&gt;Guardar los cambios antes de cerrar?&lt;/h3&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../quitdialog.cpp" line="85"/>
-        <source>Check the files you want to save:</source>
-        <translation>Comprobar los archivos que usted quiere guardar:</translation>
-    </message>
-    <message>
-        <location filename="../../quitdialog.cpp" line="86"/>
-        <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
-        <translation>&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios.&lt;br/&gt;</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsDialog</name>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="48"/>
-        <source>Settings</source>
-        <translation>Configuracion</translation>
-    </message>
+    <name></name>
     <message>
         <source>Iconsize</source>
         <translation type="obsolete">Tamaño Icono</translation>
@@ -1373,7 +13,7 @@ Para acelerar el proceso use su computador
     </message>
     <message>
         <source>medium</source>
-        <translation type="obsolete">medio</translation>
+        <translation type="obsolete">mediano</translation>
     </message>
     <message>
         <source>large</source>
@@ -1397,23 +37,105 @@ Para acelerar el proceso use su computador
     </message>
     <message>
         <source>Windowstate</source>
-        <translation type="obsolete">Estado ventana</translation>
+        <translation type="obsolete">Ventana de Estado</translation>
     </message>
     <message>
         <source>Save window size and position on exit.</source>
         <translation type="obsolete">Guardar tamaño y posicion ventana al salir.</translation>
     </message>
     <message>
-        <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation type="obsolete">Guardar llaves privadas comprobadas al salir y restaurarlas en proximo arranque.</translation>
+        <source>Filename</source>
+        <translation type="obsolete">Nombre de archivo</translation>
     </message>
     <message>
-        <source>save window size and position on exit</source>
-        <translation type="obsolete">guardar tamaño y posicion ventana al salir</translation>
+        <source>Contenttype</source>
+        <translation type="obsolete">Tipo de contenido</translation>
+    </message>
+    <message>
+        <source>couldn&apos;t open file: </source>
+        <translation type="obsolete">no se pudo abrir el archivo:</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="obsolete">Guardar Archivo</translation>
+    </message>
+    <message>
+        <source>Save this file</source>
+        <translation type="obsolete">Guardar este archivo</translation>
+    </message>
+    <message>
+        <source>Open File</source>
+        <translation type="obsolete">Abrir Archivo</translation>
+    </message>
+    <message>
+        <source>Open this file</source>
+        <translation type="obsolete">Abrir este archivo</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="obsolete">Archivo</translation>
+    </message>
+    <message>
+        <source>Cannot write file %1:
+%2.</source>
+        <translation type="obsolete">No puedo escribir archivo %1:
+%2.</translation>
+    </message>
+    <message>
+        <source>Encrypt / Decrypt File</source>
+        <translation type="obsolete">Cifrar / Descifrar Archivo</translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation type="obsolete">Accion</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="obsolete">Entrada</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="obsolete">...</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation type="obsolete">Salida</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt</source>
+        <translation type="obsolete">&amp;Cifrar</translation>
+    </message>
+    <message>
+        <source>&amp;Decrypt</source>
+        <translation type="obsolete">&amp;Descifrar</translation>
+    </message>
+    <message>
+        <source>File exists! Do you want to overwrite it?</source>
+        <translation type="obsolete">El archivo existe! ¿Quiere sobreescribirlo?</translation>
+    </message>
+    <message>
+        <source>Remember Password</source>
+        <translation type="obsolete">Recordar Contraseña</translation>
+    </message>
+    <message>
+        <source>Remember password until closing gpg4usb</source>
+        <translation type="obsolete">Recordar contraseña hasta cerrar gpg4usb</translation>
     </message>
     <message>
         <source>Save Checked Keys</source>
-        <translation type="obsolete">Guardar Llaves Comprobadas</translation>
+        <translation type="obsolete">Guardar Llaves Verificadas</translation>
+    </message>
+    <message>
+        <source>Save checked private keys on exit and restore them on next start.</source>
+        <translation type="obsolete">Guardar llaves privadas verificadas al salir y restaurarlas en proximo arranque.</translation>
+    </message>
+    <message>
+        <source>Confirm drag&apos;n&apos;drop key import</source>
+        <translation type="obsolete">Confirmar importar llave arrastrar y soltar</translation>
+    </message>
+    <message>
+        <source>Import files dropped on the keylist without confirmation.</source>
+        <translation type="obsolete">Importar archivos soltados en la lista de llaves sin confirmacion.</translation>
     </message>
     <message>
         <source>Language</source>
@@ -1421,202 +143,2123 @@ Para acelerar el proceso use su computador
     </message>
     <message>
         <source>Language change is applied after restarting program.</source>
-        <translation type="obsolete">Cambio idioma se aplica despues de reiniciar el programa.</translation>
-    </message>
-    <message>
-        <source>MIME-parsing (Experimental)</source>
-        <translation type="obsolete">MIME-analisis (Experimental)</translation>
-    </message>
-    <message>
-        <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation type="obsolete">Intentar dividir adjuntos de mensajes PGP-MIME.</translation>
+        <translation type="obsolete">Cambio idioma se aplicara despues de reiniciar el programa.</translation>
     </message>
     <message>
         <source>System Default</source>
         <translation type="obsolete">Por Defecto</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="33"/>
+        <source>No Key Selected</source>
+        <translation type="obsolete">Ninguna llave seleccionada</translation>
+    </message>
+    <message>
+        <source>Unsupported algorithm</source>
+        <translation type="obsolete">Algoritmo incompatible</translation>
+    </message>
+    <message>
+        <source>Error decrypting:</source>
+        <translation type="obsolete">Error al descifrar:</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="obsolete">Contraseña incorrecta</translation>
+    </message>
+    <message>
+        <source>Enter Password</source>
+        <translation type="obsolete">Ingresar Contraseña</translation>
+    </message>
+    <message>
+        <source>Key Selection</source>
+        <translation type="obsolete">Seleccionar Llave</translation>
+    </message>
+    <message>
+        <source>No Private Key Selected</source>
+        <translation type="obsolete">No se Selecciono Llave Privada</translation>
+    </message>
+    <message>
+        <source>Error signing:</source>
+        <translation type="obsolete">Error al firmar:</translation>
+    </message>
+    <message>
+        <source>&amp;Open...</source>
+        <translation type="obsolete">&amp;Abrir...</translation>
+    </message>
+    <message>
+        <source>Ctrl+O</source>
+        <translation type="obsolete">Crtl+O</translation>
+    </message>
+    <message>
+        <source>Open an existing file</source>
+        <translation type="obsolete">Abrir archivo existente</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="obsolete">&amp;Guardar</translation>
+    </message>
+    <message>
+        <source>Ctrl+S</source>
+        <translation type="obsolete">Crtl+S</translation>
+    </message>
+    <message>
+        <source>Save the current File</source>
+        <translation type="obsolete">Guardar archivo actual</translation>
+    </message>
+    <message>
+        <source>Save &amp;As</source>
+        <translation type="obsolete">Guardar &amp;Como</translation>
+    </message>
+    <message>
+        <source>Save the current File as...</source>
+        <translation type="obsolete">Guardar Archivo actual como...</translation>
+    </message>
+    <message>
+        <source>&amp;Print</source>
+        <translation type="obsolete">&amp;Imprimir</translation>
+    </message>
+    <message>
+        <source>Ctrl+P</source>
+        <translation type="obsolete">Crtl+P</translation>
+    </message>
+    <message>
+        <source>Print Document</source>
+        <translation type="obsolete">Imprimir Documento</translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="obsolete">&amp;Salir</translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="obsolete">Crtl+Q</translation>
+    </message>
+    <message>
+        <source>Quit Program</source>
+        <translation type="obsolete">Salir del Programa</translation>
+    </message>
+    <message>
+        <source>&amp;Undo</source>
+        <translation type="obsolete">&amp;Deshacer</translation>
+    </message>
+    <message>
+        <source>Undo Last Edit Action</source>
+        <translation type="obsolete">Deshacer Ultima Accion Editar</translation>
+    </message>
+    <message>
+        <source>&amp;Redo</source>
+        <translation type="obsolete">&amp;Rehacer</translation>
+    </message>
+    <message>
+        <source>Redo Last Edit Action</source>
+        <translation type="obsolete">Rehacer ultima accion editar</translation>
+    </message>
+    <message>
+        <source>&amp;Paste</source>
+        <translation type="obsolete">&amp;Pegar</translation>
+    </message>
+    <message>
+        <source>Ctrl+V</source>
+        <translation type="obsolete">Crtl+V</translation>
+    </message>
+    <message>
+        <source>Paste Text From Clipboard</source>
+        <translation type="obsolete">Pegar Texto desde Portapapeles</translation>
+    </message>
+    <message>
+        <source>Cu&amp;t</source>
+        <translation type="obsolete">Corta&amp;r</translation>
+    </message>
+    <message>
+        <source>Ctrl+X</source>
+        <translation type="obsolete">Crtl+X</translation>
+    </message>
+    <message>
+        <source>Cut the current selection&apos;s contents to the clipboard</source>
+        <translation type="obsolete">Cortar contenido de la seleccion actual al portapapeles</translation>
+    </message>
+    <message>
+        <source>&amp;Copy</source>
+        <translation type="obsolete">&amp;Copiar</translation>
+    </message>
+    <message>
+        <source>Ctrl+C</source>
+        <translation type="obsolete">Crtl+C</translation>
+    </message>
+    <message>
+        <source>Copy the current selection&apos;s contents to the clipboard</source>
+        <translation type="obsolete">Copiar contenido de la seleccion actual al portapapeles</translation>
+    </message>
+    <message>
+        <source>Select &amp;All</source>
+        <translation type="obsolete">Seleccionar &amp;Todo</translation>
+    </message>
+    <message>
+        <source>Ctrl+A</source>
+        <translation type="obsolete">Crtl+A</translation>
+    </message>
+    <message>
+        <source>Select the whole text</source>
+        <translation type="obsolete">Seleccionar todo el texto</translation>
+    </message>
+    <message>
+        <source>Se&amp;ttings</source>
+        <translation type="obsolete">Con&amp;figuracion</translation>
+    </message>
+    <message>
+        <source>Open settings dialog</source>
+        <translation type="obsolete">Abrir dialogo configuracion</translation>
+    </message>
+    <message>
+        <source>Ctrl+E</source>
+        <translation type="obsolete">Crtl+E</translation>
+    </message>
+    <message>
+        <source>Encrypt Message</source>
+        <translation type="obsolete">Cifrar Mensaje</translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <translation type="obsolete">Crtl+D</translation>
+    </message>
+    <message>
+        <source>Decrypt Message</source>
+        <translation type="obsolete">Descifrar Mensaje</translation>
+    </message>
+    <message>
+        <source>&amp;File Encryption</source>
+        <translation type="obsolete">&amp;Cifrado Archivo</translation>
+    </message>
+    <message>
+        <source>Encrypt/Decrypt File</source>
+        <translation type="obsolete">Cifrar / Descifrar Archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Sign</source>
+        <translation type="obsolete">&amp;Firmar</translation>
+    </message>
+    <message>
+        <source>Sign Message</source>
+        <translation type="obsolete">Firmar Mensaje</translation>
+    </message>
+    <message>
+        <source>&amp;Verify</source>
+        <translation type="obsolete">&amp;Verificar</translation>
+    </message>
+    <message>
+        <source>Verify Message</source>
+        <translation type="obsolete">Verificar Mensaje</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="obsolete">&amp;Archivo</translation>
+    </message>
+    <message>
+        <source>Import New Key From File</source>
+        <translation type="obsolete">Importar Nueva Llave Desde Archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Editor</source>
+        <translation type="obsolete">&amp;Editor</translation>
+    </message>
+    <message>
+        <source>Import New Key From Editor</source>
+        <translation type="obsolete">Importar Nueva Llave Desde Editor</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translatorcomment>Try to determine if you use not complicated encryption (simple) or you use one taht is easy to use (facil)</translatorcomment>
+        <translation type="obsolete">&lt;center&gt;Este programa le permite hacer un facil&lt;br/&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o sugerencias, entre&lt;br/&gt;en nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un email a nuestra&lt;br/&gt; lista decorreo en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>&amp;Clipboard</source>
+        <translation type="obsolete">&amp;Portapapeles</translation>
+    </message>
+    <message>
+        <source>Import New Key From Clipboard</source>
+        <translation type="obsolete">Importar Nueva Llave Desde Portapapeles</translation>
+    </message>
+    <message>
+        <source>Key Management</source>
+        <translation type="obsolete">Administrador de Llaves</translation>
+    </message>
+    <message>
+        <source>Open Keymanagement</source>
+        <translation type="obsolete">Abrir Administrador de Llaves</translation>
+    </message>
+    <message>
+        <source>Import Key</source>
+        <translation type="obsolete">Importar Llave</translation>
+    </message>
+    <message>
+        <source>Open Import New Key Dialog</source>
+        <translation type="obsolete">Abrir Dialogo Importar Nueva Llave</translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="obsolete">&amp;Acerca de</translation>
+    </message>
+    <message>
+        <source>Show the application&apos;s About box</source>
+        <translation type="obsolete">Mostrar recuadro Acerca de del programa</translation>
+    </message>
+    <message>
+        <source>Online &amp;Tutorial</source>
+        <translation type="obsolete">Tutorial &amp;En linea</translation>
+    </message>
+    <message>
+        <source>Open Online Tutorial</source>
+        <translation type="obsolete">Abrir Tutorial En linea</translation>
+    </message>
+    <message>
+        <source>Translate gpg4usb</source>
+        <translation type="obsolete">Traducir gpg4usb</translation>
+    </message>
+    <message>
+        <source>Translate gpg4usb yourself</source>
+        <translation type="obsolete">Traduzca usted mismo gpg4usb</translation>
+    </message>
+    <message>
+        <source>Append Selected Key(s) To Text</source>
+        <translation type="obsolete">Adjuntar Llave(s) Seleccionada(s) Al Texto</translation>
+    </message>
+    <message>
+        <source>Append The Selected Keys To Text in Editor</source>
+        <translation type="obsolete">Adjuntar Llaves Seleccionadas Al Texto en Editor</translation>
+    </message>
+    <message>
+        <source>Copy EMail-address</source>
+        <translation type="obsolete">Copiar direcciones de Correo Electronico</translation>
+    </message>
+    <message>
+        <source>Copy selected EMailaddress to clipboard</source>
+        <translation type="obsolete">Copiar direcciones de Correo Electronico seleccionadas a portapapeles</translation>
+    </message>
+    <message>
+        <source>Show Keydetails</source>
+        <translation type="obsolete">Mostrar Detalles de Llave</translation>
+    </message>
+    <message>
+        <source>Show Details for this Key</source>
+        <translation type="obsolete">Mostrar Detalles para esta Llave</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation type="obsolete">&amp;Editar</translation>
+    </message>
+    <message>
+        <source>&amp;Crypt</source>
+        <translation type="obsolete">&amp;Cifrar</translation>
+    </message>
+    <message>
+        <source>&amp;Keys</source>
+        <translation type="obsolete">&amp;Llaves</translation>
+    </message>
+    <message>
+        <source>&amp;Import Key From...</source>
+        <translation type="obsolete">&amp;Importar Llave Desde...</translation>
+    </message>
+    <message>
+        <source>&amp;View</source>
+        <translation type="obsolete">&amp;Ver</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="obsolete">&amp;Ayuda</translation>
+    </message>
+    <message>
+        <source>Crypt</source>
+        <translation type="obsolete">Cifrar</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="obsolete">Llave</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="obsolete">Editar</translation>
+    </message>
+    <message>
+        <source>Ready</source>
+        <translation type="obsolete">Listo</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation type="obsolete">&lt;center&gt;Este programa le permite hacer un facil&lt;br/&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o sugerencias, entre&lt;br/&gt;en nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un email a nuestra&lt;br/&gt; lista decorreo en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>&amp;Keyserver</source>
+        <translation type="obsolete">&amp;Servidor de llaves</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
+        <translation type="obsolete">&lt;center&gt;Este programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o&lt;br&gt;sugerencias, contactenos en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
+    </message>
+    <message>
+        <source>There is one unencrypted file in attachment folder</source>
+        <translation type="obsolete">Hay un archivo sin cifrar en carpeta adjuntos</translation>
+    </message>
+    <message>
+        <source>There are </source>
+        <translation type="obsolete">Hay</translation>
+    </message>
+    <message>
+        <source> unencrypted files in attachment folder</source>
+        <translation type="obsolete">archivos sin cifrar en carpeta adjuntos</translation>
+    </message>
+    <message>
+        <source>Encrypt for:</source>
+        <translation type="obsolete">Cifrar para:</translation>
+    </message>
+    <message>
+        <source>&amp;New</source>
+        <translation type="obsolete">&amp;Nuevo</translation>
+    </message>
+    <message>
+        <source>Open a new file</source>
+        <translation type="obsolete">Abrir nuevo archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="obsolete">&amp;Cerrar</translation>
+    </message>
+    <message>
+        <source>Close file</source>
+        <translation type="obsolete">Cerrar archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Quote</source>
+        <translation type="obsolete">&amp;Poner comillas</translation>
+    </message>
+    <message>
+        <source>Quote whole text</source>
+        <translation type="obsolete">Poner comillas a todo el texto</translation>
+    </message>
+    <message>
+        <source>Remove double &amp;Linebreaks</source>
+        <translation type="obsolete">Quitar doble  &amp;Fin de linea</translation>
+    </message>
+    <message>
+        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
+        <translation type="obsolete">Quitar dobel fin de linea, p.ej. en texto pegado desde webmailer</translation>
+    </message>
+    <message>
+        <source>Attached files:</source>
+        <translation type="obsolete">Archivos Adjuntos:</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="obsolete">Programa</translation>
+    </message>
+    <message>
+        <source>Cannot read file %1:
+%2.</source>
+        <translation type="obsolete">No puedo leer archivo %1:
+%2.</translation>
+    </message>
+    <message>
+        <source>File loaded</source>
+        <translation type="obsolete">Archivo cargado</translation>
+    </message>
+    <message>
+        <source>%1[*] - %2</source>
+        <translation type="obsolete">%1[*] - %2</translation>
+    </message>
+    <message>
+        <source>The document has been modified.
+Do you want to save your changes?</source>
+        <translation type="obsolete">El documento ha sido modificado.
+¿Quiere usted guardar los cambios?</translation>
+    </message>
+    <message>
+        <source>Saved &apos;%1&apos;</source>
+        <translation type="obsolete">Guardado &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>About </source>
+        <translation type="obsolete">Acerca de&apos;</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
+        <translation type="obsolete">&lt;center&gt;Este Programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos.&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es)&lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/ o &lt;br&gt;sugerencia, contacte con nosotros en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
+        <translation type="obsolete">&lt;center&gt;Este Programa le permite hacer un facil&lt;br&gt;cifrado/descifrado de sus mensajes de texto o archivos.&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato13 (es)&lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/ o &lt;br&gt;sugerencia, contacte con nosotros en&lt;br&gt;gpg4usb en cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;o puede encontrarnos en nuestro xmpp-channel:&lt;br&gt;gpg4usb en conference.jabber.ccc.de&lt;/center&gt;</translation>
+    </message>
+    <message>
+        <source>Open Key</source>
+        <translation type="obsolete">Abrir Llave</translation>
+    </message>
+    <message>
+        <source>Key Files</source>
+        <translation type="obsolete">Archivos de Llaves</translation>
+    </message>
+    <message>
+        <source>All Files</source>
+        <translation type="obsolete">Todos los Archivos</translation>
+    </message>
+    <message>
+        <source>Import Key From...</source>
+        <translation type="obsolete">Importar Llave Desde...</translation>
+    </message>
+    <message>
+        <source>Owner details</source>
+        <translation type="obsolete">Detalles del Propietario</translation>
+    </message>
+    <message>
+        <source>Key details</source>
+        <translation type="obsolete">Detalles de la Llave</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="obsolete">Huella Digital</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="obsolete">Nombre:</translation>
+    </message>
+    <message>
+        <source>E-Mailaddress:</source>
+        <translation type="obsolete">Direccion de Correo Electronico:</translation>
+    </message>
+    <message>
+        <source>Comment:</source>
+        <translation type="obsolete">Comentario:</translation>
+    </message>
+    <message>
+        <source>Key size:</source>
+        <translation type="obsolete">Tamaño de Llave:</translation>
+    </message>
+    <message>
+        <source>Expires on: </source>
+        <translation type="obsolete">Expira en:</translation>
+    </message>
+    <message>
+        <source>Created on: </source>
+        <translation type="obsolete">Creado en:</translation>
+    </message>
+    <message>
+        <source>Algorithm: </source>
+        <translation type="obsolete">Algoritmo:</translation>
+    </message>
+    <message>
+        <source>Key ID: </source>
+        <translation type="obsolete">ID de Llave:</translation>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="obsolete">Nunca</translation>
+    </message>
+    <message>
+        <source> / Never</source>
+        <translation type="obsolete"> / Nunca</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="obsolete">Llave Privada</translation>
+    </message>
+    <message>
+        <source>Export Private Key</source>
+        <translation type="obsolete">Exportar llave Privada</translation>
+    </message>
+    <message>
+        <source>Warning: Key expired</source>
+        <translation type="obsolete">Advertencia: Llave expirada</translation>
+    </message>
+    <message>
+        <source>Keydetails</source>
+        <translation type="obsolete">Detalles de Llave</translation>
+    </message>
+    <message>
+        <source>Exporting private Key</source>
+        <translation type="obsolete">Exportando Llave privada</translation>
+    </message>
+    <message>
+        <source>You are about to export your private key.
+This is NOT your public key, so don&apos;t give it away.
+Make sure you keep it save.</source>
+        <translation type="obsolete">Esta a punto de exportar su llave privada.
+Esta NO es su llave publica, asi que no la revele.
+Guardela de forma segura.</translation>
+    </message>
+    <message>
+        <source>Export Key To File</source>
+        <translation type="obsolete">Exportar Llave a Archivo</translation>
+    </message>
+    <message>
+        <source>Key Files </source>
+        <translation type="obsolete">Archivos Llaves</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="obsolete">Nombre</translation>
+    </message>
+    <message>
+        <source>EMail</source>
+        <translation type="obsolete">Correo Electrónico</translation>
+    </message>
+    <message>
+        <source>Import Keys</source>
+        <translation type="obsolete">Importar Llaves</translation>
+    </message>
+    <message>
+        <source>You&apos;ve dropped something on the keylist.
+ gpg4usb will now try to import key(s).</source>
+        <translation type="obsolete">Usted ha soltado algo en la lista de llaves
+gpg4usb intentara ahora importar la(s) llave(s).</translation>
+    </message>
+    <message>
+        <source>Always import without bothering.</source>
+        <translation type="obsolete">Siempre importar sin molestias.</translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t Open File: </source>
+        <translation type="obsolete">No se pudo Abrir el Archivo: </translation>
+    </message>
+    <message>
+        <source>Keymanagement</source>
+        <translation type="obsolete">Administrador der Llaves</translation>
+    </message>
+    <message>
+        <source>&amp;Close Key Management</source>
+        <translation type="obsolete">&amp;Cerrar Administrador de Llaves</translation>
+    </message>
+    <message>
+        <source>Close Key Management</source>
+        <translation type="obsolete">Cerrar Administrador de Llaves</translation>
+    </message>
+    <message>
+        <source>Import From &amp;File</source>
+        <translation type="obsolete">Importar Desde &amp;Archivo</translation>
+    </message>
+    <message>
+        <source>Import From &amp;Clipboard</source>
+        <translation type="obsolete">Importar Desde &amp;Portapapeles</translation>
+    </message>
+    <message>
+        <source>Import New Key From Keyserver</source>
+        <translation type="obsolete">Importar Nueva Llave desde Servidor de Llaves</translation>
+    </message>
+    <message>
+        <source>Export To &amp;Clipboard</source>
+        <translation type="obsolete">Exportar A &amp;Portapapeles</translation>
+    </message>
+    <message>
+        <source>Export Selected Key(s) To Clipboard</source>
+        <translation type="obsolete">Exportar Llave(s) Seleccionada(s) A Portapapeles</translation>
+    </message>
+    <message>
+        <source>Export To &amp;File</source>
+        <translation type="obsolete">Exportar A &amp;Archivo</translation>
+    </message>
+    <message>
+        <source>Export Selected Key(s) To File</source>
+        <translation type="obsolete">Exportar Llave(s) Seleccionada(s) A Archivo</translation>
+    </message>
+    <message>
+        <source>Delete Selected Key(s)</source>
+        <translation type="obsolete">Borrar Llave(s) Seleccionada(s)</translation>
+    </message>
+    <message>
+        <source>Delete the Selected keys</source>
+        <translation type="obsolete">Borrar las Llaves Seleccionadas</translation>
+    </message>
+    <message>
+        <source>Delete Checked Key(s)</source>
+        <translation type="obsolete">Borrar Llave(s) Verificadas</translation>
+    </message>
+    <message>
+        <source>Delete the Checked keys</source>
+        <translation type="obsolete">Borrar las Llaves Verificadas</translation>
+    </message>
+    <message>
+        <source>Generate Key</source>
+        <translation type="obsolete">Crear Llave</translation>
+    </message>
+    <message>
+        <source>Generate New Key</source>
+        <translation type="obsolete">Crear Nueva Llave</translation>
+    </message>
+    <message>
+        <source>&amp;Key</source>
+        <translation type="obsolete">&amp;Llave</translation>
+    </message>
+    <message>
+        <source>Deleting Keys</source>
+        <translation type="obsolete">Borrando Llaves</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Are you sure that you want to delete the following keys?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
+        <translation type="obsolete">¿Esta usted seguro de querer borrar las siguientes llaves?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;The action can not be undone.</source>
+        <translation type="obsolete">&lt;br/&gt; La accion no puede deshacerse.</translation>
+    </message>
+    <message>
+        <source>Are you sure that you want to delete the selected keys?.
+The action can not be undone.</source>
+        <translation type="obsolete">¿Esta seguro de querer borrar las llaves seleccionadas?.
+Esta accion no se puede deshacer.</translation>
+    </message>
+    <message>
+        <source>E-Mailaddress::</source>
+        <translation type="obsolete">Direccion de Correo Electronico:</translation>
+    </message>
+    <message>
+        <source>KeySize (in Bit):</source>
+        <translation type="obsolete">Tamaño Llave (en Bit):</translation>
+    </message>
+    <message>
+        <source>Expiration Date:</source>
+        <translation type="obsolete">Fecha Expiracion:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="obsolete">Contraseña:</translation>
+    </message>
+    <message>
+        <source>Repeat Password:</source>
+        <translation type="obsolete">Repetir Contraseña:</translation>
+    </message>
+    <message>
+        <source>Never Expire</source>
+        <translation type="obsolete">Nunca Expira</translation>
+    </message>
+    <message>
+        <source>Password: Strength
+Weak -&gt; Strong</source>
+        <translation type="obsolete">Contraseña: Fortaleza
+Debil -&gt; Fuerte</translation>
+    </message>
+    <message>
+        <source>Password Strength</source>
+        <translation type="obsolete">Fortaleza de la Contraseña</translation>
+    </message>
+    <message>
+        <source>  Name must contain at least five characters.  
+</source>
+        <translation type="obsolete">El nombre debe contener al menos cinco caracteres. 
+</translation>
+    </message>
+    <message>
+        <source>  Password and Repeat don&apos;t match.  </source>
+        <translation type="obsolete">  Contraseña y Repetir no coinciden.  </translation>
+    </message>
+    <message>
+        <source>Generating Key...</source>
+        <translation type="obsolete">Creando Llave...</translation>
+    </message>
+    <message>
+        <source>Collecting random data for key generation.
+ This may take a while.
+ To speed up the process use your computer
+ (e.g. browse the net, listen to music,...)</source>
+        <translation type="obsolete">Recogiendo datos aleatorios para crear llave.
+Puede tardar un rato.
+Para acelerar el proceso use su computadora
+(ejemplo, navegar por la Red, oir musica,...)</translation>
+    </message>
+    <message>
+        <source>&amp;Import</source>
+        <translation type="obsolete">&amp;Importar</translation>
+    </message>
+    <message>
+        <source>&amp;Search</source>
+        <translation type="obsolete">&amp;Buscar</translation>
+    </message>
+    <message>
+        <source>Search string:</source>
+        <translation type="obsolete">Buscar cadena de caracteres:</translation>
+    </message>
+    <message>
+        <source>Keyserver:</source>
+        <translation type="obsolete">Servidor de llaves:</translation>
+    </message>
+    <message>
+        <source>Import Keys from Keyserver</source>
+        <translation type="obsolete">Importar Llaves desde el Servidor de Llaves</translation>
+    </message>
+    <message>
+        <source>UID</source>
+        <translation type="obsolete">Tu ID</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="obsolete">Fecha de creacion</translation>
+    </message>
+    <message>
+        <source>KeyID</source>
+        <translation type="obsolete">ID de Llave</translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t contact keyserver!</source>
+        <translation type="obsolete">¡No se puede contactar la servidor de llaves!</translation>
+    </message>
+    <message>
+        <source>Too many responses from keyserver!</source>
+        <translation type="obsolete">¡Demasiadas respuestas desde el servidor de llaves!</translation>
+    </message>
+    <message>
+        <source>No keys found, input may be kexId, retrying search with 0x.</source>
+        <translation type="obsolete">No se encontraron llaves, el ingreso puede estar kexId, intentar buscar con 0x.</translation>
+    </message>
+    <message>
+        <source>No keys found containing the search string!</source>
+        <translation type="obsolete">¿No existen llaves con esa cadena de caracteres!</translation>
+    </message>
+    <message>
+        <source>Insufficiently specific search string!</source>
+        <translation type="obsolete">¡Cadena de caracteres insuficiente para busqueda!</translation>
+    </message>
+    <message>
+        <source>%1 keys found. Doubleclick a key to import it.</source>
+        <translation type="obsolete">%1 llaves encontradas. Pulse dos veces una llave para importarla.</translation>
+    </message>
+    <message>
+        <source>Error while contacting keyserver!</source>
+        <translation type="obsolete">¡Error mientras contactaba al servidor de llaves!</translation>
+    </message>
+    <message>
+        <source>Key imported</source>
+        <translation type="obsolete">Llave importada</translation>
+    </message>
+    <message>
+        <source>Default Keyserver for import:</source>
+        <translation type="obsolete">Servidor de llaves por defecto para importar:</translation>
+    </message>
+    <message>
+        <source>Decode quoted printable</source>
+        <translation type="obsolete">Descifrar quoted printable</translation>
+    </message>
+    <message>
+        <source>Try to recognize quoted printable.</source>
+        <translation type="obsolete">Intentar reconocer quoted printable.</translation>
+    </message>
+    <message>
+        <source>Parse PGP/MIME (Experimental)</source>
+        <translation type="obsolete">Analizar PGP/MIME (Experimental)</translation>
+    </message>
+    <message>
+        <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
+        <translation type="obsolete">Intenta separar los archivos adjuntos de los mensajes cifrados PGP-MIME.</translation>
+    </message>
+    <message>
+        <source>Open with external application (Experimental)</source>
+        <translation type="obsolete">Abrir con programa externo (Experimental)</translation>
+    </message>
+    <message>
+        <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
+        <translation type="obsolete">Abrir adjuntos con programa por defecto para el tipo de archivo &lt;br&gt;Hay al menos dos posibles problemas con esta opcion:&lt;ol&gt;&lt;li&gt;Se necesita guardar el archivo sin cifrar en la carpeta adjuntos &lt;br&gt;Es tarea suya limpiar esta carpeta &lt;/li&gt;&lt;li&gt;El programa externo puede tener sus propios archivos temporales &lt;/li&gt;&lt;/ol&gt;</translation>
+    </message>
+    <message>
+        <source>Enable opening with external applications.</source>
+        <translation type="obsolete">Permitir abrir con programas externos.</translation>
+    </message>
+    <message>
+        <source>Unsaved files</source>
+        <translation type="obsolete">Archivos No guardados</translation>
+    </message>
+    <message>
+        <source>&lt;h3&gt;%1 files contain unsaved information.&lt;br/&gt;Save the changes before closing?&lt;/h3&gt;</source>
+        <translation type="obsolete">&lt;h3&gt;%1 archivos contienen informacion sin guardar.&lt;br/&gt;¿Guardar los cambios antes de cerrar?&lt;/h3&gt;</translation>
+    </message>
+    <message>
+        <source>Check the files you want to save:</source>
+        <translation type="obsolete">Verificar los archivos que usted quiere guardar:</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
+        <translation type="obsolete">&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios.&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="obsolete">Configuracion</translation>
+    </message>
+    <message>
+        <source>save window size and position on exit</source>
+        <translation type="obsolete">guardar tamaño y posicion de ventana al salir</translation>
+    </message>
+    <message>
+        <source>MIME-parsing (Experimental)</source>
+        <translation type="obsolete">MIME-analisis (Experimental)</translation>
+    </message>
+    <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="obsolete">General</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="34"/>
         <source>Appearance</source>
-        <translation>Aspecto</translation>
+        <translation type="obsolete">Aspecto</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="35"/>
         <source>PGP/Mime</source>
-        <translation>PGP/Mime</translation>
+        <translation type="obsolete">PGP/Mime</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="36"/>
         <source>Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Servidor de llaves</translation>
     </message>
     <message>
         <source>Tab Dialog</source>
         <translation type="obsolete">Pestaña Dialogo</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="180"/>
         <source>English</source>
-        <translation>Español</translation>
+        <translation type="obsolete">Español</translation>
+    </message>
+    <message>
+        <source>untitled</source>
+        <translation type="obsolete">sin nombre</translation>
+    </message>
+    <message>
+        <source>Open file</source>
+        <translation type="obsolete">Abrir archivo</translation>
+    </message>
+    <message>
+        <source>Save file </source>
+        <translation type="obsolete">Guardar archivo </translation>
+    </message>
+    <message>
+        <source>Unsaved document</source>
+        <translation type="obsolete">Documento sin guardar</translation>
+    </message>
+    <message>
+        <source>&lt;h3&gt;The document &quot;%1&quot; has been modified.&lt;br/&gt;Do you want to save your changes?&lt;/h3&gt;</source>
+        <translation type="obsolete">&lt;h3&gt;El documento &quot;%1&quot; ha sido modificado.&lt;br/&gt;¿Quiere guardar sus cambios? &lt;/h3&gt;</translation>
+    </message>
+    <message>
+        <source>Signaturedetails</source>
+        <translation type="obsolete">Detalles de firma</translation>
+    </message>
+    <message>
+        <source>Error Validating signature</source>
+        <translation type="obsolete">Error al Validar firma</translation>
+    </message>
+    <message>
+        <source>Text was completely signed on
+ %1 by:
+</source>
+        <translation type="obsolete">El texto se registro completamente
+ %1 por:</translation>
+    </message>
+    <message>
+        <source>Text was partially signed on
+ %1 by:
+</source>
+        <translation type="obsolete">El texto se registro parcialmente
+ %1 por:</translation>
+    </message>
+    <message>
+        <source>Import from keyserver</source>
+        <translation type="obsolete">Importar desde servidor de llaves</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation type="obsolete">Estado:</translation>
+    </message>
+    <message>
+        <source>Fingerprint:</source>
+        <translation type="obsolete">Huella Digital:</translation>
+    </message>
+    <message>
+        <source>Key not present in keylist</source>
+        <translation type="obsolete">Llave ausente en la lista de llaves</translation>
+    </message>
+    <message>
+        <source>Key not present with id 0x</source>
+        <translation type="obsolete">Llave ausente con id 0x</translation>
+    </message>
+    <message>
+        <source>EMail:</source>
+        <translation type="obsolete">Correo electronico:</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="obsolete">OK</translation>
+    </message>
+    <message>
+        <source>Error for key with id 0x</source>
+        <translation type="obsolete">Error para llave con id 0x</translation>
+    </message>
+    <message>
+        <source>Import missing key from Keyserver</source>
+        <translation type="obsolete">Importar llave faltante desde Servidor de llaves</translation>
+    </message>
+    <message>
+        <source>Show detailed verify information</source>
+        <translation type="obsolete">Mostrar informacion de verificacion detallada</translation>
+    </message>
+    <message>
+        <source>Error validating signature by: </source>
+        <translation type="obsolete">Error al validar firma de:</translation>
+    </message>
+    <message>
+        <source>Text was completely signed by: </source>
+        <translation type="obsolete">El texto fue completamente firmado por:</translation>
+    </message>
+    <message>
+        <source>Text was partially signed by: </source>
+        <translation type="obsolete">El texto fue parcialmente firmado por:</translation>
+    </message>
+    <message>
+        <source>Error for key with fingerprint </source>
+        <translation type="obsolete">Error para la llave con huella digital</translation>
+    </message>
+</context>
+<context>
+    <name>AppearanceTab</name>
+    <message>
+        <source>Iconsize</source>
+        <translation type="unfinished">Tamaño Icono</translation>
+    </message>
+    <message>
+        <source>small</source>
+        <translation type="unfinished">pequeño</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation type="unfinished">mediano</translation>
+    </message>
+    <message>
+        <source>large</source>
+        <translation type="unfinished">grande</translation>
+    </message>
+    <message>
+        <source>Iconstyle</source>
+        <translation type="unfinished">Estilo Icono</translation>
+    </message>
+    <message>
+        <source>just text</source>
+        <translation type="unfinished">solo texto</translation>
+    </message>
+    <message>
+        <source>just icons</source>
+        <translation type="unfinished">solo iconos</translation>
+    </message>
+    <message>
+        <source>text and icons</source>
+        <translation type="unfinished">texto e iconos</translation>
+    </message>
+    <message>
+        <source>Windowstate</source>
+        <translation type="unfinished">Ventana de Estado</translation>
+    </message>
+    <message>
+        <source>Save window size and position on exit.</source>
+        <translation type="unfinished">Guardar tamaño y posicion ventana al salir.</translation>
+    </message>
+</context>
+<context>
+    <name>AttachmentTableModel</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Nombre de archivo</translation>
+    </message>
+    <message>
+        <source>Contenttype</source>
+        <translation type="unfinished">Tipo de contenido</translation>
+    </message>
+</context>
+<context>
+    <name>Attachments</name>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished">Guardar Archivo</translation>
+    </message>
+    <message>
+        <source>Save this file</source>
+        <translation type="unfinished">Guardar este archivo</translation>
+    </message>
+    <message>
+        <source>Open File</source>
+        <translation type="unfinished">Abrir Archivo</translation>
+    </message>
+    <message>
+        <source>Open this file</source>
+        <translation type="unfinished">Abrir este archivo</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Archivo</translation>
+    </message>
+    <message>
+        <source>Cannot write file %1:
+%2.</source>
+        <translation type="unfinished">No puedo escribir archivo %1:
+%2.</translation>
+    </message>
+</context>
+<context>
+    <name>FileEncryptionDialog</name>
+    <message>
+        <source>Encrypt / Decrypt File</source>
+        <translation type="unfinished">Cifrar / Descifrar Archivo</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Archivo</translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished">Accion</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="unfinished">Entrada</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished">Salida</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt</source>
+        <translation type="unfinished">&amp;Cifrar</translation>
+    </message>
+    <message>
+        <source>&amp;Decrypt</source>
+        <translation type="unfinished">&amp;Descifrar</translation>
+    </message>
+    <message>
+        <source>Open File</source>
+        <translation type="unfinished">Abrir Archivo</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished">Guardar Archivo</translation>
+    </message>
+    <message>
+        <source>couldn&apos;t open file: </source>
+        <translation type="unfinished">no se pudo abrir el archivo:</translation>
+    </message>
+    <message>
+        <source>File exists! Do you want to overwrite it?</source>
+        <translation type="unfinished">El archivo existe! ¿Quiere sobreescribirlo?</translation>
+    </message>
+    <message>
+        <source>Cannot write file %1:
+%2.</source>
+        <translation type="unfinished">No puedo escribir archivo %1:
+%2.</translation>
+    </message>
+</context>
+<context>
+    <name>GeneralTab</name>
+    <message>
+        <source>Remember Password</source>
+        <translation type="unfinished">Recordar Contraseña</translation>
+    </message>
+    <message>
+        <source>Remember password until closing gpg4usb</source>
+        <translation type="unfinished">Recordar contraseña hasta cerrar gpg4usb</translation>
+    </message>
+    <message>
+        <source>Save Checked Keys</source>
+        <translation type="unfinished">Guardar Llaves Verificadas</translation>
+    </message>
+    <message>
+        <source>Save checked private keys on exit and restore them on next start.</source>
+        <translation type="unfinished">Guardar llaves privadas verificadas al salir y restaurarlas en proximo arranque.</translation>
+    </message>
+    <message>
+        <source>Confirm drag&apos;n&apos;drop key import</source>
+        <translation type="unfinished">Confirmar importar llave arrastrar y soltar</translation>
+    </message>
+    <message>
+        <source>Import files dropped on the keylist without confirmation.</source>
+        <translation type="unfinished">Importar archivos soltados en la lista de llaves sin confirmacion.</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished">Idioma</translation>
+    </message>
+    <message>
+        <source>Language change is applied after restarting program.</source>
+        <translation type="unfinished">Cambio idioma se aplicara despues de reiniciar el programa.</translation>
+    </message>
+    <message>
+        <source>System Default</source>
+        <translation type="unfinished">Por Defecto</translation>
+    </message>
+</context>
+<context>
+    <name>GpgME::Context</name>
+    <message>
+        <source>No Key Selected</source>
+        <translation type="unfinished">Ninguna llave seleccionada</translation>
+    </message>
+    <message>
+        <source>Unsupported algorithm</source>
+        <translation type="unfinished">Algoritmo incompatible</translation>
+    </message>
+    <message>
+        <source>Error decrypting:</source>
+        <translation type="unfinished">Error al descifrar:</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="unfinished">Contraseña incorrecta</translation>
+    </message>
+    <message>
+        <source>Enter Password</source>
+        <translation type="unfinished">Ingresar Contraseña</translation>
+    </message>
+    <message>
+        <source>Key Selection</source>
+        <translation type="unfinished">Seleccionar Llave</translation>
+    </message>
+    <message>
+        <source>No Private Key Selected</source>
+        <translation type="unfinished">No se Selecciono Llave Privada</translation>
+    </message>
+    <message>
+        <source>Error signing:</source>
+        <translation type="unfinished">Error al firmar:</translation>
+    </message>
+</context>
+<context>
+    <name>GpgWin</name>
+    <message>
+        <source>&amp;New</source>
+        <translation type="unfinished">&amp;Nuevo</translation>
+    </message>
+    <message>
+        <source>Open a new file</source>
+        <translation type="unfinished">Abrir nuevo archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Open...</source>
+        <translation type="unfinished">&amp;Abrir...</translation>
+    </message>
+    <message>
+        <source>Open an existing file</source>
+        <translation type="unfinished">Abrir archivo existente</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">&amp;Guardar</translation>
+    </message>
+    <message>
+        <source>Save the current File</source>
+        <translation type="unfinished">Guardar archivo actual</translation>
+    </message>
+    <message>
+        <source>Save &amp;As</source>
+        <translation type="unfinished">Guardar &amp;Como</translation>
+    </message>
+    <message>
+        <source>Save the current File as...</source>
+        <translation type="unfinished">Guardar Archivo actual como...</translation>
+    </message>
+    <message>
+        <source>&amp;Print</source>
+        <translation type="unfinished">&amp;Imprimir</translation>
+    </message>
+    <message>
+        <source>Print Document</source>
+        <translation type="unfinished">Imprimir Documento</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;Cerrar</translation>
+    </message>
+    <message>
+        <source>Close file</source>
+        <translation type="unfinished">Cerrar archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">&amp;Salir</translation>
+    </message>
+    <message>
+        <source>Quit Program</source>
+        <translation type="unfinished">Salir del Programa</translation>
+    </message>
+    <message>
+        <source>&amp;Undo</source>
+        <translation type="unfinished">&amp;Deshacer</translation>
+    </message>
+    <message>
+        <source>Undo Last Edit Action</source>
+        <translation type="unfinished">Deshacer Ultima Accion Editar</translation>
+    </message>
+    <message>
+        <source>&amp;Redo</source>
+        <translation type="unfinished">&amp;Rehacer</translation>
+    </message>
+    <message>
+        <source>Redo Last Edit Action</source>
+        <translation type="unfinished">Rehacer ultima accion editar</translation>
+    </message>
+    <message>
+        <source>&amp;Paste</source>
+        <translation type="unfinished">&amp;Pegar</translation>
+    </message>
+    <message>
+        <source>Paste Text From Clipboard</source>
+        <translation type="unfinished">Pegar Texto desde Portapapeles</translation>
+    </message>
+    <message>
+        <source>Cu&amp;t</source>
+        <translation type="unfinished">Corta&amp;r</translation>
+    </message>
+    <message>
+        <source>Cut the current selection&apos;s contents to the clipboard</source>
+        <translation type="unfinished">Cortar contenido de la seleccion actual al portapapeles</translation>
+    </message>
+    <message>
+        <source>&amp;Copy</source>
+        <translation type="unfinished">&amp;Copiar</translation>
+    </message>
+    <message>
+        <source>Copy the current selection&apos;s contents to the clipboard</source>
+        <translation type="unfinished">Copiar contenido de la seleccion actual al portapapeles</translation>
+    </message>
+    <message>
+        <source>&amp;Quote</source>
+        <translation type="unfinished">&amp;Poner comillas</translation>
+    </message>
+    <message>
+        <source>Quote whole text</source>
+        <translation type="unfinished">Poner comillas a todo el texto</translation>
+    </message>
+    <message>
+        <source>Select &amp;All</source>
+        <translation type="unfinished">Seleccionar &amp;Todo</translation>
+    </message>
+    <message>
+        <source>Select the whole text</source>
+        <translation type="unfinished">Seleccionar todo el texto</translation>
+    </message>
+    <message>
+        <source>Remove double &amp;Linebreaks</source>
+        <translation type="unfinished">Quitar doble  &amp;Fin de linea</translation>
+    </message>
+    <message>
+        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
+        <translation type="unfinished">Quitar dobel fin de linea, p.ej. en texto pegado desde webmailer</translation>
+    </message>
+    <message>
+        <source>Se&amp;ttings</source>
+        <translation type="unfinished">Con&amp;figuracion</translation>
+    </message>
+    <message>
+        <source>Open settings dialog</source>
+        <translation type="unfinished">Abrir dialogo configuracion</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt</source>
+        <translation type="unfinished">&amp;Cifrar</translation>
+    </message>
+    <message>
+        <source>Encrypt Message</source>
+        <translation type="unfinished">Cifrar Mensaje</translation>
+    </message>
+    <message>
+        <source>&amp;Decrypt</source>
+        <translation type="unfinished">&amp;Descifrar</translation>
+    </message>
+    <message>
+        <source>Decrypt Message</source>
+        <translation type="unfinished">Descifrar Mensaje</translation>
+    </message>
+    <message>
+        <source>&amp;File Encryption</source>
+        <translation type="unfinished">&amp;Cifrado Archivo</translation>
+    </message>
+    <message>
+        <source>Encrypt/Decrypt File</source>
+        <translation type="unfinished">Cifrar / Descifrar Archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Sign</source>
+        <translation type="unfinished">&amp;Firmar</translation>
+    </message>
+    <message>
+        <source>Sign Message</source>
+        <translation type="unfinished">Firmar Mensaje</translation>
+    </message>
+    <message>
+        <source>&amp;Verify</source>
+        <translation type="unfinished">&amp;Verificar</translation>
+    </message>
+    <message>
+        <source>Verify Message</source>
+        <translation type="unfinished">Verificar Mensaje</translation>
+    </message>
+    <message>
+        <source>&amp;Editor</source>
+        <translation type="unfinished">&amp;Editor</translation>
+    </message>
+    <message>
+        <source>Import New Key From Editor</source>
+        <translation type="unfinished">Importar Nueva Llave Desde Editor</translation>
+    </message>
+    <message>
+        <source>Key Management</source>
+        <translation type="unfinished">Administrador de Llaves</translation>
+    </message>
+    <message>
+        <source>Open Keymanagement</source>
+        <translation type="unfinished">Abrir Administrador de Llaves</translation>
+    </message>
+    <message>
+        <source>Import Key</source>
+        <translation type="unfinished">Importar Llave</translation>
+    </message>
+    <message>
+        <source>Open Import New Key Dialog</source>
+        <translation type="unfinished">Abrir Dialogo Importar Nueva Llave</translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="unfinished">&amp;Acerca de</translation>
+    </message>
+    <message>
+        <source>Show the application&apos;s About box</source>
+        <translation type="unfinished">Mostrar recuadro Acerca de del programa</translation>
+    </message>
+    <message>
+        <source>Online &amp;Tutorial</source>
+        <translation type="unfinished">Tutorial &amp;En linea</translation>
+    </message>
+    <message>
+        <source>Open Online Tutorial</source>
+        <translation type="unfinished">Abrir Tutorial En linea</translation>
+    </message>
+    <message>
+        <source>Translate gpg4usb</source>
+        <translation type="unfinished">Traducir gpg4usb</translation>
+    </message>
+    <message>
+        <source>Translate gpg4usb yourself</source>
+        <translation type="unfinished">Traduzca usted mismo gpg4usb</translation>
+    </message>
+    <message>
+        <source>Append Selected Key(s) To Text</source>
+        <translation type="unfinished">Adjuntar Llave(s) Seleccionada(s) Al Texto</translation>
+    </message>
+    <message>
+        <source>Append The Selected Keys To Text in Editor</source>
+        <translation type="unfinished">Adjuntar Llaves Seleccionadas Al Texto en Editor</translation>
+    </message>
+    <message>
+        <source>Copy EMail-address</source>
+        <translation type="unfinished">Copiar direcciones de Correo Electronico</translation>
+    </message>
+    <message>
+        <source>Copy selected EMailaddress to clipboard</source>
+        <translation type="unfinished">Copiar direcciones de Correo Electronico seleccionadas a portapapeles</translation>
+    </message>
+    <message>
+        <source>Show Keydetails</source>
+        <translation type="unfinished">Mostrar Detalles de Llave</translation>
+    </message>
+    <message>
+        <source>Show Details for this Key</source>
+        <translation type="unfinished">Mostrar Detalles para esta Llave</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished">&amp;Archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation type="unfinished">&amp;Editar</translation>
+    </message>
+    <message>
+        <source>&amp;Crypt</source>
+        <translation type="unfinished">&amp;Cifrar</translation>
+    </message>
+    <message>
+        <source>&amp;Keys</source>
+        <translation type="unfinished">&amp;Llaves</translation>
+    </message>
+    <message>
+        <source>&amp;Import Key From...</source>
+        <translation type="unfinished">&amp;Importar Llave Desde...</translation>
+    </message>
+    <message>
+        <source>&amp;View</source>
+        <translation type="unfinished">&amp;Ver</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="unfinished">&amp;Ayuda</translation>
+    </message>
+    <message>
+        <source>Crypt</source>
+        <translation type="unfinished">Cifrar</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished">Llave</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Editar</translation>
+    </message>
+    <message>
+        <source>Ready</source>
+        <translation type="unfinished">Listo</translation>
+    </message>
+    <message>
+        <source>Encrypt for:</source>
+        <translation type="unfinished">Cifrar para:</translation>
+    </message>
+    <message>
+        <source>Attached files:</source>
+        <translation type="unfinished">Archivos Adjuntos:</translation>
+    </message>
+    <message>
+        <source>About </source>
+        <translation type="unfinished">Acerca de&apos;</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation type="unfinished">&lt;center&gt;Este programa le permite hacer un facil&lt;br/&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o sugerencias, entre&lt;br/&gt;en nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un email a nuestra&lt;br/&gt; lista decorreo en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>There is one unencrypted file in attachment folder</source>
+        <translation type="unfinished">Hay un archivo sin cifrar en carpeta adjuntos</translation>
+    </message>
+    <message>
+        <source>There are </source>
+        <translation type="unfinished">Hay</translation>
+    </message>
+    <message>
+        <source> unencrypted files in attachment folder</source>
+        <translation type="unfinished">archivos sin cifrar en carpeta adjuntos</translation>
+    </message>
+    <message>
+        <source>Import Key From...</source>
+        <translation type="unfinished">Importar Llave Desde...</translation>
+    </message>
+    <message>
+        <source>&amp;Clipboard</source>
+        <translation type="unfinished">&amp;Portapapeles</translation>
+    </message>
+    <message>
+        <source>&amp;Keyserver</source>
+        <translation type="unfinished">&amp;Servidor de llaves</translation>
+    </message>
+</context>
+<context>
+    <name>KeyDetailsDialog</name>
+    <message>
+        <source>Owner details</source>
+        <translation type="unfinished">Detalles del Propietario</translation>
+    </message>
+    <message>
+        <source>Key details</source>
+        <translation type="unfinished">Detalles de la Llave</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished">Huella Digital</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Nombre:</translation>
+    </message>
+    <message>
+        <source>E-Mailaddress:</source>
+        <translation type="unfinished">Direccion de Correo Electronico:</translation>
+    </message>
+    <message>
+        <source>Comment:</source>
+        <translation type="unfinished">Comentario:</translation>
+    </message>
+    <message>
+        <source>Key size:</source>
+        <translation type="unfinished">Tamaño de Llave:</translation>
+    </message>
+    <message>
+        <source>Expires on: </source>
+        <translation type="unfinished">Expira en:</translation>
+    </message>
+    <message>
+        <source>Created on: </source>
+        <translation type="unfinished">Creado en:</translation>
+    </message>
+    <message>
+        <source>Algorithm: </source>
+        <translation type="unfinished">Algoritmo:</translation>
+    </message>
+    <message>
+        <source>Key ID: </source>
+        <translation type="unfinished">ID de Llave:</translation>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="unfinished">Nunca</translation>
+    </message>
+    <message>
+        <source> / Never</source>
+        <translation type="unfinished"> / Nunca</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="unfinished">Llave Privada</translation>
+    </message>
+    <message>
+        <source>Export Private Key</source>
+        <translation type="unfinished">Exportar llave Privada</translation>
+    </message>
+    <message>
+        <source>Warning: Key expired</source>
+        <translation type="unfinished">Advertencia: Llave expirada</translation>
+    </message>
+    <message>
+        <source>Keydetails</source>
+        <translation type="unfinished">Detalles de Llave</translation>
+    </message>
+    <message>
+        <source>Exporting private Key</source>
+        <translation type="unfinished">Exportando Llave privada</translation>
+    </message>
+    <message>
+        <source>You are about to export your private key.
+This is NOT your public key, so don&apos;t give it away.
+Make sure you keep it save.</source>
+        <translation type="unfinished">Esta a punto de exportar su llave privada.
+Esta NO es su llave publica, asi que no la revele.
+Guardela de forma segura.</translation>
+    </message>
+    <message>
+        <source>Export Key To File</source>
+        <translation type="unfinished">Exportar Llave a Archivo</translation>
+    </message>
+    <message>
+        <source>Key Files</source>
+        <translation type="unfinished">Archivos de Llaves</translation>
+    </message>
+</context>
+<context>
+    <name>KeyList</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nombre</translation>
+    </message>
+    <message>
+        <source>EMail</source>
+        <translation type="unfinished">Correo Electrónico</translation>
+    </message>
+    <message>
+        <source>Import Keys</source>
+        <translation type="unfinished">Importar Llaves</translation>
+    </message>
+    <message>
+        <source>You&apos;ve dropped something on the keylist.
+ gpg4usb will now try to import key(s).</source>
+        <translation type="unfinished">Usted ha soltado algo en la lista de llaves
+gpg4usb intentara ahora importar la(s) llave(s).</translation>
+    </message>
+    <message>
+        <source>Always import without bothering.</source>
+        <translation type="unfinished">Siempre importar sin molestias.</translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t Open File: </source>
+        <translation type="unfinished">No se pudo Abrir el Archivo: </translation>
+    </message>
+</context>
+<context>
+    <name>KeyMgmt</name>
+    <message>
+        <source>Keymanagement</source>
+        <translation type="unfinished">Administrador der Llaves</translation>
+    </message>
+    <message>
+        <source>&amp;Close Key Management</source>
+        <translation type="unfinished">&amp;Cerrar Administrador de Llaves</translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished">Crtl+Q</translation>
+    </message>
+    <message>
+        <source>Close Key Management</source>
+        <translation type="unfinished">Cerrar Administrador de Llaves</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished">&amp;Archivo</translation>
+    </message>
+    <message>
+        <source>Import New Key From File</source>
+        <translation type="unfinished">Importar Nueva Llave Desde Archivo</translation>
+    </message>
+    <message>
+        <source>&amp;Clipboard</source>
+        <translation type="unfinished">&amp;Portapapeles</translation>
+    </message>
+    <message>
+        <source>Import New Key From Clipboard</source>
+        <translation type="unfinished">Importar Nueva Llave Desde Portapapeles</translation>
+    </message>
+    <message>
+        <source>&amp;Keyserver</source>
+        <translation type="unfinished">&amp;Servidor de llaves</translation>
+    </message>
+    <message>
+        <source>Import New Key From Keyserver</source>
+        <translation type="unfinished">Importar Nueva Llave desde Servidor de Llaves</translation>
+    </message>
+    <message>
+        <source>Export To &amp;Clipboard</source>
+        <translation type="unfinished">Exportar A &amp;Portapapeles</translation>
+    </message>
+    <message>
+        <source>Export Selected Key(s) To Clipboard</source>
+        <translation type="unfinished">Exportar Llave(s) Seleccionada(s) A Portapapeles</translation>
+    </message>
+    <message>
+        <source>Export To &amp;File</source>
+        <translation type="unfinished">Exportar A &amp;Archivo</translation>
+    </message>
+    <message>
+        <source>Export Selected Key(s) To File</source>
+        <translation type="unfinished">Exportar Llave(s) Seleccionada(s) A Archivo</translation>
+    </message>
+    <message>
+        <source>Delete Selected Key(s)</source>
+        <translation type="unfinished">Borrar Llave(s) Seleccionada(s)</translation>
+    </message>
+    <message>
+        <source>Delete the Selected keys</source>
+        <translation type="unfinished">Borrar las Llaves Seleccionadas</translation>
+    </message>
+    <message>
+        <source>Delete Checked Key(s)</source>
+        <translation type="unfinished">Borrar Llave(s) Verificadas</translation>
+    </message>
+    <message>
+        <source>Delete the Checked keys</source>
+        <translation type="unfinished">Borrar las Llaves Verificadas</translation>
+    </message>
+    <message>
+        <source>Generate Key</source>
+        <translation type="unfinished">Crear Llave</translation>
+    </message>
+    <message>
+        <source>Generate New Key</source>
+        <translation type="unfinished">Crear Nueva Llave</translation>
+    </message>
+    <message>
+        <source>Show Keydetails</source>
+        <translation type="unfinished">Mostrar Detalles de Llave</translation>
+    </message>
+    <message>
+        <source>Show Details for this Key</source>
+        <translation type="unfinished">Mostrar Detalles para esta Llave</translation>
+    </message>
+    <message>
+        <source>&amp;Key</source>
+        <translation type="unfinished">&amp;Llave</translation>
+    </message>
+    <message>
+        <source>&amp;Import Key From...</source>
+        <translation type="unfinished">&amp;Importar Llave Desde...</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished">Llave</translation>
+    </message>
+    <message>
+        <source>Open Key</source>
+        <translation type="unfinished">Abrir Llave</translation>
+    </message>
+    <message>
+        <source>Key Files</source>
+        <translation type="unfinished">Archivos de Llaves</translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t Open File: </source>
+        <translation type="unfinished">No se pudo Abrir el Archivo: </translation>
+    </message>
+    <message>
+        <source>Deleting Keys</source>
+        <translation type="unfinished">Borrando Llaves</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Are you sure that you want to delete the following keys?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
+        <translation type="unfinished">¿Esta usted seguro de querer borrar las siguientes llaves?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;The action can not be undone.</source>
+        <translation type="unfinished">&lt;br/&gt; La accion no puede deshacerse.</translation>
+    </message>
+    <message>
+        <source>Export Key To File</source>
+        <translation type="unfinished">Exportar Llave a Archivo</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation type="unfinished">Nombre:</translation>
+    </message>
+    <message>
+        <source>E-Mailaddress::</source>
+        <translation type="unfinished">Direccion de Correo Electronico:</translation>
+    </message>
+    <message>
+        <source>Comment:</source>
+        <translation type="unfinished">Comentario:</translation>
+    </message>
+    <message>
+        <source>KeySize (in Bit):</source>
+        <translation type="unfinished">Tamaño Llave (en Bit):</translation>
+    </message>
+    <message>
+        <source>Expiration Date:</source>
+        <translation type="unfinished">Fecha Expiracion:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="unfinished">Contraseña:</translation>
+    </message>
+    <message>
+        <source>Repeat Password:</source>
+        <translation type="unfinished">Repetir Contraseña:</translation>
+    </message>
+    <message>
+        <source>Never Expire</source>
+        <translation type="unfinished">Nunca Expira</translation>
+    </message>
+    <message>
+        <source>Password: Strength
+Weak -&gt; Strong</source>
+        <translation type="unfinished">Contraseña: Fortaleza
+Debil -&gt; Fuerte</translation>
+    </message>
+    <message>
+        <source>Password Strength</source>
+        <translation type="unfinished">Fortaleza de la Contraseña</translation>
+    </message>
+    <message>
+        <source>  Name must contain at least five characters.  
+</source>
+        <translation type="unfinished">El nombre debe contener al menos cinco caracteres. 
+</translation>
+    </message>
+    <message>
+        <source>  Password and Repeat don&apos;t match.  </source>
+        <translation type="unfinished">  Contraseña y Repetir no coinciden.  </translation>
+    </message>
+    <message>
+        <source>Generating Key...</source>
+        <translation type="unfinished">Creando Llave...</translation>
+    </message>
+    <message>
+        <source>Collecting random data for key generation.
+ This may take a while.
+ To speed up the process use your computer
+ (e.g. browse the net, listen to music,...)</source>
+        <translation type="unfinished">Recogiendo datos aleatorios para crear llave.
+Puede tardar un rato.
+Para acelerar el proceso use su computadora
+(ejemplo, navegar por la Red, oir musica,...)</translation>
+    </message>
+</context>
+<context>
+    <name>KeyServerImportDialog</name>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;Cerrar</translation>
+    </message>
+    <message>
+        <source>&amp;Import</source>
+        <translation type="unfinished">&amp;Importar</translation>
+    </message>
+    <message>
+        <source>&amp;Search</source>
+        <translation type="unfinished">&amp;Buscar</translation>
+    </message>
+    <message>
+        <source>Search string:</source>
+        <translation type="unfinished">Buscar cadena de caracteres:</translation>
+    </message>
+    <message>
+        <source>Keyserver:</source>
+        <translation type="unfinished">Servidor de llaves:</translation>
+    </message>
+    <message>
+        <source>Import Keys from Keyserver</source>
+        <translation type="unfinished">Importar Llaves desde el Servidor de Llaves</translation>
+    </message>
+    <message>
+        <source>UID</source>
+        <translation type="unfinished">Tu ID</translation>
+    </message>
+    <message>
+        <source>Creation date</source>
+        <translation type="unfinished">Fecha de creacion</translation>
+    </message>
+    <message>
+        <source>KeyID</source>
+        <translation type="unfinished">ID de Llave</translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t contact keyserver!</source>
+        <translation type="unfinished">¡No se puede contactar la servidor de llaves!</translation>
+    </message>
+    <message>
+        <source>Too many responses from keyserver!</source>
+        <translation type="unfinished">¡Demasiadas respuestas desde el servidor de llaves!</translation>
+    </message>
+    <message>
+        <source>No keys found, input may be kexId, retrying search with 0x.</source>
+        <translation type="unfinished">No se encontraron llaves, el ingreso puede estar kexId, intentar buscar con 0x.</translation>
+    </message>
+    <message>
+        <source>No keys found containing the search string!</source>
+        <translation type="unfinished">¿No existen llaves con esa cadena de caracteres!</translation>
+    </message>
+    <message>
+        <source>Insufficiently specific search string!</source>
+        <translation type="unfinished">¡Cadena de caracteres insuficiente para busqueda!</translation>
+    </message>
+    <message>
+        <source>%1 keys found. Doubleclick a key to import it.</source>
+        <translation type="unfinished">%1 llaves encontradas. Pulse dos veces una llave para importarla.</translation>
+    </message>
+    <message>
+        <source>Error while contacting keyserver!</source>
+        <translation type="unfinished">¡Error mientras contactaba al servidor de llaves!</translation>
+    </message>
+    <message>
+        <source>Key imported</source>
+        <translation type="unfinished">Llave importada</translation>
+    </message>
+</context>
+<context>
+    <name>KeyserverTab</name>
+    <message>
+        <source>Default Keyserver for import:</source>
+        <translation type="unfinished">Servidor de llaves por defecto para importar:</translation>
+    </message>
+</context>
+<context>
+    <name>MimeTab</name>
+    <message>
+        <source>Decode quoted printable</source>
+        <translation type="unfinished">Descifrar quoted printable</translation>
+    </message>
+    <message>
+        <source>Try to recognize quoted printable.</source>
+        <translation type="unfinished">Intentar reconocer quoted printable.</translation>
+    </message>
+    <message>
+        <source>Parse PGP/MIME (Experimental)</source>
+        <translation type="unfinished">Analizar PGP/MIME (Experimental)</translation>
+    </message>
+    <message>
+        <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
+        <translation type="unfinished">Intenta separar los archivos adjuntos de los mensajes cifrados PGP-MIME.</translation>
+    </message>
+    <message>
+        <source>Open with external application (Experimental)</source>
+        <translation type="unfinished">Abrir con programa externo (Experimental)</translation>
+    </message>
+    <message>
+        <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
+        <translation type="unfinished">Abrir adjuntos con programa por defecto para el tipo de archivo &lt;br&gt;Hay al menos dos posibles problemas con esta opcion:&lt;ol&gt;&lt;li&gt;Se necesita guardar el archivo sin cifrar en la carpeta adjuntos &lt;br&gt;Es tarea suya limpiar esta carpeta &lt;/li&gt;&lt;li&gt;El programa externo puede tener sus propios archivos temporales &lt;/li&gt;&lt;/ol&gt;</translation>
+    </message>
+    <message>
+        <source>Enable opening with external applications.</source>
+        <translation type="unfinished">Permitir abrir con programas externos.</translation>
+    </message>
+</context>
+<context>
+    <name>QuitDialog</name>
+    <message>
+        <source>Unsaved files</source>
+        <translation type="unfinished">Archivos No guardados</translation>
+    </message>
+    <message>
+        <source>&lt;h3&gt;%1 files contain unsaved information.&lt;br/&gt;Save the changes before closing?&lt;/h3&gt;</source>
+        <translation type="unfinished">&lt;h3&gt;%1 archivos contienen informacion sin guardar.&lt;br/&gt;¿Guardar los cambios antes de cerrar?&lt;/h3&gt;</translation>
+    </message>
+    <message>
+        <source>Check the files you want to save:</source>
+        <translation type="unfinished">Verificar los archivos que usted quiere guardar:</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
+        <translation type="unfinished">&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios.&lt;br/&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsDialog</name>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">General</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished">Aspecto</translation>
+    </message>
+    <message>
+        <source>PGP/Mime</source>
+        <translation type="unfinished">PGP/Mime</translation>
+    </message>
+    <message>
+        <source>Keyserver</source>
+        <translation type="unfinished">Servidor de llaves</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished">Configuracion</translation>
+    </message>
+    <message>
+        <source>English</source>
+        <translation type="unfinished">Español</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
-        <location filename="../../textedit.cpp" line="46"/>
         <source>untitled</source>
-        <translation>sin nombre</translation>
+        <translation type="unfinished">sin nombre</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="58"/>
         <source>Open file</source>
-        <translation>Abrir archivo</translation>
+        <translation type="unfinished">Abrir archivo</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="81"/>
-        <location filename="../../textedit.cpp" line="335"/>
         <source>Application</source>
-        <translation>Programa</translation>
+        <translation type="unfinished">Programa</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="82"/>
-        <location filename="../../textedit.cpp" line="336"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>No puedo leer archivo %1:
+        <translation type="unfinished">No puedo leer archivo %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="129"/>
         <source>File</source>
-        <translation>Archivo</translation>
+        <translation type="unfinished">Archivo</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="130"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>No puedo escribir el archivo%1:
+        <translation type="unfinished">No puedo escribir archivo %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="148"/>
         <source>Save file </source>
-        <translation>Guardar archivo </translation>
+        <translation type="unfinished">Guardar archivo </translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="209"/>
         <source>Unsaved document</source>
-        <translation>Documento sin guardar</translation>
+        <translation type="unfinished">Documento sin guardar</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="210"/>
         <source>&lt;h3&gt;The document &quot;%1&quot; has been modified.&lt;br/&gt;Do you want to save your changes?&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;El documento &quot;%1&quot; ha sido modificado.&lt;br/&gt;Quiere guardar sus cambios? &lt;/h3&gt;</translation>
+        <translation type="unfinished">&lt;h3&gt;El documento &quot;%1&quot; ha sido modificado.&lt;br/&gt;¿Quiere guardar sus cambios? &lt;/h3&gt;</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="211"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
-        <translation>&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios. &lt;br/&gt;</translation>
+        <translation type="unfinished">&lt;b&gt;Nota:&lt;/b&gt;Si usted no guarda estos archivos, se perderan todos los cambios.&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
     <name>VerifyDetailsDialog</name>
     <message>
-        <location filename="../../verifydetailsdialog.cpp" line="30"/>
         <source>Signaturedetails</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Detalles de firma</translation>
     </message>
     <message>
-        <location filename="../../verifydetailsdialog.cpp" line="63"/>
-        <source>Text was completly signed on %1 by:
-</source>
-        <translation type="unfinished"></translation>
+        <source>Error Validating signature</source>
+        <translation type="unfinished">Error al Validar firma</translation>
     </message>
     <message>
-        <location filename="../../verifydetailsdialog.cpp" line="68"/>
-        <source>Text was partially signed on %1 by:
+        <source>Text was completely signed on
+ %1 by:
 </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">El texto se registro completamente
+ %1 por:</translation>
+    </message>
+    <message>
+        <source>Text was partially signed on
+ %1 by:
+</source>
+        <translation type="unfinished">El texto se registro parcialmente
+ %1 por:</translation>
     </message>
 </context>
 <context>
     <name>VerifyKeyDetailBox</name>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="38"/>
         <source>Import from keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Importar desde servidor de llaves</translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="41"/>
-        <location filename="../../verifykeydetailbox.cpp" line="53"/>
-        <location filename="../../verifykeydetailbox.cpp" line="64"/>
+        <source>Key not present with id 0x</source>
+        <translation type="unfinished">Llave ausente con id 0x</translation>
+    </message>
+    <message>
         <source>Status:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Estado:</translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="42"/>
-        <location filename="../../verifykeydetailbox.cpp" line="52"/>
-        <location filename="../../verifykeydetailbox.cpp" line="65"/>
-        <source>Fingerprint:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../verifykeydetailbox.cpp" line="43"/>
         <source>Key not present in keylist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Llave ausente en la lista de llaves</translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="50"/>
         <source>Name:</source>
         <translation type="unfinished">Nombre:</translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="51"/>
         <source>EMail:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Correo electronico:</translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="58"/>
+        <source>Fingerprint:</source>
+        <translation type="unfinished">Huella Digital:</translation>
+    </message>
+    <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">OK</translation>
+    </message>
+    <message>
+        <source>Error for key with id 0x</source>
+        <translation type="unfinished">Error para llave con id 0x</translation>
     </message>
 </context>
 <context>
     <name>VerifyNotification</name>
     <message>
-        <location filename="../../verifynotification.cpp" line="34"/>
         <source>Import missing key from Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Importar llave faltante desde Servidor de llaves</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="37"/>
         <source>Show detailed verify information</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mostrar informacion de verificacion detallada</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="118"/>
-        <source>Key not present with Fingerprint: </source>
-        <translation type="unfinished"></translation>
+        <source>Key not present with id 0x</source>
+        <translation type="unfinished">Llave ausente con id 0x</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="136"/>
         <source>Error for key with fingerprint </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Error para la llave con huella digital</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="148"/>
-        <source>Text is completly signed by: </source>
-        <translation type="unfinished"></translation>
+        <source>Error validating signature by: </source>
+        <translation type="unfinished">Error al validar firma de:</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="153"/>
-        <source>Text is partially signed by: </source>
-        <translation type="unfinished"></translation>
+        <source>Text was completely signed by: </source>
+        <translation type="unfinished">El texto fue completamente firmado por:</translation>
+    </message>
+    <message>
+        <source>Text was partially signed by: </source>
+        <translation type="unfinished">El texto fue parcialmente firmado por:</translation>
     </message>
 </context>
 </TS>
