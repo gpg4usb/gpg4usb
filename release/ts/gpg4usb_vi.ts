@@ -1268,7 +1268,7 @@ Yếu -&gt; Mạnh</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="180"/>
         <source>English</source>
-        <translation>English</translation>
+        <translation>Tiếng Việt</translation>
     </message>
 </context>
 <context>
