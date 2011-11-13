@@ -501,7 +501,7 @@ void GpgWin::about()
                                      "<b>Developer:</b><br>"
                                      "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                                      "<b>Translation:</b><br>"
-                                     "Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) <br><br>"
+                                     "Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) <br><br>"
                                      "If you have any questions or suggestions have a look<br/>"
                                      "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"
                                      "contact page</a> or send a mail to our<br/> mailing list at"
