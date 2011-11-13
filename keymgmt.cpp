@@ -49,8 +49,7 @@ KeyMgmt::KeyMgmt(GpgME::Context *ctx, QString iconpath)
     this->restoreState(settings.value("keymgmt/windowState").toByteArray());
 
     // Restore window size & location
-    Qt::CheckState windowSave = static_cast<Qt::CheckState>(settings.value("window/windowSave", Qt::Unchecked).toUInt());
-    if (windowSave == Qt::Checked) {
+    if (settings.value("window/windowSave").toBool()) {
         QPoint pos = settings.value("keymgmt/pos", QPoint(100, 100)).toPoint();
         QSize size = settings.value("keymgmt/size", QSize(800, 450)).toSize();
         this->resize(size);
@@ -70,7 +69,7 @@ void KeyMgmt::createActions()
     closeAct->setShortcut(tr("Ctrl+Q"));
     closeAct->setIcon(QIcon(mIconPath + "exit.png"));
     closeAct->setToolTip(tr("Close Key Management"));
-    connect(closeAct, SIGNAL(triggered()), this, SLOT(hide()));
+    connect(closeAct, SIGNAL(triggered()), this, SLOT(close()));
 
     importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(mIconPath + "import_key_from_file.png"));
