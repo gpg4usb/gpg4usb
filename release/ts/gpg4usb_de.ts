@@ -481,7 +481,7 @@
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="338"/>
-        <location filename="../../gpgwin.cpp" line="700"/>
+        <location filename="../../gpgwin.cpp" line="716"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
@@ -692,11 +692,16 @@
         <translation>Fertig</translation>
     </message>
     <message>
+        <location filename="../../gpgwin.cpp" line="498"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
         <translation type="obsolete">&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;kontaktieren sie uns unter&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen Sie uns in unserem xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt; oder senden Sie eine Email an unsere Mailingliste unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="703"/>
+        <location filename="../../gpgwin.cpp" line="719"/>
         <source>&amp;Keyserver</source>
         <translation>&amp;Schlüsselserver</translation>
     </message>
@@ -778,17 +783,16 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="277"/>
-        <location filename="../../gpgwin.cpp" line="701"/>
+        <location filename="../../gpgwin.cpp" line="717"/>
         <source>&amp;Editor</source>
         <translation>&amp;Editor</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="498"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;kontaktieren sie uns unter&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen Sie uns in unserem xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt; oder senden Sie eine Email an unsere Mailingliste unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation type="obsolete">&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;kontaktieren sie uns unter&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen Sie uns in unserem xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt; oder senden Sie eine Email an unsere Mailingliste unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="702"/>
+        <location filename="../../gpgwin.cpp" line="718"/>
         <source>&amp;Clipboard</source>
         <translation>&amp;Zwischenablage</translation>
     </message>
@@ -798,7 +802,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../gpgwin.cpp" line="287"/>
-        <location filename="../../gpgwin.cpp" line="691"/>
+        <location filename="../../gpgwin.cpp" line="707"/>
         <source>Import Key</source>
         <translation>Schlüsselimport</translation>
     </message>
@@ -830,7 +834,7 @@ Do you want to save your changes?</source>
         <translation type="obsolete">Alle Dateien</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="699"/>
+        <location filename="../../gpgwin.cpp" line="715"/>
         <source>Import Key From...</source>
         <translation>Impoertiere neuen Schlüssel aus...</translation>
     </message>
@@ -1077,7 +1081,7 @@ also geben sie ihn nicht weiter.</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="108"/>
-        <location filename="../../keymgmt.cpp" line="259"/>
+        <location filename="../../keymgmt.cpp" line="263"/>
         <source>Generate Key</source>
         <translation>Erzeuge neuen Schlüssel</translation>
     </message>
@@ -1133,7 +1137,7 @@ also geben sie ihn nicht weiter.</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="152"/>
-        <location filename="../../keymgmt.cpp" line="232"/>
+        <location filename="../../keymgmt.cpp" line="236"/>
         <source>Key Files</source>
         <translation>Schlüssel Dateien</translation>
     </message>
@@ -1164,80 +1168,80 @@ The action can not be undone.</source>
 Die Aktion kann nicht rückgängig gemacht werden.</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="232"/>
+        <location filename="../../keymgmt.cpp" line="236"/>
         <source>Export Key To File</source>
         <translation>Schlüssel exportieren</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="262"/>
+        <location filename="../../keymgmt.cpp" line="266"/>
         <source>Name:</source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="263"/>
+        <location filename="../../keymgmt.cpp" line="267"/>
         <source>E-Mailaddress::</source>
         <translation>E-Mailadresse:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="264"/>
+        <location filename="../../keymgmt.cpp" line="268"/>
         <source>Comment:</source>
         <translation>Kommentar:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="265"/>
+        <location filename="../../keymgmt.cpp" line="269"/>
         <source>KeySize (in Bit):</source>
         <translation>Schlüsselgröße (in Bit):</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="266"/>
+        <location filename="../../keymgmt.cpp" line="270"/>
         <source>Expiration Date:</source>
         <translation>Ablaufdatum:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="267"/>
+        <location filename="../../keymgmt.cpp" line="271"/>
         <source>Password:</source>
         <translation>Passwort:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="268"/>
+        <location filename="../../keymgmt.cpp" line="272"/>
         <source>Repeat Password:</source>
         <translation>Passwort wiederholen:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="269"/>
+        <location filename="../../keymgmt.cpp" line="273"/>
         <source>Never Expire</source>
         <translation>läuft nie ab</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="270"/>
+        <location filename="../../keymgmt.cpp" line="274"/>
         <source>Password: Strength
 Weak -&gt; Strong</source>
         <translation>Passwortstärke
 Schwach -&gt; Stark</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="301"/>
+        <location filename="../../keymgmt.cpp" line="305"/>
         <source>Password Strength</source>
         <translation>Passwortstärke</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="353"/>
+        <location filename="../../keymgmt.cpp" line="357"/>
         <source>  Name must contain at least five characters.  
 </source>
         <translation>Name muss mindestens 5 Buchstaben lang sein.</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="356"/>
+        <location filename="../../keymgmt.cpp" line="360"/>
         <source>  Password and Repeat don&apos;t match.  </source>
         <translation>Passwort und Wiederholung stimmen nicht überein.</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="393"/>
+        <location filename="../../keymgmt.cpp" line="397"/>
         <source>Generating Key...</source>
         <translation>Erzeuge Schlüssel...</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="395"/>
+        <location filename="../../keymgmt.cpp" line="399"/>
         <source>Collecting random data for key generation.
  This may take a while.
  To speed up the process use your computer
@@ -1553,45 +1557,45 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="81"/>
-        <location filename="../../textedit.cpp" line="335"/>
+        <location filename="../../textedit.cpp" line="352"/>
         <source>Application</source>
         <translation>Anwendung</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="82"/>
-        <location filename="../../textedit.cpp" line="336"/>
+        <location filename="../../textedit.cpp" line="353"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Kann Datei nicht lesen %1: %2.</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="129"/>
+        <location filename="../../textedit.cpp" line="133"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="130"/>
+        <location filename="../../textedit.cpp" line="134"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Kann Datei nicht schreiben %1: %2.</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="148"/>
+        <location filename="../../textedit.cpp" line="156"/>
         <source>Save file </source>
         <translation>Speichere Datei</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="209"/>
+        <location filename="../../textedit.cpp" line="217"/>
         <source>Unsaved document</source>
         <translation>Ungesichertes Dokument</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="210"/>
+        <location filename="../../textedit.cpp" line="218"/>
         <source>&lt;h3&gt;The document &quot;%1&quot; has been modified.&lt;br/&gt;Do you want to save your changes?&lt;/h3&gt;</source>
         <translation>&lt;h3&gt; Das Dokument &quot;%1&quot; wurde verändert.&lt;br/&gt;Möchten Sie die Änderungen speichern?&lt;/h3&gt;</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="211"/>
+        <location filename="../../textedit.cpp" line="219"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
         <translation>&lt;b&gt;Achtung:&lt;/b&gt;Falls sie nicht speichern, gehen die Änderungen unwiderruflich verloren.&lt;br/&gt;</translation>
     </message>

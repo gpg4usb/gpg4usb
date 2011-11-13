@@ -57,12 +57,12 @@
 <context>
     <name>AttachmentTableModel</name>
     <message>
-        <location filename="../../attachmenttablemodel.cpp" line="113"/>
+        <location filename="../../attachmenttablemodel.cpp" line="134"/>
         <source>Filename</source>
         <translation>Имя файла</translation>
     </message>
     <message>
-        <location filename="../../attachmenttablemodel.cpp" line="116"/>
+        <location filename="../../attachmenttablemodel.cpp" line="137"/>
         <source>Contenttype</source>
         <translation>Тип содержимого</translation>
     </message>
@@ -75,7 +75,7 @@
     </message>
     <message>
         <location filename="../../attachments.cpp" line="81"/>
-        <location filename="../../attachments.cpp" line="114"/>
+        <location filename="../../attachments.cpp" line="118"/>
         <source>Save File</source>
         <translation>Сохранить файл</translation>
     </message>
@@ -95,14 +95,14 @@
         <translation>Открыть этот файл</translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="120"/>
-        <location filename="../../attachments.cpp" line="164"/>
+        <location filename="../../attachments.cpp" line="124"/>
+        <location filename="../../attachments.cpp" line="168"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../attachments.cpp" line="121"/>
-        <location filename="../../attachments.cpp" line="165"/>
+        <location filename="../../attachments.cpp" line="125"/>
+        <location filename="../../attachments.cpp" line="169"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Не удалось записать файл %1:
@@ -265,246 +265,251 @@
         <translation>Введите  Пароль</translation>
     </message>
     <message>
-        <location filename="../../context.cpp" line="554"/>
+        <location filename="../../context.cpp" line="562"/>
         <source>Key Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбор Ключа</translation>
     </message>
     <message>
-        <location filename="../../context.cpp" line="554"/>
+        <location filename="../../context.cpp" line="562"/>
         <source>No Private Key Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Не выбран  Секретный Ключ</translation>
     </message>
     <message>
-        <location filename="../../context.cpp" line="602"/>
+        <location filename="../../context.cpp" line="610"/>
         <source>Error signing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка подписания:</translation>
     </message>
 </context>
 <context>
     <name>GpgWin</name>
     <message>
-        <location filename="../../gpgwin.cpp" line="140"/>
+        <location filename="../../gpgwin.cpp" line="154"/>
         <source>&amp;Open...</source>
         <translation>&amp;Открыть...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="143"/>
+        <location filename="../../gpgwin.cpp" line="157"/>
         <source>Open an existing file</source>
         <translation>Открать существующий файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="146"/>
+        <location filename="../../gpgwin.cpp" line="160"/>
         <source>&amp;Save</source>
         <translation>&amp;Сохранить</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="149"/>
+        <location filename="../../gpgwin.cpp" line="163"/>
         <source>Save the current File</source>
         <translation>Сохранить файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="152"/>
+        <location filename="../../gpgwin.cpp" line="166"/>
         <source>Save &amp;As</source>
         <translation>Сохранить &amp;как</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="155"/>
+        <location filename="../../gpgwin.cpp" line="169"/>
         <source>Save the current File as...</source>
         <translation>Сохранить файл как...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="158"/>
+        <location filename="../../gpgwin.cpp" line="172"/>
         <source>&amp;Print</source>
         <translation>&amp;Печать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="161"/>
+        <location filename="../../gpgwin.cpp" line="175"/>
         <source>Print Document</source>
         <translation>Печать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="164"/>
-        <location filename="../../gpgwin.cpp" line="478"/>
+        <location filename="../../gpgwin.cpp" line="178"/>
+        <location filename="../../gpgwin.cpp" line="512"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="166"/>
+        <location filename="../../gpgwin.cpp" line="180"/>
         <source>Close file</source>
         <translation>Закрыть файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="169"/>
+        <location filename="../../gpgwin.cpp" line="183"/>
         <source>&amp;Quit</source>
         <translation>Вы&amp;йти</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="172"/>
+        <location filename="../../gpgwin.cpp" line="186"/>
         <source>Quit Program</source>
         <translation>Завершить программу</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="177"/>
+        <location filename="../../gpgwin.cpp" line="191"/>
         <source>&amp;Undo</source>
         <translation>&amp;Отменить</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="179"/>
+        <location filename="../../gpgwin.cpp" line="193"/>
         <source>Undo Last Edit Action</source>
         <translation>Отменить последнее действие</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="182"/>
+        <location filename="../../gpgwin.cpp" line="196"/>
         <source>&amp;Redo</source>
         <translation>&amp;Вернуть отмену</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="184"/>
+        <location filename="../../gpgwin.cpp" line="198"/>
         <source>Redo Last Edit Action</source>
         <translation>Вернуть последнее изменение</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="187"/>
+        <location filename="../../gpgwin.cpp" line="201"/>
         <source>&amp;Paste</source>
         <translation>&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="190"/>
+        <location filename="../../gpgwin.cpp" line="204"/>
         <source>Paste Text From Clipboard</source>
         <translation>Вставить текст из Буфера Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="193"/>
+        <location filename="../../gpgwin.cpp" line="207"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Вырезать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="196"/>
+        <location filename="../../gpgwin.cpp" line="210"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
         <translation>Вырезать выделенные элементы в Буфер Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="200"/>
+        <location filename="../../gpgwin.cpp" line="214"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="203"/>
+        <location filename="../../gpgwin.cpp" line="217"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
         <translation>Копировать выделенные элементы в Буфер Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="207"/>
+        <location filename="../../gpgwin.cpp" line="221"/>
         <source>&amp;Quote</source>
         <translation>&amp;Цитировать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="209"/>
+        <location filename="../../gpgwin.cpp" line="223"/>
         <source>Quote whole text</source>
         <translation>Цитировать весь текст</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="212"/>
+        <location filename="../../gpgwin.cpp" line="226"/>
         <source>Select &amp;All</source>
         <translation>В&amp;ыделить всё</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="215"/>
+        <location filename="../../gpgwin.cpp" line="229"/>
         <source>Select the whole text</source>
         <translation>Выделить весь текст</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="218"/>
+        <location filename="../../gpgwin.cpp" line="232"/>
         <source>Remove double &amp;Linebreaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить двойной &amp;перенос строк</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="221"/>
+        <location filename="../../gpgwin.cpp" line="235"/>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить двойной перенос строк, например в тексте, вставленном из браузера</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="225"/>
+        <location filename="../../gpgwin.cpp" line="239"/>
         <source>Open settings dialog</source>
         <translation>Открыть окно настроек</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="231"/>
+        <location filename="../../gpgwin.cpp" line="245"/>
         <source>&amp;Encrypt</source>
         <translation>З&amp;ашифровать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="234"/>
+        <location filename="../../gpgwin.cpp" line="248"/>
         <source>Encrypt Message</source>
         <translation>Зашифровать текст</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="237"/>
+        <location filename="../../gpgwin.cpp" line="251"/>
         <source>&amp;Decrypt</source>
         <translation>Расшифро&amp;вать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="240"/>
+        <location filename="../../gpgwin.cpp" line="254"/>
         <source>Decrypt Message</source>
         <translation>Расшифровать текст</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="248"/>
+        <location filename="../../gpgwin.cpp" line="262"/>
         <source>&amp;Sign</source>
         <translation>&amp;Подписать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="251"/>
+        <location filename="../../gpgwin.cpp" line="265"/>
         <source>Sign Message</source>
         <translation>Подписать сообщение</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="254"/>
+        <location filename="../../gpgwin.cpp" line="268"/>
         <source>&amp;Verify</source>
         <translation>&amp;Проверить</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="257"/>
+        <location filename="../../gpgwin.cpp" line="271"/>
         <source>Verify Message</source>
         <translation>Проверить сообщение</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="669"/>
-        <source>&amp;Keyserver</source>
+        <location filename="../../gpgwin.cpp" line="498"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../gpgwin.cpp" line="719"/>
+        <source>&amp;Keyserver</source>
+        <translation>Сервера &amp;ключей</translation>
     </message>
     <message>
         <source>Import New Key From File</source>
         <translation type="obsolete">Импорт нового ключа из файла</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="265"/>
+        <location filename="../../gpgwin.cpp" line="279"/>
         <source>Import New Key From Editor</source>
         <translation>Импорт нового ключа из редактора</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="280"/>
+        <location filename="../../gpgwin.cpp" line="294"/>
         <source>&amp;About</source>
         <translation>&amp;О программе</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="282"/>
+        <location filename="../../gpgwin.cpp" line="296"/>
         <source>Show the application&apos;s About box</source>
         <translation>Показать инфо о программе</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="324"/>
-        <location filename="../../gpgwin.cpp" line="666"/>
+        <location filename="../../gpgwin.cpp" line="338"/>
+        <location filename="../../gpgwin.cpp" line="716"/>
         <source>&amp;File</source>
         <translation>Ф&amp;айл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="336"/>
+        <location filename="../../gpgwin.cpp" line="350"/>
         <source>&amp;Edit</source>
         <translation>&amp;Правка</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="370"/>
+        <location filename="../../gpgwin.cpp" line="384"/>
         <source>&amp;Help</source>
         <translation>&amp;Справка</translation>
     </message>
@@ -513,132 +518,132 @@
         <translation type="obsolete">Файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="393"/>
+        <location filename="../../gpgwin.cpp" line="407"/>
         <source>Edit</source>
         <translation>Правка</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="224"/>
+        <location filename="../../gpgwin.cpp" line="238"/>
         <source>Se&amp;ttings</source>
         <translation>&amp;Настройки</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="131"/>
+        <location filename="../../gpgwin.cpp" line="145"/>
         <source>&amp;New</source>
         <translation>&amp;Создать</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="137"/>
+        <location filename="../../gpgwin.cpp" line="151"/>
         <source>Open a new file</source>
         <translation>Открыть новый файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="243"/>
+        <location filename="../../gpgwin.cpp" line="257"/>
         <source>&amp;File Encryption</source>
         <translation>Шифрование &amp;файлов</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="245"/>
+        <location filename="../../gpgwin.cpp" line="259"/>
         <source>Encrypt/Decrypt File</source>
         <translation>Зашифровать/Расшифровать файл</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="268"/>
+        <location filename="../../gpgwin.cpp" line="282"/>
         <source>Key Management</source>
         <translation>Менеджер ключей</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="270"/>
+        <location filename="../../gpgwin.cpp" line="284"/>
         <source>Open Keymanagement</source>
         <translation>Открыть Менеджер ключей</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="275"/>
+        <location filename="../../gpgwin.cpp" line="289"/>
         <source>Open Import New Key Dialog</source>
         <translation>Открыть окно импорта ключей</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="285"/>
+        <location filename="../../gpgwin.cpp" line="299"/>
         <source>Online &amp;Tutorial</source>
         <translation>Онлайн-&amp;руководство</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="287"/>
+        <location filename="../../gpgwin.cpp" line="301"/>
         <source>Open Online Tutorial</source>
         <translation>Открыть онлайн-руководство</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="290"/>
+        <location filename="../../gpgwin.cpp" line="304"/>
         <source>Translate gpg4usb</source>
         <translation>Перевести gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="291"/>
+        <location filename="../../gpgwin.cpp" line="305"/>
         <source>Translate gpg4usb yourself</source>
         <translation>Самостоятельно перевести gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="296"/>
+        <location filename="../../gpgwin.cpp" line="310"/>
         <source>Append Selected Key(s) To Text</source>
         <translation>Добавить выбранн. ключ(и) к тексту</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="297"/>
+        <location filename="../../gpgwin.cpp" line="311"/>
         <source>Append The Selected Keys To Text in Editor</source>
         <translation>Добавить выбранный ключ к тексту в редакторе</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="300"/>
+        <location filename="../../gpgwin.cpp" line="314"/>
         <source>Copy EMail-address</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать адрес eMail</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="301"/>
+        <location filename="../../gpgwin.cpp" line="315"/>
         <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать выбранный адрес eMail в Буфер Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="305"/>
+        <location filename="../../gpgwin.cpp" line="319"/>
         <source>Show Keydetails</source>
         <translation>Показать свойства ключа</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="306"/>
+        <location filename="../../gpgwin.cpp" line="320"/>
         <source>Show Details for this Key</source>
         <translation>Показать детали для этого ключа</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="358"/>
+        <location filename="../../gpgwin.cpp" line="372"/>
         <source>&amp;Keys</source>
         <translation>&amp;Ключи</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="359"/>
+        <location filename="../../gpgwin.cpp" line="373"/>
         <source>&amp;Import Key From...</source>
         <translation>&amp;Импорт ключа из...</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="368"/>
+        <location filename="../../gpgwin.cpp" line="382"/>
         <source>&amp;View</source>
         <translation>&amp;Вид</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="387"/>
+        <location filename="../../gpgwin.cpp" line="401"/>
         <source>Key</source>
         <translation>Ключ</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="414"/>
+        <location filename="../../gpgwin.cpp" line="428"/>
         <source>Ready</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="422"/>
+        <location filename="../../gpgwin.cpp" line="436"/>
         <source>Encrypt for:</source>
         <translation> Зашифровать для:</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="431"/>
+        <location filename="../../gpgwin.cpp" line="455"/>
         <source>Attached files:</source>
         <translation>Прикреплённые файлы:</translation>
     </message>
@@ -681,13 +686,13 @@ Do you want to save your changes?</source>
         <translation type="obsolete">Не удалось открыть файл: </translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="263"/>
-        <location filename="../../gpgwin.cpp" line="667"/>
+        <location filename="../../gpgwin.cpp" line="277"/>
+        <location filename="../../gpgwin.cpp" line="717"/>
         <source>&amp;Editor</source>
         <translation>Окна &amp;редактора</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="668"/>
+        <location filename="../../gpgwin.cpp" line="718"/>
         <source>&amp;Clipboard</source>
         <translation>&amp;Буфера Обмена</translation>
     </message>
@@ -696,43 +701,38 @@ Do you want to save your changes?</source>
         <translation type="obsolete">Импорт нового ключа из Буфера Обмена</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="273"/>
-        <location filename="../../gpgwin.cpp" line="657"/>
+        <location filename="../../gpgwin.cpp" line="287"/>
+        <location filename="../../gpgwin.cpp" line="707"/>
         <source>Import Key</source>
         <translation>Импорт ключа</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="349"/>
+        <location filename="../../gpgwin.cpp" line="363"/>
         <source>&amp;Crypt</source>
         <translation>&amp;Шифрование</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="378"/>
+        <location filename="../../gpgwin.cpp" line="392"/>
         <source>Crypt</source>
         <translation>Шифрование</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="461"/>
+        <location filename="../../gpgwin.cpp" line="495"/>
         <source>About </source>
         <translation>О программе </translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="464"/>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../gpgwin.cpp" line="556"/>
+        <location filename="../../gpgwin.cpp" line="590"/>
         <source>There is one unencrypted file in attachment folder</source>
         <translation>Имеется один незашифрованный файл в папке вложений</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="558"/>
+        <location filename="../../gpgwin.cpp" line="592"/>
         <source>There are </source>
         <translation>Имеются</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="558"/>
+        <location filename="../../gpgwin.cpp" line="592"/>
         <source> unencrypted files in attachment folder</source>
         <translation>незашифрованные файлы в папке вложений</translation>
     </message>
@@ -745,7 +745,7 @@ Do you want to save your changes?</source>
         <translation type="obsolete">Все файлы</translation>
     </message>
     <message>
-        <location filename="../../gpgwin.cpp" line="665"/>
+        <location filename="../../gpgwin.cpp" line="715"/>
         <source>Import Key From...</source>
         <translation>Импорт ключа из...</translation>
     </message>
@@ -793,14 +793,24 @@ Do you want to save your changes?</source>
         <translation>Создан:</translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="129"/>
+        <location filename="../../keydetailsdialog.cpp" line="44"/>
+        <source>Key ID: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keydetailsdialog.cpp" line="137"/>
+        <source>Warning: Key expired</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keydetailsdialog.cpp" line="150"/>
         <source>Keydetails</source>
         <translation>Свойства ключа</translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="149"/>
+        <location filename="../../keydetailsdialog.cpp" line="170"/>
         <source>Key Files</source>
-        <translation type="unfinished">Файлы ключей</translation>
+        <translation>Файлы ключей</translation>
     </message>
     <message>
         <source>Key Files </source>
@@ -817,32 +827,32 @@ Do you want to save your changes?</source>
         <translation>Алгоритм: </translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="52"/>
+        <location filename="../../keydetailsdialog.cpp" line="55"/>
         <source>Never</source>
         <translation>Никогда</translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="64"/>
+        <location filename="../../keydetailsdialog.cpp" line="67"/>
         <source> / Never</source>
         <translation> / Никогда</translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="115"/>
+        <location filename="../../keydetailsdialog.cpp" line="120"/>
         <source>Private Key</source>
         <translation>Секретный ключ</translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="118"/>
+        <location filename="../../keydetailsdialog.cpp" line="123"/>
         <source>Export Private Key</source>
         <translation>Экспортировать Секретный ключ</translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="138"/>
+        <location filename="../../keydetailsdialog.cpp" line="159"/>
         <source>Exporting private Key</source>
         <translation>Экспорт Секретного ключа</translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="139"/>
+        <location filename="../../keydetailsdialog.cpp" line="160"/>
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.</source>
@@ -851,7 +861,7 @@ Make sure you keep it save.</source>
 Убедитесь, что он хранится в Надёжном Месте.</translation>
     </message>
     <message>
-        <location filename="../../keydetailsdialog.cpp" line="149"/>
+        <location filename="../../keydetailsdialog.cpp" line="170"/>
         <source>Export Key To File</source>
         <translation>Экспорт ключа в файл</translation>
     </message>
@@ -869,24 +879,24 @@ Make sure you keep it save.</source>
         <translation>eMail</translation>
     </message>
     <message>
-        <location filename="../../keylist.cpp" line="197"/>
+        <location filename="../../keylist.cpp" line="219"/>
         <source>Import Keys</source>
         <translation>Импорт ключей</translation>
     </message>
     <message>
-        <location filename="../../keylist.cpp" line="199"/>
+        <location filename="../../keylist.cpp" line="221"/>
         <source>You&apos;ve dropped something on the keylist.
  gpg4usb will now try to import key(s).</source>
         <translation>Вы перетащили что-то в список ключей.
 gpg4usb попробует импортировать ключ(и).</translation>
     </message>
     <message>
-        <location filename="../../keylist.cpp" line="202"/>
+        <location filename="../../keylist.cpp" line="224"/>
         <source>Always import without bothering.</source>
         <translation>Всегда импортировать, не создавая дубликатов.</translation>
     </message>
     <message>
-        <location filename="../../keylist.cpp" line="238"/>
+        <location filename="../../keylist.cpp" line="260"/>
         <source>Couldn&apos;t Open File: </source>
         <translation>Не удалось открыть файл: </translation>
     </message>
@@ -894,22 +904,22 @@ gpg4usb попробует импортировать ключ(и).</translation
 <context>
     <name>KeyMgmt</name>
     <message>
-        <location filename="../../keymgmt.cpp" line="62"/>
+        <location filename="../../keymgmt.cpp" line="61"/>
         <source>Keymanagement</source>
         <translation>Менеджер ключей</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="69"/>
+        <location filename="../../keymgmt.cpp" line="68"/>
         <source>&amp;Close Key Management</source>
         <translation>Закр&amp;ыть Менеджер ключей</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="70"/>
+        <location filename="../../keymgmt.cpp" line="69"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="72"/>
+        <location filename="../../keymgmt.cpp" line="71"/>
         <source>Close Key Management</source>
         <translation>Закрыть Менеджер ключей</translation>
     </message>
@@ -918,7 +928,7 @@ gpg4usb попробует импортировать ключ(и).</translation
         <translation type="obsolete">Импорт из ф&amp;айла</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="77"/>
+        <location filename="../../keymgmt.cpp" line="76"/>
         <source>Import New Key From File</source>
         <translation>Импорт нового ключа из файла</translation>
     </message>
@@ -927,19 +937,19 @@ gpg4usb попробует импортировать ключ(и).</translation
         <translation type="obsolete">Импорт из &amp;Буфера Обмена</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="82"/>
+        <location filename="../../keymgmt.cpp" line="81"/>
         <source>Import New Key From Clipboard</source>
         <translation>Импорт нового ключа из Буфера Обмена</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="85"/>
+        <location filename="../../keymgmt.cpp" line="84"/>
         <source>&amp;Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер &amp;Ключей</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="86"/>
         <source>Import New Key From Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт нового ключа с сервера ключей</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="89"/>
@@ -983,7 +993,7 @@ gpg4usb попробует импортировать ключ(и).</translation
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="108"/>
-        <location filename="../../keymgmt.cpp" line="258"/>
+        <location filename="../../keymgmt.cpp" line="263"/>
         <source>Generate Key</source>
         <translation>Генерировать ключ</translation>
     </message>
@@ -1005,23 +1015,23 @@ gpg4usb попробует импортировать ключ(и).</translation
     <message>
         <location filename="../../keymgmt.cpp" line="124"/>
         <source>&amp;Import Key From...</source>
-        <translation type="unfinished">&amp;Импорт ключа из...</translation>
+        <translation>&amp;Импорт ключа из...</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="138"/>
         <source>Key</source>
-        <translation type="unfinished">Ключ</translation>
+        <translation>Ключ</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="75"/>
+        <location filename="../../keymgmt.cpp" line="74"/>
         <location filename="../../keymgmt.cpp" line="120"/>
         <source>&amp;File</source>
         <translation>Ф&amp;айл</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="80"/>
+        <location filename="../../keymgmt.cpp" line="79"/>
         <source>&amp;Clipboard</source>
-        <translation type="unfinished">&amp;Буфера Обмена</translation>
+        <translation>&amp;Буфера Обмена</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="123"/>
@@ -1033,33 +1043,33 @@ gpg4usb попробует импортировать ключ(и).</translation
         <translation type="obsolete">Шифрование</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="151"/>
+        <location filename="../../keymgmt.cpp" line="152"/>
         <source>Open Key</source>
         <translation>Открыть ключ</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="151"/>
-        <location filename="../../keymgmt.cpp" line="231"/>
+        <location filename="../../keymgmt.cpp" line="152"/>
+        <location filename="../../keymgmt.cpp" line="236"/>
         <source>Key Files</source>
         <translation>Файлы ключей</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="156"/>
+        <location filename="../../keymgmt.cpp" line="157"/>
         <source>Couldn&apos;t Open File: </source>
         <translation>Не удалось открыть файл: </translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="204"/>
+        <location filename="../../keymgmt.cpp" line="205"/>
         <source>Deleting Keys</source>
         <translation>Удаление ключа</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="205"/>
+        <location filename="../../keymgmt.cpp" line="206"/>
         <source>&lt;b&gt;Are you sure that you want to delete the following keys?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Вы уверены, что хотите стереть следующие ключи?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="206"/>
+        <location filename="../../keymgmt.cpp" line="207"/>
         <source>&lt;br/&gt;The action can not be undone.</source>
         <translation>&lt;br/&gt;Это действие нельзя будет отменить.</translation>
     </message>
@@ -1070,81 +1080,81 @@ The action can not be undone.</source>
 Это действие будет необратимым.</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="231"/>
+        <location filename="../../keymgmt.cpp" line="236"/>
         <source>Export Key To File</source>
         <translation>Экспорт ключа в файл</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="261"/>
+        <location filename="../../keymgmt.cpp" line="266"/>
         <source>Name:</source>
         <translation>Имя:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="262"/>
+        <location filename="../../keymgmt.cpp" line="267"/>
         <source>E-Mailaddress::</source>
         <translation>Адрес eMail:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="263"/>
+        <location filename="../../keymgmt.cpp" line="268"/>
         <source>Comment:</source>
         <translation>Комментарий:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="264"/>
+        <location filename="../../keymgmt.cpp" line="269"/>
         <source>KeySize (in Bit):</source>
         <translation>Длина ключа (бит):</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="265"/>
+        <location filename="../../keymgmt.cpp" line="270"/>
         <source>Expiration Date:</source>
         <translation>Истекает:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="266"/>
+        <location filename="../../keymgmt.cpp" line="271"/>
         <source>Password:</source>
         <translation>Пароль:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="267"/>
+        <location filename="../../keymgmt.cpp" line="272"/>
         <source>Repeat Password:</source>
         <translation>Повторите Пароль:</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="268"/>
+        <location filename="../../keymgmt.cpp" line="273"/>
         <source>Never Expire</source>
         <translation>без срока годности</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="269"/>
+        <location filename="../../keymgmt.cpp" line="274"/>
         <source>Password: Strength
 Weak -&gt; Strong</source>
         <translation>Надёжность Пароля
 Слабый -&gt; Стойкий</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="300"/>
+        <location filename="../../keymgmt.cpp" line="305"/>
         <source>Password Strength</source>
         <translation>Надёжность Пароля</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="352"/>
+        <location filename="../../keymgmt.cpp" line="357"/>
         <source>  Name must contain at least five characters.  
 </source>
         <translation>  Имя должно быть длиной не менее 5 букв.  
 </translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="355"/>
+        <location filename="../../keymgmt.cpp" line="360"/>
         <source>  Password and Repeat don&apos;t match.  </source>
         <translation>Повторно введённый Пароль не совпал.</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="392"/>
+        <location filename="../../keymgmt.cpp" line="397"/>
         <source>Generating Key...</source>
         <translation>Генерация ключа...</translation>
     </message>
     <message>
-        <location filename="../../keymgmt.cpp" line="394"/>
+        <location filename="../../keymgmt.cpp" line="399"/>
         <source>Collecting random data for key generation.
  This may take a while.
  To speed up the process use your computer
@@ -1160,82 +1170,87 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="31"/>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Закрыть</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="32"/>
         <source>&amp;Import</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Импорт</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="33"/>
         <source>&amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Поиск</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="36"/>
         <source>Search string:</source>
-        <translation type="unfinished"></translation>
+        <translation>Поисковый запрос:</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="40"/>
         <source>Keyserver:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер Ключей:</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="72"/>
+        <location filename="../../keyserverimportdialog.cpp" line="71"/>
         <source>Import Keys from Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт ключей с сервера ключей</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="113"/>
+        <location filename="../../keyserverimportdialog.cpp" line="110"/>
         <source>UID</source>
-        <translation type="unfinished"></translation>
+        <translation>Идентификатор пользователя (UID)</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="113"/>
+        <location filename="../../keyserverimportdialog.cpp" line="110"/>
         <source>Creation date</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата создания</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="113"/>
+        <location filename="../../keyserverimportdialog.cpp" line="110"/>
         <source>KeyID</source>
-        <translation type="unfinished"></translation>
+        <translation>Идентификатор Ключа (KeyID)</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="154"/>
+        <location filename="../../keyserverimportdialog.cpp" line="151"/>
         <source>Couldn&apos;t contact keyserver!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось связаться с сервером ключей!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="160"/>
+        <location filename="../../keyserverimportdialog.cpp" line="159"/>
         <source>Too many responses from keyserver!</source>
+        <translation>Слишком много ответов от сервера ключей!</translation>
+    </message>
+    <message>
+        <location filename="../../keyserverimportdialog.cpp" line="165"/>
+        <source>No keys found, input may be kexId, retrying search with 0x.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="163"/>
+        <location filename="../../keyserverimportdialog.cpp" line="169"/>
         <source>No keys found containing the search string!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не найдено Ключей, содержащих поисковый запрос!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="166"/>
+        <location filename="../../keyserverimportdialog.cpp" line="172"/>
         <source>Insufficiently specific search string!</source>
-        <translation type="unfinished"></translation>
+        <translation>Поисковый запрос сформулирован слишком неопределённо!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="198"/>
+        <location filename="../../keyserverimportdialog.cpp" line="218"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Найдено %1 ключей. Для импорта двойной клик по ключу.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="249"/>
+        <location filename="../../keyserverimportdialog.cpp" line="265"/>
         <source>Error while contacting keyserver!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка в ходе связи с сервером ключей!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="253"/>
+        <location filename="../../keyserverimportdialog.cpp" line="269"/>
         <source>Key imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Ключ импортирован</translation>
     </message>
 </context>
 <context>
@@ -1243,7 +1258,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="395"/>
         <source>Default Keyserver for import:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер ключей для импорта по умолчанию:</translation>
     </message>
 </context>
 <context>
@@ -1406,7 +1421,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="36"/>
         <source>Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер ключей</translation>
     </message>
     <message>
         <source>Tab Dialog</source>
@@ -1437,47 +1452,47 @@ Weak -&gt; Strong</source>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="81"/>
-        <location filename="../../textedit.cpp" line="335"/>
+        <location filename="../../textedit.cpp" line="352"/>
         <source>Application</source>
         <translation>Приложение</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="82"/>
-        <location filename="../../textedit.cpp" line="336"/>
+        <location filename="../../textedit.cpp" line="353"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Не удалось прочесть файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="129"/>
+        <location filename="../../textedit.cpp" line="133"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="130"/>
+        <location filename="../../textedit.cpp" line="134"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Не удалось записать файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="148"/>
+        <location filename="../../textedit.cpp" line="156"/>
         <source>Save file </source>
         <translation>Сохранить файл</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="209"/>
+        <location filename="../../textedit.cpp" line="217"/>
         <source>Unsaved document</source>
         <translation>Несохранённый документ</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="210"/>
+        <location filename="../../textedit.cpp" line="218"/>
         <source>&lt;h3&gt;The document &quot;%1&quot; has been modified.&lt;br/&gt;Do you want to save your changes?&lt;/h3&gt;</source>
         <translation>&lt;h3&gt;Документ &quot;%1&quot; был редактирован.&lt;br/&gt;Вы хотите сохранить изменения?&lt;/h3&gt;</translation>
     </message>
     <message>
-        <location filename="../../textedit.cpp" line="211"/>
+        <location filename="../../textedit.cpp" line="219"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; If you don&apos;t save these files, all changes are lost.&lt;br/&gt;</source>
         <translation>&lt;b&gt;Внимание:&lt;/b&gt; Если не сохранить файлы, все изменения будут потеряны.&lt;br/&gt;</translation>
     </message>
@@ -1487,94 +1502,139 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="30"/>
         <source>Signaturedetails</source>
+        <translation>Детали подписи</translation>
+    </message>
+    <message>
+        <location filename="../../verifydetailsdialog.cpp" line="61"/>
+        <source>Error Validating signature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../verifydetailsdialog.cpp" line="63"/>
+        <location filename="../../verifydetailsdialog.cpp" line="67"/>
+        <source>Text was completely signed on
+ %1 by:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../verifydetailsdialog.cpp" line="72"/>
+        <source>Text was partially signed on
+ %1 by:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Text was completly signed on %1 by:
 </source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Текст был %1 полностью подписан:</translation>
     </message>
     <message>
-        <location filename="../../verifydetailsdialog.cpp" line="68"/>
         <source>Text was partially signed on %1 by:
 </source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Текст был %1 частично подписан:</translation>
     </message>
 </context>
 <context>
     <name>VerifyKeyDetailBox</name>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="38"/>
+        <location filename="../../verifykeydetailbox.cpp" line="37"/>
         <source>Import from keyserver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../verifykeydetailbox.cpp" line="41"/>
-        <location filename="../../verifykeydetailbox.cpp" line="53"/>
-        <location filename="../../verifykeydetailbox.cpp" line="64"/>
-        <source>Status:</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт с сервера ключей</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="42"/>
-        <location filename="../../verifykeydetailbox.cpp" line="52"/>
-        <location filename="../../verifykeydetailbox.cpp" line="65"/>
+        <location filename="../../verifykeydetailbox.cpp" line="57"/>
+        <location filename="../../verifykeydetailbox.cpp" line="72"/>
+        <source>Status:</source>
+        <translation>Статус:</translation>
+    </message>
+    <message>
+        <location filename="../../verifykeydetailbox.cpp" line="56"/>
+        <location filename="../../verifykeydetailbox.cpp" line="73"/>
         <source>Fingerprint:</source>
-        <translation type="unfinished"></translation>
+        <translation>Отпечаток:</translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="43"/>
+        <location filename="../../verifykeydetailbox.cpp" line="44"/>
         <source>Key not present in keylist</source>
+        <translation>Ключ отсутствует в списке ключей</translation>
+    </message>
+    <message>
+        <location filename="../../verifykeydetailbox.cpp" line="40"/>
+        <source>Key not present with id 0x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="50"/>
+        <location filename="../../verifykeydetailbox.cpp" line="54"/>
+        <location filename="../../verifykeydetailbox.cpp" line="70"/>
         <source>Name:</source>
-        <translation type="unfinished">Имя:</translation>
+        <translation>Имя:</translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="51"/>
+        <location filename="../../verifykeydetailbox.cpp" line="55"/>
+        <location filename="../../verifykeydetailbox.cpp" line="71"/>
         <source>EMail:</source>
-        <translation type="unfinished"></translation>
+        <translation>eMail:</translation>
     </message>
     <message>
-        <location filename="../../verifykeydetailbox.cpp" line="58"/>
+        <location filename="../../verifykeydetailbox.cpp" line="62"/>
         <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <location filename="../../verifykeydetailbox.cpp" line="69"/>
+        <source>Error for key with id 0x</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VerifyNotification</name>
     <message>
-        <location filename="../../verifynotification.cpp" line="34"/>
+        <location filename="../../verifynotification.cpp" line="35"/>
         <source>Import missing key from Keyserver</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт недостающего ключа с сервера ключей</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="37"/>
+        <location filename="../../verifynotification.cpp" line="38"/>
         <source>Show detailed verify information</source>
+        <translation>Показать детали подписи</translation>
+    </message>
+    <message>
+        <location filename="../../verifynotification.cpp" line="116"/>
+        <source>Key not present with id 0x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="118"/>
+        <location filename="../../verifynotification.cpp" line="158"/>
+        <source>Error validating signature by: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../verifynotification.cpp" line="163"/>
+        <source>Text was completely signed by: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../verifynotification.cpp" line="168"/>
+        <source>Text was partially signed by: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Key not present with Fingerprint: </source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Отсутствует ключ с отпечатком:</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="136"/>
+        <location filename="../../verifynotification.cpp" line="146"/>
         <source>Error for key with fingerprint </source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка ключа с отпечатком </translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="148"/>
         <source>Text is completly signed by: </source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Текст полностью подписан:</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="153"/>
         <source>Text is partially signed by: </source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Текст частично подписан:</translation>
     </message>
 </context>
 </TS>

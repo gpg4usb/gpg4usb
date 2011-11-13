@@ -1621,7 +1621,7 @@ Para acelerar el proceso use su computadora
     </message>
     <message>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Este programa le permite hacer un facil&lt;br/&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o sugerencias, entre&lt;br/&gt;en nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un email a nuestra&lt;br/&gt; lista decorreo en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation type="obsolete">&lt;center&gt;Este programa le permite hacer un facil&lt;br/&gt;cifrado/descifrado de sus mensajes de texto o archivos&lt;br&gt;Esta licenciado bajo el GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato13 (es), Serse (it) &lt;br&gt;&lt;br&gt;Si usted tiene alguna pregunta y/o sugerencias, entre&lt;br/&gt;en nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un email a nuestra&lt;br/&gt; lista decorreo en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>There is one unencrypted file in attachment folder</source>
@@ -1646,6 +1646,10 @@ Para acelerar el proceso use su computadora
     <message>
         <source>&amp;Keyserver</source>
         <translation>&amp;Servidor de llaves</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
