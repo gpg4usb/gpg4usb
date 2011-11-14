@@ -1147,7 +1147,7 @@ Para acelerar el proceso use su computadora
     </message>
     <message>
         <source>Save window size and position on exit.</source>
-        <translation>Guardar tamaño y posicion ventana al salir.</translation>
+        <translation>Guardar tamaño y posicion de ventana al salir.</translation>
     </message>
 </context>
 <context>
@@ -1186,7 +1186,7 @@ Para acelerar el proceso use su computadora
     <message>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>No puedo escribir archivo %1:
+        <translation>No se puede escribir archivo %1:
 %2.</translation>
     </message>
 </context>
@@ -1238,7 +1238,7 @@ Para acelerar el proceso use su computadora
     </message>
     <message>
         <source>File exists! Do you want to overwrite it?</source>
-        <translation>El archivo existe! ¿Quiere sobreescribirlo?</translation>
+        <translation>El archivo ya existe! ¿Quiere sobreescribirlo?</translation>
     </message>
     <message>
         <source>Cannot write file %1:
@@ -1279,7 +1279,7 @@ Para acelerar el proceso use su computadora
     </message>
     <message>
         <source>Language change is applied after restarting program.</source>
-        <translation>Cambio idioma se aplicara despues de reiniciar el programa.</translation>
+        <translation>Cambio de idioma se aplicara despues de reiniciar el programa.</translation>
     </message>
     <message>
         <source>System Default</source>
@@ -1441,7 +1441,7 @@ Para acelerar el proceso use su computadora
     </message>
     <message>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation>Quitar dobel fin de linea, p.ej. en texto pegado desde webmailer</translation>
+        <translation>Quitar doble fin de linea, p.ej. en texto pegado desde webmailer</translation>
     </message>
     <message>
         <source>Se&amp;ttings</source>
@@ -1649,7 +1649,7 @@ Para acelerar el proceso use su computadora
     </message>
     <message>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;center&gt;Este programa permite un fácil cifrado &lt;br/&gt;y descifrado de mensajes de texto o de archivos.&lt;br&gt;Esta autorizado en virtud al GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Programadores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traduccion:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;Si tiene preguntas o sugerencias diríjase a &lt;br/&gt;nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;pagina de contacto&lt;/a&gt; o envie un correo electrónico a nuestra&lt;br/&gt; lista de correos a &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1965,7 +1965,7 @@ Debil -&gt; Fuerte</translation>
  (e.g. browse the net, listen to music,...)</source>
         <translation>Recogiendo datos aleatorios para crear llave.
 Puede tardar un rato.
-Para acelerar el proceso use su computadora
+Para acelerar el proceso no use en su computadora
 (ejemplo, navegar por la Red, oir musica,...)</translation>
     </message>
 </context>
@@ -2009,7 +2009,7 @@ Para acelerar el proceso use su computadora
     </message>
     <message>
         <source>Couldn&apos;t contact keyserver!</source>
-        <translation>¡No se puede contactar la servidor de llaves!</translation>
+        <translation>¡No se puede contactar al servidor de llaves!</translation>
     </message>
     <message>
         <source>Too many responses from keyserver!</source>
