@@ -45,7 +45,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconP
     fl1->setBuddy(inputFileEdit);
 
     outputFileEdit = new QLineEdit();
-    QPushButton *fb2 = new QPushButton(tr("..."));
+    QPushButton *fb2 = new QPushButton("...");
     connect(fb2, SIGNAL(clicked()), this, SLOT(selectOutputFile()));
     QLabel *fl2 = new QLabel(tr("Output"));
     fl2->setBuddy(outputFileEdit);

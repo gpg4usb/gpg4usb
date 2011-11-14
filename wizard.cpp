@@ -66,10 +66,19 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
 {
     mCtx=ctx;
     setTitle(tr("Key-Generating"));
-    topLabel = new QLabel(tr("First you've got to create an own key."));
+    topLabel = new QLabel(tr("First you've got to create an own keypair.<br/>"
+                             "The pair contains a public and a private key.<br/>"
+                             "Other users can use the public key to encrypt texts for you<br/>"
+                             "and verify texts signed by you.<br/>"
+                             "You can use the private key to decrypt and sign texts.<br/>"
+                             "For more information have a look in the online tutorial:"));
+    QLabel *linkLabel = new QLabel("<a href=""http://gpg4usb.cpunk.de/docu.html"">"+tr("Online tutorial")+"</a>");
+    linkLabel->setOpenExternalLinks(true);
+
     createKeyButton = new QPushButton(tr("Create New Key"));
     layout = new QVBoxLayout();
     layout->addWidget(topLabel);
+    layout->addWidget(linkLabel);
     layout->addWidget(createKeyButton);
     connect(createKeyButton, SIGNAL(clicked()), this, SLOT(generateKeyDialog()));
 
@@ -98,7 +107,7 @@ ImportPage::ImportPage(GpgME::GpgContext *ctx, QWidget *parent)
 {
     mCtx=ctx;
     setTitle(tr("Keyring Import from GnuPG-home-directory"));
-    topLabel = new QLabel(tr("Should I try to import keys from gnupg?"));
+    topLabel = new QLabel(tr("Should I try to import keys from GnuPG?"));
 
     // Layout for private keys
     privateKeysCheckBox = new QCheckBox();
