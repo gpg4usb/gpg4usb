@@ -128,13 +128,19 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
         mvbox->addWidget(privKeyBox);
     }
 
-    if(key->expired) {
+    if((key->expired) || (key->revoked)) {
         QHBoxLayout *expBox = new QHBoxLayout();
         QIcon icon = QIcon::fromTheme("dialog-warning");
         QPixmap pixmap = icon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
 
         QLabel *iconLabel = new QLabel();
-        QLabel *expLabel = new QLabel(tr("Warning: Key expired"));
+        if (key->expired) {
+            QLabel *expLabel = new QLabel(tr("Warning: Key expired"));
+        }
+        if (key->revoked) {
+            QLabel *expLabel = new QLabel(tr("Warning: Key revoked"));
+        }
+
         iconLabel->setPixmap(pixmap);
         QFont font = expLabel->font();
         font.setBold(true);
