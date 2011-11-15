@@ -75,11 +75,15 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
     QLabel *linkLabel = new QLabel("<a href=""http://gpg4usb.cpunk.de/docu.html"">"+tr("Online tutorial")+"</a>");
     linkLabel->setOpenExternalLinks(true);
 
+    QWidget *createKeyButtonBox = new QWidget(this);
+    QHBoxLayout  *createKeyButtonBoxLayout = new QHBoxLayout(createKeyButtonBox);
     createKeyButton = new QPushButton(tr("Create New Key"));
+    createKeyButtonBoxLayout->addWidget(createKeyButton);
+    createKeyButtonBoxLayout->addStretch(1);
     layout = new QVBoxLayout();
     layout->addWidget(topLabel);
     layout->addWidget(linkLabel);
-    layout->addWidget(createKeyButton);
+    layout->addWidget(createKeyButtonBox);
     connect(createKeyButton, SIGNAL(clicked()), this, SLOT(generateKeyDialog()));
 
     setLayout(layout);
@@ -116,6 +120,7 @@ ImportPage::ImportPage(GpgME::GpgContext *ctx, QWidget *parent)
     QHBoxLayout *privHBoxLayout = new QHBoxLayout();
     privHBoxLayout->addWidget(privateKeysCheckBox);
     privHBoxLayout->addWidget(privateKeysLabel);
+    privHBoxLayout->addStretch(1);
     privHBox->setLayout(privHBoxLayout);
 
     // Layout for public keys
@@ -125,15 +130,24 @@ ImportPage::ImportPage(GpgME::GpgContext *ctx, QWidget *parent)
     QHBoxLayout *pubHBoxLayout = new QHBoxLayout();
     pubHBoxLayout->addWidget(publicKeysCheckBox);
     pubHBoxLayout->addWidget(publicKeysLabel);
+    pubHBoxLayout->addStretch(1);
     pubHBox->setLayout(pubHBoxLayout);
 
+    QWidget *importKeyButtonBox = new QWidget(this);
+    QHBoxLayout  *importKeyButtonBoxLayout = new QHBoxLayout(importKeyButtonBox);
     importKeyButton = new QPushButton(tr("Import keys"));
+    connect(importKeyButton, SIGNAL(clicked()), this, SLOT(importKeys()));
+
+    importKeyButtonBoxLayout->addStretch(1);
+    importKeyButtonBoxLayout->addWidget(importKeyButton);
+
+
     layout = new QVBoxLayout();
     layout->addWidget(topLabel);
     layout->addWidget(privHBox);
     layout->addWidget(pubHBox);
-    layout->addWidget(importKeyButton);
-    connect(importKeyButton, SIGNAL(clicked()), this, SLOT(importKeys()));
+    layout->addWidget(importKeyButtonBox);
+
     setLayout(layout);
 }
 
