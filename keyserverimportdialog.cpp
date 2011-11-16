@@ -176,33 +176,41 @@ void KeyServerImportDialog::searchFinished()
     } else {
         int row = 0;
         char buff[1024];
-        QList <QTreeWidgetItem*> items;
+        bool strikeout=false;
         while (reply->readLine(buff,sizeof(buff)) !=-1) {
             QStringList line= QString(buff).split(":");
+
             //TODO: have a look at two following pub lines
             if (line[0] == "pub") {
+                strikeout=false;
+
                 QString flags = line[line.size()-1];
 
                 // flags can be "d" for disabled, "r" for revoked
                 // or "e" for expired
                 if (flags.contains("r")) {
-                    qDebug() << "revoked";
+                    strikeout=true;
                 }
 
                 keysTable->setRowCount(row+1);
                 QStringList line2 = QString(reply->readLine()).split(":");
 
+                QTableWidgetItem *uid;
                 if (line2.size() > 1) {
-                    QTableWidgetItem *uid = new QTableWidgetItem(line2[1]);
+                    uid = new QTableWidgetItem(line2[1]);
                     keysTable->setItem(row, 0, uid);
-                    QFont strike = uid->font();
-                    strike.setStrikeOut(true);
-                    uid->setFont(strike);
                 }
                 QTableWidgetItem *creationdate = new QTableWidgetItem(QDateTime::fromTime_t(line[4].toInt()).toString("dd. MMM. yyyy"));
                 keysTable->setItem(row, 1, creationdate);
                 QTableWidgetItem *keyid = new QTableWidgetItem(line[1]);
                 keysTable->setItem(row, 2, keyid);
+                if (strikeout) {
+                    QFont strike = uid->font();
+                    strike.setStrikeOut(true);
+                    uid->setFont(strike);
+                    creationdate->setFont(strike);
+                    keyid->setFont(strike);
+                }
                 row++;
             } else {
                 if (line[0] == "uid") {
@@ -213,6 +221,11 @@ void KeyServerImportDialog::searchFinished()
                     tmp.append(QString("\n")+line[1]);
                     QTableWidgetItem *tmp1 = new QTableWidgetItem(tmp);
                     keysTable->setItem(row-1,0,tmp1);
+                    if (strikeout) {
+                        QFont strike = tmp1->font();
+                        strike.setStrikeOut(true);
+                        tmp1->setFont(strike);
+                    }
                 }
             }
             setMessage(tr("%1 keys found. Doubleclick a key to import it.").arg(row),false);
