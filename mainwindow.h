@@ -112,11 +112,6 @@ private slots:
     void importKeyFromEdit();
 
     /**
-     * @details Open a dialog, in which you can choose, where keys should be imported from.
-     */
-    void importKeyDialog();
-
-    /**
      * @details Append the selected keys to currently active textedit.
      */
     void appendSelectedKeys();
@@ -236,7 +231,9 @@ private:
     QMenu *viewMenu; /** View submenu */
     QMenu *importKeyMenu; /** Sumenu for import operations */
     QToolBar *cryptToolBar; /** Toolbar holding crypt actions */
+    QToolBar *fileToolBar; /** Toolbar holding file actions */
     QToolBar *editToolBar; /** Toolbar holding edit actions */
+    QToolBar *specialEditToolBar; /** Toolbar holding special edit actions */
     QToolBar *keyToolBar; /** Toolbar holding key operations */
     QDockWidget *keylistDock; /** Encrypt Dock*/
     QDockWidget *attachmentDock; /** Attachment Dock */
@@ -258,7 +255,6 @@ private:
     QAction *decryptAct; /** Action to decrypt text */
     QAction *signAct; /** Action to sign text */
     QAction *verifyAct; /** Action to verify text */
-    QAction *importKeyDialogAct; /** Action to open key dialog */
     QAction *importKeyFromEditAct; /** Action to import key from edit */
     QAction *cleanDoubleLinebreaksAct; /** Action to remove double line breaks */
 

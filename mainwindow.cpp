@@ -153,11 +153,11 @@ void MainWindow::createActions()
     /* Main Menu
       */
     newTabAct = new QAction(tr("&New"), this);
+    newTabAct->setIcon(QIcon(iconPath + "misc_doc.png"));
     QList<QKeySequence> newTabActShortcutList;
     newTabActShortcutList.append(QKeySequence (Qt::CTRL + Qt::Key_N));
     newTabActShortcutList.append(QKeySequence (Qt::CTRL + Qt::Key_T));
     newTabAct->setShortcuts(newTabActShortcutList);
-
     newTabAct->setToolTip(tr("Open a new file"));
     connect(newTabAct, SIGNAL(triggered()), edit, SLOT(newTab()));
 
@@ -294,11 +294,6 @@ void MainWindow::createActions()
     openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
 
-    importKeyDialogAct = new QAction(tr("&Import Key"), this);
-    importKeyDialogAct->setIcon(QIcon(iconPath + "key_import.png"));
-    importKeyDialogAct->setToolTip(tr("Open Import New Key Dialog"));
-    connect(importKeyDialogAct, SIGNAL(triggered()), this, SLOT(importKeyDialog()));
-
     /* About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
@@ -403,6 +398,14 @@ void MainWindow::createMenus()
 
 void MainWindow::createToolBars()
 {
+    fileToolBar = addToolBar(tr("File"));
+    fileToolBar->setObjectName("fileToolBar");
+    fileToolBar->addAction(newTabAct);
+    fileToolBar->addAction(openAct);
+    fileToolBar->addAction(saveAct);
+    fileToolBar->hide();
+    viewMenu->addAction(fileToolBar->toggleViewAction());
+
     cryptToolBar = addToolBar(tr("Crypt"));
     cryptToolBar->setObjectName("cryptToolBar");
     cryptToolBar->addAction(encryptAct);
@@ -414,7 +417,6 @@ void MainWindow::createToolBars()
 
     keyToolBar = addToolBar(tr("Key"));
     keyToolBar->setObjectName("keyToolBar");
-    keyToolBar->addAction(importKeyDialogAct);
     keyToolBar->addAction(openKeyManagementAct);
     viewMenu->addAction(keyToolBar->toggleViewAction());
 
@@ -423,17 +425,23 @@ void MainWindow::createToolBars()
     editToolBar->addAction(copyAct);
     editToolBar->addAction(pasteAct);
     editToolBar->addAction(selectallAct);
-    editToolBar->addAction(quoteAct);
     viewMenu->addAction(editToolBar->toggleViewAction());
 
+    specialEditToolBar = addToolBar(tr("Special edit"));
+    specialEditToolBar->setObjectName("specialEditToolBar");
+    specialEditToolBar->addAction(quoteAct);
+    specialEditToolBar->addAction(cleanDoubleLinebreaksAct);
+    viewMenu->addAction(specialEditToolBar->toggleViewAction());
+
+    // Add dropdown menu for key import to keytoolbar
     QToolButton* toolButton = new QToolButton();
     toolButton->setMenu(importKeyMenu);
     toolButton->setPopupMode(QToolButton::InstantPopup);
     toolButton->setIcon(QIcon(iconPath + "key_import.png"));
     toolButton->setToolTip("Import key");
-    toolButton->setText("Import key from");
+    toolButton->setText("Import key from..");
     toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-        editToolBar->addWidget(toolButton);
+    keyToolBar->addWidget(toolButton);
 }
 
 void MainWindow::createStatusBar()
@@ -783,45 +791,6 @@ void MainWindow::verify()
         edit->curPage()->showNotificationWidget(vn, "verifyNotification");
     } else {
         vn->close();
-    }
-}
-
-void MainWindow::importKeyDialog()
-{
-    QDialog *dialog = new QDialog();
-
-    dialog->setWindowTitle(tr("Import Key"));
-    dialog->setModal(true);
-
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-
-    connect(buttonBox, SIGNAL(accepted()), dialog, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), dialog, SLOT(reject()));
-
-    QGroupBox *groupBox = new QGroupBox(tr("Import Key From..."));
-    QRadioButton *radio1 = new QRadioButton(tr("&File"));
-    QRadioButton *radio2 = new QRadioButton(tr("&Editor"));
-    QRadioButton *radio3 = new QRadioButton(tr("&Clipboard"));
-    QRadioButton *radio4 = new QRadioButton(tr("&Keyserver"));
-    radio1->setChecked(true);
-
-    QVBoxLayout *vbox1 = new QVBoxLayout();
-    vbox1->addWidget(radio1);
-    vbox1->addWidget(radio2);
-    vbox1->addWidget(radio3);
-    vbox1->addWidget(radio4);
-    groupBox->setLayout(vbox1);
-
-    QVBoxLayout *vbox2 = new QVBoxLayout();
-    vbox2->addWidget(groupBox);
-    vbox2->addWidget(buttonBox);
-    dialog->setLayout(vbox2);
-
-    if (dialog->exec() == QDialog::Accepted) {
-        if (radio1->isChecked()) keyMgmt->importKeyFromFile();
-        if (radio2->isChecked()) importKeyFromEdit();
-        if (radio3->isChecked()) keyMgmt->importKeyFromClipboard();
-        if (radio4->isChecked()) keyMgmt->importKeyFromKeyServer();
     }
 }
 

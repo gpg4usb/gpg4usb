@@ -5,6 +5,9 @@ Release 0.3.2
 	- gpgwin.cpp -> mainwindow.cpp [DONE]
 	- context.cpp -> gpgcontext.cpp [DONE]
 - show keyrings (files with .gpg) in import from file dialog too [DONE]
+- dropdown from menubar instead of dialog for import [DONE]
+- add file operation toolbar (open, save, new) (per default off) [DONE]
+- put quote and double line break removale to "special edit" operation toolbar (icons for double linebreaks missing) [DONE]
 - Wizard on first start (Create Key, Import from older gpg4usb, import from gnupg)
 - option in settingsdialog for enabling steganographic operations
 	- minimal steganography option: remove or add pgp-headers on demand
@@ -21,11 +24,8 @@ Release 0.3.2
 	- if import failed, because no key was found
 	- if key is already in keyring
 - show message, when key export is successful (statusbar)
-- dropdown from menubar instead of dialog for import 
 - dropdown from menubar instead of dialog for file-cryption (files->encrypt,decrypt) 
 - encrypt and sign, decrypt and verify (?)
-- add file operation toolbar (open, save, new) (per default off)
-- put quote and double line break removale to "special edit" operation toolbar
 
 Release 0.3.3
 - create revocation file on key generation
