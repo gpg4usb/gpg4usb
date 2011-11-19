@@ -94,7 +94,7 @@ bool VerifyNotification::refresh()
 {
     verify_label_status verifyStatus=VERIFY_ERROR_OK;
 
-    QByteArray text = mTextpage->toPlainText().toUtf8(); // TODO: toUtf8() here?
+    QByteArray text = mTextpage->toPlainText().toUtf8();
     mCtx->preventNoDataErr(&text);
     int textIsSigned = mCtx->textIsSigned(text);
 
