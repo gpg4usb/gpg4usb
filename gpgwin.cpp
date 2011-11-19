@@ -635,9 +635,9 @@ void GpgWin::sign()
 
     QByteArray *tmp = new QByteArray();
     // TODO: toUtf8() here?
-    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toAscii(), tmp)) {
-        QString *tmp2 = new QString(*tmp);
-        edit->fillTextEditWithText(*tmp2);
+    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
+        //QString tmp2 =
+        edit->fillTextEditWithText(QString::fromUtf8(*tmp));
     }
 }
 
