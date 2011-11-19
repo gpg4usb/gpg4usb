@@ -94,7 +94,7 @@ void KeyList::refresh()
         QTableWidgetItem *tmp3 = new QTableWidgetItem(it->email);
         tmp3->setToolTip(it->email);
         // strike out expired keys
-        if(it->expired) {
+        if(it->expired || it->revoked) {
             QFont strike = tmp2->font();
             strike.setStrikeOut(true);
             tmp2->setFont(strike);

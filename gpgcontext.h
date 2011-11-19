@@ -48,6 +48,7 @@ public:
     QString fpr;
     bool privkey;
     bool expired;
+    bool revoked;
 };
 
 typedef QLinkedList< GpgKey > GpgKeyList;
@@ -62,7 +63,6 @@ class GpgContext : public QObject
 public:
     GpgContext(); // Constructor
     ~GpgContext(); // Destructor
-
     void importKey(QByteArray inBuffer);
     bool exportKeys(QStringList *uidList, QByteArray *outBuffer);
     void generateKey(QString *params);
