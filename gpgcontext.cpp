@@ -35,7 +35,6 @@ namespace GpgME
  */
 GpgContext::GpgContext()
 {
-
     /** get application path */
     QString appPath = qApp->applicationDirPath();
 
@@ -103,14 +102,18 @@ GpgContext::~GpgContext()
 /** Import Key from QByteArray
  *
  */
-void GpgContext::importKey(QByteArray inBuffer)
+gpgme_import_result_t GpgContext::importKey(QByteArray inBuffer)
 {
     err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
     checkErr(err);
     err = gpgme_op_import(mCtx, in);
+    gpgme_import_result_t result;
+
+
+    result = gpgme_op_import_result(mCtx);
     checkErr(err);
     gpgme_data_release(in);
-    emit keyDBChanged();
+    return result;
 }
 
 /** Generate New Key with values params
@@ -166,6 +169,11 @@ gpgme_key_t GpgContext::getKeyDetails(QString uid)
     return key;
 }
 
+void GpgContext::sendKeyDBChanged()
+{
+    emit keyDBChanged();
+}
+
 /** List all availabe Keys (VERY much like kgpgme)
  */
 GpgKeyList GpgContext::listKeys()
@@ -187,6 +195,7 @@ GpgKeyList GpgContext::listKeys()
         gpgkey.id = key->subkeys->keyid;
         gpgkey.fpr = key->subkeys->fpr;
         gpgkey.expired = (key->expired != 0);
+        gpgkey.revoked = (key->revoked != 0);
 
         if (key->uids) {
             gpgkey.name = key->uids->name;

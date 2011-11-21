@@ -18,13 +18,14 @@ QT += network
 HEADERS += attachments.h \
     gpgcontext.h \
     mainwindow.h \
-    keylist.h \
-    keymgmt.h \
     fileencryptiondialog.h \
+    importdetaildialog.h \
     mime.h \
     keygendialog.h \
     keygenthread.h \
     keydetailsdialog.h \
+    keylist.h \
+    keymgmt.h \
     settingsdialog.h \
     attachmenttablemodel.h \
     textedit.h \
@@ -40,13 +41,14 @@ SOURCES += attachments.cpp \
     gpgcontext.cpp \
     mainwindow.cpp \
     main.cpp \
-    keylist.cpp \
-    keymgmt.cpp \
     fileencryptiondialog.cpp \
+    importdetaildialog.cpp \
     mime.cpp \
     keygendialog.cpp \
     keygenthread.cpp \
     keydetailsdialog.cpp \
+    keylist.cpp \
+    keymgmt.cpp \
     settingsdialog.cpp \
     attachmenttablemodel.cpp \
     textedit.cpp \

@@ -25,6 +25,7 @@
 #include "keylist.h"
 #include "keygenthread.h"
 #include "keydetailsdialog.h"
+#include "importdetaildialog.h"
 #include "keyserverimportdialog.h"
 #include "keygendialog.h"
 #include <QtGui>
@@ -52,6 +53,7 @@ public slots:
     void importKeyFromFile();
     void importKeyFromClipboard();
     void importKeyFromKeyServer();
+    void importKeys(QByteArray inBuffer);
     void exportKeyToFile();
     void exportKeyToClipboard();
     void deleteSelectedKeys();

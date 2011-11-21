@@ -155,6 +155,13 @@ void KeyMgmt::createToolBars()
 
 }
 
+void KeyMgmt::importKeys(QByteArray inBuffer)
+{
+    gpgme_import_result_t result = mCtx->importKey(inBuffer);
+    new ImportDetailDialog(mCtx, mKeyList, result, this);
+    mCtx->sendKeyDBChanged();
+}
+
 void KeyMgmt::importKeyFromFile()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;"+tr("Keyring files")+" (*.gpg);;All Files (*)");
@@ -166,7 +173,7 @@ void KeyMgmt::importKeyFromFile()
         }
         QByteArray inBuffer = file.readAll();
 
-        mCtx->importKey(inBuffer);
+        importKeys(inBuffer);
     }
 }
 
@@ -179,7 +186,7 @@ void KeyMgmt::importKeyFromKeyServer()
 void KeyMgmt::importKeyFromClipboard()
 {
     QClipboard *cb = QApplication::clipboard();
-    mCtx->importKey(cb->text(QClipboard::Clipboard).toAscii());
+    importKeys(cb->text(QClipboard::Clipboard).toAscii());
 }
 
 void KeyMgmt::deleteSelectedKeys()

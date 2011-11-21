@@ -63,7 +63,7 @@ class GpgContext : public QObject
 public:
     GpgContext(); // Constructor
     ~GpgContext(); // Destructor
-    void importKey(QByteArray inBuffer);
+    gpgme_import_result_t importKey(QByteArray inBuffer);
     bool exportKeys(QStringList *uidList, QByteArray *outBuffer);
     void generateKey(QString *params);
     GpgKeyList listKeys();
@@ -95,6 +95,7 @@ public:
      */
     int textIsSigned(const QByteArray &text);
     QString beautifyFingerprint(QString fingerprint);
+    void sendKeyDBChanged();
 
 signals:
     void keyDBChanged();

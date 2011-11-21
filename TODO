@@ -27,6 +27,9 @@ Release 0.3.2
 - dropdown from menubar instead of dialog for file-cryption (files->encrypt,decrypt) 
 - encrypt and sign, decrypt and verify (?)
 
+BUGS:
+- import key toolbar dropdown shows text, even if only icon should be shown
+
 Release 0.3.3
 - create revocation file on key generation
 - optionally open new tab after encryption/decrytion 
