@@ -19,10 +19,11 @@ Release 0.3.2
 - investigate in adding a offline help system 
 - strike out revoked keys in keylist and add warning to keydetails
 - keyimport dialog should show reason for strike out
-- key import should be more verbose:
-	- show message, which keys are imported
+- key import should be more verbose: [DONE]
+	- show message, which keys are imported [DONE]
 	- if import failed, because no key was found
 	- if key is already in keyring
+	- for now done just for import from file and clipboard
 - show message, when key export is successful (statusbar)
 - dropdown from menubar instead of dialog for file-cryption (files->encrypt,decrypt) 
 - encrypt and sign, decrypt and verify (?)
