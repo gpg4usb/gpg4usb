@@ -31,17 +31,49 @@ ImportDetailDialog::ImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList,
     mvbox = new QVBoxLayout();
 
     this->createGeneralInfoBox();
+
+    QWidget *detailButtonBox = new QWidget(this);
+    QHBoxLayout *detailButtonBoxLayout = new QHBoxLayout(detailButtonBox);
+
+    detailButton = new QPushButton(tr("Show Details"),detailButtonBox);
+    detailButtonBoxLayout->addWidget(detailButton,Qt::AlignLeft);
+    connect(detailButton, SIGNAL(clicked()), this, SLOT(showHideDetails()));
+
+    QPushButton *closeButton = new QPushButton(tr("Close"),detailButtonBox);
+    detailButtonBoxLayout->addWidget(closeButton,Qt::AlignRight);
+    connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
+
+    detailButtonBox->setLayout(detailButtonBoxLayout);
+
+    mvbox->addWidget(detailButtonBox);
     this->createKeyInfoBox();
 
     // Create ButtonBox for OK-Button
-    okButtonBox = new QDialogButtonBox(QDialogButtonBox::Close);
-    connect(okButtonBox, SIGNAL(rejected()), this, SLOT(close()));
-    mvbox->addWidget(okButtonBox);
+    //okButtonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    //connect(okButtonBox, SIGNAL(rejected()), this, SLOT(close()));
+    //mvbox->addWidget(okButtonBox);
+
+    detailsShown=true;
 
     this->setLayout(mvbox);
     this->setWindowTitle(tr("Key import details"));
     this->setModal(true);
+    showHideDetails();
     this->exec();
+}
+
+void ImportDetailDialog::showHideDetails()
+{
+    if (detailsShown) {
+        detailButton->setText(tr("Show Details"));
+        keyInfoBox->hide();
+        detailsShown=false;
+    } else {
+        detailButton->setText(tr("Hide Details"));
+        keyInfoBox->show();
+        detailsShown=true;
+    }
+
 }
 
 void ImportDetailDialog::createGeneralInfoBox()

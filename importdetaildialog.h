@@ -37,6 +37,9 @@ class ImportDetailDialog : public QDialog
 public:
     ImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, gpgme_import_result_t result, QWidget *parent = 0);
 
+private slots:
+    void showHideDetails();
+
 private:
     void createGeneralInfoBox();
     void createKeyInfoBox();
@@ -45,11 +48,12 @@ private:
     KeyList *mKeyList;
     QGroupBox *generalInfoBox;
     QGroupBox *keyInfoBox;
-    QDialogButtonBox *okButtonBox;
     QVBoxLayout *mvbox;
+    QPushButton *detailButton;
     QGridLayout *generalInfoBoxLayout;
     QGridLayout *keyInfoBoxLayout;
     gpgme_import_result_t mResult;
+    bool detailsShown;
 };
 
 #endif // __IMPORTDETAILSDIALOG_H__
