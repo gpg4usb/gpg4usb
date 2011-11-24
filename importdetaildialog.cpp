@@ -134,6 +134,7 @@ void ImportDetailDialog::createKeyInfoBox()
         keyInfoBoxLayout->addWidget(new QLabel(key.name),keyrow,2);
         keyInfoBoxLayout->addWidget(new QLabel(key.email),keyrow,3);
         keyInfoBoxLayout->addWidget(new QLabel(key.id),keyrow,4);
+        keyInfoBoxLayout->addWidget(new QLabel(QString::number(status->status)),keyrow,5);
 
         status=status->next;
         keyrow++;
