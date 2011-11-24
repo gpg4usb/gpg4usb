@@ -17,7 +17,7 @@ Release 0.3.2
 - update gpgme-library
 - understandable message if no matching private key found for decryption (no data error)
 - investigate in adding a offline help system 
-- strike out revoked keys in keylist and add warning to keydetails
+- strike out revoked keys in keylist and add warning to keydetails [DONE]
 - keyimport dialog should show reason for strike out
 - key import should be more verbose: [DONE]
 	- show message, which keys are imported [DONE]

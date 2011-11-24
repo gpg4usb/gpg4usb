@@ -43,6 +43,7 @@ private slots:
 private:
     void createGeneralInfoBox();
     void createKeyInfoBox();
+    void createButtonBox();
 
     GpgME::GpgContext *mCtx;
     KeyList *mKeyList;
@@ -50,6 +51,7 @@ private:
     QGroupBox *keyInfoBox;
     QVBoxLayout *mvbox;
     QPushButton *detailButton;
+    QWidget *detailButtonBox;
     QGridLayout *generalInfoBoxLayout;
     QGridLayout *keyInfoBoxLayout;
     gpgme_import_result_t mResult;

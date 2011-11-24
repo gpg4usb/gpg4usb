@@ -28,24 +28,15 @@ ImportDetailDialog::ImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList,
     mKeyList = keyList;
     mResult = result;
 
+    if (mResult->considered == 0) {
+        QMessageBox::information(0, tr("Key import details"), tr("No keys found to import"));
+        return;
+    }
+
     mvbox = new QVBoxLayout();
 
     this->createGeneralInfoBox();
-
-    QWidget *detailButtonBox = new QWidget(this);
-    QHBoxLayout *detailButtonBoxLayout = new QHBoxLayout(detailButtonBox);
-
-    detailButton = new QPushButton(tr("Show Details"),detailButtonBox);
-    detailButtonBoxLayout->addWidget(detailButton,Qt::AlignLeft);
-    connect(detailButton, SIGNAL(clicked()), this, SLOT(showHideDetails()));
-
-    QPushButton *closeButton = new QPushButton(tr("Close"),detailButtonBox);
-    detailButtonBoxLayout->addWidget(closeButton,Qt::AlignRight);
-    connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
-
-    detailButtonBox->setLayout(detailButtonBoxLayout);
-
-    mvbox->addWidget(detailButtonBox);
+    this->createButtonBox();
     this->createKeyInfoBox();
 
     // Create ButtonBox for OK-Button
@@ -116,6 +107,24 @@ void ImportDetailDialog::createGeneralInfoBox()
         row++;
     }
     mvbox->addWidget(generalInfoBox);
+}
+
+void ImportDetailDialog::createButtonBox()
+{
+    detailButtonBox = new QWidget(this);
+    QHBoxLayout *detailButtonBoxLayout = new QHBoxLayout(detailButtonBox);
+
+    detailButton = new QPushButton(tr("Show Details"),detailButtonBox);
+    detailButtonBoxLayout->addWidget(detailButton,Qt::AlignLeft);
+    connect(detailButton, SIGNAL(clicked()), this, SLOT(showHideDetails()));
+
+    QPushButton *closeButton = new QPushButton(tr("Close"),detailButtonBox);
+    detailButtonBoxLayout->addWidget(closeButton,Qt::AlignRight);
+    connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
+
+    detailButtonBox->setLayout(detailButtonBoxLayout);
+
+    mvbox->addWidget(detailButtonBox);
 }
 
 void ImportDetailDialog::createKeyInfoBox()
