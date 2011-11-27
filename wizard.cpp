@@ -133,30 +133,79 @@ ImportPage::ImportPage(GpgME::GpgContext *ctx, QWidget *parent)
     pubHBoxLayout->addStretch(1);
     pubHBox->setLayout(pubHBoxLayout);
 
-    QWidget *importKeyButtonBox = new QWidget(this);
-    QHBoxLayout  *importKeyButtonBoxLayout = new QHBoxLayout(importKeyButtonBox);
-    importKeyButton = new QPushButton(tr("Import keys"));
-    connect(importKeyButton, SIGNAL(clicked()), this, SLOT(importKeys()));
+    QWidget *importFromGnupgButtonBox = new QWidget(this);
+    QHBoxLayout  *importFromGnupgButtonBoxLayout = new QHBoxLayout(importFromGnupgButtonBox);
+    importFromGnupgButton = new QPushButton(tr("Import keys from GnuPG"));
+    connect(importFromGnupgButton, SIGNAL(clicked()), this, SLOT(importKeysFromGnupg()));
 
-    importKeyButtonBoxLayout->addStretch(1);
-    importKeyButtonBoxLayout->addWidget(importKeyButton);
+    importFromGnupgButtonBoxLayout->addStretch(1);
+    importFromGnupgButtonBoxLayout->addWidget(importFromGnupgButton);
+
+    QWidget *importFromGpg4usbButtonBox = new QWidget(this);
+    QHBoxLayout  *importFromGpg4usbButtonBoxLayout = new QHBoxLayout(importFromGpg4usbButtonBox);
+    importFromGpg4usbButton = new QPushButton(tr("Import keys from gpg4usb"));
+    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importKeysFromGpg4usb()));
+
+    importFromGpg4usbButtonBoxLayout->addStretch(1);
+    importFromGpg4usbButtonBoxLayout->addWidget(importFromGpg4usbButton);
 
 
     layout = new QVBoxLayout();
     layout->addWidget(topLabel);
     layout->addWidget(privHBox);
     layout->addWidget(pubHBox);
-    layout->addWidget(importKeyButtonBox);
+    layout->addWidget(importFromGnupgButtonBox);
+    layout->addWidget(importFromGpg4usbButtonBox);
 
     setLayout(layout);
 }
 
-bool ImportPage::importKeys()
+bool ImportPage::importKeysFromGpg4usb()
+{
+    QString dir = QFileDialog::getExistingDirectory(this,tr("Old gpg4usb directory"));
+
+    // Return, if cancel was hit
+    if (dir.isEmpty()) {
+        return false;
+    }
+
+    QFile secRing(dir+"/keydb/secring.gpg");
+    QFile pubRing(dir+"/keydb/pubring.gpg");
+
+    qDebug() << pubRing.fileName();
+    // Return, if no keyrings are found in subdir of chosen dir
+    if (!(pubRing.exists() or secRing.exists())) {
+        QMessageBox::critical(0, tr("Import Error"), tr("Couldn't locate any keyring file in choosen directory"));
+        return false;
+    }
+
+    if (pubRing.exists()) {
+        if (!pubRing.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(0, tr("Import error"), tr("Couldn't open public keyringfile: ") + pubRing.fileName());
+            return false;
+        }
+        QByteArray inBuffer = pubRing.readAll();
+        mCtx->importKey(inBuffer);
+    }
+
+    if (secRing.exists()) {
+        if (!secRing.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(0, tr("Import error"), tr("Couldn't open private keyringfile: ") + secRing.fileName());
+            return false;
+        }
+        QByteArray inBuffer = secRing.readAll();
+        mCtx->importKey(inBuffer);
+    }
+    mCtx->sendKeyDBChanged();
+    return true;
+}
+
+bool ImportPage::importKeysFromGnupg()
 {
     // first get gnupghomedir and check, if it exists
     QString gnuPGHome = getGnuPGHome();
     if (gnuPGHome == NULL) {
-        qDebug() << "couldn't locate gnupg-Homedirectory";
+        QMessageBox::critical(0, tr("Import Error"), tr("Couldn't locate GnuPG home directory"));
         return false;
     }
 
@@ -166,7 +215,8 @@ bool ImportPage::importKeys()
         QFile file;
         file.setFileName(privRingFile);
         if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("Couldn't Open Private Keyringfile: ") + privRingFile;
+            QMessageBox::critical(0, tr("Import error"), tr("Couldn't open private keyringfile: ") + privRingFile);
+            return false;
         }
         QByteArray inBuffer = file.readAll();
 
@@ -179,7 +229,8 @@ bool ImportPage::importKeys()
         QFile file;
         file.setFileName(pubRingFile);
         if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("Couldn't Open Public Keyringfile: ") + pubRingFile;
+            QMessageBox::critical(0, tr("Import error"), tr("Couldn't open public keyringfile: ") + pubRingFile);
+            return false;
         }
         QByteArray inBuffer = file.readAll();
 

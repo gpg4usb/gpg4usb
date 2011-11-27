@@ -83,7 +83,8 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    bool importKeys();
+    bool importKeysFromGnupg();
+    bool importKeysFromGpg4usb();
 
 private:
     int nextId() const;
@@ -100,7 +101,8 @@ private:
     GpgME::GpgContext *mCtx;
     QCheckBox *privateKeysCheckBox;
     QCheckBox *publicKeysCheckBox;
-    QPushButton *importKeyButton;
+    QPushButton *importFromGnupgButton;
+    QPushButton *importFromGpg4usbButton;
 };
 
 class ConclusionPage : public QWizardPage
