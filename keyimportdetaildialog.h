@@ -1,5 +1,5 @@
 /*
- *      importdetailsdialog.h
+ *      keyimportdetailsdialog.h
  *
  *      Copyright 2008 gpg4usb-team <gpg4usb@cpunk.de>
  *
@@ -19,8 +19,8 @@
  *      along with gpg4usb.  If not, see <http://www.gnu.org/licenses/>
  */
 
-#ifndef __IMPORTDETAILSDIALOG_H__
-#define __IMPORTDETAILSDIALOG_H__
+#ifndef __KEYIMPORTDETAILSDIALOG_H__
+#define __KEYIMPORTDETAILSDIALOG_H__
 
 #include "keylist.h"
 #include <gpgme.h>
@@ -30,32 +30,29 @@ class QGridLayout;
 class QDialogButtonBox;
 QT_END_NAMESPACE
 
-class ImportDetailDialog : public QDialog
+class KeyImportDetailDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    ImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, gpgme_import_result_t result, QWidget *parent = 0);
-
-private slots:
-    void showHideDetails();
+    KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, gpgme_import_result_t result, QWidget *parent = 0);
 
 private:
     void createGeneralInfoBox();
     void createKeyInfoBox();
+    void createKeysTable();
     void createButtonBox();
 
+    QTableWidget *keysTable;
     GpgME::GpgContext *mCtx;
     KeyList *mKeyList;
     QGroupBox *generalInfoBox;
     QGroupBox *keyInfoBox;
+    QDialogButtonBox *buttonBox;
     QVBoxLayout *mvbox;
-    QPushButton *detailButton;
-    QWidget *detailButtonBox;
     QGridLayout *generalInfoBoxLayout;
     QGridLayout *keyInfoBoxLayout;
     gpgme_import_result_t mResult;
-    bool detailsShown;
 };
 
-#endif // __IMPORTDETAILSDIALOG_H__
+#endif // __KEYIMPORTDETAILSDIALOG_H__

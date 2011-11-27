@@ -100,9 +100,11 @@ void KeyServerImportDialog::createKeysTable()
 {
     keysTable = new QTableWidget();
     keysTable->setColumnCount(3);
+
     // always a whole row is marked
     keysTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     keysTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
     // Make just one row selectable
     keysTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
@@ -230,7 +232,6 @@ void KeyServerImportDialog::searchFinished()
             }
             setMessage(tr("%1 keys found. Doubleclick a key to import it.").arg(row),false);
         }
-        //keysTree->insertTopLevelItems(0,items);
         keysTable->resizeColumnsToContents();
     }
     reply->deleteLater();
@@ -241,7 +242,6 @@ void KeyServerImportDialog::import()
 {
     if ( keysTable->currentRow() > -1 ) {
         QString keyid = keysTable->item(keysTable->currentRow(),2)->text();
-
         QUrl url = keyServerComboBox->currentText();
         import(QStringList(keyid), url);
    }

@@ -1,5 +1,5 @@
 /*
- *      importdetailsdialog.cpp
+ *      keyimportdetailsdialog.cpp
  *
  *      Copyright 2008 gpg4usb-team <gpg4usb@cpunk.de>
  *
@@ -19,15 +19,16 @@
  *      along with gpg4usb.  If not, see <http://www.gnu.org/licenses/>
  */
 
-#include "importdetaildialog.h"
+#include "keyimportdetaildialog.h"
 
-ImportDetailDialog::ImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, gpgme_import_result_t result, QWidget *parent)
+KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, gpgme_import_result_t result, QWidget *parent)
     : QDialog(parent)
 {
     mCtx = ctx;
     mKeyList = keyList;
     mResult = result;
 
+    // If no key for import found, just ahow a message
     if (mResult->considered == 0) {
         QMessageBox::information(0, tr("Key import details"), tr("No keys found to import"));
         return;
@@ -36,38 +37,16 @@ ImportDetailDialog::ImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList,
     mvbox = new QVBoxLayout();
 
     this->createGeneralInfoBox();
+    this->createKeysTable();
     this->createButtonBox();
-    this->createKeyInfoBox();
-
-    // Create ButtonBox for OK-Button
-    //okButtonBox = new QDialogButtonBox(QDialogButtonBox::Close);
-    //connect(okButtonBox, SIGNAL(rejected()), this, SLOT(close()));
-    //mvbox->addWidget(okButtonBox);
-
-    detailsShown=true;
 
     this->setLayout(mvbox);
     this->setWindowTitle(tr("Key import details"));
     this->setModal(true);
-    showHideDetails();
-    this->exec();
+    this->show();
 }
 
-void ImportDetailDialog::showHideDetails()
-{
-    if (detailsShown) {
-        detailButton->setText(tr("Show Details"));
-        keyInfoBox->hide();
-        detailsShown=false;
-    } else {
-        detailButton->setText(tr("Hide Details"));
-        keyInfoBox->show();
-        detailsShown=true;
-    }
-
-}
-
-void ImportDetailDialog::createGeneralInfoBox()
+void KeyImportDetailDialog::createGeneralInfoBox()
 {
     // GridBox for general import information
     generalInfoBox = new QGroupBox(tr("Genral key import info"));
@@ -109,47 +88,41 @@ void ImportDetailDialog::createGeneralInfoBox()
     mvbox->addWidget(generalInfoBox);
 }
 
-void ImportDetailDialog::createButtonBox()
-{
-    detailButtonBox = new QWidget(this);
-    QHBoxLayout *detailButtonBoxLayout = new QHBoxLayout(detailButtonBox);
-
-    detailButton = new QPushButton(tr("Show Details"),detailButtonBox);
-    detailButtonBoxLayout->addWidget(detailButton,Qt::AlignLeft);
-    connect(detailButton, SIGNAL(clicked()), this, SLOT(showHideDetails()));
-
-    QPushButton *closeButton = new QPushButton(tr("Close"),detailButtonBox);
-    detailButtonBoxLayout->addWidget(closeButton,Qt::AlignRight);
-    connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
-
-    detailButtonBox->setLayout(detailButtonBoxLayout);
-
-    mvbox->addWidget(detailButtonBox);
-}
-
-void ImportDetailDialog::createKeyInfoBox()
+void KeyImportDetailDialog::createKeysTable()
 {
     // get details for the imported keys;
     gpgme_import_status_t status = mResult->imports;
 
-    keyInfoBox = new QGroupBox(tr("Detailed key import info"));
-    keyInfoBoxLayout = new QGridLayout(keyInfoBox);
+    keysTable = new QTableWidget(this);
+    keysTable->setRowCount(0);
+    keysTable->setColumnCount(4);
+    keysTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    // Nothing is selectable
+    keysTable->setSelectionMode(QAbstractItemView::NoSelection);
 
-    int keyrow=1;
-
-    // process the whole list of keys
+    QStringList headerLabels;
+    headerLabels  << tr("Name") << tr("Email") << tr("KeyID") << tr("Status");
+    keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
+    keysTable->verticalHeader()->hide();
+    keysTable->setHorizontalHeaderLabels(headerLabels);
+    int row = 0;
     while (status != NULL) {
+        keysTable->setRowCount(row+1);
         GpgKey key = mKeyList->getKeyByFpr(status->fpr);
-        keyInfoBoxLayout->addWidget(new QLabel(key.name),keyrow,2);
-        keyInfoBoxLayout->addWidget(new QLabel(key.email),keyrow,3);
-        keyInfoBoxLayout->addWidget(new QLabel(key.id),keyrow,4);
-        keyInfoBoxLayout->addWidget(new QLabel(QString::number(status->status)),keyrow,5);
+        keysTable->setItem(row, 0, new QTableWidgetItem(key.name));
+        keysTable->setItem(row, 1, new QTableWidgetItem(key.email));
+        keysTable->setItem(row, 2, new QTableWidgetItem(key.id));
+        keysTable->setItem(row, 3, new QTableWidgetItem(QString::number(status->status)));
 
         status=status->next;
-        keyrow++;
+        row++;
     }
-
-    // Add the boxes to mainwidget
-    mvbox->addWidget(keyInfoBox);
+    mvbox->addWidget(keysTable);
 }
 
+void KeyImportDetailDialog::createButtonBox()
+{
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(close()));
+    mvbox->addWidget(buttonBox);
+}

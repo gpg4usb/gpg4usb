@@ -25,7 +25,7 @@
 #include "keylist.h"
 #include "keygenthread.h"
 #include "keydetailsdialog.h"
-#include "importdetaildialog.h"
+#include "keyimportdetaildialog.h"
 #include "keyserverimportdialog.h"
 #include "keygendialog.h"
 #include <QtGui>

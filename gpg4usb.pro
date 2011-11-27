@@ -19,7 +19,7 @@ HEADERS += attachments.h \
     gpgcontext.h \
     mainwindow.h \
     fileencryptiondialog.h \
-    importdetaildialog.h \
+    keyimportdetaildialog.h \
     mime.h \
     keygendialog.h \
     keygenthread.h \
@@ -42,7 +42,7 @@ SOURCES += attachments.cpp \
     mainwindow.cpp \
     main.cpp \
     fileencryptiondialog.cpp \
-    importdetaildialog.cpp \
+    keyimportdetaildialog.cpp \
     mime.cpp \
     keygendialog.cpp \
     keygenthread.cpp \
