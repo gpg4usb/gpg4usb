@@ -21,7 +21,7 @@
 
 #include "verifynotification.h"
 
-VerifyNotification::VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, KeyList *keyList,QPlainTextEdit *edit) :
+VerifyNotification::VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, KeyList *keyList,QTextEdit *edit) :
     QWidget(parent)
 {
     mCtx = ctx;

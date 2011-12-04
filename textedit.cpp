@@ -297,7 +297,7 @@ bool TextEdit::maybeSaveAnyTab()
 }
 
 
-QPlainTextEdit* TextEdit::curTextPage()
+QTextEdit* TextEdit::curTextPage()
 {
     EditorPage *curTextPage = qobject_cast<EditorPage *>(tabWidget->currentWidget());
     return curTextPage->getTextPage();

@@ -24,7 +24,7 @@
 EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(parent),
                                                        fullFilePath(filePath)
 {
-    textPage   = new QPlainTextEdit();
+    textPage   = new QTextEdit();
     mainLayout = new QVBoxLayout();
     mainLayout->setSpacing(0);
     mainLayout->addWidget(textPage);
@@ -39,7 +39,7 @@ const QString& EditorPage::getFilePath() const
     return fullFilePath;
 }
 
-QPlainTextEdit* EditorPage::getTextPage()
+QTextEdit* EditorPage::getTextPage()
 {
     return textPage;
 }

@@ -32,7 +32,7 @@
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
-class QPlainTextEdit;
+class QTextEdit;
 class QWidget;
 class QVBoxLayout;
 class QGridLayout;
@@ -46,7 +46,7 @@ class QMessageBox;
 class QVBoxLayout;
 class QAction;
 class QMenu;
-class QPlainTextEdit;
+class QTextEdit;
 class QComboBox;
 class QPushButton;
 class QRadioButton;

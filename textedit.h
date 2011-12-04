@@ -33,7 +33,7 @@ class QMessageBox;
 class QFileInfo;
 class QApplication;
 class QFile;
-class QPlainTextEdit;
+class QTextEdit;
 class QFileDialog;
 class QMessageBox;
 class QWidget;
@@ -77,7 +77,7 @@ public:
     /**
      * @details textpage of the currently activated tab
      */
-    QPlainTextEdit* curTextPage();
+    QTextEdit* curTextPage();
 
     /**
      * @details  List of currently unsaved tabs.

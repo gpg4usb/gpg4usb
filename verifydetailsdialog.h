@@ -30,7 +30,7 @@ class VerifyDetailsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList, QPlainTextEdit *edit);
+    explicit VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList, QTextEdit *edit);
 
 private slots:
     void refresh();
@@ -41,7 +41,7 @@ private:
     QHBoxLayout *mainLayout;
     QVBoxLayout *mVboxLayout;
     QWidget *mVbox;
-    QPlainTextEdit *mTextpage; /** Textedit associated to the notification */
+    QTextEdit *mTextpage; /** Textedit associated to the notification */
     QDialogButtonBox* buttonBox;
 };
 

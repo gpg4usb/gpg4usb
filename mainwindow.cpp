@@ -805,7 +805,7 @@ void MainWindow::appendSelectedKeys()
 
     QByteArray *keyArray = new QByteArray();
     mCtx->exportKeys(mKeyList->getSelected(), keyArray);
-    edit->curTextPage()->appendPlainText(*keyArray);
+    edit->curTextPage()->append(*keyArray);
 }
 
 void MainWindow::copyMailAddressToClipboard()

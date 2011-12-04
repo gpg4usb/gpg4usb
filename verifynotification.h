@@ -58,7 +58,7 @@ public:
      * @param ctx The GPGme-Context
      * @param parent The parent widget
      */
-    explicit VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, KeyList *keyList,QPlainTextEdit *edit);
+    explicit VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, KeyList *keyList,QTextEdit *edit);
     /**
      * @details Set the text and background-color of verify notification.
      *
@@ -101,7 +101,7 @@ private:
     QLabel *verifyLabel; /** Label holding the text shown in verifyNotification */
     GpgME::GpgContext *mCtx; /** GpgME Context */
     KeyList *mKeyList; /** Table holding the keys */
-    QPlainTextEdit *mTextpage; /** Textedit associated to the notification */
+    QTextEdit *mTextpage; /** Textedit associated to the notification */
     QHBoxLayout *notificationWidgetLayout; /** Layout for verify-notification */
     QVector<QString> verifyDetailStringVector; /** Vector containing the text for labels in verifydetaildialog */
     QVector<verify_label_status> verifyDetailStatusVector; /** Vector containing the status for labels in verifydetaildialog */

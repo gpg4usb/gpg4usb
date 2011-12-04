@@ -22,7 +22,7 @@
 #ifndef __EDITORPAGE_H__
 #define __EDITORPAGE_H__
 
-#include <QPlainTextEdit>
+#include <QTextEdit>
 #include <QtGui>
 
 QT_BEGIN_NAMESPACE
@@ -64,7 +64,7 @@ public:
     /**
      * @details Return pointer tp the textedit of the currently activated tab.
      */
-    QPlainTextEdit *getTextPage();
+    QTextEdit *getTextPage();
 
     /**
      * @details Show additional widget at buttom of currently active tab
@@ -82,7 +82,7 @@ public:
     void closeNoteByClass(const char *className);
 
 private:
-    QPlainTextEdit *textPage; /** The textedit of the tab */
+    QTextEdit *textPage; /** The textedit of the tab */
     QVBoxLayout *mainLayout; /** The layout for the tab */
     QHBoxLayout *notificationWidgetLayout; /** layout for the notification-widget */
     QWidget *notificationWidget; /** The notification widget shown at the buttom of the tab */
