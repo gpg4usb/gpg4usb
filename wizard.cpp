@@ -110,52 +110,65 @@ ImportPage::ImportPage(GpgME::GpgContext *ctx, QWidget *parent)
      : QWizardPage(parent)
 {
     mCtx=ctx;
-    setTitle(tr("Keyring Import from GnuPG-home-directory"));
-    topLabel = new QLabel(tr("Should I try to import keys from GnuPG?"));
+    setTitle(tr("Keyring Import"));
+    QGroupBox *gnupgBox = new QGroupBox(tr("Import from GnuPG"), this);
 
-    // Layout for private keys
-    privateKeysCheckBox = new QCheckBox();
-    QLabel *privateKeysLabel = new QLabel(tr("Private keys"));
-    QWidget *privHBox = new QWidget(this);
-    QHBoxLayout *privHBoxLayout = new QHBoxLayout();
-    privHBoxLayout->addWidget(privateKeysCheckBox);
-    privHBoxLayout->addWidget(privateKeysLabel);
-    privHBoxLayout->addStretch(1);
-    privHBox->setLayout(privHBoxLayout);
+    QGridLayout *gnupgLayout = new QGridLayout();
+    gnupgLabel = new QLabel(tr("Should I try to import keys from GnuPG?"));
+    gnupgLayout->addWidget(gnupgLabel,1,1,1,2);
 
-    // Layout for public keys
-    publicKeysCheckBox = new QCheckBox();
-    QLabel *publicKeysLabel = new QLabel(tr("Public keys"));
-    QWidget *pubHBox = new QWidget();
-    QHBoxLayout *pubHBoxLayout = new QHBoxLayout();
-    pubHBoxLayout->addWidget(publicKeysCheckBox);
-    pubHBoxLayout->addWidget(publicKeysLabel);
-    pubHBoxLayout->addStretch(1);
-    pubHBox->setLayout(pubHBoxLayout);
+    gnupgPrivKeyCheckBox = new QCheckBox();
+    gnupgPrivKeyCheckBox->setChecked(true);
+    gnupgLayout->addWidget(gnupgPrivKeyCheckBox,2,1,Qt::AlignRight);
+    QLabel *privateKeyLabel = new QLabel(tr("Private Keys"));
+    gnupgLayout->addWidget(privateKeyLabel,2,2);
+
+    gnupgpPubKeyCheckBox = new QCheckBox();
+    gnupgpPubKeyCheckBox->setChecked(true);
+    gnupgLayout->addWidget(gnupgpPubKeyCheckBox,3,1,Qt::AlignRight);
+    QLabel *gnupgPrivKeyLabel = new QLabel(tr("Public Keys"));
+    gnupgLayout->addWidget(gnupgPrivKeyLabel,3,2);
+
 
     QWidget *importFromGnupgButtonBox = new QWidget(this);
     QHBoxLayout  *importFromGnupgButtonBoxLayout = new QHBoxLayout(importFromGnupgButtonBox);
     importFromGnupgButton = new QPushButton(tr("Import keys from GnuPG"));
     connect(importFromGnupgButton, SIGNAL(clicked()), this, SLOT(importKeysFromGnupg()));
+    importFromGnupgButtonBox->setLayout(importFromGnupgButtonBoxLayout);
+    gnupgLayout->addWidget(importFromGnupgButton,2,3);
 
-    importFromGnupgButtonBoxLayout->addStretch(1);
-    importFromGnupgButtonBoxLayout->addWidget(importFromGnupgButton);
+    gnupgBox->setLayout(gnupgLayout);
+
+    QGroupBox *gpg4usbBox = new QGroupBox(tr("Import from older gpg4usb"), this);
+
+    QGridLayout *gpg4usbLayout = new QGridLayout();
+    QLabel *gnupgLabel = new QLabel(tr("Point to the folder of last gpg4usb"));
+    gpg4usbLayout->addWidget(gnupgLabel,1,1,1,2);
+
+    gpg4usbPrivKeyCheckBox = new QCheckBox();
+    gpg4usbPrivKeyCheckBox->setChecked(true);
+    gpg4usbLayout->addWidget(gpg4usbPrivKeyCheckBox,2,1,Qt::AlignRight);
+    QLabel *privateKeyLabel2 = new QLabel(tr("Private Keys"));
+    gpg4usbLayout->addWidget(privateKeyLabel2,2,2);
+
+    gpg4usbPubKeyCheckBox = new QCheckBox();
+    gpg4usbPubKeyCheckBox->setChecked(true);
+    gpg4usbLayout->addWidget(gpg4usbPubKeyCheckBox,3,1,Qt::AlignRight);
+    QLabel *gpg4usbLabel = new QLabel(tr("Public Keys"));
+    gpg4usbLayout->addWidget(gpg4usbLabel,3,2);
 
     QWidget *importFromGpg4usbButtonBox = new QWidget(this);
     QHBoxLayout  *importFromGpg4usbButtonBoxLayout = new QHBoxLayout(importFromGpg4usbButtonBox);
     importFromGpg4usbButton = new QPushButton(tr("Import keys from gpg4usb"));
     connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importKeysFromGpg4usb()));
+    importFromGpg4usbButtonBox->setLayout(importFromGpg4usbButtonBoxLayout);
+    gpg4usbLayout->addWidget(importFromGpg4usbButton,2,3);
 
-    importFromGpg4usbButtonBoxLayout->addStretch(1);
-    importFromGpg4usbButtonBoxLayout->addWidget(importFromGpg4usbButton);
-
+    gpg4usbBox->setLayout(gpg4usbLayout);
 
     layout = new QVBoxLayout();
-    layout->addWidget(topLabel);
-    layout->addWidget(privHBox);
-    layout->addWidget(pubHBox);
-    layout->addWidget(importFromGnupgButtonBox);
-    layout->addWidget(importFromGpg4usbButtonBox);
+    layout->addWidget(gnupgBox);
+    layout->addWidget(gpg4usbBox);
 
     setLayout(layout);
 }
@@ -179,7 +192,7 @@ bool ImportPage::importKeysFromGpg4usb()
         return false;
     }
 
-    if (pubRing.exists()) {
+    if (pubRing.exists() and gnupgpPubKeyCheckBox->isChecked()) {
         if (!pubRing.open(QIODevice::ReadOnly)) {
             QMessageBox::critical(0, tr("Import error"), tr("Couldn't open public keyringfile: ") + pubRing.fileName());
             return false;
@@ -188,7 +201,7 @@ bool ImportPage::importKeysFromGpg4usb()
         mCtx->importKey(inBuffer);
     }
 
-    if (secRing.exists()) {
+    if (secRing.exists() and gnupgPrivKeyCheckBox->isChecked()) {
         if (!secRing.open(QIODevice::ReadOnly)) {
             QMessageBox::critical(0, tr("Import error"), tr("Couldn't open private keyringfile: ") + secRing.fileName());
             return false;
@@ -210,7 +223,7 @@ bool ImportPage::importKeysFromGnupg()
     }
 
     // try to import private files, if private key checkbox is checked
-    if (privateKeysCheckBox->isChecked()) {
+    if (gnupgPrivKeyCheckBox->isChecked()) {
         QString privRingFile = gnuPGHome+"/secring.gpg";
         QFile file;
         file.setFileName(privRingFile);
@@ -224,7 +237,7 @@ bool ImportPage::importKeysFromGnupg()
     }
 
     // try to import public keys, if public checkbox is checked
-    if (publicKeysCheckBox->isChecked()) {
+    if (gnupgpPubKeyCheckBox->isChecked()) {
         QString pubRingFile = gnuPGHome+"/pubring.gpg";
         QFile file;
         file.setFileName(pubRingFile);

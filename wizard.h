@@ -96,11 +96,13 @@ private:
       */
     QString getGnuPGHome();
 
-    QLabel *topLabel;
+    QLabel *gnupgLabel;
     QVBoxLayout *layout;
     GpgME::GpgContext *mCtx;
-    QCheckBox *privateKeysCheckBox;
-    QCheckBox *publicKeysCheckBox;
+    QCheckBox *gnupgPrivKeyCheckBox;
+    QCheckBox *gnupgpPubKeyCheckBox;
+    QCheckBox *gpg4usbPrivKeyCheckBox;
+    QCheckBox *gpg4usbPubKeyCheckBox;
     QPushButton *importFromGnupgButton;
     QPushButton *importFromGpg4usbButton;
 };
