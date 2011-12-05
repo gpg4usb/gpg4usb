@@ -211,6 +211,7 @@ void TextEdit::removeTab(int index)
   * If it returns false, the close event should be aborted.
   */
 bool TextEdit::maybeSaveCurrentTab(bool askToSave) {
+
     EditorPage *page = curPage();
     QTextDocument *document = page->getTextPage()->document();
 
@@ -309,7 +310,11 @@ bool TextEdit::maybeSaveAnyTab()
 QTextEdit* TextEdit::curTextPage()
 {
     EditorPage *curTextPage = qobject_cast<EditorPage *>(tabWidget->currentWidget());
-    return curTextPage->getTextPage();
+    if(curTextPage != 0) {
+        return curTextPage->getTextPage();
+    } else {
+        return 0;
+    }
 }
 
 
@@ -445,7 +450,7 @@ QHash<int, QString> TextEdit::unsavedDocuments() {
 
 void TextEdit::cut()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
         return;
     }
 
@@ -454,7 +459,7 @@ void TextEdit::cut()
 
 void TextEdit::copy()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
         return;
     }
 
@@ -463,7 +468,7 @@ void TextEdit::copy()
 
 void TextEdit::paste()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
         return;
     }
 
@@ -472,7 +477,7 @@ void TextEdit::paste()
 
 void TextEdit::undo()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
         return;
     }
 
@@ -481,7 +486,7 @@ void TextEdit::undo()
 
 void TextEdit::redo()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
         return;
     }
 
@@ -490,7 +495,7 @@ void TextEdit::redo()
 
 void TextEdit::selectAll()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
         return;
     }
 

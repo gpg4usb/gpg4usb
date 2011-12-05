@@ -77,6 +77,8 @@ public:
     int tabCount();
     /**
      * @details textpage of the currently activated tab
+     * @return \li reference to QTextEdit if tab has one
+     *         \li 0 otherwise (e.g. if helppage)
      */
     QTextEdit* curTextPage();
 
