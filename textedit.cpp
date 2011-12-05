@@ -53,6 +53,15 @@ void TextEdit::newTab()
     connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
  }
 
+void TextEdit::newHelpTab(QString title, QString path)
+{
+
+    HelpPage *page = new HelpPage(path);
+    tabWidget->addTab(page, title);
+    tabWidget->setCurrentIndex(tabWidget->count() - 1);
+
+}
+
 void TextEdit::open()
 {
     QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open file"),

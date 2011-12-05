@@ -23,6 +23,7 @@
 #define __TEXTEDIT_H__
 
 #include "editorpage.h"
+#include "helppage.h"
 #include "quitdialog.h"
 
 QT_BEGIN_NAMESPACE
@@ -127,6 +128,14 @@ public slots:
      *                      Sets the focus to the new tab. Increase Tab-Count by one
      */
     void newTab();
+
+    /**
+     * @details Adds a new tab with the given title and opens given html file.
+     * Increase Tab-Count by one
+     * @param title title for the tab
+     * @param path  path for html file to show
+     */
+    void newHelpTab(QString title, QString path);
 
     /**
      * @details put a * in front of current tabs title, if current textedit is modified

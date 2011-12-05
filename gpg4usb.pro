@@ -35,7 +35,8 @@ HEADERS += attachments.h \
     verifynotification.h \
     verifydetailsdialog.h \
     verifykeydetailbox.h \
-    wizard.h
+    wizard.h \
+    helppage.h
 
 SOURCES += attachments.cpp \
     gpgcontext.cpp \
@@ -58,7 +59,8 @@ SOURCES += attachments.cpp \
     verifynotification.cpp \
     verifydetailsdialog.cpp \
     verifykeydetailbox.cpp \
-    wizard.cpp
+    wizard.cpp \
+    helppage.cpp
 
 RC_FILE = gpg4usb.rc
 
