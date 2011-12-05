@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+<head>
+<title>gpg4usb - Documentation</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+</head>
+
+<body>
+<div id="logo">
+<a href="index.html"><img src="img/weblogo.png" alt="gpg4usb project" /></a>
+</div>
+
+<div style="width:800px;text-align:center;float:center">
+
+<ul id="menu">
+<!--li onclick="window.location.href='index.html';"><a href="index.html">News</a></li>
+<li onclick="window.location.href='about.html';"><a href="about.html">About</a></li>
+<li onclick="window.location.href='screenshots.html';"><a href="screenshots.html">Screenshots</a></li-->
+<li class="active" onclick="window.location.href='docu.html';"><a href="docu.html">Documentation</a></li>
+	<li class="submenu" onclick="window.location.href='docu_keygen.html';"><a href="docu_keygen.html">Generate Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_encrypt.html';"><a href="docu_encrypt.html">Encrypt Text</a></li>
+	<li class="submenu" onclick="window.location.href='docu_decrypt.html';"><a href="docu_decrypt.html">Decrypt Text</a></li>
+	<li class="submenu" onclick="window.location.href='docu_encrypt_file.html';"><a href="docu_encrypt_file.html">Encrypt Files</a></li>
+	<li class="submenu" onclick="window.location.href='docu_decrypt_file.html';"><a href="docu_decrypt_file.html">Decrypt Files</a></li>
+	<li class="submenu" onclick="window.location.href='docu_import_key.html';"><a href="docu_import_key.html">Import Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_export_key.html';"><a href="docu_export_key.html">Export Public Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_export_key_private.html';"><a href="docu_export_key_private.html">Export Private Keys</a></li>
+	<li class="active submenu" onclick="window.location.href='docu_translate.html';"><a href="docu_translate.html">Translate gpg4usb</a></li>
+<!--li onclick="window.location.href='download.html';"><a href="download.html">Download</a></li>
+<li onclick="window.location.href='develop.html';"><a href="develop.html">Develop</a></li>
+<li onclick="window.location.href='contact.php';"><a href="contact.php">Contact</a></li-->
+</ul>
+
+<div id="content">
+
+<h1>Howto translate gpg4usb</h1>
+
+<div class="newsentry">
+<h4>Quick guide to translation</h4>
+<ol>
+<li>Download and install <a href="http://qt-apps.org/content/show.php/Qt+Linguist+Download?content=89360"> Qt Linguist</a></li>
+<li>Open gpg4usb translation file from the gpg4usb folder in your preferred language, e.g. ts/gpg4usb_en.ts</li>
+<li>try translating one string, e.g. "&Open" from GpgWin.cpp</li>
+<li>hit File->Release</li>
+<li>start gpg4usb and look at the result</li>
+</ol>
+<p>Now go wild translating and send us the ts-file. We will include it in our next release. 
+We will contact you to update translations when new ones are needed, and you'll see how nice linguist
+behaves to only ask you for the changed strings to be translated. We are looking forward to working together
+on delivering gpg4usb in your language.
+</p>
+</div>
+
+<p>
+To integrate a new language into gpg4usb, one of the developers has to do one simple step and then the translater can begin his work.
+For the translator, the most simple way is to use the Qt-Linguist. The developer has to install lupdate and lrelease. In Linux these are contained in the <b>qt4-dev</b> package. Some detailed documentation on the linguist is available <a href="http://doc.qt.nokia.com/4.6/linguist-manual.html">here</a>.
+</p>
+
+<h4>STEP 1: Change the project-file</h4>
+<p>
+At first a developer has to add a line for the language in the <b>gpg4usb.pro</b> file in the <b>TRANSLATIONS</b> section looking like 
+<p class="code" style="font-family">release/ts/gpg4usb_&lt;language&gt;.ts \<p/> where &lt;language&gt; has to be replaced by the characters, which can be taken from <a href="docu_locales.html">this list.</a>
+</p>
+
+<h4>STEP 2: Run lupdate</h4>
+<p>
+Then the developer has to run lupdate, so that the appropriate ts-file is created in the <b>release/ts</b> directory:</p>
+<p class="code">lupdate gpg4usb.pro</p>
+
+<p>The ts file is a xml-file, which contains the original phrases, the translated phrases (when it's done), the status of translation, comments to the translation and some other information.</p>
+<h4>STEP 3: Translate the file</h4>
+<p>
+Now the ts-file can be opened with the linguist. In the programm, you just have to enter the translation of the phrases into the translation field and hit <b>[Ctrl]+[Enter]</b> to set the translation status of the phrase to ok and jump to the next unfinished translation. The status of the translation and comments also are automatically saved in the ts-file, so that the translation are easier to maintain.</p>
+<p><IMG SRC="img/docu/translate_src_transl.jpg" alt="translation text field">
+</p>
+<p>
+Three things have to be taken care of. 
+<ul><li>Sometimes, there is a <b>&amp;</b> in the phrase. This means, that the character after the <b>&amp;</b> is an accelarator (so it can be used to browse the menu with the Alt-keys). These accelarators have to be unique for every submenu, otherwise the won't work.</li>
+<li>The second thing is, that in some expression there is contained something like <b>%1</b>. This mostly is a placeholder for a file-name, which is replaced by gpg4usb while it is running.</li>
+<li>The third thing is, that in some phrases, there are html similar tags like <b>&lt;p&gt;</b>. These have to be left untouched.</li></ul>
+</p>
+
+<h4>STEP 4: Release the translation file</h4>
+<p>
+After translating all the phrases, you have to choose File , Release in the linguist's menu. With this an appropriate qm-file (quite like a binary language file) is generated. 
+</p>
+
+<h4>STEP 5: Run the programm</h4>
+<p>
+Now you can run gpg4usb with the new language by choosing the language in the settings menu.
+</p>
+
+
+<h1>Howto Translate new phrases</h1> 
+<p>
+When the project envolves, it's possible, that new expressions have to be translated. In this case the developer has to run <b>lupdate</b> once more. The translater just has to open the new ts-file with the linguist. On the upper left, he sees in the context menu, in which section are new phrases to translate (everything, which hasn't a green haken in front).</p>
+<p><IMG SRC="img/docu/translate_context.jpg" alt="context field"></p>
+<p>Again the translator has to hit <b>[Ctrl]+[Enter]</b> so that the linguist jumps to the unfinished translation. Afterwards the translator has to release the file another time.
+</p>
+</div>
+</div>
+</body>
+</html>

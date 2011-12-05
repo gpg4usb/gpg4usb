@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+<head>
+<title>gpg4usb - Documentation</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+</head>
+
+<body>
+<div id="logo">
+<a href="index.html"><img src="img/weblogo.png" alt="gpg4usb project" /></a>
+</div>
+
+<div style="width:800px;text-align:center;float:center">
+
+<ul id="menu">
+<!--li onclick="window.location.href='index.html';"><a href="index.html">News</a></li>
+<li onclick="window.location.href='about.html';"><a href="about.html">About</a></li>
+<li onclick="window.location.href='screenshots.html';"><a href="screenshots.html">Screenshots</a></li-->
+<li class="active" onclick="window.location.href='docu.html';"><a href="docu.html">Documentation</a></li>
+	<li class="submenu" onclick="window.location.href='docu_keygen.html';"><a href="docu_keygen.html">Generate Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_encrypt.html';"><a href="docu_encrypt.html">Encrypt Text</a></li>
+	<li class="submenu" onclick="window.location.href='docu_decrypt.html';"><a href="docu_decrypt.html">Decrypt Text</a></li>
+	<li class="submenu" onclick="window.location.href='docu_encrypt_file.html';"><a href="docu_encrypt_file.html">Encrypt Files</a></li>
+	<li class="submenu" onclick="window.location.href='docu_decrypt_file.html';"><a href="docu_decrypt_file.html">Decrypt Files</a></li>
+	<li class="active submenu" onclick="window.location.href='docu_import_key.html';"><a href="docu_import_key.html">Import Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_export_key.html';"><a href="docu_export_key.html">Export Public Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_export_key_private.html';"><a href="docu_export_key_private.html">Export Private Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_translate.html';"><a href="docu_translate.html">Translate gpg4usb</a></li>
+<!--li onclick="window.location.href='download.html';"><a href="download.html">Download</a></li>
+<li onclick="window.location.href='develop.html';"><a href="develop.html">Develop</a></li>
+<li onclick="window.location.href='contact.php';"><a href="contact.php">Contact</a></li-->
+</ul>
+
+<div id="content">
+
+<h1>Howto import keys</h1>
+<p>
+There are second respectively three steps for importing public keys. We assume, that Bobby wants to import Alice's key, so that he is able to encrypt messages to her. 
+<br/>
+When Bobby wants to import a key from text-edit field or from clipboard, he first has to copy the key to it.
+</p>
+<h4>STEP 1: Open key import dialog</h4>
+<p>
+First Bobby opens the import key dialog through the toolbar. 
+</p>
+<IMG SRC="img/docu/importkey_menu.jpg" alt="open import key dialog">
+
+<h4>STEP 2: Choose keys</h4>
+<p>
+Secondly makes the appropriate selection. If he wants to import a key from editor, he has to paste the key to the text-edit field before. Only if he wants to import keys from file, he has to do the next step, otherwise he's done.
+</p>
+<IMG SRC="img/docu/importkey_dialog.jpg" alt="choose file">
+
+
+<h4>STEP 3: Choose file</h4>
+<p>
+Now he chooses the key-file. Afterwards the key appears in the keylist.
+</p>
+<IMG SRC="img/docu/importkey_keylist.jpg" alt="key list">
+</div>
+</div>
+</body>
+</html>

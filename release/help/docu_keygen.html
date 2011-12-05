@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+<head>
+<title>gpg4usb - Documentation</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+</head>
+
+<body>
+<div id="logo">
+<a href="index.html"><img src="img/weblogo.png" alt="gpg4usb project" /></a>
+</div>
+
+<div style="width:800px;text-align:center;float:center">
+
+<ul id="menu">
+<!--li onclick="window.location.href='index.html';"><a href="index.html">News</a></li>
+<li onclick="window.location.href='about.html';"><a href="about.html">About</a></li>
+<li onclick="window.location.href='screenshots.html';"><a href="screenshots.html">Screenshots</a></li-->
+<li class="active" onclick="window.location.href='docu.html';"><a href="docu.html">Documentation</a></li>
+	<li class="active submenu" onclick="window.location.href='docu_keygen.html';"><a href="docu_keygen.html">Generate Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_encrypt.html';"><a href="docu_encrypt.html">Encrypt Text</a></li>
+	<li class="submenu" onclick="window.location.href='docu_decrypt.html';"><a href="docu_decrypt.html">Decrypt Text</a></li>
+	<li class="submenu" onclick="window.location.href='docu_encrypt_file.html';"><a href="docu_encrypt_file.html">Encrypt Files</a></li>
+	<li class="submenu" onclick="window.location.href='docu_decrypt_file.html';"><a href="docu_decrypt_file.html">Decrypt Files</a></li>
+	<li class="submenu" onclick="window.location.href='docu_import_key.html';"><a href="docu_import_key.html">Import Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_export_key.html';"><a href="docu_export_key.html">Export Public Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_export_key_private.html';"><a href="docu_export_key_private.html">Export Private Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_translate.html';"><a href="docu_translate.html">Translate gpg4usb</a></li>
+<!--li onclick="window.location.href='download.html';"><a href="download.html">Download</a></li>
+<li onclick="window.location.href='develop.html';"><a href="develop.html">Develop</a></li>
+<li onclick="window.location.href='contact.php';"><a href="contact.php">Contact</a></li-->
+</ul>
+
+<div id="content">
+
+<h1>Howto generate a GPG-keypair</h1>
+<p>
+There are four steps for generating a keypair. We assume, that Alice wants to generate a keypair, so she can decrypt texts, which are encrypted for her.
+</p>
+
+<h4>STEP 1: Open keymanagement</h4>
+
+<p>
+First Alice opens the keymanagement through the toolbar.
+</p>
+
+<IMG SRC="img/docu/genkey_step1.jpg" alt="open keymanagement">
+</br>
+<h4>STEP 2: Open generate key dialog</h4>
+<p>
+Secondly she opens the generate key dialog through the "key"-menu 
+</p>
+<IMG SRC="img/docu/genkey_step2.jpg" alt="open generate key dialog">
+</br>
+
+<h4>STEP 3: Fill in the form</h4>
+<p>
+Now she fills in the forms.</p>
+
+<p><b>NOTE:</b>  A key with a higher bitrate is more secure, but also needs a more time to encrypt and decrypt texts. To generate a key, you only have to provide a name. Even the passphrase could be empty (which of course lags of security).
+</p>
+<IMG SRC="img/docu/genkey_step3.jpg" alt="fill in the forms">
+</br>
+<h4>STEP 4: Wait while key is generated</h4>
+<p>
+Now Alice has just to wait. The process of the key generation is faster, when Alice does something on her PC, so that the randomdevice gets more input and so more entropy.
+</p>
+<IMG SRC="img/docu/genkey_step4.jpg" alt="wait for end of key generation">
+
+When the generation dialog box disappears, the key generation is finished.
+</div>
+</div>
+</body>
+</html>

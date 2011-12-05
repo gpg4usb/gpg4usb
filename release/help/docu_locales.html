@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+<head>
+<title>gpg4usb - Documentation</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+</head>
+
+<body>
+<div id="logo">
+<a href="index.html"><img src="img/weblogo.png" alt="gpg4usb project" /></a>
+</div>
+
+<div style="width:800px;text-align:center;float:center">
+
+<ul id="menu">
+<!--li onclick="window.location.href='index.html';"><a href="index.html">News</a></li>
+<li onclick="window.location.href='about.html';"><a href="about.html">About</a></li>
+<li onclick="window.location.href='screenshots.html';"><a href="screenshots.html">Screenshots</a></li-->
+<li class="active" onclick="window.location.href='docu.html';"><a href="docu.html">Documentation</a></li>
+	<li class="submenu" onclick="window.location.href='docu_keygen.html';"><a href="docu_keygen.html">Generate Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_encrypt.html';"><a href="docu_encrypt.html">Encrypt Text</a></li>
+	<li class="submenu" onclick="window.location.href='docu_decrypt.html';"><a href="docu_decrypt.html">Decrypt Text</a></li>
+	<li class="submenu" onclick="window.location.href='docu_encrypt_file.html';"><a href="docu_encrypt_file.html">Encrypt Files</a></li>
+	<li class="submenu" onclick="window.location.href='docu_decrypt_file.html';"><a href="docu_decrypt_file.html">Decrypt Files</a></li>
+	<li class="submenu" onclick="window.location.href='docu_import_key.html';"><a href="docu_import_key.html">Import Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_export_key.html';"><a href="docu_export_key.html">Export Public Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_export_key_private.html';"><a href="docu_export_key_private.html">Export Private Keys</a></li>
+	<li class="submenu" onclick="window.location.href='docu_translate.html';"><a href="docu_translate.html">Translate gpg4usb</a></li>
+<!--li onclick="window.location.href='download.html';"><a href="download.html">Download</a></li>
+<li onclick="window.location.href='develop.html';"><a href="develop.html">Develop</a></li>
+<li onclick="window.location.href='contact.php';"><a href="contact.php">Contact</a></li-->
+</ul>
+
+<div id="content">
+<p><b>List of Locales :</b></p><br>
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#eef">
+
+    <tr>
+      <td><code>Albanian (Albania)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>sq_AL<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Albanian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sq<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Arabic (Algeria)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_DZ<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Bahrain)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_BH<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Egypt)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_EG<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Arabic (Iraq)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_IQ<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Arabic (Jordan)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_JO<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Kuwait)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>ar_KW<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Lebanon)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_LB<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Arabic (Libya)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_LY<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Morocco)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_MA<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Oman)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_OM<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Arabic (Qatar)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_QA<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Arabic (Saudi Arabia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_SA<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Sudan)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>ar_SD<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Syria)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_SY<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Arabic (Tunisia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_TN<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (United Arab Emirates)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_AE<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Arabic (Yemen)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar_YE<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Arabic</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ar<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Belarusian (Belarus)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>be_BY<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Belarusian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>be<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Bulgarian (Bulgaria)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>bg_BG<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Bulgarian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>bg<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Catalan (Spain)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ca_ES<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Catalan</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ca<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Chinese (China)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>zh_CN<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Chinese (Hong Kong)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>zh_HK<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Chinese (Singapore)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>zh_SG<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Chinese (Taiwan)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>zh_TW<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Chinese</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>zh<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Croatian (Croatia)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>hr_HR<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Croatian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>hr<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Czech (Czech Republic)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>cs_CZ<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Czech</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>cs<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Danish (Denmark)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>da_DK<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Danish</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>da<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Dutch (Belgium)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>nl_BE<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Dutch (Netherlands)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>nl_NL<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Dutch</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>nl<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>English (Australia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_AU<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>English (Canada)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_CA<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>English (India)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>en_IN<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>English (Ireland)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_IE<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>English (Malta)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_MT<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>English (New Zealand)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_NZ<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>English (Philippines)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_PH<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>English (Singapore)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_SG<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>English (South Africa)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_ZA<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>English (United Kingdom)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>en_GB<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>English (United States)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en_US<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>English</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>en<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Estonian (Estonia)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>et_EE<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Estonian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>et<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Finnish (Finland)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>fi_FI<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Finnish</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>fi<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>French (Belgium)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>fr_BE<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>French (Canada)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>fr_CA<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>French (France)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>fr_FR<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>French (Luxembourg)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>fr_LU<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>French (Switzerland)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>fr_CH<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>French</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>fr<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>German (Austria)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>de_AT<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>German (Germany)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>de_DE<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>German (Luxembourg)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>de_LU<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>German (Switzerland)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>de_CH<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>German</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>de<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Greek (Cyprus)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>el_CY<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Greek (Greece)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>el_GR<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Greek</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>el<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Hebrew (Israel)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>iw_IL<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Hebrew</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>iw<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Hindi (India)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>hi_IN<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Hungarian (Hungary)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>hu_HU<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Hungarian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>hu<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Icelandic (Iceland)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>is_IS<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Icelandic</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>is<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Indonesian (Indonesia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>in_ID<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Indonesian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>in<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Irish (Ireland)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ga_IE<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Irish</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ga<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Italian (Italy)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>it_IT<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Italian (Switzerland)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>it_CH<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Italian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>it<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Japanese (Japan)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>ja_JP<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Japanese (Japan,JP)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ja_JP_JP<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Japanese</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ja<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Korean (South Korea)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ko_KR<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Korean</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ko<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Latvian (Latvia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>lv_LV<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Latvian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>lv<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Lithuanian (Lithuania)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>lt_LT<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Lithuanian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>lt<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Macedonian (Macedonia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>mk_MK<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Macedonian</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>mk<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Malay (Malaysia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ms_MY<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Malay</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ms<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Maltese (Malta)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>mt_MT<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Maltese</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>mt<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Norwegian (Norway)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>no_NO<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Norwegian (Norway,Nynorsk)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>no_NO_NY<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Norwegian</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>no<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Polish (Poland)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>pl_PL<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Polish</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>pl<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Portuguese (Brazil)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>pt_BR<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Portuguese (Portugal)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>pt_PT<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Portuguese</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>pt<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Romanian (Romania)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ro_RO<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Romanian</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ro<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Russian (Russia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ru_RU<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Russian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>ru<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Serbian (Bosnia and Herzegovina)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sr_BA<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Serbian (Montenegro)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>sr_ME<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Serbian (Serbia and Montenegro)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sr_CS<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Serbian (Serbia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sr_RS<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Serbian</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sr<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Slovak (Slovakia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sk_SK<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Slovak</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sk<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Slovenian (Slovenia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sl_SI<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Slovenian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>sl<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Argentina)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_AR<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Spanish (Bolivia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_BO<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Chile)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_CL<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Colombia)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_CO<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Spanish (Costa Rica)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_CR<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Spanish (Dominican Republic)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_DO<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Ecuador)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>es_EC<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (El Salvador)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_SV<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Spanish (Guatemala)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_GT<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Honduras)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_HN<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Mexico)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_MX<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Spanish (Nicaragua)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_NI<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Spanish (Panama)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_PA<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Paraguay)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>es_PY<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Peru)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_PE<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Spanish (Puerto Rico)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_PR<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (Spain)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_ES<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish (United States)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_US<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Spanish (Uruguay)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_UY<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Spanish (Venezuela)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>es_VE<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Spanish</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>es<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Swedish (Sweden)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sv_SE<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Swedish</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>sv<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Thai (Thailand)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>th_TH<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Thai (Thailand,TH)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>th_TH_TH<code></code></code></td>
+
+    </tr>
+    <tr>
+      <td><code>Thai</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>th<code></code></code></td>
+    </tr>
+    <tr>
+
+      <td><code>Turkish (Turkey)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>tr_TR<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Turkish</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+
+      <td><code>tr<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Ukrainian (Ukraine)</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>uk_UA<code></code></code></td>
+    </tr>
+
+    <tr>
+      <td><code>Ukrainian</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>uk<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Vietnamese (Vietnam)</code></td>
+
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>vi_VN<code></code></code></td>
+    </tr>
+    <tr>
+      <td><code>Vietnamese</code></td>
+      <td><code>:&nbsp;&nbsp;</code></td>
+      <td><code>vi<code></code></code></td>
+
+    </tr>
+
+</table>
+</div>
+</body>
+</html>
