@@ -565,7 +565,7 @@ void MainWindow::openTranslate() {
 
 void MainWindow::openTutorial() {
     //QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
-    edit->newHelpTab("help", "http://gpg4usb.cpunk.de/docu.html");
+    edit->newHelpTab("help", "../../src/homepage/docu.html");
 }
 
 void MainWindow::startWizard()
@@ -638,7 +638,7 @@ void MainWindow::checkAttachmentFolder() {
 
 void MainWindow::importKeyFromEdit()
 {
-    if (edit->tabCount()==0) {
+    if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
     }
 
@@ -654,7 +654,7 @@ void MainWindow::openKeyManagement()
 
 void MainWindow::encrypt()
 {
-    if (edit->tabCount()==0) {
+    if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
     }
 
@@ -669,7 +669,7 @@ void MainWindow::encrypt()
 
 void MainWindow::sign()
 {
-    if (edit->tabCount()==0) {
+    if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
     }
 
@@ -685,7 +685,7 @@ void MainWindow::sign()
 
 void MainWindow::decrypt()
 {
-    if (edit->tabCount()==0) {
+    if (edit->tabCount()== 0 || edit->curPage() == 0) {
         return;
     }
 
@@ -724,7 +724,7 @@ void MainWindow::decrypt()
 
 void MainWindow::verify()
 {
-    if (edit->tabCount()==0) {
+    if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
     }
 
@@ -747,7 +747,7 @@ void MainWindow::verify()
  */
 void MainWindow::appendSelectedKeys()
 {
-    if (edit->tabCount()==0) {
+    if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
     }
 
@@ -808,7 +808,7 @@ void MainWindow::openSettingsDialog()
 
 void MainWindow::cleanDoubleLinebreaks()
 {
-    if (edit->tabCount()==0) {
+    if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
     }
 

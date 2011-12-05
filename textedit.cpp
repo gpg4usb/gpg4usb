@@ -98,7 +98,7 @@ void TextEdit::open()
 
 void TextEdit::save()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curPage() == 0) {
         return;
     }
 
@@ -335,7 +335,7 @@ EditorPage* TextEdit::curPage()
 
 void TextEdit::quote()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
         return;
     }
 
