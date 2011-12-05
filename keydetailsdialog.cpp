@@ -31,6 +31,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     ownerBox = new QGroupBox(tr("Owner details"));
     keyBox = new QGroupBox(tr("Key details"));
     fingerprintBox = new QGroupBox(tr("Fingerprint"));
+    additionalUidBox = new QGroupBox(tr("Additional Uids"));
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
 
@@ -45,6 +46,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
 
     nameVarLabel = new QLabel(key->uids->name);
     emailVarLabel = new QLabel(key->uids->email);
+
     commentVarLabel = new QLabel(key->uids->comment);
     keyidVarLabel = new QLabel(key->subkeys->keyid);
 
@@ -78,7 +80,6 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     expireVarLabel = new QLabel(keyExpireVal);
     createdVarLabel = new QLabel(keyCreatedVal);
     algorithmVarLabel = new QLabel(keyAlgoVal);
-
 
     mvbox = new QVBoxLayout();
     vboxKD = new QGridLayout();
@@ -115,6 +116,18 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     vboxFP->addWidget(fingerPrintLabel);
     fingerprintBox->setLayout(vboxFP);
     mvbox->addWidget(fingerprintBox);
+
+    // If key has more than primary uid, also show the other uids
+    gpgme_user_id_t addUserIds= key->uids->next;
+    if (addUserIds !=NULL) {
+        vboxUID = new QVBoxLayout();
+        while (addUserIds != NULL){
+            vboxUID->addWidget(new QLabel(addUserIds->name+ QString(" <")+addUserIds->email+">"));
+            addUserIds=addUserIds->next;
+        }
+        additionalUidBox->setLayout(vboxUID);
+        mvbox->addWidget(additionalUidBox);
+    }
 
     if (key->secret) {
         QGroupBox *privKeyBox = new QGroupBox(tr("Private Key"));
