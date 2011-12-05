@@ -190,12 +190,6 @@ private:
     void createDockWindows();
 
     /**
-     * @details Create icon for system tray
-     */
-    void createTrayIcon();
-    void showTrayMessage(QString title, QString body);
-
-    /**
      * @details Create attachment-dockwindow.
      */
     void createAttachmentDock();
@@ -238,9 +232,6 @@ private:
     QDockWidget *keylistDock; /** Encrypt Dock*/
     QDockWidget *attachmentDock; /** Attachment Dock */
     QDialog *genkeyDialog; /** Dialog for key generation */
-
-    QSystemTrayIcon *trayIcon;
-    QMenu *trayIconMenu;
 
     QAction *newTabAct; /** Action to create new tab */
     QAction *switchTabUpAct; /** Action to switch tab up*/

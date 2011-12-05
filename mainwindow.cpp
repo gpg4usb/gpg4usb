@@ -54,7 +54,6 @@ MainWindow::MainWindow()
     createToolBars();
     createStatusBar();
     createDockWindows();
-    createTrayIcon();
 
     mKeyList->addMenuAction(appendSelectedKeysAct);
     mKeyList->addMenuAction(copyMailAddressToClipboardAct);
@@ -73,7 +72,6 @@ MainWindow::MainWindow()
     edit->curTextPage()->setFocus();
     this->setWindowTitle(qApp->applicationName());
     this->show();
-    trayIcon->show();
 
     // Show wizard, if the don't show wizard message box wasn't checked
     // and keylist doesn't contain a private key
@@ -478,45 +476,6 @@ void MainWindow::createDockWindows()
     }
 }
 
-void MainWindow::createTrayIcon() {
-
-    QAction* minimizeAction = new QAction(tr("Mi&nimize"), this);
-    connect(minimizeAction, SIGNAL(triggered()), this, SLOT(hide()));
-
-    QAction* maximizeAction = new QAction(tr("Ma&ximize"), this);
-    connect(maximizeAction, SIGNAL(triggered()), this, SLOT(showMaximized()));
-
-    QAction* restoreAction = new QAction(tr("&Restore"), this);
-    connect(restoreAction, SIGNAL(triggered()), this, SLOT(showNormal()));
-
-    QAction* quitAction = new QAction(tr("&Quit"), this);
-    connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
-
-    trayIconMenu = new QMenu(this);
-    trayIconMenu->addAction(minimizeAction);
-    //trayIconMenu->addAction(maximizeAction);
-    trayIconMenu->addAction(restoreAction);
-    trayIconMenu->addSeparator();
-    trayIconMenu->addAction(quitAction);
-
-
-    trayIcon = new QSystemTrayIcon(this);
-
-    QIcon icon(":/tray.png");
-    trayIcon->setIcon(icon);
-    /*QByteArray category = qgetenv("SNI_CATEGORY");
-    if (!category.isEmpty()) {
-        trayIcon->setProperty("_qt_sni_category", QString::fromLocal8Bit(category));
-    }*/
-    trayIcon->setProperty("_qt_sni_category", qApp->applicationDirPath() + "/tmp");
-    trayIcon->setContextMenu(trayIconMenu);
-}
-
-void MainWindow::showTrayMessage(QString title, QString body) {
-    QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(QSystemTrayIcon::Information);
-    trayIcon->showMessage(title, body, icon, 15000);
-}
-
 void MainWindow::createAttachmentDock() {
     if (attachmentDockCreated) {
         return;
@@ -545,18 +504,6 @@ void MainWindow::closeAttachmentDock() {
 void MainWindow::closeEvent(QCloseEvent *event)
 {
 
-    // TODO: if close via tray, check for unsaved documents
-    if (trayIcon->isVisible()) {
-
-        showTrayMessage(tr("GPG4USB still alive"), tr("gpg4usb will keep running in the "
-                                          "system tray. To terminate the program, "
-                                          "choose <b>Quit</b> in the context menu "
-                                          "of the system tray entry."));
-
-        hide();
-        event->ignore();
-        return;
-    }
     /*
      * ask to save changes, if there are
      * modified documents in any tab
