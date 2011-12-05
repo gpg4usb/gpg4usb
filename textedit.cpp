@@ -213,6 +213,10 @@ void TextEdit::removeTab(int index)
 bool TextEdit::maybeSaveCurrentTab(bool askToSave) {
 
     EditorPage *page = curPage();
+    // if this page is no textedit, there should be nothing to save
+    if(page == 0) {
+        return true;
+    }
     QTextDocument *document = page->getTextPage()->document();
 
     if (document->isModified()) {
@@ -438,7 +442,7 @@ QHash<int, QString> TextEdit::unsavedDocuments() {
 
     for(int i=0; i < tabWidget->count(); i++) {
         EditorPage *ep = qobject_cast<EditorPage *> (tabWidget->widget(i));
-        if(ep->getTextPage()->document()->isModified()) {
+        if(ep != 0 && ep->getTextPage()->document()->isModified()) {
             QString docname = tabWidget->tabText(i);
             // remove * before name of modified doc
             docname.remove(0,2);
