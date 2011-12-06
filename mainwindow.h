@@ -22,6 +22,7 @@
 #ifndef __GPGWIN_H__
 #define __GPGWIN_H__
 
+#include "gpgconstants.h"
 #include "attachments.h"
 #include "keymgmt.h"
 #include "textedit.h"
@@ -171,6 +172,10 @@ private slots:
      * @details Replace double linebreaks by single linebreaks in currently active tab.
      */
     void cleanDoubleLinebreaks();
+
+    void cutPgpHeader();
+    void addPgpHeader();
+
 //    void dropEvent(QDropEvent *event);
 
 private:
@@ -234,6 +239,7 @@ private:
     QMenu *keyMenu; /** Submenu for key-operations */
     QMenu *viewMenu; /** View submenu */
     QMenu *importKeyMenu; /** Sumenu for import operations */
+    QMenu *steganoMenu; /** Submenu for steganographic operations*/
     QToolBar *cryptToolBar; /** Toolbar holding crypt actions */
     QToolBar *fileToolBar; /** Toolbar holding file actions */
     QToolBar *editToolBar; /** Toolbar holding edit actions */

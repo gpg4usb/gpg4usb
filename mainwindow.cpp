@@ -400,11 +400,22 @@ void MainWindow::createMenus()
 
     viewMenu = menuBar()->addMenu(tr("&View"));
 
+    if(settings.value("general/steganography").toBool()) {
+        steganoMenu = menuBar()->addMenu(tr("&Steganography"));
+        QAction* cutPgpHeaderAct = new QAction(tr("Remove PGP Header"), this);
+        connect(cutPgpHeaderAct, SIGNAL(triggered()), this, SLOT(cutPgpHeader()));
+        QAction* addPgpHeaderAct = new QAction(tr("Add PGP Header"), this);
+        connect(addPgpHeaderAct, SIGNAL(triggered()), this, SLOT(addPgpHeader()));
+        steganoMenu->addAction(cutPgpHeaderAct);
+        steganoMenu->addAction(addPgpHeaderAct);
+    }
+
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(openTutorialAct);
     helpMenu->addAction(openTranslateAct);
     helpMenu->addAction(startWizardAct);
     helpMenu->addAction(aboutAct);
+
 }
 
 void MainWindow::createToolBars()
@@ -857,4 +868,42 @@ void MainWindow::cleanDoubleLinebreaks()
     QString content = edit->curTextPage()->toPlainText();
     content.replace("\n\n", "\n");
     edit->fillTextEditWithText(content);
+}
+
+void MainWindow::addPgpHeader() {
+    if (edit->tabCount()==0 || edit->curPage() == 0) {
+        return;
+    }
+
+    QString content = edit->curTextPage()->toPlainText().trimmed();
+
+    content.prepend("\n\n").prepend(GpgConstants::PGP_CRYPT_BEGIN);
+    content.append("\n").append(GpgConstants::PGP_CRYPT_END);
+
+    edit->fillTextEditWithText(content);
+}
+
+void MainWindow::cutPgpHeader() {
+
+    if (edit->tabCount()==0 || edit->curPage() == 0) {
+        return;
+    }
+
+    QString content = edit->curTextPage()->toPlainText();
+    int start = content.indexOf(GpgConstants::PGP_CRYPT_BEGIN);
+    int end = content.indexOf(GpgConstants::PGP_CRYPT_END);
+
+    if(start < 0 || end < 0) {
+        return;
+    }
+
+    // remove head
+    int headEnd = content.indexOf("\n\n", start) + 2 ;
+    content.remove(start, headEnd-start);
+
+    // remove tail
+    end = content.indexOf(GpgConstants::PGP_CRYPT_END);
+    content.remove(end, QString(GpgConstants::PGP_CRYPT_END).size());
+
+    edit->fillTextEditWithText(content.trimmed());
 }
