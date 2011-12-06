@@ -49,6 +49,13 @@ class FileEncryptionDialog : public QDialog
     Q_OBJECT
 
 public:
+
+    enum DialogAction {
+        Encrypt,
+        Decrypt,
+        Both
+    };
+
     /**
      * @brief
      *
@@ -58,7 +65,7 @@ public:
      * @param keyList
      * @param parent
      */
-    FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconPath, QStringList keyList , QWidget *parent = 0);
+    FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconPath, QStringList keyList, QWidget *parent = 0, DialogAction action = Both);
 
 public slots:
     /**

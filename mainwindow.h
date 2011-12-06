@@ -138,6 +138,16 @@ private slots:
     void fileEncryption();
 
     /**
+     * @details Open dialog for encrypting file.
+     */
+    void fileEncrypt();
+
+    /**
+     * @details Open dialog for decrypting file.
+     */
+    void fileDecrypt();
+
+    /**
      * @details Open settings-dialog.
      */
     void openSettingsDialog();
@@ -261,6 +271,8 @@ private:
     QAction *redoAct; /** Action to redo last action */
     QAction *aboutAct; /** Action to open about dialog */
     QAction *fileEncryptionAct; /** Action to open file-encryption dialog */
+    QAction *fileEncryptAct; /** Action to open dialog for encrypting file */
+    QAction *fileDecryptAct; /** Action to open dialog for decrypting file */
     QAction *openSettingsAct; /** Action to open settings dialog */
     QAction *openTranslateAct; /** Action to open translate doc*/
     QAction *openTutorialAct; /** Action to open tutorial */

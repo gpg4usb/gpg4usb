@@ -267,6 +267,19 @@ void MainWindow::createActions()
     fileEncryptionAct->setToolTip(tr("Encrypt/Decrypt File"));
     connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(fileEncryption()));
 
+    /*
+     * File encryption submenu
+     */
+    fileEncryptAct = new QAction(tr("&Encrypt"), this);
+    //fileEncryptAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    fileEncryptAct->setToolTip(tr("Encrypt File"));
+    connect(fileEncryptAct, SIGNAL(triggered()), this, SLOT(fileEncrypt()));
+
+    fileDecryptAct = new QAction(tr("&Decrypt"), this);
+    //fileDecryptAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    fileDecryptAct->setToolTip(tr("Decrypt File"));
+    connect(fileDecryptAct, SIGNAL(triggered()), this, SLOT(fileDecrypt()));
+
     signAct = new QAction(tr("&Sign"), this);
     signAct->setIcon(QIcon(iconPath + "signature.png"));
     signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
@@ -410,7 +423,7 @@ void MainWindow::createToolBars()
     cryptToolBar->addAction(decryptAct);
     cryptToolBar->addAction(signAct);
     cryptToolBar->addAction(verifyAct);
-    cryptToolBar->addAction(fileEncryptionAct);
+    //cryptToolBar->addAction(fileEncryptionAct);
     viewMenu->addAction(cryptToolBar->toggleViewAction());
 
     keyToolBar = addToolBar(tr("Key"));
@@ -432,14 +445,29 @@ void MainWindow::createToolBars()
     viewMenu->addAction(specialEditToolBar->toggleViewAction());
 
     // Add dropdown menu for key import to keytoolbar
-    QToolButton* toolButton = new QToolButton();
-    toolButton->setMenu(importKeyMenu);
-    toolButton->setPopupMode(QToolButton::InstantPopup);
-    toolButton->setIcon(QIcon(iconPath + "key_import.png"));
-    toolButton->setToolTip("Import key");
-    toolButton->setText("Import key from..");
-    toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    keyToolBar->addWidget(toolButton);
+    QToolButton* importButton = new QToolButton();
+    importButton->setMenu(importKeyMenu);
+    importButton->setPopupMode(QToolButton::InstantPopup);
+    importButton->setIcon(QIcon(iconPath + "key_import.png"));
+    importButton->setToolTip("Import key");
+    importButton->setText("Import key from..");
+    importButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    keyToolBar->addWidget(importButton);
+
+    // Add dropdown menu for file encryption/decryption to crypttoolbar
+    QToolButton* fileEncButton = new QToolButton();
+    QMenu* fileEncMenu = new QMenu();
+    fileEncMenu->addAction(fileEncryptAct);
+    fileEncMenu->addAction(fileDecryptAct);
+    fileEncButton->setMenu(fileEncMenu);
+    fileEncButton->setPopupMode(QToolButton::InstantPopup);
+    fileEncButton->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    fileEncButton->setToolTip("Encrypt or decrypt File");
+    fileEncButton->setText("File...");
+    fileEncButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
+    cryptToolBar->addWidget(fileEncButton);
+
 }
 
 void MainWindow::createStatusBar()
@@ -785,6 +813,20 @@ void MainWindow::fileEncryption()
         QStringList *keyList;
         keyList = mKeyList->getChecked();
         new FileEncryptionDialog(mCtx, iconPath, *keyList, this);
+}
+
+void MainWindow::fileEncrypt()
+{
+        QStringList *keyList;
+        keyList = mKeyList->getChecked();
+        new FileEncryptionDialog(mCtx, iconPath, *keyList, this, FileEncryptionDialog::Encrypt);
+}
+
+void MainWindow::fileDecrypt()
+{
+        QStringList *keyList;
+        keyList = mKeyList->getChecked();
+        new FileEncryptionDialog(mCtx, iconPath, *keyList, this, FileEncryptionDialog::Decrypt);
 }
 
 void MainWindow::openSettingsDialog()

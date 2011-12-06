@@ -21,12 +21,19 @@
 
 #include "fileencryptiondialog.h"
 
-FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconPath, QStringList keyList, QWidget *parent)
+FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconPath, QStringList keyList, QWidget *parent, DialogAction action)
         : QDialog(parent)
 
 {
     mCtx = ctx;
-    setWindowTitle(tr("Encrypt / Decrypt File"));
+    if(action == Decrypt) {
+        setWindowTitle(tr(" Decrypt File"));
+    } else if (action == Encrypt) {
+        setWindowTitle(tr("Encrypt File"));
+    } else {
+        setWindowTitle(tr("Encrypt / Decrypt File"));
+    }
+
     resize(500, 200);
     setModal(true);
 
@@ -35,7 +42,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconP
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     QGroupBox *groupBox1 = new QGroupBox(tr("File"));
-    QGroupBox *groupBox3 = new QGroupBox(tr("Action"));
+    QGroupBox *actionGroupBox = new QGroupBox(tr("Action"));
 
     /* Setup input & Outputfileselection*/
     inputFileEdit = new QLineEdit();
@@ -77,15 +84,22 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconP
     hbox1->addWidget(radioEnc);
 
     groupBox1->setLayout(gLayout);
-    groupBox3->setLayout(hbox1);
+    actionGroupBox->setLayout(hbox1);
 
     QVBoxLayout *vbox2 = new QVBoxLayout();
-    vbox2->addWidget(groupBox3);
+    if(action == Both) {
+        vbox2->addWidget(actionGroupBox);
+    }
     vbox2->addWidget(groupBox1);
     vbox2->addWidget(mKeyList);
     vbox2->addWidget(buttonBox);
     vbox2->addStretch(0);
     setLayout(vbox2);
+
+    if(action == Encrypt) {
+        showKeyList();
+    }
+
     exec();
 }
 
