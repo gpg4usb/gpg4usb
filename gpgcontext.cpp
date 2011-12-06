@@ -637,11 +637,11 @@ bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArr
  */
 void GpgContext::preventNoDataErr(QByteArray *in)
 {
-    int block_start = in->indexOf("-----BEGIN PGP MESSAGE-----");
+    int block_start = in->indexOf(GpgConstants::PGP_CRYPT_BEGIN);
     if (block_start > 0 && in->at(block_start - 1) != '\n') {
         in->insert(block_start, '\n');
     }
-    block_start = in->indexOf("-----BEGIN PGP SIGNED MESSAGE-----");
+    block_start = in->indexOf(GpgConstants::PGP_SIGNED_BEGIN);
     if (block_start > 0 && in->at(block_start - 1) != '\n') {
         in->insert(block_start, '\n');
     }
@@ -654,10 +654,10 @@ void GpgContext::preventNoDataErr(QByteArray *in)
   * - 2, if text is completly signed
   */
 int GpgContext::textIsSigned(const QByteArray &text) {
-    if (text.trimmed().startsWith("-----BEGIN PGP SIGNED MESSAGE-----") && text.trimmed().endsWith("-----END PGP SIGNATURE-----")) {
+    if (text.trimmed().startsWith(GpgConstants::PGP_SIGNED_BEGIN) && text.trimmed().endsWith(GpgConstants::PGP_SIGNED_END)) {
         return 2;
     }
-    if (text.contains("-----BEGIN PGP SIGNED MESSAGE-----") && text.contains("-----END PGP SIGNATURE-----")) {
+    if (text.contains(GpgConstants::PGP_SIGNED_BEGIN) && text.contains(GpgConstants::PGP_SIGNED_END)) {
         return 1;
     }
     return 0;

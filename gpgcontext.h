@@ -22,6 +22,7 @@
 #ifndef __SGPGMEPP_CONTEXT_H__
 #define __SGPGMEPP_CONTEXT_H__
 
+#include "gpgconstants.h"
 #include <locale.h>
 #include <errno.h>
 #include <gpgme.h>
