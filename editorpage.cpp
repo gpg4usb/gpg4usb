@@ -25,6 +25,7 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
                                                        fullFilePath(filePath)
 {
     textPage   = new QTextEdit();
+    textPage->setAcceptRichText(false);
     mainLayout = new QVBoxLayout();
     mainLayout->setSpacing(0);
     mainLayout->addWidget(textPage);
