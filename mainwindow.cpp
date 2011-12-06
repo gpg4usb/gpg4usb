@@ -1,5 +1,5 @@
 /*
- *      gpgwin.cpp
+ *      mainwindow.cpp
  *
  *      Copyright 2008 gpg4usb-team <gpg4usb@cpunk.de>
  *

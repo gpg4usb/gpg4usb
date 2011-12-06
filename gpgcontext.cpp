@@ -1,5 +1,5 @@
 /*
- *      context.cpp
+ *      gpgcontext.cpp
  *
  *      Copyright 2008 gpg4usb-team <gpg4usb@cpunk.de>
  *
