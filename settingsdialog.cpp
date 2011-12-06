@@ -92,6 +92,15 @@ GeneralTab::GeneralTab(QWidget *parent)
     importConfirmationBox->setLayout(importConfirmationBoxLayout);
 
     /*****************************************
+     * Steganography Box
+     *****************************************/
+    QGroupBox *steganoBox = new QGroupBox(tr("Show Steganography Options [Advanced]"));
+    QHBoxLayout *steganoBoxLayout = new QHBoxLayout();
+    steganoCheckBox= new QCheckBox(tr("Show Steganographic Options."), this);
+    steganoBoxLayout->addWidget(steganoCheckBox);
+    steganoBox->setLayout(steganoBoxLayout);
+
+    /*****************************************
      * Language Select Box
      *****************************************/
     QGroupBox *langBox = new QGroupBox(tr("Language"));
@@ -112,6 +121,7 @@ GeneralTab::GeneralTab(QWidget *parent)
     mainLayout->addWidget(rememberPasswordBox);
     mainLayout->addWidget(saveCheckedKeysBox);
     mainLayout->addWidget(importConfirmationBox);
+    mainLayout->addWidget(steganoBox);
     mainLayout->addWidget(langBox);
     setSettings();
     mainLayout->addStretch(1);
@@ -127,10 +137,14 @@ void GeneralTab::setSettings()
 {
     QSettings settings;
     // Keysaving
-    if (settings.value("keys/keySave").toBool()) saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
+    if (settings.value("keys/keySave").toBool()) {
+        saveCheckedKeysCheckBox->setCheckState(Qt::Checked);
+    }
 
     // Remember Password
-    if (settings.value("general/rememberPassword").toBool()) rememberPasswordCheckBox->setCheckState(Qt::Checked);
+    if (settings.value("general/rememberPassword").toBool()) {
+        rememberPasswordCheckBox->setCheckState(Qt::Checked);
+    }
 
     // Language setting
     QString langKey = settings.value("int/lang").toString();
@@ -141,6 +155,10 @@ void GeneralTab::setSettings()
     // Ask for confirmation to import, if keyfiles are dropped on keylist
     if (settings.value("general/confirmImportKeys",Qt::Checked).toBool()){
         importConfirmationCheckBox->setCheckState(Qt::Checked);
+    }
+
+    if (settings.value("general/steganography",Qt::Checked).toBool()){
+        steganoCheckBox->setCheckState(Qt::Checked);
     }
 }
 
@@ -156,6 +174,8 @@ void GeneralTab::applySettings()
     settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
     settings.setValue("general/confirmImportKeys", importConfirmationCheckBox->isChecked());
+    settings.setValue("general/steganography", steganoCheckBox->isChecked());
+
 }
 
 // http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3

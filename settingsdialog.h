@@ -59,6 +59,7 @@ class GeneralTab : public QWidget
  private:
      QCheckBox *rememberPasswordCheckBox;
      QCheckBox *importConfirmationcheckBox;
+     QCheckBox *steganoCheckBox;
      QCheckBox *saveCheckedKeysCheckBox;
      QCheckBox *importConfirmationCheckBox;
      QComboBox *langSelectBox;
