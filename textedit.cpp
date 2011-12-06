@@ -84,7 +84,7 @@ void TextEdit::open()
                 tabWidget->setCurrentIndex(tabWidget->count() - 1);
                 QApplication::restoreOverrideCursor();
                 page->getTextPage()->setFocus();
-                connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
+                connect(page->getTextPage()->document(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
                 //enableAction(true)
             } else {
                 QMessageBox::warning(this, tr("Application"),
