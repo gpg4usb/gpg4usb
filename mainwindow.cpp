@@ -565,7 +565,7 @@ void MainWindow::openTranslate() {
 
 void MainWindow::openTutorial() {
     //QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
-    edit->newHelpTab("help", "help/docu.html");
+    edit->newHelpTab("help", qApp->applicationDirPath() + "/help/docu.html");
 }
 
 void MainWindow::startWizard()
