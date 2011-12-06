@@ -50,7 +50,7 @@ void TextEdit::newTab()
     tabWidget->addTab(page, header);
     tabWidget->setCurrentIndex(tabWidget->count() - 1);
     page->getTextPage()->setFocus();
-    connect(page->getTextPage(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
+    connect(page->getTextPage()->document(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
  }
 
 void TextEdit::newHelpTab(QString title, QString path)
