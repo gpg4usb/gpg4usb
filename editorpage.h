@@ -22,6 +22,7 @@
 #ifndef __EDITORPAGE_H__
 #define __EDITORPAGE_H__
 
+#include "gpgconstants.h"
 #include <QTextEdit>
 #include <QtGui>
 
@@ -89,6 +90,10 @@ private:
     QMenu *verifyMenu; /** The menu in the notifiaction widget */
     QString fullFilePath; /** The path to the file handled in the tab */
     QLabel *verifyLabel; /** The label of the verify-notification widget */
+    bool signMarked;
+
+private slots:
+    void formatGpgHeader();
 };
 
 #endif // __TEXTPAGE_H__

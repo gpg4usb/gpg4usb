@@ -33,6 +33,9 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
     setLayout(mainLayout);
     setAttribute(Qt::WA_DeleteOnClose);
     textPage->setFocus();
+
+    connect(textPage, SIGNAL(textChanged()), this, SLOT(formatGpgHeader()));
+
 }
 
 const QString& EditorPage::getFilePath() const
@@ -65,4 +68,33 @@ void EditorPage::closeNoteByClass(const char *className)
                 widget->close();
         }
     }
+}
+
+void EditorPage::formatGpgHeader() {
+
+    QString content = textPage->toPlainText();
+    int start = content.indexOf(GpgConstants::PGP_SIGNED_BEGIN);
+    int startSig = content.indexOf(GpgConstants::PGP_SIGNATURE_BEGIN);
+    int endSig = content.indexOf(GpgConstants::PGP_SIGNATURE_END);
+
+    if(start < 0 || startSig < 0 || endSig < 0 || signMarked) {
+        return;
+    }
+
+    signMarked = true;
+
+    QTextCharFormat signFormat;
+    signFormat.setForeground(QBrush(QColor::fromRgb(80,80,80)));
+    signFormat.setFontPointSize(9);
+
+    QTextCursor cursor(textPage->document());
+    cursor.setPosition(startSig, QTextCursor::MoveAnchor);
+    cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, endSig);
+    cursor.setCharFormat(signFormat);
+
+    int headEnd = content.indexOf("\n\n", start);
+    cursor.setPosition(start, QTextCursor::MoveAnchor);
+    cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, headEnd);
+    cursor.setCharFormat(signFormat);
+
 }
