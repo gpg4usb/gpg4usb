@@ -27,7 +27,6 @@ KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* ke
     mCtx = ctx;
     mKeyList = keyList;
     mResult = result;
-
     // If no key for import found, just ahow a message
     if (mResult->considered == 0) {
         QMessageBox::information(0, tr("Key import details"), tr("No keys found to import"));
@@ -114,8 +113,41 @@ void KeyImportDetailDialog::createKeysTable()
         keysTable->setItem(row, 0, new QTableWidgetItem(key.name));
         keysTable->setItem(row, 1, new QTableWidgetItem(key.email));
         keysTable->setItem(row, 2, new QTableWidgetItem(key.id));
-        keysTable->setItem(row, 3, new QTableWidgetItem(QString::number(status->status)));
 
+        qDebug() << "Keystatus: " << status->status;
+        // Set status of key
+        int keystatus=status->status;
+        QString statusString;
+        // if key is private
+        if (keystatus > 15) {
+            statusString.append("private");
+            keystatus=keystatus-16;
+        } else {
+            statusString.append("public");
+        }
+        if (keystatus == 0) {
+            statusString.append(", "+tr("unchanged"));
+        } else {
+            if (keystatus == 1) {
+                statusString.append(", "+tr("new key"));
+            } else {
+                if (keystatus > 7) {
+                    statusString.append(", "+tr("new subkey"));
+                    keystatus=keystatus-8;
+                }
+                if (keystatus > 3) {
+                    statusString.append(", "+tr("new signature"));
+                    keystatus=keystatus-4;
+                }
+                if (keystatus > 1) {
+                    statusString.append(", "+tr("new uid"));
+                    keystatus=keystatus-2;
+                }
+            }
+        }
+
+//        keysTable->setItem(row, 3, new QTableWidgetItem(QString::number(status->status)));
+        keysTable->setItem(row,3,new QTableWidgetItem(statusString));
         status=status->next;
         row++;
     }

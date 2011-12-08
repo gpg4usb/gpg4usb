@@ -30,6 +30,7 @@ Release 0.3.2
 	- if import failed, because no key was found [DONE]
 	- if key is already in keyring
 	- for now done just for import from file and clipboard
+	- BUG: Also show details, when key is really new
 - show message, when key export is successful (statusbar)
 - dropdown from menubar instead of dialog for file-cryption (files->encrypt,decrypt) 
 - encrypt and sign, decrypt and verify (?)
@@ -40,6 +41,7 @@ Release 0.3.2
 	- icon from "line spacing icon"
 - Change file encryption to single dialog for en- and decryption
 - Add default key functionality 
+
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
 - investigate special characters in passphrase in windows
