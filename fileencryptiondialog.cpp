@@ -27,14 +27,16 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconP
 {
     mCtx = ctx;
     if(action == Decrypt) {
-        setWindowTitle(tr(" Decrypt File"));
+        setWindowTitle(tr("Decrypt File"));
     } else if (action == Encrypt) {
         setWindowTitle(tr("Encrypt File"));
+        resize(500, 300);
     } else {
         setWindowTitle(tr("Encrypt / Decrypt File"));
+        resize(500, 200);
     }
 
-    resize(500, 200);
+
     setModal(true);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
