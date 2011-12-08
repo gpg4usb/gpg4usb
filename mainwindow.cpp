@@ -278,12 +278,12 @@ void MainWindow::createActions()
     /*
      * File encryption submenu
      */
-    fileEncryptAct = new QAction(tr("&Encrypt"), this);
+    fileEncryptAct = new QAction(tr("&Encrypt File"), this);
     //fileEncryptAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
     fileEncryptAct->setToolTip(tr("Encrypt File"));
     connect(fileEncryptAct, SIGNAL(triggered()), this, SLOT(fileEncrypt()));
 
-    fileDecryptAct = new QAction(tr("&Decrypt"), this);
+    fileDecryptAct = new QAction(tr("&Decrypt File"), this);
     //fileDecryptAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
     fileDecryptAct->setToolTip(tr("Decrypt File"));
     connect(fileDecryptAct, SIGNAL(triggered()), this, SLOT(fileDecrypt()));
@@ -397,7 +397,8 @@ void MainWindow::createMenus()
     cryptMenu->addAction(signAct);
     cryptMenu->addAction(verifyAct);
     cryptMenu->addSeparator();
-    cryptMenu->addAction(fileEncryptionAct);
+    cryptMenu->addAction(fileEncryptAct);
+    cryptMenu->addAction(fileDecryptAct);
 
     keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
