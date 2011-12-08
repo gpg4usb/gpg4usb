@@ -409,8 +409,6 @@ void MainWindow::createMenus()
     importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
     keyMenu->addAction(openKeyManagementAct);
 
-    viewMenu = menuBar()->addMenu(tr("&View"));
-
     if(settings.value("general/steganography").toBool()) {
         steganoMenu = menuBar()->addMenu(tr("&Steganography"));
         QAction* cutPgpHeaderAct = new QAction(tr("Remove PGP Header"), this);
@@ -420,6 +418,8 @@ void MainWindow::createMenus()
         steganoMenu->addAction(cutPgpHeaderAct);
         steganoMenu->addAction(addPgpHeaderAct);
     }
+
+    viewMenu = menuBar()->addMenu(tr("&View"));
 
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(openTutorialAct);
