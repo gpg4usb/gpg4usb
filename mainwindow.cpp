@@ -245,8 +245,8 @@ void MainWindow::createActions()
     selectallAct->setToolTip(tr("Select the whole text"));
     connect(selectallAct, SIGNAL(triggered()), edit, SLOT(selectAll()));
 
-    cleanDoubleLinebreaksAct = new QAction(tr("Remove double &Linebreaks"), this);
-    //cleanDoubleLineBreaksAct->setIcon(QIcon(iconPath + "edit.png"));
+    cleanDoubleLinebreaksAct = new QAction(tr("Remove &spacing"), this);
+    cleanDoubleLinebreaksAct->setIcon(QIcon(iconPath + "format-line-spacing-normal.png"));
     //cleanDoubleLineBreaksAct->setShortcut(QKeySequence::SelectAll);
     cleanDoubleLinebreaksAct->setToolTip(tr("Remove double linebreaks, e.g. in pasted text from webmailer"));
     connect(cleanDoubleLinebreaksAct, SIGNAL(triggered()), this, SLOT(cleanDoubleLinebreaks()));
