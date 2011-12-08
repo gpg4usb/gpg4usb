@@ -34,12 +34,12 @@ Release 0.3.2
 - show message, when key export is successful (statusbar)
 - dropdown from menubar instead of dialog for file-cryption (files->encrypt,decrypt) 
 - encrypt and sign, decrypt and verify (?)
-- Zoom In/Out
+- Zoom In/Out [DONE]
 - Add buttonto copy fingerprint to clipboard in details dialog 
 	- remove whitespaces on copy
-- Change "remove double line breaks" to "remove spacing" 
-	- icon from "line spacing icon"
-- Change file encryption to single dialog for en- and decryption
+- Change "remove double line breaks" to "remove spacing" [DONE]
+	- icon from "line spacing icon" [DONE]
+- Change file encryption to single dialog for en- and decryption [DONE]
 - Add default key functionality 
 
 BUGS:
