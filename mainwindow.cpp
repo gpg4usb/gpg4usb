@@ -320,8 +320,12 @@ void MainWindow::createActions()
     aboutAct->setToolTip(tr("Show the application's About box"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
-    openTutorialAct = new QAction(tr("Online &Tutorial"), this);
-    openTutorialAct->setToolTip(tr("Open Online Tutorial"));
+    openHelpAct = new QAction(tr("Integrated Help"), this);
+    openHelpAct->setToolTip(tr("Open integrated Help"));
+    connect(openHelpAct, SIGNAL(triggered()), this, SLOT(openHelp()));
+
+    openTutorialAct = new QAction(tr("Online &Tutorials"), this);
+    openTutorialAct->setToolTip(tr("Open Online Tutorials"));
     connect(openTutorialAct, SIGNAL(triggered()), this, SLOT(openTutorial()));
 
     openTranslateAct = new QAction(tr("Translate gpg4usb"), this);
@@ -423,9 +427,12 @@ void MainWindow::createMenus()
     viewMenu = menuBar()->addMenu(tr("&View"));
 
     helpMenu = menuBar()->addMenu(tr("&Help"));
+    helpMenu->addAction(openHelpAct);
+    helpMenu->addAction(startWizardAct);
+    helpMenu->addSeparator();
     helpMenu->addAction(openTutorialAct);
     helpMenu->addAction(openTranslateAct);
-    helpMenu->addAction(startWizardAct);
+    helpMenu->addSeparator();
     helpMenu->addAction(aboutAct);
 
 }
@@ -615,9 +622,13 @@ void MainWindow::openTranslate() {
 }
 
 void MainWindow::openTutorial() {
-    //QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
+    QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
+}
+
+void MainWindow::openHelp() {
     edit->newHelpTab("help", qApp->applicationDirPath() + "/help/docu.html");
 }
+
 
 void MainWindow::startWizard()
 {

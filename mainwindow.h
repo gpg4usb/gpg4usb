@@ -159,6 +159,11 @@ private slots:
     void openTutorial();
 
     /**
+     * @details Open integrated help in new tab.
+     */
+    void openHelp();
+
+    /**
      * @details Show a warn message in status bar, if there are files in attachment folder.
      */
     void checkAttachmentFolder();
@@ -284,6 +289,7 @@ private:
     QAction *openSettingsAct; /** Action to open settings dialog */
     QAction *openTranslateAct; /** Action to open translate doc*/
     QAction *openTutorialAct; /** Action to open tutorial */
+    QAction *openHelpAct; /** Action to open tutorial */
     QAction *showKeyDetailsAct; /** Action to open key-details dialog */
     QAction *startWizardAct; /** Action to open the wizard */
 
