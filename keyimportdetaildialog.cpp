@@ -103,6 +103,8 @@ void KeyImportDetailDialog::createKeysTable()
     QStringList headerLabels;
     headerLabels  << tr("Name") << tr("Email") << tr("KeyID") << tr("Status");
     keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
+    keysTable->horizontalHeader()->setStretchLastSection(true);
+
     keysTable->verticalHeader()->hide();
     keysTable->setHorizontalHeaderLabels(headerLabels);
     int row = 0;
