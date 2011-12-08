@@ -206,6 +206,14 @@ void MainWindow::createActions()
     redoAct->setToolTip(tr("Redo Last Edit Action"));
     connect(redoAct, SIGNAL(triggered()), edit, SLOT(redo()));
 
+    zoomInAct = new QAction(tr("Zoom In"), this);
+    zoomInAct->setShortcut(QKeySequence::ZoomIn);
+    connect(zoomInAct, SIGNAL(triggered()), edit, SLOT(zoomIn()));
+
+    zoomOutAct = new QAction(tr("Zoom Out"), this);
+    zoomOutAct->setShortcut(QKeySequence::ZoomOut);
+    connect(zoomOutAct, SIGNAL(triggered()), edit, SLOT(zoomOut()));
+
     pasteAct = new QAction(tr("&Paste"), this);
     pasteAct->setIcon(QIcon(iconPath + "button_paste.png"));
     pasteAct->setShortcut(QKeySequence::Paste);
@@ -369,6 +377,9 @@ void MainWindow::createMenus()
     editMenu = menuBar()->addMenu(tr("&Edit"));
     editMenu->addAction(undoAct);
     editMenu->addAction(redoAct);
+    editMenu->addSeparator();
+    editMenu->addAction(zoomInAct);
+    editMenu->addAction(zoomOutAct);
     editMenu->addSeparator();
     editMenu->addAction(copyAct);
     editMenu->addAction(cutAct);

@@ -239,6 +239,8 @@ private slots:
      */
     void redo();
 
+    void zoomIn();
+    void zoomOut();
     /****************************************************************************************
      * Name:                selectAll
      * Description:         select all in current textpage

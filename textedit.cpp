@@ -497,6 +497,24 @@ void TextEdit::redo()
     curTextPage()->redo();
 }
 
+void TextEdit::zoomIn()
+{
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
+        return;
+    }
+
+    curTextPage()->zoomIn();
+}
+
+void TextEdit::zoomOut()
+{
+    if (tabWidget->count() == 0 || curTextPage() == 0) {
+        return;
+    }
+
+    curTextPage()->zoomOut();
+}
+
 void TextEdit::selectAll()
 {
     if (tabWidget->count() == 0 || curTextPage() == 0) {

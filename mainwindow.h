@@ -275,6 +275,8 @@ private:
     QAction *selectallAct; /** Action to select whole text */
     QAction *undoAct; /** Action to undo last action */
     QAction *redoAct; /** Action to redo last action */
+    QAction *zoomInAct; /** Action to zoom in */
+    QAction *zoomOutAct; /** Action to zoom out */
     QAction *aboutAct; /** Action to open about dialog */
     QAction *fileEncryptionAct; /** Action to open file-encryption dialog */
     QAction *fileEncryptAct; /** Action to open dialog for encrypting file */
