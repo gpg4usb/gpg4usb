@@ -308,7 +308,7 @@ void MainWindow::createActions()
     importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
-    openKeyManagementAct = new QAction(tr("&Key Management"), this);
+    openKeyManagementAct = new QAction(tr("Manage &keys"), this);
     openKeyManagementAct->setIcon(QIcon(iconPath + "keymgmt.png"));
     openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
@@ -473,7 +473,7 @@ void MainWindow::createToolBars()
     importButton->setPopupMode(QToolButton::InstantPopup);
     importButton->setIcon(QIcon(iconPath + "key_import.png"));
     importButton->setToolTip("Import key");
-    importButton->setText("Import key from..");
+    importButton->setText("Import key..");
     importButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     keyToolBar->addWidget(importButton);
 
@@ -486,7 +486,7 @@ void MainWindow::createToolBars()
     fileEncButton->setPopupMode(QToolButton::InstantPopup);
     fileEncButton->setIcon(QIcon(iconPath + "fileencrytion.png"));
     fileEncButton->setToolTip("Encrypt or decrypt File");
-    fileEncButton->setText("File...");
+    fileEncButton->setText("File..");
     fileEncButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     cryptToolBar->addWidget(fileEncButton);
