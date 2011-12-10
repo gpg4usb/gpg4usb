@@ -2,6 +2,10 @@
 #include <QtTest/QtTest>
 #include <../gpgcontext.h>
 
+/**
+* unit test for gpgcontext,
+* have a look at http://doc.qt.nokia.com/latest/qtestlib-tutorial1.html
+*/
 class TestGpgContext : public QObject
 {
     Q_OBJECT
