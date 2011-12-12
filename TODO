@@ -12,7 +12,7 @@ Release 0.3.2
 - Wizard on first start (Create Key, Import from keys older gpg4usb, import from gnupg) [DONE]
 	-  import conf from old gpg4usb
 	- remember GNUPGHOME in main.cpp
-- emit keydbchanged from GPGcontext::importKey (?)
+- emit keydbchanged from GPGcontext::importKey (for the moment not possible, because importinformation is lost after this)
 - show import details at all places
 - option in settingsdialog for enabling steganographic operations [DONE]
 	- minimal steganography option: remove or add pgp-headers on demand [DONE]
@@ -46,7 +46,7 @@ Release 0.3.2
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
 - investigate special characters in passphrase in windows
-
+- no importdetails are shown for new keys
 Release 0.3.3
 - create revocation file on key generation
 - optionally open new tab after encryption/decrytion 

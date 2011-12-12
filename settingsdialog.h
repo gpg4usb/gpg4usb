@@ -59,7 +59,6 @@ class GeneralTab : public QWidget
  private:
      QCheckBox *rememberPasswordCheckBox;
      QCheckBox *importConfirmationcheckBox;
-     QCheckBox *steganoCheckBox;
      QCheckBox *saveCheckedKeysCheckBox;
      QCheckBox *importConfirmationCheckBox;
      QComboBox *langSelectBox;
@@ -120,6 +119,19 @@ private slots:
     QLabel *label;
 };
 
+ class AdvancedTab : public QWidget
+ {
+     Q_OBJECT
+ public:
+     AdvancedTab(QWidget *parent = 0);
+     void setSettings();
+     void applySettings();
+
+ private:
+     QCheckBox *steganoCheckBox;
+
+ };
+
 class SettingsDialog : public QDialog
 {
     Q_OBJECT
@@ -130,6 +142,7 @@ public:
     MimeTab *mimeTab;
     AppearanceTab *appearanceTab;
     KeyserverTab *keyserverTab;
+    AdvancedTab *advancedTab;
 
 public slots:
     void accept();
@@ -139,4 +152,5 @@ private:
     QDialogButtonBox *buttonBox;
     QVBoxLayout *vbox;
 };
+
 #endif  // __SETTINGSDIALOG_H__
