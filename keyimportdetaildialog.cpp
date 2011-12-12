@@ -70,17 +70,17 @@ void KeyImportDetailDialog::createGeneralInfoBox()
         row++;
     }
     if (mResult->secret_read){
-        generalInfoBoxLayout->addWidget(new QLabel(tr("Secret read:")),row,0);
+        generalInfoBoxLayout->addWidget(new QLabel(tr("Private read:")),row,0);
         generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->secret_read)),row,1);
         row++;
     }
     if (mResult->secret_imported){
-        generalInfoBoxLayout->addWidget(new QLabel(tr("Secret imported:")),row,0);
+        generalInfoBoxLayout->addWidget(new QLabel(tr("Private imported:")),row,0);
         generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->secret_imported)),row,1);
         row++;
     }
     if (mResult->secret_unchanged){
-        generalInfoBoxLayout->addWidget(new QLabel(tr("Secret unchanged:")),row,0);
+        generalInfoBoxLayout->addWidget(new QLabel(tr("Private unchanged:")),row,0);
         generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->secret_unchanged)),row,1);
         row++;
     }
@@ -116,42 +116,46 @@ void KeyImportDetailDialog::createKeysTable()
 
         qDebug() << "Keystatus: " << status->status;
         // Set status of key
-        int keystatus=status->status;
-        QString statusString;
-        // if key is private
-        if (keystatus > 15) {
-            statusString.append("private");
-            keystatus=keystatus-16;
-        } else {
-            statusString.append("public");
-        }
-        if (keystatus == 0) {
-            statusString.append(", "+tr("unchanged"));
-        } else {
-            if (keystatus == 1) {
-                statusString.append(", "+tr("new key"));
-            } else {
-                if (keystatus > 7) {
-                    statusString.append(", "+tr("new subkey"));
-                    keystatus=keystatus-8;
-                }
-                if (keystatus > 3) {
-                    statusString.append(", "+tr("new signature"));
-                    keystatus=keystatus-4;
-                }
-                if (keystatus > 1) {
-                    statusString.append(", "+tr("new uid"));
-                    keystatus=keystatus-2;
-                }
-            }
-        }
 
 //        keysTable->setItem(row, 3, new QTableWidgetItem(QString::number(status->status)));
-        keysTable->setItem(row,3,new QTableWidgetItem(statusString));
+        keysTable->setItem(row,3,new QTableWidgetItem(getStatusString(status->status)));
         status=status->next;
         row++;
     }
     mvbox->addWidget(keysTable);
+}
+
+QString KeyImportDetailDialog::getStatusString(int keyStatus)
+{
+    QString statusString;
+    // if key is private
+    if (keyStatus > 15) {
+        statusString.append(tr("private"));
+        keyStatus=keyStatus-16;
+    } else {
+        statusString.append(tr("public"));
+    }
+    if (keyStatus == 0) {
+        statusString.append(", "+tr("unchanged"));
+    } else {
+        if (keyStatus == 1) {
+            statusString.append(", "+tr("new key"));
+        } else {
+            if (keyStatus > 7) {
+                statusString.append(", "+tr("new subkey"));
+                keyStatus=keyStatus-8;
+            }
+            if (keyStatus > 3) {
+                statusString.append(", "+tr("new signature"));
+                keyStatus=keyStatus-4;
+            }
+            if (keyStatus > 1) {
+                statusString.append(", "+tr("new uid"));
+                keyStatus=keyStatus-2;
+            }
+        }
+    }
+    return statusString;
 }
 
 void KeyImportDetailDialog::createButtonBox()

@@ -42,6 +42,7 @@ private:
     void createKeyInfoBox();
     void createKeysTable();
     void createButtonBox();
+    QString getStatusString(int keyStatus);
 
     QTableWidget *keysTable;
     GpgME::GpgContext *mCtx;
