@@ -99,7 +99,7 @@ QComboBox *KeyServerImportDialog::createComboBox()
 void KeyServerImportDialog::createKeysTable()
 {
     keysTable = new QTableWidget();
-    keysTable->setColumnCount(3);
+    keysTable->setColumnCount(4);
 
     // always a whole row is marked
     keysTable->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -109,7 +109,7 @@ void KeyServerImportDialog::createKeysTable()
     keysTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
     QStringList labels;
-    labels  << tr("UID") << tr("Creation date") << tr("KeyID");
+    labels  << tr("UID") << tr("Creation date") << tr("KeyID") << tr("Tag");
     keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
     keysTable->setHorizontalHeaderLabels(labels);
     keysTable->verticalHeader()->hide();
@@ -188,13 +188,23 @@ void KeyServerImportDialog::searchFinished()
 
                 QString flags = line[line.size()-1];
 
+                keysTable->setRowCount(row+1);
+
                 // flags can be "d" for disabled, "r" for revoked
                 // or "e" for expired
-                if (flags.contains("r")) {
+                if (flags.contains("r") or flags.contains("d") or flags.contains("e")) {
                     strikeout=true;
+                    if (flags.contains("e")) {
+                        keysTable->setItem(row, 3, new QTableWidgetItem( QString("expired")));
+                    }
+                    if (flags.contains("r")) {
+                        keysTable->setItem(row, 3, new QTableWidgetItem( QString(tr("revoked"))));
+                    }
+                    if (flags.contains("d")) {
+                        keysTable->setItem(row, 3, new QTableWidgetItem( QString(tr("disabled"))));
+                    }
                 }
 
-                keysTable->setRowCount(row+1);
                 QStringList line2 = QString(reply->readLine()).split(":");
 
                 QTableWidgetItem *uid;

@@ -16,7 +16,7 @@ Release 0.3.2
 - show import details at all places
 - option in settingsdialog for enabling steganographic operations [DONE]
 	- minimal steganography option: remove or add pgp-headers on demand [DONE]
-	-  Add advanced tab to settings dialog
+	-  Add advanced tab to settings dialog [DONE]
 	- investigate in embedding a steganography tool 
 		http://steghide.sourceforge.net/
 		http://www.outguess.org/
@@ -24,7 +24,7 @@ Release 0.3.2
 - understandable message if no matching private key found for decryption (no data error)
 - investigate in adding a offline help system [DONE]
 	- have a look on the format
-- keyimport from keyserver dialog should show reason for strike out 
+- keyimport from keyserver dialog should show reason for strike out  [DONE]
 - key import should be more verbose: [DONE]
 	- show message, which keys are imported [DONE]
 	- if import failed, because no key was found [DONE]
