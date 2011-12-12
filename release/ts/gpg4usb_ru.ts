@@ -4,52 +4,52 @@
 <context>
     <name>AppearanceTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="270"/>
+        <location filename="../../settingsdialog.cpp" line="290"/>
         <source>Iconsize</source>
         <translation>Размер значков</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="272"/>
+        <location filename="../../settingsdialog.cpp" line="292"/>
         <source>small</source>
         <translation>Маленький</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="273"/>
+        <location filename="../../settingsdialog.cpp" line="293"/>
         <source>medium</source>
         <translation>Средний</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="274"/>
+        <location filename="../../settingsdialog.cpp" line="294"/>
         <source>large</source>
         <translation>Большой</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="290"/>
+        <location filename="../../settingsdialog.cpp" line="310"/>
         <source>Iconstyle</source>
         <translation>Стиль панелей инструментов</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="292"/>
+        <location filename="../../settingsdialog.cpp" line="312"/>
         <source>just text</source>
         <translation>Только текст</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="293"/>
+        <location filename="../../settingsdialog.cpp" line="313"/>
         <source>just icons</source>
         <translation>Только значки</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="294"/>
+        <location filename="../../settingsdialog.cpp" line="314"/>
         <source>text and icons</source>
         <translation>Значки и текст</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="310"/>
+        <location filename="../../settingsdialog.cpp" line="330"/>
         <source>Windowstate</source>
         <translation>Настройки окна</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="312"/>
+        <location filename="../../settingsdialog.cpp" line="332"/>
         <source>Save window size and position on exit.</source>
         <translation>Запоминать размер и положение окна при выходе.</translation>
     </message>
@@ -69,10 +69,6 @@
 </context>
 <context>
     <name>Attachments</name>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">Не удалось открыть файл: </translation>
-    </message>
     <message>
         <location filename="../../attachments.cpp" line="81"/>
         <location filename="../../attachments.cpp" line="118"/>
@@ -130,76 +126,74 @@
 <context>
     <name>FileEncryptionDialog</name>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="29"/>
+        <location filename="../../fileencryptiondialog.cpp" line="35"/>
         <source>Encrypt / Decrypt File</source>
         <translation>За-/Расшифровать файл</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="37"/>
-        <location filename="../../fileencryptiondialog.cpp" line="154"/>
-        <location filename="../../fileencryptiondialog.cpp" line="163"/>
+        <location filename="../../fileencryptiondialog.cpp" line="46"/>
+        <location filename="../../fileencryptiondialog.cpp" line="170"/>
+        <location filename="../../fileencryptiondialog.cpp" line="179"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="38"/>
+        <location filename="../../fileencryptiondialog.cpp" line="47"/>
         <source>Action</source>
         <translation>Действие</translation>
     </message>
     <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
+        <location filename="../../fileencryptiondialog.cpp" line="30"/>
+        <source>Decrypt File</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="44"/>
+        <location filename="../../fileencryptiondialog.cpp" line="32"/>
+        <source>Encrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileencryptiondialog.cpp" line="53"/>
         <source>Input</source>
         <translation>Файл ввода</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="50"/>
+        <location filename="../../fileencryptiondialog.cpp" line="59"/>
         <source>Output</source>
         <translation>Файл вывода</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="69"/>
+        <location filename="../../fileencryptiondialog.cpp" line="78"/>
         <source>&amp;Encrypt</source>
         <translation>З&amp;ашифровать</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="71"/>
+        <location filename="../../fileencryptiondialog.cpp" line="80"/>
         <source>&amp;Decrypt</source>
         <translation>Расшифро&amp;вать</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="100"/>
+        <location filename="../../fileencryptiondialog.cpp" line="116"/>
         <source>Open File</source>
         <translation>Открыть файл</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="155"/>
+        <location filename="../../fileencryptiondialog.cpp" line="171"/>
         <source>File exists! Do you want to overwrite it?</source>
         <translation>Такой файл уже существует. Перезаписать его?</translation>
     </message>
     <message>
-        <source>Files</source>
-        <translation type="obsolete">Файлы</translation>
-    </message>
-    <message>
-        <source>All Files (*)</source>
-        <translation type="obsolete">Все файлы</translation>
-    </message>
-    <message>
-        <location filename="../../fileencryptiondialog.cpp" line="126"/>
+        <location filename="../../fileencryptiondialog.cpp" line="142"/>
         <source>Save File</source>
         <translation>Сохранить файл</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="137"/>
+        <location filename="../../fileencryptiondialog.cpp" line="153"/>
         <source>couldn&apos;t open file: </source>
         <translation>Не удалось открыть файл: </translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="164"/>
+        <location filename="../../fileencryptiondialog.cpp" line="180"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Не удалось записать файл %1:
@@ -240,53 +234,28 @@
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="97"/>
+        <source>Show Steganography Options [Advanced]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="99"/>
+        <source>Show Steganographic Options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="106"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="107"/>
+        <location filename="../../settingsdialog.cpp" line="116"/>
         <source>Language change is applied after restarting program.</source>
         <translation>Изменение языка вступит в силу после перезапуска программы.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="166"/>
+        <location filename="../../settingsdialog.cpp" line="186"/>
         <source>System Default</source>
         <translation>Стандартнай язык системы</translation>
-    </message>
-</context>
-<context>
-    <name>GpgME::Context</name>
-    <message>
-        <source>No Key Selected</source>
-        <translation type="obsolete">Не выбран Ключ</translation>
-    </message>
-    <message>
-        <source>Unsupported algorithm</source>
-        <translation type="obsolete">Неподдерживаемый алгоритмм</translation>
-    </message>
-    <message>
-        <source>Error decrypting:</source>
-        <translation type="obsolete">Ошибка расшифровки:</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation type="obsolete">Неверный Пароль</translation>
-    </message>
-    <message>
-        <source>Enter Password</source>
-        <translation type="obsolete">Введите  Пароль</translation>
-    </message>
-    <message>
-        <source>Key Selection</source>
-        <translation type="obsolete">Выбор Ключа</translation>
-    </message>
-    <message>
-        <source>No Private Key Selected</source>
-        <translation type="obsolete">Не выбран  Секретный Ключ</translation>
-    </message>
-    <message>
-        <source>Error signing:</source>
-        <translation type="obsolete">Ошибка подписания:</translation>
     </message>
 </context>
 <context>
@@ -330,387 +299,6 @@
         <location filename="../../gpgcontext.cpp" line="619"/>
         <source>Error signing:</source>
         <translation type="unfinished">Ошибка подписания:</translation>
-    </message>
-</context>
-<context>
-    <name>GpgWin</name>
-    <message>
-        <source>&amp;Open...</source>
-        <translation type="obsolete">&amp;Открыть...</translation>
-    </message>
-    <message>
-        <source>Open an existing file</source>
-        <translation type="obsolete">Открать существующий файл</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation type="obsolete">&amp;Сохранить</translation>
-    </message>
-    <message>
-        <source>Save the current File</source>
-        <translation type="obsolete">Сохранить файл</translation>
-    </message>
-    <message>
-        <source>Save &amp;As</source>
-        <translation type="obsolete">Сохранить &amp;как</translation>
-    </message>
-    <message>
-        <source>Save the current File as...</source>
-        <translation type="obsolete">Сохранить файл как...</translation>
-    </message>
-    <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">&amp;Печать</translation>
-    </message>
-    <message>
-        <source>Print Document</source>
-        <translation type="obsolete">Печать</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation type="obsolete">&amp;Закрыть</translation>
-    </message>
-    <message>
-        <source>Close file</source>
-        <translation type="obsolete">Закрыть файл</translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation type="obsolete">Вы&amp;йти</translation>
-    </message>
-    <message>
-        <source>Quit Program</source>
-        <translation type="obsolete">Завершить программу</translation>
-    </message>
-    <message>
-        <source>&amp;Undo</source>
-        <translation type="obsolete">&amp;Отменить</translation>
-    </message>
-    <message>
-        <source>Undo Last Edit Action</source>
-        <translation type="obsolete">Отменить последнее действие</translation>
-    </message>
-    <message>
-        <source>&amp;Redo</source>
-        <translation type="obsolete">&amp;Вернуть отмену</translation>
-    </message>
-    <message>
-        <source>Redo Last Edit Action</source>
-        <translation type="obsolete">Вернуть последнее изменение</translation>
-    </message>
-    <message>
-        <source>&amp;Paste</source>
-        <translation type="obsolete">&amp;Вставить</translation>
-    </message>
-    <message>
-        <source>Paste Text From Clipboard</source>
-        <translation type="obsolete">Вставить текст из Буфера Обмена</translation>
-    </message>
-    <message>
-        <source>Cu&amp;t</source>
-        <translation type="obsolete">&amp;Вырезать</translation>
-    </message>
-    <message>
-        <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">Вырезать выделенные элементы в Буфер Обмена</translation>
-    </message>
-    <message>
-        <source>&amp;Copy</source>
-        <translation type="obsolete">&amp;Копировать</translation>
-    </message>
-    <message>
-        <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">Копировать выделенные элементы в Буфер Обмена</translation>
-    </message>
-    <message>
-        <source>&amp;Quote</source>
-        <translation type="obsolete">&amp;Цитировать</translation>
-    </message>
-    <message>
-        <source>Quote whole text</source>
-        <translation type="obsolete">Цитировать весь текст</translation>
-    </message>
-    <message>
-        <source>Select &amp;All</source>
-        <translation type="obsolete">В&amp;ыделить всё</translation>
-    </message>
-    <message>
-        <source>Select the whole text</source>
-        <translation type="obsolete">Выделить весь текст</translation>
-    </message>
-    <message>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="obsolete">Удалить двойной &amp;перенос строк</translation>
-    </message>
-    <message>
-        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="obsolete">Удалить двойной перенос строк, например в тексте, вставленном из браузера</translation>
-    </message>
-    <message>
-        <source>Open settings dialog</source>
-        <translation type="obsolete">Открыть окно настроек</translation>
-    </message>
-    <message>
-        <source>&amp;Encrypt</source>
-        <translation type="obsolete">З&amp;ашифровать</translation>
-    </message>
-    <message>
-        <source>Encrypt Message</source>
-        <translation type="obsolete">Зашифровать текст</translation>
-    </message>
-    <message>
-        <source>&amp;Decrypt</source>
-        <translation type="obsolete">Расшифро&amp;вать</translation>
-    </message>
-    <message>
-        <source>Decrypt Message</source>
-        <translation type="obsolete">Расшифровать текст</translation>
-    </message>
-    <message>
-        <source>&amp;Sign</source>
-        <translation type="obsolete">&amp;Подписать</translation>
-    </message>
-    <message>
-        <source>Sign Message</source>
-        <translation type="obsolete">Подписать сообщение</translation>
-    </message>
-    <message>
-        <source>&amp;Verify</source>
-        <translation type="obsolete">&amp;Проверить</translation>
-    </message>
-    <message>
-        <source>Verify Message</source>
-        <translation type="obsolete">Проверить сообщение</translation>
-    </message>
-    <message>
-        <source>&amp;Keyserver</source>
-        <translation type="obsolete">Сервера &amp;ключей</translation>
-    </message>
-    <message>
-        <source>Import New Key From File</source>
-        <translation type="obsolete">Импорт нового ключа из файла</translation>
-    </message>
-    <message>
-        <source>Import New Key From Editor</source>
-        <translation type="obsolete">Импорт нового ключа из редактора</translation>
-    </message>
-    <message>
-        <source>&amp;About</source>
-        <translation type="obsolete">&amp;О программе</translation>
-    </message>
-    <message>
-        <source>Show the application&apos;s About box</source>
-        <translation type="obsolete">Показать инфо о программе</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="obsolete">Ф&amp;айл</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="obsolete">&amp;Правка</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="obsolete">&amp;Справка</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation type="obsolete">Файл</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="obsolete">Правка</translation>
-    </message>
-    <message>
-        <source>Se&amp;ttings</source>
-        <translation type="obsolete">&amp;Настройки</translation>
-    </message>
-    <message>
-        <source>&amp;New</source>
-        <translation type="obsolete">&amp;Создать</translation>
-    </message>
-    <message>
-        <source>Open a new file</source>
-        <translation type="obsolete">Открыть новый файл</translation>
-    </message>
-    <message>
-        <source>&amp;File Encryption</source>
-        <translation type="obsolete">Шифрование &amp;файлов</translation>
-    </message>
-    <message>
-        <source>Encrypt/Decrypt File</source>
-        <translation type="obsolete">Зашифровать/Расшифровать файл</translation>
-    </message>
-    <message>
-        <source>Key Management</source>
-        <translation type="obsolete">Менеджер ключей</translation>
-    </message>
-    <message>
-        <source>Open Keymanagement</source>
-        <translation type="obsolete">Открыть Менеджер ключей</translation>
-    </message>
-    <message>
-        <source>Open Import New Key Dialog</source>
-        <translation type="obsolete">Открыть окно импорта ключей</translation>
-    </message>
-    <message>
-        <source>Online &amp;Tutorial</source>
-        <translation type="obsolete">Онлайн-&amp;руководство</translation>
-    </message>
-    <message>
-        <source>Open Online Tutorial</source>
-        <translation type="obsolete">Открыть онлайн-руководство</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb</source>
-        <translation type="obsolete">Перевести gpg4usb</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb yourself</source>
-        <translation type="obsolete">Самостоятельно перевести gpg4usb</translation>
-    </message>
-    <message>
-        <source>Append Selected Key(s) To Text</source>
-        <translation type="obsolete">Добавить выбранн. ключ(и) к тексту</translation>
-    </message>
-    <message>
-        <source>Append The Selected Keys To Text in Editor</source>
-        <translation type="obsolete">Добавить выбранный ключ к тексту в редакторе</translation>
-    </message>
-    <message>
-        <source>Copy EMail-address</source>
-        <translation type="obsolete">Копировать адрес eMail</translation>
-    </message>
-    <message>
-        <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="obsolete">Копировать выбранный адрес eMail в Буфер Обмена</translation>
-    </message>
-    <message>
-        <source>Show Keydetails</source>
-        <translation type="obsolete">Показать свойства ключа</translation>
-    </message>
-    <message>
-        <source>Show Details for this Key</source>
-        <translation type="obsolete">Показать детали для этого ключа</translation>
-    </message>
-    <message>
-        <source>&amp;Keys</source>
-        <translation type="obsolete">&amp;Ключи</translation>
-    </message>
-    <message>
-        <source>&amp;Import Key From...</source>
-        <translation type="obsolete">&amp;Импорт ключа из...</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="obsolete">&amp;Вид</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="obsolete">Ключ</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation type="obsolete">Готово</translation>
-    </message>
-    <message>
-        <source>Encrypt for:</source>
-        <translation type="obsolete"> Зашифровать для:</translation>
-    </message>
-    <message>
-        <source>Attached files:</source>
-        <translation type="obsolete">Прикреплённые файлы:</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation type="obsolete">Приложение</translation>
-    </message>
-    <message>
-        <source>Cannot read file %1:
-%2.</source>
-        <translation type="obsolete">Не удалось прочесть файл %1:
-%2.</translation>
-    </message>
-    <message>
-        <source>File loaded</source>
-        <translation type="obsolete">Файл загружен</translation>
-    </message>
-    <message>
-        <source>The document has been modified.
-Do you want to save your changes?</source>
-        <translation type="obsolete">Документ был редактирован.
-Сохранить изменения?</translation>
-    </message>
-    <message>
-        <source>Cannot write file %1:
-%2.</source>
-        <translation type="obsolete">Не удалось записать файл %1:
-%2.</translation>
-    </message>
-    <message>
-        <source>Saved &apos;%1&apos;</source>
-        <translation type="obsolete">&quot;%1&quot; сохранён</translation>
-    </message>
-    <message>
-        <source>Open Key</source>
-        <translation type="obsolete">Открыть ключ</translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">Не удалось открыть файл: </translation>
-    </message>
-    <message>
-        <source>&amp;Editor</source>
-        <translation type="obsolete">Окна &amp;редактора</translation>
-    </message>
-    <message>
-        <source>&amp;Clipboard</source>
-        <translation type="obsolete">&amp;Буфера Обмена</translation>
-    </message>
-    <message>
-        <source>Import New Key From Clipboard</source>
-        <translation type="obsolete">Импорт нового ключа из Буфера Обмена</translation>
-    </message>
-    <message>
-        <source>Import Key</source>
-        <translation type="obsolete">Импорт ключа</translation>
-    </message>
-    <message>
-        <source>&amp;Crypt</source>
-        <translation type="obsolete">&amp;Шифрование</translation>
-    </message>
-    <message>
-        <source>Crypt</source>
-        <translation type="obsolete">Шифрование</translation>
-    </message>
-    <message>
-        <source>About </source>
-        <translation type="obsolete">О программе </translation>
-    </message>
-    <message>
-        <source>There is one unencrypted file in attachment folder</source>
-        <translation type="obsolete">Имеется один незашифрованный файл в папке вложений</translation>
-    </message>
-    <message>
-        <source>There are </source>
-        <translation type="obsolete">Имеются</translation>
-    </message>
-    <message>
-        <source> unencrypted files in attachment folder</source>
-        <translation type="obsolete">незашифрованные файлы в папке вложений</translation>
-    </message>
-    <message>
-        <source>Key Files</source>
-        <translation type="obsolete">Файлы ключей</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation type="obsolete">Все файлы</translation>
-    </message>
-    <message>
-        <source>Import Key From...</source>
-        <translation type="obsolete">Импорт ключа из...</translation>
     </message>
 </context>
 <context>
@@ -890,10 +478,6 @@ Do you want to save your changes?</source>
         <translation>Файлы ключей</translation>
     </message>
     <message>
-        <source>Key Files </source>
-        <translation type="obsolete">Файлы ключей</translation>
-    </message>
-    <message>
         <location filename="../../keydetailsdialog.cpp" line="41"/>
         <source>Key size:</source>
         <translation>Длина ключа:</translation>
@@ -1062,74 +646,99 @@ Weak -&gt; Strong</source>
 <context>
     <name>KeyImportDetailDialog</name>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="33"/>
-        <location filename="../../keyimportdetaildialog.cpp" line="44"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="32"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="43"/>
         <source>Key import details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="33"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="32"/>
         <source>No keys found to import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="52"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="51"/>
         <source>Genral key import info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="55"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="54"/>
         <source>Considered:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="59"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="58"/>
         <source>Unchanged:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="64"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="63"/>
         <source>Imported:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="69"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="68"/>
         <source>Not imported:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="74"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="73"/>
         <source>Secret read:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="79"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="78"/>
         <source>Secret imported:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="84"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="83"/>
         <source>Secret unchanged:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="104"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="103"/>
         <source>Name</source>
         <translation type="unfinished">Имя</translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="104"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="103"/>
         <source>Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="104"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="103"/>
         <source>KeyID</source>
         <translation type="unfinished">Идентификатор Ключа (KeyID)</translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="104"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="103"/>
         <source>Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="129"/>
+        <source>unchanged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="132"/>
+        <source>new key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="135"/>
+        <source>new subkey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="139"/>
+        <source>new signature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="143"/>
+        <source>new uid</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1191,17 +800,9 @@ gpg4usb попробует импортировать ключ(и).</translation
         <translation>Закрыть Менеджер ключей</translation>
     </message>
     <message>
-        <source>Import From &amp;File</source>
-        <translation type="obsolete">Импорт из ф&amp;айла</translation>
-    </message>
-    <message>
         <location filename="../../keymgmt.cpp" line="76"/>
         <source>Import New Key From File</source>
         <translation>Импорт нового ключа из файла</translation>
-    </message>
-    <message>
-        <source>Import From &amp;Clipboard</source>
-        <translation type="obsolete">Импорт из &amp;Буфера Обмена</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="81"/>
@@ -1305,10 +906,6 @@ gpg4usb попробует импортировать ключ(и).</translation
         <translation>&amp;Ключ</translation>
     </message>
     <message>
-        <source>Crypt</source>
-        <translation type="obsolete">Шифрование</translation>
-    </message>
-    <message>
         <location filename="../../keymgmt.cpp" line="167"/>
         <source>Open Key</source>
         <translation>Открыть ключ</translation>
@@ -1345,81 +942,9 @@ gpg4usb попробует импортировать ключ(и).</translation
         <translation>&lt;br/&gt;Это действие нельзя будет отменить.</translation>
     </message>
     <message>
-        <source>Are you sure that you want to delete the selected keys?.
-The action can not be undone.</source>
-        <translation type="obsolete">Вы уверены, что хотите стереть выбранные ключи?
-Это действие будет необратимым.</translation>
-    </message>
-    <message>
         <location filename="../../keymgmt.cpp" line="251"/>
         <source>Export Key To File</source>
         <translation>Экспорт ключа в файл</translation>
-    </message>
-    <message>
-        <source>Name:</source>
-        <translation type="obsolete">Имя:</translation>
-    </message>
-    <message>
-        <source>E-Mailaddress::</source>
-        <translation type="obsolete">Адрес eMail:</translation>
-    </message>
-    <message>
-        <source>Comment:</source>
-        <translation type="obsolete">Комментарий:</translation>
-    </message>
-    <message>
-        <source>KeySize (in Bit):</source>
-        <translation type="obsolete">Длина ключа (бит):</translation>
-    </message>
-    <message>
-        <source>Expiration Date:</source>
-        <translation type="obsolete">Истекает:</translation>
-    </message>
-    <message>
-        <source>Password:</source>
-        <translation type="obsolete">Пароль:</translation>
-    </message>
-    <message>
-        <source>Repeat Password:</source>
-        <translation type="obsolete">Повторите Пароль:</translation>
-    </message>
-    <message>
-        <source>Never Expire</source>
-        <translation type="obsolete">без срока годности</translation>
-    </message>
-    <message>
-        <source>Password: Strength
-Weak -&gt; Strong</source>
-        <translation type="obsolete">Надёжность Пароля
-Слабый -&gt; Стойкий</translation>
-    </message>
-    <message>
-        <source>Password Strength</source>
-        <translation type="obsolete">Надёжность Пароля</translation>
-    </message>
-    <message>
-        <source>  Name must contain at least five characters.  
-</source>
-        <translation type="obsolete">  Имя должно быть длиной не менее 5 букв.  
-</translation>
-    </message>
-    <message>
-        <source>  Password and Repeat don&apos;t match.  </source>
-        <translation type="obsolete">Повторно введённый Пароль не совпал.</translation>
-    </message>
-    <message>
-        <source>Generating Key...</source>
-        <translation type="obsolete">Генерация ключа...</translation>
-    </message>
-    <message>
-        <source>Collecting random data for key generation.
- This may take a while.
- To speed up the process use your computer
- (e.g. browse the net, listen to music,...)</source>
-        <translation type="obsolete">Сбор случайных данных для генерации ключа.
-Это займёт некоторое время. Можно ускорить
-процесс, активно используя компьютер (листая
-страницы интернета, слушая музыку и т.д.)</translation>
     </message>
 </context>
 <context>
@@ -1513,7 +1038,7 @@ Weak -&gt; Strong</source>
 <context>
     <name>KeyserverTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="395"/>
+        <location filename="../../settingsdialog.cpp" line="415"/>
         <source>Default Keyserver for import:</source>
         <translation>Сервер ключей для импорта по умолчанию:</translation>
     </message>
@@ -1572,7 +1097,7 @@ Weak -&gt; Strong</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="186"/>
-        <location filename="../../mainwindow.cpp" line="542"/>
+        <location filename="../../mainwindow.cpp" line="600"/>
         <source>&amp;Close</source>
         <translation type="unfinished">&amp;Закрыть</translation>
     </message>
@@ -1613,311 +1138,366 @@ Weak -&gt; Strong</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="209"/>
+        <source>Zoom In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="213"/>
+        <source>Zoom Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="217"/>
         <source>&amp;Paste</source>
         <translation type="unfinished">&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="212"/>
+        <location filename="../../mainwindow.cpp" line="220"/>
         <source>Paste Text From Clipboard</source>
         <translation type="unfinished">Вставить текст из Буфера Обмена</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="215"/>
+        <location filename="../../mainwindow.cpp" line="223"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished">&amp;Вырезать</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="218"/>
+        <location filename="../../mainwindow.cpp" line="226"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
         <translation type="unfinished">Вырезать выделенные элементы в Буфер Обмена</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="222"/>
+        <location filename="../../mainwindow.cpp" line="230"/>
         <source>&amp;Copy</source>
         <translation type="unfinished">&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="225"/>
+        <location filename="../../mainwindow.cpp" line="233"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
         <translation type="unfinished">Копировать выделенные элементы в Буфер Обмена</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="229"/>
+        <location filename="../../mainwindow.cpp" line="237"/>
         <source>&amp;Quote</source>
         <translation type="unfinished">&amp;Цитировать</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="231"/>
+        <location filename="../../mainwindow.cpp" line="239"/>
         <source>Quote whole text</source>
         <translation type="unfinished">Цитировать весь текст</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="234"/>
+        <location filename="../../mainwindow.cpp" line="242"/>
         <source>Select &amp;All</source>
         <translation type="unfinished">В&amp;ыделить всё</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="237"/>
+        <location filename="../../mainwindow.cpp" line="245"/>
         <source>Select the whole text</source>
         <translation type="unfinished">Выделить весь текст</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="240"/>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="unfinished">Удалить двойной &amp;перенос строк</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="243"/>
-        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="unfinished">Удалить двойной перенос строк, например в тексте, вставленном из браузера</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="246"/>
-        <source>Se&amp;ttings</source>
-        <translation type="unfinished">&amp;Настройки</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="247"/>
-        <source>Open settings dialog</source>
-        <translation type="unfinished">Открыть окно настроек</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="253"/>
-        <source>&amp;Encrypt</source>
-        <translation type="unfinished">З&amp;ашифровать</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="256"/>
-        <source>Encrypt Message</source>
-        <translation type="unfinished">Зашифровать текст</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="259"/>
-        <source>&amp;Decrypt</source>
-        <translation type="unfinished">Расшифро&amp;вать</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="262"/>
-        <source>Decrypt Message</source>
-        <translation type="unfinished">Расшифровать текст</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="265"/>
-        <source>&amp;File Encryption</source>
-        <translation type="unfinished">Шифрование &amp;файлов</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="267"/>
-        <source>Encrypt/Decrypt File</source>
-        <translation type="unfinished">Зашифровать/Расшифровать файл</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="270"/>
-        <source>&amp;Sign</source>
-        <translation type="unfinished">&amp;Подписать</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="273"/>
-        <source>Sign Message</source>
-        <translation type="unfinished">Подписать сообщение</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="276"/>
-        <source>&amp;Verify</source>
-        <translation type="unfinished">&amp;Проверить</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="279"/>
-        <source>Verify Message</source>
-        <translation type="unfinished">Проверить сообщение</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="285"/>
-        <source>&amp;Editor</source>
-        <translation type="unfinished">Окна &amp;редактора</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="287"/>
-        <source>Import New Key From Editor</source>
-        <translation type="unfinished">Импорт нового ключа из редактора</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="290"/>
-        <source>&amp;Key Management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="292"/>
-        <source>Open Keymanagement</source>
-        <translation type="unfinished">Открыть Менеджер ключей</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="297"/>
-        <source>&amp;About</source>
-        <translation type="unfinished">&amp;О программе</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="299"/>
-        <source>Show the application&apos;s About box</source>
-        <translation type="unfinished">Показать инфо о программе</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="302"/>
-        <source>Online &amp;Tutorial</source>
-        <translation type="unfinished">Онлайн-&amp;руководство</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="303"/>
-        <source>Open Online Tutorial</source>
-        <translation type="unfinished">Открыть онлайн-руководство</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="306"/>
-        <source>Translate gpg4usb</source>
-        <translation type="unfinished">Перевести gpg4usb</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="307"/>
-        <source>Translate gpg4usb yourself</source>
-        <translation type="unfinished">Самостоятельно перевести gpg4usb</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="310"/>
-        <source>Open &amp;Wizard</source>
+        <location filename="../../mainwindow.cpp" line="248"/>
+        <source>Remove &amp;spacing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="311"/>
+        <source>Manage &amp;keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="323"/>
+        <source>Integrated Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="324"/>
+        <source>Open integrated Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="327"/>
+        <source>Online &amp;Tutorials</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="328"/>
+        <source>Open Online Tutorials</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="251"/>
+        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
+        <translation type="unfinished">Удалить двойной перенос строк, например в тексте, вставленном из браузера</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="254"/>
+        <source>Se&amp;ttings</source>
+        <translation type="unfinished">&amp;Настройки</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="255"/>
+        <source>Open settings dialog</source>
+        <translation type="unfinished">Открыть окно настроек</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="261"/>
+        <source>&amp;Encrypt</source>
+        <translation type="unfinished">З&amp;ашифровать</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="264"/>
+        <source>Encrypt Message</source>
+        <translation type="unfinished">Зашифровать текст</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="267"/>
+        <source>&amp;Decrypt</source>
+        <translation type="unfinished">Расшифро&amp;вать</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="270"/>
+        <source>Decrypt Message</source>
+        <translation type="unfinished">Расшифровать текст</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="273"/>
+        <source>&amp;File Encryption</source>
+        <translation type="unfinished">Шифрование &amp;файлов</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="275"/>
+        <source>Encrypt/Decrypt File</source>
+        <translation type="unfinished">Зашифровать/Расшифровать файл</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="281"/>
+        <source>&amp;Encrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="283"/>
+        <source>Encrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="286"/>
+        <source>&amp;Decrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="288"/>
+        <source>Decrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="291"/>
+        <source>&amp;Sign</source>
+        <translation type="unfinished">&amp;Подписать</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="294"/>
+        <source>Sign Message</source>
+        <translation type="unfinished">Подписать сообщение</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="297"/>
+        <source>&amp;Verify</source>
+        <translation type="unfinished">&amp;Проверить</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="300"/>
+        <source>Verify Message</source>
+        <translation type="unfinished">Проверить сообщение</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="306"/>
+        <source>&amp;Editor</source>
+        <translation type="unfinished">Окна &amp;редактора</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="308"/>
+        <source>Import New Key From Editor</source>
+        <translation type="unfinished">Импорт нового ключа из редактора</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="313"/>
+        <source>Open Keymanagement</source>
+        <translation type="unfinished">Открыть Менеджер ключей</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="318"/>
+        <source>&amp;About</source>
+        <translation type="unfinished">&amp;О программе</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="320"/>
+        <source>Show the application&apos;s About box</source>
+        <translation type="unfinished">Показать инфо о программе</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="331"/>
+        <source>Translate gpg4usb</source>
+        <translation type="unfinished">Перевести gpg4usb</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="332"/>
+        <source>Translate gpg4usb yourself</source>
+        <translation type="unfinished">Самостоятельно перевести gpg4usb</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="335"/>
+        <source>Open &amp;Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="336"/>
         <source>Open the wizard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="316"/>
+        <location filename="../../mainwindow.cpp" line="341"/>
         <source>Append Selected Key(s) To Text</source>
         <translation type="unfinished">Добавить выбранн. ключ(и) к тексту</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="317"/>
+        <location filename="../../mainwindow.cpp" line="342"/>
         <source>Append The Selected Keys To Text in Editor</source>
         <translation type="unfinished">Добавить выбранный ключ к тексту в редакторе</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="320"/>
+        <location filename="../../mainwindow.cpp" line="345"/>
         <source>Copy EMail-address</source>
         <translation type="unfinished">Копировать адрес eMail</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="321"/>
+        <location filename="../../mainwindow.cpp" line="346"/>
         <source>Copy selected EMailaddress to clipboard</source>
         <translation type="unfinished">Копировать выбранный адрес eMail в Буфер Обмена</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="325"/>
+        <location filename="../../mainwindow.cpp" line="350"/>
         <source>Show Keydetails</source>
         <translation type="unfinished">Показать свойства ключа</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="326"/>
+        <location filename="../../mainwindow.cpp" line="351"/>
         <source>Show Details for this Key</source>
         <translation type="unfinished">Показать детали для этого ключа</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="344"/>
+        <location filename="../../mainwindow.cpp" line="369"/>
         <source>&amp;File</source>
         <translation type="unfinished">Ф&amp;айл</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="356"/>
+        <location filename="../../mainwindow.cpp" line="381"/>
         <source>&amp;Edit</source>
         <translation type="unfinished">&amp;Правка</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="369"/>
+        <location filename="../../mainwindow.cpp" line="397"/>
         <source>&amp;Crypt</source>
         <translation type="unfinished">&amp;Шифрование</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="378"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
         <source>&amp;Keys</source>
         <translation type="unfinished">&amp;Ключи</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="379"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
         <source>&amp;Import Key From...</source>
         <translation type="unfinished">&amp;Импорт ключа из...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="388"/>
+        <location filename="../../mainwindow.cpp" line="418"/>
+        <source>&amp;Steganography</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="419"/>
+        <source>Remove PGP Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="421"/>
+        <source>Add PGP Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="427"/>
         <source>&amp;View</source>
         <translation type="unfinished">&amp;Вид</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="390"/>
+        <location filename="../../mainwindow.cpp" line="429"/>
         <source>&amp;Help</source>
         <translation type="unfinished">&amp;Справка</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="399"/>
+        <location filename="../../mainwindow.cpp" line="442"/>
         <source>File</source>
         <translation type="unfinished">Файл</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="450"/>
         <source>Crypt</source>
         <translation type="unfinished">Шифрование</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="416"/>
+        <location filename="../../mainwindow.cpp" line="459"/>
         <source>Key</source>
         <translation type="unfinished">Ключ</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="421"/>
+        <location filename="../../mainwindow.cpp" line="464"/>
         <source>Edit</source>
         <translation type="unfinished">Правка</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="428"/>
+        <location filename="../../mainwindow.cpp" line="471"/>
         <source>Special edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="457"/>
+        <location filename="../../mainwindow.cpp" line="515"/>
         <source>Ready</source>
         <translation type="unfinished">Готово</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="465"/>
+        <location filename="../../mainwindow.cpp" line="523"/>
         <source>Encrypt for:</source>
         <translation type="unfinished"> Зашифровать для:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="484"/>
+        <location filename="../../mainwindow.cpp" line="542"/>
         <source>Attached files:</source>
         <translation type="unfinished">Прикреплённые файлы:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="525"/>
+        <location filename="../../mainwindow.cpp" line="583"/>
         <source>About </source>
         <translation type="unfinished">О программе </translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="528"/>
+        <location filename="../../mainwindow.cpp" line="586"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="628"/>
+        <location filename="../../mainwindow.cpp" line="690"/>
         <source>There is one unencrypted file in attachment folder</source>
         <translation type="unfinished">Имеется один незашифрованный файл в папке вложений</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="630"/>
+        <location filename="../../mainwindow.cpp" line="692"/>
         <source>There are </source>
         <translation type="unfinished">Имеются</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="630"/>
+        <location filename="../../mainwindow.cpp" line="692"/>
         <source> unencrypted files in attachment folder</source>
         <translation type="unfinished">незашифрованные файлы в папке вложений</translation>
     </message>
@@ -1925,37 +1505,37 @@ Weak -&gt; Strong</source>
 <context>
     <name>MimeTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="194"/>
+        <location filename="../../settingsdialog.cpp" line="214"/>
         <source>Decode quoted printable</source>
         <translation>Декодировка quoted printable</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="196"/>
+        <location filename="../../settingsdialog.cpp" line="216"/>
         <source>Try to recognize quoted printable.</source>
         <translation>Пробовать распозновать quoted printable.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="201"/>
+        <location filename="../../settingsdialog.cpp" line="221"/>
         <source>Parse PGP/MIME (Experimental)</source>
         <translation>Обрабатывать PGP/MIME (экспериментально)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="203"/>
+        <location filename="../../settingsdialog.cpp" line="223"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
         <translation>Пробовать отделять вложения писем, зашифрованных PGP-MIME.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="207"/>
+        <location filename="../../settingsdialog.cpp" line="227"/>
         <source>Open with external application (Experimental)</source>
         <translation>Открывать файлы вложений внешней программой (экспериментально)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="209"/>
+        <location filename="../../settingsdialog.cpp" line="229"/>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
         <translation>Открытие вложений программами по умолчанию для их типов файлов.&lt;br&gt; Есть по крайней мере две возможные проблемы с такой настройкой:&lt;ol&gt;&lt;li&gt;Файлы потребуется сохранять незашифрованными в папку вложений.&lt;br&gt; Это ваша работа, зачищать эту папку.&lt;/li&gt;&lt;li&gt;Внешняя программа может иметь собственные временные файлы.&lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="216"/>
+        <location filename="../../settingsdialog.cpp" line="236"/>
         <source>Enable opening with external applications.</source>
         <translation>Активировать открытие файлов внешней программой.</translation>
     </message>
@@ -1991,78 +1571,11 @@ Weak -&gt; Strong</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <source>Iconsize</source>
-        <translation type="obsolete">Размер значков</translation>
-    </message>
-    <message>
-        <source>small</source>
-        <translation type="obsolete">Маленький</translation>
-    </message>
-    <message>
-        <source>medium</source>
-        <translation type="obsolete">Средний</translation>
-    </message>
-    <message>
-        <source>large</source>
-        <translation type="obsolete">Большой</translation>
-    </message>
-    <message>
-        <source>Iconstyle</source>
-        <translation type="obsolete">Стиль панелей инструментов</translation>
-    </message>
-    <message>
-        <source>just text</source>
-        <translation type="obsolete">Только текст</translation>
-    </message>
-    <message>
-        <source>just icons</source>
-        <translation type="obsolete">Только значки</translation>
-    </message>
-    <message>
-        <source>text and icons</source>
-        <translation type="obsolete">Значки и текст</translation>
-    </message>
-    <message>
-        <source>Windowstate</source>
-        <translation type="obsolete">Настройки окна</translation>
-    </message>
-    <message>
-        <source>Save window size and position on exit.</source>
-        <translation type="obsolete">Запоминать размер и положение окна при выходе.</translation>
-    </message>
-    <message>
-        <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation type="obsolete">Запоминать отмеченные ключи при выходе и выделять их при следующем запуске.</translation>
-    </message>
-    <message>
-        <source>MIME-parsing (Experimental)</source>
-        <translation type="obsolete">MIME-parsing (экспериментально)</translation>
-    </message>
-    <message>
-        <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation type="obsolete">Пробовать отделять вложения писем, зашифрованных PGP-MIME.</translation>
-    </message>
-    <message>
-        <source>save window size and position on exit</source>
-        <translation type="obsolete">Сохранять размер окна при выходе</translation>
-    </message>
-    <message>
-        <source>Save Checked Keys</source>
-        <translation type="obsolete">Сохранение выбора ключей</translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="obsolete">Язык</translation>
-    </message>
-    <message>
-        <source>Language change is applied after restarting program.</source>
-        <translation type="obsolete">Изменение языка вступит в силу после перезапуска программы.</translation>
-    </message>
-    <message>
+        <location filename="../../settingsdialog.cpp" line="200"/>
         <source>English</source>
         <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
         <translatorcomment>Local language here is russian</translatorcomment>
-        <translation type="obsolete">Русский</translation>
+        <translation type="unfinished">Русский</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="33"/>
@@ -2083,20 +1596,6 @@ Weak -&gt; Strong</source>
         <location filename="../../settingsdialog.cpp" line="36"/>
         <source>Keyserver</source>
         <translation>Сервер ключей</translation>
-    </message>
-    <message>
-        <source>Tab Dialog</source>
-        <translation type="obsolete">Настройки</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="180"/>
-        <source>English</source>
-        <translatorcomment>Also local language here?</translatorcomment>
-        <translation>Русский</translation>
-    </message>
-    <message>
-        <source>System Default</source>
-        <translation type="obsolete">Стандартнай язык системы</translation>
     </message>
 </context>
 <context>
@@ -2183,16 +1682,6 @@ Weak -&gt; Strong</source>
  %1 by:
 </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Text was completly signed on %1 by:
-</source>
-        <translation type="obsolete">Текст был %1 полностью подписан:</translation>
-    </message>
-    <message>
-        <source>Text was partially signed on %1 by:
-</source>
-        <translation type="obsolete">Текст был %1 частично подписан:</translation>
     </message>
 </context>
 <context>
@@ -2281,21 +1770,9 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Key not present with Fingerprint: </source>
-        <translation type="obsolete">Отсутствует ключ с отпечатком:</translation>
-    </message>
-    <message>
         <location filename="../../verifynotification.cpp" line="150"/>
         <source>Error for key with fingerprint </source>
         <translation>Ошибка ключа с отпечатком </translation>
-    </message>
-    <message>
-        <source>Text is completly signed by: </source>
-        <translation type="obsolete">Текст полностью подписан:</translation>
-    </message>
-    <message>
-        <source>Text is partially signed by: </source>
-        <translation type="obsolete">Текст частично подписан:</translation>
     </message>
 </context>
 <context>

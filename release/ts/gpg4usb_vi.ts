@@ -4,52 +4,52 @@
 <context>
     <name>AppearanceTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="270"/>
+        <location filename="../../settingsdialog.cpp" line="290"/>
         <source>Iconsize</source>
         <translation>Kích thước biểu tượng</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="272"/>
+        <location filename="../../settingsdialog.cpp" line="292"/>
         <source>small</source>
         <translation>nhỏ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="273"/>
+        <location filename="../../settingsdialog.cpp" line="293"/>
         <source>medium</source>
         <translation>vừa</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="274"/>
+        <location filename="../../settingsdialog.cpp" line="294"/>
         <source>large</source>
         <translation>lớn</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="290"/>
+        <location filename="../../settingsdialog.cpp" line="310"/>
         <source>Iconstyle</source>
         <translation>Dạng biểu tượng</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="292"/>
+        <location filename="../../settingsdialog.cpp" line="312"/>
         <source>just text</source>
         <translation>chỉ gồm chữ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="293"/>
+        <location filename="../../settingsdialog.cpp" line="313"/>
         <source>just icons</source>
         <translation>chỉ gồm biểu tượng</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="294"/>
+        <location filename="../../settingsdialog.cpp" line="314"/>
         <source>text and icons</source>
         <translation>gồm chữ và biểu tượng</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="310"/>
+        <location filename="../../settingsdialog.cpp" line="330"/>
         <source>Windowstate</source>
         <translation>Trạng thái Cửa sổ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="312"/>
+        <location filename="../../settingsdialog.cpp" line="332"/>
         <source>Save window size and position on exit.</source>
         <translation>Lưu kích thước và vị trí cửa sổ khi thoát.</translation>
     </message>
@@ -125,70 +125,76 @@
 <context>
     <name>FileEncryptionDialog</name>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="29"/>
+        <location filename="../../fileencryptiondialog.cpp" line="35"/>
         <source>Encrypt / Decrypt File</source>
         <translation>Mã hóa / Giải mã Tệp</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="37"/>
-        <location filename="../../fileencryptiondialog.cpp" line="154"/>
-        <location filename="../../fileencryptiondialog.cpp" line="163"/>
+        <location filename="../../fileencryptiondialog.cpp" line="46"/>
+        <location filename="../../fileencryptiondialog.cpp" line="170"/>
+        <location filename="../../fileencryptiondialog.cpp" line="179"/>
         <source>File</source>
         <translation>Tệp</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="38"/>
+        <location filename="../../fileencryptiondialog.cpp" line="47"/>
         <source>Action</source>
         <translation>Thực hiện</translation>
     </message>
     <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
+        <location filename="../../fileencryptiondialog.cpp" line="30"/>
+        <source>Decrypt File</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="44"/>
+        <location filename="../../fileencryptiondialog.cpp" line="32"/>
+        <source>Encrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../fileencryptiondialog.cpp" line="53"/>
         <source>Input</source>
         <translation>Tệp nguồn</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="50"/>
+        <location filename="../../fileencryptiondialog.cpp" line="59"/>
         <source>Output</source>
         <translation>Kết quả</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="69"/>
+        <location filename="../../fileencryptiondialog.cpp" line="78"/>
         <source>&amp;Encrypt</source>
         <translation>&amp;Mã hóa</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="71"/>
+        <location filename="../../fileencryptiondialog.cpp" line="80"/>
         <source>&amp;Decrypt</source>
         <translation>&amp;Giải mã hóa</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="100"/>
+        <location filename="../../fileencryptiondialog.cpp" line="116"/>
         <source>Open File</source>
         <translation>Mở Tệp</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="126"/>
+        <location filename="../../fileencryptiondialog.cpp" line="142"/>
         <source>Save File</source>
         <translation>Lưu Tệp</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="137"/>
+        <location filename="../../fileencryptiondialog.cpp" line="153"/>
         <source>couldn&apos;t open file: </source>
         <translation>Không mở được tệp:</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="164"/>
+        <location filename="../../fileencryptiondialog.cpp" line="180"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Không thể ghi lên tệp %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../fileencryptiondialog.cpp" line="155"/>
+        <location filename="../../fileencryptiondialog.cpp" line="171"/>
         <source>File exists! Do you want to overwrite it?</source>
         <translation>Tệp đã tồn tại! Bạn có muốn ghi đè lên tệp?</translation>
     </message>
@@ -227,53 +233,28 @@
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="97"/>
+        <source>Show Steganography Options [Advanced]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="99"/>
+        <source>Show Steganographic Options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.cpp" line="106"/>
         <source>Language</source>
         <translation>Ngôn ngữ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="107"/>
+        <location filename="../../settingsdialog.cpp" line="116"/>
         <source>Language change is applied after restarting program.</source>
         <translation>Thay đổi Ngôn ngữ được áp dụng sau khi khởi động lại chương trình.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="166"/>
+        <location filename="../../settingsdialog.cpp" line="186"/>
         <source>System Default</source>
         <translation>Mặc định Hệ thống</translation>
-    </message>
-</context>
-<context>
-    <name>GpgME::Context</name>
-    <message>
-        <source>No Key Selected</source>
-        <translation type="obsolete">Không có Khóa được chọn</translation>
-    </message>
-    <message>
-        <source>Unsupported algorithm</source>
-        <translation type="obsolete">Thuật toán không được hỗ trợ</translation>
-    </message>
-    <message>
-        <source>Error decrypting:</source>
-        <translation type="obsolete">Lỗi giải mã hóa:</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation type="obsolete">Mật khẩu không chính xác</translation>
-    </message>
-    <message>
-        <source>Enter Password</source>
-        <translation type="obsolete">Nhập Mật khẩu</translation>
-    </message>
-    <message>
-        <source>Key Selection</source>
-        <translation type="obsolete">Chọn Khóa</translation>
-    </message>
-    <message>
-        <source>No Private Key Selected</source>
-        <translation type="obsolete">Không có Khóa riêng được chọn</translation>
-    </message>
-    <message>
-        <source>Error signing:</source>
-        <translation type="obsolete">Lỗi tạo chữ ký số:</translation>
     </message>
 </context>
 <context>
@@ -317,337 +298,6 @@
         <location filename="../../gpgcontext.cpp" line="619"/>
         <source>Error signing:</source>
         <translation type="unfinished">Lỗi tạo chữ ký số:</translation>
-    </message>
-</context>
-<context>
-    <name>GpgWin</name>
-    <message>
-        <source>&amp;Open...</source>
-        <translation type="obsolete">&amp;Mở...</translation>
-    </message>
-    <message>
-        <source>Open an existing file</source>
-        <translation type="obsolete">Mở tệp đã tồn tại</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation type="obsolete">&amp;Lưu</translation>
-    </message>
-    <message>
-        <source>Save the current File</source>
-        <translation type="obsolete">Lưu Tệp hiện hành</translation>
-    </message>
-    <message>
-        <source>Save &amp;As</source>
-        <translation type="obsolete">Lưu &amp;như</translation>
-    </message>
-    <message>
-        <source>Save the current File as...</source>
-        <translation type="obsolete">Lưu Tệp hiện hành như...</translation>
-    </message>
-    <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">&amp;In</translation>
-    </message>
-    <message>
-        <source>Print Document</source>
-        <translation type="obsolete">In Tài liệu</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation type="obsolete">&amp;Đóng</translation>
-    </message>
-    <message>
-        <source>Close file</source>
-        <translation type="obsolete">Đóng tệp</translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation type="obsolete">&amp;Thoát</translation>
-    </message>
-    <message>
-        <source>Quit Program</source>
-        <translation type="obsolete">Thoát Chương trình</translation>
-    </message>
-    <message>
-        <source>&amp;Undo</source>
-        <translation type="obsolete">&amp;Hoàn tác</translation>
-    </message>
-    <message>
-        <source>Undo Last Edit Action</source>
-        <translation type="obsolete">Hoàn tác Thao tác Soạn thảo Sau cùng</translation>
-    </message>
-    <message>
-        <source>&amp;Redo</source>
-        <translation type="obsolete">&amp;Hủy hoàn tác</translation>
-    </message>
-    <message>
-        <source>Redo Last Edit Action</source>
-        <translation type="obsolete">Thực hiện lại Thao tác Soạn thảo Sau cùng</translation>
-    </message>
-    <message>
-        <source>&amp;Paste</source>
-        <translation type="obsolete">&amp;Dán</translation>
-    </message>
-    <message>
-        <source>Paste Text From Clipboard</source>
-        <translation type="obsolete">Chép Văn bản từ Clipboard</translation>
-    </message>
-    <message>
-        <source>Cu&amp;t</source>
-        <translation type="obsolete">Cắ&amp;t</translation>
-    </message>
-    <message>
-        <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">Cắt và sao nội dung được chọn vào clipboard</translation>
-    </message>
-    <message>
-        <source>&amp;Copy</source>
-        <translation type="obsolete">&amp;Sao chép</translation>
-    </message>
-    <message>
-        <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">Chép nội dung được chọn vào clipboard</translation>
-    </message>
-    <message>
-        <source>&amp;Quote</source>
-        <translation type="obsolete">&amp;Trích dẫn</translation>
-    </message>
-    <message>
-        <source>Quote whole text</source>
-        <translation type="obsolete">Trích dẫn toàn bộ đoạn văn bản</translation>
-    </message>
-    <message>
-        <source>Select &amp;All</source>
-        <translation type="obsolete">Chọn &amp;Toàn bộ</translation>
-    </message>
-    <message>
-        <source>Select the whole text</source>
-        <translation type="obsolete">Chọn toàn bộ đoạn văn bản</translation>
-    </message>
-    <message>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="obsolete">Bỏ cách dòng và &amp;Xuống dòng</translation>
-    </message>
-    <message>
-        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="obsolete">Bỏ dấu cách dòng kép, ví dụ trong các đoạn văn bản sao chép từ thư từ trang web</translation>
-    </message>
-    <message>
-        <source>Open settings dialog</source>
-        <translation type="obsolete">Mở hộp thoại thiết đặt</translation>
-    </message>
-    <message>
-        <source>&amp;Encrypt</source>
-        <translation type="obsolete">&amp;Mã hóa</translation>
-    </message>
-    <message>
-        <source>Encrypt Message</source>
-        <translation type="obsolete">Mã hóa Tin nhắn</translation>
-    </message>
-    <message>
-        <source>&amp;Decrypt</source>
-        <translation type="obsolete">&amp;Giải Mã</translation>
-    </message>
-    <message>
-        <source>Decrypt Message</source>
-        <translation type="obsolete">Giải mã Tin nhắn</translation>
-    </message>
-    <message>
-        <source>&amp;File Encryption</source>
-        <translation type="obsolete">&amp;Mã hóa Tệp</translation>
-    </message>
-    <message>
-        <source>Encrypt/Decrypt File</source>
-        <translation type="obsolete">Mã hóa/Giải mã Tệp</translation>
-    </message>
-    <message>
-        <source>&amp;Sign</source>
-        <translation type="obsolete">&amp;Ký số</translation>
-    </message>
-    <message>
-        <source>Sign Message</source>
-        <translation type="obsolete">Ký Tin nhắn</translation>
-    </message>
-    <message>
-        <source>&amp;Verify</source>
-        <translation type="obsolete">&amp;Kiểm tra</translation>
-    </message>
-    <message>
-        <source>Verify Message</source>
-        <translation type="obsolete">Kiểm tra Tin nhắn</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="obsolete">&lt;center&gt;Ứng dụng này cho phép mã hóa &lt;br/&gt;và giải mã văn bản hoặc tệp dữ liệu.&lt;br&gt;Bản quyền chương trình tuân thủ GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Nhóm phát triển:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Chuyển ngữ:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;Nếu bạn có bất kỳ thắc măc hay gợi ý nào hãy liên hệ với chúng tôi &lt;br/&gt;tại trang &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;liên hệ&lt;/a&gt; hoặc qua&lt;br/&gt;  địa chỉ thư &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>&amp;Keyserver</source>
-        <translation type="obsolete">&amp;Máy chủ Khóa</translation>
-    </message>
-    <message>
-        <source>Import New Key From Editor</source>
-        <translation type="obsolete">Nhập Khóa Mới Từ Trình Soạn Thảo</translation>
-    </message>
-    <message>
-        <source>Key Management</source>
-        <translation type="obsolete">Quản lý Khóa</translation>
-    </message>
-    <message>
-        <source>Open Keymanagement</source>
-        <translation type="obsolete">Mở Trình Quản lý Khóa</translation>
-    </message>
-    <message>
-        <source>Open Import New Key Dialog</source>
-        <translation type="obsolete">Mở Hộp thoại Nhập Khóa mới</translation>
-    </message>
-    <message>
-        <source>&amp;About</source>
-        <translation type="obsolete">&amp;Thông tin</translation>
-    </message>
-    <message>
-        <source>Show the application&apos;s About box</source>
-        <translation type="obsolete">Hiện hộp Thông tin Ứng dụng</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="obsolete">&amp;Tệp</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="obsolete">&amp;Soạn thảo</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="obsolete">&amp;Trợ giúp</translation>
-    </message>
-    <message>
-        <source>Append Selected Key(s) To Text</source>
-        <translation type="obsolete">Nối tiếp Khóa Được Chọn vào Văn bản</translation>
-    </message>
-    <message>
-        <source>Se&amp;ttings</source>
-        <translation type="obsolete">Thiế&amp;t đặt</translation>
-    </message>
-    <message>
-        <source>&amp;New</source>
-        <translation type="obsolete">&amp;Tạo mới</translation>
-    </message>
-    <message>
-        <source>Open a new file</source>
-        <translation type="obsolete">Mở một tệp mới</translation>
-    </message>
-    <message>
-        <source>Online &amp;Tutorial</source>
-        <translation type="obsolete">Hướng dẫn &amp;Trực tuyến</translation>
-    </message>
-    <message>
-        <source>Open Online Tutorial</source>
-        <translation type="obsolete">Mở Hướng dẫn Trực tuyến</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb</source>
-        <translation type="obsolete">Chuyển ngữ cho gpg4usb</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb yourself</source>
-        <translation type="obsolete">Bạn hãy dịch gpg4usb sang ngôn ngữ khác</translation>
-    </message>
-    <message>
-        <source>Append The Selected Keys To Text in Editor</source>
-        <translation type="obsolete">Nối tiếp Khóa Được Chọn Vào Văn bản trong Trình Soạn Thảo</translation>
-    </message>
-    <message>
-        <source>Copy EMail-address</source>
-        <translation type="obsolete">Chép Địa chỉ EMail</translation>
-    </message>
-    <message>
-        <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="obsolete">Chép Địa chỉ Email được chọn vào clipboard</translation>
-    </message>
-    <message>
-        <source>Show Keydetails</source>
-        <translation type="obsolete">Hiển thị thông tin Khóa</translation>
-    </message>
-    <message>
-        <source>Show Details for this Key</source>
-        <translation type="obsolete">Hiển thị Thông tin của Khóa này</translation>
-    </message>
-    <message>
-        <source>&amp;Keys</source>
-        <translation type="obsolete">&amp;Khóa mã hóa</translation>
-    </message>
-    <message>
-        <source>&amp;Import Key From...</source>
-        <translation type="obsolete">&amp;Nhập Khóa Từ...</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="obsolete">&amp;Hiển thị</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation type="obsolete">Sẵn sàng</translation>
-    </message>
-    <message>
-        <source>Encrypt for:</source>
-        <translation type="obsolete">Mã hóa cho:</translation>
-    </message>
-    <message>
-        <source>Attached files:</source>
-        <translation type="obsolete">Các tệp đính kèm:</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="obsolete">&lt;center&gt;Ứng dụng này cho phép mã hóa &lt;br/&gt;và giải mã văn bản hoặc tệp dữ liệu.&lt;br&gt;Bản quyền chương trình tuân thủ GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Nhóm phát triển:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Chuyển ngữ:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Nếu bạn có bất kỳ thắc măc hay gợi ý nào hãy liên hệ với chúng tôi &lt;br/&gt;tại trang &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;liên hệ&lt;/a&gt; hoặc qua&lt;br/&gt;  địa chỉ thư &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>There is one unencrypted file in attachment folder</source>
-        <translation type="obsolete">Có một tệp không được mã hóa trong phần đính kèm</translation>
-    </message>
-    <message>
-        <source>There are </source>
-        <translation type="obsolete">Có</translation>
-    </message>
-    <message>
-        <source> unencrypted files in attachment folder</source>
-        <translation type="obsolete">các tệp không được mã hóa trong phần đính kèm</translation>
-    </message>
-    <message>
-        <source>&amp;Editor</source>
-        <translation type="obsolete">&amp;Trình soạn thảo</translation>
-    </message>
-    <message>
-        <source>&amp;Clipboard</source>
-        <translation type="obsolete">&amp;Clipboard</translation>
-    </message>
-    <message>
-        <source>Import Key</source>
-        <translation type="obsolete">Nhập Khóa mã hóa</translation>
-    </message>
-    <message>
-        <source>&amp;Crypt</source>
-        <translation type="obsolete">&amp;Mã hóa</translation>
-    </message>
-    <message>
-        <source>Crypt</source>
-        <translation type="obsolete">Mã hóa</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="obsolete">Khóa</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="obsolete">Soạn thảo</translation>
-    </message>
-    <message>
-        <source>About </source>
-        <translation type="obsolete">Thông tin</translation>
-    </message>
-    <message>
-        <source>Import Key From...</source>
-        <translation type="obsolete">Nhập Khóa từ...</translation>
     </message>
 </context>
 <context>
@@ -995,74 +645,99 @@ Yếu -&gt; Mạnh</translation>
 <context>
     <name>KeyImportDetailDialog</name>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="33"/>
-        <location filename="../../keyimportdetaildialog.cpp" line="44"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="32"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="43"/>
         <source>Key import details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="33"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="32"/>
         <source>No keys found to import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="52"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="51"/>
         <source>Genral key import info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="55"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="54"/>
         <source>Considered:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="59"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="58"/>
         <source>Unchanged:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="64"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="63"/>
         <source>Imported:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="69"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="68"/>
         <source>Not imported:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="74"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="73"/>
         <source>Secret read:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="79"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="78"/>
         <source>Secret imported:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="84"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="83"/>
         <source>Secret unchanged:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="104"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="103"/>
         <source>Name</source>
         <translation type="unfinished">Tên</translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="104"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="103"/>
         <source>Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="104"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="103"/>
         <source>KeyID</source>
         <translation type="unfinished">IDKhóa</translation>
     </message>
     <message>
-        <location filename="../../keyimportdetaildialog.cpp" line="104"/>
+        <location filename="../../keyimportdetaildialog.cpp" line="103"/>
         <source>Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="129"/>
+        <source>unchanged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="132"/>
+        <source>new key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="135"/>
+        <source>new subkey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="139"/>
+        <source>new signature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keyimportdetaildialog.cpp" line="143"/>
+        <source>new uid</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1270,72 +945,6 @@ Yếu -&gt; Mạnh</translation>
         <source>Export Key To File</source>
         <translation>Xuất Khóa ra Tệp</translation>
     </message>
-    <message>
-        <source>Name:</source>
-        <translation type="obsolete">Tên:</translation>
-    </message>
-    <message>
-        <source>E-Mailaddress::</source>
-        <translation type="obsolete">Địa chỉ Email:</translation>
-    </message>
-    <message>
-        <source>Comment:</source>
-        <translation type="obsolete">Nhận xét:</translation>
-    </message>
-    <message>
-        <source>KeySize (in Bit):</source>
-        <translation type="obsolete">Kích thước Khóa (Bit):</translation>
-    </message>
-    <message>
-        <source>Expiration Date:</source>
-        <translation type="obsolete">Ngày hết hạn:</translation>
-    </message>
-    <message>
-        <source>Password:</source>
-        <translation type="obsolete">Mật khẩu:</translation>
-    </message>
-    <message>
-        <source>Repeat Password:</source>
-        <translation type="obsolete">Nhập lại Mật khẩu:</translation>
-    </message>
-    <message>
-        <source>Never Expire</source>
-        <translation type="obsolete">Không bao giời hết hạn</translation>
-    </message>
-    <message>
-        <source>Password: Strength
-Weak -&gt; Strong</source>
-        <translation type="obsolete">Mật khẩu: Độ mạnh
-Yếu -&gt; Mạnh</translation>
-    </message>
-    <message>
-        <source>Password Strength</source>
-        <translation type="obsolete">Độ mạnh Mật khẩu</translation>
-    </message>
-    <message>
-        <source>  Name must contain at least five characters.  
-</source>
-        <translation type="obsolete">  Tên phải gồm ít nhất năm ký tự.  
-</translation>
-    </message>
-    <message>
-        <source>  Password and Repeat don&apos;t match.  </source>
-        <translation type="obsolete">Mật khẩu và Xác nhận mật khẩu không khớp.</translation>
-    </message>
-    <message>
-        <source>Generating Key...</source>
-        <translation type="obsolete">Đang Tạo Khóa...</translation>
-    </message>
-    <message>
-        <source>Collecting random data for key generation.
- This may take a while.
- To speed up the process use your computer
- (e.g. browse the net, listen to music,...)</source>
-        <translation type="obsolete">Đang lấy dữ liệu ngẫu nhiên để tạo khóa.
- Thao tác này có thể mất chút thời gian.
- Để đẩy nhanh tiến trình, hãy sử dụng máy tính
- (ví dụ vào Internet, nghe nhạc,...)</translation>
-    </message>
 </context>
 <context>
     <name>KeyServerImportDialog</name>
@@ -1428,7 +1037,7 @@ Yếu -&gt; Mạnh</translation>
 <context>
     <name>KeyserverTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="395"/>
+        <location filename="../../settingsdialog.cpp" line="415"/>
         <source>Default Keyserver for import:</source>
         <translation>Nhập khóa từ Máy chủ Khóa mặc định:</translation>
     </message>
@@ -1487,7 +1096,7 @@ Yếu -&gt; Mạnh</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="186"/>
-        <location filename="../../mainwindow.cpp" line="542"/>
+        <location filename="../../mainwindow.cpp" line="600"/>
         <source>&amp;Close</source>
         <translation type="unfinished">&amp;Đóng</translation>
     </message>
@@ -1528,311 +1137,366 @@ Yếu -&gt; Mạnh</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="209"/>
+        <source>Zoom In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="213"/>
+        <source>Zoom Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="217"/>
         <source>&amp;Paste</source>
         <translation type="unfinished">&amp;Dán</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="212"/>
+        <location filename="../../mainwindow.cpp" line="220"/>
         <source>Paste Text From Clipboard</source>
         <translation type="unfinished">Chép Văn bản từ Clipboard</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="215"/>
+        <location filename="../../mainwindow.cpp" line="223"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished">Cắ&amp;t</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="218"/>
+        <location filename="../../mainwindow.cpp" line="226"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
         <translation type="unfinished">Cắt và sao nội dung được chọn vào clipboard</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="222"/>
+        <location filename="../../mainwindow.cpp" line="230"/>
         <source>&amp;Copy</source>
         <translation type="unfinished">&amp;Sao chép</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="225"/>
+        <location filename="../../mainwindow.cpp" line="233"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
         <translation type="unfinished">Chép nội dung được chọn vào clipboard</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="229"/>
+        <location filename="../../mainwindow.cpp" line="237"/>
         <source>&amp;Quote</source>
         <translation type="unfinished">&amp;Trích dẫn</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="231"/>
+        <location filename="../../mainwindow.cpp" line="239"/>
         <source>Quote whole text</source>
         <translation type="unfinished">Trích dẫn toàn bộ đoạn văn bản</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="234"/>
+        <location filename="../../mainwindow.cpp" line="242"/>
         <source>Select &amp;All</source>
         <translation type="unfinished">Chọn &amp;Toàn bộ</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="237"/>
+        <location filename="../../mainwindow.cpp" line="245"/>
         <source>Select the whole text</source>
         <translation type="unfinished">Chọn toàn bộ đoạn văn bản</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="240"/>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="unfinished">Bỏ cách dòng và &amp;Xuống dòng</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="243"/>
-        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="unfinished">Bỏ dấu cách dòng kép, ví dụ trong các đoạn văn bản sao chép từ thư từ trang web</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="246"/>
-        <source>Se&amp;ttings</source>
-        <translation type="unfinished">Thiế&amp;t đặt</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="247"/>
-        <source>Open settings dialog</source>
-        <translation type="unfinished">Mở hộp thoại thiết đặt</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="253"/>
-        <source>&amp;Encrypt</source>
-        <translation type="unfinished">&amp;Mã hóa</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="256"/>
-        <source>Encrypt Message</source>
-        <translation type="unfinished">Mã hóa Tin nhắn</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="259"/>
-        <source>&amp;Decrypt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="262"/>
-        <source>Decrypt Message</source>
-        <translation type="unfinished">Giải mã Tin nhắn</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="265"/>
-        <source>&amp;File Encryption</source>
-        <translation type="unfinished">&amp;Mã hóa Tệp</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="267"/>
-        <source>Encrypt/Decrypt File</source>
-        <translation type="unfinished">Mã hóa/Giải mã Tệp</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="270"/>
-        <source>&amp;Sign</source>
-        <translation type="unfinished">&amp;Ký số</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="273"/>
-        <source>Sign Message</source>
-        <translation type="unfinished">Ký Tin nhắn</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="276"/>
-        <source>&amp;Verify</source>
-        <translation type="unfinished">&amp;Kiểm tra</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="279"/>
-        <source>Verify Message</source>
-        <translation type="unfinished">Kiểm tra Tin nhắn</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="285"/>
-        <source>&amp;Editor</source>
-        <translation type="unfinished">&amp;Trình soạn thảo</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="287"/>
-        <source>Import New Key From Editor</source>
-        <translation type="unfinished">Nhập Khóa Mới Từ Trình Soạn Thảo</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="290"/>
-        <source>&amp;Key Management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="292"/>
-        <source>Open Keymanagement</source>
-        <translation type="unfinished">Mở Trình Quản lý Khóa</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="297"/>
-        <source>&amp;About</source>
-        <translation type="unfinished">&amp;Thông tin</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="299"/>
-        <source>Show the application&apos;s About box</source>
-        <translation type="unfinished">Hiện hộp Thông tin Ứng dụng</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="302"/>
-        <source>Online &amp;Tutorial</source>
-        <translation type="unfinished">Hướng dẫn &amp;Trực tuyến</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="303"/>
-        <source>Open Online Tutorial</source>
-        <translation type="unfinished">Mở Hướng dẫn Trực tuyến</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="306"/>
-        <source>Translate gpg4usb</source>
-        <translation type="unfinished">Chuyển ngữ cho gpg4usb</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="307"/>
-        <source>Translate gpg4usb yourself</source>
-        <translation type="unfinished">Bạn hãy dịch gpg4usb sang ngôn ngữ khác</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="310"/>
-        <source>Open &amp;Wizard</source>
+        <location filename="../../mainwindow.cpp" line="248"/>
+        <source>Remove &amp;spacing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="311"/>
+        <source>Manage &amp;keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="323"/>
+        <source>Integrated Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="324"/>
+        <source>Open integrated Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="327"/>
+        <source>Online &amp;Tutorials</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="328"/>
+        <source>Open Online Tutorials</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="251"/>
+        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
+        <translation type="unfinished">Bỏ dấu cách dòng kép, ví dụ trong các đoạn văn bản sao chép từ thư từ trang web</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="254"/>
+        <source>Se&amp;ttings</source>
+        <translation type="unfinished">Thiế&amp;t đặt</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="255"/>
+        <source>Open settings dialog</source>
+        <translation type="unfinished">Mở hộp thoại thiết đặt</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="261"/>
+        <source>&amp;Encrypt</source>
+        <translation type="unfinished">&amp;Mã hóa</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="264"/>
+        <source>Encrypt Message</source>
+        <translation type="unfinished">Mã hóa Tin nhắn</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="267"/>
+        <source>&amp;Decrypt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="270"/>
+        <source>Decrypt Message</source>
+        <translation type="unfinished">Giải mã Tin nhắn</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="273"/>
+        <source>&amp;File Encryption</source>
+        <translation type="unfinished">&amp;Mã hóa Tệp</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="275"/>
+        <source>Encrypt/Decrypt File</source>
+        <translation type="unfinished">Mã hóa/Giải mã Tệp</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="281"/>
+        <source>&amp;Encrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="283"/>
+        <source>Encrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="286"/>
+        <source>&amp;Decrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="288"/>
+        <source>Decrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="291"/>
+        <source>&amp;Sign</source>
+        <translation type="unfinished">&amp;Ký số</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="294"/>
+        <source>Sign Message</source>
+        <translation type="unfinished">Ký Tin nhắn</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="297"/>
+        <source>&amp;Verify</source>
+        <translation type="unfinished">&amp;Kiểm tra</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="300"/>
+        <source>Verify Message</source>
+        <translation type="unfinished">Kiểm tra Tin nhắn</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="306"/>
+        <source>&amp;Editor</source>
+        <translation type="unfinished">&amp;Trình soạn thảo</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="308"/>
+        <source>Import New Key From Editor</source>
+        <translation type="unfinished">Nhập Khóa Mới Từ Trình Soạn Thảo</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="313"/>
+        <source>Open Keymanagement</source>
+        <translation type="unfinished">Mở Trình Quản lý Khóa</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="318"/>
+        <source>&amp;About</source>
+        <translation type="unfinished">&amp;Thông tin</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="320"/>
+        <source>Show the application&apos;s About box</source>
+        <translation type="unfinished">Hiện hộp Thông tin Ứng dụng</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="331"/>
+        <source>Translate gpg4usb</source>
+        <translation type="unfinished">Chuyển ngữ cho gpg4usb</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="332"/>
+        <source>Translate gpg4usb yourself</source>
+        <translation type="unfinished">Bạn hãy dịch gpg4usb sang ngôn ngữ khác</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="335"/>
+        <source>Open &amp;Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="336"/>
         <source>Open the wizard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="316"/>
+        <location filename="../../mainwindow.cpp" line="341"/>
         <source>Append Selected Key(s) To Text</source>
         <translation type="unfinished">Nối tiếp Khóa Được Chọn vào Văn bản</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="317"/>
+        <location filename="../../mainwindow.cpp" line="342"/>
         <source>Append The Selected Keys To Text in Editor</source>
         <translation type="unfinished">Nối tiếp Khóa Được Chọn Vào Văn bản trong Trình Soạn Thảo</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="320"/>
+        <location filename="../../mainwindow.cpp" line="345"/>
         <source>Copy EMail-address</source>
         <translation type="unfinished">Chép Địa chỉ EMail</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="321"/>
+        <location filename="../../mainwindow.cpp" line="346"/>
         <source>Copy selected EMailaddress to clipboard</source>
         <translation type="unfinished">Chép Địa chỉ Email được chọn vào clipboard</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="325"/>
+        <location filename="../../mainwindow.cpp" line="350"/>
         <source>Show Keydetails</source>
         <translation type="unfinished">Hiển thị thông tin Khóa</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="326"/>
+        <location filename="../../mainwindow.cpp" line="351"/>
         <source>Show Details for this Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="344"/>
+        <location filename="../../mainwindow.cpp" line="369"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Tệp</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="356"/>
+        <location filename="../../mainwindow.cpp" line="381"/>
         <source>&amp;Edit</source>
         <translation type="unfinished">&amp;Soạn thảo</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="369"/>
+        <location filename="../../mainwindow.cpp" line="397"/>
         <source>&amp;Crypt</source>
         <translation type="unfinished">&amp;Mã hóa</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="378"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
         <source>&amp;Keys</source>
         <translation type="unfinished">&amp;Khóa mã hóa</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="379"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
         <source>&amp;Import Key From...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="388"/>
+        <location filename="../../mainwindow.cpp" line="418"/>
+        <source>&amp;Steganography</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="419"/>
+        <source>Remove PGP Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="421"/>
+        <source>Add PGP Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="427"/>
         <source>&amp;View</source>
         <translation type="unfinished">&amp;Hiển thị</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="390"/>
+        <location filename="../../mainwindow.cpp" line="429"/>
         <source>&amp;Help</source>
         <translation type="unfinished">&amp;Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="399"/>
+        <location filename="../../mainwindow.cpp" line="442"/>
         <source>File</source>
         <translation type="unfinished">Tệp</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="450"/>
         <source>Crypt</source>
         <translation type="unfinished">Mã hóa</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="416"/>
+        <location filename="../../mainwindow.cpp" line="459"/>
         <source>Key</source>
         <translation type="unfinished">Khóa</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="421"/>
+        <location filename="../../mainwindow.cpp" line="464"/>
         <source>Edit</source>
         <translation type="unfinished">Soạn thảo</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="428"/>
+        <location filename="../../mainwindow.cpp" line="471"/>
         <source>Special edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="457"/>
+        <location filename="../../mainwindow.cpp" line="515"/>
         <source>Ready</source>
         <translation type="unfinished">Sẵn sàng</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="465"/>
+        <location filename="../../mainwindow.cpp" line="523"/>
         <source>Encrypt for:</source>
         <translation type="unfinished">Mã hóa cho:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="484"/>
+        <location filename="../../mainwindow.cpp" line="542"/>
         <source>Attached files:</source>
         <translation type="unfinished">Các tệp đính kèm:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="525"/>
+        <location filename="../../mainwindow.cpp" line="583"/>
         <source>About </source>
         <translation type="unfinished">Thông tin</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="528"/>
+        <location filename="../../mainwindow.cpp" line="586"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
         <translation type="unfinished">&lt;center&gt;Ứng dụng này cho phép mã hóa &lt;br/&gt;và giải mã văn bản hoặc tệp dữ liệu.&lt;br&gt;Bản quyền chương trình tuân thủ GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Nhóm phát triển:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Chuyển ngữ:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Nếu bạn có bất kỳ thắc măc hay gợi ý nào hãy liên hệ với chúng tôi &lt;br/&gt;tại trang &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;liên hệ&lt;/a&gt; hoặc qua&lt;br/&gt;  địa chỉ thư &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;. {3&lt;?} {4u?} {4u?} {4u?}</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="628"/>
+        <location filename="../../mainwindow.cpp" line="690"/>
         <source>There is one unencrypted file in attachment folder</source>
         <translation type="unfinished">Có một tệp không được mã hóa trong phần đính kèm</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="630"/>
+        <location filename="../../mainwindow.cpp" line="692"/>
         <source>There are </source>
         <translation type="unfinished">Có</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="630"/>
+        <location filename="../../mainwindow.cpp" line="692"/>
         <source> unencrypted files in attachment folder</source>
         <translation type="unfinished">các tệp không được mã hóa trong phần đính kèm</translation>
     </message>
@@ -1840,37 +1504,37 @@ Yếu -&gt; Mạnh</translation>
 <context>
     <name>MimeTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="194"/>
+        <location filename="../../settingsdialog.cpp" line="214"/>
         <source>Decode quoted printable</source>
         <translation>Giải mã đoạn trích dẫn có thể in</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="196"/>
+        <location filename="../../settingsdialog.cpp" line="216"/>
         <source>Try to recognize quoted printable.</source>
         <translation>Nhận dạng đoạn trích dẫn có thể in.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="201"/>
+        <location filename="../../settingsdialog.cpp" line="221"/>
         <source>Parse PGP/MIME (Experimental)</source>
         <translation>Phân tích PGP/MIME (Thử nghiệm)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="203"/>
+        <location filename="../../settingsdialog.cpp" line="223"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
         <translation>Phân tách tệp đính kèm từ tin nhắn mã hóa PGP-MIME.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="207"/>
+        <location filename="../../settingsdialog.cpp" line="227"/>
         <source>Open with external application (Experimental)</source>
         <translation>Mở bằng ứng dụng bên ngoài (Thử nghiệm)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="209"/>
+        <location filename="../../settingsdialog.cpp" line="229"/>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
         <translation>Mở tệp đính kèm sử dụng ứng dụng mặc định cho dạng tệp.&lt;br&gt; Có hai vấn đề khi sử dụng lệnh này:&lt;ol&gt;&lt;li&gt;Tệp cần được lưu dưới dạng không mã hóa vào thư mục đính kèm.&lt;br&gt; Bạn phải tự đảm bảo xóa sạch thư mục này.&lt;/li&gt;&lt;li&gt;Ứng dụng ngoài có thể tạo các tệp tạm thời riêng.&lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="216"/>
+        <location filename="../../settingsdialog.cpp" line="236"/>
         <source>Enable opening with external applications.</source>
         <translation>Cho phép mở bằng ứng dụng bên ngoài.</translation>
     </message>
@@ -1901,9 +1565,10 @@ Yếu -&gt; Mạnh</translation>
 <context>
     <name>SettingsDialog</name>
     <message>
+        <location filename="../../settingsdialog.cpp" line="200"/>
         <source>English</source>
         <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation type="obsolete">English</translation>
+        <translation type="unfinished">English</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="33"/>
@@ -1929,11 +1594,6 @@ Yếu -&gt; Mạnh</translation>
         <location filename="../../settingsdialog.cpp" line="48"/>
         <source>Settings</source>
         <translation>Thiết đặt</translation>
-    </message>
-    <message>
-        <location filename="../../settingsdialog.cpp" line="180"/>
-        <source>English</source>
-        <translation>Tiếng Việt</translation>
     </message>
 </context>
 <context>
@@ -2020,18 +1680,6 @@ Yếu -&gt; Mạnh</translation>
  %1 by:
 </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Text was completly signed on %1 by:
-</source>
-        <translation type="obsolete">Văn bản đã được ký hoàn toàn vào %1 bởi:
-</translation>
-    </message>
-    <message>
-        <source>Text was partially signed on %1 by:
-</source>
-        <translation type="obsolete">Văn bản đã được ký từng phần vào %1 bởi:
-</translation>
     </message>
 </context>
 <context>
@@ -2120,21 +1768,9 @@ Yếu -&gt; Mạnh</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Key not present with Fingerprint: </source>
-        <translation type="obsolete">Khóa không gồm Vân tay số:</translation>
-    </message>
-    <message>
         <location filename="../../verifynotification.cpp" line="150"/>
         <source>Error for key with fingerprint </source>
         <translation>Lỗi khóa với Vân tay số</translation>
-    </message>
-    <message>
-        <source>Text is completly signed by: </source>
-        <translation type="obsolete">Văn bản được ký số hoàn toàn bởi:</translation>
-    </message>
-    <message>
-        <source>Text is partially signed by: </source>
-        <translation type="obsolete">Văn bản được ký số từng phần bởi:</translation>
     </message>
 </context>
 <context>
