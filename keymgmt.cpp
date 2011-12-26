@@ -178,7 +178,7 @@ void KeyMgmt::importKeyFromFile()
 
 void KeyMgmt::importKeyFromKeyServer()
 {
-    importDialog = new KeyServerImportDialog(mCtx, this);
+    importDialog = new KeyServerImportDialog(mCtx, mKeyList, this);
     importDialog->show();
 }
 

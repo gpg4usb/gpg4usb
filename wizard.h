@@ -19,12 +19,13 @@
  *      along with gpg4usb.  If not, see <http://www.gnu.org/licenses/>
  */
 
-#include "keygendialog.h"
 
 #ifndef WIZARD_H
 #define WIZARD_H
 
 #include <QWizard>
+#include "keygendialog.h"
+#include "keymgmt.h"
 
 class QCheckBox;
 class QLabel;
@@ -36,10 +37,11 @@ class Wizard : public QWizard
     Q_OBJECT
 
 public:
-    Wizard(GpgME::GpgContext *ctx, QWidget *parent = 0);
+    Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
 
 private:
     GpgME::GpgContext *mCtx;
+    KeyMgmt *mKeyMgmt;
 };
 
 class IntroPage : public QWizardPage
@@ -77,7 +79,7 @@ class ImportPage : public QWizardPage
     Q_OBJECT
 
 public:
-    ImportPage(GpgME::GpgContext *ctx, QWidget *parent = 0);
+    ImportPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
 
 private slots:
     /**
@@ -87,6 +89,7 @@ private slots:
     bool importKeysFromGpg4usb();
 
 private:
+    KeyMgmt *mKeyMgmt;
     int nextId() const;
 
     /**

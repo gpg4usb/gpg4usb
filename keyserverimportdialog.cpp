@@ -22,11 +22,11 @@
 
 #include "keyserverimportdialog.h"
 
-KeyServerImportDialog::KeyServerImportDialog(GpgME::GpgContext *ctx, QWidget *parent)
+KeyServerImportDialog::KeyServerImportDialog(GpgME::GpgContext *ctx, KeyList *keyList, QWidget *parent)
     : QDialog(parent)
 {
     mCtx = ctx;
-
+    mKeyList = keyList;
     // Buttons
     closeButton = createButton(tr("&Close"), SLOT(close()));
     importButton = createButton(tr("&Import"), SLOT(import()));
@@ -288,7 +288,7 @@ void KeyServerImportDialog::importFinished()
         setMessage(tr("Error while contacting keyserver!"),true);
         return;
     }
-    mCtx->importKey(key.constData());
+    this->importKeys(key.constData());
     setMessage(tr("Key imported"),false);
 
     // Add keyserver to list in config-file, if it isn't contained
@@ -301,4 +301,10 @@ void KeyServerImportDialog::importFinished()
     }
     reply->deleteLater();
     reply = 0;
+}
+
+void KeyServerImportDialog::importKeys(QByteArray inBuffer)
+{
+    GpgImportInformation result = mCtx->importKey(inBuffer);
+    new KeyImportDetailDialog(mCtx, mKeyList, result, this);
 }

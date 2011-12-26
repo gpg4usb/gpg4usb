@@ -632,7 +632,7 @@ void MainWindow::openHelp() {
 
 void MainWindow::startWizard()
 {
-    Wizard *wizard = new Wizard(mCtx,this);
+    Wizard *wizard = new Wizard(mCtx,keyMgmt,this);
     wizard->show();
     wizard->setModal(true);
 }
@@ -704,7 +704,7 @@ void MainWindow::importKeyFromEdit()
         return;
     }
 
-    mCtx->importKey(edit->curTextPage()->toPlainText().toAscii());
+    keyMgmt->importKeys(edit->curTextPage()->toPlainText().toAscii());
 }
 
 void MainWindow::openKeyManagement()

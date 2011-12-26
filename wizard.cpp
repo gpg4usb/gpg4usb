@@ -23,13 +23,14 @@
 
  #include "wizard.h"
 
-Wizard::Wizard(GpgME::GpgContext *ctx, QWidget *parent)
+Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     : QWizard(parent)
 {
     mCtx=ctx;
+    mKeyMgmt=keyMgmt;
     IntroPage *introPage = new IntroPage();
     KeyGenPage *keyGenPage = new KeyGenPage(mCtx);
-    ImportPage *importPage = new ImportPage(mCtx);
+    ImportPage *importPage = new ImportPage(mCtx,mKeyMgmt);
     ConclusionPage *conclusionPage = new ConclusionPage();
     addPage(introPage);
     addPage(keyGenPage);
@@ -106,10 +107,11 @@ void KeyGenPage::showKeyGeneratedMessage()
     layout->addWidget(new QLabel(tr("key generated. Now you can crypt and sign texts.")));
 }
 
-ImportPage::ImportPage(GpgME::GpgContext *ctx, QWidget *parent)
+ImportPage::ImportPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
      : QWizardPage(parent)
 {
     mCtx=ctx;
+    mKeyMgmt=keyMgmt;
     setTitle(tr("Keyring Import"));
     QGroupBox *gnupgBox = new QGroupBox(tr("Import from GnuPG"), this);
 
@@ -198,7 +200,7 @@ bool ImportPage::importKeysFromGpg4usb()
             return false;
         }
         QByteArray inBuffer = pubRing.readAll();
-        mCtx->importKey(inBuffer);
+        mKeyMgmt->importKeys(inBuffer);
     }
 
     if (secRing.exists() and gnupgPrivKeyCheckBox->isChecked()) {
@@ -207,7 +209,7 @@ bool ImportPage::importKeysFromGpg4usb()
             return false;
         }
         QByteArray inBuffer = secRing.readAll();
-        mCtx->importKey(inBuffer);
+        mKeyMgmt->importKeys(inBuffer);
     }
     return true;
 }
@@ -232,7 +234,7 @@ bool ImportPage::importKeysFromGnupg()
         }
         QByteArray inBuffer = file.readAll();
 
-        mCtx->importKey(inBuffer);
+        mKeyMgmt->importKeys(inBuffer);
     }
 
     // try to import public keys, if public checkbox is checked
@@ -246,7 +248,7 @@ bool ImportPage::importKeysFromGnupg()
         }
         QByteArray inBuffer = file.readAll();
 
-        mCtx->importKey(inBuffer);
+        mKeyMgmt->importKeys(inBuffer);
     }
 
     return true;

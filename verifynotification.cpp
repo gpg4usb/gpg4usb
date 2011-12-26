@@ -55,7 +55,7 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, 
 
 void VerifyNotification::importFromKeyserver()
 {
-    KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,this);
+    KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,mKeyList, this);
     importDialog->import(*keysNotInList);
 }
 

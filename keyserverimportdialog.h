@@ -24,6 +24,8 @@
 #define __KEYSERVERIMPORTDIALOG_H__
 
 #include "gpgcontext.h"
+#include "keyimportdetaildialog.h"
+#include "keylist.h"
 #include <QNetworkAccessManager>
 #include <QtNetwork>
 
@@ -50,7 +52,7 @@ class KeyServerImportDialog : public QDialog
     Q_OBJECT
 
 public:
-    KeyServerImportDialog(GpgME::GpgContext *ctx, QWidget *parent = 0);
+    KeyServerImportDialog(GpgME::GpgContext *ctx, KeyList *keyList, QWidget *parent = 0);
     void import(QStringList keyIds);
     void import(QStringList keyIds, QUrl keyserverUrl);
 
@@ -65,10 +67,12 @@ private:
     void createKeysTable();
     void setMessage(const QString &text, bool error);
     void close();
+    void importKeys(QByteArray inBuffer);
 
     QPushButton *createButton(const QString &text, const char *member);
     QComboBox *createComboBox();
     GpgME::GpgContext *mCtx;
+    KeyList *mKeyList;
     QLineEdit *searchLineEdit;
     QComboBox *keyServerComboBox;
     QLabel *searchLabel;
