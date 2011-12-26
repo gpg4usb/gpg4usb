@@ -102,18 +102,69 @@ GpgContext::~GpgContext()
 /** Import Key from QByteArray
  *
  */
-gpgme_import_result_t GpgContext::importKey(QByteArray inBuffer)
+GpgImportInformation GpgContext::importKey(QByteArray inBuffer)
 {
+    GpgImportInformation *importInformation = new GpgImportInformation();
     err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
     checkErr(err);
     err = gpgme_op_import(mCtx, in);
     gpgme_import_result_t result;
 
-
     result = gpgme_op_import_result(mCtx);
+    if (result->unchanged){
+        importInformation->unchanged = result->unchanged;
+    }
+    if (result->considered){
+        importInformation->considered = result->considered;
+    }
+    if (result->no_user_id){
+        importInformation->no_user_id = result->no_user_id;
+    }
+    if (result->imported){
+        importInformation->imported = result->imported;
+    }
+    if (result->imported_rsa){
+        importInformation->imported_rsa = result->imported_rsa;
+    }
+    if (result->unchanged){
+        importInformation->unchanged = result->unchanged;
+    }
+    if (result->new_user_ids){
+        importInformation->new_user_ids = result->new_user_ids;
+    }
+    if (result->new_sub_keys){
+        importInformation->new_sub_keys = result->new_sub_keys;
+    }
+    if (result->new_signatures){
+        importInformation->new_signatures = result->new_signatures;
+    }
+    if (result->new_revocations){
+        importInformation->new_revocations  =result->new_revocations;
+    }
+    if (result->secret_read){
+        importInformation->secret_read = result->secret_read;
+    }
+    if (result->secret_imported){
+        importInformation->secret_imported = result->secret_imported;
+    }
+    if (result->secret_unchanged){
+        importInformation->secret_unchanged = result->secret_unchanged;
+    }
+    if (result->not_imported){
+        importInformation->not_imported = result->not_imported;
+    }
+    gpgme_import_status_t status = result->imports;
+    while (status != NULL) {
+        GpgImportedKey key;
+        key.importStatus = status->status;
+        key.fpr = status->fpr;
+        importInformation->importedKeys.append(key);
+        status=status->next;
+    }
     checkErr(err);
+    emit keyDBChanged();
     gpgme_data_release(in);
-    return result;
+    return *importInformation;
 }
 
 /** Generate New Key with values params
@@ -167,11 +218,6 @@ gpgme_key_t GpgContext::getKeyDetails(QString uid)
         gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 0);
     }
     return key;
-}
-
-void GpgContext::sendKeyDBChanged()
-{
-    emit keyDBChanged();
 }
 
 /** List all availabe Keys (VERY much like kgpgme)

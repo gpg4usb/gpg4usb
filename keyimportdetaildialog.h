@@ -35,7 +35,7 @@ class KeyImportDetailDialog : public QDialog
     Q_OBJECT
 
 public:
-    KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, gpgme_import_result_t result, QWidget *parent = 0);
+    KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, GpgImportInformation result, QWidget *parent = 0);
 
 private:
     void createGeneralInfoBox();
@@ -53,7 +53,7 @@ private:
     QVBoxLayout *mvbox;
     QGridLayout *generalInfoBoxLayout;
     QGridLayout *keyInfoBoxLayout;
-    gpgme_import_result_t mResult;
+    GpgImportInformation mResult;
 };
 
 #endif // __KEYIMPORTDETAILSDIALOG_H__

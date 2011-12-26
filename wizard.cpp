@@ -209,7 +209,6 @@ bool ImportPage::importKeysFromGpg4usb()
         QByteArray inBuffer = secRing.readAll();
         mCtx->importKey(inBuffer);
     }
-    mCtx->sendKeyDBChanged();
     return true;
 }
 

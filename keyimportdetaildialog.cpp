@@ -21,14 +21,14 @@
 
 #include "keyimportdetaildialog.h"
 
-KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, gpgme_import_result_t result, QWidget *parent)
+KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, GpgImportInformation result, QWidget *parent)
     : QDialog(parent)
 {
     mCtx = ctx;
     mKeyList = keyList;
     mResult = result;
     // If no key for import found, just ahow a message
-    if (mResult->considered == 0) {
+    if (mResult.considered == 0) {
         QMessageBox::information(0, tr("Key import details"), tr("No keys found to import"));
         return;
     }
@@ -52,46 +52,43 @@ void KeyImportDetailDialog::createGeneralInfoBox()
     generalInfoBoxLayout = new QGridLayout(generalInfoBox);
 
     generalInfoBoxLayout->addWidget(new QLabel(tr("Considered:")),1,0);
-    generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->considered)),1,1);
+    generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.considered)),1,1);
     int row=2;
-    if (mResult->unchanged){
+    if (mResult.unchanged != 0){
         generalInfoBoxLayout->addWidget(new QLabel(tr("Unchanged:")),row,0);
-        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->unchanged)),row,1);
+        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.unchanged)),row,1);
         row++;
     }
-    if (mResult->imported){
+    if (mResult.imported != 0){
         generalInfoBoxLayout->addWidget(new QLabel(tr("Imported:")),row,0);
-        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->imported)),row,1);
+        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.imported)),row,1);
         row++;
     }
-    if (mResult->not_imported){
+    if (mResult.not_imported != 0){
         generalInfoBoxLayout->addWidget(new QLabel(tr("Not imported:")),row,0);
-        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->not_imported)),row,1);
+        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.not_imported)),row,1);
         row++;
     }
-    if (mResult->secret_read){
+    if (mResult.secret_read != 0){
         generalInfoBoxLayout->addWidget(new QLabel(tr("Private read:")),row,0);
-        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->secret_read)),row,1);
+        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.secret_read)),row,1);
         row++;
     }
-    if (mResult->secret_imported){
+    if (mResult.secret_imported != 0){
         generalInfoBoxLayout->addWidget(new QLabel(tr("Private imported:")),row,0);
-        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->secret_imported)),row,1);
+        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.secret_imported)),row,1);
         row++;
     }
-    if (mResult->secret_unchanged){
+    if (mResult.secret_unchanged != 0){
         generalInfoBoxLayout->addWidget(new QLabel(tr("Private unchanged:")),row,0);
-        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult->secret_unchanged)),row,1);
+        generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.secret_unchanged)),row,1);
         row++;
     }
     mvbox->addWidget(generalInfoBox);
 }
 
 void KeyImportDetailDialog::createKeysTable()
-{
-    // get details for the imported keys;
-    gpgme_import_status_t status = mResult->imports;
-
+{  
     keysTable = new QTableWidget(this);
     keysTable->setRowCount(0);
     keysTable->setColumnCount(4);
@@ -107,19 +104,13 @@ void KeyImportDetailDialog::createKeysTable()
     keysTable->verticalHeader()->hide();
     keysTable->setHorizontalHeaderLabels(headerLabels);
     int row = 0;
-    while (status != NULL) {
+    foreach (GpgImportedKey impKey, mResult.importedKeys) {
         keysTable->setRowCount(row+1);
-        GpgKey key = mKeyList->getKeyByFpr(status->fpr);
+        GpgKey key = mKeyList->getKeyByFpr(impKey.fpr);
         keysTable->setItem(row, 0, new QTableWidgetItem(key.name));
         keysTable->setItem(row, 1, new QTableWidgetItem(key.email));
         keysTable->setItem(row, 2, new QTableWidgetItem(key.id));
-
-        qDebug() << "Keystatus: " << status->status;
-        // Set status of key
-
-//        keysTable->setItem(row, 3, new QTableWidgetItem(QString::number(status->status)));
-        keysTable->setItem(row,3,new QTableWidgetItem(getStatusString(status->status)));
-        status=status->next;
+        keysTable->setItem(row,3,new QTableWidgetItem(getStatusString(impKey.importStatus)));
         row++;
     }
     mvbox->addWidget(keysTable);
@@ -128,7 +119,7 @@ void KeyImportDetailDialog::createKeysTable()
 QString KeyImportDetailDialog::getStatusString(int keyStatus)
 {
     QString statusString;
-    // if key is private
+    // keystatus is greater than 15, if key is private
     if (keyStatus > 15) {
         statusString.append(tr("private"));
         keyStatus=keyStatus-16;

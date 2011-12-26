@@ -6,9 +6,15 @@ Release 0.3.2
 	- context.cpp -> gpgcontext.cpp [DONE]
 - show keyrings (files with .gpg) in import from file dialog too [DONE]
 - dropdown from menubar instead of dialog for import [DONE]
+- Change file encryption to single dialog for en- and decryption [DONE]
+- Zoom In/Out [DONE]
+- keyimport from keyserver dialog should show reason for strike out  [DONE]
 - add file operation toolbar (open, save, new) (per default off) [DONE]
+- dropdown from menubar instead of dialog for file-cryption (files->encrypt,decrypt) [DONE]
 - strike out revoked keys in keylist and add warning to keydetails [DONE]
 - put quote and double line break removale to "special edit" operation toolbar (icons for double linebreaks missing) [DONE]
+- Change "remove double line breaks" to "remove spacing" [DONE]
+	- icon from "line spacing icon" [DONE]
 - Wizard on first start (Create Key, Import from keys older gpg4usb, import from gnupg) [DONE]
 	-  import conf from old gpg4usb
 	- remember GNUPGHOME in main.cpp
@@ -24,22 +30,16 @@ Release 0.3.2
 - understandable message if no matching private key found for decryption (no data error)
 - investigate in adding a offline help system [DONE]
 	- have a look on the format
-- keyimport from keyserver dialog should show reason for strike out  [DONE]
 - key import should be more verbose: [DONE]
 	- show message, which keys are imported [DONE]
 	- if import failed, because no key was found [DONE]
-	- if key is already in keyring
+	- if key is already in keyring [DONE]
 	- for now done just for import from file and clipboard
-	- BUG: Also show details, when key is really new
+	- BUG: Also show details, when key is really new [DONE]
 - show message, when key export is successful (statusbar)
-- dropdown from menubar instead of dialog for file-cryption (files->encrypt,decrypt) 
 - encrypt and sign, decrypt and verify (?)
-- Zoom In/Out [DONE]
 - Add buttonto copy fingerprint to clipboard in details dialog 
 	- remove whitespaces on copy
-- Change "remove double line breaks" to "remove spacing" [DONE]
-	- icon from "line spacing icon" [DONE]
-- Change file encryption to single dialog for en- and decryption [DONE]
 - Add default key functionality 
 - fix translation file for "SettingsDialog" as it says two times English, and the comment is on the wrong one.
 
@@ -47,6 +47,7 @@ BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
 - investigate special characters in passphrase in windows
 - no importdetails are shown for new keys
+
 Release 0.3.3
 - create revocation file on key generation
 - optionally open new tab after encryption/decrytion 

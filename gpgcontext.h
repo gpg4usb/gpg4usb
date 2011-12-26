@@ -54,6 +54,50 @@ public:
 
 typedef QLinkedList< GpgKey > GpgKeyList;
 
+class GpgImportedKey
+{
+public:
+    QString fpr;
+    int importStatus;
+};
+
+typedef QLinkedList< GpgImportedKey > GpgImportedKeyList;
+
+class GpgImportInformation
+{
+public:
+    GpgImportInformation() {
+        considered = 0;
+        no_user_id = 0;
+        imported = 0;
+        imported_rsa = 0;
+        unchanged = 0;
+        new_user_ids = 0;
+        new_sub_keys = 0;
+        new_signatures = 0;
+        new_revocations = 0;
+        secret_read = 0;
+        secret_imported = 0;
+        secret_unchanged = 0;
+        not_imported = 0;
+    }
+
+    int considered;
+    int no_user_id;
+    int imported;
+    int imported_rsa;
+    int unchanged;
+    int new_user_ids;
+    int new_sub_keys;
+    int new_signatures;
+    int new_revocations;
+    int secret_read;
+    int secret_imported;
+    int secret_unchanged;
+    int not_imported;
+    GpgImportedKeyList importedKeys;
+};
+
 namespace GpgME
 {
 
@@ -64,7 +108,7 @@ class GpgContext : public QObject
 public:
     GpgContext(); // Constructor
     ~GpgContext(); // Destructor
-    gpgme_import_result_t importKey(QByteArray inBuffer);
+    GpgImportInformation importKey(QByteArray inBuffer);
     bool exportKeys(QStringList *uidList, QByteArray *outBuffer);
     void generateKey(QString *params);
     GpgKeyList listKeys();
@@ -96,7 +140,6 @@ public:
      */
     int textIsSigned(const QByteArray &text);
     QString beautifyFingerprint(QString fingerprint);
-    void sendKeyDBChanged();
 
 signals:
     void keyDBChanged();
