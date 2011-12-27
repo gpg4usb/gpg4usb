@@ -130,6 +130,9 @@ public:
      */
     void preventNoDataErr(QByteArray *in);
 
+    GpgKey getKeyByFpr(QString fpr);
+    GpgKey getKeyById(QString id);
+
     /**
      * @brief
      *

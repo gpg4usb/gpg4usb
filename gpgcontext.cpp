@@ -718,6 +718,33 @@ QString GpgContext::beautifyFingerprint(QString fingerprint)
     return fingerprint;
 }
 
+/**
+ * note: privkey status is not returned
+ */
+GpgKey GpgContext::getKeyByFpr(QString fpr) {
+
+    GpgKeyList list = this->listKeys();
+    foreach  (GpgKey key, list) {
+        if(key.fpr == fpr) {
+            return key;
+        }
+    }
+}
+
+
+/**
+ * note: privkey status is not returned
+ */
+GpgKey GpgContext::getKeyById(QString id) {
+
+    GpgKeyList list = this->listKeys();
+    foreach  (GpgKey key, list) {
+        if(key.id == id) {
+            return key;
+        }
+    }
+}
+
 }
 
 
