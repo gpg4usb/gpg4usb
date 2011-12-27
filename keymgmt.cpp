@@ -158,7 +158,7 @@ void KeyMgmt::createToolBars()
 void KeyMgmt::importKeys(QByteArray inBuffer)
 {
     GpgImportInformation result = mCtx->importKey(inBuffer);
-    new KeyImportDetailDialog(mCtx, mKeyList, result, this);
+    new KeyImportDetailDialog(mCtx, result, this);
 }
 
 void KeyMgmt::importKeyFromFile()

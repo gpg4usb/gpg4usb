@@ -306,5 +306,5 @@ void KeyServerImportDialog::importFinished()
 void KeyServerImportDialog::importKeys(QByteArray inBuffer)
 {
     GpgImportInformation result = mCtx->importKey(inBuffer);
-    new KeyImportDetailDialog(mCtx, mKeyList, result, this);
+    new KeyImportDetailDialog(mCtx, result, this);
 }

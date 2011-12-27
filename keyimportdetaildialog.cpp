@@ -21,11 +21,10 @@
 
 #include "keyimportdetaildialog.h"
 
-KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, GpgImportInformation result, QWidget *parent)
+KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, GpgImportInformation result, QWidget *parent)
     : QDialog(parent)
 {
     mCtx = ctx;
-    mKeyList = keyList;
     mResult = result;
     // If no key for import found, just ahow a message
     if (mResult.considered == 0) {
@@ -106,7 +105,7 @@ void KeyImportDetailDialog::createKeysTable()
     int row = 0;
     foreach (GpgImportedKey impKey, mResult.importedKeys) {
         keysTable->setRowCount(row+1);
-        GpgKey key = mKeyList->getKeyByFpr(impKey.fpr);
+        GpgKey key = mCtx->getKeyByFpr(impKey.fpr);
         keysTable->setItem(row, 0, new QTableWidgetItem(key.name));
         keysTable->setItem(row, 1, new QTableWidgetItem(key.email));
         keysTable->setItem(row, 2, new QTableWidgetItem(key.id));

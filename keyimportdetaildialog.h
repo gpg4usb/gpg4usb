@@ -22,7 +22,7 @@
 #ifndef __KEYIMPORTDETAILSDIALOG_H__
 #define __KEYIMPORTDETAILSDIALOG_H__
 
-#include "keylist.h"
+#include "gpgcontext.h"
 #include <gpgme.h>
 
 QT_BEGIN_NAMESPACE
@@ -35,7 +35,7 @@ class KeyImportDetailDialog : public QDialog
     Q_OBJECT
 
 public:
-    KeyImportDetailDialog(GpgME::GpgContext* ctx, KeyList* keyList, GpgImportInformation result, QWidget *parent = 0);
+    KeyImportDetailDialog(GpgME::GpgContext* ctx, GpgImportInformation result, QWidget *parent = 0);
 
 private:
     void createGeneralInfoBox();
@@ -46,7 +46,6 @@ private:
 
     QTableWidget *keysTable;
     GpgME::GpgContext *mCtx;
-    KeyList *mKeyList;
     QGroupBox *generalInfoBox;
     QGroupBox *keyInfoBox;
     QDialogButtonBox *buttonBox;
