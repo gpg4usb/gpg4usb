@@ -44,8 +44,14 @@ GpgContext::GpgContext()
     gpgme_check_version(NULL);
 
     // TODO: Set gpgme_language to config
-    // http://lavica.fesb.hr/cgi-bin/info2html?%28gpgme%29Locale
+    /*QSettings settings;
+    qDebug() << " - " << settings.value("int/lang").toLocale().name();
+    qDebug() << " - " << QLocale(settings.value("int/lang").toString()).name();*/
+
+    // the locale set here is used for the other setlocale calls which have NULL
+    // -> NULL means use default, which is configured here
     setlocale(LC_ALL, "");
+
     /** set locale, because tests do also */
     gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));
     //qDebug() << "Locale set to" << LC_CTYPE << " - " << setlocale(LC_CTYPE, NULL);
@@ -54,6 +60,7 @@ GpgContext::GpgContext()
 #endif
 
     err = gpgme_new(&mCtx);
+
     checkErr(err);
     /** here come the settings, instead of /usr/bin/gpg
      * a executable in the same path as app is used.
@@ -377,7 +384,7 @@ bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
         }
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
-        QMessageBox::critical(0, tr("Error decrypting:"), gpgme_strerror(err));
+        QMessageBox::critical(0, tr("Error decrypting:"), QString::fromUtf8(gpgme_strerror(err)));
         return false;
     }
 
@@ -508,7 +515,7 @@ int GpgContext::checkErr(gpgme_error_t err, QString comment) const
 {
     //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
     if (err != GPG_ERR_NO_ERROR) {
-        qDebug() << "[Error " << comment << "] Source: " << gpgme_strsource(err) << " String: " << gpgme_strerror(err);
+        qDebug() << "[Error " << comment << "] Source: " << gpgme_strsource(err) << " String: " << QString::fromUtf8(gpgme_strerror(err));
     }
     return err;
 }
@@ -517,7 +524,7 @@ int GpgContext::checkErr(gpgme_error_t err) const
 {
     //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
     if (err != GPG_ERR_NO_ERROR) {
-        qDebug() << "[Error] Source: " << gpgme_strsource(err) << " String: " << gpgme_strerror(err);
+        qDebug() << "[Error] Source: " << gpgme_strsource(err) << " String: " << QString::fromUtf8(gpgme_strerror(err));
     }
     return err;
 }
@@ -662,7 +669,7 @@ bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArr
      }
 
      if (err != GPG_ERR_NO_ERROR) {
-         QMessageBox::critical(0, tr("Error signing:"), gpgme_strerror(err));
+         QMessageBox::critical(0, tr("Error signing:"), QString::fromUtf8(gpgme_strerror(err)));
          return false;
      }
 
