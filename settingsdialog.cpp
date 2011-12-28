@@ -167,6 +167,7 @@ void GeneralTab::applySettings()
 }
 
 // http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
+// http://developer.qt.nokia.com/wiki/How_to_create_a_multi_language_application
 QHash<QString, QString> GeneralTab::listLanguages()
 {
     QHash<QString, QString> languages;
@@ -180,13 +181,18 @@ QHash<QString, QString> GeneralTab::listLanguages()
 
     for (int i = 0; i < fileNames.size(); ++i) {
         QString locale = fileNames[i];
+        locale.truncate(locale.lastIndexOf('.'));
         locale.remove(0, locale.indexOf('_') + 1);
-        locale.chop(3);
 
+        /* this works in qt 4.8
+        QLocale qloc(locale);
+        QString language = qloc.nativeLanguageName() + " (" + QLocale::languageToString(qloc.language()) + ")";
+        */
         QTranslator translator;
         translator.load(fileNames[i], qmDir.absolutePath());
         QString language = translator.translate("SettingsDialog",
                                                 "English", "Insert local name of language here. This is used for the language menu of the settingsdialog");
+
         languages.insert(locale, language);
     }
     return languages;
