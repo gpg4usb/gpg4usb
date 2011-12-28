@@ -752,6 +752,8 @@ GpgKey GpgContext::getKeyByFpr(QString fpr) {
             return key;
         }
     }
+
+    return GpgKey();
 }
 
 
@@ -766,6 +768,8 @@ GpgKey GpgContext::getKeyById(QString id) {
             return key;
         }
     }
+
+    return GpgKey();
 }
 
 }
