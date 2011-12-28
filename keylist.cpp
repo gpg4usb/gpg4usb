@@ -235,11 +235,11 @@ void KeyList::dropEvent(QDropEvent* event)
                     qDebug() << tr("Couldn't Open File: ") + tmp.toString();
                 }
                 QByteArray inBuffer = file.readAll();
-                mCtx->importKey(inBuffer);
+                this->importKeys(inBuffer);
         }
    } else  {
             QByteArray inBuffer(event->mimeData()->text().toUtf8());
-            mCtx->importKey(inBuffer);
+            this->importKeys(inBuffer);
   }
 }
 
@@ -251,8 +251,15 @@ void KeyList::dragEnterEvent(QDragEnterEvent *event)
 /** set background color for Keys and put them to top
  *
  */
-void KeyList::markKeys(QStringList *keyIds) {
+void KeyList::markKeys(QStringList *keyIds)
+{
     foreach(QString id, *keyIds) {
         qDebug() << "marked: " << id;
      }
+}
+
+void KeyList::importKeys(QByteArray inBuffer)
+{
+    GpgImportInformation result = mCtx->importKey(inBuffer);
+    new KeyImportDetailDialog(mCtx, result, this);
 }

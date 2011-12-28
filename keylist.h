@@ -23,6 +23,7 @@
 #define __KEYLIST_H__
 
 #include "gpgcontext.h"
+#include "keyimportdetaildialog.h"
 
 QT_BEGIN_NAMESPACE
 class QWidget;
@@ -54,6 +55,7 @@ public slots:
     void refresh();
 
 private:
+    void importKeys(QByteArray inBuffer);
     GpgME::GpgContext *mCtx;
     QTableWidget *mKeyList;
     QString iconPath;
