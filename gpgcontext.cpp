@@ -75,11 +75,12 @@ GpgContext::GpgContext()
     /*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
                                         gpgBin.toUtf8().constData(),
                                         gpgKeys.toUtf8().constData());*/
+#ifndef GPG4USB_NON_PORTABLE
     err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
                                     gpgBin.toLocal8Bit().constData(),
                                     gpgKeys.toLocal8Bit().constData());
     checkErr(err);
-
+#endif
 
     /** Setting the output type must be done at the beginning */
     /** think this means ascii-armor --> ? */

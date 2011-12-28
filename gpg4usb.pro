@@ -11,6 +11,8 @@ DEPENDPATH += .
 INCLUDEPATH += . \
     ./include
 
+#DEFINES += GPG4USB_NON_PORTABLE
+
 #CONFIG += release static
 CONFIG += debug
 QT += network
@@ -90,4 +92,8 @@ TRANSLATIONS = release/ts/gpg4usb_en.ts \
     release/ts/gpg4usb_vi.ts \
     release/ts/gpg4usb_my.ts \
     release/ts/gpg4usb_fa_IR.ts 
-   
+
+
+contains(DEFINES, GPG4USB_NON_PORTABLE) {
+   message(Building non portable version...)
+}

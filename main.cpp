@@ -49,6 +49,8 @@ int main(int argc, char *argv[])
     #endif
 
         qDebug() << getenv("GNUPGHOME");
+
+#ifndef GPG4USB_NON_PORTABLE
     // take care of gpg not creating directorys on harddisk
     putenv(QString("GNUPGHOME=" + appPath + "/keydb").toAscii().data());
 
@@ -57,6 +59,12 @@ int main(int argc, char *argv[])
 
     // specify default path & format for QSettings
     QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, appPath);
+#else
+    // in non portable conf should go to ~/.conf/gpg4usb
+    app.setOrganizationName("gpg4usb");
+    qDebug() << "gpg4usb non portable build";
+#endif
+
     QSettings::setDefaultFormat(QSettings::IniFormat);
 
     QSettings settings;
