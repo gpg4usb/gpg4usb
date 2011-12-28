@@ -114,41 +114,6 @@ void KeyList::refresh()
     setChecked(keyList);
 }
 
-/**
- * note: privkey status is not returned
- */
-GpgKey KeyList::getKeyByFpr(QString fpr) {
-    GpgKey key;
-    for (int i = 0; i < mKeyList->rowCount(); i++) {
-        if (mKeyList->item(i, 5)->text() == fpr) {
-            //key.privkey = mKeyList->item(i,1)->text();
-            key.id = mKeyList->item(i,4)->text();
-            key.name = mKeyList->item(i,2)->text();
-            key.email = mKeyList->item(i,3)->text();
-            key.fpr = fpr;
-        }
-    }
-    return key;
-}
-
-
-/**
- * note: privkey status is not returned
- */
-GpgKey KeyList::getKeyById(QString id) {
-    GpgKey key;
-    for (int i = 0; i < mKeyList->rowCount(); i++) {
-        if (mKeyList->item(i, 4)->text() == id) {
-            //key.privkey = mKeyList->item(i,1)->text();
-            key.id = mKeyList->item(i,4)->text();
-            key.name = mKeyList->item(i,2)->text();
-            key.email = mKeyList->item(i,3)->text();
-            key.fpr = mKeyList->item(i,5)->text();
-        }
-    }
-    return key;
-}
-
 QStringList *KeyList::getChecked()
 {
     QStringList *ret = new QStringList();

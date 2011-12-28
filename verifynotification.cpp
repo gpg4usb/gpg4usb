@@ -124,7 +124,7 @@ bool VerifyNotification::refresh()
             }
             case GPG_ERR_NO_ERROR:
             {
-                GpgKey key = mKeyList->getKeyByFpr(sign->fpr);
+                GpgKey key = mCtx->getKeyByFpr(sign->fpr);
                 verifyLabelText.append(key.name);
                 if (!key.email.isEmpty()) {
                     verifyLabelText.append("<"+key.email+">");
@@ -135,7 +135,7 @@ bool VerifyNotification::refresh()
             {
                 textIsSigned = 3;
                 verifyStatus=VERIFY_ERROR_CRITICAL;
-                GpgKey key = mKeyList->getKeyById(sign->fpr);
+                GpgKey key = mCtx->getKeyById(sign->fpr);
                 verifyLabelText.append(key.name);
                 if (!key.email.isEmpty()) {
                     verifyLabelText.append("<"+key.email+">");
