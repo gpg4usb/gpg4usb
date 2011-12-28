@@ -360,6 +360,7 @@ bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
 {
     gpgme_data_t in = 0, out = 0;
     gpgme_decrypt_result_t result = 0;
+    QString errorString;
 
     outBuffer->resize(0);
     if (mCtx) {
@@ -371,6 +372,18 @@ bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
             if (!err) {
                 err = gpgme_op_decrypt(mCtx, in, out);
                 checkErr(err);
+
+                if(err) {
+                    errorString.append(gpgErrString(err)).append("<br>");
+                    result = gpgme_op_decrypt_result(mCtx);
+                    checkErr(result->recipients->status);
+                    errorString.append(gpgErrString(result->recipients->status)).append("<br>");
+
+                    errorString.append(tr("<br>No private key with id "))
+                               .append(result->recipients->keyid)
+                               .append(tr(" in keyring."));
+                }
+
                 if (!err) {
                     result = gpgme_op_decrypt_result(mCtx);
                     if (result->unsupported_algorithm) {
@@ -384,7 +397,7 @@ bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
         }
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
-        QMessageBox::critical(0, tr("Error decrypting:"), QString::fromUtf8(gpgme_strerror(err)));
+        QMessageBox::critical(0, tr("Error decrypting:"), errorString);
         return false;
     }
 
@@ -515,7 +528,7 @@ int GpgContext::checkErr(gpgme_error_t err, QString comment) const
 {
     //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
     if (err != GPG_ERR_NO_ERROR) {
-        qDebug() << "[Error " << comment << "] Source: " << gpgme_strsource(err) << " String: " << QString::fromUtf8(gpgme_strerror(err));
+        qDebug() << "[Error " << comment << "] Source: " << gpgme_strsource(err) << " String: " << gpgErrString(err);
     }
     return err;
 }
@@ -524,11 +537,14 @@ int GpgContext::checkErr(gpgme_error_t err) const
 {
     //if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
     if (err != GPG_ERR_NO_ERROR) {
-        qDebug() << "[Error] Source: " << gpgme_strsource(err) << " String: " << QString::fromUtf8(gpgme_strerror(err));
+        qDebug() << "[Error] Source: " << gpgme_strsource(err) << " String: " << gpgErrString(err);
     }
     return err;
 }
 
+QString GpgContext::gpgErrString(gpgme_error_t err) {
+    return QString::fromUtf8(gpgme_strerror(err));
+}
 
 /** export private key, TODO errohandling, e.g. like in seahorse (seahorse-gpg-op.c) **/
 

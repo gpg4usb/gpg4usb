@@ -133,6 +133,8 @@ public:
     GpgKey getKeyByFpr(QString fpr);
     GpgKey getKeyById(QString id);
 
+    static QString gpgErrString(gpgme_error_t err);
+
     /**
      * @brief
      *
