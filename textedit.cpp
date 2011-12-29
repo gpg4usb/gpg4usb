@@ -518,20 +518,29 @@ void TextEdit::redo()
 
 void TextEdit::zoomIn()
 {
-    if (tabWidget->count() == 0 || curTextPage() == 0) {
+    if (tabWidget->count() == 0 ) {
         return;
     }
 
-    curTextPage()->zoomIn();
+    if(curTextPage() != 0) {
+        curTextPage()->zoomIn();
+    } else {
+        curHelpPage()->zoomIn();
+    }
+
 }
 
 void TextEdit::zoomOut()
 {
-    if (tabWidget->count() == 0 || curTextPage() == 0) {
+    if (tabWidget->count() == 0 ) {
         return;
     }
 
-    curTextPage()->zoomOut();
+    if(curTextPage() != 0) {
+        curTextPage()->zoomOut();
+    } else {
+        curHelpPage()->zoomOut();
+    }
 }
 
 void TextEdit::selectAll()
