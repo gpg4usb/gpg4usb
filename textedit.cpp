@@ -480,11 +480,13 @@ void TextEdit::copy()
         return;
     }
 
-    if(curTextPage() == 0) {
-
+    if(curTextPage() != 0) {
+        curTextPage()->copy();
+    } else {
+        curHelpPage()->copy();
     }
 
-    curTextPage()->copy();
+
 }
 
 void TextEdit::paste()
