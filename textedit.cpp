@@ -321,6 +321,14 @@ QTextEdit* TextEdit::curTextPage()
     }
 }
 
+QTextBrowser* TextEdit::curHelpPage() {
+    HelpPage *curHelpPage = qobject_cast<HelpPage *>(tabWidget->currentWidget());
+    if(curHelpPage != 0) {
+        return curHelpPage->getBrowser();
+    } else {
+        return 0;
+    }
+}
 
 int TextEdit::tabCount()
 {
@@ -394,12 +402,10 @@ void TextEdit::print()
         return;
     }
 
-
 #ifndef QT_NO_PRINTER
      QTextDocument *document;
     if(curTextPage() == 0) {
-        HelpPage *curPage = qobject_cast<HelpPage *>(tabWidget->currentWidget());
-        document = curPage->getBrowser()->document();
+        document = curHelpPage()->document();
     } else {
         document = curTextPage()->document();
     }
@@ -470,8 +476,12 @@ void TextEdit::cut()
 
 void TextEdit::copy()
 {
-    if (tabWidget->count() == 0 || curTextPage() == 0) {
+    if (tabWidget->count() == 0) {
         return;
+    }
+
+    if(curTextPage() == 0) {
+
     }
 
     curTextPage()->copy();

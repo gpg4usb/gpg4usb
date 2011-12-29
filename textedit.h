@@ -82,6 +82,8 @@ public:
      */
     QTextEdit* curTextPage();
 
+    QTextBrowser* curHelpPage();
+
     /**
      * @details  List of currently unsaved tabs.
      * @returns QHash<int, QString> Hash of tabindexes and title of unsaved tabs.
