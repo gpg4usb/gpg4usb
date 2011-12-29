@@ -31,10 +31,14 @@ class HelpPage : public QWidget
     Q_OBJECT
 public:
     explicit HelpPage(const QString path, QWidget *parent = 0);
+    QTextBrowser *getBrowser();
 
 signals:
 
 public slots:
+
+private:
+    QTextBrowser *browser; /** The textbrowser of the tab */
 
 };
 
