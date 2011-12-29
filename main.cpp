@@ -88,8 +88,9 @@ int main(int argc, char *argv[])
 #endif
     app.installTranslator(&translator2);
 
-    /*foreach(QLocale l , QLocale::matchingLocales(lang, "", "")) {
-        qDebug << "l: " <<  l.toString();
+    /*QLocale ql(lang);
+    foreach(QLocale l , QLocale::matchingLocales(ql.language(), ql.script(), ql.country())) {
+        qDebug() << "l: " <<  l.bcp47Name();
     }*/
 
     // css

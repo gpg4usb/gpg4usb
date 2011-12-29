@@ -374,7 +374,7 @@ bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
                 err = gpgme_op_decrypt(mCtx, in, out);
                 checkErr(err);
 
-                if(err) {
+                if(gpg_err_code(err) == GPG_ERR_DECRYPT_FAILED) {
                     errorString.append(gpgErrString(err)).append("<br>");
                     result = gpgme_op_decrypt_result(mCtx);
                     checkErr(result->recipients->status);
@@ -383,6 +383,8 @@ bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
                     errorString.append(tr("<br>No private key with id "))
                                .append(result->recipients->keyid)
                                .append(tr(" in keyring."));
+                } else {
+                    errorString.append(gpgErrString(err)).append("<br>");
                 }
 
                 if (!err) {
@@ -397,7 +399,7 @@ bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
             }
         }
     }
-    if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
+    if (gpg_err_code(err) != GPG_ERR_NO_ERROR && gpg_err_code(err) != GPG_ERR_CANCELED) {
         QMessageBox::critical(0, tr("Error decrypting:"), errorString);
         return false;
     }
