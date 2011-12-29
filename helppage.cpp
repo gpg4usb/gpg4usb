@@ -32,7 +32,7 @@ HelpPage::HelpPage(const QString path, QWidget *parent) :
     mainLayout->setContentsMargins(0,0,0,0);
     setLayout(mainLayout);
     //setAttribute(Qt::WA_DeleteOnClose);
-    browser->setSource(path);
+    browser->setSource(QUrl::fromLocalFile(path));
     browser->setFocus();
 
 }

@@ -88,6 +88,10 @@ int main(int argc, char *argv[])
 #endif
     app.installTranslator(&translator2);
 
+    /*foreach(QLocale l , QLocale::matchingLocales(lang, "", "")) {
+        qDebug << "l: " <<  l.toString();
+    }*/
+
     // css
     QFile file(qApp->applicationDirPath() + "/css/default.css");
     file.open(QFile::ReadOnly);
