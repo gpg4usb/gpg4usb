@@ -394,8 +394,15 @@ void TextEdit::print()
         return;
     }
 
+
 #ifndef QT_NO_PRINTER
-    QTextDocument *document = curTextPage()->document();
+     QTextDocument *document;
+    if(curTextPage() == 0) {
+        HelpPage *curPage = qobject_cast<HelpPage *>(tabWidget->currentWidget());
+        document = curPage->getBrowser()->document();
+    } else {
+        document = curTextPage()->document();
+    }
     QPrinter printer;
 
     QPrintDialog *dlg = new QPrintDialog(&printer, this);
