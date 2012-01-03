@@ -41,9 +41,8 @@ MainWindow::MainWindow()
     /* List of binary Attachments */
     attachmentDockCreated = false;
 
-    keyMgmt = new KeyMgmt(mCtx, iconPath);
+    keyMgmt = new KeyMgmt(mCtx, iconPath, this);
     keyMgmt->hide();
-
     /* test attachmentdir for files alll 15s */
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(checkAttachmentFolder()));
@@ -617,18 +616,25 @@ void MainWindow::about()
     dialog->exec();
 }
 
-void MainWindow::openTranslate() {
+void MainWindow::openTranslate()
+{
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu_translate.html"));
 }
 
-void MainWindow::openTutorial() {
+void MainWindow::openTutorial()
+{
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
 }
 
-void MainWindow::openHelp() {
+void MainWindow::openHelp()
+{
     edit->newHelpTab("help", qApp->applicationDirPath() + "/help/docu.html");
 }
 
+void MainWindow::setStatusBarText(QString text)
+{
+    statusBar()->showMessage(text,20000);
+}
 
 void MainWindow::startWizard()
 {

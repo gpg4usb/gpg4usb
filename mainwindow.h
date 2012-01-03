@@ -71,6 +71,8 @@ public:
      *
      */
     MainWindow();
+public slots:
+    void setStatusBarText(QString text);
 
 protected:
     /**
@@ -104,6 +106,7 @@ private slots:
     void verify();
 
     void showKeyDetails();
+
 
     void startWizard();
 

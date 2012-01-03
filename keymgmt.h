@@ -44,7 +44,7 @@ class KeyMgmt : public QMainWindow
     Q_OBJECT
 
 public:
-    KeyMgmt(GpgME::GpgContext* ctx, QString iconpath);
+    KeyMgmt(GpgME::GpgContext* ctx, QString iconpath, QWidget *parent = 0);
     QAction *importKeyFromClipboardAct;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromKeyServerAct;
@@ -60,6 +60,9 @@ public slots:
     void deleteCheckedKeys();
     void generateKeyDialog();
     void showKeyDetails();
+
+signals:
+    void statusBarChanged(QString);
 
 private:
     void createMenus();

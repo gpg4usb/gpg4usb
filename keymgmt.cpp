@@ -22,7 +22,7 @@
 
 #include "keymgmt.h"
 
-KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QString iconpath)
+KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QString iconpath, QWidget *parent )  : QMainWindow(parent)
 {
     mCtx = ctx;
     mIconPath = iconpath;
@@ -36,6 +36,7 @@ KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QString iconpath)
     createActions();
     createMenus();
     createToolBars();
+    connect(this,SIGNAL(statusBarChanged(QString)),this->parent(),SLOT(setStatusBarText(QString)));
 
     /* Restore the iconstyle */
     QSettings settings;
@@ -255,6 +256,7 @@ void KeyMgmt::exportKeyToFile()
     stream << *keyArray;
     file.close();
     delete keyArray;
+    emit statusBarChanged(QString(tr("key(s) exported")));
 }
 
 void KeyMgmt::exportKeyToClipboard()

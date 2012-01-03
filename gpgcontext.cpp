@@ -379,10 +379,7 @@ bool GpgContext::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
                     result = gpgme_op_decrypt_result(mCtx);
                     checkErr(result->recipients->status);
                     errorString.append(gpgErrString(result->recipients->status)).append("<br>");
-
-                    errorString.append(tr("<br>No private key with id "))
-                               .append(result->recipients->keyid)
-                               .append(tr(" in keyring."));
+                    errorString.append(tr("<br>No private key with id %1 present in keyring").arg(result->recipients->keyid));
                 } else {
                     errorString.append(gpgErrString(err)).append("<br>");
                 }
