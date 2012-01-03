@@ -45,12 +45,15 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     keyidLabel = new QLabel(tr("Key ID: "));
 
     nameVarLabel = new QLabel(key->uids->name);
+    nameVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
     emailVarLabel = new QLabel(key->uids->email);
+    emailVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
     commentVarLabel = new QLabel(key->uids->comment);
+    commentVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
     keyidVarLabel = new QLabel(key->subkeys->keyid);
+    keyidVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
-    //keySizeVarLabel = new QLabel();
     QString keySizeVal, keyExpireVal, keyCreatedVal, keyAlgoVal;
 
     if (key->subkeys->expires == 0) {
