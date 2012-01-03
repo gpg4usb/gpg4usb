@@ -114,9 +114,9 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     mvbox->addWidget(keyBox);
 
     vboxFP = new QVBoxLayout();
-    fingerPrintLabel = new QLabel(beautifyFingerprint(key->subkeys->fpr));
-    fingerPrintLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    vboxFP->addWidget(fingerPrintLabel);
+    fingerPrintVarLabel = new QLabel(beautifyFingerprint(key->subkeys->fpr));
+    fingerPrintVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    vboxFP->addWidget(fingerPrintVarLabel);
     fingerprintBox->setLayout(vboxFP);
     mvbox->addWidget(fingerprintBox);
 
@@ -125,7 +125,9 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     if (addUserIds !=NULL) {
         vboxUID = new QVBoxLayout();
         while (addUserIds != NULL){
-            vboxUID->addWidget(new QLabel(addUserIds->name+ QString(" <")+addUserIds->email+">"));
+            addUserIdsVarLabel = new QLabel(addUserIds->name+ QString(" <")+addUserIds->email+">");
+            addUserIdsVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
+            vboxUID->addWidget(addUserIdsVarLabel);
             addUserIds=addUserIds->next;
         }
         additionalUidBox->setLayout(vboxUID);

@@ -72,7 +72,7 @@ private:
     QLabel *expireLabel;
     QLabel *createdLabel;
     QLabel *algorithmLabel;
-    QLabel *fingerPrintLabel;
+    QLabel *fingerPrintVarLabel;
     QLabel *keyidLabel;
 
     QLabel *nameVarLabel;
@@ -83,7 +83,7 @@ private:
     QLabel *createdVarLabel;
     QLabel *algorithmVarLabel;
     QLabel *keyidVarLabel;
-
+    QLabel *addUserIdsVarLabel;
 };
 
 #endif // __KEYDETAILSDIALOG_H__

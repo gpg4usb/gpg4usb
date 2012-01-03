@@ -37,6 +37,7 @@ Release 0.3.2
 - show message, when key export is successful (statusbar)
 - encrypt and sign, decrypt and verify (?)
 - Add buttonto copy fingerprint to clipboard in details dialog 
+	- or set margin to make it easier selectable?
 	- remove whitespaces on copy
 - Add default key functionality 
 - fix translation file for "SettingsDialog" as it says two times English, and the comment is on the wrong one.
