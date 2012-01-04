@@ -26,7 +26,7 @@ KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, GpgImportIn
 {
     mCtx = ctx;
     mResult = result;
-    // If no key for import found, just ahow a message
+    // If no key for import found, just show a message
     if (mResult.considered == 0) {
         QMessageBox::information(0, tr("Key import details"), tr("No keys found to import"));
         return;
@@ -96,7 +96,7 @@ void KeyImportDetailDialog::createKeysTable()
     keysTable->setSelectionMode(QAbstractItemView::NoSelection);
 
     QStringList headerLabels;
-    headerLabels  << tr("Name") << tr("Email") << tr("KeyID") << tr("Status");
+    headerLabels  << tr("Name") << tr("Email") << tr("Fingerprint") << tr("Status");
     keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
     keysTable->horizontalHeader()->setStretchLastSection(true);
 
@@ -108,7 +108,7 @@ void KeyImportDetailDialog::createKeysTable()
         GpgKey key = mCtx->getKeyByFpr(impKey.fpr);
         keysTable->setItem(row, 0, new QTableWidgetItem(key.name));
         keysTable->setItem(row, 1, new QTableWidgetItem(key.email));
-        keysTable->setItem(row, 2, new QTableWidgetItem(key.id));
+        keysTable->setItem(row, 2, new QTableWidgetItem(impKey.fpr));
         keysTable->setItem(row,3,new QTableWidgetItem(getStatusString(impKey.importStatus)));
         row++;
     }

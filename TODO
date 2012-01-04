@@ -37,16 +37,17 @@ Release 0.3.2
 - show message, when key export is successful (statusbar)
 - encrypt and sign, decrypt and verify (?)
 - Add buttonto copy fingerprint to clipboard in details dialog 
-	- or set margin to make it easier selectable?
+	- or set margin to make it easier selectable (via css?) ?
 	- remove whitespaces on copy
-- Add default key functionality 
 - fix translation file for "SettingsDialog" as it says two times English, and the comment is on the wrong one.
+- should images be included in paragraph (?)
 
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
 - investigate special characters in passphrase in windows
 
 Release 0.3.3
+- Add default key functionality 
 - create revocation file on key generation
 - optionally open new tab after encryption/decrytion 
 - import from keyserver doesn't end, if network-connection is available, but no connection to keyserver  (?)
