@@ -104,7 +104,7 @@ private:
     QLineEdit *inputFileEdit; /**< TODO */
     QRadioButton *radioEnc; /**< TODO */
     QRadioButton *radioDec; /**< TODO */
-
+    DialogAction mAction; /**< TODO */
 protected:
     GpgME::GpgContext *mCtx; /**< TODO */
     KeyList *mKeyList; /**< TODO */

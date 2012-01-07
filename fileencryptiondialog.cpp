@@ -25,10 +25,11 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconP
         : QDialog(parent)
 
 {
+    mAction = action;
     mCtx = ctx;
-    if(action == Decrypt) {
+    if(mAction == Decrypt) {
         setWindowTitle(tr("Decrypt File"));
-    } else if (action == Encrypt) {
+    } else if (mAction == Encrypt) {
         setWindowTitle(tr("Encrypt File"));
         resize(500, 300);
     } else {
@@ -118,7 +119,7 @@ void FileEncryptionDialog::selectInputFile()
 
     // try to find a matching output-filename, if not yet done
     if (infileName > 0 && outputFileEdit->text().size() == 0) {
-        if (radioEnc->isChecked()) {
+        if (mAction == Encrypt || (mAction == Both && radioEnc->isChecked())) {
             outputFileEdit->setText(infileName + ".asc");
         } else {
             if (infileName.endsWith(".asc", Qt::CaseInsensitive)) {
@@ -156,11 +157,12 @@ void FileEncryptionDialog::executeAction()
     QByteArray inBuffer = infile.readAll();
     QByteArray *outBuffer = new QByteArray();
 
-    if (radioEnc->isChecked()) {
+
+    if ( mAction == Encrypt || (mAction == Both && radioEnc->isChecked())) {
         if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
     }
 
-    if (radioDec->isChecked()) {
+    if (mAction == Decrypt || (mAction == Both && radioDec->isChecked()))  {
         if (! mCtx->decrypt(inBuffer, outBuffer)) return;
     }
 

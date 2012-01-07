@@ -15,6 +15,7 @@ Release 0.3.2
 - strike out revoked keys in keylist and add warning to keydetails [DONE]
 - put quote and double line break removale to "special edit" operation toolbar (icons for double linebreaks missing) [DONE]
 - emit keydbchanged from GPGcontext::importKey (for the moment not possible, because importinformation is lost after this) [DONE]
+- fix translation file for "SettingsDialog" as it says two times English, and the comment is on the wrong one. [DONE]
 - Change "remove double line breaks" to "remove spacing" [DONE]
 	- icon from "line spacing icon" [DONE]
 - key import should be more verbose: [DONE]
@@ -24,29 +25,27 @@ Release 0.3.2
 	- BUG: Also show details, when key is really new [DONE]
 - Wizard on first start (Create Key, Import from keys older gpg4usb, import from gnupg) [DONE]
 	-  import conf from old gpg4usb
-	- remember GNUPGHOME in main.cpp
 - option in settingsdialog for enabling steganographic operations [DONE]
 	- minimal steganography option: remove or add pgp-headers on demand [DONE]
 	-  Add advanced tab to settings dialog [DONE]
-	- investigate in embedding a steganography tool 
-		http://steghide.sourceforge.net/
-		http://www.outguess.org/
-- update gpgme-library
 - investigate in adding a offline help system [DONE]
-	- have a look on the format
-- show message, when key export is successful (statusbar)
-- encrypt and sign, decrypt and verify (?)
+	- have a look at the format
 - Add buttonto copy fingerprint to clipboard in details dialog 
 	- or set margin to make it easier selectable (via css?) ?
 	- remove whitespaces on copy
-- fix translation file for "SettingsDialog" as it says two times English, and the comment is on the wrong one.
 - should images be included in paragraph (?)
-
+	
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
 - investigate special characters in passphrase in windows
 
 Release 0.3.3
+- encrypt and sign, decrypt and verify (?)
+- discuss: show message, when key export is successful (statusbar)
+- update gpgme-library
+- investigate in embedding a steganography tool 
+	http://steghide.sourceforge.net/
+	http://www.outguess.org/
 - Add default key functionality 
 - create revocation file on key generation
 - optionally open new tab after encryption/decrytion 

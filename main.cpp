@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
         unsetenv("GPG_AGENT_INFO");
     #endif
 
-        qDebug() << getenv("GNUPGHOME");
+//        qDebug() << getenv("GNUPGHOME");
 
 #ifndef GPG4USB_NON_PORTABLE
     // take care of gpg not creating directorys on harddisk
