@@ -43,7 +43,7 @@
 <ol>
 <li>Download and install <a href="http://qt-apps.org/content/show.php/Qt+Linguist+Download?content=89360"> Qt Linguist</a></li>
 <li>Open gpg4usb translation file from the gpg4usb folder in your preferred language, e.g. ts/gpg4usb_en.ts</li>
-<li>try translating one string, e.g. "&Open" from GpgWin.cpp</li>
+<li>try translating one string, e.g. "&amp;Open" from GpgWin.cpp</li>
 <li>hit File->Release</li>
 <li>start gpg4usb and look at the result</li>
 </ol>
@@ -74,7 +74,8 @@ Then the developer has to run lupdate, so that the appropriate ts-file is create
 <h4>STEP 3: Translate the file</h4>
 <p>
 Now the ts-file can be opened with the linguist. In the programm, you just have to enter the translation of the phrases into the translation field and hit <b>[Ctrl]+[Enter]</b> to set the translation status of the phrase to ok and jump to the next unfinished translation. The status of the translation and comments also are automatically saved in the ts-file, so that the translation are easier to maintain.</p>
-<p><IMG SRC="img/docu/translate_src_transl.jpg" alt="translation text field">
+<p>
+<IMG SRC="img/docu/translate_src_transl.jpg" alt="translation text field"/>
 </p>
 <p>
 Three things have to be taken care of. 
@@ -97,7 +98,9 @@ Now you can run gpg4usb with the new language by choosing the language in the se
 <h1>Howto Translate new phrases</h1> 
 <p>
 When the project envolves, it's possible, that new expressions have to be translated. In this case the developer has to run <b>lupdate</b> once more. The translater just has to open the new ts-file with the linguist. On the upper left, he sees in the context menu, in which section are new phrases to translate (everything, which hasn't a green haken in front).</p>
-<p><IMG SRC="img/docu/translate_context.jpg" alt="context field"></p>
+<p>
+<IMG SRC="img/docu/translate_context.jpg" alt="context field"/>
+</p>
 <p>Again the translator has to hit <b>[Ctrl]+[Enter]</b> so that the linguist jumps to the unfinished translation. Afterwards the translator has to release the file another time.
 </p>
 </div>
