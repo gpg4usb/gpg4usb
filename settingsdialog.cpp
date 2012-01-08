@@ -184,15 +184,15 @@ QHash<QString, QString> GeneralTab::listLanguages()
         locale.truncate(locale.lastIndexOf('.'));
         locale.remove(0, locale.indexOf('_') + 1);
 
-        /* this works in qt 4.8
+        // this works in qt 4.8
         QLocale qloc(locale);
-        QString language = qloc.nativeLanguageName() + " (" + QLocale::languageToString(qloc.language()) + ")";
-        */
-        QTranslator translator;
+        QString language =  qloc.nativeLanguageName() +" (" + locale + ")"; //+ " (" + QLocale::languageToString(qloc.language()) + ")";
+        
+        /*QTranslator translator;
         translator.load(fileNames[i], qmDir.absolutePath());
         QString language = translator.translate("SettingsDialog",
                                                 "English", "Insert local name of language here. This is used for the language menu of the settingsdialog");
-
+*/
         languages.insert(locale, language);
     }
     return languages;
