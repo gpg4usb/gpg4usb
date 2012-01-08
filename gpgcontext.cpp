@@ -96,6 +96,8 @@ GpgContext::GpgContext()
         debug = false;
     }
 
+    connect(this,SIGNAL(keyDBChanged()),this,SLOT(refreshKeyList()));
+    refreshKeyList();
 }
 
 /** Destructor
@@ -741,13 +743,17 @@ QString GpgContext::beautifyFingerprint(QString fingerprint)
     return fingerprint;
 }
 
+void GpgContext::refreshKeyList() {
+    mKeyList = this->listKeys();
+}
+
 /**
  * note: privkey status is not returned
  */
 GpgKey GpgContext::getKeyByFpr(QString fpr) {
 
-    GpgKeyList list = this->listKeys();
-    foreach  (GpgKey key, list) {
+    //GpgKeyList list = this->listKeys();
+    foreach  (GpgKey key, mKeyList) {
         if(key.fpr == fpr) {
             return key;
         }
@@ -762,8 +768,8 @@ GpgKey GpgContext::getKeyByFpr(QString fpr) {
  */
 GpgKey GpgContext::getKeyById(QString id) {
 
-    GpgKeyList list = this->listKeys();
-    foreach  (GpgKey key, list) {
+    //GpgKeyList list = this->listKeys();
+    foreach  (GpgKey key, mKeyList) {
         if(key.id == id) {
             return key;
         }

@@ -149,6 +149,9 @@ public:
 signals:
     void keyDBChanged();
 
+private slots:
+    void refreshKeyList();
+
 private:
     gpgme_ctx_t mCtx;
     gpgme_data_t in, out;
@@ -157,6 +160,7 @@ private:
     QByteArray mPasswordCache;
     QSettings settings;
     bool debug;
+    GpgKeyList mKeyList;
     int checkErr(gpgme_error_t err) const;
     int checkErr(gpgme_error_t err, QString comment) const;
 
