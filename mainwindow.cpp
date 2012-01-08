@@ -895,7 +895,25 @@ void MainWindow::cleanDoubleLinebreaks()
     }
 
     QString content = edit->curTextPage()->toPlainText();
-    content.replace("\n\n", "\n");
+
+    /**
+     * make sure to not remove parts of signature
+     */
+    int start = content.indexOf(GpgConstants::PGP_SIGNED_BEGIN);
+    int startSig = content.indexOf(GpgConstants::PGP_SIGNATURE_BEGIN);
+
+    bool isSignature = false;
+    if(start > -1 || startSig > -1 ) {
+        isSignature=true;
+    }
+
+    if(isSignature) {
+        // cut between start+next \n and startSig, replace \n\n and then insert between
+        // start+next \n and startSig
+    } else {
+        content.replace("\n\n", "\n");
+    }
+
     edit->fillTextEditWithText(content);
 }
 
