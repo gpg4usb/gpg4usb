@@ -34,7 +34,7 @@ EditorPage::EditorPage(const QString &filePath, QWidget *parent) : QWidget(paren
     setAttribute(Qt::WA_DeleteOnClose);
     textPage->setFocus();
 
-    connect(textPage, SIGNAL(textChanged()), this, SLOT(formatGpgHeader()));
+    //connect(textPage, SIGNAL(textChanged()), this, SLOT(formatGpgHeader()));
 
 }
 
