@@ -116,8 +116,21 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     vboxFP = new QVBoxLayout();
     fingerPrintVarLabel = new QLabel(beautifyFingerprint(key->subkeys->fpr));
     fingerPrintVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    vboxFP->addWidget(fingerPrintVarLabel);
-    fingerprintBox->setLayout(vboxFP);
+    fingerPrintVarLabel->setStyleSheet("margin-left: 20; margin-right: 20;");
+    QHBoxLayout *hboxFP = new QHBoxLayout();
+
+    hboxFP->addWidget(fingerPrintVarLabel);
+    QIcon ico(":/button_copy.png");
+
+    QPushButton copyFingerprintButton(QIcon(ico.pixmap(12, 12)), "");
+    //copyFingerprintButton.setStyleSheet("QPushButton {border: 0px; } QPushButton:Pressed {}  ");
+    copyFingerprintButton.setFlat(true);
+    copyFingerprintButton.setToolTip(tr("copy fingerprint to clipboard"));
+    connect(&copyFingerprintButton, SIGNAL(clicked()), this, SLOT(copyFingerprint()));
+
+    hboxFP->addWidget(&copyFingerprintButton);
+
+    fingerprintBox->setLayout(hboxFP);
     mvbox->addWidget(fingerprintBox);
 
     // If key has more than primary uid, also show the other uids
@@ -210,4 +223,10 @@ QString KeyDetailsDialog::beautifyFingerprint(QString fingerprint)
         for (uint n = 0; 4 *(n + 1) < len; ++n)
             fingerprint.insert(5 * n + 4, ' ');
     return fingerprint;
+}
+
+void KeyDetailsDialog::copyFingerprint() {
+    QString fpr = fingerPrintVarLabel->text().trimmed().replace(" ", "");
+    QClipboard *cb = QApplication::clipboard();
+    cb->setText(fpr);
 }

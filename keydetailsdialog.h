@@ -47,6 +47,7 @@ public:
 
 private slots:
     void exportPrivateKey();
+    void copyFingerprint();
 
 private:
     QString *keyid;
