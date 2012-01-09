@@ -1,5 +1,4 @@
-/*
- *      wizard.cpp
+/* *      wizard.cpp
  *
  *      Copyright 2008 gpg4usb-team <gpg4usb@cpunk.de>
  *
@@ -40,7 +39,6 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
 #ifndef Q_WS_MAC
     setWizardStyle(ModernStyle);
 #endif
-
     setWindowTitle(tr("First Start Wizard"));
 }
 
@@ -48,6 +46,7 @@ IntroPage::IntroPage(QWidget *parent)
      : QWizardPage(parent)
  {
      setTitle(tr("Introduction"));
+     setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
 
      topLabel = new QLabel(tr("This wizard will help you getting started with encrypting and decrypting."));
      topLabel->setWordWrap(true);
@@ -65,6 +64,8 @@ int IntroPage::nextId() const
 KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
      : QWizardPage(parent)
 {
+
+    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     setTitle(tr("Key-Generating"));
     topLabel = new QLabel(tr("First you've got to create an own keypair.<br/>"
@@ -110,6 +111,7 @@ void KeyGenPage::showKeyGeneratedMessage()
 ImportPage::ImportPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
      : QWizardPage(parent)
 {
+    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
     setTitle(tr("Keyring Import"));
