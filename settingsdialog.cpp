@@ -186,8 +186,11 @@ QHash<QString, QString> GeneralTab::listLanguages()
 
         // this works in qt 4.8
         QLocale qloc(locale);
-        QString language =  qloc.nativeLanguageName() +" (" + locale + ")"; //+ " (" + QLocale::languageToString(qloc.language()) + ")";
-        
+        #if QT_VERSION < 0x040800
+			QString language =  QLocale::languageToString(qloc.language()) +" (" + locale + ")"; //+ " (" + QLocale::languageToString(qloc.language()) + ")";        
+        #else
+			QString language =  qloc.nativeLanguageName() +" (" + locale + ")"; //+ " (" + QLocale::languageToString(qloc.language()) + ")";
+        #endif
         /*QTranslator translator;
         translator.load(fileNames[i], qmDir.absolutePath());
         QString language = translator.translate("SettingsDialog",
