@@ -778,6 +778,10 @@ GpgKey GpgContext::getKeyById(QString id) {
     return GpgKey();
 }
 
+QString GpgContext::getGpgmeVersion() {
+     return QString(gpgme_check_version(NULL));
+}
+
 }
 
 

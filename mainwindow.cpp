@@ -592,7 +592,9 @@ void MainWindow::about()
                                      "If you have any questions or suggestions have a look<br/>"
                                      "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"
                                      "contact page</a> or send a mail to our<br/> mailing list at"
-                                     " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>."));
+                                     " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>.")
+                                + tr("<br/><br/> Built with Qt ") + qVersion()
+                                + tr(" and GPGME ") + GpgME::GpgContext::getGpgmeVersion());
 
     QDialog *dialog = new QDialog(this);
     dialog->setWindowTitle(*title);

@@ -134,6 +134,7 @@ public:
     GpgKey getKeyById(QString id);
 
     static QString gpgErrString(gpgme_error_t err);
+    static QString getGpgmeVersion();
 
     /**
      * @brief
