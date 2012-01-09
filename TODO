@@ -7,7 +7,8 @@ Release 0.3.2
 - show keyrings (files with .gpg) in import from file dialog too [DONE]
 - dropdown from menubar instead of dialog for import [DONE]
 - Change file encryption to single dialog for en- and decryption [DONE]
-- Zoom In/Out [DONE]
+- Change QPlaintextEdit to QTextEdit [DONE]
+	- Zoom In/Out [DONE]
 - keyimport from keyserver dialog should show reason for strike out  [DONE]
 - add file operation toolbar (open, save, new) (per default off) [DONE]
 - understandable message if no matching private key found for decryption (no data error) [DONE]
@@ -30,47 +31,52 @@ Release 0.3.2
 	-  Add advanced tab to settings dialog [DONE]
 - investigate in adding a offline help system [DONE]
 	- have a look at the format
-- Add buttonto copy fingerprint to clipboard in details dialog 
-	- or set margin to make it easier selectable (via css?) ?
-	- remove whitespaces on copy
-- should images be included in paragraph (?)
-	
+	- images should be included in paragraph [DONE]
+- Add buttonto copy fingerprint to clipboard in details dialog [DONE]
+	- or set margin to make it easier selectable [DONE]
+	- remove whitespaces on copy [DONE]
+- Update Qt to 4.8 [DONE]
+	- add Qt language files for Qt locales	
+
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
 - investigate special characters in passphrase in windows
 
 Release 0.3.3
+- Change private key password 
+- Catch bad passphrase message
+- create revocation file 
+	- on key generation
+	- later
+- set gpgme error language to chosen language (context.cpp:49)
+- Add default key functionality 
 - encrypt and sign, decrypt and verify (?)
 - discuss: show message, when key export is successful (statusbar)
 - update gpgme-library
 - investigate in embedding a steganography tool 
 	http://steghide.sourceforge.net/
 	http://www.outguess.org/
-- Add default key functionality 
-- create revocation file on key generation
 - optionally open new tab after encryption/decrytion 
-- import from keyserver doesn't end, if network-connection is available, but no connection to keyserver  (?)
-- Change private key password (catch bad passphrase message)
-- set gpgme error language to chosen language (context.cpp:49)
-- css
-- key should blink short in keylist after import
 - check and add missing statusbar messages
 - set mainwindow-statusbar text via signal
-- more doku on building gpg4usb (especially on windows)
 - clear password-cache after quit (siehe kbasket)
-- check pointer usage (const/references)
-- add posibility to change password of key
 - save the last used directory in open file dialog
-- make keylist browsable with keyboard
-- Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
-- clean header if quoted printable decoded
-- PGP-MIME, find and show inline encrypted files
-	- attachments-widget should be inlined in editor-tabs
 - Settings-Dialog:
 	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - remember Password:
 	- checkbox in password dialog to remember password
 	- Timer to remember password for x minutes?
+
+Release 0.3.4
+- keylist rewrite using tablemodel
+	- make keylist browsable with keyboard
+	- key should blink short in keylist after import
+	- Change Keytable sorting: private keys should always be on top (partially solving "encrypt to self")
+- check pointer usage (const/references)
+- more doku on building gpg4usb (especially on windows)
+- clean header if quoted printable decoded
+- PGP-MIME, find and show inline encrypted files
+	- attachments-widget should be inlined in editor-tabs
 - attachments:
 	- context menu for files left in attachment dir-icon: clean attachments-dir
 	- settings option "check attachment-dir all 10s and warn user"
