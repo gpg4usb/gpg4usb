@@ -27,11 +27,10 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
 {
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
-    mParent=parent;
-    IntroPage *introPage = new IntroPage();
-    KeyGenPage *keyGenPage = new KeyGenPage(mCtx);
-    ImportPage *importPage = new ImportPage(mCtx,mKeyMgmt);
-    ConclusionPage *conclusionPage = new ConclusionPage();
+    IntroPage *introPage = new IntroPage(this);
+    KeyGenPage *keyGenPage = new KeyGenPage(mCtx, this);
+    ImportPage *importPage = new ImportPage(mCtx,mKeyMgmt, this);
+    ConclusionPage *conclusionPage = new ConclusionPage(this);
     addPage(introPage);
     addPage(keyGenPage);
     addPage(importPage);
@@ -107,7 +106,9 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
                              "You can use the private key to decrypt and sign texts.<br/>"
                              "For more information have a look in the online tutorial:"));
     QLabel *linkLabel = new QLabel("<a href=""http://gpg4usb.cpunk.de/docu.html"">"+tr("Online tutorial")+"</a>");
-    linkLabel->setOpenExternalLinks(true);
+    //linkLabel->setOpenExternalLinks(true);
+
+    connect(linkLabel, SIGNAL(linkActivated(const QString&)), parentWidget()->parentWidget(), SLOT(openHelp()));
 
     QWidget *createKeyButtonBox = new QWidget(this);
     QHBoxLayout  *createKeyButtonBoxLayout = new QHBoxLayout(createKeyButtonBox);

@@ -44,7 +44,6 @@ public:
 private:
     GpgME::GpgContext *mCtx;
     KeyMgmt *mKeyMgmt;
-    QWidget *mParent;
 };
 
 class IntroPage : public QWizardPage
