@@ -20,7 +20,7 @@
 
 #include <QtGui>
 
- #include "wizard.h"
+#include "wizard.h"
 
 Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     : QWizard(parent)
@@ -217,7 +217,7 @@ bool ImportPage::importKeysFromGpg4usb()
         mKeyMgmt->importKeys(inBuffer);
     }
 
-    qApp->exit();
+    qApp->exit(RESTART_CODE);
     return true;
 }
 

@@ -21,6 +21,7 @@
 
 #include <QApplication>
 #include "mainwindow.h"
+#include "gpgconstants.h"
 
 int main(int argc, char *argv[])
 {

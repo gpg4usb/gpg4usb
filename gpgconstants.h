@@ -24,6 +24,8 @@
 
 class QString;
 
+const int RESTART_CODE = 1000;
+
 class GpgConstants
 {
 public:

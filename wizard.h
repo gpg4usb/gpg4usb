@@ -26,6 +26,7 @@
 #include <QWizard>
 #include "keygendialog.h"
 #include "keymgmt.h"
+#include "gpgconstants.h"
 
 class QCheckBox;
 class QLabel;
