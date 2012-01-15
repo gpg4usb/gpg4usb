@@ -41,6 +41,37 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     setWizardStyle(ModernStyle);
 #endif
     setWindowTitle(tr("First Start Wizard"));
+
+    QSettings settings;
+    setStartId(settings.value("wizard/page", -1).toInt());
+    settings.remove("wizard/page");
+
+}
+
+LanguagePage::LanguagePage(QWidget *parent)
+    : QWizardPage(parent){
+
+    setTitle(tr("Choose Language"));
+    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
+
+    QVBoxLayout *layout = new QVBoxLayout;
+
+    topLabel = new QLabel(tr("Choose a Language"));
+    topLabel->setWordWrap(true);
+    layout->addWidget(topLabel);
+
+    QHash<QString, QString> languages = SettingsDialog::listLanguages();
+    foreach(QString l, languages) {
+        qDebug() << l;
+    }
+
+
+    setLayout(layout);
+}
+
+int LanguagePage::nextId() const
+{
+    return 1;
 }
 
 IntroPage::IntroPage(QWidget *parent)
@@ -217,17 +248,19 @@ bool ImportPage::importKeysFromGpg4usb()
         mKeyMgmt->importKeys(inBuffer);
     }
 
+    // TODO: edit->maybesave?
     qApp->exit(RESTART_CODE);
+    QSettings settings;
+    //settings.setValue("wizard/page", this->wizard()->currentId());
+    settings.setValue("wizard/page", this->nextId());
     return true;
 }
 
 bool ImportPage::importConfFromGpg4usb(QString dir) {
     QString path = dir+"/conf/gpg4usb.ini";
-    qDebug() << "import old conf from: " << path;
     QSettings oldconf(path, QSettings::IniFormat, this);
     QSettings actualConf;
     foreach(QString key, oldconf.allKeys()) {
-        qDebug() << key << ": " << oldconf.value(key);
         actualConf.setValue(key, oldconf.value(key));
     }
 

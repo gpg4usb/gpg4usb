@@ -63,6 +63,42 @@ void SettingsDialog::accept()
     close();
 }
 
+// http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
+// http://developer.qt.nokia.com/wiki/How_to_create_a_multi_language_application
+QHash<QString, QString> SettingsDialog::listLanguages()
+{
+    QHash<QString, QString> languages;
+
+    languages.insert("", tr("System Default"));
+
+    QString appPath = qApp->applicationDirPath();
+    QDir qmDir = QDir(appPath + "/ts/");
+    QStringList fileNames =
+            qmDir.entryList(QStringList("gpg4usb_*.qm"));
+
+    for (int i = 0; i < fileNames.size(); ++i) {
+        QString locale = fileNames[i];
+        locale.truncate(locale.lastIndexOf('.'));
+        locale.remove(0, locale.indexOf('_') + 1);
+
+        // this works in qt 4.8
+        QLocale qloc(locale);
+        #if QT_VERSION < 0x040800
+                        QString language =  QLocale::languageToString(qloc.language()) +" (" + locale + ")"; //+ " (" + QLocale::languageToString(qloc.language()) + ")";
+        #else
+                        QString language =  qloc.nativeLanguageName() +" (" + locale + ")"; //+ " (" + QLocale::languageToString(qloc.language()) + ")";
+        #endif
+        /*QTranslator translator;
+        translator.load(fileNames[i], qmDir.absolutePath());
+        QString language = translator.translate("SettingsDialog",
+                                                "English", "Insert local name of language here. This is used for the language menu of the settingsdialog");
+*/
+        languages.insert(locale, language);
+    }
+    return languages;
+}
+
+
 
 GeneralTab::GeneralTab(QWidget *parent)
     : QWidget(parent)
@@ -101,7 +137,7 @@ GeneralTab::GeneralTab(QWidget *parent)
     QGroupBox *langBox = new QGroupBox(tr("Language"));
     QVBoxLayout *langBoxLayout = new QVBoxLayout();
     langSelectBox = new QComboBox;
-    lang = listLanguages();
+    lang = SettingsDialog::listLanguages();
 
     foreach(QString l , lang) {
         langSelectBox->addItem(l);
@@ -165,42 +201,6 @@ void GeneralTab::applySettings()
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
     settings.setValue("general/confirmImportKeys", importConfirmationCheckBox->isChecked());
 }
-
-// http://www.informit.com/articles/article.aspx?p=1405555&seqNum=3
-// http://developer.qt.nokia.com/wiki/How_to_create_a_multi_language_application
-QHash<QString, QString> GeneralTab::listLanguages()
-{
-    QHash<QString, QString> languages;
-
-    languages.insert("", tr("System Default"));
-
-    QString appPath = qApp->applicationDirPath();
-    QDir qmDir = QDir(appPath + "/ts/");
-    QStringList fileNames =
-            qmDir.entryList(QStringList("gpg4usb_*.qm"));
-
-    for (int i = 0; i < fileNames.size(); ++i) {
-        QString locale = fileNames[i];
-        locale.truncate(locale.lastIndexOf('.'));
-        locale.remove(0, locale.indexOf('_') + 1);
-
-        // this works in qt 4.8
-        QLocale qloc(locale);
-        #if QT_VERSION < 0x040800
-			QString language =  QLocale::languageToString(qloc.language()) +" (" + locale + ")"; //+ " (" + QLocale::languageToString(qloc.language()) + ")";        
-        #else
-			QString language =  qloc.nativeLanguageName() +" (" + locale + ")"; //+ " (" + QLocale::languageToString(qloc.language()) + ")";
-        #endif
-        /*QTranslator translator;
-        translator.load(fileNames[i], qmDir.absolutePath());
-        QString language = translator.translate("SettingsDialog",
-                                                "English", "Insert local name of language here. This is used for the language menu of the settingsdialog");
-*/
-        languages.insert(locale, language);
-    }
-    return languages;
-}
-
 
 MimeTab::MimeTab(QWidget *parent)
     : QWidget(parent)

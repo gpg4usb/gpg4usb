@@ -75,7 +75,8 @@ MainWindow::MainWindow()
     // Show wizard, if the don't show wizard message box wasn't checked
     // and keylist doesn't contain a private key
     QSettings settings;
-    if (settings.value("wizard/showWizard",true).toBool() && !mKeyList->containsPrivateKeys()) {
+    //if (settings.value("wizard/showWizard",true).toBool() && !mKeyList->containsPrivateKeys()) {
+    if (settings.value("wizard/showWizard",true).toBool() || !settings.value("wizard/next").isNull()) {
         startWizard();
     }
 }

@@ -65,7 +65,6 @@ class GeneralTab : public QWidget
      QHash<QString, QString> lang;
 
 private slots:
-    QHash<QString, QString> listLanguages();
 
  };
 
@@ -143,6 +142,8 @@ public:
     AppearanceTab *appearanceTab;
     KeyserverTab *keyserverTab;
     AdvancedTab *advancedTab;
+    static QHash<QString, QString> listLanguages();
+
 
 public slots:
     void accept();

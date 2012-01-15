@@ -27,6 +27,7 @@
 #include "keygendialog.h"
 #include "keymgmt.h"
 #include "gpgconstants.h"
+#include "settingsdialog.h"
 
 class QCheckBox;
 class QLabel;
@@ -52,6 +53,17 @@ class IntroPage : public QWizardPage
 
 public:
     IntroPage(QWidget *parent = 0);
+    QLabel *topLabel;
+
+    int nextId() const;
+};
+
+class LanguagePage : public QWizardPage
+{
+    Q_OBJECT
+
+public:
+    LanguagePage(QWidget *parent = 0);
     QLabel *topLabel;
 
     int nextId() const;
