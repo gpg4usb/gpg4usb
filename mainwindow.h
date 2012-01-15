@@ -56,6 +56,7 @@ class QApplication;
 class QDockWidget;
 QT_END_NAMESPACE
 
+const int RESTART_CODE = 1000;
 
 /**
  * @brief

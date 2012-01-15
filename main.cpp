@@ -68,29 +68,6 @@ int main(int argc, char *argv[])
     qDebug() << "gpg4usb non portable build";
 #endif
 
-    QSettings::setDefaultFormat(QSettings::IniFormat);
-
-    QSettings settings;
-    QString lang = settings.value("int/lang", QLocale::system().name()).toString();
-    if (lang.isEmpty()) {
-        lang = QLocale::system().name();
-    }
-
-    //internationalize
-    QTranslator translator;
-    translator.load("ts/gpg4usb_" +  lang,
-                    appPath);
-    app.installTranslator(&translator);
-
-    // make shortcuts system and language independent
-    QTranslator translator2;
-#ifdef _WIN32
-    translator2.load("ts/qt_windows_" + lang, appPath);
-#else
-    translator2.load("ts/qt_linux_" + lang, appPath);
-#endif
-    app.installTranslator(&translator2);
-
     /*QLocale ql(lang);
     foreach(QLocale l , QLocale::matchingLocales(ql.language(), ql.script(), ql.country())) {
         qDebug() << "l: " <<  l.bcp47Name();
@@ -102,10 +79,44 @@ int main(int argc, char *argv[])
     QString styleSheet = QLatin1String(file.readAll());
     qApp->setStyleSheet(styleSheet);
 
-    MainWindow *window = new MainWindow();
-    window->show();
 
-    return app.exec();
+    /**
+     * internationalisation. loop to restart mainwindow
+     * with changed translation when settings change.
+     */
+    QSettings::setDefaultFormat(QSettings::IniFormat);
+    QSettings settings;
+    QTranslator translator, translator2;
+    int return_from_event_loop_code;
+
+#ifdef _WIN32
+    QString qtTransPrefix = "ts/qt_windows_";
+#else
+    QString qtTransPrefix = "ts/qt_linux_";
+#endif
+
+    do {
+        app.removeTranslator(&translator);
+        app.removeTranslator(&translator2);
+
+        QString lang = settings.value("int/lang", QLocale::system().name()).toString();
+        if (lang.isEmpty()) {
+            lang = QLocale::system().name();
+        }
+
+        translator.load("ts/gpg4usb_" +  lang, appPath);
+        app.installTranslator(&translator);
+
+        // make shortcuts system and language independent
+        translator2.load(qtTransPrefix + lang, appPath);
+        app.installTranslator(&translator2);
+
+        MainWindow window;
+        return_from_event_loop_code = app.exec();
+
+    } while( return_from_event_loop_code == RESTART_CODE);
+
+    return  return_from_event_loop_code;
 }
 
 

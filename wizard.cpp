@@ -27,6 +27,7 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
 {
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
+    mParent=parent;
     IntroPage *introPage = new IntroPage();
     KeyGenPage *keyGenPage = new KeyGenPage(mCtx);
     ImportPage *importPage = new ImportPage(mCtx,mKeyMgmt);
@@ -186,6 +187,8 @@ bool ImportPage::importKeysFromGpg4usb()
         return false;
     }
 
+    importConfFromGpg4usb(dir);
+
     QFile secRing(dir+"/keydb/secring.gpg");
     QFile pubRing(dir+"/keydb/pubring.gpg");
 
@@ -213,7 +216,21 @@ bool ImportPage::importKeysFromGpg4usb()
         QByteArray inBuffer = secRing.readAll();
         mKeyMgmt->importKeys(inBuffer);
     }
+
+    qApp->exit();
     return true;
+}
+
+bool ImportPage::importConfFromGpg4usb(QString dir) {
+    QString path = dir+"/conf/gpg4usb.ini";
+    qDebug() << "import old conf from: " << path;
+    QSettings oldconf(path, QSettings::IniFormat, this);
+    QSettings actualConf;
+    foreach(QString key, oldconf.allKeys()) {
+        qDebug() << key << ": " << oldconf.value(key);
+        actualConf.setValue(key, oldconf.value(key));
+    }
+
 }
 
 bool ImportPage::importKeysFromGnupg()

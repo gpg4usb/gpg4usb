@@ -873,6 +873,9 @@ void MainWindow::fileDecrypt()
 
 void MainWindow::openSettingsDialog()
 {
+
+    QString preLang = settings.value("int/lang").toString();
+
     new SettingsDialog(this);
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
@@ -886,6 +889,14 @@ void MainWindow::openSettingsDialog()
         createAttachmentDock();
     } else if(attachmentDockCreated) {
         closeAttachmentDock();
+    }
+
+    // restart mainwindow if langugage changed
+    if(preLang != settings.value("int/lang").toString()) {
+        if(edit->maybeSaveAnyTab()) {
+            saveSettings();
+            qApp->exit(RESTART_CODE);
+        }
     }
 
 }

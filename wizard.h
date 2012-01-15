@@ -42,6 +42,7 @@ public:
 private:
     GpgME::GpgContext *mCtx;
     KeyMgmt *mKeyMgmt;
+    QWidget *mParent;
 };
 
 class IntroPage : public QWizardPage
@@ -87,6 +88,7 @@ private slots:
       */
     bool importKeysFromGnupg();
     bool importKeysFromGpg4usb();
+    bool importConfFromGpg4usb(QString dir);
 
 private:
     KeyMgmt *mKeyMgmt;
