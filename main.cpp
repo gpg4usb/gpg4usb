@@ -53,6 +53,9 @@ int main(int argc, char *argv[])
 #ifndef GPG4USB_NON_PORTABLE
     // take care of gpg not creating directorys on harddisk
     putenv(QString("GNUPGHOME=" + appPath + "/keydb").toAscii().data());
+    
+    // this may help with newer gpgme versions on windows
+    //putenv(QString("GPGME_GPGPATH=" + appPath.replace("/", "\\") + "\\bin\\gpg.exe").toAscii().data());
 
     // QSettings uses org-name for automatically setting path...
     app.setOrganizationName("conf");
