@@ -164,6 +164,7 @@ private slots:
      * @details Open integrated help in new tab.
      */
     void openHelp();
+    void openHelp(const QString page);
 
     /**
      * @details Show a warn message in status bar, if there are files in attachment folder.

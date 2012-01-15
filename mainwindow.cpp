@@ -629,9 +629,13 @@ void MainWindow::openTutorial()
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
 }
 
-void MainWindow::openHelp()
+void MainWindow::openHelp() {
+    openHelp("docu.html");
+}
+
+void MainWindow::openHelp(const QString page)
 {
-    edit->newHelpTab("help", qApp->applicationDirPath() + "/help/docu.html");
+    edit->newHelpTab("help", qApp->applicationDirPath() + "/help/" + page);
 }
 
 void MainWindow::setStatusBarText(QString text)

@@ -105,10 +105,10 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
                              "and verify texts signed by you.<br/>"
                              "You can use the private key to decrypt and sign texts.<br/>"
                              "For more information have a look in the online tutorial:"));
-    QLabel *linkLabel = new QLabel("<a href=""http://gpg4usb.cpunk.de/docu.html"">"+tr("Online tutorial")+"</a>");
+    QLabel *linkLabel = new QLabel("<a href=""docu_keygen.html"">"+tr("Online tutorial")+"</a>");
     //linkLabel->setOpenExternalLinks(true);
 
-    connect(linkLabel, SIGNAL(linkActivated(const QString&)), parentWidget()->parentWidget(), SLOT(openHelp()));
+    connect(linkLabel, SIGNAL(linkActivated(const QString&)), parentWidget()->parentWidget(), SLOT(openHelp(const QString&)));
 
     QWidget *createKeyButtonBox = new QWidget(this);
     QHBoxLayout  *createKeyButtonBoxLayout = new QHBoxLayout(createKeyButtonBox);
