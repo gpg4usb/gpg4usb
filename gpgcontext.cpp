@@ -467,6 +467,10 @@ gpgme_error_t GpgContext::passphrase(const char *uid_hint,
     QString passwordDialogMessage;
     QString gpgHint = uid_hint;
     bool result;
+#ifdef _WIN32
+	DWORD written;
+	HANDLE hd = (HANDLE)fd;
+#endif
 
     if (last_was_bad) {
         passwordDialogMessage += "<i>"+tr("Wrong password")+".</i><br><br>\n\n";
@@ -497,11 +501,10 @@ gpgme_error_t GpgContext::passphrase(const char *uid_hint,
             qDebug() << "something is terribly broken";
         }
 #else
-        DWORD written;
-        WriteFile((HANDLE) fd, mPasswordCache.data(), mPasswordCache.length(), &written, 0);
+        WriteFile(hd, mPasswordCache.data(), mPasswordCache.length(), &written, 0);
 #endif
 
-        returnValue = 0;
+        returnValue = GPG_ERR_NO_ERROR;
     }
 
 #ifndef _WIN32
@@ -509,8 +512,12 @@ gpgme_error_t GpgContext::passphrase(const char *uid_hint,
         qDebug() << "something is terribly broken";
     }
 #else
-    DWORD written;
-    WriteFile((HANDLE) fd, "\n", 1, &written, 0);
+    WriteFile(hd, "\n", 1, &written, 0);
+    
+    /* program will hang on cancel if hd not closed */
+    if(!result) {
+			CloseHandle(hd);
+	}
 #endif
 
     return returnValue;
