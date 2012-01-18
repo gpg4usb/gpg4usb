@@ -47,6 +47,9 @@ public:
 private:
     GpgME::GpgContext *mCtx;
     KeyMgmt *mKeyMgmt;
+
+private slots:
+    void wizardAccepted();
 };
 
 class IntroPage : public QWizardPage

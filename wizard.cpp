@@ -41,6 +41,15 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     QSettings settings;
     setStartId(settings.value("wizard/page", -1).toInt());
     settings.remove("wizard/page");
+
+    connect(this, SIGNAL(accepted()), this, SLOT(wizardAccepted()));
+
+}
+
+void Wizard::wizardAccepted() {
+    qDebug() << "noShow: " << field("showWizard").toBool();
+    QSettings settings;
+    settings.setValue("wizard/showWizard", field("showWizard").toBool());
 }
 
 IntroPage::IntroPage(QWidget *parent)
@@ -328,6 +337,8 @@ ConclusionPage::ConclusionPage(QWidget *parent)
     dontShowWizardCheckBox = new QCheckBox(tr("Dont show the wizard again."));
     dontShowWizardCheckBox->setChecked(Qt::Checked);
 
+    registerField("showWizard", dontShowWizardCheckBox);
+
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(bottomLabel);
     layout->addWidget(dontShowWizardCheckBox);
@@ -337,13 +348,5 @@ ConclusionPage::ConclusionPage(QWidget *parent)
 
 int ConclusionPage::nextId() const
 {
-    QSettings settings;
-    qDebug() << "dont show" << dontShowWizardCheckBox->isChecked();
-    if (dontShowWizardCheckBox->isChecked())
-    {
-        settings.setValue("wizard/showWizard", false);
-    } else {
-        settings.setValue("wizard/showWizard", true);
-    }
     return -1;
 }
