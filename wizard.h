@@ -39,6 +39,9 @@ class Wizard : public QWizard
     Q_OBJECT
 
 public:
+    enum { Page_Intro, Page_ImportFromGpg4usb, Page_ImportFromGnupg, Page_GenKey,
+                Page_Conclusion };
+
     Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
 
 private:
@@ -53,19 +56,65 @@ class IntroPage : public QWizardPage
 public:
     IntroPage(QWidget *parent = 0);
     QLabel *topLabel;
-
+    QLabel *langLabel;
     int nextId() const;
 };
 
-class LanguagePage : public QWizardPage
+class ImportFromGpg4usbPage : public QWizardPage
 {
     Q_OBJECT
 
 public:
-    LanguagePage(QWidget *parent = 0);
-    QLabel *topLabel;
+    ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
 
+private slots:
+    /**
+      * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
+      */
+    bool importKeysFromGpg4usb();
+    bool importConfFromGpg4usb(QString dir);
+
+private:
     int nextId() const;
+
+    KeyMgmt *mKeyMgmt;
+    QVBoxLayout *layout;
+    GpgME::GpgContext *mCtx;
+    QCheckBox *gpg4usbPrivKeyCheckBox;
+    QCheckBox *gpg4usbPubKeyCheckBox;
+    QPushButton *importFromGpg4usbButton;
+};
+
+class ImportFromGnupgPage : public QWizardPage
+{
+    Q_OBJECT
+
+public:
+    ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
+
+private slots:
+    /**
+      * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
+      */
+    bool importKeysFromGnupg();
+
+private:
+    KeyMgmt *mKeyMgmt;
+    int nextId() const;
+
+    /**
+      * @details  String containing the gnupg-homedir
+      * @returns String containg the gnupg-homedir, but NULL, if the in windows registry entry
+      * doesn't exist or in linux ~/.gnupg doesn't exist
+      */
+    QString getGnuPGHome();
+
+    QLabel *gnupgLabel;
+    QVBoxLayout *layout;
+    GpgME::GpgContext *mCtx;
+    QCheckBox *gnupgPrivKeyCheckBox;
+    QCheckBox *gnupgpPubKeyCheckBox;
+    QPushButton *importFromGnupgButton;
 };
 
 class KeyGenPage : public QWizardPage
@@ -85,43 +134,6 @@ private:
     QPushButton *createKeyButton;
     GpgME::GpgContext *mCtx;
     QVBoxLayout *layout;
-};
-
-class ImportPage : public QWizardPage
-{
-    Q_OBJECT
-
-public:
-    ImportPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
-
-private slots:
-    /**
-      * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
-      */
-    bool importKeysFromGnupg();
-    bool importKeysFromGpg4usb();
-    bool importConfFromGpg4usb(QString dir);
-
-private:
-    KeyMgmt *mKeyMgmt;
-    int nextId() const;
-
-    /**
-      * @details  String containing the gnupg-homedir
-      * @returns String containg the gnupg-homedir, but NULL, if the in windows registry entry
-      * doesn't exist or in linux ~/.gnupg doesn't exist
-      */
-    QString getGnuPGHome();
-
-    QLabel *gnupgLabel;
-    QVBoxLayout *layout;
-    GpgME::GpgContext *mCtx;
-    QCheckBox *gnupgPrivKeyCheckBox;
-    QCheckBox *gnupgpPubKeyCheckBox;
-    QCheckBox *gpg4usbPrivKeyCheckBox;
-    QCheckBox *gpg4usbPubKeyCheckBox;
-    QPushButton *importFromGnupgButton;
-    QPushButton *importFromGpg4usbButton;
 };
 
 class ConclusionPage : public QWizardPage
