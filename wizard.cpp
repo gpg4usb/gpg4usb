@@ -79,7 +79,7 @@ IntroPage::IntroPage(QWidget *parent)
      setTitle(tr("Introduction"));
      setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
 
-     topLabel = new QLabel(tr("This wizard will help you getting started with encrypting and decrypting."));
+     topLabel = new QLabel(tr("This wizard will help you getting started with encrypting and decrypting or to import keys from an older version of gpg4usb or an existing installation of Gnupg."));
      topLabel->setWordWrap(true);
 
      QVBoxLayout *layout = new QVBoxLayout;
