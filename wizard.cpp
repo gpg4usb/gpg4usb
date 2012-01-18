@@ -111,37 +111,34 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     mKeyMgmt=keyMgmt;
     setTitle(tr("Keyring Import"));
 
-    QGroupBox *gpg4usbBox = new QGroupBox(tr("Import keys and/or settings from older gpg4usb"), this);
-
-    QGridLayout *gpg4usbLayout = new QGridLayout();
-    QLabel *gnupgLabel = new QLabel(tr("Point to the folder of last gpg4usb"));
-    gpg4usbLayout->addWidget(gnupgLabel,1,3);
+    QLabel *topLabel = new QLabel(tr("Import keys and/or settings from older gpg4usb. Just check, what you want to "
+                                  "import, click the import button and choose the directory "
+                                  "of your old gpg4usb in the appearing file dialog."), this);
+    topLabel->setWordWrap(true);
 
     gpg4usbKeyCheckBox = new QCheckBox();
     gpg4usbKeyCheckBox->setChecked(true);
-    gpg4usbLayout->addWidget(gpg4usbKeyCheckBox,2,1,Qt::AlignRight);
-    QLabel *privateKeyLabel2 = new QLabel(tr("Keys"));
-    gpg4usbLayout->addWidget(privateKeyLabel2,2,2);
+    QLabel *keyLabel = new QLabel(tr("Keys"));
 
     gpg4usbConfigCheckBox = new QCheckBox();
     gpg4usbConfigCheckBox->setChecked(true);
-    gpg4usbLayout->addWidget(gpg4usbConfigCheckBox,3,1,Qt::AlignRight);
-    QLabel *gpg4usbLabel = new QLabel(tr("Configuration"));
-    gpg4usbLayout->addWidget(gpg4usbLabel,3,2);
+    QLabel *configLabel = new QLabel(tr("Configuration"));
 
     QWidget *importFromGpg4usbButtonBox = new QWidget(this);
     QHBoxLayout  *importFromGpg4usbButtonBoxLayout = new QHBoxLayout(importFromGpg4usbButtonBox);
     importFromGpg4usbButton = new QPushButton(tr("Import from older gpg4usb"));
     connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importKeysFromGpg4usb()));
     importFromGpg4usbButtonBox->setLayout(importFromGpg4usbButtonBoxLayout);
-    gpg4usbLayout->addWidget(importFromGpg4usbButton,2,3);
 
-    gpg4usbBox->setLayout(gpg4usbLayout);
+    QGridLayout *gpg4usbLayout = new QGridLayout();
+    gpg4usbLayout->addWidget(topLabel,1,1,1,2);
+    gpg4usbLayout->addWidget(gpg4usbKeyCheckBox,2,1,Qt::AlignRight);
+    gpg4usbLayout->addWidget(keyLabel,2,2);
+    gpg4usbLayout->addWidget(gpg4usbConfigCheckBox,3,1,Qt::AlignRight);
+    gpg4usbLayout->addWidget(configLabel,3,2);
+    gpg4usbLayout->addWidget(importFromGpg4usbButton,4,2);
 
-    layout = new QVBoxLayout();
-    layout->addWidget(gpg4usbBox);
-
-    this->setLayout(layout);
+    this->setLayout(gpg4usbLayout);
 }
 
 bool ImportFromGpg4usbPage::importKeysFromGpg4usb()

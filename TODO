@@ -24,14 +24,11 @@ Release 0.3.2
 	- if import failed, because no key was found [DONE]
 	- if key is already in keyring [DONE]
 	- BUG: Also show details, when key is really new [DONE]
-<<<<<<< HEAD
-=======
 - Wizard on first start (Create Key, Import from keys older gpg4usb, import from gnupg) [DONE]
 	- import conf from old gpg4usb
-	- only show one import dateil dialog, when importing public/private keys 
+	- only show one import detail dialog, when importing public/private keys 
 	- always activate next button
 	- nextid is not called when clicking finish button
->>>>>>> a rough new configuration of wizard. Pages are in right order
 - option in settingsdialog for enabling steganographic operations [DONE]
 	- minimal steganography option: remove or add pgp-headers on demand [DONE]
 	-  Add advanced tab to settings dialog [DONE]
@@ -50,7 +47,7 @@ Release 0.3.2
 	- images should be included in paragraph [DONE]
                      - every html should have prev, next, toc link
                      - remove menu and logo from subpages
-                    - docs for sign&verify
+                     - docs for sign&verify
 
 
 BUGS:
