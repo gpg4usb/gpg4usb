@@ -233,8 +233,6 @@ bool ImportFromGnupgPage::importKeysFromGnupg()
         return false;
     }
     QByteArray inBuffer = file.readAll();
-    mKeyMgmt->importKeys(inBuffer);
-    inBuffer.clear();
     file.close();
 
     // try to import public keys
@@ -244,7 +242,7 @@ bool ImportFromGnupgPage::importKeysFromGnupg()
         QMessageBox::critical(0, tr("Import error"), tr("Couldn't open public keyringfile: ") + pubRingFile);
         return false;
     }
-    inBuffer = file.readAll();
+    inBuffer.append(file.readAll());
     mKeyMgmt->importKeys(inBuffer);
     inBuffer.clear();
     file.close();
