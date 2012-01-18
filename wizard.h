@@ -80,8 +80,8 @@ private:
     KeyMgmt *mKeyMgmt;
     QVBoxLayout *layout;
     GpgME::GpgContext *mCtx;
-    QCheckBox *gpg4usbPrivKeyCheckBox;
-    QCheckBox *gpg4usbPubKeyCheckBox;
+    QCheckBox *gpg4usbKeyCheckBox;
+    QCheckBox *gpg4usbConfigCheckBox;
     QPushButton *importFromGpg4usbButton;
 };
 
@@ -112,8 +112,6 @@ private:
     QLabel *gnupgLabel;
     QVBoxLayout *layout;
     GpgME::GpgContext *mCtx;
-    QCheckBox *gnupgPrivKeyCheckBox;
-    QCheckBox *gnupgpPubKeyCheckBox;
     QPushButton *importFromGnupgButton;
 };
 
@@ -146,7 +144,7 @@ public:
 
 private:
     QLabel *bottomLabel;
-    QCheckBox *showWizardCheckBox;
+    QCheckBox *dontShowWizardCheckBox;
 };
 
 #endif
