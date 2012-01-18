@@ -58,7 +58,11 @@ public:
     QLabel *topLabel;
     QLabel *langLabel;
     QComboBox *langSelectBox;
+    QHash<QString,QString> languages;
     int nextId() const;
+
+private slots:
+    void langChange(QString lang);
 };
 
 class ImportFromGpg4usbPage : public QWizardPage

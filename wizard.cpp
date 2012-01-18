@@ -58,11 +58,20 @@ IntroPage::IntroPage(QWidget *parent)
     langLabel = new QLabel(tr("Choose a Language"));
     langLabel->setWordWrap(true);
 
+    languages = SettingsDialog::listLanguages();
     langSelectBox = new QComboBox();
-    foreach(QString l, SettingsDialog::listLanguages()) {
+    foreach(QString l, languages) {
         langSelectBox->addItem(l);
     }
+    // selected entry from config
+    QSettings settings;
+    QString langKey = settings.value("int/lang").toString();
+    QString langValue = languages.value(langKey);
+    if (langKey != "") {
+        langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
+    }
 
+    connect(langSelectBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(langChange(QString)));
 
     // set layout and add widgets
     QVBoxLayout *layout = new QVBoxLayout;
@@ -70,7 +79,14 @@ IntroPage::IntroPage(QWidget *parent)
     layout->addWidget(langLabel);
     layout->addWidget(langSelectBox);
     setLayout(layout);
-    this->setFinalPage(true);
+    //this->setFinalPage(true);
+}
+
+void IntroPage::langChange(QString lang) {
+    QSettings settings;
+    settings.setValue("int/lang", languages.key(lang));
+    settings.setValue("wizard/nextPage", this->wizard()->currentId());
+    qApp->exit(RESTART_CODE);
 }
 
 int IntroPage::nextId() const
@@ -140,8 +156,7 @@ bool ImportFromGpg4usbPage::importKeysFromGpg4usb()
     }
 
     QSettings settings;
-    //settings.setValue("wizard/page", this->wizard()->currentId());
-    settings.setValue("wizard/page", this->nextId());
+    settings.setValue("wizard/nextPage", this->nextId());
 
     // TODO: edit->maybesave?
     qApp->exit(RESTART_CODE);
