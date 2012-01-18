@@ -57,6 +57,7 @@ public:
     IntroPage(QWidget *parent = 0);
     QLabel *topLabel;
     QLabel *langLabel;
+    QComboBox *langSelectBox;
     int nextId() const;
 };
 

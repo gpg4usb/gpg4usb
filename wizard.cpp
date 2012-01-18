@@ -58,15 +58,17 @@ IntroPage::IntroPage(QWidget *parent)
     langLabel = new QLabel(tr("Choose a Language"));
     langLabel->setWordWrap(true);
 
-    QHash<QString, QString> languages = SettingsDialog::listLanguages();
-    foreach(QString l, languages) {
-        qDebug() << l;
+    langSelectBox = new QComboBox();
+    foreach(QString l, SettingsDialog::listLanguages()) {
+        langSelectBox->addItem(l);
     }
+
 
     // set layout and add widgets
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(topLabel);
     layout->addWidget(langLabel);
+    layout->addWidget(langSelectBox);
     setLayout(layout);
     this->setFinalPage(true);
 }
