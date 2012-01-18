@@ -5,5 +5,9 @@
         <file alias="button_copy.png">release/icons/button_copy.png</file>
         <file alias="logo.png">release/icons/gpg4usb-logo.png</file>
         <file alias="logo-flipped.png">release/icons/gpg4usb-logo_flipped.png</file>
+        <file alias="banner.png">release/icons/wizard_banner.png</file>
+        <file alias="logo_small.png">release/icons/gpg4usb-logo_small.png</file>
+        <file alias="keys2.jpg">release/icons/keys12.jpg</file>
+        <file alias="keys3.jpg">release/icons/keys13.jpg</file>
     </qresource>
 </RCC>

@@ -27,6 +27,7 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
 {
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
+
     setPage(Page_Intro,new IntroPage(this));
     setPage(Page_ImportFromGpg4usb,new ImportFromGpg4usbPage(mCtx, mKeyMgmt, this));
     setPage(Page_ImportFromGnupg,new ImportFromGnupgPage(mCtx, mKeyMgmt, this));
@@ -37,6 +38,11 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     setWizardStyle(ModernStyle);
 #endif
     setWindowTitle(tr("First Start Wizard"));
+
+    // http://www.flickr.com/photos/laureenp/6141822934/
+    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/keys2.jpg"));
+    setPixmap(QWizard::LogoPixmap, QPixmap(":/logo_small.png"));
+    setPixmap(QWizard::BannerPixmap, QPixmap(":/banner.png"));
 
     QSettings settings;
     setStartId(settings.value("wizard/page", -1).toInt());
@@ -56,7 +62,7 @@ IntroPage::IntroPage(QWidget *parent)
      : QWizardPage(parent)
 {
     setTitle(tr("Introduction"));
-    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
+    setSubTitle("bla");
 
     topLabel = new QLabel(tr("This wizard will help you getting started by importing settings and keys"
                              "from an older version of gpg4usb, import keys from a locally installed Gnupg or to "
@@ -106,10 +112,11 @@ int IntroPage::nextId() const
 ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
      : QWizardPage(parent)
 {
-    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
+    //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
     setTitle(tr("Keyring Import"));
+    setSubTitle("bla");
 
     QLabel *topLabel = new QLabel(tr("Import keys and/or settings from older gpg4usb. Just check, what you want to "
                                   "import, click the import button and choose the directory "
@@ -187,10 +194,11 @@ int ImportFromGpg4usbPage::nextId() const
 ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
      : QWizardPage(parent)
 {
-    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
+    //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
     setTitle(tr("Keyring Import"));
+    setSubTitle("bla");
     QGroupBox *gnupgBox = new QGroupBox(tr("Import from GnuPG"), this);
 
     QGridLayout *gnupgLayout = new QGridLayout();
@@ -276,9 +284,10 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
      : QWizardPage(parent)
 {
 
-    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
+    //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     setTitle(tr("Key-Generating"));
+    setSubTitle("bla");
     topLabel = new QLabel(tr("First you've got to create an own keypair.<br/>"
                              "The pair contains a public and a private key.<br/>"
                              "Other users can use the public key to encrypt texts for you<br/>"
@@ -325,6 +334,7 @@ ConclusionPage::ConclusionPage(QWidget *parent)
     : QWizardPage(parent)
 {
     setTitle(tr("Finish Start Wizard"));
+    setSubTitle("bla");
 
     bottomLabel = new QLabel(tr("You're ready to encrypt and decrpt now."));
     bottomLabel->setWordWrap(true);
