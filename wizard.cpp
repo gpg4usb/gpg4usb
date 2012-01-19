@@ -55,7 +55,8 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
 void Wizard::wizardAccepted() {
     qDebug() << "noShow: " << field("showWizard").toBool();
     QSettings settings;
-    settings.setValue("wizard/showWizard", field("showWizard").toBool());
+    // Don't show is mapped to show -> negation
+    settings.setValue("wizard/showWizard", !field("showWizard").toBool());
 }
 
 IntroPage::IntroPage(QWidget *parent)
