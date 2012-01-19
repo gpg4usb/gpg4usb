@@ -49,14 +49,18 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     settings.remove("wizard/nextPage");
 
     connect(this, SIGNAL(accepted()), this, SLOT(wizardAccepted()));
+    connect(this, SIGNAL(openHelp(QString)), parentWidget(), SLOT(openHelp(QString)));
 
 }
 
 void Wizard::wizardAccepted() {
-    qDebug() << "noShow: " << field("showWizard").toBool();
     QSettings settings;
     // Don't show is mapped to show -> negation
     settings.setValue("wizard/showWizard", !field("showWizard").toBool());
+
+    if(field("openHelp").toBool()) {
+        emit openHelp("docu.html#content");
+    }
 }
 
 IntroPage::IntroPage(QWidget *parent)
@@ -341,11 +345,16 @@ ConclusionPage::ConclusionPage(QWidget *parent)
     dontShowWizardCheckBox = new QCheckBox(tr("Dont show the wizard again."));
     dontShowWizardCheckBox->setChecked(Qt::Checked);
 
+    openHelpCheckBox = new QCheckBox(tr("Open offline help."));
+    openHelpCheckBox->setChecked(Qt::Checked);
+
     registerField("showWizard", dontShowWizardCheckBox);
+    registerField("openHelp", openHelpCheckBox);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(bottomLabel);
     layout->addWidget(dontShowWizardCheckBox);
+    layout->addWidget(openHelpCheckBox);
     setLayout(layout);
     setVisible(true);
 }

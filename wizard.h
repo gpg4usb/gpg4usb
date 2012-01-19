@@ -50,6 +50,9 @@ private:
 
 private slots:
     void wizardAccepted();
+
+signals:
+    void openHelp(QString page);
 };
 
 class IntroPage : public QWizardPage
@@ -153,6 +156,7 @@ public:
 private:
     QLabel *bottomLabel;
     QCheckBox *dontShowWizardCheckBox;
+    QCheckBox *openHelpCheckBox;
 };
 
 #endif
