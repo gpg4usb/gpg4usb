@@ -50,7 +50,7 @@ Release 0.3.2
                      - every html should have prev, next, toc link
                      - remove menu and logo from subpages
                      - docs for sign&verify
-
+- add file.close, when files are opened
 
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
