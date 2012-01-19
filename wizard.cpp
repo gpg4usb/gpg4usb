@@ -164,7 +164,7 @@ bool ImportFromGpg4usbPage::importKeysFromGpg4usb()
 
     // Return, if no keyrings are found in subdir of chosen dir
     if (!(pubRing.exists() or secRing.exists())) {
-        QMessageBox::critical(0, tr("Import Error"), tr("Couldn't locate any keyring file in choosen directory"));
+        QMessageBox::critical(0, tr("Import Error"), tr("Couldn't locate any keyring file in %1").arg(dir+"/keydb"));
         return false;
     }
 
@@ -197,25 +197,21 @@ ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgm
     //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
-    setTitle(tr("Keyring Import"));
+    setTitle(tr("Key import from Gnupg"));
     setSubTitle("bla");
-    QGroupBox *gnupgBox = new QGroupBox(tr("Import from GnuPG"), this);
 
-    QGridLayout *gnupgLayout = new QGridLayout();
-    gnupgLabel = new QLabel(tr("Should I try to import keys from a locally installed GnuPG?"));
-    gnupgLayout->addWidget(gnupgLabel,1,1);
+    QGridLayout *layout = new QGridLayout();
+    gnupgLabel = new QLabel(tr("Should I try to import keys from a locally installed GnuPG?<br/> The location is read "
+                               "from registry in Windows and assumed to be the .gnupg folder in the your home directory in Linux"));
+    gnupgLabel->setWordWrap(true);
+    layout->addWidget(gnupgLabel,1,1);
 
     QWidget *importFromGnupgButtonBox = new QWidget(this);
     QHBoxLayout  *importFromGnupgButtonBoxLayout = new QHBoxLayout(importFromGnupgButtonBox);
     importFromGnupgButton = new QPushButton(tr("Import keys from GnuPG"));
     connect(importFromGnupgButton, SIGNAL(clicked()), this, SLOT(importKeysFromGnupg()));
     importFromGnupgButtonBox->setLayout(importFromGnupgButtonBoxLayout);
-    gnupgLayout->addWidget(importFromGnupgButton,2,1);
-
-    gnupgBox->setLayout(gnupgLayout);
-
-    layout = new QVBoxLayout();
-    layout->addWidget(gnupgBox);
+    layout->addWidget(importFromGnupgButton,2,1);
 
     this->setLayout(layout);
 }
@@ -293,8 +289,8 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
                              "Other users can use the public key to encrypt texts for you<br/>"
                              "and verify texts signed by you.<br/>"
                              "You can use the private key to decrypt and sign texts.<br/>"
-                             "For more information have a look in the online tutorial:"));
-    QLabel *linkLabel = new QLabel("<a href=""docu_keygen.html#content"">"+tr("Online tutorial")+"</a>");
+                             "For more information have a look in the offline tutorial (which then is shown in the main window:"));
+    QLabel *linkLabel = new QLabel("<a href=""docu_keygen.html#content"">"+tr("Offline tutorial")+"</a>");
     //linkLabel->setOpenExternalLinks(true);
 
     connect(linkLabel, SIGNAL(linkActivated(const QString&)), parentWidget()->parentWidget(), SLOT(openHelp(const QString&)));
