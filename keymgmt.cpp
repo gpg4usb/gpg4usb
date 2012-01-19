@@ -88,7 +88,7 @@ void KeyMgmt::createActions()
     connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(importKeyFromKeyServer()));
 
     exportKeyToClipboardAct = new QAction(tr("Export To &Clipboard"), this);
-    exportKeyToClipboardAct->setIcon(QIcon(mIconPath + "export_key_to_clipbaord.png"));
+    exportKeyToClipboardAct->setIcon(QIcon(mIconPath + "export_key_to_clipboard.png"));
     exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
     connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
 
