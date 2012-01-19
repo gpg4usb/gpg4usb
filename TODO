@@ -28,8 +28,9 @@ Release 0.3.2
 	- import conf from old gpg4usb
 	- only show one import detail dialog, when importing public/private keys 
 	- always activate next button
-	- nextid is not called when clicking finish button
+	- nextid is not called when clicking finish button [DONE]
 	- add page for succesful import of settings from old gpg4usb (?)
+	- app is not in the foreground after importing config from older gpg4usb
 - BUG: cancel decryption on windows hangs programm -> possibly bug in gpgme [DONE]
 - option in settingsdialog for enabling steganographic operations [DONE]
 	- minimal steganography option: remove or add pgp-headers on demand [DONE]
@@ -51,6 +52,7 @@ Release 0.3.2
                      - remove menu and logo from subpages
                      - docs for sign&verify
 - add file.close, when files are opened
+- remove iconpath and use ressource file instaed
 
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown

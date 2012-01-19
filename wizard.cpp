@@ -33,7 +33,6 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     setPage(Page_ImportFromGnupg,new ImportFromGnupgPage(mCtx, mKeyMgmt, this));
     setPage(Page_GenKey,new KeyGenPage(mCtx, this));
     setPage(Page_Conclusion,new ConclusionPage(this));
-    qDebug() << Page_Intro;
 #ifndef Q_WS_MAC
     setWizardStyle(ModernStyle);
 #endif
@@ -136,11 +135,8 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     gpg4usbConfigCheckBox->setChecked(true);
     QLabel *configLabel = new QLabel(tr("Configuration"));
 
-    QWidget *importFromGpg4usbButtonBox = new QWidget(this);
-    QHBoxLayout  *importFromGpg4usbButtonBoxLayout = new QHBoxLayout(importFromGpg4usbButtonBox);
     importFromGpg4usbButton = new QPushButton(tr("Import from older gpg4usb"));
     connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importKeysFromGpg4usb()));
-    importFromGpg4usbButtonBox->setLayout(importFromGpg4usbButtonBoxLayout);
 
     QGridLayout *gpg4usbLayout = new QGridLayout();
     gpg4usbLayout->addWidget(topLabel,1,1,1,2);
@@ -207,18 +203,16 @@ ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgm
     setTitle(tr("Key import from Gnupg"));
     setSubTitle("bla");
 
-    QGridLayout *layout = new QGridLayout();
-    gnupgLabel = new QLabel(tr("Should I try to import keys from a locally installed GnuPG?<br/> The location is read "
+    QLabel *gnupgLabel = new QLabel(tr("Should I try to import keys from a locally installed GnuPG?<br/> The location is read "
                                "from registry in Windows and assumed to be the .gnupg folder in the your home directory in Linux"));
     gnupgLabel->setWordWrap(true);
-    layout->addWidget(gnupgLabel,1,1);
 
-    QWidget *importFromGnupgButtonBox = new QWidget(this);
-    QHBoxLayout  *importFromGnupgButtonBoxLayout = new QHBoxLayout(importFromGnupgButtonBox);
     importFromGnupgButton = new QPushButton(tr("Import keys from GnuPG"));
     connect(importFromGnupgButton, SIGNAL(clicked()), this, SLOT(importKeysFromGnupg()));
-    importFromGnupgButtonBox->setLayout(importFromGnupgButtonBoxLayout);
-    layout->addWidget(importFromGnupgButton,2,1);
+
+    QGridLayout *layout = new QGridLayout();
+    layout->addWidget(gnupgLabel);
+    layout->addWidget(importFromGnupgButton);
 
     this->setLayout(layout);
 }

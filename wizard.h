@@ -89,7 +89,6 @@ private:
     int nextId() const;
 
     KeyMgmt *mKeyMgmt;
-    QVBoxLayout *layout;
     GpgME::GpgContext *mCtx;
     QCheckBox *gpg4usbKeyCheckBox;
     QCheckBox *gpg4usbConfigCheckBox;
@@ -120,8 +119,6 @@ private:
       */
     QString getGnuPGHome();
 
-    QLabel *gnupgLabel;
-    QVBoxLayout *layout;
     GpgME::GpgContext *mCtx;
     QPushButton *importFromGnupgButton;
 };
