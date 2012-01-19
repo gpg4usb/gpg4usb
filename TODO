@@ -17,6 +17,8 @@ Release 0.3.2
 - put quote and double line break removale to "special edit" operation toolbar (icons for double linebreaks missing) [DONE]
 - emit keydbchanged from GPGcontext::importKey (for the moment not possible, because importinformation is lost after this) [DONE]
 - fix translation file for "SettingsDialog" as it says two times English, and the comment is on the wrong one. [DONE]
+- remove iconpath and use ressource file instead [DONE]
+- restart gpg4usb on language change [DONE]
 - Change "remove double line breaks" to "remove spacing" [DONE]
 	- icon from "line spacing icon" [DONE]
 - key import should be more verbose: [DONE]
@@ -38,21 +40,15 @@ Release 0.3.2
 - Add buttonto copy fingerprint to clipboard in details dialog [DONE]
 	- or set margin to make it easier selectable [DONE]
 	- remove whitespaces on copy [DONE]
-- restart gpg4usb on language change [DONE]
 - fix cancel password entry bug on windows [DONE]	
 - Update Qt to 4.8 [DONE]
 	- add Qt language files for Qt locales
-- Wizard on first start (Create Key, Import from keys older gpg4usb, import from gnupg) [DONE]
-	-  import conf from old gpg4usb [DONE]
-	- finalize
 - investigate in adding a offline help system [DONE]
 	- have a look at the format
 	- images should be included in paragraph [DONE]
                      - every html should have prev, next, toc link
                      - remove menu and logo from subpages
                      - docs for sign&verify
-- add file.close, when files are opened
-- remove iconpath and use ressource file instaed
 
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown

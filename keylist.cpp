@@ -235,6 +235,7 @@ void KeyList::dropEvent(QDropEvent* event)
                 }
                 QByteArray inBuffer = file.readAll();
                 this->importKeys(inBuffer);
+                file.close();
         }
    } else  {
             QByteArray inBuffer(event->mimeData()->text().toUtf8());

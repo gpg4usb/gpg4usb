@@ -37,7 +37,6 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
         resize(500, 200);
     }
 
-
     setModal(true);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -156,8 +155,7 @@ void FileEncryptionDialog::executeAction()
 
     QByteArray inBuffer = infile.readAll();
     QByteArray *outBuffer = new QByteArray();
-
-
+    infile.close();
     if ( mAction == Encrypt || (mAction == Both && radioEnc->isChecked())) {
         if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
     }
@@ -187,7 +185,9 @@ void FileEncryptionDialog::executeAction()
 
     QDataStream out(&outfile);
     out.writeRawData(outBuffer->data(), outBuffer->length());
+    outfile.close();
     QMessageBox::information(0, "Done", "Output saved to " + outputFileEdit->text());
+
     accept();
 }
 

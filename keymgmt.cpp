@@ -171,8 +171,8 @@ void KeyMgmt::importKeyFromFile()
             qDebug() << tr("Couldn't Open File: ") + fileName;
         }
         QByteArray inBuffer = file.readAll();
-
         importKeys(inBuffer);
+        file.close();
     }
 }
 

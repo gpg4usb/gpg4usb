@@ -85,6 +85,7 @@ void TextEdit::open()
                 page->getTextPage()->setFocus();
                 connect(page->getTextPage()->document(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
                 //enableAction(true)
+                file.close();
             } else {
                 QMessageBox::warning(this, tr("Application"),
                                      tr("Cannot read file %1:\n%2.")
@@ -135,7 +136,7 @@ bool TextEdit::saveFile(const QString &fileName)
         tabWidget->setTabText(curIndex, strippedName(fileName));
         page->setFilePath(fileName);
   //      statusBar()->showMessage(tr("File saved"), 2000);
-
+        file.close();
         return true;
     } else {
         QMessageBox::warning(this, tr("File"),
@@ -386,7 +387,7 @@ void TextEdit::loadFile(const QString &fileName)
     QApplication::restoreOverrideCursor();
     curPage()->setFilePath(fileName);
     tabWidget->setTabText(tabWidget->currentIndex(), strippedName(fileName));
-
+    file.close();
    // statusBar()->showMessage(tr("File loaded"), 2000);
 }
 

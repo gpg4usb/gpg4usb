@@ -127,6 +127,7 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
 
     QDataStream out(&outfile);
     out.writeRawData(outBuffer.data(), outBuffer.length());
+    outfile.close();
 }
 
 /**
@@ -171,7 +172,7 @@ void Attachments::openFile() {
 
     QDataStream out(&outfile);
     out.writeRawData(outBuffer.data(), outBuffer.length());
-
+    outfile.close();
     QDesktopServices::openUrl(QUrl("file://"+filename, QUrl::TolerantMode));
 }
 
