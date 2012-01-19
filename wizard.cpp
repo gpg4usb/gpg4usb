@@ -168,11 +168,13 @@ bool ImportFromGpg4usbPage::importKeysFromGpg4usb()
         return false;
     }
 
-    QSettings settings;
-    settings.setValue("wizard/nextPage", this->nextId());
+    if (gpg4usbConfigCheckBox->isChecked()) {
+        QSettings settings;
+        settings.setValue("wizard/nextPage", this->nextId());
 
-    // TODO: edit->maybesave?
-    qApp->exit(RESTART_CODE);
+        // TODO: edit->maybesave?
+        qApp->exit(RESTART_CODE);
+    }
     return true;
 }
 
