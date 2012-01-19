@@ -17,8 +17,16 @@ Release 0.3.2
 - put quote and double line break removale to "special edit" operation toolbar (icons for double linebreaks missing) [DONE]
 - emit keydbchanged from GPGcontext::importKey (for the moment not possible, because importinformation is lost after this) [DONE]
 - fix translation file for "SettingsDialog" as it says two times English, and the comment is on the wrong one. [DONE]
+- BUG: cancel decryption on windows hangs programm -> possibly bug in gpgme [DONE]
+- BUG: fix cancel password entry bug on windows [DONE]	
+- Add buttonto copy fingerprint to clipboard in details dialog [DONE]
+	- or set margin to make it easier selectable [DONE]
+	- remove whitespaces on copy [DONE]
 - remove iconpath and use ressource file instead [DONE]
 - restart gpg4usb on language change [DONE]
+- option in settingsdialog for enabling steganographic operations [DONE]
+	- minimal steganography option: remove or add pgp-headers on demand [DONE]
+	-  Add advanced tab to settings dialog [DONE]
 - Change "remove double line breaks" to "remove spacing" [DONE]
 	- icon from "line spacing icon" [DONE]
 - key import should be more verbose: [DONE]
@@ -27,20 +35,13 @@ Release 0.3.2
 	- if key is already in keyring [DONE]
 	- BUG: Also show details, when key is really new [DONE]
 - Wizard on first start (Create Key, Import from keys older gpg4usb, import from gnupg) [DONE]
-	- import conf from old gpg4usb
-	- only show one import detail dialog, when importing public/private keys 
-	- always activate next button
 	- nextid is not called when clicking finish button [DONE]
+	- import conf from old gpg4usb [DONE]
+	- only show one import detail dialog, when importing public/private keys [DONE]
+	- always activate next button
 	- add page for succesful import of settings from old gpg4usb (?)
 	- app is not in the foreground after importing config from older gpg4usb
-- BUG: cancel decryption on windows hangs programm -> possibly bug in gpgme [DONE]
-- option in settingsdialog for enabling steganographic operations [DONE]
-	- minimal steganography option: remove or add pgp-headers on demand [DONE]
-	-  Add advanced tab to settings dialog [DONE]
-- Add buttonto copy fingerprint to clipboard in details dialog [DONE]
-	- or set margin to make it easier selectable [DONE]
-	- remove whitespaces on copy [DONE]
-- fix cancel password entry bug on windows [DONE]	
+	- whats about settings, which weren't present in old version (?)
 - Update Qt to 4.8 [DONE]
 	- add Qt language files for Qt locales
 - investigate in adding a offline help system [DONE]
