@@ -27,21 +27,20 @@ MainWindow::MainWindow()
 
     /* get path were app was started */
     QString appPath = qApp->applicationDirPath();
-    iconPath = appPath + "/icons/";
 
     setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
 
-    edit = new TextEdit(iconPath);
+    edit = new TextEdit();
     setCentralWidget(edit);
 
     /* the list of Keys available*/
-    mKeyList = new KeyList(mCtx, iconPath);
+    mKeyList = new KeyList(mCtx);
 
     /* List of binary Attachments */
     attachmentDockCreated = false;
 
-    keyMgmt = new KeyMgmt(mCtx, iconPath, this);
+    keyMgmt = new KeyMgmt(mCtx, this);
     keyMgmt->hide();
     /* test attachmentdir for files alll 15s */
     QTimer *timer = new QTimer(this);
@@ -152,7 +151,7 @@ void MainWindow::createActions()
     /* Main Menu
       */
     newTabAct = new QAction(tr("&New"), this);
-    newTabAct->setIcon(QIcon(iconPath + "misc_doc.png"));
+    newTabAct->setIcon(QIcon(":misc_doc.png"));
     QList<QKeySequence> newTabActShortcutList;
     newTabActShortcutList.append(QKeySequence (Qt::CTRL + Qt::Key_N));
     newTabActShortcutList.append(QKeySequence (Qt::CTRL + Qt::Key_T));
@@ -161,25 +160,25 @@ void MainWindow::createActions()
     connect(newTabAct, SIGNAL(triggered()), edit, SLOT(newTab()));
 
     openAct = new QAction(tr("&Open..."), this);
-    openAct->setIcon(QIcon(iconPath + "fileopen.png"));
+    openAct->setIcon(QIcon(":fileopen.png"));
     openAct->setShortcut(QKeySequence::Open);
     openAct->setToolTip(tr("Open an existing file"));
     connect(openAct, SIGNAL(triggered()), edit, SLOT(open()));
 
     saveAct = new QAction(tr("&Save"), this);
-    saveAct->setIcon(QIcon(iconPath + "filesave.png"));
+    saveAct->setIcon(QIcon(":filesave.png"));
     saveAct->setShortcut(QKeySequence::Save);
     saveAct->setToolTip(tr("Save the current File"));
     connect(saveAct, SIGNAL(triggered()), edit, SLOT(save()));
 
     saveAsAct = new QAction(tr("Save &As")+"...", this);
-    saveAsAct->setIcon(QIcon(iconPath + "filesaveas.png"));
+    saveAsAct->setIcon(QIcon(":filesaveas.png"));
     saveAsAct->setShortcut(QKeySequence::SaveAs);
     saveAsAct->setToolTip(tr("Save the current File as..."));
     connect(saveAsAct, SIGNAL(triggered()), edit, SLOT(saveAs()));
 
     printAct = new QAction(tr("&Print"), this);
-    printAct->setIcon(QIcon(iconPath + "fileprint.png"));
+    printAct->setIcon(QIcon(":fileprint.png"));
     printAct->setShortcut(QKeySequence::Print);
     printAct->setToolTip(tr("Print Document"));
     connect(printAct, SIGNAL(triggered()), edit, SLOT(print()));
@@ -191,7 +190,7 @@ void MainWindow::createActions()
 
     quitAct = new QAction(tr("&Quit"), this);
     quitAct->setShortcut(QKeySequence::Quit);
-    quitAct->setIcon(QIcon(iconPath + "exit.png"));
+    quitAct->setIcon(QIcon(":exit.png"));
     quitAct->setToolTip(tr("Quit Program"));
     connect(quitAct, SIGNAL(triggered()), this, SLOT(close()));
 
@@ -216,38 +215,38 @@ void MainWindow::createActions()
     connect(zoomOutAct, SIGNAL(triggered()), edit, SLOT(zoomOut()));
 
     pasteAct = new QAction(tr("&Paste"), this);
-    pasteAct->setIcon(QIcon(iconPath + "button_paste.png"));
+    pasteAct->setIcon(QIcon(":button_paste.png"));
     pasteAct->setShortcut(QKeySequence::Paste);
     pasteAct->setToolTip(tr("Paste Text From Clipboard"));
     connect(pasteAct, SIGNAL(triggered()), edit, SLOT(paste()));
 
     cutAct = new QAction(tr("Cu&t"), this);
-    cutAct->setIcon(QIcon(iconPath + "button_cut.png"));
+    cutAct->setIcon(QIcon(":button_cut.png"));
     cutAct->setShortcut(QKeySequence::Cut);
     cutAct->setToolTip(tr("Cut the current selection's contents to the "
                           "clipboard"));
     connect(cutAct, SIGNAL(triggered()), edit, SLOT(cut()));
 
     copyAct = new QAction(tr("&Copy"), this);
-    copyAct->setIcon(QIcon(iconPath + "button_copy.png"));
+    copyAct->setIcon(QIcon(":button_copy.png"));
     copyAct->setShortcut(QKeySequence::Copy);
     copyAct->setToolTip(tr("Copy the current selection's contents to the "
                            "clipboard"));
     connect(copyAct, SIGNAL(triggered()), edit, SLOT(copy()));
 
     quoteAct = new QAction(tr("&Quote"), this);
-    quoteAct->setIcon(QIcon(iconPath + "quote.png"));
+    quoteAct->setIcon(QIcon(":quote.png"));
     quoteAct->setToolTip(tr("Quote whole text"));
     connect(quoteAct, SIGNAL(triggered()), edit, SLOT(quote()));
 
     selectallAct = new QAction(tr("Select &All"), this);
-    selectallAct->setIcon(QIcon(iconPath + "edit.png"));
+    selectallAct->setIcon(QIcon(":edit.png"));
     selectallAct->setShortcut(QKeySequence::SelectAll);
     selectallAct->setToolTip(tr("Select the whole text"));
     connect(selectallAct, SIGNAL(triggered()), edit, SLOT(selectAll()));
 
     cleanDoubleLinebreaksAct = new QAction(tr("Remove &spacing"), this);
-    cleanDoubleLinebreaksAct->setIcon(QIcon(iconPath + "format-line-spacing-triple.png"));
+    cleanDoubleLinebreaksAct->setIcon(QIcon(":format-line-spacing-triple.png"));
     //cleanDoubleLineBreaksAct->setShortcut(QKeySequence::SelectAll);
     cleanDoubleLinebreaksAct->setToolTip(tr("Remove double linebreaks, e.g. in pasted text from webmailer"));
     connect(cleanDoubleLinebreaksAct, SIGNAL(triggered()), this, SLOT(cleanDoubleLinebreaks()));
@@ -260,19 +259,19 @@ void MainWindow::createActions()
     /* Crypt Menu
      */
     encryptAct = new QAction(tr("&Encrypt"), this);
-    encryptAct->setIcon(QIcon(iconPath + "encrypted.png"));
+    encryptAct->setIcon(QIcon(":encrypted.png"));
     encryptAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E));
     encryptAct->setToolTip(tr("Encrypt Message"));
     connect(encryptAct, SIGNAL(triggered()), this, SLOT(encrypt()));
 
     decryptAct = new QAction(tr("&Decrypt"), this);
-    decryptAct->setIcon(QIcon(iconPath + "decrypted.png"));
+    decryptAct->setIcon(QIcon(":decrypted.png"));
     decryptAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_D));
     decryptAct->setToolTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
     fileEncryptionAct = new QAction(tr("&File Encryption"), this);
-    fileEncryptionAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    fileEncryptionAct->setIcon(QIcon(":fileencrytion.png"));
     fileEncryptionAct->setToolTip(tr("Encrypt/Decrypt File"));
     connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(fileEncryption()));
 
@@ -280,23 +279,23 @@ void MainWindow::createActions()
      * File encryption submenu
      */
     fileEncryptAct = new QAction(tr("&Encrypt File"), this);
-    //fileEncryptAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    //fileEncryptAct->setIcon(QIcon(":fileencrytion.png"));
     fileEncryptAct->setToolTip(tr("Encrypt File"));
     connect(fileEncryptAct, SIGNAL(triggered()), this, SLOT(fileEncrypt()));
 
     fileDecryptAct = new QAction(tr("&Decrypt File"), this);
-    //fileDecryptAct->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    //fileDecryptAct->setIcon(QIcon(":fileencrytion.png"));
     fileDecryptAct->setToolTip(tr("Decrypt File"));
     connect(fileDecryptAct, SIGNAL(triggered()), this, SLOT(fileDecrypt()));
 
     signAct = new QAction(tr("&Sign"), this);
-    signAct->setIcon(QIcon(iconPath + "signature.png"));
+    signAct->setIcon(QIcon(":signature.png"));
     signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
     signAct->setToolTip(tr("Sign Message"));
     connect(signAct, SIGNAL(triggered()), this, SLOT(sign()));
 
     verifyAct = new QAction(tr("&Verify"), this);
-    verifyAct->setIcon(QIcon(iconPath + "verify.png"));
+    verifyAct->setIcon(QIcon(":verify.png"));
     verifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_V));
     verifyAct->setToolTip(tr("Verify Message"));
     connect(verifyAct, SIGNAL(triggered()), this, SLOT(verify()));
@@ -305,19 +304,19 @@ void MainWindow::createActions()
      */
 
     importKeyFromEditAct = new QAction(tr("&Editor"), this);
-    importKeyFromEditAct->setIcon(QIcon(iconPath + "txt.png"));
+    importKeyFromEditAct->setIcon(QIcon(":txt.png"));
     importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
     openKeyManagementAct = new QAction(tr("Manage &keys"), this);
-    openKeyManagementAct->setIcon(QIcon(iconPath + "keymgmt.png"));
+    openKeyManagementAct->setIcon(QIcon(":keymgmt.png"));
     openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
 
     /* About Menu
      */
     aboutAct = new QAction(tr("&About"), this);
-    aboutAct->setIcon(QIcon(iconPath + "help.png"));
+    aboutAct->setIcon(QIcon(":help.png"));
     aboutAct->setToolTip(tr("Show the application's About box"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
@@ -407,7 +406,7 @@ void MainWindow::createMenus()
 
     keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
-    importKeyMenu->setIcon(QIcon(iconPath + "key_import.png"));
+    importKeyMenu->setIcon(QIcon(":key_import.png"));
     importKeyMenu->addAction(keyMgmt->importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
     importKeyMenu->addAction(keyMgmt->importKeyFromClipboardAct);
@@ -479,7 +478,7 @@ void MainWindow::createToolBars()
     QToolButton* importButton = new QToolButton();
     importButton->setMenu(importKeyMenu);
     importButton->setPopupMode(QToolButton::InstantPopup);
-    importButton->setIcon(QIcon(iconPath + "key_import.png"));
+    importButton->setIcon(QIcon(":key_import.png"));
     importButton->setToolTip("Import key");
     importButton->setText("Import key..");
     importButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
@@ -492,7 +491,7 @@ void MainWindow::createToolBars()
     fileEncMenu->addAction(fileDecryptAct);
     fileEncButton->setMenu(fileEncMenu);
     fileEncButton->setPopupMode(QToolButton::InstantPopup);
-    fileEncButton->setIcon(QIcon(iconPath + "fileencrytion.png"));
+    fileEncButton->setIcon(QIcon(":fileencryption.png"));
     fileEncButton->setToolTip("Encrypt or decrypt File");
     fileEncButton->setText("File..");
     fileEncButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
@@ -508,7 +507,7 @@ void MainWindow::createStatusBar()
     QPixmap *pixmap;
 
     // icon which should be shown if there are files in attachments-folder
-    pixmap = new QPixmap(iconPath + "statusbar_icon.png");
+    pixmap = new QPixmap(":statusbar_icon.png");
     statusBarIcon = new QLabel(statusBar());
     statusBarIcon->setPixmap(*pixmap);
     statusBar()->insertPermanentWidget(0,statusBarIcon,0);
@@ -539,7 +538,7 @@ void MainWindow::createAttachmentDock() {
     if (attachmentDockCreated) {
         return;
     }
-    mAttachments = new Attachments(iconPath);
+    mAttachments = new Attachments();
     attachmentDock = new QDockWidget(tr("Attached files:"), this);
     attachmentDock->setObjectName("AttachmentDock");
     attachmentDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea | Qt::BottomDockWidgetArea);
@@ -580,7 +579,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::about()
 {
-    QPixmap *pixmap = new QPixmap(iconPath + "gpg4usb-logo.png");
+    QPixmap *pixmap = new QPixmap(":gpg4usb-logo.png");
     QString *title = new QString(tr("About ") + qApp->applicationName());
     QString *text = new QString("<center><h2>" + qApp->applicationName() + " "
                                 + qApp->applicationVersion() + "</h2></center>"
@@ -860,21 +859,21 @@ void MainWindow::fileEncryption()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, iconPath, *keyList, this);
+        new FileEncryptionDialog(mCtx, *keyList, this);
 }
 
 void MainWindow::fileEncrypt()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, iconPath, *keyList, this, FileEncryptionDialog::Encrypt);
+        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Encrypt);
 }
 
 void MainWindow::fileDecrypt()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, iconPath, *keyList, this, FileEncryptionDialog::Decrypt);
+        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Decrypt);
 }
 
 void MainWindow::openSettingsDialog()

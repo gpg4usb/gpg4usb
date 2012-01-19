@@ -21,11 +21,10 @@
 
 #include "keylist.h"
 
-KeyList::KeyList(GpgME::GpgContext *ctx, QString iconpath, QWidget *parent)
+KeyList::KeyList(GpgME::GpgContext *ctx, QWidget *parent)
         : QWidget(parent)
 {
     mCtx = ctx;
-    this->iconPath = iconpath;
 
     mKeyList = new QTableWidget(this);
     mKeyList->setColumnCount(6);
@@ -85,7 +84,7 @@ void KeyList::refresh()
         mKeyList->setItem(row, 0, tmp0);
 
         if (it->privkey) {
-            QTableWidgetItem *tmp1 = new QTableWidgetItem(QIcon(iconPath + "kgpg_key2.png"), "");
+            QTableWidgetItem *tmp1 = new QTableWidgetItem(QIcon(":kgpg_key2.png"), "");
             mKeyList->setItem(row, 1, tmp1);
         }
         QTableWidgetItem *tmp2 = new QTableWidgetItem(it->name);

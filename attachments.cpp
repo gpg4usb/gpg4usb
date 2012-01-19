@@ -36,13 +36,10 @@
 
 #include "attachments.h"
 
-Attachments::Attachments(QString iconpath, QWidget *parent)
+Attachments::Attachments(QWidget *parent)
         : QWidget(parent)
 {
-
-    this->iconPath = iconpath;
-
-    table = new AttachmentTableModel(iconpath, this);
+    table = new AttachmentTableModel(this);
 
     tableView = new QTableView;
     tableView->setModel(table);
@@ -80,12 +77,12 @@ void Attachments::createActions()
 {
     saveFileAct = new QAction(tr("Save File"), this);
     saveFileAct->setToolTip(tr("Save this file"));
-    saveFileAct->setIcon(QIcon(iconPath + "filesave.png"));
+    saveFileAct->setIcon(QIcon(":filesave.png"));
     connect(saveFileAct, SIGNAL(triggered()), this, SLOT(saveFile()));
 
     openFileAct = new QAction(tr("Open File"), this);
     openFileAct->setToolTip(tr("Open this file"));
-    openFileAct->setIcon(QIcon(iconPath + "fileopen.png"));
+    openFileAct->setIcon(QIcon(":fileopen.png"));
     connect(openFileAct, SIGNAL(triggered()), this, SLOT(openFile()));
 
 }

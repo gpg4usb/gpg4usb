@@ -38,7 +38,7 @@ class KeyList : public QWidget
     Q_OBJECT
 
 public:
-    KeyList(GpgME::GpgContext *ctx, QString iconpath, QWidget *parent = 0);
+    KeyList(GpgME::GpgContext *ctx, QWidget *parent = 0);
     void setColumnWidth(int row, int size);
     void addMenuAction(QAction *act);
 
@@ -58,7 +58,6 @@ private:
     void importKeys(QByteArray inBuffer);
     GpgME::GpgContext *mCtx;
     QTableWidget *mKeyList;
-    QString iconPath;
     QMenu *popupMenu;
 
 protected:

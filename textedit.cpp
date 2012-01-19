@@ -21,9 +21,8 @@
 
 #include "textedit.h"
 
-TextEdit::TextEdit(QString iconPath)
+TextEdit::TextEdit()
 {
-    mIconPath = iconPath;
     countPage = 0;
     tabWidget = new QTabWidget(this);
     tabWidget->setMovable(true);
@@ -278,7 +277,7 @@ bool TextEdit::maybeSaveAnyTab()
         QHashIterator<int, QString> i (unsavedDocs);
 
         QuitDialog *dialog;
-        dialog=new QuitDialog(this, unsavedDocs, mIconPath);
+        dialog=new QuitDialog(this, unsavedDocs);
         int result = dialog->exec();
 
         // if result is QDialog::Rejected, discard or cancel was clicked

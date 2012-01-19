@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="tray.png">release/icons/keymgmt.png</file>
+        <file alias="keymgmt.png">release/icons/keymgmt.png</file>
         <file alias="help.png">release/icons/help.png</file>
         <file alias="button_copy.png">release/icons/button_copy.png</file>
         <file alias="logo.png">release/icons/gpg4usb-logo.png</file>
@@ -44,5 +44,9 @@
         <file alias="undo.png">release/icons/undo.png</file>
         <file alias="verify.png">release/icons/verify.png</file>
         <file alias="export_key_to_clipboard.png">release/icons/export_key_to_clipboard.png</file>
+        <file alias="mimetypes/application-pdf.png">release/icons/mimetypes/application-pdf.png</file>
+        <file alias="mimetypes/image-x-generic.png">release/icons/mimetypes/image-x-generic.png</file>
+        <file alias="mimetypes/text-plain.png">release/icons/mimetypes/text-plain.png</file>
+        <file alias="mimetypes/unknown.png">release/icons/mimetypes/unknown.png</file>
     </qresource>
 </RCC>

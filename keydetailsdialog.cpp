@@ -120,7 +120,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     QHBoxLayout *hboxFP = new QHBoxLayout();
 
     hboxFP->addWidget(fingerPrintVarLabel);
-    QIcon ico(":/button_copy.png");
+    QIcon ico(":button_copy.png");
 
     QPushButton copyFingerprintButton(QIcon(ico.pixmap(12, 12)), "");
     //copyFingerprintButton.setStyleSheet("QPushButton {border: 0px; } QPushButton:Pressed {}  ");

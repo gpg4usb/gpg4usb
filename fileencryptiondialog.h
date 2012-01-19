@@ -61,11 +61,10 @@ public:
      *
      * @fn FileEncryptionDialog
      * @param ctx
-     * @param iconPath
      * @param keyList
      * @param parent
      */
-    FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconPath, QStringList keyList, QWidget *parent = 0, DialogAction action = Both);
+    FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, QWidget *parent = 0, DialogAction action = Both);
 
 public slots:
     /**

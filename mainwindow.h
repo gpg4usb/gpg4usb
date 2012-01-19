@@ -315,7 +315,6 @@ private:
     KeyList *mKeyList; /**< TODO */
     Attachments *mAttachments; /**< TODO */
     GpgME::GpgContext *mCtx; /**< TODO */
-    QString iconPath; /**< TODO */
     KeyMgmt *keyMgmt; /**< TODO */
     KeyServerImportDialog *importDialog; /**< TODO */
     bool attachmentDockCreated;

@@ -51,10 +51,8 @@ class TextEdit : public QWidget
 public:
     /**
      * @brief
-     *
-     * @param iconPath
      */
-    TextEdit(QString iconPath);
+    TextEdit();
 
     /**
      * @details Load the content of file into the current textpage
@@ -192,7 +190,6 @@ private:
      */
     bool maybeSaveCurrentTab(bool askToSave);
 
-    QString mIconPath; /** Path to the apps icons */
     /****************************************************************************************
      * Name:                countPage
      * Description:         int cotaining the number of added tabs

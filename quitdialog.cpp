@@ -22,7 +22,7 @@
 
 #include "quitdialog.h"
 
-QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString iconPath)
+QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs)
     : QDialog(parent)
 {
     setWindowTitle(tr("Unsaved files"));
@@ -68,7 +68,7 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs, QString
     /*
      *  Warnbox with icon and text
      */
-    QPixmap *pixmap = new QPixmap(iconPath + "error.png");
+    QPixmap *pixmap = new QPixmap(":error.png");
     QLabel *warnicon = new QLabel();
     warnicon->setPixmap(*pixmap);
     QLabel *warnlabel = new QLabel(tr("<h3>%1 files contain unsaved information.<br/>Save the changes before closing?</h3>").arg(row));

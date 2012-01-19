@@ -35,12 +35,6 @@ AttachmentTableModel::AttachmentTableModel(QList<MimePart> mimeparts, QObject *p
     listOfMimeparts = mimeparts;
 }
 
-AttachmentTableModel::AttachmentTableModel(QString iconpath, QObject *parent) :
-        QAbstractTableModel(parent)
-{
-    iconPath = iconpath;
-}
-
 
 void AttachmentTableModel::add(MimePart mp)
 {
@@ -110,12 +104,12 @@ QVariant AttachmentTableModel::data(const QModelIndex &index, int role) const
         MimePart mp = listOfMimeparts.at(index.row());
         QString icon;
         if (mp.header.getValue("Content-Type").startsWith("image")) {
-            icon = iconPath + "/mimetypes/image-x-generic.png";
+            icon = ":mimetypes/image-x-generic.png";
         } else {
             icon = mp.header.getValue("Content-Type").replace("/", "-");
-            icon = iconPath + "/mimetypes/" + icon + ".png";
+            icon = ":mimetypes/" + icon + ".png";
         }
-        if (!QFile::exists(icon)) icon = iconPath + "/mimetypes/unknown.png";
+        if (!QFile::exists(icon)) icon = ":mimetypes/unknown.png";
         return QIcon(icon);
     }
 

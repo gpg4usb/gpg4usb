@@ -22,13 +22,12 @@
 
 #include "keymgmt.h"
 
-KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QString iconpath, QWidget *parent )  : QMainWindow(parent)
+KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QWidget *parent )  : QMainWindow(parent)
 {
     mCtx = ctx;
-    mIconPath = iconpath;
 
     /* the list of Keys available*/
-    mKeyList = new KeyList(mCtx, mIconPath);
+    mKeyList = new KeyList(mCtx);
     mKeyList->setColumnWidth(2, 250);
     mKeyList->setColumnWidth(3, 250);
     setCentralWidget(mKeyList);
@@ -68,32 +67,32 @@ void KeyMgmt::createActions()
 {
     closeAct = new QAction(tr("&Close Key Management"), this);
     closeAct->setShortcut(tr("Ctrl+Q"));
-    closeAct->setIcon(QIcon(mIconPath + "exit.png"));
+    closeAct->setIcon(QIcon(":exit.png"));
     closeAct->setToolTip(tr("Close Key Management"));
     connect(closeAct, SIGNAL(triggered()), this, SLOT(close()));
 
     importKeyFromFileAct = new QAction(tr("&File"), this);
-    importKeyFromFileAct->setIcon(QIcon(mIconPath + "import_key_from_file.png"));
+    importKeyFromFileAct->setIcon(QIcon(":import_key_from_file.png"));
     importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
     connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
 
     importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
-    importKeyFromClipboardAct->setIcon(QIcon(mIconPath + "import_key_from_clipboard.png"));
+    importKeyFromClipboardAct->setIcon(QIcon(":import_key_from_clipboard.png"));
     importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
     connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
 
     importKeyFromKeyServerAct = new QAction(tr("&Keyserver"), this);
-    importKeyFromKeyServerAct->setIcon(QIcon(mIconPath + "import_key_from_server.png"));
+    importKeyFromKeyServerAct->setIcon(QIcon(":import_key_from_server.png"));
     importKeyFromKeyServerAct->setToolTip(tr("Import New Key From Keyserver"));
     connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(importKeyFromKeyServer()));
 
     exportKeyToClipboardAct = new QAction(tr("Export To &Clipboard"), this);
-    exportKeyToClipboardAct->setIcon(QIcon(mIconPath + "export_key_to_clipboard.png"));
+    exportKeyToClipboardAct->setIcon(QIcon(":export_key_to_clipboard.png"));
     exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
     connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
 
     exportKeyToFileAct = new QAction(tr("Export To &File"), this);
-    exportKeyToFileAct->setIcon(QIcon(mIconPath + "export_key_to_file.png"));
+    exportKeyToFileAct->setIcon(QIcon(":export_key_to_file.png"));
     exportKeyToFileAct->setToolTip(tr("Export Selected Key(s) To File"));
     connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(exportKeyToFile()));
 
@@ -103,12 +102,12 @@ void KeyMgmt::createActions()
 
     deleteCheckedKeysAct = new QAction(tr("Delete Checked Key(s)"), this);
     deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
-    deleteCheckedKeysAct->setIcon(QIcon(mIconPath + "button_cancel.png"));
+    deleteCheckedKeysAct->setIcon(QIcon(":button_cancel.png"));
     connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
 
     generateKeyDialogAct = new QAction(tr("Generate Key"), this);
     generateKeyDialogAct->setToolTip(tr("Generate New Key"));
-    generateKeyDialogAct->setIcon(QIcon(mIconPath + "key_generate.png"));
+    generateKeyDialogAct->setIcon(QIcon(":key_generate.png"));
     connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(generateKeyDialog()));
 
     showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
@@ -142,7 +141,7 @@ void KeyMgmt::createToolBars()
     QToolButton* toolButton = new QToolButton(this);
     toolButton->setMenu(importKeyMenu);
     toolButton->setPopupMode(QToolButton::InstantPopup);
-    toolButton->setIcon(QIcon(mIconPath + "key_import.png"));
+    toolButton->setIcon(QIcon(":key_import.png"));
     toolButton->setToolTip("Import key");
     toolButton->setText("Import key from");
     toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);

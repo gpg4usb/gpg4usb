@@ -49,7 +49,7 @@ public slots:
     void openFile();
 
 public:
-    Attachments(QString iconpath, QWidget *parent = 0);
+    Attachments(QWidget *parent = 0);
     void addMimePart(MimePart *mp);
 
 private:
@@ -57,14 +57,12 @@ private:
     void saveByteArrayToFile(QByteArray outBuffer, QString filename);
     QAction *saveFileAct;
     QAction *openFileAct;
-    QString iconPath;
     AttachmentTableModel *table;
     QTableView *tableView;
     QSettings settings;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
-
 };
 
 #endif // __ATTACHMENTS_H__

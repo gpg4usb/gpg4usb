@@ -33,7 +33,7 @@ class QuitDialog : public QDialog
     Q_OBJECT
 
 public:
-    QuitDialog(QWidget *parent,QHash<int, QString> unsavedDocs, QString iconPath);
+    QuitDialog(QWidget *parent,QHash<int, QString> unsavedDocs);
     bool isDiscarded();
     QList <int> getTabIdsToSave();
 

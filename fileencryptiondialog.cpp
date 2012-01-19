@@ -21,7 +21,7 @@
 
 #include "fileencryptiondialog.h"
 
-FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconPath, QStringList keyList, QWidget *parent, DialogAction action)
+FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, QWidget *parent, DialogAction action)
         : QDialog(parent)
 
 {
@@ -69,7 +69,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QString iconP
     gLayout->addWidget(fb2, 1, 2);
 
     /*Setup KeyList*/
-    mKeyList = new KeyList(mCtx, iconPath);
+    mKeyList = new KeyList(mCtx);
     mKeyList->hide();
     mKeyList->setColumnWidth(2, 150);
     mKeyList->setColumnWidth(3, 150);
