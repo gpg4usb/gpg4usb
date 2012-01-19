@@ -29,6 +29,7 @@ Release 0.3.2
 	- only show one import detail dialog, when importing public/private keys 
 	- always activate next button
 	- nextid is not called when clicking finish button
+	- add page for succesful import of settings from old gpg4usb (?)
 - BUG: cancel decryption on windows hangs programm -> possibly bug in gpgme [DONE]
 - option in settingsdialog for enabling steganographic operations [DONE]
 	- minimal steganography option: remove or add pgp-headers on demand [DONE]

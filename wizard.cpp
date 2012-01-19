@@ -45,8 +45,8 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     setPixmap(QWizard::BannerPixmap, QPixmap(":/banner.png"));
 
     QSettings settings;
-    setStartId(settings.value("wizard/page", -1).toInt());
-    settings.remove("wizard/page");
+    setStartId(settings.value("wizard/nextPage", -1).toInt());
+    settings.remove("wizard/nextPage");
 
     connect(this, SIGNAL(accepted()), this, SLOT(wizardAccepted()));
 
