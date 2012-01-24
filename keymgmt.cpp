@@ -169,6 +169,7 @@ void KeyMgmt::importKeyFromFile()
         file.setFileName(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
             qDebug() << tr("Couldn't Open File: ") + fileName;
+            return;
         }
         QByteArray inBuffer = file.readAll();
         importKeys(inBuffer);

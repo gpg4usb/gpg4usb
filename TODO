@@ -39,9 +39,8 @@ Release 0.3.2
 	- import conf from old gpg4usb [DONE]
 	- only show one import detail dialog, when importing public/private keys [DONE]
 	- always activate next button
-	- add page for succesful import of settings from old gpg4usb (?)
+	- add messagebox for succesful import of settings from old gpg4usb [DONE]
 	- app is not in the foreground after importing config from older gpg4usb
-	- whats about settings, which weren't present in old version (?)
 - Update Qt to 4.8 [DONE]
 	- add Qt language files for Qt locales
 - investigate in adding a offline help system [DONE]
