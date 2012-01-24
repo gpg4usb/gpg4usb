@@ -45,6 +45,7 @@ KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, GpgImportIn
 
     this->setLayout(mvbox);
     this->setWindowTitle(tr("Key import details"));
+    this->resize(QSize(600,300));
     this->setModal(true);
     this->show();
 }
@@ -100,11 +101,9 @@ void KeyImportDetailDialog::createKeysTable()
     keysTable->setSelectionMode(QAbstractItemView::NoSelection);
 
     QStringList headerLabels;
-    headerLabels  << tr("Name") << tr("Email") << tr("Fingerprint") << tr("Status");
-    keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
-    keysTable->horizontalHeader()->setStretchLastSection(true);
-
+    headerLabels  << tr("Name") << tr("Email") << tr("Status") << tr("Fingerprint");
     keysTable->verticalHeader()->hide();
+
     keysTable->setHorizontalHeaderLabels(headerLabels);
     int row = 0;
     foreach (GpgImportedKey impKey, mResult.importedKeys) {
@@ -112,10 +111,13 @@ void KeyImportDetailDialog::createKeysTable()
         GpgKey key = mCtx->getKeyByFpr(impKey.fpr);
         keysTable->setItem(row, 0, new QTableWidgetItem(key.name));
         keysTable->setItem(row, 1, new QTableWidgetItem(key.email));
-        keysTable->setItem(row, 2, new QTableWidgetItem(impKey.fpr));
-        keysTable->setItem(row,3,new QTableWidgetItem(getStatusString(impKey.importStatus)));
+        keysTable->setItem(row, 2 ,new QTableWidgetItem(getStatusString(impKey.importStatus)));
+        keysTable->setItem(row, 3, new QTableWidgetItem(impKey.fpr));
         row++;
     }
+    keysTable->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
+    keysTable->horizontalHeader()->setStretchLastSection(true);
+    keysTable->resizeColumnsToContents();
 }
 
 QString KeyImportDetailDialog::getStatusString(int keyStatus)

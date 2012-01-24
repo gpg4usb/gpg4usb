@@ -209,7 +209,6 @@ MimeTab::MimeTab(QWidget *parent)
     mimeQPBoxLayout->addWidget(mimeQPCheckBox);
     mimeQPBox->setLayout(mimeQPBoxLayout);
 
-
     QGroupBox *mimeParseBox = new QGroupBox(tr("Parse PGP/MIME (Experimental)"));
     QVBoxLayout  *mimeParseBoxLayout = new QVBoxLayout();
     mimeParseCheckBox = new QCheckBox(tr("Try to split attachments from PGP-MIME ecrypted messages."), this);
