@@ -39,7 +39,6 @@ private:
     GpgME::GpgContext *mCtx;
     KeyList *mKeyList;
     QHBoxLayout *mainLayout;
-    QVBoxLayout *mVboxLayout;
     QWidget *mVbox;
     QTextEdit *mTextpage; /** Textedit associated to the notification */
     QDialogButtonBox* buttonBox;

@@ -134,13 +134,11 @@ public:
 
 private slots:
     void generateKeyDialog();
-    void showKeyGeneratedMessage();
 
 private:
     QLabel *topLabel;
     QPushButton *createKeyButton;
     GpgME::GpgContext *mCtx;
-    QVBoxLayout *layout;
 };
 
 class ConclusionPage : public QWizardPage

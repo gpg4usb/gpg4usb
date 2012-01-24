@@ -44,7 +44,7 @@ void VerifyDetailsDialog::refresh()
     mVbox->close();
 
     mVbox = new QWidget();
-    mVboxLayout = new QVBoxLayout(mVbox);
+    QVBoxLayout *mVboxLayout = new QVBoxLayout(mVbox);
     mainLayout->addWidget(mVbox);
 
     // Get signature information of current text

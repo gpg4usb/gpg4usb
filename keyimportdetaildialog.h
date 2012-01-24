@@ -49,9 +49,6 @@ private:
     QGroupBox *generalInfoBox;
     QGroupBox *keyInfoBox;
     QDialogButtonBox *buttonBox;
-    QVBoxLayout *mvbox;
-    QGridLayout *generalInfoBoxLayout;
-    QGridLayout *keyInfoBoxLayout;
     GpgImportInformation mResult;
 };
 

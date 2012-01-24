@@ -159,6 +159,7 @@ void KeyMgmt::importKeys(QByteArray inBuffer)
 {
     GpgImportInformation result = mCtx->importKey(inBuffer);
     new KeyImportDetailDialog(mCtx, result, this);
+
 }
 
 void KeyMgmt::importKeyFromFile()

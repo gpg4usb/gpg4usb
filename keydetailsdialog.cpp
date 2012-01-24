@@ -24,7 +24,6 @@
 KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWidget *parent)
     : QDialog(parent)
 {
-
     mCtx = ctx;
     keyid = new QString(key->subkeys->keyid);
 
@@ -84,9 +83,9 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     createdVarLabel = new QLabel(keyCreatedVal);
     algorithmVarLabel = new QLabel(keyAlgoVal);
 
-    mvbox = new QVBoxLayout();
-    vboxKD = new QGridLayout();
-    vboxOD = new QGridLayout();
+    QVBoxLayout *mvbox = new QVBoxLayout();
+    QGridLayout *vboxKD = new QGridLayout();
+    QGridLayout *vboxOD = new QGridLayout();
 
     vboxOD->addWidget(nameLabel, 0, 0);
     vboxOD->addWidget(emailLabel, 1, 0);
@@ -113,7 +112,6 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     keyBox->setLayout(vboxKD);
     mvbox->addWidget(keyBox);
 
-    vboxFP = new QVBoxLayout();
     fingerPrintVarLabel = new QLabel(beautifyFingerprint(key->subkeys->fpr));
     fingerPrintVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
     fingerPrintVarLabel->setStyleSheet("margin-left: 20; margin-right: 20;");
@@ -134,9 +132,9 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     mvbox->addWidget(fingerprintBox);
 
     // If key has more than primary uid, also show the other uids
-    gpgme_user_id_t addUserIds= key->uids->next;
+    gpgme_user_id_t addUserIds = key->uids->next;
     if (addUserIds !=NULL) {
-        vboxUID = new QVBoxLayout();
+        QVBoxLayout *vboxUID = new QVBoxLayout();
         while (addUserIds != NULL){
             addUserIdsVarLabel = new QLabel(addUserIds->name+ QString(" <")+addUserIds->email+">");
             addUserIdsVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);

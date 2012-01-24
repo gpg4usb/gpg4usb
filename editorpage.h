@@ -85,7 +85,6 @@ public:
 private:
     QTextEdit *textPage; /** The textedit of the tab */
     QVBoxLayout *mainLayout; /** The layout for the tab */
-    QHBoxLayout *notificationWidgetLayout; /** layout for the notification-widget */
     QWidget *notificationWidget; /** The notification widget shown at the buttom of the tab */
     QMenu *verifyMenu; /** The menu in the notifiaction widget */
     QString fullFilePath; /** The path to the file handled in the tab */

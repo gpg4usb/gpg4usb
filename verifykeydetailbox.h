@@ -41,7 +41,6 @@ private:
     KeyList* mKeyList;
     QString beautifyFingerprint(QString fingerprint);
     QString fpr;
-    QGridLayout *grid;
 };
 
 #endif // __VERIFYKEYDETAILBOX_H__

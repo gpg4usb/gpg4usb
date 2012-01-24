@@ -102,7 +102,6 @@ private:
     GpgME::GpgContext *mCtx; /** GpgME Context */
     KeyList *mKeyList; /** Table holding the keys */
     QTextEdit *mTextpage; /** Textedit associated to the notification */
-    QHBoxLayout *notificationWidgetLayout; /** Layout for verify-notification */
     QVector<QString> verifyDetailStringVector; /** Vector containing the text for labels in verifydetaildialog */
     QVector<verify_label_status> verifyDetailStatusVector; /** Vector containing the status for labels in verifydetaildialog */
 

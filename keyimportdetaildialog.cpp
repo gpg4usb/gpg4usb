@@ -32,11 +32,16 @@ KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, GpgImportIn
         return;
     }
 
-    mvbox = new QVBoxLayout();
+    QVBoxLayout *mvbox = new QVBoxLayout();
 
     this->createGeneralInfoBox();
+    mvbox->addWidget(generalInfoBox);
+
     this->createKeysTable();
+    mvbox->addWidget(keysTable);
+
     this->createButtonBox();
+    mvbox->addWidget(buttonBox);
 
     this->setLayout(mvbox);
     this->setWindowTitle(tr("Key import details"));
@@ -48,7 +53,7 @@ void KeyImportDetailDialog::createGeneralInfoBox()
 {
     // GridBox for general import information
     generalInfoBox = new QGroupBox(tr("Genral key import info"));
-    generalInfoBoxLayout = new QGridLayout(generalInfoBox);
+    QGridLayout *generalInfoBoxLayout = new QGridLayout(generalInfoBox);
 
     generalInfoBoxLayout->addWidget(new QLabel(tr("Considered:")),1,0);
     generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.considered)),1,1);
@@ -83,7 +88,6 @@ void KeyImportDetailDialog::createGeneralInfoBox()
         generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.secret_unchanged)),row,1);
         row++;
     }
-    mvbox->addWidget(generalInfoBox);
 }
 
 void KeyImportDetailDialog::createKeysTable()
@@ -112,7 +116,6 @@ void KeyImportDetailDialog::createKeysTable()
         keysTable->setItem(row,3,new QTableWidgetItem(getStatusString(impKey.importStatus)));
         row++;
     }
-    mvbox->addWidget(keysTable);
 }
 
 QString KeyImportDetailDialog::getStatusString(int keyStatus)
@@ -152,5 +155,4 @@ void KeyImportDetailDialog::createButtonBox()
 {
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(close()));
-    mvbox->addWidget(buttonBox);
 }

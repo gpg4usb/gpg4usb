@@ -28,7 +28,7 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, 
     this->mKeyList = keyList;
     this->fpr=signature->fpr;
 
-    grid = new QGridLayout();
+    QGridLayout *grid = new QGridLayout();
 
     switch (gpg_err_code(signature->status))
     {

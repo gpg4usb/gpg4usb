@@ -313,7 +313,7 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
     createKeyButton = new QPushButton(tr("Create New Key"));
     createKeyButtonBoxLayout->addWidget(createKeyButton);
     createKeyButtonBoxLayout->addStretch(1);
-    layout = new QVBoxLayout();
+    QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(topLabel);
     layout->addWidget(linkLabel);
     layout->addWidget(createKeyButtonBox);
@@ -330,13 +330,7 @@ int KeyGenPage::nextId() const
 void KeyGenPage::generateKeyDialog()
 {
     KeyGenDialog *keyGenDialog = new KeyGenDialog(mCtx, this);
-    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(showKeyGeneratedMessage()));
     keyGenDialog->show();
-}
-
-void KeyGenPage::showKeyGeneratedMessage()
-{
-    layout->addWidget(new QLabel(tr("key generated. Now you can crypt and sign texts.")));
 }
 
 ConclusionPage::ConclusionPage(QWidget *parent)

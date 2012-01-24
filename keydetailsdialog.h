@@ -59,13 +59,6 @@ private:
     QGroupBox *additionalUidBox;
     QDialogButtonBox *buttonBox;
 
-    QVBoxLayout *mvbox;
-    QGridLayout *vboxKD;
-    QGridLayout *vboxOD;
-    QVBoxLayout *vboxFP;
-    QVBoxLayout *vboxUID;
-
-
     QLabel *nameLabel;
     QLabel *emailLabel;
     QLabel *commentLabel;

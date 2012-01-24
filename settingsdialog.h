@@ -151,7 +151,6 @@ public slots:
 private:
     QTabWidget *tabWidget;
     QDialogButtonBox *buttonBox;
-    QVBoxLayout *vbox;
 };
 
 #endif  // __SETTINGSDIALOG_H__
