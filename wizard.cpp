@@ -193,15 +193,14 @@ bool ImportFromGpg4usbPage::importFormOlderGpg4usb()
         return false;
     }
 
-    QFile secRing(dir+"/keydb/secring.gpg");
-    QFile pubRing(dir+"/keydb/pubring.gpg");
-
-    // Return, if no keyrings are found in subdir of chosen dir
-    if (!(pubRing.exists() or secRing.exists())) {
-        QMessageBox::critical(0, tr("Import Error"), tr("Couldn't locate any keyring file in %1").arg(dir+"/keydb"));
-        return false;
+    // try to import keys, if appropriate box is checked, return, if import was unsuccessful
+    if (gpg4usbKeyCheckBox->isChecked()) {
+        if (!Wizard::importPubAndSecKeysFromDir(dir+"/keydb",mKeyMgmt)) {
+            return false;
+        }
     }
 
+    // try to import config, if appropriate box is checked
     if (gpg4usbConfigCheckBox->isChecked()) {
         importConfFromGpg4usb(dir);
 
