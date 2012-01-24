@@ -43,6 +43,7 @@ public:
                 Page_Conclusion };
 
     Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
+    static bool importPubAndSecKeysFromDir(const QString dir, KeyMgmt *keyMgmt);
 
 private:
     GpgME::GpgContext *mCtx;
@@ -82,7 +83,7 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    bool importKeysFromGpg4usb();
+    bool importFormOlderGpg4usb();
     bool importConfFromGpg4usb(QString dir);
 
 private:

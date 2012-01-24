@@ -62,6 +62,43 @@ void Wizard::wizardAccepted() {
     }
 }
 
+bool Wizard::importPubAndSecKeysFromDir(const QString dir, KeyMgmt *keyMgmt)
+{
+    QFile secRingFile(dir+"/secring.gpg");
+    QFile pubRingFile(dir+"/pubring.gpg");
+
+    // Return, if no keyrings are found in subdir of chosen dir
+    if (!(pubRingFile.exists() or secRingFile.exists())) {
+        QMessageBox::critical(0, tr("Import Error"), tr("Couldn't locate any keyring file in %1").arg(dir));
+        return false;
+    }
+
+    QByteArray inBuffer;
+    if (secRingFile.exists()) {
+        // write content of secringfile to inBuffer
+        if (!secRingFile.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(0, tr("Import error"), tr("Couldn't open private keyringfile: %1").arg(secRingFile.fileName()));
+            return false;
+        }
+        inBuffer = secRingFile.readAll();
+        secRingFile.close();
+    }
+
+    if (pubRingFile.exists()) {
+        // try to import public keys
+        if (!pubRingFile.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(0, tr("Import error"), tr("Couldn't open public keyringfile: %1").arg(pubRingFile.fileName()));
+            return false;
+        }
+        inBuffer.append(pubRingFile.readAll());
+        pubRingFile.close();
+    }
+    keyMgmt->importKeys(inBuffer);
+    inBuffer.clear();
+
+    return true;
+}
+
 IntroPage::IntroPage(QWidget *parent)
      : QWizardPage(parent)
 {
@@ -98,7 +135,6 @@ IntroPage::IntroPage(QWidget *parent)
     layout->addWidget(langLabel);
     layout->addWidget(langSelectBox);
     setLayout(layout);
-    //this->setFinalPage(true);
 }
 
 void IntroPage::langChange(QString lang) {
@@ -116,7 +152,6 @@ int IntroPage::nextId() const
 ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
      : QWizardPage(parent)
 {
-    //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
     setTitle(tr("Keyring Import"));
@@ -136,7 +171,7 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     QLabel *configLabel = new QLabel(tr("Configuration"));
 
     importFromGpg4usbButton = new QPushButton(tr("Import from older gpg4usb"));
-    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importKeysFromGpg4usb()));
+    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importFormOlderGpg4usb()));
 
     QGridLayout *gpg4usbLayout = new QGridLayout();
     gpg4usbLayout->addWidget(topLabel,1,1,1,2);
@@ -149,7 +184,7 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     this->setLayout(gpg4usbLayout);
 }
 
-bool ImportFromGpg4usbPage::importKeysFromGpg4usb()
+bool ImportFromGpg4usbPage::importFormOlderGpg4usb()
 {
     QString dir = QFileDialog::getExistingDirectory(this,tr("Old gpg4usb directory"));
 
@@ -157,8 +192,6 @@ bool ImportFromGpg4usbPage::importKeysFromGpg4usb()
     if (dir.isEmpty()) {
         return false;
     }
-
-    importConfFromGpg4usb(dir);
 
     QFile secRing(dir+"/keydb/secring.gpg");
     QFile pubRing(dir+"/keydb/pubring.gpg");
@@ -170,6 +203,8 @@ bool ImportFromGpg4usbPage::importKeysFromGpg4usb()
     }
 
     if (gpg4usbConfigCheckBox->isChecked()) {
+        importConfFromGpg4usb(dir);
+
         QSettings settings;
         settings.setValue("wizard/nextPage", this->nextId());
 
@@ -197,7 +232,6 @@ int ImportFromGpg4usbPage::nextId() const
 ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
      : QWizardPage(parent)
 {
-    //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
     setTitle(tr("Key import from Gnupg"));
@@ -226,30 +260,8 @@ bool ImportFromGnupgPage::importKeysFromGnupg()
         return false;
     }
 
-    // try to import private files
-    QString privRingFile = gnuPGHome+"/secring.gpg";
-    QFile file;
-    file.setFileName(privRingFile);
-    if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(0, tr("Import error"), tr("Couldn't open private keyringfile: ") + privRingFile);
-        return false;
-    }
-    QByteArray inBuffer = file.readAll();
-    file.close();
-
-    // try to import public keys
-    QString pubRingFile = gnuPGHome+"/pubring.gpg";
-    file.setFileName(pubRingFile);
-    if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(0, tr("Import error"), tr("Couldn't open public keyringfile: ") + pubRingFile);
-        return false;
-    }
-    inBuffer.append(file.readAll());
-    mKeyMgmt->importKeys(inBuffer);
-    inBuffer.clear();
-    file.close();
-
-    return true;
+    // Try to import the keyring files and return the return value of the method
+    return Wizard::importPubAndSecKeysFromDir(gnuPGHome,mKeyMgmt);;
 }
 
 QString ImportFromGnupgPage::getGnuPGHome()
