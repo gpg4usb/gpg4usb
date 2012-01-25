@@ -5,8 +5,6 @@ Release 0.3.2
 	- gpgwin.cpp -> mainwindow.cpp [DONE]
 	- context.cpp -> gpgcontext.cpp [DONE]
 - show keyrings (files with .gpg) in import from file dialog too [DONE]
-- dropdown from menubar instead of dialog for import [DONE]
-- Change file encryption to single dialog for en- and decryption [DONE]
 - Change QPlaintextEdit to QTextEdit [DONE]
 	- Zoom In/Out [DONE]
 - keyimport from keyserver dialog should show reason for strike out  [DONE]
@@ -46,9 +44,13 @@ Release 0.3.2
 - investigate in adding a offline help system [DONE]
 	- have a look at the format
 	- images should be included in paragraph [DONE]
-                     - every html should have prev, next, toc link
-                     - remove menu and logo from subpages
+                     - every html should have prev, next, toc link [DONE]
+                     - remove menu and logo from subpages [DONE]
                      - docs for sign&verify
+- dropdown from menubar instead of dialog for import [DONE]
+	- resize dropdown button, cause letter are cut at the bottom  
+- Change file encryption to single dialog for en- and decryption [DONE]
+	- change docu on file de- and encryption
 
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
