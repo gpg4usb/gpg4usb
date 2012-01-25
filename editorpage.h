@@ -34,7 +34,7 @@ class QLabel;
 QT_END_NAMESPACE
 
 /**
- * @brief Class for handling a single tab of tabwidget
+ * @brief Class for handling a single tab of the tabwidget
  *
  */
 class EditorPage : public QWidget
