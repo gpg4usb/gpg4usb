@@ -182,12 +182,15 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
 
 void KeyDetailsDialog::exportPrivateKey()
 {
+    // Show a information box with explanation about private key
     int ret = QMessageBox::information(this, tr("Exporting private Key"),
                                        tr("You are about to export your private key.\n"
                                           "This is NOT your public key, so don't give it away.\n"
-                                          "Make sure you keep it save."),
+                                          "Make sure you keep it save."
+                                          "Do you really want to export your private key?"),
                                        QMessageBox::Cancel | QMessageBox::Ok);
 
+    // export key, if ok was clicked
     if (ret == QMessageBox::Ok) {
         QByteArray *keyArray = new QByteArray();
         mCtx->exportSecretKey(*keyid, keyArray);
@@ -196,6 +199,7 @@ void KeyDetailsDialog::exportPrivateKey()
         QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+            QMessageBox::critical(0,tr("Export error"),tr("Couldn't open %1 for writing").arg(fileName));
             return;
         QTextStream stream(&file);
         stream << *keyArray;

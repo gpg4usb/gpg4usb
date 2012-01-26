@@ -51,6 +51,7 @@ Release 0.3.2
 	- resize dropdown button, cause letter are cut at the bottom  
 - Change file encryption to single dialog for en- and decryption [DONE]
 	- change docu on file de- and encryption
+- qDebug messages with tr() (?)
 
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown
