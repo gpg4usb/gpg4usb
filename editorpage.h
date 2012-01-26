@@ -89,9 +89,12 @@ private:
     QMenu *verifyMenu; /** The menu in the notifiaction widget */
     QString fullFilePath; /** The path to the file handled in the tab */
     QLabel *verifyLabel; /** The label of the verify-notification widget */
-    bool signMarked;
+    bool signMarked; /** true, if the signed header is marked, false if not */
 
 private slots:
+    /**
+      * @details Format the gpg header in another font-style
+      */
     void formatGpgHeader();
 };
 

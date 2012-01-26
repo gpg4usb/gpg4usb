@@ -43,6 +43,12 @@ class KeyDetailsDialog : public QDialog
 
 public:
     KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWidget *parent = 0);
+
+    /**
+     * @details Return QString with a space inserted at every fourth character
+     *
+     * @param fingerprint The fingerprint to be beautified
+     */
     static QString beautifyFingerprint(QString fingerprint);
 
 private slots:
@@ -50,34 +56,25 @@ private slots:
     void copyFingerprint();
 
 private:
-    QString *keyid;
-    GpgME::GpgContext *mCtx;
+    QString *keyid; /** The id of the key the details should be shown for */
+    GpgME::GpgContext *mCtx; /** The current gpg-context */
 
-    QGroupBox *ownerBox;
-    QGroupBox *keyBox;
-    QGroupBox *fingerprintBox;
-    QGroupBox *additionalUidBox;
-    QDialogButtonBox *buttonBox;
+    QGroupBox *ownerBox; /** Groupbox containing owner information */
+    QGroupBox *keyBox; /** Groupbox containing key information */
+    QGroupBox *fingerprintBox; /** Groupbox containing fingerprint information */
+    QGroupBox *additionalUidBox; /** Groupbox containing information about additional uids */
+    QDialogButtonBox *buttonBox; /** Box containing the close button */
 
-    QLabel *nameLabel;
-    QLabel *emailLabel;
-    QLabel *commentLabel;
-    QLabel *keySizeLabel;
-    QLabel *expireLabel;
-    QLabel *createdLabel;
-    QLabel *algorithmLabel;
-    QLabel *fingerPrintVarLabel;
-    QLabel *keyidLabel;
-
-    QLabel *nameVarLabel;
-    QLabel *emailVarLabel;
-    QLabel *commentVarLabel;
-    QLabel *keySizeVarLabel;
-    QLabel *expireVarLabel;
-    QLabel *createdVarLabel;
-    QLabel *algorithmVarLabel;
-    QLabel *keyidVarLabel;
-    QLabel *addUserIdsVarLabel;
+    QLabel *nameVarLabel; /** Label containng the keys name */
+    QLabel *emailVarLabel; /** Label containng the keys email */
+    QLabel *commentVarLabel; /** Label containng the keys commment */
+    QLabel *keySizeVarLabel; /** Label containng the keys keysize */
+    QLabel *expireVarLabel; /** Label containng the keys expiration date */
+    QLabel *createdVarLabel; /** Label containng the keys creation date */
+    QLabel *algorithmVarLabel; /** Label containng the keys algorithm */
+    QLabel *keyidVarLabel;  /** Label containng the keys keyid */
+    QLabel *fingerPrintVarLabel; /** Label containng the keys fingerprint */
+    QLabel *addUserIdsVarLabel; /** Label containng info about keys additional uids */
 };
 
 #endif // __KEYDETAILSDIALOG_H__

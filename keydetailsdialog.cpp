@@ -34,15 +34,6 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
 
-    nameLabel = new QLabel(tr("Name:"));
-    emailLabel = new QLabel(tr("E-Mailaddress:"));
-    commentLabel = new QLabel(tr("Comment:"));
-    keySizeLabel = new QLabel(tr("Key size:"));
-    expireLabel = new QLabel(tr("Expires on: "));
-    createdLabel = new QLabel(tr("Created on: "));
-    algorithmLabel = new QLabel(tr("Algorithm: "));
-    keyidLabel = new QLabel(tr("Key ID: "));
-
     nameVarLabel = new QLabel(key->uids->name);
     nameVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
     emailVarLabel = new QLabel(key->uids->email);
@@ -87,19 +78,18 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     QGridLayout *vboxKD = new QGridLayout();
     QGridLayout *vboxOD = new QGridLayout();
 
-    vboxOD->addWidget(nameLabel, 0, 0);
-    vboxOD->addWidget(emailLabel, 1, 0);
-    vboxOD->addWidget(commentLabel, 2, 0);
+    vboxOD->addWidget(new QLabel(tr("Name:")), 0, 0);
+    vboxOD->addWidget(new QLabel(tr("E-Mailaddress:")), 1, 0);
+    vboxOD->addWidget(new QLabel(tr("Comment:")), 2, 0);
     vboxOD->addWidget(nameVarLabel, 0, 1);
     vboxOD->addWidget(emailVarLabel, 1, 1);
     vboxOD->addWidget(commentVarLabel, 2, 1);
 
-    vboxKD->addWidget(keySizeLabel, 0, 0);
-    vboxKD->addWidget(expireLabel, 1, 0);
-    vboxKD->addWidget(algorithmLabel, 3, 0);
-    vboxKD->addWidget(createdLabel, 4, 0);
-    vboxKD->addWidget(keyidLabel, 5, 0);
-
+    vboxKD->addWidget(new QLabel(tr("Key size:")), 0, 0);
+    vboxKD->addWidget(new QLabel(tr("Expires on: ")), 1, 0);
+    vboxKD->addWidget(new QLabel(tr("Algorithm: ")), 3, 0);
+    vboxKD->addWidget(new QLabel(tr("Created on: ")), 4, 0);
+    vboxKD->addWidget(new QLabel(tr("Key ID: ")), 5, 0);
     vboxKD->addWidget(keySizeVarLabel, 0, 1);
     vboxKD->addWidget(expireVarLabel, 1, 1);
     vboxKD->addWidget(algorithmVarLabel, 3, 1);
