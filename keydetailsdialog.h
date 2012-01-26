@@ -52,7 +52,14 @@ public:
     static QString beautifyFingerprint(QString fingerprint);
 
 private slots:
+    /**
+     * @details Export the key to a file, which is choosen in a file dialog
+     */
     void exportPrivateKey();
+
+    /**
+     * @details Copy the fingerprint to clipboard
+     */
     void copyFingerprint();
 
 private:

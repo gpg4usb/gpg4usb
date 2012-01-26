@@ -198,9 +198,10 @@ void KeyDetailsDialog::exportPrivateKey()
         QString fileString = QString(key->uids->name) + " " + QString(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub_sec.asc";
         QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
         QFile file(fileName);
-        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QMessageBox::critical(0,tr("Export error"),tr("Couldn't open %1 for writing").arg(fileName));
             return;
+        }
         QTextStream stream(&file);
         stream << *keyArray;
         file.close();

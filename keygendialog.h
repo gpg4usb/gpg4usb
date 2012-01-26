@@ -42,35 +42,43 @@ public:
 
 private:
     void generateKeyDialog();
+
+    /**
+     * @details Check the password strength of the text in the passwordEdit member
+     *
+     * @return digit between 0 and 6, the higher the more secure is the password
+     */
     int checkPassWordStrength();
 
-    GpgME::GpgContext *mCtx;
-    KeyGenThread *keyGenThread;
-    QStringList errorMessages;
-    QDialogButtonBox *buttonBox;
-    QLabel *nameLabel;
-    QLabel *emailLabel;
-    QLabel *commentLabel;
-    QLabel *keySizeLabel;
-    QLabel *passwordLabel;
-    QLabel *repeatpwLabel;
-    QLabel *errorLabel;
-    QLabel *dateLabel;
-    QLabel *expireLabel;
-    QLabel *pwStrengthLabel;
-    QLineEdit *nameEdit;
-    QLineEdit *emailEdit;
-    QLineEdit *commentEdit;
-    QLineEdit *passwordEdit;
-    QLineEdit *repeatpwEdit;
-    QSpinBox *keySizeSpinBox;
-    QDateTimeEdit *dateEdit;
-    QCheckBox *expireCheckBox;
-    QSlider *pwStrengthSlider;
+    GpgME::GpgContext *mCtx; /** The current gpg context */
+    KeyGenThread *keyGenThread; /** Thread for key generation */
+    QStringList errorMessages; /** List of errors occuring when checking entries of lineedits */
+    QDialogButtonBox *buttonBox; /** Box for standardbuttons */
+    QLabel *errorLabel; /** Label containing error message */
+    QLineEdit *nameEdit; /** Lineedit for the keys name */
+    QLineEdit *emailEdit; /** Lineedit for the keys email */
+    QLineEdit *commentEdit; /** Lineedit for the keys comment */
+    QLineEdit *passwordEdit; /** Lineedit for the keys password */
+    QLineEdit *repeatpwEdit; /** Lineedit for the repetition of the keys password */
+    QSpinBox *keySizeSpinBox; /** Spinbox for the keys size (in bit) */
+    QDateTimeEdit *dateEdit; /** Dateedit for expiration date */
+    QCheckBox *expireCheckBox; /** Checkbox, if key should expire */
+    QSlider *pwStrengthSlider; /** Slider showing the password strength */
 
 private slots:
+    /**
+     * @details when expirebox was checked/unchecked, enable/disable the expiration date box
+     */
     void expireBoxChanged();
+
+    /**
+     * @details When passwordedit changed, set new value for password strength slider
+     */
     void passwordEditChanged();
+
+    /**
+     * @details check all lineedits for false entries. Show error, when there is one, otherwise generate the key
+     */
     void keyGenAccept();
 
 };

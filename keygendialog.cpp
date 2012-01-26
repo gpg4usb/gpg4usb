@@ -35,15 +35,6 @@ KeyGenDialog::KeyGenDialog(GpgME::GpgContext *ctx, QWidget *parent)
 
 void KeyGenDialog::generateKeyDialog()
 {
-    nameLabel = new QLabel(tr("Name:"));
-    emailLabel = new QLabel(tr("E-Mailaddress::"));
-    commentLabel = new QLabel(tr("Comment:"));
-    keySizeLabel = new QLabel(tr("KeySize (in Bit):"));
-    dateLabel = new QLabel(tr("Expiration Date:"));
-    passwordLabel = new QLabel(tr("Password:"));
-    repeatpwLabel = new QLabel(tr("Repeat Password:"));
-    expireLabel = new QLabel(tr("Never Expire"));
-    pwStrengthLabel = new QLabel(tr("Password: Strength\nWeak -> Strong"));
     errorLabel = new QLabel(tr(""));
     nameEdit = new QLineEdit(this);
     emailEdit = new QLineEdit(this);
@@ -78,22 +69,24 @@ void KeyGenDialog::generateKeyDialog()
     pwStrengthSlider->setTickPosition(QSlider::TicksBelow);
 
     QGridLayout *vbox1 = new QGridLayout;
-    vbox1->addWidget(nameLabel, 0, 0);
+
+    vbox1->addWidget(new QLabel(tr("Name:")), 0, 0);
+    vbox1->addWidget(new QLabel(tr("E-Mailaddress:")), 1, 0);
+    vbox1->addWidget(new QLabel(tr("Comment:")), 2, 0);
+    vbox1->addWidget(new QLabel(tr("Expiration Date:")), 3, 0);
+    vbox1->addWidget(new QLabel(tr("Never Expire")), 3, 3);
+    vbox1->addWidget(new QLabel(tr("KeySize (in Bit):")), 4, 0);
+    vbox1->addWidget(new QLabel(tr("Password:")), 5, 0);
+    vbox1->addWidget(new QLabel(tr("Password: Strength\nWeak -> Strong")), 5, 3);
+    vbox1->addWidget(new QLabel(tr("Repeat Password:")), 6, 0);
+
     vbox1->addWidget(nameEdit, 0, 1);
-    vbox1->addWidget(emailLabel, 1, 0);
     vbox1->addWidget(emailEdit, 1, 1);
-    vbox1->addWidget(commentLabel, 2, 0);
     vbox1->addWidget(commentEdit, 2, 1);
-    vbox1->addWidget(dateLabel, 3, 0);
     vbox1->addWidget(dateEdit, 3, 1);
     vbox1->addWidget(expireCheckBox, 3, 2);
-    vbox1->addWidget(expireLabel, 3, 3);
-    vbox1->addWidget(keySizeLabel, 4, 0);
     vbox1->addWidget(keySizeSpinBox, 4, 1);
-    vbox1->addWidget(passwordLabel, 5, 0);
     vbox1->addWidget(passwordEdit, 5, 1);
-    vbox1->addWidget(pwStrengthLabel, 5, 3);
-    vbox1->addWidget(repeatpwLabel, 6, 0);
     vbox1->addWidget(repeatpwEdit, 6, 1);
     vbox1->addWidget(pwStrengthSlider, 6, 3);
 
@@ -211,18 +204,28 @@ void KeyGenDialog::passwordEditChanged()
 int KeyGenDialog::checkPassWordStrength()
 {
     int strength = 0;
+
+    // increase strength by two, if password has more than 7 characters
     if ((passwordEdit->text()).length() > 7) {
         strength = strength + 2;
     }
+
+    // increase strength by one, if password contains a digit
     if ((passwordEdit->text()).contains(QRegExp("\\d"))) {
         strength++;
     }
+
+    // increase strength by one, if password contains a lowercase character
     if ((passwordEdit->text()).contains(QRegExp("[a-z]"))) {
         strength++;
     }
+
+    // increase strength by one, if password contains an uppercase character
     if ((passwordEdit->text()).contains(QRegExp("[A-Z]"))) {
         strength++;
     }
+
+    // increase strength by one, if password contains a non-word character
     if ((passwordEdit->text()).contains(QRegExp("\\W"))) {
         strength++;
     }
