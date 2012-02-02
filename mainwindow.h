@@ -253,6 +253,8 @@ private:
     QToolBar *editToolBar; /** Toolbar holding edit actions */
     QToolBar *specialEditToolBar; /** Toolbar holding special edit actions */
     QToolBar *keyToolBar; /** Toolbar holding key operations */
+    QToolButton* importButton; /** Toolbutton for import dropdown menu in toolbar */
+    QToolButton* fileEncButton; /** Toolbutton for file cryption dropdown menu in toolbar */
     QDockWidget *keylistDock; /** Encrypt Dock*/
     QDockWidget *attachmentDock; /** Attachment Dock */
     QDialog *genkeyDialog; /** Dialog for key generation */

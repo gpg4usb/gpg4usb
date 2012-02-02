@@ -118,6 +118,8 @@ void MainWindow::restoreSettings()
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     this->setToolButtonStyle(buttonStyle);
+    importButton->setToolButtonStyle(buttonStyle);
+    fileEncButton->setToolButtonStyle(buttonStyle);
 
     // Checked Keys
     if (settings.value("keys/keySave").toBool()) {
@@ -475,17 +477,16 @@ void MainWindow::createToolBars()
     viewMenu->addAction(specialEditToolBar->toggleViewAction());
 
     // Add dropdown menu for key import to keytoolbar
-    QToolButton* importButton = new QToolButton();
+    importButton = new QToolButton();
     importButton->setMenu(importKeyMenu);
     importButton->setPopupMode(QToolButton::InstantPopup);
     importButton->setIcon(QIcon(":key_import.png"));
-    importButton->setToolTip("Import key");
-    importButton->setText("Import key..");
-    importButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    importButton->setToolTip("Import key from...");
+    importButton->setText("Import key...");
     keyToolBar->addWidget(importButton);
 
     // Add dropdown menu for file encryption/decryption to crypttoolbar
-    QToolButton* fileEncButton = new QToolButton();
+    fileEncButton = new QToolButton();
     QMenu* fileEncMenu = new QMenu();
     fileEncMenu->addAction(fileEncryptAct);
     fileEncMenu->addAction(fileDecryptAct);
@@ -494,7 +495,6 @@ void MainWindow::createToolBars()
     fileEncButton->setIcon(QIcon(":fileencryption.png"));
     fileEncButton->setToolTip("Encrypt or decrypt File");
     fileEncButton->setText("File..");
-    fileEncButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     cryptToolBar->addWidget(fileEncButton);
 
@@ -889,6 +889,8 @@ void MainWindow::openSettingsDialog()
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
     this->setToolButtonStyle(buttonStyle);
+    importButton->setToolButtonStyle(buttonStyle);
+    fileEncButton->setToolButtonStyle(buttonStyle);
 
     if(settings.value("mime/parseMime").toBool()) {
         createAttachmentDock();
