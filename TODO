@@ -39,6 +39,7 @@ Release 0.3.2
 	- always activate next button
 	- add messagebox for succesful import of settings from old gpg4usb [DONE]
 	- app is not in the foreground after importing config from older gpg4usb
+	- before restart maybesave should be called on mainwindow
 - Update Qt to 4.8 [DONE]
 	- add Qt language files for Qt locales
 - investigate in adding a offline help system [DONE]
@@ -48,11 +49,10 @@ Release 0.3.2
                      - remove menu and logo from subpages [DONE]
                      - docs for sign&verify
 - dropdown from menubar instead of dialog for import [DONE]
-	- resize dropdown button, cause letter are cut at the bottom  
+	- resize dropdown button, cause letter are cut at the bottom [DONE]
 - Change file encryption to single dialog for en- and decryption [DONE]
 	- change docu on file de- and encryption
 - replace qDebug messages with tr() by messagebox (?)
-
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown [DONE]
 

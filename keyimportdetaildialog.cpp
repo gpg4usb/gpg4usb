@@ -47,7 +47,7 @@ KeyImportDetailDialog::KeyImportDetailDialog(GpgME::GpgContext* ctx, GpgImportIn
     this->setWindowTitle(tr("Key import details"));
     this->resize(QSize(600,300));
     this->setModal(true);
-    this->show();
+    this->exec();
 }
 
 void KeyImportDetailDialog::createGeneralInfoBox()
