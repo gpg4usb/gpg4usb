@@ -29,6 +29,7 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     mKeyMgmt=keyMgmt;
 
     setPage(Page_Intro,new IntroPage(this));
+    setPage(Page_Choose, new ChoosePage(this));
     setPage(Page_ImportFromGpg4usb,new ImportFromGpg4usbPage(mCtx, mKeyMgmt, this));
     setPage(Page_ImportFromGnupg,new ImportFromGnupgPage(mCtx, mKeyMgmt, this));
     setPage(Page_GenKey,new KeyGenPage(mCtx, this));
@@ -103,7 +104,7 @@ IntroPage::IntroPage(QWidget *parent)
      : QWizardPage(parent)
 {
     setTitle(tr("Introduction"));
-    setSubTitle("bla");
+    setSubTitle(tr("About this wizard."));
 
     topLabel = new QLabel(tr("This wizard will help you getting started by importing settings and keys"
                              "from an older version of gpg4usb, import keys from a locally installed Gnupg or to "
@@ -146,7 +147,72 @@ void IntroPage::langChange(QString lang) {
 
 int IntroPage::nextId() const
 {
-    return Wizard::Page_ImportFromGpg4usb;
+    return Wizard::Page_Choose;
+}
+ChoosePage::ChoosePage(QWidget *parent)
+     : QWizardPage(parent)
+{
+    setTitle(tr(""));
+    setSubTitle("Get ready for encryption");
+    QLabel *topLabel = new QLabel(tr("First you've got to create an own keypair.<br/>"
+                             "The pair contains a public and a private key.<br/>"
+                             "Other users can use the public key to encrypt texts for you<br/>"
+                             "and verify texts signed by you.<br/>"
+                             "You can use the private key to decrypt and sign texts.<br/>"
+                             "For more information have a look in the offline tutorial (which then is shown in the main window:"));
+
+
+
+    QGroupBox *keygenBox = new QGroupBox("Create a new Key");
+    QVBoxLayout *keygenBoxLayout = new QVBoxLayout(keygenBox);
+    QLabel *keygenLabel = new QLabel("if you have never used gpg4usb before and also don't own an gpg key yet you"
+                                     "may possibly want to <a>create your private key</a>");
+    keygenLabel->setWordWrap(true);
+    QLabel *keygenLinkLabel = new QLabel("<a href=""Wizard::Page_GenKey"">"+tr("Generate key")+"</a>");
+    connect(keygenLinkLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    keygenBoxLayout->addWidget(keygenLabel);
+    keygenBoxLayout->addWidget(keygenLinkLabel);
+
+    QGroupBox *importGpg4usbBox = new QGroupBox("Import gpg4usb");
+    QVBoxLayout *importGpg4usbBoxLayout = new QVBoxLayout(importGpg4usbBox);
+    QLabel *importGpg4usbLabel = new QLabel("Import configuration and/or keys from older gpg4usb");
+    importGpg4usbLabel->setWordWrap(true);
+    QLabel *importGpg4usbLinkLabel = new QLabel("<a href=""Wizard::Page_ImportFromGpg4usb"">"+tr("Import config and keys from older Gpg4usb")+"</a>");
+    connect(importGpg4usbLinkLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    importGpg4usbBoxLayout->addWidget(importGpg4usbLabel);
+    importGpg4usbBoxLayout->addWidget(importGpg4usbLinkLabel);
+
+    QGroupBox *importGnupgBox = new QGroupBox("import gnupg");
+    QVBoxLayout *importGnupgBoxLayout = new QVBoxLayout(importGnupgBox);
+    QLabel *importGnupgLabel = new QLabel("Import keys from locally installed Gnupg");
+    importGnupgLabel->setWordWrap(true);
+    QLabel *importGnupgLinkLabel = new QLabel("<a href=""Wizard::Page_ImportFromGnupg"">"+tr("Import keys from Gnupg")+"</a>");
+    connect(importGnupgLinkLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    importGnupgBoxLayout->addWidget(importGnupgLabel);
+    importGnupgBoxLayout->addWidget(importGnupgLinkLabel);
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(keygenBox);
+    layout->addWidget(importGpg4usbBox);
+    layout->addWidget(importGnupgBox);
+
+    setLayout(layout);
+    nextPage=Wizard::Page_Conclusion;
+}
+
+int ChoosePage::nextId() const
+{
+    return nextPage;
+}
+
+void ChoosePage::jumpPage(const QString& page)
+{
+    QMetaObject qmo = Wizard::staticMetaObject;
+    int index = qmo.indexOfEnumerator("WizardPages");
+    QMetaEnum m = qmo.enumerator(index);
+
+    nextPage = m.keyToValue(page.toAscii().data());
+    wizard()->next();
 }
 
 ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
@@ -286,7 +352,7 @@ QString ImportFromGnupgPage::getGnuPGHome()
 
 int ImportFromGnupgPage::nextId() const
 {
-    return Wizard::Page_GenKey;
+    return Wizard::Page_Conclusion;
 }
 
 KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)

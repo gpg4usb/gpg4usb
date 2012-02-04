@@ -37,9 +37,10 @@ class QRadioButton;
 class Wizard : public QWizard
 {
     Q_OBJECT
+    Q_ENUMS(WizardPages)
 
 public:
-    enum { Page_Intro, Page_ImportFromGpg4usb, Page_ImportFromGnupg, Page_GenKey,
+    enum WizardPages { Page_Intro, Page_Choose, Page_ImportFromGpg4usb, Page_ImportFromGnupg, Page_GenKey,
                 Page_Conclusion };
 
     Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
@@ -70,6 +71,21 @@ public:
 
 private slots:
     void langChange(QString lang);
+};
+
+class ChoosePage : public QWizardPage
+{
+    Q_OBJECT
+
+public:
+    ChoosePage(QWidget *parent = 0);
+
+private slots:
+    void jumpPage(const QString& page);
+
+private:
+    int nextId() const;
+    int nextPage;
 };
 
 class ImportFromGpg4usbPage : public QWizardPage
