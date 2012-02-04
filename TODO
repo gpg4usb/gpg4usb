@@ -36,9 +36,7 @@ Release 0.3.2
 	- nextid is not called when clicking finish button [DONE]
 	- import conf from old gpg4usb [DONE]
 	- only show one import detail dialog, when importing public/private keys [DONE]
-	- always activate next button
 	- add messagebox for succesful import of settings from old gpg4usb [DONE]
-	- app is not in the foreground after importing config from older gpg4usb
 	- before restart maybesave should be called on mainwindow
 - Update Qt to 4.8 [DONE]
 	- add Qt language files for Qt locales

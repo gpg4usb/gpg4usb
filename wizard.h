@@ -96,7 +96,7 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    bool importFromOlderGpg4usb();
+    void importFromOlderGpg4usb();
     bool importConfFromGpg4usb(QString dir);
 
 private:
@@ -119,7 +119,7 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    bool importKeysFromGnupg();
+    void importKeysFromGnupg();
 
 private:
     KeyMgmt *mKeyMgmt;

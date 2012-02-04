@@ -235,19 +235,19 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     this->setLayout(gpg4usbLayout);
 }
 
-bool ImportFromGpg4usbPage::importFromOlderGpg4usb()
+void ImportFromGpg4usbPage::importFromOlderGpg4usb()
 {
     QString dir = QFileDialog::getExistingDirectory(this,tr("Other gpg4usb directory"));
 
     // Return, if cancel was hit
     if (dir.isEmpty()) {
-        return false;
+        return;
     }
 
     // try to import keys, if appropriate box is checked, return, if import was unsuccessful
     if (gpg4usbKeyCheckBox->isChecked()) {
         if (!Wizard::importPubAndSecKeysFromDir(dir+"/keydb",mKeyMgmt)) {
-            return false;
+            return;
         }
     }
 
@@ -262,7 +262,7 @@ bool ImportFromGpg4usbPage::importFromOlderGpg4usb()
         // TODO: edit->maybesave?
         qApp->exit(RESTART_CODE);
     }
-    return true;
+    wizard()->next();
 }
 
 bool ImportFromGpg4usbPage::importConfFromGpg4usb(QString dir) {
@@ -302,17 +302,18 @@ ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgm
     this->setLayout(layout);
 }
 
-bool ImportFromGnupgPage::importKeysFromGnupg()
+void ImportFromGnupgPage::importKeysFromGnupg()
 {
     // first get gnupghomedir and check, if it exists
     QString gnuPGHome = getGnuPGHome();
     if (gnuPGHome == NULL) {
         QMessageBox::critical(0, tr("Import Error"), tr("Couldn't locate GnuPG home directory"));
-        return false;
+        return;
     }
 
     // Try to import the keyring files and return the return value of the method
-    return Wizard::importPubAndSecKeysFromDir(gnuPGHome,mKeyMgmt);;
+    Wizard::importPubAndSecKeysFromDir(gnuPGHome,mKeyMgmt);
+    wizard()->next();
 }
 
 QString ImportFromGnupgPage::getGnuPGHome()
@@ -343,12 +344,11 @@ int ImportFromGnupgPage::nextId() const
 KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
      : QWizardPage(parent)
 {
-
     //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     setTitle(tr("Create a keypair..."));
     setSubTitle(tr("...for decrypting and signing messages"));
-    QLabel *topLabel = new QLabel(tr("You should create an own keypair."
+    QLabel *topLabel = new QLabel(tr("You should create a new keypair."
                              "The pair consists of a public and a private key.<br>"
                              "Other users can use the public key to encrypt messages for you "
                              "and verify messages signed by you."
@@ -382,7 +382,8 @@ int KeyGenPage::nextId() const
 void KeyGenPage::generateKeyDialog()
 {
     KeyGenDialog *keyGenDialog = new KeyGenDialog(mCtx, this);
-    keyGenDialog->show();
+    keyGenDialog->exec();
+    wizard()->next();
 }
 
 ConclusionPage::ConclusionPage(QWidget *parent)
