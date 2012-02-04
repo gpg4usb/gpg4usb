@@ -83,15 +83,11 @@ DEFINES += _FILE_OFFSET_BITS=64
 TRANSLATIONS = release/ts/gpg4usb_en.ts \
     release/ts/gpg4usb_de.ts \
     release/ts/gpg4usb_ru.ts \
-    release/ts/gpg4usb_fr.ts \
     release/ts/gpg4usb_it.ts \
     release/ts/gpg4usb_pt_BR.ts \
     release/ts/gpg4usb_es.ts \
-    release/ts/gpg4usb_ar.ts \
-    release/ts/gpg4usb_zh.ts \
     release/ts/gpg4usb_vi.ts \
-    release/ts/gpg4usb_my.ts \
-    release/ts/gpg4usb_fa_IR.ts 
+    release/ts/gpg4usb_my.ts 
 
 
 contains(DEFINES, GPG4USB_NON_PORTABLE) {
