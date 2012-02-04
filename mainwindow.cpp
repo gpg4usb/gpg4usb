@@ -98,7 +98,7 @@ void MainWindow::restoreSettings()
     }
 
     // Iconsize
-    QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+    QSize iconSize = settings.value("toolbar/iconsize", QSize(24, 24)).toSize();
     this->setIconSize(iconSize);
 
     // set list of keyserver if not defined

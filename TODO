@@ -21,6 +21,7 @@ Release 0.3.2
 	- or set margin to make it easier selectable [DONE]
 	- remove whitespaces on copy [DONE]
 - remove iconpath and use ressource file instead [DONE]
+- change default iconsize to 24x24 [DONE]
 - restart gpg4usb on language change [DONE]
 - option in settingsdialog for enabling steganographic operations [DONE]
 	- minimal steganography option: remove or add pgp-headers on demand [DONE]

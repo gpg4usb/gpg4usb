@@ -343,7 +343,7 @@ void AppearanceTab::setSettings()
     QSettings settings;
 
     //Iconsize
-    QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
+    QSize iconSize = settings.value("toolbar/iconsize", QSize(24, 24)).toSize();
     switch (iconSize.height()) {
     case 12: iconSizeSmall->setChecked(true);
         break;
