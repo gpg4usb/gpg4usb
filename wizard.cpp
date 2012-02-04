@@ -344,7 +344,6 @@ int ImportFromGnupgPage::nextId() const
 KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
      : QWizardPage(parent)
 {
-    //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
     setTitle(tr("Create a keypair..."));
     setSubTitle(tr("...for decrypting and signing messages"));

@@ -583,19 +583,20 @@ void MainWindow::about()
     QString *title = new QString(tr("About ") + qApp->applicationName());
     QString *text = new QString("<center><h2>" + qApp->applicationName() + " "
                                 + qApp->applicationVersion() + "</h2></center>"
-                                + tr("<center>This application allows simple encryption <br/>"
+                                + tr("<center>This application allows simple encryption <br>"
                                      "and decryption of text messages or files.<br>"
                                      "It's licensed under the GPL v3<br><br>"
                                      "<b>Developer:</b><br>"
                                      "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                                      "<b>Translation:</b><br>"
-                                     "Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) <br><br>"
+                                     "Viriato/Phol (es), <br>Serse (it), Russell (my),<br>Alessandro (pt_br),  Kirill (ru), Tom (vi)"
+                                     "<br><br>"
                                      "If you have any questions or suggestions have a look<br/>"
                                      "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"
                                      "contact page</a> or send a mail to our<br/> mailing list at"
                                      " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>.")
-                                + tr("<br/><br/> Built with Qt ") + qVersion()
-                                + tr(" and GPGME ") + GpgME::GpgContext::getGpgmeVersion());
+                                + tr("<br><br> Built with Qt ") + qVersion()
+                                + tr(" and GPGME ") + GpgME::GpgContext::getGpgmeVersion() +"</center>");
 
     QDialog *dialog = new QDialog(this);
     dialog->setWindowTitle(*title);
@@ -905,7 +906,6 @@ void MainWindow::openSettingsDialog()
             qApp->exit(RESTART_CODE);
         }
     }
-
 }
 
 void MainWindow::cleanDoubleLinebreaks()

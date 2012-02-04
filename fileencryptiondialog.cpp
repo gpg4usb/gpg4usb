@@ -150,7 +150,7 @@ void FileEncryptionDialog::executeAction()
     QFile infile;
     infile.setFileName(inputFileEdit->text());
     if (!infile.open(QIODevice::ReadOnly)) {
-        qDebug() << tr("couldn't open file: ") + inputFileEdit->text();
+        qDebug() << tr("Couldn't Open file: ") + inputFileEdit->text();
     }
 
     QByteArray inBuffer = infile.readAll();
