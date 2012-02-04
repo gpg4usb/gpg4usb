@@ -63,9 +63,6 @@ class IntroPage : public QWizardPage
 
 public:
     IntroPage(QWidget *parent = 0);
-    QLabel *topLabel;
-    QLabel *langLabel;
-    QComboBox *langSelectBox;
     QHash<QString,QString> languages;
     int nextId() const;
 
@@ -99,7 +96,7 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    bool importFormOlderGpg4usb();
+    bool importFromOlderGpg4usb();
     bool importConfFromGpg4usb(QString dir);
 
 private:
@@ -109,7 +106,6 @@ private:
     GpgME::GpgContext *mCtx;
     QCheckBox *gpg4usbKeyCheckBox;
     QCheckBox *gpg4usbConfigCheckBox;
-    QPushButton *importFromGpg4usbButton;
 };
 
 class ImportFromGnupgPage : public QWizardPage
@@ -152,8 +148,6 @@ private slots:
     void generateKeyDialog();
 
 private:
-    QLabel *topLabel;
-    QPushButton *createKeyButton;
     GpgME::GpgContext *mCtx;
 };
 
@@ -166,7 +160,6 @@ public:
     int nextId() const;
 
 private:
-    QLabel *bottomLabel;
     QCheckBox *dontShowWizardCheckBox;
     QCheckBox *openHelpCheckBox;
 };

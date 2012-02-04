@@ -103,20 +103,24 @@ bool Wizard::importPubAndSecKeysFromDir(const QString dir, KeyMgmt *keyMgmt)
 IntroPage::IntroPage(QWidget *parent)
      : QWizardPage(parent)
 {
-    setTitle(tr("Introduction"));
-    setSubTitle(tr("About this wizard."));
+    setTitle(tr("Getting started..."));
+    setSubTitle(tr("... with gpg4usb"));
 
-    topLabel = new QLabel(tr("This wizard will help you getting started by importing settings and keys"
-                             "from an older version of gpg4usb, import keys from a locally installed Gnupg or to "
-                             "generate a new key to encrypt and decrypt."));
+    QLabel *topLabel = new QLabel(tr("To use gpg4usb for decrypting and signing messages, you need a "
+                             "private key. The next page will help you with "
+                             "key generation or import.<br><br>"
+                             "For more information have a look at the <a href='docu_concepts.html'>concepts</a> "
+                             "(by clicking the link, the page will open in the main window). <br>"));
     topLabel->setWordWrap(true);
+    connect(topLabel, SIGNAL(linkActivated(const QString&)), parentWidget()->parentWidget(), SLOT(openHelp(const QString&)));
 
     // QComboBox for language selection
-    langLabel = new QLabel(tr("Choose a Language"));
+    QLabel *langLabel = new QLabel(tr("Choose a Language"));
     langLabel->setWordWrap(true);
 
     languages = SettingsDialog::listLanguages();
-    langSelectBox = new QComboBox();
+    QComboBox *langSelectBox = new QComboBox();
+
     foreach(QString l, languages) {
         langSelectBox->addItem(l);
     }
@@ -154,56 +158,29 @@ ChoosePage::ChoosePage(QWidget *parent)
 {
     setTitle(tr("Choose your action..."));
     setSubTitle(tr("...by clicking on the apropriate link."));
-    QLabel *topLabel = new QLabel(tr("First you've got to create an own keypair.<br/>"
-                             "The pair contains a public and a private key.<br/>"
-                             "Other users can use the public key to encrypt texts for you<br/>"
-                             "and verify texts signed by you.<br/>"
-                             "You can use the private key to decrypt and sign texts.<br/>"
-                             "For more information have a look in the offline tutorial (which then is shown in the main window:"));
 
-    //QGroupBox *keygenBox = new QGroupBox("Create a new Key");
-    //QVBoxLayout *keygenBoxLayout = new QVBoxLayout(keygenBox);
     QLabel *keygenLabel = new QLabel(tr("If you have never used gpg4usb before and also don't own a gpg key yet you "
                                      "may possibly want to ")+"<a href=""Wizard::Page_GenKey"">"
-                                     +tr("create a private key")+"</a><hr>");
+                                     +tr("create a new keypair")+"</a><hr>");
     keygenLabel->setWordWrap(true);
-    //QLabel *keygenLinkLabel = new QLabel("<a href=""Wizard::Page_GenKey"">"+tr("create your private key")+"</a><hr>");
     connect(keygenLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
-    //keygenBoxLayout->addWidget(keygenLabel);
-    //keygenBoxLayout->addWidget(keygenLinkLabel);
 
-    //QGroupBox *importGpg4usbBox = new QGroupBox("Import gpg4usb");
-    //QVBoxLayout *importGpg4usbBoxLayout = new QVBoxLayout(importGpg4usbBox);
     QLabel *importGpg4usbLabel = new QLabel(tr("If you upgrade from an older version of gpg4usb you may want to ")
                                             +"<a href=""Wizard::Page_ImportFromGpg4usb"">"
-                                            +tr("import settings and/or keys from Gpg4usb")+"</a>");
+                                            +tr("import settings and/or keys from gpg4usb")+"</a>");
     importGpg4usbLabel->setWordWrap(true);
-    //QLabel *importGpg4usbLinkLabel = new QLabel("<a href=""Wizard::Page_ImportFromGpg4usb"">"+tr("import settings and/or keys from Gpg4usb")+"</a>");
     connect(importGpg4usbLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
-    //importGpg4usbBoxLayout->addWidget(importGpg4usbLabel);
-    //importGpg4usbBoxLayout->addWidget(importGpg4usbLinkLabel);
 
-    //QGroupBox *importGnupgBox = new QGroupBox("import gnupg");
-    //QVBoxLayout *importGnupgBoxLayout = new QVBoxLayout(importGnupgBox);
-    QLabel *importGnupgLabel = new QLabel(tr("If you are already using Gnupg you may want to ")
+    QLabel *importGnupgLabel = new QLabel(tr("If you are already using GnuPG you may want to ")
                                           +"<a href=""Wizard::Page_ImportFromGnupg"">"
-                                          +tr("import keys from Gnupg")+"</a><hr>");
+                                          +tr("import keys from GnuPG")+"</a><hr>");
     importGnupgLabel->setWordWrap(true);
-    //QLabel *importGnupgLinkLabel = new QLabel("<a href=""Wizard::Page_ImportFromGnupg"">"+tr("import keys from Gnupg")+"</a><hr>");
     connect(importGnupgLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
-    //importGnupgBoxLayout->addWidget(importGnupgLabel);
-    //importGnupgBoxLayout->addWidget(importGnupgLinkLabel);
 
     QVBoxLayout *layout = new QVBoxLayout();
-    //layout->addWidget(keygenBox);
-    //layout->addWidget(importGpg4usbBox);
-    //layout->addWidget(importGnupgBox);
     layout->addWidget(keygenLabel);
-//    layout->addWidget(keygenLinkLabel);
     layout->addWidget(importGnupgLabel);
-//    layout->addWidget(importGnupgLinkLabel);
     layout->addWidget(importGpg4usbLabel);
-//    layout->addWidget(importGpg4usbLinkLabel);
     setLayout(layout);
     nextPage=Wizard::Page_Conclusion;
 }
@@ -228,12 +205,12 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
 {
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
-    setTitle(tr("Keyring Import"));
-    setSubTitle("bla");
+    setTitle(tr("Import from..."));
+    setSubTitle(tr("...existing gpg4usb"));
 
-    QLabel *topLabel = new QLabel(tr("Import keys and/or settings from older gpg4usb. Just check, what you want to "
-                                  "import, click the import button and choose the directory "
-                                  "of your old gpg4usb in the appearing file dialog."), this);
+    QLabel *topLabel = new QLabel(tr("You can import keys and/or settings from existing gpg4usb. <br><br>"
+                                     "Just check what you want to import, click the import button and choose "
+                                     "the directory of your other gpg4usb in the appearing file dialog."), this);
     topLabel->setWordWrap(true);
 
     gpg4usbKeyCheckBox = new QCheckBox();
@@ -244,8 +221,8 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     gpg4usbConfigCheckBox->setChecked(true);
     QLabel *configLabel = new QLabel(tr("Configuration"));
 
-    importFromGpg4usbButton = new QPushButton(tr("Import from older gpg4usb"));
-    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importFormOlderGpg4usb()));
+    QPushButton *importFromGpg4usbButton = new QPushButton(tr("Import from gpg4usb"));
+    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importFromOlderGpg4usb()));
 
     QGridLayout *gpg4usbLayout = new QGridLayout();
     gpg4usbLayout->addWidget(topLabel,1,1,1,2);
@@ -258,9 +235,9 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     this->setLayout(gpg4usbLayout);
 }
 
-bool ImportFromGpg4usbPage::importFormOlderGpg4usb()
+bool ImportFromGpg4usbPage::importFromOlderGpg4usb()
 {
-    QString dir = QFileDialog::getExistingDirectory(this,tr("Old gpg4usb directory"));
+    QString dir = QFileDialog::getExistingDirectory(this,tr("Other gpg4usb directory"));
 
     // Return, if cancel was hit
     if (dir.isEmpty()) {
@@ -300,7 +277,7 @@ bool ImportFromGpg4usbPage::importConfFromGpg4usb(QString dir) {
 
 int ImportFromGpg4usbPage::nextId() const
 {
-    return Wizard::Page_ImportFromGnupg;
+    return Wizard::Page_Conclusion;
 }
 
 ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
@@ -308,11 +285,11 @@ ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgm
 {
     mCtx=ctx;
     mKeyMgmt=keyMgmt;
-    setTitle(tr("Key import from Gnupg"));
-    setSubTitle("bla");
+    setTitle(tr("Import keys..."));
+    setSubTitle(tr("...from existing GnuPG installation"));
 
-    QLabel *gnupgLabel = new QLabel(tr("Should I try to import keys from a locally installed GnuPG?<br/> The location is read "
-                               "from registry in Windows and assumed to be the .gnupg folder in the your home directory in Linux"));
+    QLabel *gnupgLabel = new QLabel(tr("You can import keys from a locally installed GnuPG.<br><br> The location is read "
+                               "from registry in Windows or assumed to be the .gnupg folder in the your home directory in Linux.<br>"));
     gnupgLabel->setWordWrap(true);
 
     importFromGnupgButton = new QPushButton(tr("Import keys from GnuPG"));
@@ -369,14 +346,15 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
 
     //setPixmap(QWizard::WatermarkPixmap, QPixmap(":/logo-flipped.png"));
     mCtx=ctx;
-    setTitle(tr("Key-Generating"));
-    setSubTitle("bla");
-    topLabel = new QLabel(tr("First you've got to create an own keypair.<br/>"
-                             "The pair contains a public and a private key.<br/>"
-                             "Other users can use the public key to encrypt texts for you<br/>"
-                             "and verify texts signed by you.<br/>"
-                             "You can use the private key to decrypt and sign texts.<br/>"
-                             "For more information have a look in the offline tutorial (which then is shown in the main window:"));
+    setTitle(tr("Create a keypair..."));
+    setSubTitle(tr("...for decrypting and signing messages"));
+    QLabel *topLabel = new QLabel(tr("You should create an own keypair."
+                             "The pair consists of a public and a private key.<br>"
+                             "Other users can use the public key to encrypt messages for you "
+                             "and verify messages signed by you."
+                             "You can use the private key to decrypt and sign messages.<br>"
+                             "For more information have a look at the offline tutorial (which then is shown in the main window):"));
+    topLabel->setWordWrap(true);
     QLabel *linkLabel = new QLabel("<a href=""docu_keygen.html#content"">"+tr("Offline tutorial")+"</a>");
     //linkLabel->setOpenExternalLinks(true);
 
@@ -384,7 +362,7 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
 
     QWidget *createKeyButtonBox = new QWidget(this);
     QHBoxLayout  *createKeyButtonBoxLayout = new QHBoxLayout(createKeyButtonBox);
-    createKeyButton = new QPushButton(tr("Create New Key"));
+    QPushButton *createKeyButton = new QPushButton(tr("Create New Key"));
     createKeyButtonBoxLayout->addWidget(createKeyButton);
     createKeyButtonBoxLayout->addStretch(1);
     QVBoxLayout *layout = new QVBoxLayout();
@@ -410,25 +388,27 @@ void KeyGenPage::generateKeyDialog()
 ConclusionPage::ConclusionPage(QWidget *parent)
     : QWizardPage(parent)
 {
-    setTitle(tr("Finish Start Wizard"));
-    setSubTitle("bla");
+    setTitle(tr("Ready."));
+    setSubTitle(tr("Have fun with gpg4usb!"));
 
-    bottomLabel = new QLabel(tr("You're ready to encrypt and decrpt now."));
+    QLabel *bottomLabel = new QLabel(tr("You are ready to use gpg4usb now.<br><br>"
+                                        "The offline help will get you started with gpg4usb. "
+                                        "It will open in the main window.<br>"));
     bottomLabel->setWordWrap(true);
-
-    dontShowWizardCheckBox = new QCheckBox(tr("Dont show the wizard again."));
-    dontShowWizardCheckBox->setChecked(Qt::Checked);
 
     openHelpCheckBox = new QCheckBox(tr("Open offline help."));
     openHelpCheckBox->setChecked(Qt::Checked);
+
+    dontShowWizardCheckBox = new QCheckBox(tr("Dont show the wizard again."));
+    dontShowWizardCheckBox->setChecked(Qt::Checked);
 
     registerField("showWizard", dontShowWizardCheckBox);
     registerField("openHelp", openHelpCheckBox);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(bottomLabel);
-    layout->addWidget(dontShowWizardCheckBox);
     layout->addWidget(openHelpCheckBox);
+    layout->addWidget(dontShowWizardCheckBox);
     setLayout(layout);
     setVisible(true);
 }
