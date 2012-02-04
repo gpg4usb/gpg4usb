@@ -172,6 +172,7 @@ void KeyGenDialog::keyGenAccept()
         }
 
         dialog->close();
+        QMessageBox::information(0,tr("Success"),tr("New key created"));
     } else {
         /**
          * create error message
