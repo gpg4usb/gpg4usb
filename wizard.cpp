@@ -152,8 +152,8 @@ int IntroPage::nextId() const
 ChoosePage::ChoosePage(QWidget *parent)
      : QWizardPage(parent)
 {
-    setTitle(tr(""));
-    setSubTitle("Get ready for encryption");
+    setTitle(tr("Choose your action..."));
+    setSubTitle(tr("...by clicking on the apropriate link."));
     QLabel *topLabel = new QLabel(tr("First you've got to create an own keypair.<br/>"
                              "The pair contains a public and a private key.<br/>"
                              "Other users can use the public key to encrypt texts for you<br/>"
@@ -161,41 +161,49 @@ ChoosePage::ChoosePage(QWidget *parent)
                              "You can use the private key to decrypt and sign texts.<br/>"
                              "For more information have a look in the offline tutorial (which then is shown in the main window:"));
 
-
-
-    QGroupBox *keygenBox = new QGroupBox("Create a new Key");
-    QVBoxLayout *keygenBoxLayout = new QVBoxLayout(keygenBox);
-    QLabel *keygenLabel = new QLabel("if you have never used gpg4usb before and also don't own an gpg key yet you"
-                                     "may possibly want to <a>create your private key</a>");
+    //QGroupBox *keygenBox = new QGroupBox("Create a new Key");
+    //QVBoxLayout *keygenBoxLayout = new QVBoxLayout(keygenBox);
+    QLabel *keygenLabel = new QLabel(tr("If you have never used gpg4usb before and also don't own a gpg key yet you "
+                                     "may possibly want to ")+"<a href=""Wizard::Page_GenKey"">"
+                                     +tr("create a private key")+"</a><hr>");
     keygenLabel->setWordWrap(true);
-    QLabel *keygenLinkLabel = new QLabel("<a href=""Wizard::Page_GenKey"">"+tr("Generate key")+"</a>");
-    connect(keygenLinkLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
-    keygenBoxLayout->addWidget(keygenLabel);
-    keygenBoxLayout->addWidget(keygenLinkLabel);
+    //QLabel *keygenLinkLabel = new QLabel("<a href=""Wizard::Page_GenKey"">"+tr("create your private key")+"</a><hr>");
+    connect(keygenLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    //keygenBoxLayout->addWidget(keygenLabel);
+    //keygenBoxLayout->addWidget(keygenLinkLabel);
 
-    QGroupBox *importGpg4usbBox = new QGroupBox("Import gpg4usb");
-    QVBoxLayout *importGpg4usbBoxLayout = new QVBoxLayout(importGpg4usbBox);
-    QLabel *importGpg4usbLabel = new QLabel("Import configuration and/or keys from older gpg4usb");
+    //QGroupBox *importGpg4usbBox = new QGroupBox("Import gpg4usb");
+    //QVBoxLayout *importGpg4usbBoxLayout = new QVBoxLayout(importGpg4usbBox);
+    QLabel *importGpg4usbLabel = new QLabel(tr("If you upgrade from an older version of gpg4usb you may want to ")
+                                            +"<a href=""Wizard::Page_ImportFromGpg4usb"">"
+                                            +tr("import settings and/or keys from Gpg4usb")+"</a>");
     importGpg4usbLabel->setWordWrap(true);
-    QLabel *importGpg4usbLinkLabel = new QLabel("<a href=""Wizard::Page_ImportFromGpg4usb"">"+tr("Import config and keys from older Gpg4usb")+"</a>");
-    connect(importGpg4usbLinkLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
-    importGpg4usbBoxLayout->addWidget(importGpg4usbLabel);
-    importGpg4usbBoxLayout->addWidget(importGpg4usbLinkLabel);
+    //QLabel *importGpg4usbLinkLabel = new QLabel("<a href=""Wizard::Page_ImportFromGpg4usb"">"+tr("import settings and/or keys from Gpg4usb")+"</a>");
+    connect(importGpg4usbLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    //importGpg4usbBoxLayout->addWidget(importGpg4usbLabel);
+    //importGpg4usbBoxLayout->addWidget(importGpg4usbLinkLabel);
 
-    QGroupBox *importGnupgBox = new QGroupBox("import gnupg");
-    QVBoxLayout *importGnupgBoxLayout = new QVBoxLayout(importGnupgBox);
-    QLabel *importGnupgLabel = new QLabel("Import keys from locally installed Gnupg");
+    //QGroupBox *importGnupgBox = new QGroupBox("import gnupg");
+    //QVBoxLayout *importGnupgBoxLayout = new QVBoxLayout(importGnupgBox);
+    QLabel *importGnupgLabel = new QLabel(tr("If you are already using Gnupg you may want to ")
+                                          +"<a href=""Wizard::Page_ImportFromGnupg"">"
+                                          +tr("import keys from Gnupg")+"</a><hr>");
     importGnupgLabel->setWordWrap(true);
-    QLabel *importGnupgLinkLabel = new QLabel("<a href=""Wizard::Page_ImportFromGnupg"">"+tr("Import keys from Gnupg")+"</a>");
-    connect(importGnupgLinkLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
-    importGnupgBoxLayout->addWidget(importGnupgLabel);
-    importGnupgBoxLayout->addWidget(importGnupgLinkLabel);
+    //QLabel *importGnupgLinkLabel = new QLabel("<a href=""Wizard::Page_ImportFromGnupg"">"+tr("import keys from Gnupg")+"</a><hr>");
+    connect(importGnupgLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    //importGnupgBoxLayout->addWidget(importGnupgLabel);
+    //importGnupgBoxLayout->addWidget(importGnupgLinkLabel);
 
     QVBoxLayout *layout = new QVBoxLayout();
-    layout->addWidget(keygenBox);
-    layout->addWidget(importGpg4usbBox);
-    layout->addWidget(importGnupgBox);
-
+    //layout->addWidget(keygenBox);
+    //layout->addWidget(importGpg4usbBox);
+    //layout->addWidget(importGnupgBox);
+    layout->addWidget(keygenLabel);
+//    layout->addWidget(keygenLinkLabel);
+    layout->addWidget(importGnupgLabel);
+//    layout->addWidget(importGnupgLinkLabel);
+    layout->addWidget(importGpg4usbLabel);
+//    layout->addWidget(importGpg4usbLinkLabel);
     setLayout(layout);
     nextPage=Wizard::Page_Conclusion;
 }
