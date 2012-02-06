@@ -60,7 +60,7 @@ void KeyImportDetailDialog::createGeneralInfoBox()
     generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.considered)),1,1);
     int row=2;
     if (mResult.unchanged != 0){
-        generalInfoBoxLayout->addWidget(new QLabel(tr("Unchanged:")),row,0);
+        generalInfoBoxLayout->addWidget(new QLabel(tr("Public unchanged:")),row,0);
         generalInfoBoxLayout->addWidget(new QLabel(QString::number(mResult.unchanged)),row,1);
         row++;
     }

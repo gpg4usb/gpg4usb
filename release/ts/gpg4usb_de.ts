@@ -1283,7 +1283,7 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="63"/>
-        <source>Unchanged:</source>
+        <source>Public unchanged:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

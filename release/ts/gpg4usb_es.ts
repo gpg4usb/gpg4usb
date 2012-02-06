@@ -2094,10 +2094,6 @@ Debil -&gt; Fuerte</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unchanged:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Imported:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2159,6 +2155,10 @@ Debil -&gt; Fuerte</translation>
     </message>
     <message>
         <source>new uid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public unchanged:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
