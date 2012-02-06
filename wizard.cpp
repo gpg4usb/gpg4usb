@@ -257,7 +257,7 @@ void ImportFromGpg4usbPage::importFromOlderGpg4usb()
 
         QSettings settings;
         settings.setValue("wizard/nextPage", this->nextId());
-        QMessageBox::information(0,tr("Configuration Imported"),tr("Imported Configuration from old gpg4usb.<br/>"
+        QMessageBox::information(0,tr("Configuration Imported"),tr("Imported Configuration from old gpg4usb.<br>"
                                       "Will now restart to activate the configuration."));
         // TODO: edit->maybesave?
         qApp->exit(RESTART_CODE);

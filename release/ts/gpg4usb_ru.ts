@@ -878,7 +878,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="260"/>
-        <source>Imported Configuration from old gpg4usb.&lt;br/&gt;Will now restart to activate the configuration.</source>
+        <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

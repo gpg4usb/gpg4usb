@@ -1834,7 +1834,7 @@ Para acelerar el proceso use su computadora
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Imported Configuration from old gpg4usb.&lt;br/&gt;Will now restart to activate the configuration.</source>
+        <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
