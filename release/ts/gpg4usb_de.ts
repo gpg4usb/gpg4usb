@@ -156,12 +156,12 @@
     <message>
         <location filename="../../wizard.cpp" line="160"/>
         <source>...by clicking on the apropriate link.</source>
-        <translation>....indem sie auf den entsprechenden Link klicken.</translation>
+        <translation>...durch Betätigen des entsprechenden Links.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="162"/>
         <source>If you have never used gpg4usb before and also don&apos;t own a gpg key yet you may possibly want to </source>
-        <translation>Falls Sie nie zuvor gpg4usb verwendet haben und noch keinen gpg Schlüssel haben, möchten sie wahrscheinlich</translation>
+        <translation>Falls Sie nie zuvor gpg4usb verwendet haben und noch keinen gpg Schlüssel haben, möchten sie wahrscheinlich </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="164"/>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../../wizard.cpp" line="168"/>
         <source>If you upgrade from an older version of gpg4usb you may want to </source>
-        <translation>Fall Sie eine ältere Version ersetzen, möchten sie wahrscheinlich</translation>
+        <translation>Fall Sie eine ältere Version ersetzen, möchten sie wahrscheinlich </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="170"/>
@@ -181,7 +181,7 @@
     <message>
         <location filename="../../wizard.cpp" line="174"/>
         <source>If you are already using GnuPG you may want to </source>
-        <translation>Falls Sie GnuPG bereits verwenden, möchten sie wahrscheinlich</translation>
+        <translation>Falls Sie GnuPG bereits verwenden, möchten sie wahrscheinlich </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="176"/>
@@ -1244,7 +1244,7 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../wizard.cpp" line="349"/>
         <source>...for decrypting and signing messages</source>
-        <translation>...zum Entschlüsseln und Signieren von Nachrichten </translation>
+        <translation>...zum Entschlüsseln und Signieren</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="350"/>
@@ -2219,7 +2219,7 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="586"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;schauen Sie auf unsere&lt;br&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Kontaktseite&lt;/a&gt; &lt;br&gt;oder senden Sie eine Email an unsere Mailingliste unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation>&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;schauen Sie auf unsere&lt;br&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Kontaktseite&lt;/a&gt; &lt;br&gt;oder senden Sie eine Email an unsere Mailingliste&lt;br&gt;unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="598"/>
@@ -2661,7 +2661,7 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <location filename="../../wizard.cpp" line="81"/>
         <location filename="../../wizard.cpp" line="91"/>
         <source>Import error</source>
-        <translation>Fehler beim Import</translation>
+        <translation>Fehler beim Importieren</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="81"/>
