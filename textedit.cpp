@@ -565,7 +565,7 @@ void TextEdit::dropEvent(QDropEvent* event)
 
     foreach (QUrl tmp, event->mimeData()->urls())
     {
-        qDebug() << "hallo" << tmp;
+        qDebug() << tmp;
     }
 
     //event->acceptProposedAction();

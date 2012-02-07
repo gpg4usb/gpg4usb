@@ -103,8 +103,7 @@ void MainWindow::restoreSettings()
 
     // set list of keyserver if not defined
     QStringList *keyServerDefaultList;
-    keyServerDefaultList = new QStringList("http://gpg-keyserver.de");
-    keyServerDefaultList->append("http://pgp.mit.edu");
+    keyServerDefaultList = new QStringList("http://pgp.mit.edu");
     keyServerDefaultList->append("http://pool.sks-keyservers.net");
     keyServerDefaultList->append("http://subkeys.pgp.net");
 
