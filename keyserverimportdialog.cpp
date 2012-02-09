@@ -207,9 +207,9 @@ void KeyServerImportDialog::searchFinished()
 
                 QStringList line2 = QString(reply->readLine()).split(":");
 
-                QTableWidgetItem *uid;
+                QTableWidgetItem *uid = new QTableWidgetItem();
                 if (line2.size() > 1) {
-                    uid = new QTableWidgetItem(line2[1]);
+                    uid->setText(line2[1]);
                     keysTable->setItem(row, 0, uid);
                 }
                 QTableWidgetItem *creationdate = new QTableWidgetItem(QDateTime::fromTime_t(line[4].toInt()).toString("dd. MMM. yyyy"));

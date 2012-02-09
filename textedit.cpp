@@ -220,7 +220,7 @@ bool TextEdit::maybeSaveCurrentTab(bool askToSave) {
     QTextDocument *document = page->getTextPage()->document();
 
     if (document->isModified()) {
-        QMessageBox::StandardButton result;
+        QMessageBox::StandardButton result = QMessageBox::Cancel;
 
         // write title of tab to docname and remove the leading *
         QString docname = tabWidget->tabText(tabWidget->currentIndex());
