@@ -2860,6 +2860,22 @@ Para acelerar el proceso no use en su computadora
         <source> unencrypted files in attachment folder</source>
         <translation type="unfinished">archivos sin cifrar en carpeta adjuntos</translation>
     </message>
+    <message>
+        <source>Import key from...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Encrypt or decrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File..</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MimeTab</name>

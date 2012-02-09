@@ -1781,468 +1781,488 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="155"/>
+        <location filename="../../mainwindow.cpp" line="154"/>
         <source>&amp;New</source>
         <translation>&amp;Neu</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="161"/>
+        <location filename="../../mainwindow.cpp" line="160"/>
         <source>Open a new file</source>
         <translation>Öffne eine neue Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="164"/>
+        <location filename="../../mainwindow.cpp" line="163"/>
         <source>&amp;Open...</source>
         <translation>Ö&amp;ffnen...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="167"/>
+        <location filename="../../mainwindow.cpp" line="166"/>
         <source>Open an existing file</source>
         <translation>Öffen Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="170"/>
+        <location filename="../../mainwindow.cpp" line="169"/>
         <source>&amp;Save</source>
         <translation>&amp;Speichern</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="173"/>
+        <location filename="../../mainwindow.cpp" line="172"/>
         <source>Save the current File</source>
         <translation>Speichere Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="176"/>
+        <location filename="../../mainwindow.cpp" line="175"/>
         <source>Save &amp;As</source>
         <translation>Speichern &amp;unter</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="179"/>
+        <location filename="../../mainwindow.cpp" line="178"/>
         <source>Save the current File as...</source>
         <translation>Speichere aktuelle Datei als....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="182"/>
+        <location filename="../../mainwindow.cpp" line="181"/>
         <source>&amp;Print</source>
         <translation>&amp;Drucken</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="185"/>
+        <location filename="../../mainwindow.cpp" line="184"/>
         <source>Print Document</source>
         <translation>Drucken</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="188"/>
-        <location filename="../../mainwindow.cpp" line="603"/>
+        <location filename="../../mainwindow.cpp" line="187"/>
+        <location filename="../../mainwindow.cpp" line="602"/>
         <source>&amp;Close</source>
         <translation>&amp;Schliessen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="190"/>
+        <location filename="../../mainwindow.cpp" line="189"/>
         <source>Close file</source>
         <translation>Schliesse die Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="193"/>
+        <location filename="../../mainwindow.cpp" line="192"/>
         <source>&amp;Quit</source>
         <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="196"/>
+        <location filename="../../mainwindow.cpp" line="195"/>
         <source>Quit Program</source>
         <translation>Beende das Programm</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="201"/>
+        <location filename="../../mainwindow.cpp" line="200"/>
         <source>&amp;Undo</source>
         <translation>&amp;Rückgängig</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="203"/>
+        <location filename="../../mainwindow.cpp" line="202"/>
         <source>Undo Last Edit Action</source>
         <translation>Mache die letzte Aktion rückgängig</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="206"/>
+        <location filename="../../mainwindow.cpp" line="205"/>
         <source>&amp;Redo</source>
         <translation>&amp;Wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="208"/>
+        <location filename="../../mainwindow.cpp" line="207"/>
         <source>Redo Last Edit Action</source>
         <translation>Stelle die letzte Editieraktion wieder her</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="211"/>
+        <location filename="../../mainwindow.cpp" line="210"/>
         <source>Zoom In</source>
         <translation>Hereinzoomen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="215"/>
+        <location filename="../../mainwindow.cpp" line="214"/>
         <source>Zoom Out</source>
         <translation>Herauszoomen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="219"/>
+        <location filename="../../mainwindow.cpp" line="218"/>
         <source>&amp;Paste</source>
         <translation>E&amp;infügen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="222"/>
+        <location filename="../../mainwindow.cpp" line="221"/>
         <source>Paste Text From Clipboard</source>
         <translation>Füge Text aus der Zwischenablage ein</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="225"/>
+        <location filename="../../mainwindow.cpp" line="224"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="228"/>
+        <location filename="../../mainwindow.cpp" line="227"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
         <translation>aktuelle Auswahl ausschneiden und in Zwischenablage einfügen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="232"/>
+        <location filename="../../mainwindow.cpp" line="231"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopieren</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="235"/>
+        <location filename="../../mainwindow.cpp" line="234"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
         <translation>aktuelle Auswahl in Zwischenablage kopieren</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="239"/>
+        <location filename="../../mainwindow.cpp" line="238"/>
         <source>&amp;Quote</source>
         <translation>&amp;Kommentiere</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="241"/>
+        <location filename="../../mainwindow.cpp" line="240"/>
         <source>Quote whole text</source>
         <translation>Kommentiere den gesamten Text</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="244"/>
+        <location filename="../../mainwindow.cpp" line="243"/>
         <source>Select &amp;All</source>
         <translation>Alles &amp;markieren</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="247"/>
+        <location filename="../../mainwindow.cpp" line="246"/>
         <source>Select the whole text</source>
         <translation>Den ganzen Text markieren</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="250"/>
+        <location filename="../../mainwindow.cpp" line="249"/>
         <source>Remove &amp;spacing</source>
         <translation>Entferne &amp;Zeilenumbrüche</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="253"/>
+        <location filename="../../mainwindow.cpp" line="252"/>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
         <translation>Entferne doppelte Zeilenumbrüche, z.B. bei eingefügtem Text aus einem Webmailer</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="256"/>
+        <location filename="../../mainwindow.cpp" line="255"/>
         <source>Se&amp;ttings</source>
         <translation>Ei&amp;nstellungen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="257"/>
+        <location filename="../../mainwindow.cpp" line="256"/>
         <source>Open settings dialog</source>
         <translation>Öffne den Einstellungsdialog</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="263"/>
+        <location filename="../../mainwindow.cpp" line="262"/>
         <source>&amp;Encrypt</source>
         <translation>&amp;Verschlüsseln</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="266"/>
+        <location filename="../../mainwindow.cpp" line="265"/>
         <source>Encrypt Message</source>
         <translation>Verschlüssele den Text</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="269"/>
+        <location filename="../../mainwindow.cpp" line="268"/>
         <source>&amp;Decrypt</source>
         <translation>&amp;Entschlüsseln</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="272"/>
+        <location filename="../../mainwindow.cpp" line="271"/>
         <source>Decrypt Message</source>
         <translation>Entschlüssele den Text</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="275"/>
+        <location filename="../../mainwindow.cpp" line="274"/>
         <source>&amp;File Encryption</source>
         <translation>&amp;Datei Verschlüsselung</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="277"/>
+        <location filename="../../mainwindow.cpp" line="276"/>
         <source>Encrypt/Decrypt File</source>
         <translation>Ver-/Entschlüssele Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="283"/>
+        <location filename="../../mainwindow.cpp" line="282"/>
         <source>&amp;Encrypt File</source>
         <translation>&amp;Verschlüssele Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="285"/>
+        <location filename="../../mainwindow.cpp" line="284"/>
         <source>Encrypt File</source>
         <translation>Verschlüssele Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="288"/>
+        <location filename="../../mainwindow.cpp" line="287"/>
         <source>&amp;Decrypt File</source>
         <translation>&amp;Entschlüssele Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="290"/>
+        <location filename="../../mainwindow.cpp" line="289"/>
         <source>Decrypt File</source>
         <translation>Entschlüssele Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="293"/>
+        <location filename="../../mainwindow.cpp" line="292"/>
         <source>&amp;Sign</source>
         <translation>&amp;Signiere</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="296"/>
+        <location filename="../../mainwindow.cpp" line="295"/>
         <source>Sign Message</source>
         <translation>Signiere die Nachricht</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="299"/>
+        <location filename="../../mainwindow.cpp" line="298"/>
         <source>&amp;Verify</source>
         <translation>&amp;Verifiziere</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="302"/>
+        <location filename="../../mainwindow.cpp" line="301"/>
         <source>Verify Message</source>
         <translation>Verifiziere die Nachricht</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="308"/>
+        <location filename="../../mainwindow.cpp" line="307"/>
         <source>&amp;Editor</source>
         <translation>&amp;Editor</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="310"/>
+        <location filename="../../mainwindow.cpp" line="309"/>
         <source>Import New Key From Editor</source>
         <translation>Importiere einen neuen Schlüssel aus dem Textfeld</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="313"/>
+        <location filename="../../mainwindow.cpp" line="312"/>
         <source>Manage &amp;keys</source>
         <translation>Schlüssel&amp;verwaltung</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="315"/>
+        <location filename="../../mainwindow.cpp" line="314"/>
         <source>Open Keymanagement</source>
         <translation>Öffne die Schlüsselverwaltung</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="320"/>
+        <location filename="../../mainwindow.cpp" line="319"/>
         <source>&amp;About</source>
         <translation>&amp;Info</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="322"/>
+        <location filename="../../mainwindow.cpp" line="321"/>
         <source>Show the application&apos;s About box</source>
         <translation>Zeige die Information über die Anwendung</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="325"/>
+        <location filename="../../mainwindow.cpp" line="324"/>
         <source>Integrated Help</source>
         <translation>Integrierte Hilfe</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="326"/>
+        <location filename="../../mainwindow.cpp" line="325"/>
         <source>Open integrated Help</source>
         <translation>Öffne die integrierte Hilfe</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="329"/>
+        <location filename="../../mainwindow.cpp" line="328"/>
         <source>Online &amp;Tutorials</source>
         <translation>Online &amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="330"/>
+        <location filename="../../mainwindow.cpp" line="329"/>
         <source>Open Online Tutorials</source>
         <translation>Öffne die Online Hilfe</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="333"/>
+        <location filename="../../mainwindow.cpp" line="332"/>
         <source>Translate gpg4usb</source>
         <translation>Übersetze gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="334"/>
+        <location filename="../../mainwindow.cpp" line="333"/>
         <source>Translate gpg4usb yourself</source>
         <translation>Übersetze gpg4usb selbst</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="337"/>
+        <location filename="../../mainwindow.cpp" line="336"/>
         <source>Open &amp;Wizard</source>
         <translation>Öffne &amp;Assistenten</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="338"/>
+        <location filename="../../mainwindow.cpp" line="337"/>
         <source>Open the wizard</source>
         <translation>Öffne Assistenten für erste Schritte</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="343"/>
+        <location filename="../../mainwindow.cpp" line="342"/>
         <source>Append Selected Key(s) To Text</source>
         <translation>Hänge die ausgewählten Schlüssel an den Text an</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="344"/>
+        <location filename="../../mainwindow.cpp" line="343"/>
         <source>Append The Selected Keys To Text in Editor</source>
         <translation>Hänge den gewählten Schhlüssel an den Text im Editor an</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="347"/>
+        <location filename="../../mainwindow.cpp" line="346"/>
         <source>Copy EMail-address</source>
         <translation>Kopiere EMail-Adresse</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="348"/>
+        <location filename="../../mainwindow.cpp" line="347"/>
         <source>Copy selected EMailaddress to clipboard</source>
         <translation>Kopiere die ausgewählten EMail-Adresse in die Zwischenablage</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="352"/>
+        <location filename="../../mainwindow.cpp" line="351"/>
         <source>Show Keydetails</source>
         <translation>Eigenschaften anzeigen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="353"/>
+        <location filename="../../mainwindow.cpp" line="352"/>
         <source>Show Details for this Key</source>
         <translation>Details zu diesem Schlüssel anzeigen</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="371"/>
+        <location filename="../../mainwindow.cpp" line="370"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="383"/>
+        <location filename="../../mainwindow.cpp" line="382"/>
         <source>&amp;Edit</source>
         <translation>&amp;Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="399"/>
+        <location filename="../../mainwindow.cpp" line="398"/>
         <source>&amp;Crypt</source>
         <translation>&amp;Crypt</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="409"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
         <source>&amp;Keys</source>
         <translation>Sch&amp;lüssel</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="410"/>
+        <location filename="../../mainwindow.cpp" line="409"/>
         <source>&amp;Import Key From...</source>
         <translation>&amp;Importiere Schlüssel aus...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="420"/>
+        <location filename="../../mainwindow.cpp" line="419"/>
         <source>&amp;Steganography</source>
         <translation>&amp;Steganografie</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="421"/>
+        <location filename="../../mainwindow.cpp" line="420"/>
         <source>Remove PGP Header</source>
         <translation>Entferne PGP Header</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="423"/>
+        <location filename="../../mainwindow.cpp" line="422"/>
         <source>Add PGP Header</source>
         <translation>Füge PGP Header hinzu</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="429"/>
+        <location filename="../../mainwindow.cpp" line="428"/>
         <source>&amp;View</source>
         <translation>&amp;Ansicht</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="431"/>
+        <location filename="../../mainwindow.cpp" line="430"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="444"/>
+        <location filename="../../mainwindow.cpp" line="443"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="452"/>
+        <location filename="../../mainwindow.cpp" line="451"/>
         <source>Crypt</source>
         <translation>Crypt</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="461"/>
+        <location filename="../../mainwindow.cpp" line="460"/>
         <source>Key</source>
         <translation>Schlüssel</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="466"/>
+        <location filename="../../mainwindow.cpp" line="465"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="473"/>
+        <location filename="../../mainwindow.cpp" line="472"/>
         <source>Special edit</source>
         <translation>Spezial Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="515"/>
+        <location filename="../../mainwindow.cpp" line="483"/>
+        <source>Import key from...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="484"/>
+        <source>Import key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="495"/>
+        <source>Encrypt or decrypt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="496"/>
+        <source>File..</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="514"/>
         <source>Ready</source>
         <translation>Fertig</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="523"/>
+        <location filename="../../mainwindow.cpp" line="522"/>
         <source>Encrypt for:</source>
         <translation>Verschlüssele für:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="542"/>
+        <location filename="../../mainwindow.cpp" line="541"/>
         <source>Attached files:</source>
         <translation>Angehängte Dateien:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="583"/>
+        <location filename="../../mainwindow.cpp" line="582"/>
         <source>About </source>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="586"/>
+        <location filename="../../mainwindow.cpp" line="585"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
         <translation>&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;schauen Sie auf unsere&lt;br&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Kontaktseite&lt;/a&gt; &lt;br&gt;oder senden Sie eine Email an unsere Mailingliste&lt;br&gt;unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="598"/>
+        <location filename="../../mainwindow.cpp" line="597"/>
         <source>&lt;br&gt;&lt;br&gt; Built with Qt </source>
         <translation>&lt;br&gt;&lt;br&gt;Erstellt mit Qt </translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="599"/>
+        <location filename="../../mainwindow.cpp" line="598"/>
         <source> and GPGME </source>
         <translation> und GPGME </translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="704"/>
+        <location filename="../../mainwindow.cpp" line="703"/>
         <source>There is one unencrypted file in attachment folder</source>
         <translation>Es gibt unverschlüsselte Dateien im Attachment Ordner</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="706"/>
+        <location filename="../../mainwindow.cpp" line="705"/>
         <source>There are </source>
         <translation>Es gibt</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="706"/>
+        <location filename="../../mainwindow.cpp" line="705"/>
         <source> unencrypted files in attachment folder</source>
         <translation>unverschlüsselte Dateien im Attachment Ordner</translation>
     </message>
