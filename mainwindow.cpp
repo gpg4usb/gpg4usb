@@ -635,7 +635,7 @@ void MainWindow::openHelp() {
 
 void MainWindow::openHelp(const QString page)
 {
-    edit->newHelpTab("help", "file://" + qApp->applicationDirPath() + "/help/" + page);
+    edit->newHelpTab("help", "file:" + qApp->applicationDirPath() + "/help/" + page);
 }
 
 void MainWindow::setStatusBarText(QString text)
