@@ -2199,22 +2199,22 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="483"/>
         <source>Import key from...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importiere Schlüssel aus...</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="484"/>
         <source>Import key</source>
-        <translation type="unfinished"></translation>
+        <translation>Importiere Schlüssel</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="495"/>
         <source>Encrypt or decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschlüssele oder entschlüssele Datei</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="496"/>
         <source>File..</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei..</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="514"/>
