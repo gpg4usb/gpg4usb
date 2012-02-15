@@ -363,6 +363,49 @@ void MainWindow::createActions()
     switchTabDownAct->setShortcut(QKeySequence::PreviousChild);
     connect(switchTabDownAct, SIGNAL(triggered()), edit, SLOT(switchTabDown()));
     this->addAction(switchTabDownAct);
+
+    cutPgpHeaderAct = new QAction(tr("Remove PGP Header"), this);
+    connect(cutPgpHeaderAct, SIGNAL(triggered()), this, SLOT(cutPgpHeader()));
+
+    addPgpHeaderAct = new QAction(tr("Add PGP Header"), this);
+    connect(addPgpHeaderAct, SIGNAL(triggered()), this, SLOT(addPgpHeader()));
+}
+
+void MainWindow::disableTabActions(int number)
+{
+    bool disable;
+
+    if (number == 0 ) {
+        disable = true;
+    } else {
+        disable= false;
+    }
+    printAct->setDisabled(disable);
+    saveAct->setDisabled(disable);
+    saveAsAct->setDisabled(disable);
+    quoteAct->setDisabled(disable);
+    cutAct->setDisabled(disable);
+    copyAct->setDisabled(disable);
+    pasteAct->setDisabled(disable);
+
+    selectallAct->setDisabled(disable);
+    verifyAct->setDisabled(disable);
+    signAct->setDisabled(disable);
+    encryptAct->setDisabled(disable);
+    decryptAct->setDisabled(disable);
+
+    redoAct->setDisabled(disable);
+    undoAct->setDisabled(disable);
+    zoomOutAct->setDisabled(disable);
+    zoomInAct->setDisabled(disable);
+    cleanDoubleLinebreaksAct->setDisabled(disable);
+    quoteAct->setDisabled(disable);
+    appendSelectedKeysAct->setDisabled(disable);
+    importKeyFromEditAct->setDisabled(disable);
+
+    cutPgpHeaderAct->setDisabled(disable);
+    addPgpHeaderAct->setDisabled(disable);
+
 }
 
 void MainWindow::createMenus()
@@ -417,10 +460,6 @@ void MainWindow::createMenus()
 
     if(settings.value("advanced/steganography").toBool()) {
         steganoMenu = menuBar()->addMenu(tr("&Steganography"));
-        QAction* cutPgpHeaderAct = new QAction(tr("Remove PGP Header"), this);
-        connect(cutPgpHeaderAct, SIGNAL(triggered()), this, SLOT(cutPgpHeader()));
-        QAction* addPgpHeaderAct = new QAction(tr("Add PGP Header"), this);
-        connect(addPgpHeaderAct, SIGNAL(triggered()), this, SLOT(addPgpHeader()));
         steganoMenu->addAction(cutPgpHeaderAct);
         steganoMenu->addAction(addPgpHeaderAct);
     }

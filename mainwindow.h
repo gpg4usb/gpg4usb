@@ -193,6 +193,11 @@ private:
     void createActions();
 
     /**
+     * @details Disable tab related actions, if number of tabs is 0.
+     */
+    void disableTabActions(int number);
+
+    /**
      * @details create the menu of the main-window.
      */
     void createMenus();
@@ -297,6 +302,8 @@ private:
     QAction *openHelpAct; /** Action to open tutorial */
     QAction *showKeyDetailsAct; /** Action to open key-details dialog */
     QAction *startWizardAct; /** Action to open the wizard */
+    QAction *cutPgpHeaderAct; /** Action for cutting the PGP header */
+    QAction *addPgpHeaderAct; /** Action for adding the PGP header */
 
     QLineEdit *nameEdit; /**< TODO */
     QLineEdit *emailEdit; /**< TODO */
