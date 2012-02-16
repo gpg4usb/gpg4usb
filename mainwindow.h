@@ -164,6 +164,10 @@ private slots:
      * @details Open integrated help in new tab.
      */
     void openHelp();
+
+    /**
+     * @details Open integrated help in new tab with the specified page.
+     */
     void openHelp(const QString page);
 
     /**
@@ -181,21 +185,28 @@ private slots:
      */
     void cleanDoubleLinebreaks();
 
+    /**
+     * @details Cut the existing PGP header and footer from current tab.
+     */
     void cutPgpHeader();
+
+    /**
+     * @details Add PGP header and footer to current tab.
+     */
     void addPgpHeader();
 
 //    void dropEvent(QDropEvent *event);
+
+    /**
+     * @details Disable tab related actions, if number of tabs is 0.
+     */
+    void disableTabActions(int number);
 
 private:
     /**
      * @details Create actions for the main-menu and the context-menu of the keylist.
      */
     void createActions();
-
-    /**
-     * @details Disable tab related actions, if number of tabs is 0.
-     */
-    void disableTabActions(int number);
 
     /**
      * @details create the menu of the main-window.

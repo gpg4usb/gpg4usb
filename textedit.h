@@ -88,6 +88,8 @@ public:
      */
     QHash<int, QString> unsavedDocuments();
 
+    QTabWidget *tabWidget; /** Widget containing the tabs of the editor */
+
 public slots:
     /**
      * @details Insert a ">" at the begining of every line of current textedit.
@@ -195,7 +197,6 @@ private:
      * Description:         int cotaining the number of added tabs
     */
     int countPage; /* TODO */
-    QTabWidget *tabWidget; /** Widget containing the tabs of the editor */
 
 private slots:
     /**

@@ -53,6 +53,7 @@ MainWindow::MainWindow()
     createStatusBar();
     createDockWindows();
 
+    connect(edit->tabWidget,SIGNAL(currentChanged(int)),this,SLOT(disableTabActions(int)));
     mKeyList->addMenuAction(appendSelectedKeysAct);
     mKeyList->addMenuAction(copyMailAddressToClipboardAct);
     mKeyList->addMenuAction(showKeyDetailsAct);
@@ -375,7 +376,7 @@ void MainWindow::disableTabActions(int number)
 {
     bool disable;
 
-    if (number == 0 ) {
+    if (number == -1 ) {
         disable = true;
     } else {
         disable= false;
@@ -405,7 +406,6 @@ void MainWindow::disableTabActions(int number)
 
     cutPgpHeaderAct->setDisabled(disable);
     addPgpHeaderAct->setDisabled(disable);
-
 }
 
 void MainWindow::createMenus()
