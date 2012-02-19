@@ -199,6 +199,7 @@ private slots:
 
     /**
      * @details Disable tab related actions, if number of tabs is 0.
+     * @param number number of the opened tabs and -1, if no tab is opened
      */
     void disableTabActions(int number);
 
@@ -261,7 +262,7 @@ private:
     QMenu *cryptMenu; /** Submenu for crypt-operations */
     QMenu *helpMenu; /** Submenu for help-operations */
     QMenu *keyMenu; /** Submenu for key-operations */
-    QMenu *viewMenu; /** View submenu */
+    QMenu *viewMenu; /** Submenu for view operations */
     QMenu *importKeyMenu; /** Sumenu for import operations */
     QMenu *steganoMenu; /** Submenu for steganographic operations*/
     QToolBar *cryptToolBar; /** Toolbar holding crypt actions */
@@ -316,21 +317,7 @@ private:
     QAction *cutPgpHeaderAct; /** Action for cutting the PGP header */
     QAction *addPgpHeaderAct; /** Action for adding the PGP header */
 
-    QLineEdit *nameEdit; /**< TODO */
-    QLineEdit *emailEdit; /**< TODO */
-    QLineEdit *commentEdit; /**< TODO */
-    QLineEdit *passwordEdit; /**< TODO */
-    QLineEdit *repeatpwEdit; /**< TODO */
-    QSpinBox *keysizeSpinBox; /**< TODO */
-    QLabel *nameLabel; /**< TODO */
-    QLabel *emailLabel; /**< TODO */
-    QLabel *commentLabel; /**< TODO */
-    QLabel *keysizeLabel; /**< TODO */
-    QLabel *passwordLabel; /**< TODO */
-    QLabel *repeatpwLabel; /**< TODO */
-    QLabel *errorLabel; /**< TODO */
     QLabel *statusBarIcon; /**< TODO */
-
     QSettings settings; /**< TODO */
     KeyList *mKeyList; /**< TODO */
     Attachments *mAttachments; /**< TODO */

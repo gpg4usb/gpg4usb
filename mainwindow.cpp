@@ -385,7 +385,7 @@ void MainWindow::disableTabActions(int number)
     cutAct->setDisabled(disable);
     copyAct->setDisabled(disable);
     pasteAct->setDisabled(disable);
-
+    closeTabAct->setDisabled(disable);
     selectallAct->setDisabled(disable);
     verifyAct->setDisabled(disable);
     signAct->setDisabled(disable);
