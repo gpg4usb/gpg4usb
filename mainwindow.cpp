@@ -455,10 +455,13 @@ void MainWindow::createMenus()
     importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
     keyMenu->addAction(openKeyManagementAct);
 
-    if(settings.value("advanced/steganography").toBool()) {
-        steganoMenu = menuBar()->addMenu(tr("&Steganography"));
-        steganoMenu->addAction(cutPgpHeaderAct);
-        steganoMenu->addAction(addPgpHeaderAct);
+    steganoMenu = menuBar()->addMenu(tr("&Steganography"));
+    steganoMenu->addAction(cutPgpHeaderAct);
+    steganoMenu->addAction(addPgpHeaderAct);
+
+    // Hide menu, when steganography menu is disabled in settings
+    if(!settings.value("advanced/steganography").toBool()) {
+        this->menuBar()->removeAction(steganoMenu->menuAction());
     }
 
     viewMenu = menuBar()->addMenu(tr("&View"));
@@ -927,6 +930,7 @@ void MainWindow::openSettingsDialog()
     importButton->setToolButtonStyle(buttonStyle);
     fileEncButton->setToolButtonStyle(buttonStyle);
 
+    // Mime-settings
     if(settings.value("mime/parseMime").toBool()) {
         createAttachmentDock();
     } else if(attachmentDockCreated) {
@@ -940,6 +944,14 @@ void MainWindow::openSettingsDialog()
             qApp->exit(RESTART_CODE);
         }
     }
+
+    // steganography hide/show
+    if(!settings.value("advanced/steganography").toBool()) {
+        this->menuBar()->removeAction(steganoMenu->menuAction());
+    } else {
+        this->menuBar()->insertAction(viewMenu->menuAction(), steganoMenu->menuAction());
+    }
+
 }
 
 void MainWindow::cleanDoubleLinebreaks()
