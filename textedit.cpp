@@ -150,7 +150,7 @@ bool TextEdit::saveFile(const QString &fileName)
 
 bool TextEdit::saveAs()
 {
-    if (tabWidget->count() == 0) {
+    if (tabWidget->count() == 0 || curPage() == 0) {
         return true;
     }
 
