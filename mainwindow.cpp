@@ -26,8 +26,6 @@ MainWindow::MainWindow()
     mCtx = new GpgME::GpgContext();
 
     /* get path were app was started */
-    QString appPath = qApp->applicationDirPath();
-
     setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
 
@@ -54,6 +52,7 @@ MainWindow::MainWindow()
     createDockWindows();
 
     connect(edit->tabWidget,SIGNAL(currentChanged(int)),this,SLOT(disableTabActions(int)));
+
     mKeyList->addMenuAction(appendSelectedKeysAct);
     mKeyList->addMenuAction(copyMailAddressToClipboardAct);
     mKeyList->addMenuAction(showKeyDetailsAct);
@@ -75,8 +74,6 @@ MainWindow::MainWindow()
     // Show wizard, if the don't show wizard message box wasn't checked
     // and keylist doesn't contain a private key
     QSettings settings;
-    //if (settings.value("wizard/showWizard",true).toBool() && !mKeyList->containsPrivateKeys()) {
-
     if (settings.value("wizard/showWizard",true).toBool() || !settings.value("wizard/nextPage").isNull()) {
         startWizard();
     }
@@ -599,7 +596,6 @@ void MainWindow::closeAttachmentDock() {
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-
     /*
      * ask to save changes, if there are
      * modified documents in any tab
