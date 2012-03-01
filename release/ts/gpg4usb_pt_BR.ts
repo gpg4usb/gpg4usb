@@ -6,12 +6,12 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="450"/>
         <source>Show Steganography Options [Advanced]</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir Opções de Esteganografia [Avançado]</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="452"/>
         <source>Show Steganographic Options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir Opções de Esteganografia.</translation>
     </message>
 </context>
 <context>
@@ -123,42 +123,42 @@
     <message>
         <location filename="../../wizard.cpp" line="159"/>
         <source>Choose your action...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione sua ação...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="160"/>
         <source>...by clicking on the apropriate link.</source>
-        <translation type="unfinished"></translation>
+        <translation>...clicando no link apropriado.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="162"/>
         <source>If you have never used gpg4usb before and also don&apos;t own a gpg key yet you may possibly want to </source>
-        <translation type="unfinished"></translation>
+        <translation>Caso você nunca tenha usado o gpg4usb antes e tambem não possua uma chave gpg você pode querer </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="164"/>
         <source>create a new keypair</source>
-        <translation type="unfinished"></translation>
+        <translation>criar um novo par de chaves</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="168"/>
         <source>If you upgrade from an older version of gpg4usb you may want to </source>
-        <translation type="unfinished"></translation>
+        <translation>Caso tenha atualizado de uma versão antiga do gpg4usb você pode querer </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="170"/>
         <source>import settings and/or keys from gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation>importar as configurações e/ou as chaves do gpg4usb</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="174"/>
         <source>If you are already using GnuPG you may want to </source>
-        <translation type="unfinished"></translation>
+        <translation>Caso você já tenha usado o GnuPG você pode querer </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="176"/>
         <source>import keys from GnuPG</source>
-        <translation type="unfinished"></translation>
+        <translation>importar as chaves do GnuPG</translation>
     </message>
 </context>
 <context>
@@ -174,27 +174,27 @@
     <message>
         <location filename="../../wizard.cpp" line="391"/>
         <source>Ready.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pronto.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="392"/>
         <source>Have fun with gpg4usb!</source>
-        <translation type="unfinished"></translation>
+        <translation>Divirta-se com o gpg4usb!</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="394"/>
         <source>You are ready to use gpg4usb now.&lt;br&gt;&lt;br&gt;The offline help will get you started with gpg4usb. It will open in the main window.&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Você está pronto para usar o gpg4usb.&lt;br&gt;&lt;br&gt;A ajuda offline permitirá a você iniciar o uso do gpg4usb e será aberto na janela principal.&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="399"/>
         <source>Open offline help.</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir ajuda offline.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="402"/>
         <source>Dont show the wizard again.</source>
-        <translation type="unfinished">Não exibir o auxiliar novamente.</translation>
+        <translation>Não exibir o auxiliar novamente.</translation>
     </message>
 </context>
 <context>
@@ -223,12 +223,12 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="31"/>
         <source>Decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation>Decriptar Arquivo</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="33"/>
         <source>Encrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation>Encriptar Arquivo</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="53"/>
@@ -258,7 +258,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="153"/>
         <source>Couldn&apos;t Open file: </source>
-        <translation type="unfinished"></translation>
+        <translation>Não pode abrir o arquivo:</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="171"/>
@@ -377,47 +377,47 @@
     <message>
         <location filename="../../gpgcontext.cpp" line="312"/>
         <source>No Key Selected</source>
-        <translation type="unfinished">Chave não selecionada</translation>
+        <translation>Chave não selecionada</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="384"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br&gt;Não existe Chave privada com o id %1 presente no chaveiro</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="392"/>
         <source>Unsupported algorithm</source>
-        <translation type="unfinished">Algorítmo não suportado</translation>
+        <translation>Algorítmo não suportado</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="402"/>
         <source>Error decrypting:</source>
-        <translation type="unfinished">Erro ao decriptar:</translation>
+        <translation>Erro ao decriptar:</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="476"/>
         <source>Wrong password</source>
-        <translation type="unfinished">Senha errada</translation>
+        <translation>Senha errada</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="488"/>
         <source>Enter Password</source>
-        <translation type="unfinished">Insira a Senha</translation>
+        <translation>Insira a Senha</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="649"/>
         <source>Key Selection</source>
-        <translation type="unfinished">Seleção de chave</translation>
+        <translation>Seleção de chave</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="649"/>
         <source>No Private Key Selected</source>
-        <translation type="unfinished">Chave privada não selecionada</translation>
+        <translation>Chave privada não selecionada</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
-        <translation type="unfinished">Erro durante assinatura:</translation>
+        <translation>Erro ao assinar:</translation>
     </message>
 </context>
 <context>
@@ -881,32 +881,32 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../wizard.cpp" line="288"/>
         <source>Import keys...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar chaves...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="289"/>
         <source>...from existing GnuPG installation</source>
-        <translation type="unfinished"></translation>
+        <translation>...da instalação existente do GnuPG</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="291"/>
         <source>You can import keys from a locally installed GnuPG.&lt;br&gt;&lt;br&gt; The location is read from registry in Windows or assumed to be the .gnupg folder in the your home directory in Linux.&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Você pode importar as chaves do local de instalação do GnuPG.&lt;br&gt;&lt;br&gt; A localização é lida do registro do Windows ou presume-se que seja a pasta .gnupg no diretorio home do Linux.&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="295"/>
         <source>Import keys from GnuPG</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar chaves do GnuPG</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="310"/>
         <source>Import Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro ao importar</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="310"/>
         <source>Couldn&apos;t locate GnuPG home directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Não conseguiu localizar a pasta do GnuPG</translation>
     </message>
 </context>
 <context>
@@ -914,47 +914,47 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../wizard.cpp" line="208"/>
         <source>Import from...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar de...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="209"/>
         <source>...existing gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation>...gpg4usb existente</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="211"/>
         <source>You can import keys and/or settings from existing gpg4usb. &lt;br&gt;&lt;br&gt;Just check what you want to import, click the import button and choose the directory of your other gpg4usb in the appearing file dialog.</source>
-        <translation type="unfinished"></translation>
+        <translation>Você pode importar as chaves e/ou configurações de um gpg4usb existente. &lt;br&gt;&lt;br&gt;Selecione o que você deseja importar, click o botão importar e escolha a pasta de seu outro gpg4usb na caixa de diálogo.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="218"/>
         <source>Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Chaves</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="222"/>
         <source>Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuração</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="224"/>
         <source>Import from gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar do gpg4usb</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="240"/>
         <source>Other gpg4usb directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasta do outro gpg4usb</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="260"/>
         <source>Configuration Imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuração importada</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="260"/>
         <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuração importada do antigo gpg4usb.&lt;br&gt;Agora irá reiniciar para ativar a configuração.</translation>
     </message>
 </context>
 <context>
@@ -970,22 +970,22 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../wizard.cpp" line="106"/>
         <source>Getting started...</source>
-        <translation type="unfinished"></translation>
+        <translation>Primeiros passos...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="107"/>
         <source>... with gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation>... com o gpg4usb</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="109"/>
         <source>To use gpg4usb for decrypting and signing messages, you need a private key. The next page will help you with key generation or import.&lt;br&gt;&lt;br&gt;For more information have a look at the &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (by clicking the link, the page will open in the main window). &lt;br&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Para usar o gpg4usb para decriptar e assinar mensagens, você precisa de uma chave privada. A proxima página irá ajudá-lo com a geração ou importação de chaves.&lt;br&gt;&lt;br&gt;Para mais informações acesse &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (clicando no link, a página será aberta na janela principal).&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="118"/>
         <source>Choose a Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolha o Idioma</translation>
     </message>
 </context>
 <context>
@@ -1008,7 +1008,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="33"/>
         <source>Additional Uids</source>
-        <translation type="unfinished"></translation>
+        <translation>Uids adicionais</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="81"/>
@@ -1043,7 +1043,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="116"/>
         <source>copy fingerprint to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>copiar assinatura para área de transferência</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="158"/>
@@ -1053,7 +1053,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="161"/>
         <source>Warning: Key revoked</source>
-        <translation type="unfinished"></translation>
+        <translation>Alerta: Chave revogada</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="176"/>
@@ -1065,7 +1065,9 @@ Deseja salvar as alterações?</translation>
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.Do you really want to export your private key?</source>
-        <translation type="unfinished"></translation>
+        <translation>Você esta prestes a exportar sua chave privada.
+Essa NÃO é sua chave pública, portanto não a distribua.
+Tenha certeza de mantê-la segura. Você realmente deseja exportar sua chave privada?</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -1075,12 +1077,12 @@ Make sure you keep it save.Do you really want to export your private key?</sourc
     <message>
         <location filename="../../keydetailsdialog.cpp" line="202"/>
         <source>Export error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro ao exportar</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="202"/>
         <source>Couldn&apos;t open %1 for writing</source>
-        <translation type="unfinished"></translation>
+        <translation>Não pode abrir %1 para escrita</translation>
     </message>
     <message>
         <source>Key Files </source>
@@ -1140,12 +1142,12 @@ Guarde-a em segurança.</translation>
     <message>
         <location filename="../../keygendialog.cpp" line="31"/>
         <source>Generate Key</source>
-        <translation type="unfinished">Gerar Chave</translation>
+        <translation>Gerar Chave</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="73"/>
         <source>Name:</source>
-        <translation type="unfinished">Nome:</translation>
+        <translation>Nome:</translation>
     </message>
     <message>
         <source>E-Mailaddress::</source>
@@ -1154,66 +1156,66 @@ Guarde-a em segurança.</translation>
     <message>
         <location filename="../../keygendialog.cpp" line="75"/>
         <source>Comment:</source>
-        <translation type="unfinished">Comentários:</translation>
+        <translation>Comentários:</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="78"/>
         <source>KeySize (in Bit):</source>
-        <translation type="unfinished">Tamanho da Chave (bits):</translation>
+        <translation>Tamanho da Chave (bits):</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="76"/>
         <source>Expiration Date:</source>
-        <translation type="unfinished">Data de expiração:</translation>
+        <translation>Data de expiração:</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="79"/>
         <source>Password:</source>
-        <translation type="unfinished">Senha:</translation>
+        <translation>Senha:</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="81"/>
         <source>Repeat Password:</source>
-        <translation type="unfinished">Repetir a Senha:</translation>
+        <translation>Repetir a Senha:</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="77"/>
         <source>Never Expire</source>
-        <translation type="unfinished">Nunca Expira</translation>
+        <translation>Nunca Expira</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="80"/>
         <source>Password: Strength
 Weak -&gt; Strong</source>
-        <translation type="unfinished">Força da Senha:
+        <translation>Força da Senha:
 Fraca -&gt; Forte</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="68"/>
         <source>Password Strength</source>
-        <translation type="unfinished">Força da Senha</translation>
+        <translation>Força da Senha</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="74"/>
         <source>E-Mailaddress:</source>
-        <translation type="unfinished">Endereço de E-Mail:</translation>
+        <translation>Endereço de E-Mail:</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="117"/>
         <source>  Name must contain at least five characters.  
 </source>
-        <translation type="unfinished">  O nome deve conter pelo menos cinco caracteres.  
+        <translation>  O nome deve conter pelo menos cinco caracteres.  
 </translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="120"/>
         <source>  Password and Repeat don&apos;t match.  </source>
-        <translation type="unfinished">  As senhas não conferem.  </translation>
+        <translation>  As senhas não conferem.  </translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="157"/>
         <source>Generating Key...</source>
-        <translation type="unfinished">Gerando as Chaves...</translation>
+        <translation>Gerando as Chaves...</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="159"/>
@@ -1221,7 +1223,7 @@ Fraca -&gt; Forte</translation>
  This may take a while.
  To speed up the process use your computer
  (e.g. browse the net, listen to music,...)</source>
-        <translation type="unfinished">Coletando dados aleatórios para a geração da chave.
+        <translation>Coletando dados aleatórios para a geração da chave.
  Isso pode demorar um pouco.
  Para agilizar o processo use seu computador
  (ex: navegue na internet, ouça música,...)</translation>
@@ -1229,12 +1231,12 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../keygendialog.cpp" line="175"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>Sucesso</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="175"/>
         <source>New key created</source>
-        <translation type="unfinished"></translation>
+        <translation>Nova chave criada</translation>
     </message>
 </context>
 <context>
@@ -1250,27 +1252,27 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../wizard.cpp" line="348"/>
         <source>Create a keypair...</source>
-        <translation type="unfinished"></translation>
+        <translation>Criar um par de chaves...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="349"/>
         <source>...for decrypting and signing messages</source>
-        <translation type="unfinished"></translation>
+        <translation>... para decriptar e assinar mensagens</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="350"/>
         <source>You should create a new keypair.The pair consists of a public and a private key.&lt;br&gt;Other users can use the public key to encrypt messages for you and verify messages signed by you.You can use the private key to decrypt and sign messages.&lt;br&gt;For more information have a look at the offline tutorial (which then is shown in the main window):</source>
-        <translation type="unfinished"></translation>
+        <translation>Você deve criar um novo par de chaves. O par consiste na chave pública e privada.&lt;br&gt;Outros usuários podem usar sua chave pública para encriptar mensagens para você e verificar mensagens assinadas por você. Você pode utilizar a chave privada para decriptar e assinar mensagens.&lt;br&gt;Para mais informações. acesse o tutorial offline (através da janela principal):</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="357"/>
         <source>Offline tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutorial Offline</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="364"/>
         <source>Create New Key</source>
-        <translation type="unfinished">Criar Nova Chave</translation>
+        <translation>Criar Nova Chave</translation>
     </message>
     <message>
         <source>key generated. Now you can crypt and sign texts.</source>
@@ -1283,107 +1285,107 @@ Fraca -&gt; Forte</translation>
         <location filename="../../keyimportdetaildialog.cpp" line="31"/>
         <location filename="../../keyimportdetaildialog.cpp" line="47"/>
         <source>Key import details</source>
-        <translation type="unfinished"></translation>
+        <translation>detalhes da importação da chave</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="31"/>
         <source>No keys found to import</source>
-        <translation type="unfinished"></translation>
+        <translation>Não encontrada chaves para importar</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="56"/>
         <source>Genral key import info</source>
-        <translation type="unfinished"></translation>
+        <translation>Informações gerais de importação da chave</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="59"/>
         <source>Considered:</source>
-        <translation type="unfinished"></translation>
+        <translation>Considerado:</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="63"/>
         <source>Public unchanged:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pública não alterada:</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="68"/>
         <source>Imported:</source>
-        <translation type="unfinished"></translation>
+        <translation>Importado:</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="73"/>
         <source>Not imported:</source>
-        <translation type="unfinished"></translation>
+        <translation>Não importado:</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="78"/>
         <source>Private read:</source>
-        <translation type="unfinished"></translation>
+        <translation>Privada lida:</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="83"/>
         <source>Private imported:</source>
-        <translation type="unfinished"></translation>
+        <translation>Privada importada:</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="88"/>
         <source>Private unchanged:</source>
-        <translation type="unfinished"></translation>
+        <translation>Privada não alterada:</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
         <source>Name</source>
-        <translation type="unfinished">Nome</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Email</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Status</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
         <source>Fingerprint</source>
-        <translation type="unfinished">Assinatura digital</translation>
+        <translation>Assinatura digital</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="128"/>
         <source>private</source>
-        <translation type="unfinished"></translation>
+        <translation>privada</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="131"/>
         <source>public</source>
-        <translation type="unfinished"></translation>
+        <translation>pública</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="134"/>
         <source>unchanged</source>
-        <translation type="unfinished"></translation>
+        <translation>não alterada</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="137"/>
         <source>new key</source>
-        <translation type="unfinished"></translation>
+        <translation>nova chave</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="140"/>
         <source>new subkey</source>
-        <translation type="unfinished"></translation>
+        <translation>nova subchave</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="144"/>
         <source>new signature</source>
-        <translation type="unfinished"></translation>
+        <translation>nova assinatura</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="148"/>
         <source>new uid</source>
-        <translation type="unfinished"></translation>
+        <translation>novo uid</translation>
     </message>
 </context>
 <context>
@@ -1545,7 +1547,7 @@ gpg4usb tentará importar a(s) chave(s).</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="260"/>
         <source>key(s) exported</source>
-        <translation type="unfinished"></translation>
+        <translation>Chave(s) exportadas</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="74"/>
@@ -1581,7 +1583,7 @@ gpg4usb tentará importar a(s) chave(s).</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="167"/>
         <source>Keyring files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de chaveiros</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="172"/>
@@ -1731,7 +1733,7 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="112"/>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="153"/>
@@ -1761,12 +1763,12 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="201"/>
         <source>revoked</source>
-        <translation type="unfinished"></translation>
+        <translation>revogado</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="204"/>
         <source>disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>desabilitado</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="243"/>
@@ -1797,218 +1799,218 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="152"/>
         <source>&amp;New</source>
-        <translation type="unfinished">&amp;Novo</translation>
+        <translation>&amp;Novo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="158"/>
         <source>Open a new file</source>
-        <translation type="unfinished">Abrir um novo arquivo</translation>
+        <translation>Abrir um novo arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="161"/>
         <source>&amp;Open...</source>
-        <translation type="unfinished">&amp;Abrir...</translation>
+        <translation>&amp;Abrir...</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="164"/>
         <source>Open an existing file</source>
-        <translation type="unfinished">Abrir um arquivo existente</translation>
+        <translation>Abrir um arquivo existente</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="167"/>
         <source>&amp;Save</source>
-        <translation type="unfinished">&amp;Salvar</translation>
+        <translation>&amp;Salvar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="170"/>
         <source>Save the current File</source>
-        <translation type="unfinished">Salvar o arquivo atual</translation>
+        <translation>Salvar o arquivo atual</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="173"/>
         <source>Save &amp;As</source>
-        <translation type="unfinished">Salvar Co&amp;mo</translation>
+        <translation>Salvar Co&amp;mo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="176"/>
         <source>Save the current File as...</source>
-        <translation type="unfinished">Salvar o arquivo atual como...</translation>
+        <translation>Salvar o arquivo atual como...</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="179"/>
         <source>&amp;Print</source>
-        <translation type="unfinished">&amp;Imprimir</translation>
+        <translation>&amp;Imprimir</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="182"/>
         <source>Print Document</source>
-        <translation type="unfinished">Imprimir Documento</translation>
+        <translation>Imprimir Documento</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="185"/>
         <location filename="../../mainwindow.cpp" line="640"/>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Fechar</translation>
+        <translation>&amp;Fechar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="187"/>
         <source>Close file</source>
-        <translation type="unfinished">Fechar o arquivo</translation>
+        <translation>Fechar o arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="190"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished">Sai&amp;r</translation>
+        <translation>Sai&amp;r</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="193"/>
         <source>Quit Program</source>
-        <translation type="unfinished">Sair</translation>
+        <translation>Sair</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="198"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished">&amp;Desfazer</translation>
+        <translation>&amp;Desfazer</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="200"/>
         <source>Undo Last Edit Action</source>
-        <translation type="unfinished">Desfazer Última Edição</translation>
+        <translation>Desfazer Última Edição</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="203"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished">&amp;Repetir</translation>
+        <translation>&amp;Repetir</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="205"/>
         <source>Redo Last Edit Action</source>
-        <translation type="unfinished">Repete a última ação de edição</translation>
+        <translation>Repete a última ação de edição</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="208"/>
         <source>Zoom In</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom +</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="212"/>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom -</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="216"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished">&amp;Colar</translation>
+        <translation>&amp;Colar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="219"/>
         <source>Paste Text From Clipboard</source>
-        <translation type="unfinished">Colar Texto da Área de Transferência</translation>
+        <translation>Colar Texto da Área de Transferência</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="222"/>
         <source>Cu&amp;t</source>
-        <translation type="unfinished">&amp;Recortar</translation>
+        <translation>&amp;Recortar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="225"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation type="unfinished">Recortar a seleção atual para a Área de Transferência</translation>
+        <translation>Recortar a seleção atual para a Área de Transferência</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="229"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished">&amp;Copiar</translation>
+        <translation>&amp;Copiar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="232"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation type="unfinished">Copiar a seleção para a área de transferência</translation>
+        <translation>Copiar a seleção para a área de transferência</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="236"/>
         <source>&amp;Quote</source>
-        <translation type="unfinished">&amp;Destacar</translation>
+        <translation>&amp;Destacar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="238"/>
         <source>Quote whole text</source>
-        <translation type="unfinished">Destacar todo o texto</translation>
+        <translation>Destacar todo o texto</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="241"/>
         <source>Select &amp;All</source>
-        <translation type="unfinished">Selecionar &amp;Tudo</translation>
+        <translation>Selecionar &amp;Tudo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="244"/>
         <source>Select the whole text</source>
-        <translation type="unfinished">Selecionar todo texto</translation>
+        <translation>Selecionar todo texto</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="247"/>
         <source>Remove &amp;spacing</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover &amp;Espaçamento</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="310"/>
         <source>Manage &amp;keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciar &amp;Chaves</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="322"/>
         <source>Integrated Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajuda Integrada</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="323"/>
         <source>Open integrated Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir Ajuda Integrada</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="326"/>
         <source>Online &amp;Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tutoriais Online</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="327"/>
         <source>Open Online Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir Tutoriais Online</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="522"/>
         <source>Import key from...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar chaves de...</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="523"/>
         <source>Import key</source>
-        <translation type="unfinished"></translation>
+        <translation>Importar chave </translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="534"/>
         <source>Encrypt or decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation>Encriptar ou decriptar Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="535"/>
         <source>File..</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivo.. </translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;center&gt;Esse programa permite a encriptação e a&lt;br&gt;decriptação de mensagens de texto ou arquivos.&lt;br&gt;Distribuido sob a licença GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;Caso tenha dúvidas ou sugestões acesse nossa&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;página de contato&lt;/a&gt; ou envie um email para nossa&lt;br/&gt; lista de email em &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>
         <source>&lt;br&gt;&lt;br&gt; Built with Qt </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br&gt;&lt;br&gt; Criado com Qt </translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="636"/>
         <source> and GPGME </source>
-        <translation type="unfinished"></translation>
+        <translation> e GPGME </translation>
     </message>
     <message>
         <source>Remove double &amp;Linebreaks</source>
@@ -2017,97 +2019,97 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="250"/>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="unfinished">Remover quebras de linha duplicadas, como ocorre quando colamos o texto do webmail</translation>
+        <translation>Remover quebras de linha duplicadas, como ocorre quando colamos o texto do webmail</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="253"/>
         <source>Se&amp;ttings</source>
-        <translation type="unfinished">Con&amp;figurações</translation>
+        <translation>Con&amp;figurações</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="254"/>
         <source>Open settings dialog</source>
-        <translation type="unfinished">Abrir janela de configurações</translation>
+        <translation>Abrir janela de configurações</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="260"/>
         <source>&amp;Encrypt</source>
-        <translation type="unfinished">&amp;Encriptar</translation>
+        <translation>&amp;Encriptar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="263"/>
         <source>Encrypt Message</source>
-        <translation type="unfinished">Encriptar Mensagem</translation>
+        <translation>Encriptar Mensagem</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="266"/>
         <source>&amp;Decrypt</source>
-        <translation type="unfinished">&amp;Decriptar</translation>
+        <translation>&amp;Decriptar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="269"/>
         <source>Decrypt Message</source>
-        <translation type="unfinished">Decriptar Mensagem</translation>
+        <translation>Decriptar Mensagem</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="272"/>
         <source>&amp;File Encryption</source>
-        <translation type="unfinished">Encriptar &amp;Arquivo</translation>
+        <translation>Encriptar &amp;Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="274"/>
         <source>Encrypt/Decrypt File</source>
-        <translation type="unfinished">Encriptar/Decriptar Arquivo</translation>
+        <translation>Encriptar/Decriptar Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="280"/>
         <source>&amp;Encrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Encriptar Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="282"/>
         <source>Encrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation>Encriptar Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="285"/>
         <source>&amp;Decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Decriptar Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="287"/>
         <source>Decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation>Decriptar Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="290"/>
         <source>&amp;Sign</source>
-        <translation type="unfinished">&amp;Assinar</translation>
+        <translation>&amp;Assinar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="293"/>
         <source>Sign Message</source>
-        <translation type="unfinished">Assinar Mensagem</translation>
+        <translation>Assinar Mensagem</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="296"/>
         <source>&amp;Verify</source>
-        <translation type="unfinished">&amp;Verificar</translation>
+        <translation>&amp;Verificar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="299"/>
         <source>Verify Message</source>
-        <translation type="unfinished">Verificar a Mensagem</translation>
+        <translation>Verificar a Mensagem</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="305"/>
         <source>&amp;Editor</source>
-        <translation type="unfinished">&amp;Editor</translation>
+        <translation>&amp;Editor</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="307"/>
         <source>Import New Key From Editor</source>
-        <translation type="unfinished">Importar Nova Chave do Editor</translation>
+        <translation>Importar Nova Chave do Editor</translation>
     </message>
     <message>
         <source>Key Management</source>
@@ -2116,7 +2118,7 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="312"/>
         <source>Open Keymanagement</source>
-        <translation type="unfinished">Abrir Gerenciador de Chaves</translation>
+        <translation>Abrir Gerenciador de Chaves</translation>
     </message>
     <message>
         <source>Import Key</source>
@@ -2129,12 +2131,12 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="317"/>
         <source>&amp;About</source>
-        <translation type="unfinished">&amp;Sobre</translation>
+        <translation>&amp;Sobre</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="319"/>
         <source>Show the application&apos;s About box</source>
-        <translation type="unfinished">Exibe a janela &apos;sobre&apos;</translation>
+        <translation>Exibe a janela &apos;sobre&apos;</translation>
     </message>
     <message>
         <source>Online &amp;Tutorial</source>
@@ -2147,147 +2149,147 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="330"/>
         <source>Translate gpg4usb</source>
-        <translation type="unfinished">Traduzir gpg4usb</translation>
+        <translation>Traduzir gpg4usb</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="331"/>
         <source>Translate gpg4usb yourself</source>
-        <translation type="unfinished">Traduza o gpg4usb você mesmo</translation>
+        <translation>Traduza o gpg4usb você mesmo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="334"/>
         <source>Open &amp;Wizard</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir o &amp;Auxiliar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="335"/>
         <source>Open the wizard</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir o Auxiliar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="340"/>
         <source>Append Selected Key(s) To Text</source>
-        <translation type="unfinished">Anexar Chaves Selecionadas ao Texto</translation>
+        <translation>Anexar Chave(s) Selecionada(s) ao Texto</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="341"/>
         <source>Append The Selected Keys To Text in Editor</source>
-        <translation type="unfinished">Anexar Chaves Selecionadas ao Texto no Editor</translation>
+        <translation>Anexar Chave(s) Selecionada(s) ao Texto no Editor</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="344"/>
         <source>Copy EMail-address</source>
-        <translation type="unfinished">Copiar o endereço de EMail</translation>
+        <translation>Copiar o endereço de EMail</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="345"/>
         <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="unfinished">Copiar o endereço de EMail selecionado para a área de transferência</translation>
+        <translation>Copiar o endereço de EMail selecionado para a área de transferência</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="349"/>
         <source>Show Keydetails</source>
-        <translation type="unfinished">Exibir detalhes da chave</translation>
+        <translation>Exibir detalhes da chave</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="350"/>
         <source>Show Details for this Key</source>
-        <translation type="unfinished">Exibir Detalhes da Chave</translation>
+        <translation>Exibir Detalhes da Chave</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="410"/>
         <source>&amp;File</source>
-        <translation type="unfinished">&amp;Arquivo</translation>
+        <translation>&amp;Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="422"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished">E&amp;ditar</translation>
+        <translation>E&amp;ditar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="438"/>
         <source>&amp;Crypt</source>
-        <translation type="unfinished">&amp;Encriptar</translation>
+        <translation>&amp;Encriptar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="448"/>
         <source>&amp;Keys</source>
-        <translation type="unfinished">&amp;Chaves</translation>
+        <translation>&amp;Chaves</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="449"/>
         <source>&amp;Import Key From...</source>
-        <translation type="unfinished">&amp;Importar Chave de...</translation>
+        <translation>&amp;Importar Chave de...</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="458"/>
         <source>&amp;Steganography</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Esteganografia</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="365"/>
         <source>Remove PGP Header</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover cabeçalho PGP</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="368"/>
         <source>Add PGP Header</source>
-        <translation type="unfinished"></translation>
+        <translation>Incluir cabeçalho PGP</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="467"/>
         <source>&amp;View</source>
-        <translation type="unfinished">E&amp;xibir</translation>
+        <translation>E&amp;xibir</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="469"/>
         <source>&amp;Help</source>
-        <translation type="unfinished">A&amp;juda</translation>
+        <translation>A&amp;juda</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="482"/>
         <source>File</source>
-        <translation type="unfinished">Arquivo</translation>
+        <translation>Arquivo</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="490"/>
         <source>Crypt</source>
-        <translation type="unfinished">Encriptar</translation>
+        <translation>Encriptar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="499"/>
         <source>Key</source>
-        <translation type="unfinished">Chave</translation>
+        <translation>Chave</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="504"/>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="511"/>
         <source>Special edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Edição especial</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="553"/>
         <source>Ready</source>
-        <translation type="unfinished">Pronto</translation>
+        <translation>Pronto</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="561"/>
         <source>Encrypt for:</source>
-        <translation type="unfinished">Encriptar para:</translation>
+        <translation>Encriptar para:</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="580"/>
         <source>Attached files:</source>
-        <translation type="unfinished">Arquivos anexos:</translation>
+        <translation>Arquivos anexos:</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
-        <translation type="unfinished">Sobre </translation>
+        <translation>Sobre </translation>
     </message>
     <message>
         <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
@@ -2296,17 +2298,17 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="741"/>
         <source>There is one unencrypted file in attachment folder</source>
-        <translation type="unfinished">Há um arquivo não decriptado na pasta de anexos</translation>
+        <translation>Há um arquivo não decriptado na pasta de anexos</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="743"/>
         <source>There are </source>
-        <translation type="unfinished">Existem </translation>
+        <translation>Existem </translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="743"/>
         <source> unencrypted files in attachment folder</source>
-        <translation type="unfinished"> arquivos não decriptados na pasta de anexos</translation>
+        <translation> arquivos não decriptados na pasta de anexos</translation>
     </message>
     <message>
         <source>Import Key From...</source>
@@ -2485,7 +2487,7 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="38"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Avançado</translation>
     </message>
     <message>
         <source>Tab Dialog</source>
@@ -2498,7 +2500,7 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="72"/>
         <source>System Default</source>
-        <translation type="unfinished">Padrão do Sistema</translation>
+        <translation>Padrão do Sistema</translation>
     </message>
 </context>
 <context>
@@ -2506,7 +2508,7 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../textedit.cpp" line="45"/>
         <source>untitled</source>
-        <translation>sem título</translation>
+        <translation>Sem Título</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="66"/>
@@ -2687,33 +2689,33 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../wizard.cpp" line="40"/>
         <source>First Start Wizard</source>
-        <translation type="unfinished">Auxiliar de Primeiro Uso</translation>
+        <translation>Auxiliar de Primeiro Uso</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="73"/>
         <source>Import Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro ao importar</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="73"/>
         <source>Couldn&apos;t locate any keyring file in %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não conseguiu localizar nenhum chaveiro no arquivo %1</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="81"/>
         <location filename="../../wizard.cpp" line="91"/>
         <source>Import error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro ao importar</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="81"/>
         <source>Couldn&apos;t open private keyringfile: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não conseguiu abrir o chaveiro privado: %1</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="91"/>
         <source>Couldn&apos;t open public keyringfile: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não conseguiu abrir o chaveiro público: %1</translation>
     </message>
 </context>
 </TS>
