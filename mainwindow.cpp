@@ -789,8 +789,8 @@ void MainWindow::sign()
     QStringList *uidList = mKeyList->getPrivateChecked();
 
     QByteArray *tmp = new QByteArray();
-    // TODO: toUtf8() here?
-    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toAscii(), tmp)) {
+
+    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
         edit->fillTextEditWithText(*tmp2);
     }

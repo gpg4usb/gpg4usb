@@ -48,7 +48,7 @@ void VerifyDetailsDialog::refresh()
     mainLayout->addWidget(mVbox);
 
     // Get signature information of current text
-    QByteArray text = mTextpage->toPlainText().toAscii(); // TODO: toUtf8() here?
+    QByteArray text = mTextpage->toPlainText().toUtf8();
     mCtx->preventNoDataErr(&text);
     gpgme_signature_t sign = mCtx->verify(text);
 
