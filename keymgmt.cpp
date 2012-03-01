@@ -142,8 +142,8 @@ void KeyMgmt::createToolBars()
     toolButton->setMenu(importKeyMenu);
     toolButton->setPopupMode(QToolButton::InstantPopup);
     toolButton->setIcon(QIcon(":key_import.png"));
-    toolButton->setToolTip("Import key");
-    toolButton->setText("Import key from");
+    toolButton->setToolTip(tr("Import key"));
+    toolButton->setText(tr("Import key from");
     toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     keyToolBar->addWidget(toolButton);
 
