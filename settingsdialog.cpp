@@ -139,8 +139,6 @@ GeneralTab::GeneralTab(QWidget *parent)
     }
 
     langBoxLayout->addWidget(langSelectBox);
-    QLabel *langNote = new QLabel(tr("Language change is applied after restarting program."));
-    langBoxLayout->addWidget(langNote);
     langBox->setLayout(langBoxLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;

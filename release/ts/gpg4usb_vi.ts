@@ -4,12 +4,12 @@
 <context>
     <name>AdvancedTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="450"/>
+        <location filename="../../settingsdialog.cpp" line="448"/>
         <source>Show Steganography Options [Advanced]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="452"/>
+        <location filename="../../settingsdialog.cpp" line="450"/>
         <source>Show Steganographic Options.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17,52 +17,52 @@
 <context>
     <name>AppearanceTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="281"/>
+        <location filename="../../settingsdialog.cpp" line="279"/>
         <source>Iconsize</source>
         <translation>Kích thước biểu tượng</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="283"/>
+        <location filename="../../settingsdialog.cpp" line="281"/>
         <source>small</source>
         <translation>nhỏ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="284"/>
+        <location filename="../../settingsdialog.cpp" line="282"/>
         <source>medium</source>
         <translation>vừa</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="285"/>
+        <location filename="../../settingsdialog.cpp" line="283"/>
         <source>large</source>
         <translation>lớn</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="301"/>
+        <location filename="../../settingsdialog.cpp" line="299"/>
         <source>Iconstyle</source>
         <translation>Dạng biểu tượng</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="303"/>
+        <location filename="../../settingsdialog.cpp" line="301"/>
         <source>just text</source>
         <translation>chỉ gồm chữ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="304"/>
+        <location filename="../../settingsdialog.cpp" line="302"/>
         <source>just icons</source>
         <translation>chỉ gồm biểu tượng</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="305"/>
+        <location filename="../../settingsdialog.cpp" line="303"/>
         <source>text and icons</source>
         <translation>gồm chữ và biểu tượng</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="321"/>
+        <location filename="../../settingsdialog.cpp" line="319"/>
         <source>Windowstate</source>
         <translation>Trạng thái Cửa sổ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="323"/>
+        <location filename="../../settingsdialog.cpp" line="321"/>
         <source>Save window size and position on exit.</source>
         <translation>Lưu kích thước và vị trí cửa sổ khi thoát.</translation>
     </message>
@@ -311,9 +311,8 @@
         <translation>Ngôn ngữ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="142"/>
         <source>Language change is applied after restarting program.</source>
-        <translation>Thay đổi Ngôn ngữ được áp dụng sau khi khởi động lại chương trình.</translation>
+        <translation type="obsolete">Thay đổi Ngôn ngữ được áp dụng sau khi khởi động lại chương trình.</translation>
     </message>
     <message>
         <source>System Default</source>
@@ -1608,7 +1607,7 @@ Yếu -&gt; Mạnh</translation>
 <context>
     <name>KeyserverTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="406"/>
+        <location filename="../../settingsdialog.cpp" line="404"/>
         <source>Default Keyserver for import:</source>
         <translation>Nhập khóa từ Máy chủ Khóa mặc định:</translation>
     </message>
@@ -2105,37 +2104,37 @@ Yếu -&gt; Mạnh</translation>
 <context>
     <name>MimeTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="206"/>
+        <location filename="../../settingsdialog.cpp" line="204"/>
         <source>Decode quoted printable</source>
         <translation>Giải mã đoạn trích dẫn có thể in</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="208"/>
+        <location filename="../../settingsdialog.cpp" line="206"/>
         <source>Try to recognize quoted printable.</source>
         <translation>Nhận dạng đoạn trích dẫn có thể in.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="212"/>
+        <location filename="../../settingsdialog.cpp" line="210"/>
         <source>Parse PGP/MIME (Experimental)</source>
         <translation>Phân tích PGP/MIME (Thử nghiệm)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="214"/>
+        <location filename="../../settingsdialog.cpp" line="212"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
         <translation>Phân tách tệp đính kèm từ tin nhắn mã hóa PGP-MIME.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="218"/>
+        <location filename="../../settingsdialog.cpp" line="216"/>
         <source>Open with external application (Experimental)</source>
         <translation>Mở bằng ứng dụng bên ngoài (Thử nghiệm)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="220"/>
+        <location filename="../../settingsdialog.cpp" line="218"/>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
         <translation>Mở tệp đính kèm sử dụng ứng dụng mặc định cho dạng tệp.&lt;br&gt; Có hai vấn đề khi sử dụng lệnh này:&lt;ol&gt;&lt;li&gt;Tệp cần được lưu dưới dạng không mã hóa vào thư mục đính kèm.&lt;br&gt; Bạn phải tự đảm bảo xóa sạch thư mục này.&lt;/li&gt;&lt;li&gt;Ứng dụng ngoài có thể tạo các tệp tạm thời riêng.&lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="227"/>
+        <location filename="../../settingsdialog.cpp" line="225"/>
         <source>Enable opening with external applications.</source>
         <translation>Cho phép mở bằng ứng dụng bên ngoài.</translation>
     </message>

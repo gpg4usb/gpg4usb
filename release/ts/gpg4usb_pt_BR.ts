@@ -4,12 +4,12 @@
 <context>
     <name>AdvancedTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="450"/>
+        <location filename="../../settingsdialog.cpp" line="448"/>
         <source>Show Steganography Options [Advanced]</source>
         <translation>Exibir Opções de Esteganografia [Avançado]</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="452"/>
+        <location filename="../../settingsdialog.cpp" line="450"/>
         <source>Show Steganographic Options.</source>
         <translation>Exibir Opções de Esteganografia.</translation>
     </message>
@@ -17,52 +17,52 @@
 <context>
     <name>AppearanceTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="281"/>
+        <location filename="../../settingsdialog.cpp" line="279"/>
         <source>Iconsize</source>
         <translation>Tamanho do ícone</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="283"/>
+        <location filename="../../settingsdialog.cpp" line="281"/>
         <source>small</source>
         <translation>pequeno</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="284"/>
+        <location filename="../../settingsdialog.cpp" line="282"/>
         <source>medium</source>
         <translation>médio</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="285"/>
+        <location filename="../../settingsdialog.cpp" line="283"/>
         <source>large</source>
         <translation>grande</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="301"/>
+        <location filename="../../settingsdialog.cpp" line="299"/>
         <source>Iconstyle</source>
         <translation>Estilo do ícone</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="303"/>
+        <location filename="../../settingsdialog.cpp" line="301"/>
         <source>just text</source>
         <translation>somente texto</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="304"/>
+        <location filename="../../settingsdialog.cpp" line="302"/>
         <source>just icons</source>
         <translation>somente ícones</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="305"/>
+        <location filename="../../settingsdialog.cpp" line="303"/>
         <source>text and icons</source>
         <translation>texto e ícones</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="321"/>
+        <location filename="../../settingsdialog.cpp" line="319"/>
         <source>Windowstate</source>
         <translation>Status da Janela</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="323"/>
+        <location filename="../../settingsdialog.cpp" line="321"/>
         <source>Save window size and position on exit.</source>
         <translation>Salvar tamanho e posição da janela na saída.</translation>
     </message>
@@ -328,9 +328,8 @@
         <translation>Idioma</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="142"/>
         <source>Language change is applied after restarting program.</source>
-        <translation>A alteração de idioma será aplicada após reiniciar o programa.</translation>
+        <translation type="obsolete">A alteração de idioma será aplicada após reiniciar o programa.</translation>
     </message>
     <message>
         <source>System Default</source>
@@ -1799,7 +1798,7 @@ Fraca -&gt; Forte</translation>
 <context>
     <name>KeyserverTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="406"/>
+        <location filename="../../settingsdialog.cpp" line="404"/>
         <source>Default Keyserver for import:</source>
         <translation>Servidor de Chaves Padrão para importação:</translation>
     </message>
@@ -2336,37 +2335,37 @@ Fraca -&gt; Forte</translation>
 <context>
     <name>MimeTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="206"/>
+        <location filename="../../settingsdialog.cpp" line="204"/>
         <source>Decode quoted printable</source>
         <translation>Decodificar mensagem original imprimível</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="208"/>
+        <location filename="../../settingsdialog.cpp" line="206"/>
         <source>Try to recognize quoted printable.</source>
         <translation>Tentar identificar mensagem original imprimível.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="212"/>
+        <location filename="../../settingsdialog.cpp" line="210"/>
         <source>Parse PGP/MIME (Experimental)</source>
         <translation>Analisar PGP/MIME (Experimental)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="214"/>
+        <location filename="../../settingsdialog.cpp" line="212"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
         <translation>Tentar separar os anexos das mensagens PGP-MIME encriptadas.</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="218"/>
+        <location filename="../../settingsdialog.cpp" line="216"/>
         <source>Open with external application (Experimental)</source>
         <translation>Abrir com programa externo (Experimental)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="220"/>
+        <location filename="../../settingsdialog.cpp" line="218"/>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
         <translation>Abrir anexos com a aplicação padrão para o tipo de arquivo.&lt;br&gt; Existem pelo menos dois possíveis problemas com esse comportamento:&lt;ol&gt;&lt;li&gt; A arquivo precisa ser salvo decriptado na pasta de anexos.&lt;br&gt; É sua função limpar essa pasta.&lt;/li&gt;&lt;li&gt;O aplicativo externo deve ter sua própria pasta de arquivos temporários.&lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="227"/>
+        <location filename="../../settingsdialog.cpp" line="225"/>
         <source>Enable opening with external applications.</source>
         <translation>Permitir abrir com programas externos.</translation>
     </message>

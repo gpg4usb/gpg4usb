@@ -4,12 +4,12 @@
 <context>
     <name>AdvancedTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="450"/>
+        <location filename="../../settingsdialog.cpp" line="448"/>
         <source>Show Steganography Options [Advanced]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="452"/>
+        <location filename="../../settingsdialog.cpp" line="450"/>
         <source>Show Steganographic Options.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17,52 +17,52 @@
 <context>
     <name>AppearanceTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="281"/>
+        <location filename="../../settingsdialog.cpp" line="279"/>
         <source>Iconsize</source>
         <translation>Icon အရွယ်အစား</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="283"/>
+        <location filename="../../settingsdialog.cpp" line="281"/>
         <source>small</source>
         <translation>အငယ်</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="284"/>
+        <location filename="../../settingsdialog.cpp" line="282"/>
         <source>medium</source>
         <translation>အလယ်အလတ်</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="285"/>
+        <location filename="../../settingsdialog.cpp" line="283"/>
         <source>large</source>
         <translation>အကြီး</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="301"/>
+        <location filename="../../settingsdialog.cpp" line="299"/>
         <source>Iconstyle</source>
         <translation>Icon ပုံစံ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="303"/>
+        <location filename="../../settingsdialog.cpp" line="301"/>
         <source>just text</source>
         <translation>စာသား သက်သက်</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="304"/>
+        <location filename="../../settingsdialog.cpp" line="302"/>
         <source>just icons</source>
         <translation>Icon သက်သက်</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="305"/>
+        <location filename="../../settingsdialog.cpp" line="303"/>
         <source>text and icons</source>
         <translation>စာသားနဲ့ Icon များ</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="321"/>
+        <location filename="../../settingsdialog.cpp" line="319"/>
         <source>Windowstate</source>
         <translation>Window အနေအထား</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="323"/>
+        <location filename="../../settingsdialog.cpp" line="321"/>
         <source>Save window size and position on exit.</source>
         <translation>ပိတ်တဲ့အခါ Window အရွယ်အစားနဲ့ တည်နေရာကို သိမ်းဆည်းရန်</translation>
     </message>
@@ -318,9 +318,8 @@
         <translation>ဘာသာစကား</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="142"/>
         <source>Language change is applied after restarting program.</source>
-        <translation>ဘာသာစကား အ​ပြောင်းအလဲကို ပရိုဂရမ် ပြန်ဖွင့်တဲ့အခါ အတည်ပြုသွားမှာ ဖြစ်တယ်။</translation>
+        <translation type="obsolete">ဘာသာစကား အ​ပြောင်းအလဲကို ပရိုဂရမ် ပြန်ဖွင့်တဲ့အခါ အတည်ပြုသွားမှာ ဖြစ်တယ်။</translation>
     </message>
     <message>
         <source>System Default</source>
@@ -1623,7 +1622,7 @@ Weak -&gt; Strong</source>
 <context>
     <name>KeyserverTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="406"/>
+        <location filename="../../settingsdialog.cpp" line="404"/>
         <source>Default Keyserver for import:</source>
         <translation>တင်သွင်းဖို့ သတ်မှတ်ထားတဲ့ ကီး​ဆာဗာ -</translation>
     </message>
@@ -2120,37 +2119,37 @@ Weak -&gt; Strong</source>
 <context>
     <name>MimeTab</name>
     <message>
-        <location filename="../../settingsdialog.cpp" line="206"/>
+        <location filename="../../settingsdialog.cpp" line="204"/>
         <source>Decode quoted printable</source>
         <translation>ပရင့်ထုတ်နိုင်တဲ့ ကိုးကားချက်ကို စာဝှက်ဖေါ်ရန်</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="208"/>
+        <location filename="../../settingsdialog.cpp" line="206"/>
         <source>Try to recognize quoted printable.</source>
         <translation>ပရင့်ထုတ်နိုင်တဲ့ ကိုးကားချက်ကို မှတ်မိအောင် ကြိုးစားပါ။</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="212"/>
+        <location filename="../../settingsdialog.cpp" line="210"/>
         <source>Parse PGP/MIME (Experimental)</source>
         <translation>PGP/MIME ကို ပိုင်းခြားစိစစ်ရန် (အစမ်းသဘော)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="214"/>
+        <location filename="../../settingsdialog.cpp" line="212"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
         <translation>PGP-MIME ထဲက စာဝှက်ထားတဲ့ စာတွေထဲမှာ ပါ၀င်တဲ့ ပူးတွဲဖိုင်များ​ကို ခွဲခြမ်းကြည့်ပါ။</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="218"/>
+        <location filename="../../settingsdialog.cpp" line="216"/>
         <source>Open with external application (Experimental)</source>
         <translation>ပြင်ပ လုပ်ငန်းသုံး ဆော့ဗ်ဝဲကို အသုံးပြုပြီး ဖွင့်ပါ (အစမ်းသဘော)</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="220"/>
+        <location filename="../../settingsdialog.cpp" line="218"/>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
         <translation>ပူးတွဲဖိုင်တွေကို ဖွင့်နိုင်တဲ့ ပုံမှန် လုပ်ငန်းသုံး ဆော့ဗ်ဝဲကို အသုံးပြုပြီး ဖွင့်လိုက်ပါ။&lt;br&gt;ဒီလုပ်ဆောင်ချက်မှာ ဖြစ်ပေါ်လာနိုင်တဲ့ ပြဿာနာ အနည်းဆုံး နှစ်ခု ရှိတယ် -&lt;ol&gt;&lt;li&gt;ဖိုင်ကို စာဝှက်မထားပဲ ပူးတွဲဖိုင်တွဲထဲမှာ သိမ်းဆည်းဖို့ လိုအပ်တယ်။&lt;br&gt;ဒီဖိုင်တွဲကို ရှင်းလင်းဖို့အတွက် သင့်မှာ တာ၀န် ရှိတယ်။&lt;/li&gt;&lt;li&gt;ပြင်ပ လုပ်ငန်းသုံး ဆော့ဗ်ဝဲမှာ သူ့ကိုယ်ပိုင် ယာယီဖိုင်​တွေ ​ရှိနေနိုင်တယ်။&lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.cpp" line="227"/>
+        <location filename="../../settingsdialog.cpp" line="225"/>
         <source>Enable opening with external applications.</source>
         <translation>ပြင်ပ လုပ်ငန်းသုံး ဆော့ဗ်ဝဲများကို အသုံးပြုပြီး ဖွင့်ထားပါ။</translation>
     </message>
