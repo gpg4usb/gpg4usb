@@ -1375,6 +1375,16 @@ Weak -&gt; Strong</source>
         <translation>ဒီကီးရဲ့ အသေးစိတ်ကို ဖေါ်ပြရန်</translation>
     </message>
     <message>
+        <location filename="../../keymgmt.cpp" line="145"/>
+        <source>Import key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keymgmt.cpp" line="146"/>
+        <source>Import key from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../keymgmt.cpp" line="167"/>
         <source>Keyring files</source>
         <translation type="unfinished"></translation>

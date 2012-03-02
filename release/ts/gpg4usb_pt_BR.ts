@@ -1545,6 +1545,16 @@ gpg4usb tentará importar a(s) chave(s).</translation>
         <translation>Chave</translation>
     </message>
     <message>
+        <location filename="../../keymgmt.cpp" line="145"/>
+        <source>Import key</source>
+        <translation type="unfinished">Importar chave </translation>
+    </message>
+    <message>
+        <location filename="../../keymgmt.cpp" line="146"/>
+        <source>Import key from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../keymgmt.cpp" line="260"/>
         <source>key(s) exported</source>
         <translation>Chave(s) exportadas</translation>

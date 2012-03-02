@@ -2395,6 +2395,14 @@ Para acelerar el proceso no use en su computadora
         <source>key(s) exported</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Import key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import key from</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>KeyServerImportDialog</name>

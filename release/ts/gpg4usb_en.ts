@@ -961,6 +961,16 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../keymgmt.cpp" line="145"/>
+        <source>Import key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../keymgmt.cpp" line="146"/>
+        <source>Import key from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../keymgmt.cpp" line="260"/>
         <source>key(s) exported</source>
         <translation type="unfinished"></translation>
