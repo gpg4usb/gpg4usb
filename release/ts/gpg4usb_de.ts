@@ -1009,7 +1009,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="33"/>
         <source>Additional Uids</source>
-        <translation>ZUsätzliche Uids</translation>
+        <translation>Zusätzliche Uids</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="81"/>
@@ -1527,12 +1527,12 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="145"/>
         <source>Import key</source>
-        <translation type="unfinished">Importiere Schlüssel</translation>
+        <translation>Importiere Schlüssel</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="146"/>
         <source>Import key from</source>
-        <translation type="unfinished"></translation>
+        <translation>Importiere Schlüssel von</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="260"/>
@@ -2594,7 +2594,7 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="40"/>
         <source>Key not present with id 0x</source>
-        <translation>Schlüssel nicht vrohanden mit der Schlüssel-Di 0x</translation>
+        <translation>Schlüssel nicht vorhanden mit der SchlüsselI Id 0x</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="54"/>
