@@ -108,9 +108,6 @@ bool VerifyNotification::refresh()
     bool unknownKeyFound=false;
 
     while (sign) {
-        qDebug() << "sign->summary: " << sign-> summary;
-        qDebug() << "sign->status: " << sign->status;
-        qDebug() << "sign->validity: " << sign->validity;
 
         switch (gpg_err_code(sign->status))
         {
