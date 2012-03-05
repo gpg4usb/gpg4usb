@@ -1447,12 +1447,12 @@ gpg4usb попробует импортировать ключ(и).</translation
     <message>
         <location filename="../../keymgmt.cpp" line="145"/>
         <source>Import key</source>
-        <translation type="unfinished">Импорт ключа</translation>
+        <translation>Импорт ключа</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="146"/>
         <source>Import key from</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт ключа из</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="260"/>

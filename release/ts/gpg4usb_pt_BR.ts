@@ -1546,12 +1546,12 @@ gpg4usb tentará importar a(s) chave(s).</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="145"/>
         <source>Import key</source>
-        <translation type="unfinished">Importar chave </translation>
+        <translation>Importar chave </translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="146"/>
         <source>Import key from</source>
-        <translation type="unfinished"></translation>
+        <translation>importar as chaves do</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="260"/>
