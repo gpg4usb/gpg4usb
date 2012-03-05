@@ -1360,7 +1360,7 @@ Para acelerar el proceso use su computadora
     </message>
     <message>
         <source>Language change is applied after restarting program.</source>
-        <translation>Cambio de idioma se aplicara despues de reiniciar el programa.</translation>
+        <translation type="obsolete">Cambio de idioma se aplicara despues de reiniciar el programa.</translation>
     </message>
     <message>
         <source>System Default</source>
