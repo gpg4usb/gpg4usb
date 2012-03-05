@@ -1526,6 +1526,16 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>Schlüssel</translation>
     </message>
     <message>
+        <location filename="../../keymgmt.cpp" line="145"/>
+        <source>Import key</source>
+        <translation type="unfinished">Importiere Schlüssel</translation>
+    </message>
+    <message>
+        <location filename="../../keymgmt.cpp" line="146"/>
+        <source>Import key from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../keymgmt.cpp" line="260"/>
         <source>key(s) exported</source>
         <translation>Schlüssel exportiert</translation>
