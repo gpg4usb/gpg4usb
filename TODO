@@ -52,7 +52,7 @@ Release 0.3.2
 - Change file encryption to single dialog for en- and decryption [DONE]
 	- change docu on file de- and encryption
 - replace qDebug messages with tr() by messagebox (?) 
-- credits for key image [DONE]
+- credits for key image 
 - disable tab related actions when no tab is shown [DONE]
 
 BUGS:
@@ -60,11 +60,16 @@ BUGS:
 
 Release 0.3.3
 - Change private key password 
-- Catch bad passphrase message
-- add keyless encryption
 - create revocation file 
 	- on key generation
 	- later
+- Refresh key from keyserver [DONE]
+- Upload key to keyserver 
+- show message if verify has no valid signature
+
+Release 0.3.4
+- Catch bad passphrase message
+- add keyless encryption
 - add posibility to add keyserver in settings
 - set gpgme error language to chosen language (context.cpp:49)
 - Add default key functionality 
@@ -85,7 +90,7 @@ Release 0.3.3
 	- checkbox in password dialog to remember password
 	- Timer to remember password for x minutes?
 
-Release 0.3.4
+Release 0.3.5
 - keylist rewrite using tablemodel
 	- make keylist browsable with keyboard
 	- key should blink short in keylist after import
