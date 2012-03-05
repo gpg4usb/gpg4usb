@@ -33,7 +33,7 @@ Our homepage is located at http://gpg4usb.cpunk.de .
 
 LICENSES
 --------
-gpg4usblib itself is licensed under the GPL (see COPYING).
+gpg4usb itself is licensed under the GPLv3 (see COPYING).
 
 There are some libries and the gpg-binary included in the zip-file / a static
 gpg-build which (may) have different licenses, for more information check
@@ -43,3 +43,7 @@ GPG: http://gnupg.org/
 QT: http://trolltech.no/ , http://trolltech.no/downloads/opensource
 
 Iconset used is Nuvola (http://icon-king.com/?p=15), which has a LGPL License
+
+The key image in the wizard (keys12.jpg) is a croped version of 
+http://www.flickr.com/photos/laureenp/6141822934/, which is licensed cc by-nc-sa.
+Our derived work is also cc by-nc-sa

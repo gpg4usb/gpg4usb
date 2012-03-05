@@ -53,7 +53,7 @@ Release 0.3.2
 	- change docu on file de- and encryption
 - replace qDebug messages with tr() by messagebox (?) 
 - disable tab related actions when no tab is shown [DONE]
-- credits for key image
+- credits for key image [DONE]
 - finally remove obsolete strings from translations
 
 BUGS:
