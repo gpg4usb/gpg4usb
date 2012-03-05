@@ -791,8 +791,7 @@ void MainWindow::sign()
     QByteArray *tmp = new QByteArray();
 
     if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
-        QString *tmp2 = new QString(*tmp);
-        edit->fillTextEditWithText(*tmp2);
+        edit->fillTextEditWithText(QString::fromUtf8(*tmp));
     }
 }
 
