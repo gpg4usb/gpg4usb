@@ -2668,27 +2668,32 @@ Fraca -&gt; Forte</translation>
         <translation>Exibir informação de verificação detalhada</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="120"/>
+        <location filename="../../verifynotification.cpp" line="47"/>
+        <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../verifynotification.cpp" line="117"/>
         <source>Key not present with id 0x</source>
         <translation>Chave com ID 0x não está presente</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="162"/>
+        <location filename="../../verifynotification.cpp" line="159"/>
         <source>Error validating signature by: </source>
         <translation>Erro durante a validação de assinatura por: </translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="167"/>
+        <location filename="../../verifynotification.cpp" line="164"/>
         <source>Text was completely signed by: </source>
         <translation>O texto foi completamente assinado por: </translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="172"/>
+        <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
         <translation>O texto foi parcialmente assinado por: </translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="150"/>
+        <location filename="../../verifynotification.cpp" line="147"/>
         <source>Error for key with fingerprint </source>
         <translation>Erro de chave com assinatura digital </translation>
     </message>

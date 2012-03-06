@@ -3111,6 +3111,10 @@ Para acelerar el proceso no use en su computadora
         <source>Text was partially signed by: </source>
         <translation>El texto fue parcialmente firmado por:</translation>
     </message>
+    <message>
+        <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Wizard</name>

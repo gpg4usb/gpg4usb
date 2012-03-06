@@ -2632,22 +2632,27 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>Zeige Signatur Details</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="120"/>
+        <location filename="../../verifynotification.cpp" line="47"/>
+        <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../verifynotification.cpp" line="117"/>
         <source>Key not present with id 0x</source>
         <translation>Schlüssel nicht vorhanden mit der ID 0x</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="162"/>
+        <location filename="../../verifynotification.cpp" line="159"/>
         <source>Error validating signature by: </source>
         <translation>Fehler beim Validieren der Unterschrfit von:</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="167"/>
+        <location filename="../../verifynotification.cpp" line="164"/>
         <source>Text was completely signed by: </source>
         <translation>Der Text wurde vollständig signiert von:</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="172"/>
+        <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
         <translation>Der Text wurde teilweise signiert von:</translation>
     </message>
@@ -2656,7 +2661,7 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation type="obsolete">Schlüssel nicht vorhanden mit Fingerabdruck:</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="150"/>
+        <location filename="../../verifynotification.cpp" line="147"/>
         <source>Error for key with fingerprint </source>
         <translation>Fehler den den Schlüssel mit Fingerabdruck </translation>
     </message>

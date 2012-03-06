@@ -44,7 +44,7 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, 
     importFromKeyserverAct->setVisible(false);
 
     keysNotInList = new QStringList();
-    detailsButton = new QPushButton("Details",this);
+    detailsButton = new QPushButton(tr("Details"),this);
     detailsButton->setMenu(detailMenu);
     QHBoxLayout *notificationWidgetLayout = new QHBoxLayout(this);
     notificationWidgetLayout->setContentsMargins(10,0,0,0);

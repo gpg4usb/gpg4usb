@@ -1508,7 +1508,7 @@ gpg4usb попробует импортировать ключ(и).</translation
     <message>
         <location filename="../../keymgmt.cpp" line="222"/>
         <source>&lt;b&gt;Are you sure that you want to delete the following keys?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation>&lt;b&gt;Вы уверены, что хотите стереть следующие ключи?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
+        <translation>&lt;b&gt;Вы уверены, что хотите стереть следующие ключи?&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="223"/>
@@ -2451,14 +2451,14 @@ Weak -&gt; Strong</source>
         <source>Text was completely signed on
  %1 by:
 </source>
-        <translation>Текст был %1 полностью подписан:</translation>
+        <translation>Текст был %1 полностью подписан: </translation>
     </message>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="72"/>
         <source>Text was partially signed on
  %1 by:
 </source>
-        <translation>Текст был %1 частично подписан:</translation>
+        <translation>Текст был %1 частично подписан: </translation>
     </message>
     <message>
         <source>Text was completly signed on %1 by:
@@ -2537,22 +2537,27 @@ Weak -&gt; Strong</source>
         <translation>Показать детали проверки подписи</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="120"/>
+        <location filename="../../verifynotification.cpp" line="47"/>
+        <source>Details</source>
+        <translation>Детали</translation>
+    </message>
+    <message>
+        <location filename="../../verifynotification.cpp" line="117"/>
         <source>Key not present with id 0x</source>
         <translation>Отсутствует ключ с идентификатором 0x</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="162"/>
+        <location filename="../../verifynotification.cpp" line="159"/>
         <source>Error validating signature by: </source>
         <translation>Ошибка проверки подписи от: </translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="167"/>
+        <location filename="../../verifynotification.cpp" line="164"/>
         <source>Text was completely signed by: </source>
         <translation>Текст был полностью подписан:</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="172"/>
+        <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
         <translation>Текст был частично подписан:</translation>
     </message>
@@ -2561,7 +2566,7 @@ Weak -&gt; Strong</source>
         <translation type="obsolete">Отсутствует ключ с отпечатком:</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="150"/>
+        <location filename="../../verifynotification.cpp" line="147"/>
         <source>Error for key with fingerprint </source>
         <translation>Ошибка ключа с отпечатком </translation>
     </message>
