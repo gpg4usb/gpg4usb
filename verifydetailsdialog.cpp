@@ -64,12 +64,12 @@ void VerifyDetailsDialog::refresh()
         {
             case 2:
             {
-                mVboxLayout->addWidget(new QLabel(tr("Text was completely signed on\n %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
+                mVboxLayout->addWidget(new QLabel(tr("Text was completely signed on <br/> %1 by:<br/>").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
                 break;
             }
             case 1:
             {
-                mVboxLayout->addWidget(new QLabel(tr("Text was partially signed on\n %1 by:\n").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
+                mVboxLayout->addWidget(new QLabel(tr("Text was partially signed on <br/> %1 by:<br/>").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
                 break;
             }
         }
