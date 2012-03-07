@@ -45,7 +45,7 @@ signals:
 
 private:
     QString keyGenParams;
-    GpgME::GpgContext *ctx;
+    GpgME::GpgContext *mCtx;
     bool abort;
     QMutex mutex;
 
