@@ -481,7 +481,7 @@ gpgme_error_t GpgContext::passphrase(const char *uid_hint,
     if (!gpgHint.isEmpty()) {
         // remove UID, leave only username & email
         gpgHint.remove(0, gpgHint.indexOf(" "));
-        passwordDialogMessage += "<b>Enter Password for</b><br>\n" + gpgHint + "\n";
+        passwordDialogMessage += "<b>"+tr("Enter Password for")+"</b><br>" + gpgHint + "<br>";
     }
 
     if (mPasswordCache.isEmpty()) {

@@ -389,6 +389,11 @@
         <translation type="unfinished">စကားဝှက် မှားနေတယ်</translation>
     </message>
     <message>
+        <location filename="../../gpgcontext.cpp" line="484"/>
+        <source>Enter Password for</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../gpgcontext.cpp" line="488"/>
         <source>Enter Password</source>
         <translation type="unfinished">စကားဝှက်ကို ရေးထည့်ရန်</translation>

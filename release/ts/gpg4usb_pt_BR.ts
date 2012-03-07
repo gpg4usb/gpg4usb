@@ -399,6 +399,11 @@
         <translation>Senha errada</translation>
     </message>
     <message>
+        <location filename="../../gpgcontext.cpp" line="484"/>
+        <source>Enter Password for</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../gpgcontext.cpp" line="488"/>
         <source>Enter Password</source>
         <translation>Insira a Senha</translation>

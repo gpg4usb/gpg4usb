@@ -54,6 +54,7 @@ Release 0.3.2
 - replace qDebug messages with tr() by messagebox (?) 
 - disable tab related actions when no tab is shown [DONE]
 - credits for key image [DONE]
+- on key generation set maximum keysize to 65536 bits for elgamal subkey [DONE]
 - finally remove obsolete strings from translations
 
 BUGS:

@@ -1440,6 +1440,10 @@ Para acelerar el proceso use su computadora
         <source>Error signing:</source>
         <translation type="unfinished">Error al firmar:</translation>
     </message>
+    <message>
+        <source>Enter Password for</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GpgWin</name>
