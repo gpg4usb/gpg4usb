@@ -41,7 +41,7 @@ void KeyGenDialog::generateKeyDialog()
     commentEdit = new QLineEdit(this);
 
     keySizeSpinBox = new QSpinBox(this);
-    keySizeSpinBox->setRange(768, 8192);
+    keySizeSpinBox->setRange(768, 65536);
     keySizeSpinBox->setValue(2048);
 
     keySizeSpinBox->setSingleStep(256);

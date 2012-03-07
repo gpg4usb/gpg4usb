@@ -769,7 +769,6 @@ GpgKey GpgContext::getKeyByFpr(QString fpr) {
     return GpgKey();
 }
 
-
 /**
  * note: privkey status is not returned
  */
