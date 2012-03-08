@@ -61,10 +61,10 @@ private:
     QLineEdit *passwordEdit; /** Lineedit for the keys password */
     QLineEdit *repeatpwEdit; /** Lineedit for the repetition of the keys password */
     QSpinBox *keySizeSpinBox; /** Spinbox for the keys size (in bit) */
+    QComboBox *keyTypeComboBox; /** Combobox for Keytpe */
     QDateTimeEdit *dateEdit; /** Dateedit for expiration date */
     QCheckBox *expireCheckBox; /** Checkbox, if key should expire */
     QSlider *pwStrengthSlider; /** Slider showing the password strength */
-
 private slots:
     /**
      * @details when expirebox was checked/unchecked, enable/disable the expiration date box

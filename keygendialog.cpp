@@ -41,11 +41,15 @@ void KeyGenDialog::generateKeyDialog()
     commentEdit = new QLineEdit(this);
 
     keySizeSpinBox = new QSpinBox(this);
-    keySizeSpinBox->setRange(768, 8192);
+    keySizeSpinBox->setRange(768, 65536);
     keySizeSpinBox->setValue(2048);
 
     keySizeSpinBox->setSingleStep(256);
 
+    keyTypeComboBox = new QComboBox(this);
+    keyTypeComboBox->addItem("DSA/Elgamal");
+    keyTypeComboBox->addItem("RSA");
+    keyTypeComboBox->setCurrentIndex(0);
     dateEdit = new QDateEdit(QDate::currentDate().addYears(5), this);
     dateEdit->setMinimumDate(QDate::currentDate());
     dateEdit->setDisplayFormat("dd/MM/yyyy");
@@ -76,9 +80,10 @@ void KeyGenDialog::generateKeyDialog()
     vbox1->addWidget(new QLabel(tr("Expiration Date:")), 3, 0);
     vbox1->addWidget(new QLabel(tr("Never Expire")), 3, 3);
     vbox1->addWidget(new QLabel(tr("KeySize (in Bit):")), 4, 0);
-    vbox1->addWidget(new QLabel(tr("Password:")), 5, 0);
-    vbox1->addWidget(new QLabel(tr("Password: Strength\nWeak -> Strong")), 5, 3);
-    vbox1->addWidget(new QLabel(tr("Repeat Password:")), 6, 0);
+    vbox1->addWidget(new QLabel(tr("Key Type:")), 5, 0);
+    vbox1->addWidget(new QLabel(tr("Password:")), 6, 0);
+    vbox1->addWidget(new QLabel(tr("Password: Strength\nWeak -> Strong")), 6, 3);
+    vbox1->addWidget(new QLabel(tr("Repeat Password:")), 7, 0);
 
     vbox1->addWidget(nameEdit, 0, 1);
     vbox1->addWidget(emailEdit, 1, 1);
@@ -86,9 +91,10 @@ void KeyGenDialog::generateKeyDialog()
     vbox1->addWidget(dateEdit, 3, 1);
     vbox1->addWidget(expireCheckBox, 3, 2);
     vbox1->addWidget(keySizeSpinBox, 4, 1);
-    vbox1->addWidget(passwordEdit, 5, 1);
-    vbox1->addWidget(repeatpwEdit, 6, 1);
-    vbox1->addWidget(pwStrengthSlider, 6, 3);
+    vbox1->addWidget(keyTypeComboBox,5, 1);
+    vbox1->addWidget(passwordEdit, 6, 1);
+    vbox1->addWidget(repeatpwEdit, 7, 1);
+    vbox1->addWidget(pwStrengthSlider, 7, 3);
 
     QWidget *nameList = new QWidget(this);
     nameList->setLayout(vbox1);
@@ -124,13 +130,24 @@ void KeyGenDialog::keyGenAccept()
         /**
          * create the string for key generation
          */
-        keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
-                       "Key-Type: DSA\n"
-                       "Key-Length: 1024\n"
-                       "Subkey-Type: ELG-E\n"
-                       "Subkey-Length: "
-                       + keySizeSpinBox->cleanText() + "\n"
-                       "Name-Real: " + nameEdit->text() + "\n";
+
+        if (keyTypeComboBox->currentText() == "RSA") {
+            keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
+                           "Key-Type: RSA\n"
+                           "Key-Usage: sign\n"
+                           "Key-Length: " + keySizeSpinBox->cleanText() + "\n"
+                           "Subkey-Type: RSA\n"
+                           "Subkey-Length: " + keySizeSpinBox->cleanText() + "\n"
+                           "Subkey-Usage: encrypt\n";
+        } else {
+            keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
+                           "Key-Type: DSA\n"
+                           "Key-Length: 1024\n"
+                           "Subkey-Type: ELG-E\n"
+                           "Subkey-Length: "
+                           + keySizeSpinBox->cleanText() + "\n";
+       }
+        keyGenParams += "Name-Real: " + nameEdit->text() + "\n";
         if (!(commentEdit->text().isEmpty())) {
             keyGenParams += "Name-Comment: " + commentEdit->text() + "\n";
         }
