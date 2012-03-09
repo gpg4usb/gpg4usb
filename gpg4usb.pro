@@ -87,7 +87,8 @@ TRANSLATIONS = release/ts/gpg4usb_en.ts \
     release/ts/gpg4usb_pt_BR.ts \
     release/ts/gpg4usb_es.ts \
     release/ts/gpg4usb_vi.ts \
-    release/ts/gpg4usb_my.ts 
+    release/ts/gpg4usb_my.ts \
+	release/ts/gpg4usb_zh.ts
 
 
 contains(DEFINES, GPG4USB_NON_PORTABLE) {
