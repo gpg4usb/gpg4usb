@@ -6,12 +6,12 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="448"/>
         <source>Show Steganography Options [Advanced]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">显示速记式加密选项【高级】</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="450"/>
         <source>Show Steganographic Options.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">显示速记式加密选项</translation>
     </message>
 </context>
 <context>
@@ -123,42 +123,42 @@
     <message>
         <location filename="../../wizard.cpp" line="159"/>
         <source>Choose your action...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">选择你要执行的动作...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="160"/>
         <source>...by clicking on the apropriate link.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">点击相应的链接</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="162"/>
         <source>If you have never used gpg4usb before and also don&apos;t own a gpg key yet you may possibly want to </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">如果你从来没有使用过gpg4usb并且也没有一个属于自己的密钥,你可以会需要</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="164"/>
         <source>create a new keypair</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">创建一个新的密钥对</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="168"/>
         <source>If you upgrade from an older version of gpg4usb you may want to </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">如果你是从一个之前的旧版本升级而来你可能需要</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="170"/>
         <source>import settings and/or keys from gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">从gpg4usb中导入设置或是密钥</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="174"/>
         <source>If you are already using GnuPG you may want to </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">如果你正使用GnuPG你可能需要</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="176"/>
         <source>import keys from GnuPG</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">从GnuPG导入密钥</translation>
     </message>
 </context>
 <context>
@@ -166,27 +166,27 @@
     <message>
         <location filename="../../wizard.cpp" line="391"/>
         <source>Ready.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">准备使用</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="392"/>
         <source>Have fun with gpg4usb!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">欢迎使用gpg4usb!</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="394"/>
         <source>You are ready to use gpg4usb now.&lt;br&gt;&lt;br&gt;The offline help will get you started with gpg4usb. It will open in the main window.&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">你已经可以开始使用gpg4usb了.&lt;br&gt;&lt;br&gt;请使用离线帮助开始学习使用. 离线帮助将会在主窗口显示.&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="399"/>
         <source>Open offline help.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">打开离线帮助.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="402"/>
         <source>Dont show the wizard again.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">不要再显示开始向导.</translation>
     </message>
 </context>
 <context>
@@ -215,12 +215,12 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="31"/>
         <source>Decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">解密文件</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="33"/>
         <source>Encrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">加密文件</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="53"/>
@@ -255,7 +255,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="153"/>
         <source>Couldn&apos;t Open file: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">无法打开文件</translation>
     </message>
     <message>
         <source>couldn&apos;t open file: </source>
@@ -330,7 +330,7 @@
     <message>
         <location filename="../../gpgcontext.cpp" line="384"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;br&gt;在密钥圈中没有发现ID %1</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="392"/>
@@ -350,7 +350,7 @@
     <message>
         <location filename="../../gpgcontext.cpp" line="484"/>
         <source>Enter Password for</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">输入密码</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="488"/>
@@ -378,32 +378,32 @@
     <message>
         <location filename="../../wizard.cpp" line="288"/>
         <source>Import keys...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导入密钥...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="289"/>
         <source>...from existing GnuPG installation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">从已安装的GnuPG</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="291"/>
         <source>You can import keys from a locally installed GnuPG.&lt;br&gt;&lt;br&gt; The location is read from registry in Windows or assumed to be the .gnupg folder in the your home directory in Linux.&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">你可以从本地已安装的GnuPG中导入密钥.&lt;br&gt;&lt;br&gt; 安装位置从Windows系统的注册表中读出或是默认Linux系统home目录的.gnupg文件夹.&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="295"/>
         <source>Import keys from GnuPG</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">从GnuPG中导入密钥</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="310"/>
         <source>Import Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导入错误</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="310"/>
         <source>Couldn&apos;t locate GnuPG home directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">找不到GnuPG的安装位置</translation>
     </message>
 </context>
 <context>
@@ -411,47 +411,47 @@
     <message>
         <location filename="../../wizard.cpp" line="208"/>
         <source>Import from...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导入</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="209"/>
         <source>...existing gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">从已有gpg4usb</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="211"/>
         <source>You can import keys and/or settings from existing gpg4usb. &lt;br&gt;&lt;br&gt;Just check what you want to import, click the import button and choose the directory of your other gpg4usb in the appearing file dialog.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">你可以从已有中导入密钥或是设置. &lt;br&gt;&lt;br&gt;选择你要导入的项目, 点击导入按钮并在对话框中浏览至你已有的gpg4usb文件夹位置.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="218"/>
         <source>Keys</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">密钥</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="222"/>
         <source>Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">设置</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="224"/>
         <source>Import from gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">从gpg4usb中导入</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="240"/>
         <source>Other gpg4usb directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">其它的gpg4usb路径</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="260"/>
         <source>Configuration Imported</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">设置已导入</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="260"/>
         <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">已从之前的旧版gpg4usb中导入设置.&lt;br&gt;现在将重启程并激活导入设置.</translation>
     </message>
 </context>
 <context>
@@ -459,22 +459,22 @@
     <message>
         <location filename="../../wizard.cpp" line="106"/>
         <source>Getting started...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">现在开始...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="107"/>
         <source>... with gpg4usb</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">使用gpg4usb</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="109"/>
         <source>To use gpg4usb for decrypting and signing messages, you need a private key. The next page will help you with key generation or import.&lt;br&gt;&lt;br&gt;For more information have a look at the &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (by clicking the link, the page will open in the main window). &lt;br&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">要使用gpg4usb加密和签名信息你需要一个私钥.下面的页面会帮助你生成或是导入密钥.&lt;br&gt;&lt;br&gt;更多信息请浏览&lt;a href=&apos;docu_concepts.html&apos;&gt;有关概念&lt;/a&gt; (点击链接页面会在主窗口打开). &lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="118"/>
         <source>Choose a Language</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">选择语言</translation>
     </message>
 </context>
 <context>
@@ -497,7 +497,7 @@
     <message>
         <location filename="../../keydetailsdialog.cpp" line="33"/>
         <source>Additional Uids</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">附加Uid</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="81"/>
@@ -532,7 +532,7 @@
     <message>
         <location filename="../../keydetailsdialog.cpp" line="116"/>
         <source>copy fingerprint to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">复制指纹到剪切板</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="158"/>
@@ -542,7 +542,7 @@
     <message>
         <location filename="../../keydetailsdialog.cpp" line="161"/>
         <source>Warning: Key revoked</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">警告:密钥已失效</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="176"/>
@@ -554,7 +554,9 @@
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.Do you really want to export your private key?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">你正准备导出你的私人密钥.
+此密钥不是你的公共密钥, 不要将它散发
+并确保此密钥的安全.你真的确认要导出私人密钥吗?</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -564,12 +566,12 @@ Make sure you keep it save.Do you really want to export your private key?</sourc
     <message>
         <location filename="../../keydetailsdialog.cpp" line="202"/>
         <source>Export error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导入错误</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="202"/>
         <source>Couldn&apos;t open %1 for writing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">无法打开%1以进行写入操作</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="88"/>
@@ -645,7 +647,7 @@ Make sure you keep it save.</source>
     <message>
         <location filename="../../keygendialog.cpp" line="75"/>
         <source>Comment:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">备注</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="76"/>
@@ -708,12 +710,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keygendialog.cpp" line="175"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">成功</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="175"/>
         <source>New key created</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">新密钥已创建</translation>
     </message>
 </context>
 <context>
@@ -721,27 +723,27 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../wizard.cpp" line="348"/>
         <source>Create a keypair...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">创建一个密钥对...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="349"/>
         <source>...for decrypting and signing messages</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">用于加密和签名信息</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="350"/>
         <source>You should create a new keypair.The pair consists of a public and a private key.&lt;br&gt;Other users can use the public key to encrypt messages for you and verify messages signed by you.You can use the private key to decrypt and sign messages.&lt;br&gt;For more information have a look at the offline tutorial (which then is shown in the main window):</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">你需要创建一个新的密钥对.一个密钥对包含一个公共用密钥(公钥)和私人密钥(私钥).&lt;br&gt;其它用户可以使用公钥加密发送给你的邮件或是验证由你发送出来的邮件.你可以使用私钥来解密由你的公钥加密的邮件或是签名邮件.&lt;br&gt;更多信息请参见离线教程 (教程将会显示在主窗口):</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="357"/>
         <source>Offline tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">离线教程</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="364"/>
         <source>Create New Key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">创建新密钥</translation>
     </message>
 </context>
 <context>
@@ -750,52 +752,52 @@ Weak -&gt; Strong</source>
         <location filename="../../keyimportdetaildialog.cpp" line="31"/>
         <location filename="../../keyimportdetaildialog.cpp" line="47"/>
         <source>Key import details</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">密钥导入细节</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="31"/>
         <source>No keys found to import</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">未发现可以导入密钥</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="56"/>
         <source>Genral key import info</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">密钥导入信息</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="59"/>
         <source>Considered:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">已选择</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="63"/>
         <source>Public unchanged:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">公钥修改</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="68"/>
         <source>Imported:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">已导入</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="73"/>
         <source>Not imported:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">未导入</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="78"/>
         <source>Private read:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">私钥读入</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="83"/>
         <source>Private imported:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">已导入私钥</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="88"/>
         <source>Private unchanged:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">私钥无改变</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
@@ -805,12 +807,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">电邮</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">状态</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
@@ -820,37 +822,37 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="128"/>
         <source>private</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">私钥</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="131"/>
         <source>public</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">公钥</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="134"/>
         <source>unchanged</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">无改变</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="137"/>
         <source>new key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">新密钥</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="140"/>
         <source>new subkey</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">新子密钥</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="144"/>
         <source>new signature</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">新签名</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="148"/>
         <source>new uid</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">新UID</translation>
     </message>
 </context>
 <context>
@@ -993,7 +995,7 @@ gpg4usb将尝试导入密钥.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="260"/>
         <source>key(s) exported</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">密钥已导出</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="74"/>
@@ -1024,12 +1026,12 @@ gpg4usb将尝试导入密钥.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="145"/>
         <source>Import key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导入密钥</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="146"/>
         <source>Import key from</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导入密钥从</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="167"/>
@@ -1045,7 +1047,7 @@ gpg4usb将尝试导入密钥.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="167"/>
         <source>Keyring files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">钥匙圈文件</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="172"/>
@@ -1065,7 +1067,7 @@ gpg4usb将尝试导入密钥.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="223"/>
         <source>&lt;br/&gt;The action can not be undone.</source>
-        <translation type="unfinished">&lt;br/&gt;动作无法执行</translation>
+        <translation type="unfinished">&lt;br/&gt;删除后无法恢复.</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="252"/>
@@ -1187,7 +1189,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="112"/>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">标记</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="153"/>
@@ -1217,12 +1219,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="201"/>
         <source>revoked</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">已失效</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="204"/>
         <source>disabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">已禁用</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="243"/>
@@ -1245,7 +1247,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../settingsdialog.cpp" line="404"/>
         <source>Default Keyserver for import:</source>
-        <translation type="unfinished">默认密钥服务器:</translation>
+        <translation type="unfinished">默认导入密钥服务器:</translation>
     </message>
 </context>
 <context>
@@ -1394,7 +1396,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="310"/>
         <source>Manage &amp;keys</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">管理密钥</translation>
     </message>
     <message>
         <source>Remove double &amp;Linebreaks</source>
@@ -1443,22 +1445,22 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="280"/>
         <source>&amp;Encrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">加密文件</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="282"/>
         <source>Encrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">加密文件</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="285"/>
         <source>&amp;Decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">解密文件</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="287"/>
         <source>Decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">解密文件</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="290"/>
@@ -1519,22 +1521,22 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="322"/>
         <source>Integrated Help</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">内置帮助</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="323"/>
         <source>Open integrated Help</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">打开内置帮助</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="326"/>
         <source>Online &amp;Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">在线教程</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="327"/>
         <source>Open Online Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">打开在线教程</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="410"/>
@@ -1559,7 +1561,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="247"/>
         <source>Remove &amp;spacing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">删除空行</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="253"/>
@@ -1597,12 +1599,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="334"/>
         <source>Open &amp;Wizard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">打开向导</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="335"/>
         <source>Open the wizard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">打开向导</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="341"/>
@@ -1632,12 +1634,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="365"/>
         <source>Remove PGP Header</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">删除PGP头</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="368"/>
         <source>Add PGP Header</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">添加PGP头</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="448"/>
@@ -1652,7 +1654,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="458"/>
         <source>&amp;Steganography</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">速记式加密</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="467"/>
@@ -1667,27 +1669,27 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="511"/>
         <source>Special edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">特殊修改</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="522"/>
         <source>Import key from...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导入密钥</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="523"/>
         <source>Import key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导入密钥</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="534"/>
         <source>Encrypt or decrypt File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">加密或解密文件</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="535"/>
         <source>File..</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">文件</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="553"/>
@@ -1707,7 +1709,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;center&gt;本程序可对文字信息或是文件进行加密或是解密.&lt;br&gt;本程序遵循GPL v3授权协议.&lt;br&gt;&lt;br&gt;&lt;b&gt;开发人员:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;软件本地化:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br), Kirill (ru), Tom (vi),Toughworm(简体中文)&lt;br&gt;&lt;br&gt;如果你有任何建议或是问题请浏览&lt;br/&gt; &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;联系方式&lt;/a&gt; 或是发电子邮件给我们&lt;br/&gt;  &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.&lt;br&gt;中文版问题可联系&lt;br/&gt;&lt;a href=&quot;mailto:toughworm@hotmail.com&quot;&gt;toughworm@hotmail.com&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>
@@ -2043,7 +2045,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../verifynotification.cpp" line="47"/>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">内容</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="117"/>
