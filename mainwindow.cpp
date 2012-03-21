@@ -57,6 +57,8 @@ MainWindow::MainWindow()
     mKeyList->addMenuAction(copyMailAddressToClipboardAct);
     mKeyList->addMenuAction(showKeyDetailsAct);
     mKeyList->addMenuAction(refreshKeysFromKeyserverAct);
+    mKeyList->addMenuAction(uploadKeyToServerAct);
+
     restoreSettings();
 
     // open filename if provided as first command line parameter
@@ -353,6 +355,10 @@ void MainWindow::createActions()
     refreshKeysFromKeyserverAct = new QAction(tr("Refresh key from keyserver"), this);
     refreshKeysFromKeyserverAct->setToolTip(tr("Refresh key from default keyserver"));
     connect(refreshKeysFromKeyserverAct, SIGNAL(triggered()), this, SLOT(refreshKeysFromKeyserver()));
+
+    uploadKeyToServerAct = new QAction(tr("Upload Key(s) To Server"), this);
+    uploadKeyToServerAct->setToolTip(tr("Upload The Selected Keys To Server"));
+    connect(uploadKeyToServerAct, SIGNAL(triggered()), this, SLOT(uploadKeyToServer()));
 
     /* Key-Shortcuts for Tab-Switchung-Action
      */
@@ -904,7 +910,14 @@ void MainWindow::refreshKeysFromKeyserver()
 
     KeyServerImportDialog *ksid = new KeyServerImportDialog(mCtx,mKeyList,this);
     ksid->import(*mKeyList->getSelected());
+}
 
+void MainWindow::uploadKeyToServer()
+{
+    QByteArray *keyArray = new QByteArray();
+    mCtx->exportKeys(mKeyList->getSelected(), keyArray);
+
+    mKeyList->uploadKeyToServer(keyArray);
 }
 
 void MainWindow::fileEncryption()

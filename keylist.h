@@ -24,6 +24,8 @@
 
 #include "gpgcontext.h"
 #include "keyimportdetaildialog.h"
+#include <QNetworkAccessManager>
+#include <QtNetwork>
 
 QT_BEGIN_NAMESPACE
 class QWidget;
@@ -53,12 +55,17 @@ public:
 
 public slots:
     void refresh();
+    void uploadKeyToServer(QByteArray *keys);
 
 private:
     void importKeys(QByteArray inBuffer);
     GpgME::GpgContext *mCtx;
     QTableWidget *mKeyList;
     QMenu *popupMenu;
+    QNetworkAccessManager *qnam;
+
+private slots:
+    void uploadFinished();
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);

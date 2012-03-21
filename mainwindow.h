@@ -108,6 +108,8 @@ private slots:
 
     void refreshKeysFromKeyserver();
 
+    void uploadKeyToServer();
+
     void startWizard();
 
     /**
@@ -315,6 +317,7 @@ private:
     QAction *openHelpAct; /** Action to open tutorial */
     QAction *showKeyDetailsAct; /** Action to open key-details dialog */
     QAction *refreshKeysFromKeyserverAct; /** Action to refresh a key from keyserver */
+    QAction *uploadKeyToServerAct; /** Action to append selected keys to edit */
     QAction *startWizardAct; /** Action to open the wizard */
     QAction *cutPgpHeaderAct; /** Action for cutting the PGP header */
     QAction *addPgpHeaderAct; /** Action for adding the PGP header */
