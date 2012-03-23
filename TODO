@@ -67,6 +67,9 @@ Release 0.3.3
 - Refresh key from keyserver [DONE]
 - Upload key to keyserver 
 - show message if verify has no valid signature
+- exclude translators list from about dialog [DONE]
+- prevent utf8 encoding for comments on keygeneration
+- set maximum keysize to 16384
 
 Release 0.3.4
 - Catch bad passphrase message
