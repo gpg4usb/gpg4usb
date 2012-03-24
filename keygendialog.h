@@ -77,6 +77,11 @@ private slots:
     void passwordEditChanged();
 
     /**
+     * @details When passwordedit changed, set keysize appropriately
+     */
+    void keyTypeChanged();
+
+    /**
      * @details check all lineedits for false entries. Show error, when there is one, otherwise generate the key
      */
     void keyGenAccept();

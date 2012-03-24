@@ -41,10 +41,10 @@ void KeyGenDialog::generateKeyDialog()
     commentEdit = new QLineEdit(this);
 
     keySizeSpinBox = new QSpinBox(this);
-    keySizeSpinBox->setRange(768, 65536);
+    keySizeSpinBox->setRange(1024, 65536);
     keySizeSpinBox->setValue(2048);
 
-    keySizeSpinBox->setSingleStep(256);
+    keySizeSpinBox->setSingleStep(1024);
 
     keyTypeComboBox = new QComboBox(this);
     keyTypeComboBox->addItem("DSA/Elgamal");
@@ -109,6 +109,7 @@ void KeyGenDialog::generateKeyDialog()
 
     connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
     connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
+    connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(keyTypeChanged()));
     this->setLayout(vbox2);
 }
 
@@ -217,6 +218,19 @@ void KeyGenDialog::passwordEditChanged()
 {
     pwStrengthSlider->setValue(checkPassWordStrength());
     update();
+}
+
+void KeyGenDialog::keyTypeChanged()
+{
+    qDebug() << "changed";
+    if (keyTypeComboBox->currentText() == "RSA") {
+        qDebug() << "RSA";
+        keySizeSpinBox->setMaximum(4096);
+    } else {
+        qDebug() << "DSA";
+        keySizeSpinBox->setMaximum(65536);
+    }
+
 }
 
 int KeyGenDialog::checkPassWordStrength()
