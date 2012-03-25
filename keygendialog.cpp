@@ -148,9 +148,9 @@ void KeyGenDialog::keyGenAccept()
                            "Subkey-Length: "
                            + keySizeSpinBox->cleanText() + "\n";
        }
-        keyGenParams += "Name-Real: " + nameEdit->text() + "\n";
+        keyGenParams += "Name-Real: " + nameEdit->text().toUtf8() + "\n";
         if (!(commentEdit->text().isEmpty())) {
-            keyGenParams += "Name-Comment: " + commentEdit->text() + "\n";
+            keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
         }
         if (!(emailEdit->text().isEmpty())) {
             keyGenParams += "Name-Email: " + emailEdit->text() + "\n";
