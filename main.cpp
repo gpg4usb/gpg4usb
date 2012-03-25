@@ -89,13 +89,6 @@ int main(int argc, char *argv[])
     QSettings settings;
     QTranslator translator, translator2;
     int return_from_event_loop_code;
-
-#ifdef _WIN32
-    QString qtTransPrefix = "ts/qt_windows_";
-#else
-    QString qtTransPrefix = "ts/qt_linux_";
-#endif
-
     do {
         app.removeTranslator(&translator);
         app.removeTranslator(&translator2);
@@ -108,8 +101,8 @@ int main(int argc, char *argv[])
         translator.load("ts/gpg4usb_" +  lang, appPath);
         app.installTranslator(&translator);
 
-        // make shortcuts system and language independent
-        translator2.load(qtTransPrefix + lang, appPath);
+        // set qt translations
+        translator2.load("ts/qt_" + lang, appPath);
         app.installTranslator(&translator2);
 
         MainWindow window;
