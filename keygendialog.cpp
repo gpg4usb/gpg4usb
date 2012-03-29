@@ -225,7 +225,7 @@ void KeyGenDialog::keyTypeChanged()
     qDebug() << "changed";
     if (keyTypeComboBox->currentText() == "RSA") {
         qDebug() << "RSA";
-        keySizeSpinBox->setMaximum(4096);
+        keySizeSpinBox->setMaximum(16384);
     } else {
         qDebug() << "DSA";
         keySizeSpinBox->setMaximum(65536);
