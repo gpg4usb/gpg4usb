@@ -66,7 +66,7 @@ KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QWidget *parent )  : QMainWindow(parent
 void KeyMgmt::createActions()
 {
     closeAct = new QAction(tr("&Close Key Management"), this);
-    closeAct->setShortcut(tr("Ctrl+Q"));
+    closeAct->setShortcut(QKeySequence::Quit);
     closeAct->setIcon(QIcon(":exit.png"));
     closeAct->setToolTip(tr("Close Key Management"));
     connect(closeAct, SIGNAL(triggered()), this, SLOT(close()));
