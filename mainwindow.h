@@ -104,13 +104,25 @@ private slots:
      */
     void verify();
 
-    void showKeyDetails();
-
-    void refreshKeysFromKeyserver();
-
-    void uploadKeyToServer();
-
-    void startWizard();
+    /**
+     * @details Show the details of the first of the first of selected keys
+     */
+     void showKeyDetails();
+ 
+    /**
+     * @details Refresh key information of selected keys from default keyserver
+     */
+     void refreshKeysFromKeyserver();
+ 
+    /**
+      * @details upload the selected key to the keyserver
+      */
+     void uploadKeyToServer();
+ 
+    /**
+      * @details start the wizard
+      */
+     void startWizard();
 
     /**
      * @details Import keys from currently active tab to keylist if possible.
