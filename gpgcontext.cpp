@@ -465,7 +465,7 @@ gpgme_error_t GpgContext::passphrase(const char *uid_hint,
 {
     gpgme_error_t returnValue = GPG_ERR_CANCELED;
     QString passwordDialogMessage;
-    QString gpgHint = uid_hint;
+    QString gpgHint = QString::fromUtf8(uid_hint);
     bool result;
 #ifdef _WIN32
 	DWORD written;
