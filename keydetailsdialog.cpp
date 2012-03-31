@@ -195,7 +195,7 @@ void KeyDetailsDialog::exportPrivateKey()
         QByteArray *keyArray = new QByteArray();
         mCtx->exportSecretKey(*keyid, keyArray);
         gpgme_key_t key = mCtx->getKeyDetails(*keyid);
-        QString fileString = QString(key->uids->name) + " " + QString(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub_sec.asc";
+        QString fileString = QString::fromUtf8(key->uids->name) + " " + QString::fromUtf8(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub_sec.asc";
         QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {

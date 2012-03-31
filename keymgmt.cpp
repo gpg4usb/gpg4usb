@@ -212,9 +212,9 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
     }
     QString keynames;
     foreach (QString uid, *uidList) {
-        keynames.append(mCtx->getKeyDetails(uid)->uids->name);
+        keynames.append(QString::fromUtf8(mCtx->getKeyDetails(uid)->uids->name));
         keynames.append("<i> &lt;");
-        keynames.append(mCtx->getKeyDetails(uid)->uids->email);
+        keynames.append(QString::fromUtf8(mCtx->getKeyDetails(uid)->uids->email));
         keynames.append("&gt; </i><br/>");
     }
 
@@ -247,7 +247,7 @@ void KeyMgmt::exportKeyToFile()
         return;
     }
     gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getChecked()->first());
-    QString fileString = QString(key->uids->name) + " " + QString(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub.asc";
+    QString fileString = QString::fromUtf8(key->uids->name) + " " + QString::fromUtf8(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub.asc";
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
     QFile file(fileName);
