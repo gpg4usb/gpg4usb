@@ -130,9 +130,9 @@ void KeyGenDialog::keyGenAccept()
                        "Subkey-Type: ELG-E\n"
                        "Subkey-Length: "
                        + keySizeSpinBox->cleanText() + "\n"
-                       "Name-Real: " + nameEdit->text() + "\n";
+                       "Name-Real: " + nameEdit->text().toUtf8() + "\n";
         if (!(commentEdit->text().isEmpty())) {
-            keyGenParams += "Name-Comment: " + commentEdit->text() + "\n";
+            keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
         }
         if (!(emailEdit->text().isEmpty())) {
             keyGenParams += "Name-Email: " + emailEdit->text() + "\n";
