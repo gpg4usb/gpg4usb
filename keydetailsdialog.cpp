@@ -34,12 +34,12 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
 
-    nameVarLabel = new QLabel(key->uids->name);
+    nameVarLabel = new QLabel(QString::fromUtf8(key->uids->name));
     nameVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    emailVarLabel = new QLabel(key->uids->email);
+    emailVarLabel = new QLabel(QString::fromUtf8(key->uids->email));
     emailVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
-    commentVarLabel = new QLabel(key->uids->comment);
+    commentVarLabel = new QLabel(QString::fromUtf8(key->uids->comment));
     commentVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
     keyidVarLabel = new QLabel(key->subkeys->keyid);
     keyidVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);

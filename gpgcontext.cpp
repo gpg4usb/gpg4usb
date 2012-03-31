@@ -254,8 +254,8 @@ GpgKeyList GpgContext::listKeys()
         gpgkey.revoked = (key->revoked != 0);
 
         if (key->uids) {
-            gpgkey.name = key->uids->name;
-            gpgkey.email = key->uids->email;
+            gpgkey.name = QString::fromUtf8(key->uids->name);
+            gpgkey.email = QString::fromUtf8(key->uids->email);
         }
         keys.append(gpgkey);
         gpgme_key_unref(key);
