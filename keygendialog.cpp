@@ -135,7 +135,7 @@ void KeyGenDialog::keyGenAccept()
             keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
         }
         if (!(emailEdit->text().isEmpty())) {
-            keyGenParams += "Name-Email: " + emailEdit->text() + "\n";
+            keyGenParams += "Name-Email: " + emailEdit->text().toUtf8() + "\n";
         }
         if (expireCheckBox->checkState()) {
             keyGenParams += "Expire-Date: 0\n";
