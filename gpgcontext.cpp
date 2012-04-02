@@ -705,6 +705,10 @@ bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArr
      gpgme_data_release(in);
      gpgme_data_release(out);
 
+     if (! settings.value("general/rememberPassword").toBool()) {
+         clearPasswordCache();
+     }
+
      return (err == GPG_ERR_NO_ERROR);
 }
 
