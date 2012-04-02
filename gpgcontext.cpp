@@ -254,8 +254,8 @@ GpgKeyList GpgContext::listKeys()
         gpgkey.revoked = (key->revoked != 0);
 
         if (key->uids) {
-            gpgkey.name = key->uids->name;
-            gpgkey.email = key->uids->email;
+            gpgkey.name = QString::fromUtf8(key->uids->name);
+            gpgkey.email = QString::fromUtf8(key->uids->email);
         }
         keys.append(gpgkey);
         gpgme_key_unref(key);
@@ -465,7 +465,7 @@ gpgme_error_t GpgContext::passphrase(const char *uid_hint,
 {
     gpgme_error_t returnValue = GPG_ERR_CANCELED;
     QString passwordDialogMessage;
-    QString gpgHint = uid_hint;
+    QString gpgHint = QString::fromUtf8(uid_hint);
     bool result;
 #ifdef _WIN32
 	DWORD written;
@@ -481,7 +481,7 @@ gpgme_error_t GpgContext::passphrase(const char *uid_hint,
     if (!gpgHint.isEmpty()) {
         // remove UID, leave only username & email
         gpgHint.remove(0, gpgHint.indexOf(" "));
-        passwordDialogMessage += "<b>Enter Password for</b><br>\n" + gpgHint + "\n";
+        passwordDialogMessage += "<b>"+tr("Enter Password for")+"</b><br>" + gpgHint + "<br>";
     }
 
     if (mPasswordCache.isEmpty()) {
@@ -768,7 +768,6 @@ GpgKey GpgContext::getKeyByFpr(QString fpr) {
 
     return GpgKey();
 }
-
 
 /**
  * note: privkey status is not returned

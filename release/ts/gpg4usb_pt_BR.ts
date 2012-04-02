@@ -399,6 +399,11 @@
         <translation>Senha errada</translation>
     </message>
     <message>
+        <location filename="../../gpgcontext.cpp" line="484"/>
+        <source>Enter Password for</source>
+        <translation>Insira a Senha para</translation>
+    </message>
+    <message>
         <location filename="../../gpgcontext.cpp" line="488"/>
         <source>Enter Password</source>
         <translation>Insira a Senha</translation>
@@ -2009,7 +2014,7 @@ Fraca -&gt; Forte</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Esse programa permite a encriptação e a&lt;br&gt;decriptação de mensagens de texto ou arquivos.&lt;br&gt;Distribuido sob a licença GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;Caso tenha dúvidas ou sugestões acesse nossa&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;página de contato&lt;/a&gt; ou envie um email para nossa&lt;br/&gt; lista de email em &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation>&lt;center&gt;Esse programa permite a encriptação e a&lt;br&gt;decriptação de mensagens de texto ou arquivos.&lt;br&gt;Distribuido sob a licença GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Desenvolvedores:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tradução:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi),&lt;br&gt;Chen (zh), Ahmad (ar)&lt;br&gt;&lt;br&gt;Caso tenha dúvidas ou sugestões acesse nossa&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;página de contato&lt;/a&gt; ou envie um email para nossa&lt;br/&gt; lista de email em &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>
@@ -2668,27 +2673,32 @@ Fraca -&gt; Forte</translation>
         <translation>Exibir informação de verificação detalhada</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="120"/>
+        <location filename="../../verifynotification.cpp" line="47"/>
+        <source>Details</source>
+        <translation>Detalhes</translation>
+    </message>
+    <message>
+        <location filename="../../verifynotification.cpp" line="117"/>
         <source>Key not present with id 0x</source>
         <translation>Chave com ID 0x não está presente</translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="162"/>
+        <location filename="../../verifynotification.cpp" line="159"/>
         <source>Error validating signature by: </source>
         <translation>Erro durante a validação de assinatura por: </translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="167"/>
+        <location filename="../../verifynotification.cpp" line="164"/>
         <source>Text was completely signed by: </source>
         <translation>O texto foi completamente assinado por: </translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="172"/>
+        <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
         <translation>O texto foi parcialmente assinado por: </translation>
     </message>
     <message>
-        <location filename="../../verifynotification.cpp" line="150"/>
+        <location filename="../../verifynotification.cpp" line="147"/>
         <source>Error for key with fingerprint </source>
         <translation>Erro de chave com assinatura digital </translation>
     </message>

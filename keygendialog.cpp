@@ -41,10 +41,10 @@ void KeyGenDialog::generateKeyDialog()
     commentEdit = new QLineEdit(this);
 
     keySizeSpinBox = new QSpinBox(this);
-    keySizeSpinBox->setRange(1024, 65536);
+    keySizeSpinBox->setRange(768, 16384);
     keySizeSpinBox->setValue(2048);
 
-    keySizeSpinBox->setSingleStep(1024);
+    keySizeSpinBox->setSingleStep(256);
 
     keyTypeComboBox = new QComboBox(this);
     keyTypeComboBox->addItem("DSA/Elgamal");
@@ -153,7 +153,7 @@ void KeyGenDialog::keyGenAccept()
             keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
         }
         if (!(emailEdit->text().isEmpty())) {
-            keyGenParams += "Name-Email: " + emailEdit->text() + "\n";
+            keyGenParams += "Name-Email: " + emailEdit->text().toUtf8() + "\n";
         }
         if (expireCheckBox->checkState()) {
             keyGenParams += "Expire-Date: 0\n";
