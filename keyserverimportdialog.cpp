@@ -135,7 +135,8 @@ void KeyServerImportDialog::setMessage(const QString &text, bool error)
 void KeyServerImportDialog::search()
 {
     QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?search="+searchLineEdit->text()+"&op=index&options=mr";
-    QNetworkReply* reply = qnam.get(QNetworkRequest(url));
+    qnam = new QNetworkAccessManager(this);
+    QNetworkReply* reply = qnam->get(QNetworkRequest(url));
     connect(reply, SIGNAL(finished()),
             this, SLOT(searchFinished()));
 }
@@ -272,7 +273,8 @@ void KeyServerImportDialog::import(QStringList keyIds, QUrl keyServerUrl)
     foreach(QString keyId, keyIds) {
         QUrl reqUrl(keyServerUrl.scheme() + "://" + keyServerUrl.host() + ":11371/pks/lookup?op=get&search=0x"+keyId+"&options=mr");
         //qDebug() << "req to " << reqUrl;
-        QNetworkReply *reply = qnam.get(QNetworkRequest(reqUrl));
+        qnam = new QNetworkAccessManager(this);
+        QNetworkReply *reply = qnam->get(QNetworkRequest(reqUrl));
         connect(reply, SIGNAL(finished()),
                 this, SLOT(importFinished()));
     }

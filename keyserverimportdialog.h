@@ -84,7 +84,7 @@ private:
     QPushButton *searchButton;
     QTableWidget *keysTable;
     QUrl url;
-    QNetworkAccessManager qnam;
+    QNetworkAccessManager *qnam;
 
 };
 #endif // __KEYSERVERIMPORTDIALOG_H__
