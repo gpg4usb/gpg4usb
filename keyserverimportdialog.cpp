@@ -180,7 +180,8 @@ void KeyServerImportDialog::searchFinished()
         char buff[1024];
         bool strikeout=false;
         while (reply->readLine(buff,sizeof(buff)) !=-1) {
-            QStringList line= QString(buff).split(":");
+            QString decoded = QString::fromUtf8(QByteArray::fromPercentEncoding(buff));
+            QStringList line = decoded.split(":");
 
             //TODO: have a look at two following pub lines
             if (line[0] == "pub") {
