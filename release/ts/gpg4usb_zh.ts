@@ -209,10 +209,6 @@
         <translation type="unfinished">动作</translation>
     </message>
     <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
-    </message>
-    <message>
         <location filename="../../fileencryptiondialog.cpp" line="31"/>
         <source>Decrypt File</source>
         <translation type="unfinished">解密文件</translation>
@@ -256,10 +252,6 @@
         <location filename="../../fileencryptiondialog.cpp" line="153"/>
         <source>Couldn&apos;t Open file: </source>
         <translation type="unfinished">无法打开文件</translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">无法打开文件:</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="180"/>
@@ -310,14 +302,6 @@
         <location filename="../../settingsdialog.cpp" line="132"/>
         <source>Language</source>
         <translation type="unfinished">语言</translation>
-    </message>
-    <message>
-        <source>Language change is applied after restarting program.</source>
-        <translation type="obsolete">修改界面语言重启后生效</translation>
-    </message>
-    <message>
-        <source>System Default</source>
-        <translation type="obsolete">系统默认</translation>
     </message>
 </context>
 <context>
@@ -607,14 +591,6 @@ Make sure you keep it save.Do you really want to export your private key?</sourc
         <location filename="../../keydetailsdialog.cpp" line="186"/>
         <source>Exporting private Key</source>
         <translation type="unfinished">正在导出私钥</translation>
-    </message>
-    <message>
-        <source>You are about to export your private key.
-This is NOT your public key, so don&apos;t give it away.
-Make sure you keep it save.</source>
-        <translation type="obsolete">你正准备导出你的私人密钥.
-此密钥不是你的公共密钥, 不要将它散发
-并确保此密钥的安全.</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -1074,70 +1050,6 @@ gpg4usb将尝试导入密钥.</translation>
         <source>Export Key To File</source>
         <translation type="unfinished">导出密钥到文件</translation>
     </message>
-    <message>
-        <source>Name:</source>
-        <translation type="obsolete">名称</translation>
-    </message>
-    <message>
-        <source>E-Mailaddress::</source>
-        <translation type="obsolete">电邮地址</translation>
-    </message>
-    <message>
-        <source>Comment:</source>
-        <translation type="obsolete">备注</translation>
-    </message>
-    <message>
-        <source>KeySize (in Bit):</source>
-        <translation type="obsolete">密钥大小(字节):</translation>
-    </message>
-    <message>
-        <source>Expiration Date:</source>
-        <translation type="obsolete">失效日期:</translation>
-    </message>
-    <message>
-        <source>Password:</source>
-        <translation type="obsolete">密码:</translation>
-    </message>
-    <message>
-        <source>Repeat Password:</source>
-        <translation type="obsolete">重复密码:</translation>
-    </message>
-    <message>
-        <source>Never Expire</source>
-        <translation type="obsolete">永不失效</translation>
-    </message>
-    <message>
-        <source>Password: Strength
-Weak -&gt; Strong</source>
-        <translation type="obsolete">密码:强度
-弱-&gt;强</translation>
-    </message>
-    <message>
-        <source>Password Strength</source>
-        <translation type="obsolete">密码强度</translation>
-    </message>
-    <message>
-        <source>  Name must contain at least five characters.  
-</source>
-        <translation type="obsolete">名称必须包含至少五个字符.</translation>
-    </message>
-    <message>
-        <source>  Password and Repeat don&apos;t match.  </source>
-        <translation type="obsolete">密码与重复密码内容不同.</translation>
-    </message>
-    <message>
-        <source>Generating Key...</source>
-        <translation type="obsolete">正在生成密钥...</translation>
-    </message>
-    <message>
-        <source>Collecting random data for key generation.
- This may take a while.
- To speed up the process use your computer
- (e.g. browse the net, listen to music,...)</source>
-        <translation type="obsolete">正在为密钥采集随机数据.
-这可能会花费一些时间.
-使用电脑可加速此过程(如: 浏览网页,听音乐,...)</translation>
-    </message>
 </context>
 <context>
     <name>KeyServerImportDialog</name>
@@ -1192,52 +1104,52 @@ Weak -&gt; Strong</source>
         <translation type="unfinished">标记</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="153"/>
+        <location filename="../../keyserverimportdialog.cpp" line="154"/>
         <source>Couldn&apos;t contact keyserver!</source>
         <translation type="unfinished">无法与密钥服务器通讯!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="161"/>
+        <location filename="../../keyserverimportdialog.cpp" line="162"/>
         <source>Too many responses from keyserver!</source>
         <translation type="unfinished">密钥服务器回应过多!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="167"/>
+        <location filename="../../keyserverimportdialog.cpp" line="168"/>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
         <translation type="unfinished">未发现密钥, 输入kexid , 尝试用0x再次查找.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="171"/>
+        <location filename="../../keyserverimportdialog.cpp" line="172"/>
         <source>No keys found containing the search string!</source>
         <translation type="unfinished">没有找到含有查询字符串的密钥!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="174"/>
+        <location filename="../../keyserverimportdialog.cpp" line="175"/>
         <source>Insufficiently specific search string!</source>
         <translation type="unfinished">无效的查询字符串!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="201"/>
+        <location filename="../../keyserverimportdialog.cpp" line="203"/>
         <source>revoked</source>
         <translation type="unfinished">已失效</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="204"/>
+        <location filename="../../keyserverimportdialog.cpp" line="206"/>
         <source>disabled</source>
         <translation type="unfinished">已禁用</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="243"/>
+        <location filename="../../keyserverimportdialog.cpp" line="245"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
         <translation type="unfinished">找到%1个密钥. 双击密钥将其导入.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="288"/>
+        <location filename="../../keyserverimportdialog.cpp" line="291"/>
         <source>Error while contacting keyserver!</source>
         <translation type="unfinished">与密钥服务器通讯时发生错误!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="292"/>
+        <location filename="../../keyserverimportdialog.cpp" line="295"/>
         <source>Key imported</source>
         <translation type="unfinished">密钥已导入</translation>
     </message>
@@ -1399,10 +1311,6 @@ Weak -&gt; Strong</source>
         <translation type="unfinished">管理密钥</translation>
     </message>
     <message>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="obsolete">删除双换行</translation>
-    </message>
-    <message>
         <location filename="../../mainwindow.cpp" line="250"/>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
         <translation type="unfinished">删除两换行符如从网页邮件中复制过来的文字</translation>
@@ -1483,30 +1391,14 @@ Weak -&gt; Strong</source>
         <translation type="unfinished">验证信息</translation>
     </message>
     <message>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="obsolete">&lt;center&gt;本程序为加密程序 &lt;br/&gt;可对文字信息或是文件进行加密.&lt;br&gt;本程序遵循GPL v3授权协议&lt;br&gt;&lt;br&gt;&lt;b&gt;开发者:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;翻译:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) , Toughworm(zh)&lt;br&gt;&lt;br&gt;如果你有任何疑问或建设请查看&lt;br/&gt;我们的&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;联系方式&lt;/a&gt; 或是发送邮件给我们&lt;br/&gt; 邮件地址 &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>&amp;Keyserver</source>
-        <translation type="obsolete">密钥服务器</translation>
-    </message>
-    <message>
         <location filename="../../mainwindow.cpp" line="307"/>
         <source>Import New Key From Editor</source>
         <translation type="unfinished">从编辑器中获得密钥</translation>
     </message>
     <message>
-        <source>Key Management</source>
-        <translation type="obsolete">密钥管理</translation>
-    </message>
-    <message>
         <location filename="../../mainwindow.cpp" line="312"/>
         <source>Open Keymanagement</source>
         <translation type="unfinished">打开密钥管理</translation>
-    </message>
-    <message>
-        <source>Open Import New Key Dialog</source>
-        <translation type="obsolete">打开导入新密钥对话框</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="317"/>
@@ -1577,14 +1469,6 @@ Weak -&gt; Strong</source>
         <location filename="../../mainwindow.cpp" line="158"/>
         <source>Open a new file</source>
         <translation type="unfinished">打新文件</translation>
-    </message>
-    <message>
-        <source>Online &amp;Tutorial</source>
-        <translation type="obsolete">在线教程</translation>
-    </message>
-    <message>
-        <source>Open Online Tutorial</source>
-        <translation type="obsolete">打开在线教程</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="330"/>
@@ -1742,14 +1626,6 @@ Weak -&gt; Strong</source>
         <translation type="unfinished">编辑器</translation>
     </message>
     <message>
-        <source>&amp;Clipboard</source>
-        <translation type="obsolete">剪切板</translation>
-    </message>
-    <message>
-        <source>Import Key</source>
-        <translation type="obsolete">导入密钥</translation>
-    </message>
-    <message>
         <location filename="../../mainwindow.cpp" line="438"/>
         <source>&amp;Crypt</source>
         <translation type="unfinished">加密</translation>
@@ -1773,10 +1649,6 @@ Weak -&gt; Strong</source>
         <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
         <translation type="unfinished">关于</translation>
-    </message>
-    <message>
-        <source>Import Key From...</source>
-        <translation type="obsolete">导入密钥</translation>
     </message>
 </context>
 <context>
@@ -1843,11 +1715,6 @@ Weak -&gt; Strong</source>
 <context>
     <name>SettingsDialog</name>
     <message>
-        <source>English</source>
-        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation type="obsolete">English</translation>
-    </message>
-    <message>
         <location filename="../../settingsdialog.cpp" line="34"/>
         <source>General</source>
         <translation type="unfinished">普通</translation>
@@ -1881,10 +1748,6 @@ Weak -&gt; Strong</source>
         <location filename="../../settingsdialog.cpp" line="72"/>
         <source>System Default</source>
         <translation type="unfinished">系统默认</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <translation type="obsolete">中文</translation>
     </message>
 </context>
 <context>

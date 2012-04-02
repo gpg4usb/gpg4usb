@@ -1096,52 +1096,52 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="153"/>
+        <location filename="../../keyserverimportdialog.cpp" line="154"/>
         <source>Couldn&apos;t contact keyserver!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="161"/>
+        <location filename="../../keyserverimportdialog.cpp" line="162"/>
         <source>Too many responses from keyserver!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="167"/>
+        <location filename="../../keyserverimportdialog.cpp" line="168"/>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="171"/>
+        <location filename="../../keyserverimportdialog.cpp" line="172"/>
         <source>No keys found containing the search string!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="174"/>
+        <location filename="../../keyserverimportdialog.cpp" line="175"/>
         <source>Insufficiently specific search string!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="201"/>
+        <location filename="../../keyserverimportdialog.cpp" line="203"/>
         <source>revoked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="204"/>
+        <location filename="../../keyserverimportdialog.cpp" line="206"/>
         <source>disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="243"/>
+        <location filename="../../keyserverimportdialog.cpp" line="245"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="288"/>
+        <location filename="../../keyserverimportdialog.cpp" line="291"/>
         <source>Error while contacting keyserver!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="292"/>
+        <location filename="../../keyserverimportdialog.cpp" line="295"/>
         <source>Key imported</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1707,11 +1707,6 @@ Weak -&gt; Strong</source>
 <context>
     <name>SettingsDialog</name>
     <message>
-        <source>English</source>
-        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation type="obsolete">English</translation>
-    </message>
-    <message>
         <location filename="../../settingsdialog.cpp" line="34"/>
         <source>General</source>
         <translation type="unfinished"></translation>
@@ -1745,10 +1740,6 @@ Weak -&gt; Strong</source>
         <location filename="../../settingsdialog.cpp" line="72"/>
         <source>System Default</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>English</source>
-        <translation type="obsolete">English</translation>
     </message>
 </context>
 <context>
