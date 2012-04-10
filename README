@@ -19,15 +19,10 @@ For retrieving the source checkout http://cpunk.de/svn/src/ .
 
 HOWTO USE
 ---------
-1. Unzip gpg4usblib.zip on your usb-stick.
+1. Unzip gpg4usb.zip on your usb-stick.
 2. start programm with start_windows.exe or start_linux (depending on your os)
 3. import your private key and some public keys
 4. enjoy portable encryption ;-)
-
-UPDATING FROM OLDER VERSION
----------------------------
-You can continue using your already imported Keys by overwriting the directory
-keydb from the new version with the directory keydb of your old copy.
 
 CONTACT
 -------
@@ -38,9 +33,9 @@ Our homepage is located at http://gpg4usb.cpunk.de .
 
 LICENSES
 --------
-gpg4usblib itself is licensed under the GPL (see COPYING).
+gpg4usb itself is licensed under the GPLv3 (see COPYING).
 
-There are some libries and the gpg-binary included in the zip-file / a static
+There are some libraries and the gpg-binary included in the zip-file / a static
 gpg-build which (may) have different licenses, for more information check
 their homepages. You can also obtain the sources from there.
 
@@ -48,3 +43,7 @@ GPG: http://gnupg.org/
 QT: http://trolltech.no/ , http://trolltech.no/downloads/opensource
 
 Iconset used is Nuvola (http://icon-king.com/?p=15), which has a LGPL License
+
+The key image in the wizard (keys12.jpg) is a croped version of 
+http://www.flickr.com/photos/laureenp/6141822934/, which is licensed cc by-nc-sa.
+Our derived work is also cc by-nc-sa
