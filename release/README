@@ -19,7 +19,7 @@ For retrieving the source checkout http://cpunk.de/svn/src/ .
 
 HOWTO USE
 ---------
-1. Unzip gpg4usblib.zip on your usb-stick.
+1. Unzip gpg4usb.zip on your usb-stick.
 2. start programm with start_windows.exe or start_linux (depending on your os)
 3. import your private key and some public keys
 4. enjoy portable encryption ;-)
@@ -35,7 +35,7 @@ LICENSES
 --------
 gpg4usb itself is licensed under the GPLv3 (see COPYING).
 
-There are some libries and the gpg-binary included in the zip-file / a static
+There are some libraries and the gpg-binary included in the zip-file / a static
 gpg-build which (may) have different licenses, for more information check
 their homepages. You can also obtain the sources from there.
 

@@ -38,7 +38,7 @@ Release 0.3.2
 	- import conf from old gpg4usb [DONE]
 	- only show one import detail dialog, when importing public/private keys [DONE]
 	- add messagebox for succesful import of settings from old gpg4usb [DONE]
-	- before restart maybesave should be called on mainwindow
+
 - Update Qt to 4.8 [DONE]
 	- add Qt language files for Qt locales
 - investigate in adding a offline help system [DONE]
@@ -46,16 +46,17 @@ Release 0.3.2
 	- images should be included in paragraph [DONE]
                      - every html should have prev, next, toc link [DONE]
                      - remove menu and logo from subpages [DONE]
-                     - docs for sign&verify
+                     - docs for sign&verify [DONE]
 - dropdown from menubar instead of dialog for import [DONE]
 	- resize dropdown button, cause letter are cut at the bottom [DONE]
 - Change file encryption to single dialog for en- and decryption [DONE]
 	- change docu on file de- and encryption
 - replace qDebug messages with tr() by messagebox (?) 
 - disable tab related actions when no tab is shown [DONE]
-- credits for key image [DONE]
 - on key generation set maximum keysize to 65536 bits for elgamal subkey [DONE]
 - finally remove obsolete strings from translations
+- credits for key image [DONE]
+- translator list [DONE]
 
 BUGS:
 - import key toolbar dropdown shows text, even if only icon should be shown [DONE]
@@ -85,7 +86,9 @@ Release 0.3.3
 	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - remember Password:
 	- checkbox in password dialog to remember password
+	- before restart maybesave should be called on mainwindow	
 	- Timer to remember password for x minutes?
+
 
 Release 0.3.4
 - keylist rewrite using tablemodel
