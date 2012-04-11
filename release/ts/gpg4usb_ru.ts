@@ -334,7 +334,7 @@
     <message>
         <location filename="../../gpgcontext.cpp" line="484"/>
         <source>Enter Password for</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввести пароль для</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="488"/>
@@ -1907,7 +1907,7 @@ gpg4usb попробует импортировать ключ(и).</translation
     <message>
         <location filename="../../verifynotification.cpp" line="47"/>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Детали</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="117"/>
