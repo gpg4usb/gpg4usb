@@ -211,6 +211,10 @@
         <translation>فعل</translation>
     </message>
     <message>
+        <source>...</source>
+        <translation type="obsolete">...</translation>
+    </message>
+    <message>
         <location filename="../../fileencryptiondialog.cpp" line="31"/>
         <source>Decrypt File</source>
         <translation>تظهير ملف</translation>
@@ -254,6 +258,10 @@
         <location filename="../../fileencryptiondialog.cpp" line="153"/>
         <source>Couldn&apos;t Open file: </source>
         <translation>تعذَّر فتح الملف: </translation>
+    </message>
+    <message>
+        <source>couldn&apos;t open file: </source>
+        <translation type="obsolete">تعذّر فتح الملف:</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="180"/>
@@ -304,6 +312,49 @@
         <location filename="../../settingsdialog.cpp" line="132"/>
         <source>Language</source>
         <translation>اللغة</translation>
+    </message>
+    <message>
+        <source>Language change is applied after restarting program.</source>
+        <translation type="obsolete">تغيير اللغة يُطبّق بعد إعادة تشغيل البرمجية.</translation>
+    </message>
+    <message>
+        <source>System Default</source>
+        <translation type="obsolete">مبدئيات النظام</translation>
+    </message>
+</context>
+<context>
+    <name>GpgME::Context</name>
+    <message>
+        <source>No Key Selected</source>
+        <translation type="obsolete">لا مفاتيح مُختارة</translation>
+    </message>
+    <message>
+        <source>Unsupported algorithm</source>
+        <translation type="obsolete">خوارزميّة غير مدعومة</translation>
+    </message>
+    <message>
+        <source>Error decrypting:</source>
+        <translation type="obsolete">خطأ عند تظهير:</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="obsolete">عبارة سرّ غير صحيحة</translation>
+    </message>
+    <message>
+        <source>Enter Password</source>
+        <translation type="obsolete">أدخل عبارة السرّ</translation>
+    </message>
+    <message>
+        <source>Key Selection</source>
+        <translation type="obsolete">اختيار المفاتيح</translation>
+    </message>
+    <message>
+        <source>No Private Key Selected</source>
+        <translation type="obsolete">لا مفاتيح سرية مُختارة</translation>
+    </message>
+    <message>
+        <source>Error signing:</source>
+        <translation type="obsolete">خطأ عند توقيع:</translation>
     </message>
 </context>
 <context>
@@ -357,6 +408,341 @@
         <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
         <translation>خطأ عند توقيع:</translation>
+    </message>
+</context>
+<context>
+    <name>GpgWin</name>
+    <message>
+        <source>&amp;Open...</source>
+        <translation type="obsolete">ا&amp;فتح...</translation>
+    </message>
+    <message>
+        <source>Open an existing file</source>
+        <translation type="obsolete">يفتح ملفا موجودا</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="obsolete">ا&amp;حفظ</translation>
+    </message>
+    <message>
+        <source>Save the current File</source>
+        <translation type="obsolete">يحفظ الملف الحالي</translation>
+    </message>
+    <message>
+        <source>Save &amp;As</source>
+        <translation type="obsolete">احفظ با&amp;سم</translation>
+    </message>
+    <message>
+        <source>Save the current File as...</source>
+        <translation type="obsolete">يحفظ نسخة من الملف الحالي باسم معيّن</translation>
+    </message>
+    <message>
+        <source>&amp;Print</source>
+        <translation type="obsolete">ا&amp;طبع</translation>
+    </message>
+    <message>
+        <source>Print Document</source>
+        <translation type="obsolete">يطبع الوثيقة</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="obsolete">أ&amp;غلق</translation>
+    </message>
+    <message>
+        <source>Close file</source>
+        <translation type="obsolete">يغلق الملف</translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="obsolete">أ&amp;نهِ</translation>
+    </message>
+    <message>
+        <source>Quit Program</source>
+        <translation type="obsolete">ينهي عمل البرمجية</translation>
+    </message>
+    <message>
+        <source>&amp;Undo</source>
+        <translation type="obsolete">&amp;تراجع</translation>
+    </message>
+    <message>
+        <source>Undo Last Edit Action</source>
+        <translation type="obsolete">يتراجع عن آخر فعل تحرير</translation>
+    </message>
+    <message>
+        <source>&amp;Redo</source>
+        <translation type="obsolete">أعِ&amp;د</translation>
+    </message>
+    <message>
+        <source>Redo Last Edit Action</source>
+        <translation type="obsolete">يعيد آخر فعل تحرير</translation>
+    </message>
+    <message>
+        <source>&amp;Paste</source>
+        <translation type="obsolete">أل&amp;صق</translation>
+    </message>
+    <message>
+        <source>Paste Text From Clipboard</source>
+        <translation type="obsolete">يلصق من حافظة القصاصات</translation>
+    </message>
+    <message>
+        <source>Cu&amp;t</source>
+        <translation type="obsolete">ق&amp;ص</translation>
+    </message>
+    <message>
+        <source>Cut the current selection&apos;s contents to the clipboard</source>
+        <translation type="obsolete">يقصّ الاختيار الحالي إلى حافظة القصاصات</translation>
+    </message>
+    <message>
+        <source>&amp;Copy</source>
+        <translation type="obsolete">انس&amp;خ</translation>
+    </message>
+    <message>
+        <source>Copy the current selection&apos;s contents to the clipboard</source>
+        <translation type="obsolete">ينسخ الاختيار الحالي إلى حافظة القصاصات</translation>
+    </message>
+    <message>
+        <source>&amp;Quote</source>
+        <translation type="obsolete">ا&amp;قتبس</translation>
+    </message>
+    <message>
+        <source>Quote whole text</source>
+        <translation type="obsolete">يقتبس النصّ كلّه</translation>
+    </message>
+    <message>
+        <source>Select &amp;All</source>
+        <translation type="obsolete">اخ&amp;تر الكلّ</translation>
+    </message>
+    <message>
+        <source>Select the whole text</source>
+        <translation type="obsolete">يختار النصّ كلَه</translation>
+    </message>
+    <message>
+        <source>Remove double &amp;Linebreaks</source>
+        <translation type="obsolete">احذف الفراغات المز&amp;دوجة بين الأسطر</translation>
+    </message>
+    <message>
+        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
+        <translation type="obsolete">يزيل الأسطر الخاوية بين أسطر النصّ، مثل التي تطرأ عند اللصق من خدمات بريد الوِب</translation>
+    </message>
+    <message>
+        <source>Open settings dialog</source>
+        <translation type="obsolete">يفتح تحكُّمات الضبط</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt</source>
+        <translation type="obsolete">&amp;عمِّ</translation>
+    </message>
+    <message>
+        <source>Encrypt Message</source>
+        <translation type="obsolete">يعمّي الرسالة</translation>
+    </message>
+    <message>
+        <source>&amp;Decrypt</source>
+        <translation type="obsolete">&amp;ظهِّر</translation>
+    </message>
+    <message>
+        <source>Decrypt Message</source>
+        <translation type="obsolete">يُظهِّر الرسالة</translation>
+    </message>
+    <message>
+        <source>&amp;File Encryption</source>
+        <translation type="obsolete">تعمية ال&amp;ملفات</translation>
+    </message>
+    <message>
+        <source>Encrypt/Decrypt File</source>
+        <translation type="obsolete">عمِّ \ ظهِّر ملفا</translation>
+    </message>
+    <message>
+        <source>&amp;Sign</source>
+        <translation type="obsolete">و&amp;قِّع</translation>
+    </message>
+    <message>
+        <source>Sign Message</source>
+        <translation type="obsolete">يوقّع الرسالة</translation>
+    </message>
+    <message>
+        <source>&amp;Verify</source>
+        <translation type="obsolete">ت&amp;حقّق</translation>
+    </message>
+    <message>
+        <source>Verify Message</source>
+        <translation type="obsolete">يتحقق من توقيع على الرسالة</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation type="obsolete">&lt;center&gt;تتيح هذه الأداة التعمية و التظهير اليسيرين للرسائل النصية و الملفات&lt;br/&gt;
+و هي منشورة بالإصدارة الثالثة من رخصة GPL&lt;br/&gt;&lt;br/&gt;
+&lt;b&gt;المُطوِّرون:&lt;/b&gt;
+Bene و Heimer و Juergen و Nils و Ubbo&lt;br/&gt;
+&lt;br/&gt;
+&lt;b&gt;المترجمون:&lt;/b&gt;&lt;br/&gt;
+Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و Tom (vi) و أحمد غربية (ar)&lt;br/&gt;
+&lt;br/&gt;
+تواصل معنا عبر &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;صفحة الاتصال&lt;/a&gt; إن كانت لديك اقتراحات أو أرسل إلى القائمة البريدية &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>&amp;Keyserver</source>
+        <translation type="obsolete">&amp;خادوم المفاتيح</translation>
+    </message>
+    <message>
+        <source>Import New Key From Editor</source>
+        <translation type="obsolete">استورد مفتاحا من المحرر</translation>
+    </message>
+    <message>
+        <source>Key Management</source>
+        <translation type="obsolete">إدارة المفاتيح</translation>
+    </message>
+    <message>
+        <source>Open Keymanagement</source>
+        <translation type="obsolete">يفتح تحكُّمات إدارة المفاتيح</translation>
+    </message>
+    <message>
+        <source>Open Import New Key Dialog</source>
+        <translation type="obsolete">يفتح تحكُّمات استيراد مفتاح جديد</translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="obsolete">&amp;عن الأداة</translation>
+    </message>
+    <message>
+        <source>Show the application&apos;s About box</source>
+        <translation type="obsolete">يظهر صفحة معلومات عن الأداة</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="obsolete">&amp;ملف</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation type="obsolete">&amp;حرّر</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="obsolete">م&amp;ساعدة</translation>
+    </message>
+    <message>
+        <source>Append Selected Key(s) To Text</source>
+        <translation type="obsolete">ألحِق بالنصّ المفاتيح المختارة</translation>
+    </message>
+    <message>
+        <source>Se&amp;ttings</source>
+        <translation type="obsolete">ت&amp;ضبيطات</translation>
+    </message>
+    <message>
+        <source>&amp;New</source>
+        <translation type="obsolete">&amp;جديد</translation>
+    </message>
+    <message>
+        <source>Open a new file</source>
+        <translation type="obsolete">ينشئ ملفا جديدا</translation>
+    </message>
+    <message>
+        <source>Online &amp;Tutorial</source>
+        <translation type="obsolete">&amp;شرح على الخطّ</translation>
+    </message>
+    <message>
+        <source>Open Online Tutorial</source>
+        <translation type="obsolete">يفتح صفحة على الوِب فيها شرح استخدام الأداة</translation>
+    </message>
+    <message>
+        <source>Translate gpg4usb</source>
+        <translation type="obsolete">ترجِم gpg4usb</translation>
+    </message>
+    <message>
+        <source>Translate gpg4usb yourself</source>
+        <translation type="obsolete">ساهم بترجمة gpg4usb</translation>
+    </message>
+    <message>
+        <source>Append The Selected Keys To Text in Editor</source>
+        <translation type="obsolete">يلحق بالنصّ في المحرر المفاتيح المختارة</translation>
+    </message>
+    <message>
+        <source>Copy EMail-address</source>
+        <translation type="obsolete">انسخ عنوان البريد</translation>
+    </message>
+    <message>
+        <source>Copy selected EMailaddress to clipboard</source>
+        <translation type="obsolete">ينسخ عنوان البريد الإلكتروني إلى حافظة القصاصات</translation>
+    </message>
+    <message>
+        <source>Show Keydetails</source>
+        <translation type="obsolete">أظهر بيانات المفتاح</translation>
+    </message>
+    <message>
+        <source>Show Details for this Key</source>
+        <translation type="obsolete">يُظهر بيانات هذا المفتاح</translation>
+    </message>
+    <message>
+        <source>&amp;Keys</source>
+        <translation type="obsolete">الم&amp;فاتيح</translation>
+    </message>
+    <message>
+        <source>&amp;Import Key From...</source>
+        <translation type="obsolete">ا&amp;ستورد مفتاحا من...</translation>
+    </message>
+    <message>
+        <source>&amp;View</source>
+        <translation type="obsolete">&amp;عرض</translation>
+    </message>
+    <message>
+        <source>Ready</source>
+        <translation type="obsolete">جاهز</translation>
+    </message>
+    <message>
+        <source>Encrypt for:</source>
+        <translation type="obsolete">عمّ لأجل:</translation>
+    </message>
+    <message>
+        <source>Attached files:</source>
+        <translation type="obsolete">ملفات مُرفقة:</translation>
+    </message>
+    <message>
+        <source>There is one unencrypted file in attachment folder</source>
+        <translation type="obsolete">يوجد ملف غير معمّى في دليل المُرفقات</translation>
+    </message>
+    <message>
+        <source>There are </source>
+        <translation type="obsolete">توجد</translation>
+    </message>
+    <message>
+        <source> unencrypted files in attachment folder</source>
+        <translation type="obsolete">ملفات غير مُعمّاة في دليل المرفقات</translation>
+    </message>
+    <message>
+        <source>&amp;Editor</source>
+        <translation type="obsolete">الم&amp;حرر</translation>
+    </message>
+    <message>
+        <source>&amp;Clipboard</source>
+        <translation type="obsolete">حافظة ال&amp;قصاصات</translation>
+    </message>
+    <message>
+        <source>Import Key</source>
+        <translation type="obsolete">استورد مفتاحا</translation>
+    </message>
+    <message>
+        <source>&amp;Crypt</source>
+        <translation type="obsolete">&amp;عمِّ</translation>
+    </message>
+    <message>
+        <source>Crypt</source>
+        <translation type="obsolete">عمّ</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="obsolete">مفتاح</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="obsolete">حرّر</translation>
+    </message>
+    <message>
+        <source>About </source>
+        <translation type="obsolete">عن الأداة</translation>
+    </message>
+    <message>
+        <source>Import Key From...</source>
+        <translation type="obsolete">استورد مفتاحا من...</translation>
     </message>
 </context>
 <context>
@@ -547,9 +933,9 @@
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.Do you really want to export your private key?</source>
-        <translation>أنت بصدد تصدير مفتاح السريّ.
-هذا ليس مفتاحك العلنيّ.
-احرص على حفظه في أمان. أتريد حقا تصدير مفتاحك السريّ؟</translation>
+        <translation>أنت بصدد تصدير مفتاحك السريّ الذي تُظهّر به و توقّع.
+هذا ليس مفتاحك العلنيّ الذي.تشاركه مع الآخرين ليُراسلوك.
+إن صدّرته فاحرص على حفظه في أمان. أتريد حقا تصدير مفتاحك السريّ؟</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -600,6 +986,14 @@ Make sure you keep it save.Do you really want to export your private key?</sourc
         <location filename="../../keydetailsdialog.cpp" line="186"/>
         <source>Exporting private Key</source>
         <translation>يجري تصدير المفتاح السريّ</translation>
+    </message>
+    <message>
+        <source>You are about to export your private key.
+This is NOT your public key, so don&apos;t give it away.
+Make sure you keep it save.</source>
+        <translation type="obsolete">أنت بصدد تصدير مفتاحك السريّ.
+هذا *ليس* مفتاحك العلني فلا تعطه لأحد.
+احرص على حفظه بأمان.</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -719,7 +1113,7 @@ Weak -&gt; Strong</source>
         <source>You should create a new keypair.The pair consists of a public and a private key.&lt;br&gt;Other users can use the public key to encrypt messages for you and verify messages signed by you.You can use the private key to decrypt and sign messages.&lt;br&gt;For more information have a look at the offline tutorial (which then is shown in the main window):</source>
         <translatorcomment>To be more informative, I phrased the second sentence as &quot;Uses of tools ompatible with the GPG system can use your public key for you [...]&quot;</translatorcomment>
         <translation>ينبغي عليك توليد زوج مفاتيح يتألف من مفتاح علنيّ و آخر سريّ.&lt;br /&gt;
-يمكن لمن يستخدمون أدوات متوافقةمع نظام التعمية GPG استخدام مفتاحك العلنيّ لتعمية الرسائل لك و للتحقق من توقيعك على الرسائل التي وقّعتها. بينما تستخدم أنت مفتاحك السريّ لتظهير الرسائل المعماة لك و لتوقيع الرسائل.&lt;br /&gt;
+يمكن لمن يستخدمون أدوات متوافقةمع نظام التعمية PGP استخدام مفتاحك العلنيّ لتعمية الرسائل لك و للتحقق من توقيعك على الرسائل التي وقّعتها. بينما تستخدم أنت مفتاحك السريّ لتظهير الرسائل المعماة لك و لتوقيع الرسائل.&lt;br /&gt;
 لمزيد من المعلومات طالع الشرح (الذي سيظهر في النافذة الرئيسية):</translation>
     </message>
     <message>
@@ -1062,6 +1456,69 @@ gpg4usb سيحاول الآن استيراد مفاتيح.</translation>
         <source>Export Key To File</source>
         <translation>تصدير المفتاح إلى ملف</translation>
     </message>
+    <message>
+        <source>Name:</source>
+        <translation type="obsolete">الاسم:</translation>
+    </message>
+    <message>
+        <source>E-Mailaddress::</source>
+        <translation type="obsolete">عنوان البريد:</translation>
+    </message>
+    <message>
+        <source>Comment:</source>
+        <translation type="obsolete">نعليق:</translation>
+    </message>
+    <message>
+        <source>KeySize (in Bit):</source>
+        <translation type="obsolete">طول المفتاح (بالبِتّة):</translation>
+    </message>
+    <message>
+        <source>Expiration Date:</source>
+        <translation type="obsolete">تاريخ الانتهاء:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation type="obsolete">عبارة السرّ:</translation>
+    </message>
+    <message>
+        <source>Repeat Password:</source>
+        <translation type="obsolete">كرر عبارة السرّ:</translation>
+    </message>
+    <message>
+        <source>Never Expire</source>
+        <translation type="obsolete">لا ينتهي أبدا</translation>
+    </message>
+    <message>
+        <source>Password: Strength
+Weak -&gt; Strong</source>
+        <translation type="obsolete">عبارة السرّ: قوتها ضعيفة -&gt; قوية</translation>
+    </message>
+    <message>
+        <source>Password Strength</source>
+        <translation type="obsolete">قوة عبارة السرّ</translation>
+    </message>
+    <message>
+        <source>  Name must contain at least five characters.  
+</source>
+        <translation type="obsolete">يجب أن يحوي الاسم على الأقل خمسة محارف.</translation>
+    </message>
+    <message>
+        <source>  Password and Repeat don&apos;t match.  </source>
+        <translation type="obsolete">عبارة السر و تكرارها لا يتطابقان.</translation>
+    </message>
+    <message>
+        <source>Generating Key...</source>
+        <translation type="obsolete">يجري توليد زوج مفاتيح...</translation>
+    </message>
+    <message>
+        <source>Collecting random data for key generation.
+ This may take a while.
+ To speed up the process use your computer
+ (e.g. browse the net, listen to music,...)</source>
+        <translation type="obsolete">يجري جمع بيانات عشوائية لتوليد المفاتيح.
+قد يستغرق هذا بعض الوقت.
+لتسريع الصيرورة استخدم الحاسوب في أغراض أخرى</translation>
+    </message>
 </context>
 <context>
     <name>KeyServerImportDialog</name>
@@ -1116,53 +1573,53 @@ gpg4usb سيحاول الآن استيراد مفاتيح.</translation>
         <translation>وسم</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="154"/>
+        <location filename="../../keyserverimportdialog.cpp" line="153"/>
         <source>Couldn&apos;t contact keyserver!</source>
         <translation>تعذّر الاتصال بخادوم المفاتيح!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="162"/>
+        <location filename="../../keyserverimportdialog.cpp" line="161"/>
         <source>Too many responses from keyserver!</source>
         <translatorcomment>recommended phrasing: &quot;Search returned too many results. try to be more specific.&quot;</translatorcomment>
         <translation>أوجد البحث نتائج كثيرة جدا. حاول أن تكون أكثر تحديدًا.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="168"/>
+        <location filename="../../keyserverimportdialog.cpp" line="167"/>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
         <translation>لم توجد مفاتيح. ربما كانت العبار مُعرف مفتاح سِتَّعَشري، يجري البحث باستخدام 0x.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="172"/>
+        <location filename="../../keyserverimportdialog.cpp" line="171"/>
         <source>No keys found containing the search string!</source>
         <translation>لم توجد مفاتيح تحوي عبارة البحث!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="175"/>
+        <location filename="../../keyserverimportdialog.cpp" line="174"/>
         <source>Insufficiently specific search string!</source>
         <translation>عبارة بحث غير كافية!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="203"/>
+        <location filename="../../keyserverimportdialog.cpp" line="201"/>
         <source>revoked</source>
         <translation>منقوض</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="206"/>
+        <location filename="../../keyserverimportdialog.cpp" line="204"/>
         <source>disabled</source>
         <translation>مُعطَّل</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="245"/>
+        <location filename="../../keyserverimportdialog.cpp" line="243"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
         <translation>وُجدَ %1 مفاتيح. انقر على مفتاح لاستيراده.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="291"/>
+        <location filename="../../keyserverimportdialog.cpp" line="288"/>
         <source>Error while contacting keyserver!</source>
         <translation>خطأ أثناء الاتصال بخادوم المفاتيح!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="295"/>
+        <location filename="../../keyserverimportdialog.cpp" line="292"/>
         <source>Key imported</source>
         <translation>تم استيراد المفتاح</translation>
     </message>
@@ -1745,6 +2202,11 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
 <context>
     <name>SettingsDialog</name>
     <message>
+        <source>English</source>
+        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
+        <translation type="obsolete">English</translation>
+    </message>
+    <message>
         <location filename="../../settingsdialog.cpp" line="34"/>
         <source>General</source>
         <translation>عامة</translation>
@@ -1778,6 +2240,10 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
         <location filename="../../settingsdialog.cpp" line="72"/>
         <source>System Default</source>
         <translation>مبدئيات النظام</translation>
+    </message>
+    <message>
+        <source>English</source>
+        <translation type="obsolete">العربية</translation>
     </message>
 </context>
 <context>
@@ -1847,7 +2313,8 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="61"/>
         <source>Error Validating signature</source>
-        <translation>خطأ أثناء التحقق من توقيع</translation>
+        <translatorcomment>This should better be phrased as &quot;Invalid signature by %1&quot;, as &quot;error&quot; imples that the verification process itself filed, instead of yielding a complete, yet undesired, result.</translatorcomment>
+        <translation>توقيع غير صحيح من</translation>
     </message>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="67"/>
@@ -1911,7 +2378,7 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="62"/>
         <source>OK</source>
-        <translation>حَسَنٌ</translation>
+        <translation>جيِّد</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="69"/>
@@ -1929,12 +2396,12 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifynotification.cpp" line="38"/>
         <source>Show detailed verify information</source>
-        <translation>أظهر بيانات تفصيلية للاستيثاق</translation>
+        <translation>أظهر تفاصيلَ بيانات الاستيثاق</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="47"/>
         <source>Details</source>
-        <translation>بيانات</translation>
+        <translation>تفاصيل</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="117"/>
@@ -1949,12 +2416,12 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifynotification.cpp" line="164"/>
         <source>Text was completely signed by: </source>
-        <translation>النصُّ كُلُّه وقَّعه %1: </translation>
+        <translation>النصُّ كُلُّه وقَّعه: </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
-        <translation>النصُّ بعضُه وقَّعه %1: </translation>
+        <translation>النصُّ بعضُه وقَّعه: </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="147"/>
