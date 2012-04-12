@@ -1,76 +1,20 @@
 TODO:
 -----
-Release 0.3.2
-- refactoring and cleanup: [DONE]
-	- gpgwin.cpp -> mainwindow.cpp [DONE]
-	- context.cpp -> gpgcontext.cpp [DONE]
-- show keyrings (files with .gpg) in import from file dialog too [DONE]
-- Change QPlaintextEdit to QTextEdit [DONE]
-	- Zoom In/Out [DONE]
-- keyimport from keyserver dialog should show reason for strike out  [DONE]
-- add file operation toolbar (open, save, new) (per default off) [DONE]
-- understandable message if no matching private key found for decryption (no data error) [DONE]
-- dropdown from menubar instead of dialog for file-cryption (files->encrypt,decrypt) [DONE]
-- strike out revoked keys in keylist and add warning to keydetails [DONE]
-- put quote and double line break removale to "special edit" operation toolbar (icons for double linebreaks missing) [DONE]
-- emit keydbchanged from GPGcontext::importKey (for the moment not possible, because importinformation is lost after this) [DONE]
-- fix translation file for "SettingsDialog" as it says two times English, and the comment is on the wrong one. [DONE]
-- BUG: cancel decryption on windows hangs programm -> possibly bug in gpgme [DONE]
-- BUG: fix cancel password entry bug on windows [DONE]	
-- Add buttonto copy fingerprint to clipboard in details dialog [DONE]
-	- or set margin to make it easier selectable [DONE]
-	- remove whitespaces on copy [DONE]
-- remove iconpath and use ressource file instead [DONE]
-- change default iconsize to 24x24 [DONE]
-- restart gpg4usb on language change [DONE]
-- option in settingsdialog for enabling steganographic operations [DONE]
-	- minimal steganography option: remove or add pgp-headers on demand [DONE]
-	-  Add advanced tab to settings dialog [DONE]
-- Change "remove double line breaks" to "remove spacing" [DONE]
-	- icon from "line spacing icon" [DONE]
-- key import should be more verbose: [DONE]
-	- show message, which keys are imported [DONE]
-	- if import failed, because no key was found [DONE]
-	- if key is already in keyring [DONE]
-	- BUG: Also show details, when key is really new [DONE]
-- Wizard on first start (Create Key, Import from keys older gpg4usb, import from gnupg) [DONE]
-	- nextid is not called when clicking finish button [DONE]
-	- import conf from old gpg4usb [DONE]
-	- only show one import detail dialog, when importing public/private keys [DONE]
-	- add messagebox for succesful import of settings from old gpg4usb [DONE]
-	- before restart maybesave should be called on mainwindow
-- Update Qt to 4.8 [DONE]
-	- add Qt language files for Qt locales
-- investigate in adding a offline help system [DONE]
-	- have a look at the format
-	- images should be included in paragraph [DONE]
-                     - every html should have prev, next, toc link [DONE]
-                     - remove menu and logo from subpages [DONE]
-                     - docs for sign&verify
-- dropdown from menubar instead of dialog for import [DONE]
-	- resize dropdown button, cause letter are cut at the bottom [DONE]
-- Change file encryption to single dialog for en- and decryption [DONE]
-	- change docu on file de- and encryption
-- replace qDebug messages with tr() by messagebox (?) 
-- disable tab related actions when no tab is shown [DONE]
-- credits for key image [DONE]
-- on key generation set maximum keysize to 65536 bits for elgamal subkey [DONE]
-- finally remove obsolete strings from translations
-
-BUGS:
-- import key toolbar dropdown shows text, even if only icon should be shown [DONE]
-
 Release 0.3.3
 - Change private key password 
 - create revocation file 
 	- on key generation
 	- later
 - Refresh key from keyserver [DONE]
-- set maximum keysize to 16384
+- set maximum keysize to 16384 (should be discussed)
 - Upload key to keyserver 
 - show message if verify has no valid signature
 - exclude translators list from about dialog [DONE]
-- prevent utf8 encoding for comments on keygeneration
+- change docu on file de- and encryption
+- localize output of gpgme
+
+BUGS:
+- key generation doesn't work sometimes
 
 Release 0.3.4
 - Catch bad passphrase message
