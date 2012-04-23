@@ -33,6 +33,7 @@ HEADERS += attachments.h \
     textedit.h \
     editorpage.h \
     quitdialog.h \
+    aboutdialog.h \
     keyserverimportdialog.h \
     verifynotification.h \
     verifydetailsdialog.h \
@@ -58,6 +59,7 @@ SOURCES += attachments.cpp \
     textedit.cpp \
     editorpage.cpp \
     quitdialog.cpp \
+    aboutdialog.cpp \
     keyserverimportdialog.cpp \
     verifynotification.cpp \
     verifydetailsdialog.cpp \

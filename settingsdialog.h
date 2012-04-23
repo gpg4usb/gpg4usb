@@ -34,7 +34,6 @@ class QHBoxLayout;
 class QVBoxLayout;
 class QComboBox;
 class QCheckBox;
-class QSettings;
 class QDebug;
 class QSettings;
 class QApplication;
