@@ -87,7 +87,9 @@ void VerifyNotification::showImportAction(bool visible)
 
 void VerifyNotification::showVerifyDetails()
 {
-    new VerifyDetailsDialog(this, mCtx, mKeyList, mTextpage);
+    QByteArray text = mTextpage->toPlainText().toUtf8();
+    mCtx->preventNoDataErr(&text);
+    new VerifyDetailsDialog(this, mCtx, mKeyList, &text);
 }
 
 bool VerifyNotification::refresh()
@@ -98,7 +100,7 @@ bool VerifyNotification::refresh()
     mCtx->preventNoDataErr(&text);
     int textIsSigned = mCtx->textIsSigned(text);
 
-    gpgme_signature_t sign = mCtx->verify(text);
+    gpgme_signature_t sign = mCtx->verify(&text);
 
     if (sign == NULL) {
         return false;

@@ -590,12 +590,14 @@ void GpgContext::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QB
 }
 
 /***
+  * if sigbuffer not set, the inbuffer should contain signed text
+  *
   * TODO: return type should contain:
   * -> list of sigs
   * -> valid
   * -> errors
   */
-gpgme_signature_t GpgContext::verify(QByteArray inBuffer) {
+gpgme_signature_t GpgContext::verify(QByteArray *inBuffer, QByteArray *sigBuffer) {
 
     int error=0;
     gpgme_data_t in;
@@ -603,10 +605,16 @@ gpgme_signature_t GpgContext::verify(QByteArray inBuffer) {
     gpgme_signature_t sign;
     gpgme_verify_result_t result;
 
-    err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
+    err = gpgme_data_new_from_mem(&in, inBuffer->data(), inBuffer->size(), 1);
     checkErr(err);
 
-    err = gpgme_op_verify (mCtx, in, NULL, in);
+    if (sigBuffer != NULL ) {
+       gpgme_data_t sigdata;
+       err = gpgme_data_new_from_mem(&sigdata, sigBuffer->data(), sigBuffer->size(), 1);
+       err = gpgme_op_verify (mCtx, sigdata, NULL, in);
+    } else {
+       err = gpgme_op_verify (mCtx, in, NULL, in);
+    }
     error = checkErr(err);
 
     if (error != 0) {

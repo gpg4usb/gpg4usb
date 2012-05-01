@@ -24,6 +24,7 @@
 
 #include "gpgcontext.h"
 #include "keylist.h"
+#include "verifydetailsdialog.h"
 
 QT_BEGIN_NAMESPACE
 class QDialog;
@@ -82,6 +83,12 @@ public slots:
     /**
      * @brief
      *
+     * @fn selectSignFile
+     */
+    void selectSignFile();
+    /**
+     * @brief
+     *
      * @fn executeAction
      */
     void executeAction();
@@ -101,6 +108,7 @@ public slots:
 private:
     QLineEdit *outputFileEdit; /**< TODO */
     QLineEdit *inputFileEdit; /**< TODO */
+    QLineEdit *signFileEdit; /**< TODO */
     DialogAction mAction; /**< TODO */
 protected:
     GpgME::GpgContext *mCtx; /**< TODO */

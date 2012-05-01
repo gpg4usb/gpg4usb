@@ -60,15 +60,27 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     QLabel *fl2 = new QLabel(tr("Output"));
     fl2->setBuddy(outputFileEdit);
 
+
+
     QGridLayout *gLayout = new QGridLayout();
     gLayout->addWidget(fl1, 0, 0);
     gLayout->addWidget(inputFileEdit, 0, 1);
     gLayout->addWidget(fb1, 0, 2);
-    // verify does not need outfile
+    // verify does not need outfile, but signature file
     if(mAction != Verify) {
         gLayout->addWidget(fl2, 1, 0);
         gLayout->addWidget(outputFileEdit, 1, 1);
         gLayout->addWidget(fb2, 1, 2);
+    } else {
+        signFileEdit = new QLineEdit();
+        QPushButton *sfb1 = new QPushButton("...");
+        connect(sfb1, SIGNAL(clicked()), this, SLOT(selectSignFile()));
+        QLabel *sfl1 = new QLabel(tr("Signature"));
+        sfl1->setBuddy(signFileEdit);
+
+        gLayout->addWidget(sfl1, 1, 0);
+        gLayout->addWidget(signFileEdit, 1, 1);
+        gLayout->addWidget(sfb1, 1, 2);
     }
     groupBox1->setLayout(gLayout);
 
@@ -111,6 +123,8 @@ void FileEncryptionDialog::selectInputFile()
             outputFileEdit->setText(infileName + ".asc");
         } else if (mAction == Sign) {
             outputFileEdit->setText(infileName + ".sig");
+        } else if (mAction == Sign) {
+            signFileEdit->setText(infileName + ".sig");
         } else {
             if (infileName.endsWith(".asc", Qt::CaseInsensitive)) {
                 QString ofn = infileName;
@@ -135,6 +149,24 @@ void FileEncryptionDialog::selectOutputFile()
 
 }
 
+void FileEncryptionDialog::selectSignFile()
+{
+    QString path = "";
+    if (signFileEdit->text().size() > 0) {
+        path = QFileInfo(signFileEdit->text()).absolutePath();
+    }
+
+    QString signfileName = QFileDialog::getSaveFileName(this, tr("Open File"),path, NULL ,NULL ,QFileDialog::DontConfirmOverwrite);
+    signFileEdit->setText(signfileName);
+
+    if (inputFileEdit->text().size() == 0 && signfileName.endsWith(".sig", Qt::CaseInsensitive)) {
+        QString sfn = signfileName;
+        sfn.chop(4);
+        inputFileEdit->setText(sfn);
+    }
+
+}
+
 void FileEncryptionDialog::executeAction()
 {
 
@@ -155,7 +187,18 @@ void FileEncryptionDialog::executeAction()
     }
 
     if( mAction == Sign ) {
-        mCtx->sign(mKeyList->getChecked(), inBuffer, outBuffer, true);
+        if(! mCtx->sign(mKeyList->getChecked(), inBuffer, outBuffer, true)) return;
+    }
+
+    if( mAction == Verify ) {
+        QFile signfile;
+        signfile.setFileName(signFileEdit->text());
+        if (!signfile.open(QIODevice::ReadOnly)) {
+            qDebug() << tr("Couldn't Open file: ") + signFileEdit->text();
+        }
+        QByteArray signBuffer = signfile.readAll();
+        new VerifyDetailsDialog(this, mCtx, mKeyList, &inBuffer, &signBuffer);
+        return;
     }
 
     QFile outfile(outputFileEdit->text());

@@ -21,12 +21,15 @@
 
 #include "verifydetailsdialog.h"
 
-VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, QTextEdit *edit) :
+VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, QByteArray* inputData, QByteArray* inputSignature) :
     QDialog(parent)
 {
     mCtx = ctx;
     mKeyList = keyList;
-    mTextpage = edit;
+    //mTextpage = edit;
+    mInputData = inputData;
+    mInputSignature = inputSignature;
+
     this->setWindowTitle(tr("Signaturedetails"));
 
     connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
@@ -48,9 +51,16 @@ void VerifyDetailsDialog::refresh()
     mainLayout->addWidget(mVbox);
 
     // Get signature information of current text
-    QByteArray text = mTextpage->toPlainText().toUtf8();
-    mCtx->preventNoDataErr(&text);
-    gpgme_signature_t sign = mCtx->verify(text);
+    //QByteArray text = mTextpage->toPlainText().toUtf8();
+    //mCtx->preventNoDataErr(&text);
+    gpgme_signature_t sign;
+    if(mInputSignature != 0) {
+        qDebug() << "insig: " << *mInputSignature;
+        sign = mCtx->verify(mInputData, mInputSignature);
+        qDebug() << gpg_err_code(sign->status);
+    } else {
+        sign = mCtx->verify(mInputData);
+    }
 
     // Get timestamp of signature of current text
     QDateTime timestamp;
@@ -60,7 +70,7 @@ void VerifyDetailsDialog::refresh()
     if(gpg_err_code(sign->status) == GPG_ERR_BAD_SIGNATURE) {
         mVboxLayout->addWidget(new QLabel(tr("Error Validating signature")));
     } else {
-        switch (mCtx->textIsSigned(text))
+        switch (mCtx->textIsSigned(*mInputData))
         {
             case 2:
             {
