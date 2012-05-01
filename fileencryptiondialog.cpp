@@ -64,9 +64,12 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     gLayout->addWidget(fl1, 0, 0);
     gLayout->addWidget(inputFileEdit, 0, 1);
     gLayout->addWidget(fb1, 0, 2);
-    gLayout->addWidget(fl2, 1, 0);
-    gLayout->addWidget(outputFileEdit, 1, 1);
-    gLayout->addWidget(fb2, 1, 2);
+    // verify does not need outfile
+    if(mAction != Verify) {
+        gLayout->addWidget(fl2, 1, 0);
+        gLayout->addWidget(outputFileEdit, 1, 1);
+        gLayout->addWidget(fb2, 1, 2);
+    }
     groupBox1->setLayout(gLayout);
 
     /*Setup KeyList*/
@@ -106,6 +109,8 @@ void FileEncryptionDialog::selectInputFile()
     if (infileName > 0 && outputFileEdit->text().size() == 0) {
         if (mAction == Encrypt) {
             outputFileEdit->setText(infileName + ".asc");
+        } else if (mAction == Sign) {
+            outputFileEdit->setText(infileName + ".sig");
         } else {
             if (infileName.endsWith(".asc", Qt::CaseInsensitive)) {
                 QString ofn = infileName;
@@ -145,9 +150,12 @@ void FileEncryptionDialog::executeAction()
     if ( mAction == Encrypt ) {
         if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
     }
-
     if ( mAction == Decrypt )  {
         if (! mCtx->decrypt(inBuffer, outBuffer)) return;
+    }
+
+    if( mAction == Sign ) {
+        mCtx->sign(mKeyList->getChecked(), inBuffer, outBuffer, true);
     }
 
     QFile outfile(outputFileEdit->text());
