@@ -890,28 +890,28 @@ void MainWindow::fileEncrypt()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Encrypt);
+        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Encrypt, this);
 }
 
 void MainWindow::fileDecrypt()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Decrypt);
+        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Decrypt, this);
 }
 
 void MainWindow::fileSign()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Sign);
+        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Sign, this);
 }
 
 void MainWindow::fileVerify()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Verify);
+        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Verify, this);
 }
 
 void MainWindow::openSettingsDialog()

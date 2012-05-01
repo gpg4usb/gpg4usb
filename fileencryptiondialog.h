@@ -36,7 +36,6 @@ class QHBoxLayout;
 class QVBoxLayout;
 class QDebug;
 class QFileDialog;
-class QRadioButton;
 QT_END_NAMESPACE
 
 /**
@@ -53,7 +52,6 @@ public:
     enum DialogAction {
         Encrypt,
         Decrypt,
-        EncryptAndDecrypt,
         Sign,
         Verify
     };
@@ -66,7 +64,7 @@ public:
      * @param keyList
      * @param parent
      */
-    FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, QWidget *parent = 0, DialogAction action = EncryptAndDecrypt);
+    FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList,  DialogAction action, QWidget *parent = 0);
 
 public slots:
     /**
@@ -103,8 +101,6 @@ public slots:
 private:
     QLineEdit *outputFileEdit; /**< TODO */
     QLineEdit *inputFileEdit; /**< TODO */
-    QRadioButton *radioEnc; /**< TODO */
-    QRadioButton *radioDec; /**< TODO */
     DialogAction mAction; /**< TODO */
 protected:
     GpgME::GpgContext *mCtx; /**< TODO */
