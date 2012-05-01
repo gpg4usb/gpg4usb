@@ -272,23 +272,25 @@ void MainWindow::createActions()
     decryptAct->setToolTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
-    fileEncryptionAct = new QAction(tr("&File Encryption"), this);
-    fileEncryptionAct->setIcon(QIcon(":fileencrytion.png"));
-    fileEncryptionAct->setToolTip(tr("Encrypt/Decrypt File"));
-    connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(fileEncryption()));
-
     /*
      * File encryption submenu
      */
     fileEncryptAct = new QAction(tr("&Encrypt File"), this);
-    //fileEncryptAct->setIcon(QIcon(":fileencrytion.png"));
     fileEncryptAct->setToolTip(tr("Encrypt File"));
     connect(fileEncryptAct, SIGNAL(triggered()), this, SLOT(fileEncrypt()));
 
     fileDecryptAct = new QAction(tr("&Decrypt File"), this);
-    //fileDecryptAct->setIcon(QIcon(":fileencrytion.png"));
     fileDecryptAct->setToolTip(tr("Decrypt File"));
     connect(fileDecryptAct, SIGNAL(triggered()), this, SLOT(fileDecrypt()));
+
+    fileSignAct = new QAction(tr("&Sign File"), this);
+    fileSignAct->setToolTip(tr("Sign File"));
+    connect(fileSignAct, SIGNAL(triggered()), this, SLOT(fileSign()));
+
+    fileVerifyAct = new QAction(tr("&Verify File"), this);
+    fileVerifyAct->setToolTip(tr("Verify File"));
+    connect(fileVerifyAct, SIGNAL(triggered()), this, SLOT(fileVerify()));
+
 
     signAct = new QAction(tr("&Sign"), this);
     signAct->setIcon(QIcon(":signature.png"));
@@ -446,6 +448,12 @@ void MainWindow::createMenus()
     editMenu->addSeparator();
     editMenu->addAction(openSettingsAct);
 
+    fileEncMenu = new QMenu(tr("&File..."));
+    fileEncMenu->addAction(fileEncryptAct);
+    fileEncMenu->addAction(fileDecryptAct);
+    fileEncMenu->addAction(fileSignAct);
+    fileEncMenu->addAction(fileVerifyAct);
+
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
@@ -453,8 +461,7 @@ void MainWindow::createMenus()
     cryptMenu->addAction(signAct);
     cryptMenu->addAction(verifyAct);
     cryptMenu->addSeparator();
-    cryptMenu->addAction(fileEncryptAct);
-    cryptMenu->addAction(fileDecryptAct);
+    cryptMenu->addMenu(fileEncMenu);
 
     keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
@@ -504,7 +511,6 @@ void MainWindow::createToolBars()
     cryptToolBar->addAction(decryptAct);
     cryptToolBar->addAction(signAct);
     cryptToolBar->addAction(verifyAct);
-    //cryptToolBar->addAction(fileEncryptionAct);
     viewMenu->addAction(cryptToolBar->toggleViewAction());
 
     keyToolBar = addToolBar(tr("Key"));
@@ -536,9 +542,6 @@ void MainWindow::createToolBars()
 
     // Add dropdown menu for file encryption/decryption to crypttoolbar
     fileEncButton = new QToolButton();
-    QMenu* fileEncMenu = new QMenu();
-    fileEncMenu->addAction(fileEncryptAct);
-    fileEncMenu->addAction(fileDecryptAct);
     fileEncButton->setMenu(fileEncMenu);
     fileEncButton->setPopupMode(QToolButton::InstantPopup);
     fileEncButton->setIcon(QIcon(":fileencryption.png"));
@@ -883,13 +886,6 @@ void MainWindow::uploadKeyToServer()
     mKeyList->uploadKeyToServer(keyArray);
 }
 
-void MainWindow::fileEncryption()
-{
-        QStringList *keyList;
-        keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, this);
-}
-
 void MainWindow::fileEncrypt()
 {
         QStringList *keyList;
@@ -902,6 +898,20 @@ void MainWindow::fileDecrypt()
         QStringList *keyList;
         keyList = mKeyList->getChecked();
         new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Decrypt);
+}
+
+void MainWindow::fileSign()
+{
+        QStringList *keyList;
+        keyList = mKeyList->getChecked();
+        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Sign);
+}
+
+void MainWindow::fileVerify()
+{
+        QStringList *keyList;
+        keyList = mKeyList->getChecked();
+        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Verify);
 }
 
 void MainWindow::openSettingsDialog()

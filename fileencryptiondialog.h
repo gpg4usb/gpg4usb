@@ -53,7 +53,9 @@ public:
     enum DialogAction {
         Encrypt,
         Decrypt,
-        Both
+        EncryptAndDecrypt,
+        Sign,
+        Verify
     };
 
     /**
@@ -64,7 +66,7 @@ public:
      * @param keyList
      * @param parent
      */
-    FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, QWidget *parent = 0, DialogAction action = Both);
+    FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, QWidget *parent = 0, DialogAction action = EncryptAndDecrypt);
 
 public slots:
     /**

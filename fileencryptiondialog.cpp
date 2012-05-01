@@ -27,11 +27,16 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
 {
     mAction = action;
     mCtx = ctx;
-    if(mAction == Decrypt) {
+    if (mAction == Decrypt) {
         setWindowTitle(tr("Decrypt File"));
     } else if (mAction == Encrypt) {
         setWindowTitle(tr("Encrypt File"));
         resize(500, 300);
+    } else if (mAction == Sign) {
+        setWindowTitle(tr("Sign File"));
+        resize(500, 300);
+    } else if (mAction == Verify) {
+        setWindowTitle(tr("Verify File"));
     } else {
         setWindowTitle(tr("Encrypt / Decrypt File"));
         resize(500, 200);
@@ -89,7 +94,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     actionGroupBox->setLayout(hbox1);
 
     QVBoxLayout *vbox2 = new QVBoxLayout();
-    if(action == Both) {
+    if(action == EncryptAndDecrypt) {
         vbox2->addWidget(actionGroupBox);
     }
     vbox2->addWidget(groupBox1);
@@ -98,7 +103,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     vbox2->addStretch(0);
     setLayout(vbox2);
 
-    if(action == Encrypt) {
+    if(action == Encrypt || action == Sign) {
         showKeyList();
     }
 
@@ -118,7 +123,7 @@ void FileEncryptionDialog::selectInputFile()
 
     // try to find a matching output-filename, if not yet done
     if (infileName > 0 && outputFileEdit->text().size() == 0) {
-        if (mAction == Encrypt || (mAction == Both && radioEnc->isChecked())) {
+        if (mAction == Encrypt || (mAction == EncryptAndDecrypt && radioEnc->isChecked())) {
             outputFileEdit->setText(infileName + ".asc");
         } else {
             if (infileName.endsWith(".asc", Qt::CaseInsensitive)) {
@@ -156,11 +161,11 @@ void FileEncryptionDialog::executeAction()
     QByteArray inBuffer = infile.readAll();
     QByteArray *outBuffer = new QByteArray();
     infile.close();
-    if ( mAction == Encrypt || (mAction == Both && radioEnc->isChecked())) {
+    if ( mAction == Encrypt || (mAction == EncryptAndDecrypt && radioEnc->isChecked())) {
         if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
     }
 
-    if (mAction == Decrypt || (mAction == Both && radioDec->isChecked()))  {
+    if (mAction == Decrypt || (mAction == EncryptAndDecrypt && radioDec->isChecked()))  {
         if (! mCtx->decrypt(inBuffer, outBuffer)) return;
     }
 
