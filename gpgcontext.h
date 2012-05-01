@@ -121,7 +121,7 @@ public:
     gpgme_key_t getKeyDetails(QString uid);
     gpgme_signature_t verify(QByteArray in);
 //    void decryptVerify(QByteArray in);
-    bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );
+    bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer, bool detached = false );
     /**
      * @details If text contains PGP-message, put a linebreak before the message,
      * so that gpgme can decrypt correctly
