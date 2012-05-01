@@ -50,6 +50,10 @@ void VerifyDetailsDialog::refresh()
     QVBoxLayout *mVboxLayout = new QVBoxLayout(mVbox);
     mainLayout->addWidget(mVbox);
 
+    // Button Box for close button
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
+
     // Get signature information of current text
     //QByteArray text = mTextpage->toPlainText().toUtf8();
     //mCtx->preventNoDataErr(&text);
@@ -58,6 +62,12 @@ void VerifyDetailsDialog::refresh()
         sign = mCtx->verify(mInputData, mInputSignature);
     } else {
         sign = mCtx->verify(mInputData);
+    }
+
+    if(sign==0) {
+       mVboxLayout->addWidget(new QLabel(tr("No valid input found")));
+       mVboxLayout->addWidget(buttonBox);
+       return;
     }
 
     // Get timestamp of signature of current text
@@ -91,8 +101,5 @@ void VerifyDetailsDialog::refresh()
         mVboxLayout->addWidget(sbox);
     }
 
-    // Button Box for close button
-    buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     mVboxLayout->addWidget(buttonBox);
 }

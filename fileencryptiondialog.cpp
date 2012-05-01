@@ -29,14 +29,16 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     mCtx = ctx;
     if (mAction == Decrypt) {
         setWindowTitle(tr("Decrypt File"));
+        resize(500, 200);
     } else if (mAction == Encrypt) {
         setWindowTitle(tr("Encrypt File"));
-        resize(500, 300);
+        resize(500, 400);
     } else if (mAction == Sign) {
         setWindowTitle(tr("Sign File"));
-        resize(500, 300);
+        resize(500, 400);
     } else if (mAction == Verify) {
         setWindowTitle(tr("Verify File"));
+        resize(500, 200);
     }
 
     setModal(true);
@@ -59,8 +61,6 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     connect(fb2, SIGNAL(clicked()), this, SLOT(selectOutputFile()));
     QLabel *fl2 = new QLabel(tr("Output"));
     fl2->setBuddy(outputFileEdit);
-
-
 
     QGridLayout *gLayout = new QGridLayout();
     gLayout->addWidget(fl1, 0, 0);
@@ -91,10 +91,13 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     mKeyList->setColumnWidth(3, 150);
     mKeyList->setChecked(&keyList);
 
-    QVBoxLayout *vbox2 = new QVBoxLayout();
+    statusLabel = new QLabel();
+    statusLabel->setStyleSheet("QLabel {color: red;}");
 
+    QVBoxLayout *vbox2 = new QVBoxLayout();
     vbox2->addWidget(groupBox1);
     vbox2->addWidget(mKeyList);
+    vbox2->addWidget(statusLabel);
     vbox2->addWidget(buttonBox);
     vbox2->addStretch(0);
     setLayout(vbox2);
@@ -175,7 +178,9 @@ void FileEncryptionDialog::executeAction()
     QFile infile;
     infile.setFileName(inputFileEdit->text());
     if (!infile.open(QIODevice::ReadOnly)) {
-        qDebug() << tr("Couldn't Open file: ") + inputFileEdit->text();
+        statusLabel->setText( tr("Couldn't open file"));
+        inputFileEdit->setStyleSheet("QLineEdit { background: yellow }");
+        return;
     }
 
     QByteArray inBuffer = infile.readAll();
@@ -196,7 +201,9 @@ void FileEncryptionDialog::executeAction()
         QFile signfile;
         signfile.setFileName(signFileEdit->text());
         if (!signfile.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("Couldn't Open file: ") + signFileEdit->text();
+            statusLabel->setText( tr("Couldn't open file"));
+            signFileEdit->setStyleSheet("QLineEdit { background: yellow }");
+            return;
         }
         QByteArray signBuffer = signfile.readAll();
         new VerifyDetailsDialog(this, mCtx, mKeyList, &inBuffer, &signBuffer);

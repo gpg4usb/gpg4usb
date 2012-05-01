@@ -110,6 +110,7 @@ private:
     QLineEdit *inputFileEdit; /**< TODO */
     QLineEdit *signFileEdit; /**< TODO */
     DialogAction mAction; /**< TODO */
+    QLabel *statusLabel; /**< TODO */
 protected:
     GpgME::GpgContext *mCtx; /**< TODO */
     KeyList *mKeyList; /**< TODO */
