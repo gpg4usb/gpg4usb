@@ -611,7 +611,7 @@ gpgme_signature_t GpgContext::verify(QByteArray *inBuffer, QByteArray *sigBuffer
     if (sigBuffer != NULL ) {
        gpgme_data_t sigdata;
        err = gpgme_data_new_from_mem(&sigdata, sigBuffer->data(), sigBuffer->size(), 1);
-       err = gpgme_op_verify (mCtx, sigdata, NULL, in);
+       err = gpgme_op_verify (mCtx, sigdata, in, NULL);
     } else {
        err = gpgme_op_verify (mCtx, in, NULL, in);
     }

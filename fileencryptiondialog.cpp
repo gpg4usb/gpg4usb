@@ -118,12 +118,14 @@ void FileEncryptionDialog::selectInputFile()
     inputFileEdit->setText(infileName);
 
     // try to find a matching output-filename, if not yet done
-    if (infileName > 0 && outputFileEdit->text().size() == 0) {
+    if (infileName > 0
+            && outputFileEdit->text().size() == 0
+            && signFileEdit->text().size() == 0) {
         if (mAction == Encrypt) {
             outputFileEdit->setText(infileName + ".asc");
         } else if (mAction == Sign) {
             outputFileEdit->setText(infileName + ".sig");
-        } else if (mAction == Sign) {
+        } else if (mAction == Verify) {
             signFileEdit->setText(infileName + ".sig");
         } else {
             if (infileName.endsWith(".asc", Qt::CaseInsensitive)) {

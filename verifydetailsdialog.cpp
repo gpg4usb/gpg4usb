@@ -55,9 +55,7 @@ void VerifyDetailsDialog::refresh()
     //mCtx->preventNoDataErr(&text);
     gpgme_signature_t sign;
     if(mInputSignature != 0) {
-        qDebug() << "insig: " << *mInputSignature;
         sign = mCtx->verify(mInputData, mInputSignature);
-        qDebug() << gpg_err_code(sign->status);
     } else {
         sign = mCtx->verify(mInputData);
     }
@@ -69,6 +67,8 @@ void VerifyDetailsDialog::refresh()
     // Set the title widget depending on sign status
     if(gpg_err_code(sign->status) == GPG_ERR_BAD_SIGNATURE) {
         mVboxLayout->addWidget(new QLabel(tr("Error Validating signature")));
+    } else if (mInputSignature != 0) {
+        mVboxLayout->addWidget(new QLabel(tr("File was signed on <br/> %1 by:<br/>").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
     } else {
         switch (mCtx->textIsSigned(*mInputData))
         {
