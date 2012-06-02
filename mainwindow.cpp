@@ -918,6 +918,7 @@ void MainWindow::openSettingsDialog()
 {
 
     QString preLang = settings.value("int/lang").toString();
+    QString preKeydbPath = settings.value("gpgpaths/keydbpath").toString();
 
     new SettingsDialog(this);
     // Iconsize
@@ -939,8 +940,8 @@ void MainWindow::openSettingsDialog()
         closeAttachmentDock();
     }
 
-    // restart mainwindow if langugage changed
-    if(preLang != settings.value("int/lang").toString()) {
+    // restart mainwindow if langugage or keydbpath changed
+    if((preLang != settings.value("int/lang").toString()) || preKeydbPath != settings.value("gpgpaths/keydbpath").toString()) {
         if(edit->maybeSaveAnyTab()) {
             saveSettings();
             qApp->exit(RESTART_CODE);

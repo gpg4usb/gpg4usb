@@ -130,7 +130,27 @@ private slots:
 
  };
 
-class SettingsDialog : public QDialog
+ class GpgPathsTab : public QWidget
+ {
+     Q_OBJECT
+ public:
+     GpgPathsTab(QWidget *parent = 0);
+     void applySettings();
+
+private:
+    QString getRelativePath(const QString dir1,const QString dir2);
+    QString defKeydbPath; /** The default keydb path used by gpg4usb */
+    QString accKeydbPath; /** The currently used keydb path */
+    QLabel *keydbLabel;
+    void setSettings();
+
+ private slots:
+     QString chooseKeydbDir();
+     void setKeydbPathToDefault();
+
+ };
+
+ class SettingsDialog : public QDialog
 {
     Q_OBJECT
 
@@ -141,6 +161,7 @@ public:
     AppearanceTab *appearanceTab;
     KeyserverTab *keyserverTab;
     AdvancedTab *advancedTab;
+    GpgPathsTab *gpgPathsTab;
     static QHash<QString, QString> listLanguages();
 
 

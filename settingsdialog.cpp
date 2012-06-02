@@ -30,11 +30,13 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mimeTab = new MimeTab;
     keyserverTab = new KeyserverTab;
     advancedTab = new AdvancedTab;
+    gpgPathsTab = new GpgPathsTab;
 
     tabWidget->addTab(generalTab, tr("General"));
     tabWidget->addTab(appearanceTab, tr("Appearance"));
     tabWidget->addTab(mimeTab, tr("PGP/Mime"));
     tabWidget->addTab(keyserverTab, tr("Keyserver"));
+    tabWidget->addTab(gpgPathsTab, tr("Gpg paths"));
     tabWidget->addTab(advancedTab, tr("Advanced"));
 
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
@@ -60,6 +62,7 @@ void SettingsDialog::accept()
     appearanceTab->applySettings();
     keyserverTab->applySettings();
     advancedTab->applySettings();
+    gpgPathsTab->applySettings();
     close();
 }
 
@@ -139,6 +142,7 @@ GeneralTab::GeneralTab(QWidget *parent)
     }
 
     langBoxLayout->addWidget(langSelectBox);
+    langBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the language!")));
     langBox->setLayout(langBoxLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -471,4 +475,80 @@ void AdvancedTab::applySettings()
 {
     QSettings settings;
     settings.setValue("advanced/steganography", steganoCheckBox->isChecked());
+}
+
+GpgPathsTab::GpgPathsTab(QWidget *parent)
+    : QWidget(parent)
+{
+    setSettings();
+
+    /*****************************************
+     * Keydb Box
+     *****************************************/
+    QGroupBox *keydbBox = new QGroupBox(tr("Relative path to keydb"));
+    QGridLayout *keydbBoxLayout = new QGridLayout();
+
+    // Label containing the current keydbpath relative to default keydb path
+    keydbLabel = new QLabel(accKeydbPath,this);
+
+    QPushButton *keydbButton = new QPushButton("Choose keydb path",this);
+    connect(keydbButton, SIGNAL(clicked()), this, SLOT(chooseKeydbDir()));
+    QPushButton *keydbDefaultButton = new QPushButton("Set keydb to default path",this);
+    connect(keydbDefaultButton, SIGNAL(clicked()), this, SLOT(setKeydbPathToDefault()));
+
+    keydbBox->setLayout(keydbBoxLayout);
+    keydbBoxLayout->addWidget(keydbLabel,1,1);
+    keydbBoxLayout->addWidget(keydbButton,1,2);
+    keydbBoxLayout->addWidget(keydbDefaultButton,2,2);
+    keydbBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the keydb path!")),3,1);
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(keydbBox);
+    mainLayout->addStretch(1);
+    setLayout(mainLayout);
+}
+
+QString GpgPathsTab::getRelativePath(const QString dir1,const QString dir2)
+{
+    QDir dir(dir1);
+    QString s;
+
+    s = dir.relativeFilePath(dir2);
+    qDebug() << "relative path: " << s;
+    if (s.isEmpty()) {
+        s = ".";
+    }
+    return s;
+}
+
+void GpgPathsTab::setKeydbPathToDefault()
+{
+    accKeydbPath = ".";
+    keydbLabel->setText(".");
+}
+
+QString GpgPathsTab::chooseKeydbDir()
+{
+    QString dir = QFileDialog::getExistingDirectory(this,tr ("Choose keydb directory"),accKeydbPath,QFileDialog::ShowDirsOnly);
+
+    accKeydbPath = getRelativePath(defKeydbPath, dir);
+    keydbLabel->setText(accKeydbPath);
+    return "";
+}
+
+void GpgPathsTab::setSettings()
+{
+    defKeydbPath = qApp->applicationDirPath() + "/keydb";
+
+    QSettings settings;
+    accKeydbPath = settings.value("gpgpaths/keydbpath").toString();
+    if (accKeydbPath.isEmpty()) {
+        accKeydbPath = ".";
+    }
+}
+
+void GpgPathsTab::applySettings()
+{
+    QSettings settings;
+    settings.setValue("gpgpaths/keydbpath",accKeydbPath);
 }

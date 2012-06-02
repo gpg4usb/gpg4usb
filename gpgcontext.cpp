@@ -71,7 +71,18 @@ GpgContext::GpgContext()
 #else
     QString gpgBin = appPath + "/bin/gpg";
 #endif
-    QString gpgKeys = appPath + "/keydb";
+
+    QSettings settings;
+    QString accKeydbPath = settings.value("gpgpaths/keydbpath").toString();
+    QString gpgKeys = appPath + "/keydb/"+accKeydbPath;
+
+    if (accKeydbPath != "") {
+        if (!QDir(gpgKeys).exists()) {
+            QMessageBox::critical(0,tr("keydb path"),tr("Didn't find keydb directory. Switching to gpg4usb's default keydb directory for this session."));
+            gpgKeys = appPath + "/keydb";
+        }
+    }
+
     /*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
                                         gpgBin.toUtf8().constData(),
                                         gpgKeys.toUtf8().constData());*/
@@ -81,6 +92,14 @@ GpgContext::GpgContext()
                                     gpgKeys.toLocal8Bit().constData());
     checkErr(err);
 #endif
+    gpgme_engine_info_t engineInfo;
+    engineInfo = gpgme_ctx_get_engine_info(mCtx);
+
+
+    while (engineInfo !=NULL ) {
+        qDebug() << gpgme_get_protocol_name(engineInfo->protocol);
+        engineInfo=engineInfo->next;
+    }
 
     /** Setting the output type must be done at the beginning */
     /** think this means ascii-armor --> ? */
