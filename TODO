@@ -12,16 +12,19 @@ Release 0.3.3
 - exclude translators list from about dialog [DONE]
 - change docu on file de- and encryption
 - localize output of gpgme
+- add possibility to set alternative relative path to keydb [DONE]
+- add possibility for creation of RSA keys [DONE]
+- set DSA subkey to user specified size, not only 1024 bit [DONE]
+- add posibility to add keyserver in settings [DONE]
+- add posibility to remove keyserver in settings
 
 BUGS:
 - key generation doesn't work sometimes
-- The new wizard leaves an empty key in the registry (with GnuPG not installed locally): HKEY_CURRENT_USER\Software\GNU\GNUPG
-	(bug localized in method getGnuPGHome wizard.cpp line 323)
+- The new wizard leaves an empty key in the registry (with GnuPG not installed locally): HKEY_CURRENT_USER\Software\GNU\GNUPG [FIXED]
 
 Release 0.3.4
 - Catch bad passphrase message
 - add keyless encryption
-- add posibility to add keyserver in settings
 - set gpgme error language to chosen language (context.cpp:49)
 - Add default key functionality 
 - encrypt and sign, decrypt and verify (?)
