@@ -405,18 +405,27 @@ KeyserverTab::KeyserverTab(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    label = new QLabel(tr("Default Keyserver for import:"));
+    QLabel *label = new QLabel(tr("Default Keyserver for import:"));
     comboBox = new QComboBox;
-    comboBox->setEditable(true);
+    comboBox->setEditable(false);
     comboBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+    QWidget *addKeyServerBox = new QWidget(this);
+    QHBoxLayout *addKeyServerLayout = new QHBoxLayout(addKeyServerBox);
+    QLabel *http = new QLabel("http://");
+    newKeyServerEdit = new QLineEdit(this);
+    QPushButton *newKeyServerButton = new QPushButton(tr("Add to keyserverlist"), this);
+    connect(newKeyServerButton,SIGNAL(clicked()), this, SLOT(addKeyServer()));
+    addKeyServerLayout->addWidget(http);
+    addKeyServerLayout->addWidget(newKeyServerEdit);
+    addKeyServerLayout->addWidget(newKeyServerButton);
 
     mainLayout->addWidget(label);
     mainLayout->addWidget(comboBox);
+    mainLayout->addWidget(addKeyServerBox);
     mainLayout->addStretch(1);
 
     // Read keylist from ini-file and fill it into combobox
-    QSettings settings;
-    comboBox->addItems(settings.value("keyserver/keyServerList").toStringList());
     setSettings();
 }
 
@@ -429,8 +438,9 @@ KeyserverTab::KeyserverTab(QWidget *parent)
 void KeyserverTab::setSettings()
 {
     QSettings settings;
-    QString keyserver = settings.value("keyserver/defaultKeyServer").toString();
-    comboBox->setCurrentIndex(comboBox->findText(keyserver));
+    QString defKeyserver = settings.value("keyserver/defaultKeyServer").toString();
+    comboBox->addItems(settings.value("keyserver/keyServerList").toStringList());
+    comboBox->setCurrentIndex(comboBox->findText(defKeyserver));
 }
 
 /***********************************
@@ -441,6 +451,20 @@ void KeyserverTab::applySettings()
 {
     QSettings settings;
     settings.setValue("keyserver/defaultKeyServer",comboBox->currentText());
+    QStringList *keyServerList = new QStringList();
+    for(int i=0; i < comboBox->count(); i++) {
+        keyServerList->append(comboBox->itemText(i));
+    }
+    settings.setValue("keyserver/keyServerList", *keyServerList);
+}
+
+void KeyserverTab::addKeyServer()
+{
+    if (newKeyServerEdit->text().startsWith("http://")) {
+        comboBox->addItem(newKeyServerEdit->text());
+    } else {
+        comboBox->addItem("http://" +newKeyServerEdit->text());
+    }
 }
 
 AdvancedTab::AdvancedTab(QWidget *parent)

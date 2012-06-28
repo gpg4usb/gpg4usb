@@ -114,7 +114,10 @@ private slots:
 
  private:
     QComboBox *comboBox;
-    QLabel *label;
+    QLineEdit *newKeyServerEdit;
+
+ private slots:
+    void addKeyServer();
 };
 
  class AdvancedTab : public QWidget
