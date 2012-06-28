@@ -405,11 +405,13 @@ KeyserverTab::KeyserverTab(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    QLabel *label = new QLabel(tr("Default Keyserver for import:"));
     comboBox = new QComboBox;
     comboBox->setEditable(false);
     comboBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
+    /*
+     * box for adding a new keyserver
+     */
     QWidget *addKeyServerBox = new QWidget(this);
     QHBoxLayout *addKeyServerLayout = new QHBoxLayout(addKeyServerBox);
     QLabel *http = new QLabel("http://");
@@ -420,9 +422,25 @@ KeyserverTab::KeyserverTab(QWidget *parent)
     addKeyServerLayout->addWidget(newKeyServerEdit);
     addKeyServerLayout->addWidget(newKeyServerButton);
 
-    mainLayout->addWidget(label);
+    /*
+     * box for removing currently chosen keyserver
+     */
+    QWidget *removeKeyServerBox = new QWidget(this);
+    QPushButton *removeKeyServerButton = new QPushButton(tr("Remove currently chosen from keyserverlist"), this);
+    connect(removeKeyServerButton,SIGNAL(clicked()), this, SLOT(removeKeyServer()));
+    QHBoxLayout *removeKeyServerBoxLayout = new QHBoxLayout(removeKeyServerBox);
+    removeKeyServerBoxLayout->addStretch(1);
+    removeKeyServerBoxLayout->addWidget(removeKeyServerButton);
+
+    /*
+     * add everything to the mainlayout
+     */
+    mainLayout->addWidget(new QLabel(tr("Default Keyserver for import:")));
     mainLayout->addWidget(comboBox);
+    mainLayout->addWidget(new QLabel(tr("The currently chosen server is set as default keyserver for all keyserver related operations.")));
+    mainLayout->addWidget(removeKeyServerBox);
     mainLayout->addWidget(addKeyServerBox);
+
     mainLayout->addStretch(1);
 
     // Read keylist from ini-file and fill it into combobox
@@ -458,6 +476,10 @@ void KeyserverTab::applySettings()
     settings.setValue("keyserver/keyServerList", *keyServerList);
 }
 
+/***********************************
+  * add the keyserver from the
+  * qlineedit to the keyserverlist
+  *************************************/
 void KeyserverTab::addKeyServer()
 {
     if (newKeyServerEdit->text().startsWith("http://")) {
@@ -466,6 +488,11 @@ void KeyserverTab::addKeyServer()
         comboBox->addItem("http://" +newKeyServerEdit->text());
     }
     comboBox->setCurrentIndex(comboBox->count()-1);
+}
+
+void KeyserverTab::removeKeyServer()
+{
+    comboBox->removeItem(comboBox->currentIndex());
 }
 
 AdvancedTab::AdvancedTab(QWidget *parent)

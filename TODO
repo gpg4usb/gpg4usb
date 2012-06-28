@@ -16,7 +16,7 @@ Release 0.3.3
 - add possibility for creation of RSA keys [DONE]
 - set DSA subkey to user specified size, not only 1024 bit [DONE]
 - add posibility to add keyserver in settings [DONE]
-- add posibility to remove keyserver in settings
+- add posibility to remove keyserver in settings [DONE]
 
 BUGS:
 - key generation doesn't work sometimes

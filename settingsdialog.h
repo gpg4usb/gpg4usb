@@ -118,6 +118,7 @@ private slots:
 
  private slots:
     void addKeyServer();
+    void removeKeyServer();
 };
 
  class AdvancedTab : public QWidget
