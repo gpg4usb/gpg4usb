@@ -465,6 +465,7 @@ void KeyserverTab::addKeyServer()
     } else {
         comboBox->addItem("http://" +newKeyServerEdit->text());
     }
+    comboBox->setCurrentIndex(comboBox->count()-1);
 }
 
 AdvancedTab::AdvancedTab(QWidget *parent)
