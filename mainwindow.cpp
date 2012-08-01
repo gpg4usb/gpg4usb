@@ -23,6 +23,7 @@
 
 MainWindow::MainWindow()
 {
+	qDebug() << "hallo";
     mCtx = new GpgME::GpgContext();
 
     /* get path were app was started */

@@ -56,8 +56,8 @@ int main(int argc, char *argv[])
     putenv(QString("GNUPGHOME=" + appPath + "/keydb").toAscii().data());
     
     // this may help with newer gpgme versions on windows
-    //putenv(QString("GPGME_GPGPATH=" + appPath.replace("/", "\\") + "\\bin\\gpg.exe").toAscii().data());
-
+    putenv(QString("GPGME_GPGPATH=" + appPath + "/gpg-mac").toAscii().data());
+	qDebug() << appPath + "/gpg-mac";
     // QSettings uses org-name for automatically setting path...
     app.setOrganizationName("conf");
 

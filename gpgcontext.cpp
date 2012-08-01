@@ -41,60 +41,34 @@ GpgContext::GpgContext()
     /** The function `gpgme_check_version' must be called before any other
      *  function in the library, because it initializes the thread support
      *  subsystem in GPGME. (from the info page) */
-    gpgme_check_version(NULL);
 
-    // TODO: Set gpgme_language to config
-    /*QSettings settings;
-    qDebug() << " - " << settings.value("int/lang").toLocale().name();
-    qDebug() << " - " << QLocale(settings.value("int/lang").toString()).name();*/
-
-    // the locale set here is used for the other setlocale calls which have NULL
-    // -> NULL means use default, which is configured here
-    setlocale(LC_ALL, "");
-
-    /** set locale, because tests do also */
-    gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));
-    //qDebug() << "Locale set to" << LC_CTYPE << " - " << setlocale(LC_CTYPE, NULL);
-#ifndef _WIN32
-    gpgme_set_locale(NULL, LC_MESSAGES, setlocale(LC_MESSAGES, NULL));
-#endif
-
-    err = gpgme_new(&mCtx);
-
-    checkErr(err);
-    /** here come the settings, instead of /usr/bin/gpg
-     * a executable in the same path as app is used.
-     * also lin/win must  be checked, for calling gpg.exe if needed
-     */
-#ifdef _WIN32
+#ifdef Q_WS_WIN
     QString gpgBin = appPath + "/bin/gpg.exe";
-#else
-    QString gpgBin = appPath + "/bin/gpg";
-#endif
     QString gpgKeys = appPath + "/keydb";
-    /*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
-                                        gpgBin.toUtf8().constData(),
-                                        gpgKeys.toUtf8().constData());*/
-#ifndef GPG4USB_NON_PORTABLE
-    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
-                                    gpgBin.toLocal8Bit().constData(),
-                                    gpgKeys.toLocal8Bit().constData());
-    checkErr(err);
+#endif
+#ifdef Q_WS_MAC
+    QString gpgBin = appPath + "/bin/gpg-mac.app";
+
+    QString gpgKeys = appPath + "/keydb";
+
+	qDebug() << "gpg bin:" << gpgBin;
+	qDebug() << "gpg keydb: " << gpgKeys;
+#endif
+#ifdef Q_WS_X11
+    QString gpgBin = appPath + "/bin/gpg";
+    QString gpgKeys = appPath + "/keydb";
 #endif
 
-    /** Setting the output type must be done at the beginning */
-    /** think this means ascii-armor --> ? */
-    gpgme_set_armor(mCtx, 1);
-    /** passphrase-callback */
-    gpgme_set_passphrase_cb(mCtx, passphraseCb, this);
+    QStringList args;
+    args << "--homedir" << gpgKeys << "--list-keys";
 
-    /** check if app is called with -d from command line */
-    if (qApp->arguments().contains("-d")) {
-        qDebug() << "gpgme_data_t debug on";
-        debug = true;
-    } else {
-        debug = false;
-    }
+    QProcess gpg;
+    gpg.setProcessChannelMode(QProcess::MergedChannels);
+    gpg.start(gpgBin, args);
+
+    gpg.waitForFinished(-1);
+
+    qDebug() << "huhu" << gpg.readAll();
 
     connect(this,SIGNAL(keyDBChanged()),this,SLOT(refreshKeyList()));
     refreshKeyList();
@@ -105,8 +79,8 @@ GpgContext::GpgContext()
  */
 GpgContext::~GpgContext()
 {
-    if (mCtx) gpgme_release(mCtx);
-    mCtx = 0;
+    //if (mCtx) gpgme_release(mCtx);
+    //mCtx = 0;
 }
 
 /** Import Key from QByteArray
@@ -234,15 +208,13 @@ gpgme_key_t GpgContext::getKeyDetails(QString uid)
  */
 GpgKeyList GpgContext::listKeys()
 {
-    gpgme_error_t err;
-    gpgme_key_t key;
+
 
     GpgKeyList keys;
     //TODO dont run the loop more often than necessary
     // list all keys ( the 0 is for all )
-    err = gpgme_op_keylist_start(mCtx, NULL, 0);
-    checkErr(err);
-    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
+
+/*    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
         GpgKey gpgkey;
 
         if (!key->subkeys)
@@ -259,12 +231,10 @@ GpgKeyList GpgContext::listKeys()
         }
         keys.append(gpgkey);
         gpgme_key_unref(key);
-    }
-    gpgme_op_keylist_end(mCtx);
+    }*/
 
     // list only private keys ( the 1 does )
-    gpgme_op_keylist_start(mCtx, NULL, 1);
-    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
+/*    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
         if (!key->subkeys)
             continue;
         // iterate keys, mark privates
@@ -276,8 +246,7 @@ GpgKeyList GpgContext::listKeys()
         }
 
         gpgme_key_unref(key);
-    }
-    gpgme_op_keylist_end(mCtx);
+    }*/
 
     return keys;
 }
@@ -793,6 +762,7 @@ QString GpgContext::getGpgmeVersion() {
 }
 
 }
+
 
 
 
