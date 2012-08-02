@@ -211,12 +211,16 @@ KgpgCore::KgpgKey GpgContext::getKeyDetails(QString uid) {
 
     //KgpgCore::KgpgKey key;
     // try secret
+    /*qDebug() << "blubb";
     KgpgCore::KgpgKey key = KgpgInterface::readSecretKeys(QStringList() << uid).first();
 
+    qDebug() << "bla";
+    qDebug() << "id: " << key.id();
+
     // ok, its a public key
-    if (key.id() == "") {
+    if (key.id() == "") {*/
         KgpgCore::KgpgKey key = KgpgInterface::readPublicKeys(QStringList() << uid).first();
-    }
+    //}
     return key;
 
 }
