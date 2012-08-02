@@ -20,7 +20,8 @@
  */
 
 #include "gpgcontext.h"
-
+#include "kgpg/gpgproc.h"
+#include "kgpg/klinebufferedprocess.h"
 #ifdef _WIN32
 #include <windows.h>
 #include <unistd.h>    /* contains read/write */
@@ -43,33 +44,33 @@ GpgContext::GpgContext()
      *  subsystem in GPGME. (from the info page) */
 
 #ifdef Q_WS_WIN
-    QString gpgBin = appPath + "/bin/gpg.exe";
-    QString gpgKeys = appPath + "/keydb";
+    gpgBin = appPath + "/bin/gpg.exe";
+    gpgKeys = appPath + "/keydb";
 #endif
 #ifdef Q_WS_MAC
-    QString gpgBin = appPath + "/bin/gpg-mac.app";
+    gpgBin = appPath + "/bin/gpg-mac.app";
 
-    QString gpgKeys = appPath + "/keydb";
+    gpgKeys = appPath + "/keydb";
 
 	qDebug() << "gpg bin:" << gpgBin;
 	qDebug() << "gpg keydb: " << gpgKeys;
 #endif
 #ifdef Q_WS_X11
-    QString gpgBin = appPath + "/bin/gpg";
-    QString gpgKeys = appPath + "/keydb";
+    gpgBin = appPath + "/bin/gpg";
+    gpgKeys = appPath + "/keydb";
 #endif
 
     QStringList args;
     args << "--homedir" << gpgKeys << "--list-keys";
 
-    QProcess gpg;
+/*    QProcess gpg;
     gpg.setProcessChannelMode(QProcess::MergedChannels);
     gpg.start(gpgBin, args);
 
     gpg.waitForFinished(-1);
 
     qDebug() << "huhu" << gpg.readAll();
-
+*/
     connect(this,SIGNAL(keyDBChanged()),this,SLOT(refreshKeyList()));
     refreshKeyList();
 }
@@ -211,6 +212,20 @@ GpgKeyList GpgContext::listKeys()
 
 
     GpgKeyList keys;
+    GPGProc process(this, gpgBin);
+/*    process <<
+            QLatin1String("--with-colons") <<
+            QLatin1String("--with-fingerprint") <<
+            QLatin1String("--fixed-list-mode") <<
+            QLatin1String("--list-keys");
+
+    process.setOutputChannelMode(KProcess::MergedChannels);
+
+    process.start();
+    process.waitForFinished(-1);*/
+    //while (item == process->)
+//	return readPublicKeysProcess(process, NULL);
+
     //TODO dont run the loop more often than necessary
     // list all keys ( the 0 is for all )
 

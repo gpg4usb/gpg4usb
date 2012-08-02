@@ -15,6 +15,7 @@ INCLUDEPATH += . \
 
 CONFIG += release static
 #CONFIG += release
+#CONFIG += debug
 QT += network
 # Input
 HEADERS += attachments.h \
@@ -39,7 +40,10 @@ HEADERS += attachments.h \
     verifykeydetailbox.h \
     wizard.h \
     helppage.h \
-#    gpgproc.h \
+    kgpg/gpgproc.h \
+    kgpg/klinebufferedprocess.h \
+    kgpg/kprocess.h \
+    kgpg/kprocess_p.h \
     gpgconstants.h
 
 SOURCES += attachments.cpp \
@@ -65,7 +69,9 @@ SOURCES += attachments.cpp \
     verifykeydetailbox.cpp \
     wizard.cpp \
     helppage.cpp \
-#    gpgproc.cpp \
+    kgpg/gpgproc.cpp \
+    kgpg/klinebufferedprocess.cpp \
+    kgpg/kprocess.cpp \
     gpgconstants.cpp
 
 RC_FILE = gpg4usb.rc
@@ -73,12 +79,12 @@ RC_FILE = gpg4usb.rc
 RESOURCES = gpg4usb.qrc
 
 # comment out line below for static building
-#LIBS += -lgpgme \
-#     -lgpg-error \
+LIBS += -lgpgme \
+     -lgpg-error \
 
 # comment in for static buildding in windows
-INCLUDEPATH += ./macbuild/include
-LIBS +=./macbuild/lib/libgpgme.a ./macbuild/lib/libgpg-error.a
+#INCLUDEPATH += ./macbuild/include
+#LIBS +=./macbuild/lib/libgpgme.a ./macbuild/lib/libgpg-error.a
 
     
 DEFINES += _FILE_OFFSET_BITS=64

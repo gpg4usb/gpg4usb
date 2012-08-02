@@ -176,6 +176,9 @@ private:
                            QByteArray *stdOut,
                            QByteArray *stdErr);
 
+    QString gpgBin;
+    QString gpgKeys;
+
 };
 } // namespace GpgME
 
