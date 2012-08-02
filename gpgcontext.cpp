@@ -194,7 +194,7 @@ bool GpgContext::exportKeys(QStringList *uidList, QByteArray *outBuffer)
     return true;
 }
 
-gpgme_key_t GpgContext::getKeyDetails(QString uid)
+/*gpgme_key_t GpgContext::getKeyDetails(QString uid)
 {
     gpgme_key_t key;
 
@@ -205,6 +205,20 @@ gpgme_key_t GpgContext::getKeyDetails(QString uid)
         gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 0);
     }
     return key;
+}*/
+
+KgpgCore::KgpgKey GpgContext::getKeyDetails(QString uid) {
+
+    //KgpgCore::KgpgKey key;
+    // try secret
+    KgpgCore::KgpgKey key = KgpgInterface::readSecretKeys(QStringList() << uid).first();
+
+    // ok, its a public key
+    if (key.id() == "") {
+        KgpgCore::KgpgKey key = KgpgInterface::readPublicKeys(QStringList() << uid).first();
+    }
+    return key;
+
 }
 
 

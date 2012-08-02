@@ -23,6 +23,7 @@
 #define __KEYDETAILSDIALOG_H__
 
 #include "gpgcontext.h"
+#include "kgpg/kgpgkey.h"
 #include <gpgme.h>
 
 QT_BEGIN_NAMESPACE
@@ -42,7 +43,7 @@ class KeyDetailsDialog : public QDialog
     Q_OBJECT
 
 public:
-    KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWidget *parent = 0);
+    KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key, QWidget *parent = 0);
 
     /**
      * @details Return QString with a space inserted at every fourth character

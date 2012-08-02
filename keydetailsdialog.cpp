@@ -21,11 +21,11 @@
 
 #include "keydetailsdialog.h"
 
-KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWidget *parent)
+KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key, QWidget *parent)
     : QDialog(parent)
 {
     mCtx = ctx;
-    keyid = new QString(key->subkeys->keyid);
+    keyid = new QString(key.id());
 
     ownerBox = new QGroupBox(tr("Owner details"));
     keyBox = new QGroupBox(tr("Key details"));
@@ -34,29 +34,29 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
 
-    nameVarLabel = new QLabel(QString::fromUtf8(key->uids->name));
+    nameVarLabel = new QLabel(key.name());
     nameVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    emailVarLabel = new QLabel(QString::fromUtf8(key->uids->email));
+    emailVarLabel = new QLabel(key.email());
     emailVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
-    commentVarLabel = new QLabel(QString::fromUtf8(key->uids->comment));
+    commentVarLabel = new QLabel(key.comment());
     commentVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    keyidVarLabel = new QLabel(key->subkeys->keyid);
+    keyidVarLabel = new QLabel(key.id());
     keyidVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
     QString keySizeVal, keyExpireVal, keyCreatedVal, keyAlgoVal;
 
-    if (key->subkeys->expires == 0) {
+    if (key.expirationDate().isNull()) {
         keyExpireVal = tr("Never");
     } else {
-        keyExpireVal = QDateTime::fromTime_t(key->subkeys->expires).toString("dd. MMM. yyyy");
+        keyExpireVal = key.expirationDate().toString("dd. MMM. yyyy");
     }
 
-    keyAlgoVal = gpgme_pubkey_algo_name(key->subkeys->pubkey_algo);
-    keyCreatedVal = QDateTime::fromTime_t(key->subkeys->timestamp).toString("dd. MMM. yyyy");
+    keyAlgoVal = key.algorithm();
+    keyCreatedVal = key.creationDate().toString("dd. MMM. yyyy");
 
     // have el-gamal key?
-    if (key->subkeys->next) {
+    /*if (key->subkeys->next) {
         keySizeVal.sprintf("%d / %d",  int(key->subkeys->length), int(key->subkeys->next->length));
         if (key->subkeys->next->expires == 0) {
             keyExpireVal += tr(" / Never");
@@ -67,7 +67,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
         keyCreatedVal += " / " + QDateTime::fromTime_t(key->subkeys->next->timestamp).toString("dd. MMM. yyyy");
     } else {
         keySizeVal.setNum(int(key->subkeys->length));
-    }
+    }*/
 
     keySizeVarLabel = new QLabel(keySizeVal);
     expireVarLabel = new QLabel(keyExpireVal);
@@ -102,7 +102,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     keyBox->setLayout(vboxKD);
     mvbox->addWidget(keyBox);
 
-    fingerPrintVarLabel = new QLabel(beautifyFingerprint(key->subkeys->fpr));
+    fingerPrintVarLabel = new QLabel(key.fingerprintBeautified());
     fingerPrintVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
     fingerPrintVarLabel->setStyleSheet("margin-left: 20; margin-right: 20;");
     QHBoxLayout *hboxFP = new QHBoxLayout();
@@ -122,7 +122,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     mvbox->addWidget(fingerprintBox);
 
     // If key has more than primary uid, also show the other uids
-    gpgme_user_id_t addUserIds = key->uids->next;
+    /*gpgme_user_id_t addUserIds = key->uids->next;
     if (addUserIds !=NULL) {
         QVBoxLayout *vboxUID = new QVBoxLayout();
         while (addUserIds != NULL){
@@ -133,9 +133,9 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
         }
         additionalUidBox->setLayout(vboxUID);
         mvbox->addWidget(additionalUidBox);
-    }
+    }*/
 
-    if (key->secret) {
+    if (key.secret()) {
         QGroupBox *privKeyBox = new QGroupBox(tr("Private Key"));
         QVBoxLayout *vboxPK = new QVBoxLayout();
 
@@ -147,7 +147,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
         mvbox->addWidget(privKeyBox);
     }
 
-    if((key->expired) || (key->revoked)) {
+    /*if((key->expired) || (key->revoked)) {
         QHBoxLayout *expBox = new QHBoxLayout();
         QIcon icon = QIcon::fromTheme("dialog-warning");
         QPixmap pixmap = icon.pixmap(QSize(32,32),QIcon::Normal,QIcon::On);
@@ -168,7 +168,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
         expBox->addWidget(iconLabel);
         expBox->addWidget(expLabel);
         mvbox->addLayout(expBox);
-    }
+    }*/
 
     mvbox->addWidget(buttonBox);
 
@@ -194,8 +194,8 @@ void KeyDetailsDialog::exportPrivateKey()
     if (ret == QMessageBox::Ok) {
         QByteArray *keyArray = new QByteArray();
         mCtx->exportSecretKey(*keyid, keyArray);
-        gpgme_key_t key = mCtx->getKeyDetails(*keyid);
-        QString fileString = QString::fromUtf8(key->uids->name) + " " + QString::fromUtf8(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub_sec.asc";
+        KgpgCore::KgpgKey key = mCtx->getKeyDetails(*keyid);
+        QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub_sec.asc";
         QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {

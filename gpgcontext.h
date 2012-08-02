@@ -28,6 +28,7 @@
 #include <gpgme.h>
 #include <QLinkedList>
 #include <QtGui>
+#include "kgpg/kgpgkey.h"
 
 QT_BEGIN_NAMESPACE
 class QMessageBox;
@@ -118,7 +119,8 @@ public:
     bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
     void clearPasswordCache();
     void exportSecretKey(QString uid, QByteArray *outBuffer);
-    gpgme_key_t getKeyDetails(QString uid);
+    //gpgme_key_t getKeyDetails(QString uid);
+    KgpgCore::KgpgKey getKeyDetails(QString uid);
     gpgme_signature_t verify(QByteArray in);
 //    void decryptVerify(QByteArray in);
     bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );

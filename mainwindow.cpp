@@ -875,9 +875,9 @@ void MainWindow::copyMailAddressToClipboard()
         return;
     }
 
-    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     QClipboard *cb = QApplication::clipboard();
-    QString mail = key->uids->email;
+    QString mail = key.email();
     cb->setText(mail);
 }
 
@@ -887,8 +887,8 @@ void MainWindow::showKeyDetails()
         return;
     }
 
-    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
-    if (key) {
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+    if (key.id() != "") {
         new KeyDetailsDialog(mCtx, key, this);
     }
 }

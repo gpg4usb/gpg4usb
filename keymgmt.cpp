@@ -212,9 +212,9 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
     }
     QString keynames;
     foreach (QString uid, *uidList) {
-        keynames.append(QString::fromUtf8(mCtx->getKeyDetails(uid)->uids->name));
+        keynames.append(mCtx->getKeyDetails(uid).name());
         keynames.append("<i> &lt;");
-        keynames.append(QString::fromUtf8(mCtx->getKeyDetails(uid)->uids->email));
+        keynames.append(mCtx->getKeyDetails(uid).email());
         keynames.append("&gt; </i><br/>");
     }
 
@@ -235,7 +235,7 @@ void KeyMgmt::showKeyDetails()
     }
 
     // TODO: first...?
-    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
 
     new KeyDetailsDialog(mCtx, key);
 }
@@ -246,8 +246,8 @@ void KeyMgmt::exportKeyToFile()
     if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
         return;
     }
-    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getChecked()->first());
-    QString fileString = QString::fromUtf8(key->uids->name) + " " + QString::fromUtf8(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub.asc";
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getChecked()->first());
+    QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub.asc";
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
     QFile file(fileName);
