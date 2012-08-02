@@ -32,6 +32,7 @@ public:
 	const QStringList &standardArguments() const;
 	unsigned int version() const;
 	bool supportsDebugLevel() const;
+    //static GnupgBinary* instance();
 
 private:
 	QString m_binary;
@@ -154,7 +155,7 @@ GPGProc::~GPGProc()
 void
 GPGProc::resetProcess(const QString &binary)
 {
-    GnupgBinary *bin;// = lastBinary;
+    GnupgBinary *bin = lastBinary();
 	QString executable;
 
     qDebug() << "bin:" << binary;

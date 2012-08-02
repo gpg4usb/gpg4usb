@@ -213,7 +213,7 @@ GpgKeyList GpgContext::listKeys()
 
     GpgKeyList keys;
     GPGProc process(this, gpgBin);
-/*    process <<
+    process <<
             QLatin1String("--with-colons") <<
             QLatin1String("--with-fingerprint") <<
             QLatin1String("--fixed-list-mode") <<
@@ -222,7 +222,9 @@ GpgKeyList GpgContext::listKeys()
     process.setOutputChannelMode(KProcess::MergedChannels);
 
     process.start();
-    process.waitForFinished(-1);*/
+    process.waitForFinished(-1);
+
+
     //while (item == process->)
 //	return readPublicKeysProcess(process, NULL);
 
