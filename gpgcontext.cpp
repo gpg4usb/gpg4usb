@@ -207,6 +207,8 @@ gpgme_key_t GpgContext::getKeyDetails(QString uid)
     return key;
 }
 
+
+
 /** List all availabe Keys (VERY much like kgpgme)
  */
 GpgKeyList GpgContext::listKeys()
@@ -230,58 +232,16 @@ GpgKeyList GpgContext::listKeys()
         keys.append(key);
     }
 
-/*    GPGProc process(this, gpgBin);
-    process <<
-            QLatin1String("--with-colons") <<
-            QLatin1String("--with-fingerprint") <<
-            QLatin1String("--fixed-list-mode") <<
-            QLatin1String("--list-keys");
-
-    process.setOutputChannelMode(KProcess::MergedChannels);
-
-    process.start();
-    process.waitForFinished(-1);*/
-
-
-    //while (item == process->)
-//	return readPublicKeysProcess(process, NULL);
-
-    //TODO dont run the loop more often than necessary
-    // list all keys ( the 0 is for all )
-
-/*    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
-        GpgKey gpgkey;
-
-        if (!key->subkeys)
-            continue;
-
-        gpgkey.id = key->subkeys->keyid;
-        gpgkey.fpr = key->subkeys->fpr;
-        gpgkey.expired = (key->expired != 0);
-        gpgkey.revoked = (key->revoked != 0);
-
-        if (key->uids) {
-            gpgkey.name = QString::fromUtf8(key->uids->name);
-            gpgkey.email = QString::fromUtf8(key->uids->email);
-        }
-        keys.append(gpgkey);
-        gpgme_key_unref(key);
-    }*/
-
-    // list only private keys ( the 1 does )
-/*    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
-        if (!key->subkeys)
-            continue;
+    foreach(KgpgCore::KgpgKey skey, KgpgInterface::readSecretKeys()) {
         // iterate keys, mark privates
         GpgKeyList::iterator it = keys.begin();
         while (it != keys.end()) {
-            if (key->subkeys->keyid == it->id.toStdString())
+            if (skey.id() == it->id) {
                 it->privkey = true;
+            }
             it++;
         }
-
-        gpgme_key_unref(key);
-    }*/
+    }
 
     return keys;
 }
