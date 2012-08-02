@@ -15,6 +15,7 @@
 
 #include <QString>
 #include <QStringList>
+#include <QApplication>
 
 #include "klinebufferedprocess.h"
 

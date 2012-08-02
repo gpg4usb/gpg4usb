@@ -160,9 +160,21 @@ GPGProc::resetProcess(const QString &binary)
 
     qDebug() << "bin:" << binary;
 
-    /*if (binary.isEmpty())
-		executable = KGpgSettings::gpgBinaryPath();
-    else*/
+    if (binary.isEmpty()) {
+        //executable = KGpgSettings::gpgBinaryPath();
+        QString appPath = qApp->applicationDirPath();
+        QString gpgBin;
+        #ifdef Q_WS_WIN
+            gpgBin = appPath + "/bin/gpg.exe";
+        #endif
+        #ifdef Q_WS_MAC
+            gpgBin = appPath + "/bin/gpg-mac.app";
+        #endif
+        #ifdef Q_WS_X11
+            gpgBin = appPath + "/bin/gpg";
+        #endif
+        executable =  gpgBin;
+    } else
 		executable = binary;
 
     if (bin->binary() != executable)

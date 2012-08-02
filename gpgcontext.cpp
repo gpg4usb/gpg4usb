@@ -21,7 +21,9 @@
 
 #include "gpgcontext.h"
 #include "kgpg/gpgproc.h"
+#include "kgpg/kgpginterface.h"
 #include "kgpg/klinebufferedprocess.h"
+#include "kgpg/kgpgkey.h"
 #ifdef _WIN32
 #include <windows.h>
 #include <unistd.h>    /* contains read/write */
@@ -210,9 +212,25 @@ gpgme_key_t GpgContext::getKeyDetails(QString uid)
 GpgKeyList GpgContext::listKeys()
 {
 
+    KgpgInterface::readPublicKeys();
+
 
     GpgKeyList keys;
-    GPGProc process(this, gpgBin);
+    KgpgCore::KgpgKeyList kl = KgpgInterface::readPublicKeys();
+
+    foreach(KgpgCore::KgpgKey kkey, kl) {
+        GpgKey key;
+        key.email = kkey.email();
+        //key.expired = kkey.expirationDate().toString();
+        key.expired = false;
+        key.fpr = kkey.fingerprint();
+        key.id = kkey.id();
+        key.name = kkey.name();
+        key.revoked = false;
+        keys.append(key);
+    }
+
+/*    GPGProc process(this, gpgBin);
     process <<
             QLatin1String("--with-colons") <<
             QLatin1String("--with-fingerprint") <<
@@ -222,7 +240,7 @@ GpgKeyList GpgContext::listKeys()
     process.setOutputChannelMode(KProcess::MergedChannels);
 
     process.start();
-    process.waitForFinished(-1);
+    process.waitForFinished(-1);*/
 
 
     //while (item == process->)

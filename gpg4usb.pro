@@ -45,6 +45,23 @@ HEADERS += attachments.h \
     kgpg/klinebufferedprocess.h \
     kgpg/kprocess.h \
     kgpg/kprocess_p.h \
+    kgpg/kgpginterface.h \
+    kgpg/kgpgkey.h \
+    kgpg/KGpgSignableNode.h \
+    kgpg/KGpgExpandableNode.h \
+    kgpg/KGpgSignNode.h \
+    kgpg/KGpgUidNode.h \
+    kgpg/KGpgUatNode.h \
+    kgpg/KGpgKeyNode.h \
+    kgpg/KGpgSubKeyNode.h \
+    kgpg/KGpgNode.h \
+    kgpg/KGpgRefNode.h \
+    kgpg/KGpgRootNode.h \
+    kgpg/KGpgGroupNode.h \
+    kgpg/KGpgGroupMemberNode.h \
+    kgpg/KGpgOrphanNode.h \
+    kgpg/convert.h \
+    kgpg/images.h \
     gpgconstants.h
 
 SOURCES += attachments.cpp \
@@ -73,6 +90,23 @@ SOURCES += attachments.cpp \
     kgpg/gpgproc.cpp \
     kgpg/klinebufferedprocess.cpp \
     kgpg/kprocess.cpp \
+    kgpg/kgpginterface.cpp \
+    kgpg/kgpgkey.cpp \
+    kgpg/KGpgSignableNode.cpp \
+    kgpg/KGpgExpandableNode.cpp \
+    kgpg/KGpgSignNode.cpp \
+    kgpg/KGpgUidNode.cpp \
+    kgpg/KGpgUatNode.cpp \
+    kgpg/KGpgKeyNode.cpp \
+    kgpg/KGpgSubKeyNode.cpp \
+    kgpg/KGpgNode.cpp \
+    kgpg/KGpgRefNode.cpp \
+    kgpg/KGpgRootNode.cpp \
+    kgpg/KGpgGroupNode.cpp \
+    kgpg/KGpgGroupMemberNode.cpp \
+    kgpg/KGpgOrphanNode.cpp \
+    kgpg/convert.cpp \
+    kgpg/images.cpp \
     gpgconstants.cpp
 
 RC_FILE = gpg4usb.rc
