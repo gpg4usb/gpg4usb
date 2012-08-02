@@ -27,7 +27,6 @@ KeyGenDialog::KeyGenDialog(GpgME::GpgContext *ctx, QWidget *parent)
 {
     mCtx = ctx;
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-
     this->setWindowTitle(tr("Generate Key"));
     this->setModal(true);
     generateKeyDialog();
@@ -43,6 +42,7 @@ void KeyGenDialog::generateKeyDialog()
     keySizeSpinBox = new QSpinBox(this);
     keySizeSpinBox->setRange(768, 16384);
     keySizeSpinBox->setValue(2048);
+    this->lastKeySize=2048;
 
     keySizeSpinBox->setSingleStep(256);
 
@@ -110,6 +110,7 @@ void KeyGenDialog::generateKeyDialog()
     connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
     connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
     connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(keyTypeChanged()));
+    connect(keySizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(keySizeChanged()));
     this->setLayout(vbox2);
 }
 
@@ -219,18 +220,24 @@ void KeyGenDialog::passwordEditChanged()
     pwStrengthSlider->setValue(checkPassWordStrength());
     update();
 }
+void KeyGenDialog::keySizeChanged()
+{
+    if (keySizeSpinBox->value() > 2048 && lastKeySize <=2048) {
+        QMessageBox::warning(this, tr("Key size warning"),
+                             tr("You've set the keysize to more than 2048 bits. This setting is for advanced users only. The key generation could take a very, very long time."));
+    }
+    lastKeySize=keySizeSpinBox->value();
+}
 
 void KeyGenDialog::keyTypeChanged()
 {
-    qDebug() << "changed";
     if (keyTypeComboBox->currentText() == "RSA") {
-        qDebug() << "RSA";
         keySizeSpinBox->setMaximum(16384);
+        keySizeSpinBox->setMinimum(1024);
     } else {
-        qDebug() << "DSA";
-        keySizeSpinBox->setMaximum(65536);
+        keySizeSpinBox->setMaximum(16384);
+        keySizeSpinBox->setMinimum(768);
     }
-
 }
 
 int KeyGenDialog::checkPassWordStrength()
