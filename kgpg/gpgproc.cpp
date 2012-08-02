@@ -168,7 +168,7 @@ GPGProc::resetProcess(const QString &binary)
             gpgBin = appPath + "/bin/gpg.exe";
         #endif
         #ifdef Q_WS_MAC
-            gpgBin = appPath + "/bin/gpg-mac.app";
+            gpgBin = appPath + "/gpg-mac";
         #endif
         #ifdef Q_WS_X11
             gpgBin = appPath + "/bin/gpg";
@@ -179,7 +179,7 @@ GPGProc::resetProcess(const QString &binary)
 
     if (bin->binary() != executable)
         bin->setBinary(executable);
-
+    qDebug() << "ex: " << executable;
     setProgram(executable, bin->standardArguments());
 
 	setOutputChannelMode(OnlyStdoutChannel);
@@ -294,14 +294,19 @@ QString GPGProc::gpgVersionString(const QString &binary)
 	process.start();
 	process.waitForFinished(-1);
 
-	if (process.exitCode() == 255)
+        if (process.exitCode() == 255) {
+                qDebug() << "exit255";
 		return QString();
+        }
 
 	QString line;
-	if (process.readln(line) != -1)
-		return line.simplified().section(QLatin1Char( ' ' ), -1);
-	else
+        if (process.readln(line) != -1) {
+            qDebug() << line;
+            return line.simplified().section(QLatin1Char( ' ' ), -1);
+        } else {
+            qDebug() << "no readln";
 		return QString();
+        }
 }
 
 QString GPGProc::getGpgStartupError(const QString &binary)
