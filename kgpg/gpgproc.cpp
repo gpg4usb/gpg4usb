@@ -113,7 +113,8 @@ void GnupgBinary::setBinary(const QString &executable)
 	m_standardArguments.clear();
 	m_standardArguments << QLatin1String( "--no-secmem-warning" )
 			<< QLatin1String( "--no-tty" )
-			<< QLatin1String("--no-greeting");
+            << QLatin1String("--no-greeting")
+            << QLatin1String("--homedir") << GPGProc::getGpgHome("");
 
 	if (!gpgConfigFile.isEmpty())
 		m_standardArguments << QLatin1String("--options")
@@ -332,7 +333,7 @@ QString GPGProc::getGpgHome(const QString &binary)
 {
 	// First try: if environment is set GnuPG will use that directory
 	// We can use this directly without starting a new process
-	QByteArray env(qgetenv("GNUPGHOME"));
+/*	QByteArray env(qgetenv("GNUPGHOME"));
 	QString gpgHome;
 	if (!env.isEmpty()) {
 		gpgHome = QLatin1String( env );
@@ -359,7 +360,10 @@ QString GPGProc::getGpgHome(const QString &binary)
 	if (gpgHome.startsWith(QLatin1Char( '~' )))
 		gpgHome.replace(0, 1, QDir::homePath());
 
-    //KStandardDirs::makeDir(gpgHome, 0700);
+    //KStandardDirs::makeDir(gpgHome, 0700);*/
+    QString appPath = qApp->applicationDirPath();
+    QString gpgHome = appPath + "/keydb";
+
 	return gpgHome;
 }
 

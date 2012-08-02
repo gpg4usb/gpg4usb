@@ -307,6 +307,7 @@ KgpgKeyList KgpgInterface::readPublicKeys(const QStringList &ids)
 			QLatin1String("--with-colons") <<
 			QLatin1String("--with-fingerprint") <<
 			QLatin1String("--fixed-list-mode") <<
+            QLatin1String("--homedir") << GPGProc::getGpgHome("") <<
 			QLatin1String("--list-keys") <<
 			ids;
 
