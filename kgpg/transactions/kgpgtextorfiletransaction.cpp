@@ -54,22 +54,23 @@ KGpgTextOrFileTransaction::preStart()
 {
 	QStringList locfiles;
 
-    foreach (const QUrl &url, m_inpfiles) {
+ /*   foreach (const QUrl &url, m_inpfiles) {
+                // qt 4.8 ! todo mac
 		if (url.isLocalFile()) {
 			locfiles.append(url.toLocalFile());
 		} else {
 			QString tmpfile;
         //TODO: QIODevice ...?
-/*			if (KIO::NetAccess::download(url, tmpfile, 0)) {
+                        if (KIO::NetAccess::download(url, tmpfile, 0)) {
 				m_tempfiles.append(tmpfile);
 			} else {
 				m_messages.append(KIO::NetAccess::lastErrorString());
 				cleanUrls();
 				setSuccess(TS_KIO_FAILED);
 				return false;
-            }*/
+            }
 		}
-	}
+        }*/
 
 	if (locfiles.isEmpty() && m_tempfiles.isEmpty() && m_text.isEmpty() && !hasInputTransaction()) {
 		setSuccess(TS_MSG_SEQUENCE);
