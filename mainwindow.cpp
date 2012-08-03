@@ -774,7 +774,12 @@ void MainWindow::encrypt()
 
     QStringList *uidList = mKeyList->getChecked();
 
-    QByteArray *tmp = new QByteArray();
+    if (uidList->count() == 0) {
+        QMessageBox::critical(0, tr("No Key Selected"), tr("No Key Selected"));
+        return;
+    }
+
+    //QByteArray *tmp = new QByteArray();
     /*if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
         edit->fillTextEditWithText(*tmp2);
@@ -782,6 +787,9 @@ void MainWindow::encrypt()
 
     QStringList options;
     KGpgEncrypt::EncryptOptions opts = KGpgEncrypt::DefaultEncryption;
+
+    opts |= KGpgEncrypt::AllowUntrustedEncryption;
+    opts |= KGpgEncrypt::AsciiArmored;
 
     KGpgEncrypt *encr = new KGpgEncrypt(this, *uidList, edit->curTextPage()->toPlainText(), opts, options);
     encr->start();
