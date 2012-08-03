@@ -32,6 +32,7 @@
 #include "wizard.h"
 #include "kgpg/core/kgpgkey.h"
 #include "kgpg/transactions/kgpgencrypt.h"
+#include "kgpg/transactions/kgpgdecrypt.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
@@ -94,6 +95,7 @@ private slots:
      * @details Show a passphrase dialog and decrypt the text of currently active tab.
      */
     void decrypt();
+    void slotDecryptDone(int result);
 
     /**
      * @details Sign the text of currently active tab with the checked private keys

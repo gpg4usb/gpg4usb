@@ -779,12 +779,6 @@ void MainWindow::encrypt()
         return;
     }
 
-    //QByteArray *tmp = new QByteArray();
-    /*if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
-        QString *tmp2 = new QString(*tmp);
-        edit->fillTextEditWithText(*tmp2);
-    }*/
-
     QStringList options;
     KGpgEncrypt::EncryptOptions opts = KGpgEncrypt::DefaultEncryption;
 
@@ -835,21 +829,36 @@ void MainWindow::decrypt()
         return;
     }
 
-    QByteArray *decrypted = new QByteArray();
-    QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
-    mCtx->preventNoDataErr(&text);
+    //QByteArray *decrypted = new QByteArray();
+    //QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
+
+
+    const QString fullcontent = edit->curTextPage()->toPlainText();
+    // TODO: do we still need this with kgpg?
+    //mCtx->preventNoDataErr(fullcontent.toAscii());
+
+    // TODO: whats the use of this?
+    int m_posstart = -1;
+    int m_posend = -1;
+
+    if (!KGpgDecrypt::isEncryptedText(fullcontent, &m_posstart, &m_posend))
+        return;
+
+    KGpgDecrypt *decr = new KGpgDecrypt(this, fullcontent.mid(m_posstart, m_posend - m_posstart));
+    connect(decr, SIGNAL(done(int)), SLOT(slotDecryptDone(int)));
+    decr->start();
 
     // try decrypt, if fail do nothing, especially don't replace text
-    if(!mCtx->decrypt(text, decrypted)) {
+ /*   if(!mCtx->decrypt(text, decrypted)) {
         return;
-    }
+    }*/
 
     /*
          *   1) is it mime (content-type:)
          *   2) parse header
          *   2) choose action depending on content-type
          */
-    if(Mime::isMime(decrypted)) {
+/*    if(Mime::isMime(decrypted)) {
         Header header = Mime::getHeader(decrypted);
         // is it multipart, is multipart-parsing enabled
         if(header.getValue("Content-Type") == "multipart/mixed"
@@ -865,8 +874,31 @@ void MainWindow::decrypt()
             }
         }
     }
-    edit->fillTextEditWithText(QString::fromUtf8(*decrypted));
+    edit->fillTextEditWithText(QString::fromUtf8(*decrypted));*/
 }
+
+void MainWindow::slotDecryptDone(int result)
+{
+    KGpgDecrypt *decr = qobject_cast<KGpgDecrypt *>(sender());
+    Q_ASSERT(decr != NULL);
+
+    /*if (!m_tempfile.isEmpty()) {
+        KIO::NetAccess::removeTempFile(m_tempfile);
+        m_tempfile.clear();
+    }*/
+
+    if (result == KGpgTransaction::TS_OK) {
+        // FIXME choose codec
+        //setPlainText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
+        edit->fillTextEditWithText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
+    } else if (result != KGpgTransaction::TS_USER_ABORTED) {
+        //KMessageBox::detailedSorry(this, i18n("Decryption failed."), decr->getMessages().join( QLatin1String( "\n" )));
+        qDebug() << "Decryption failed."  << decr->getMessages().join( QLatin1String( "\n" ));
+    }
+
+    decr->deleteLater();
+}
+
 
 void MainWindow::verify()
 {

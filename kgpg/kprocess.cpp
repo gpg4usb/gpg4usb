@@ -341,7 +341,7 @@ QStringList KProcess::program() const
 void KProcess::start()
 {
     Q_D(KProcess);
-    qDebug() << "prog: " << d->prog << " | args: " << d->args;
+    //qDebug() << "prog: " << d->prog << " | args: " << d->args;
     QProcess::start(d->prog, d->args, d->openMode);
 }
 
