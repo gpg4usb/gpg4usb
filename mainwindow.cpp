@@ -929,9 +929,24 @@ void MainWindow::appendSelectedKeys()
         return;
     }
 
-    QByteArray *keyArray = new QByteArray();
-    mCtx->exportKeys(mKeyList->getSelected(), keyArray);
-    edit->curTextPage()->append(*keyArray);
+    QStringList expopts;
+    KGpgExport *exp = new KGpgExport(this, *mKeyList->getSelected(), expopts);
+    connect(exp, SIGNAL(done(int)), SLOT(slotAppendSelectedKeysReady(int)));
+    exp->start();
+}
+
+void MainWindow::slotAppendSelectedKeysReady(int result) {
+    KGpgExport *exp = qobject_cast<KGpgExport *>(sender());
+    Q_ASSERT(exp != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+        edit->curTextPage()->append(QLatin1String( exp->getOutputData() ));
+    } else {
+        //KMessageBox::sorry(this, i18n("Your public key could not be exported\nCheck the key."));
+        qDebug() << "Your public key could not be exported\nCheck the key.";
+    }
+
+    exp->deleteLater();
 }
 
 void MainWindow::copyMailAddressToClipboard()

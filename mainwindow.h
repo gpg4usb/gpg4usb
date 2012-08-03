@@ -33,6 +33,7 @@
 #include "kgpg/core/kgpgkey.h"
 #include "kgpg/transactions/kgpgencrypt.h"
 #include "kgpg/transactions/kgpgdecrypt.h"
+#include "kgpg/transactions/kgpgexport.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
@@ -123,6 +124,7 @@ private slots:
      * @details Append the selected keys to currently active textedit.
      */
     void appendSelectedKeys();
+    void slotAppendSelectedKeysReady(int result);
 
     /**
      * @details Copy the mailaddress of selected key to clipboard.

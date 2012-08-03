@@ -66,7 +66,8 @@ HEADERS += attachments.h \
     kgpg/transactions/kgpgtransaction.h \
     kgpg/transactions/kgpgtextorfiletransaction.h \
     kgpg/transactions/kgpgencrypt.h \
-    kgpg/transactions/kgpgdecrypt.h
+    kgpg/transactions/kgpgdecrypt.h \
+    kgpg/transactions/kgpgexport.h
 
 
 SOURCES += attachments.cpp \
@@ -116,7 +117,8 @@ SOURCES += attachments.cpp \
     kgpg/transactions/kgpgtransaction.cpp \
     kgpg/transactions/kgpgtextorfiletransaction.cpp \
     kgpg/transactions/kgpgencrypt.cpp \
-    kgpg/transactions/kgpgdecrypt.cpp
+    kgpg/transactions/kgpgdecrypt.cpp \
+    kgpg/transactions/kgpgexport.cpp
 
 RC_FILE = gpg4usb.rc
 
