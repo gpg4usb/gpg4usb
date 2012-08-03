@@ -770,6 +770,10 @@ QString GpgContext::getGpgmeVersion() {
      return QString(gpgme_check_version(NULL));
 }
 
+void GpgContext::emitKeyDBChanged() {
+    emit keyDBChanged();
+}
+
 }
 
 

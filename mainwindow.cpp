@@ -756,7 +756,72 @@ void MainWindow::importKeyFromEdit()
         return;
     }
 
-    keyMgmt->importKeys(edit->curTextPage()->toPlainText().toAscii());
+    //keyMgmt->importKeys(edit->curTextPage()->toPlainText().toAscii());
+    QString text = edit->curTextPage()->toPlainText();
+
+    if (text.isEmpty())
+            return;
+
+    KGpgImport *imp;
+
+    if (!KGpgImport::isKey(text) && KGpgDecrypt::isEncryptedText(text)) {
+        /*if (KMessageBox::questionYesNo(this,
+                i18n("<qt>The text in the clipboard does not look like a key, but like encrypted text.<br />Do you want to decrypt it first and then try importing it?</qt>"),
+                           i18n("Import from Clipboard")) != KMessageBox::Yes)
+            return;*/
+
+        imp = new KGpgImport(this);
+        KGpgDecrypt *decr = new KGpgDecrypt(this, text);
+        imp->setInputTransaction(decr);
+    } else {
+        imp = new KGpgImport(this, text);
+    }
+
+    startImport(imp);
+}
+
+void MainWindow::startImport(KGpgImport *import)
+{
+    qDebug() << "start import";
+    //changeMessage(i18n("Importing..."), true);
+    connect(import, SIGNAL(done(int)), SLOT(slotImportDone(int)));
+    import->start();
+}
+
+void MainWindow::slotImportDone(int result)
+{
+    KGpgImport *import = qobject_cast<KGpgImport *>(sender());
+
+    qDebug() << "import Done";
+
+    Q_ASSERT(import != NULL);
+    const QStringList rawmsgs(import->getMessages());
+
+    if (result != 0) {
+        /*KMessageBox::detailedSorry(this, i18n("Key importing failed. Please see the detailed log for more information."),
+                rawmsgs.join( QLatin1String( "\n")) , i18n("Key Import" ));*/
+        qDebug() << "Key importing failed. Please see the detailed log for more information." << rawmsgs.join( QLatin1String( "\n"));
+    }
+
+    QStringList keys(import->getImportedIds(0x1f));
+    const bool needsRefresh = !keys.isEmpty();
+    keys << import->getImportedIds(0);
+/*
+    if (!keys.isEmpty()) {
+        const QString msg(import->getImportMessage());
+        const QStringList keynames(import->getImportedKeys());
+
+        new KgpgDetailedInfo(this, msg, rawmsgs.join( QLatin1String( "\n") ), keynames, i18n("Key Import" ));
+        if (needsRefresh)
+            imodel->refreshKeys(keys);
+        else
+            changeMessage(i18nc("Application ready for user input", "Ready"));
+    } else{
+        changeMessage(i18nc("Application ready for user input", "Ready"));
+    }
+*/
+    mCtx->emitKeyDBChanged();
+    import->deleteLater();
 }
 
 void MainWindow::openKeyManagement()

@@ -135,6 +135,8 @@ public:
     GpgKey getKeyByFpr(QString fpr);
     GpgKey getKeyById(QString id);
 
+    void emitKeyDBChanged();
+
     static QString gpgErrString(gpgme_error_t err);
     static QString getGpgmeVersion();
 

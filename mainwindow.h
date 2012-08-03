@@ -34,6 +34,7 @@
 #include "kgpg/transactions/kgpgencrypt.h"
 #include "kgpg/transactions/kgpgdecrypt.h"
 #include "kgpg/transactions/kgpgexport.h"
+#include "kgpg/transactions/kgpgimport.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
@@ -119,6 +120,8 @@ private slots:
      * @details Import keys from currently active tab to keylist if possible.
      */
     void importKeyFromEdit();
+    void startImport(KGpgImport *import);
+    void slotImportDone(int result);
 
     /**
      * @details Append the selected keys to currently active textedit.
