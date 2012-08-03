@@ -266,6 +266,13 @@ private:
      */
     void parseMime(QByteArray *message);
 
+    /**
+     * @brief show a message in the status bar
+     * @param msg the text to show
+     * @param keep if the text should stay visible or may be hidden after a while
+     */
+    void changeMessage(const QString &msg, const bool keep = false);
+
     TextEdit *edit; /** Tabwidget holding the edit-windows */
     QMenu *fileMenu; /** Submenu for file-operations*/
     QMenu *editMenu; /** Submenu for text-operations*/

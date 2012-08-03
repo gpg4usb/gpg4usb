@@ -783,7 +783,7 @@ void MainWindow::importKeyFromEdit()
 void MainWindow::startImport(KGpgImport *import)
 {
     qDebug() << "start import";
-    //changeMessage(i18n("Importing..."), true);
+    changeMessage(tr("Importing..."), true);
     connect(import, SIGNAL(done(int)), SLOT(slotImportDone(int)));
     import->start();
 }
@@ -791,8 +791,6 @@ void MainWindow::startImport(KGpgImport *import)
 void MainWindow::slotImportDone(int result)
 {
     KGpgImport *import = qobject_cast<KGpgImport *>(sender());
-
-    qDebug() << "import Done";
 
     Q_ASSERT(import != NULL);
     const QStringList rawmsgs(import->getMessages());
@@ -820,8 +818,16 @@ void MainWindow::slotImportDone(int result)
         changeMessage(i18nc("Application ready for user input", "Ready"));
     }
 */
+    changeMessage(tr("Application ready for user input", "Ready"));
     mCtx->emitKeyDBChanged();
     import->deleteLater();
+}
+
+void MainWindow::changeMessage(const QString &msg, const bool keep)
+{
+    int timeout = keep ? 0 : 10000;
+
+    statusBar()->showMessage(msg, timeout);
 }
 
 void MainWindow::openKeyManagement()

@@ -224,8 +224,26 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
                                     QMessageBox::No | QMessageBox::Yes);
 
     if (ret == QMessageBox::Yes) {
-        mCtx->deleteKeys(uidList);
+        //mCtx->deleteKeys(uidList);
+        KGpgDelKey *delkey = new KGpgDelKey(this, *uidList);
+        connect(delkey, SIGNAL(done(int)), SLOT(slotKeyDeleted(int)));
+        delkey->start();
     }
+}
+
+void KeyMgmt::slotKeyDeleted(int retcode)
+{
+    KGpgDelKey *delkey = qobject_cast<KGpgDelKey *>(sender());
+
+    /*KGpgKeyNode *delkey = m_delkey->keys().first();
+    if (retcode == 0) {
+        KMessageBox::information(this, i18n("Key <b>%1</b> deleted.", delkey->getBeautifiedFingerprint()), i18n("Delete key"));
+        imodel->delNode(delkey);
+    } else {
+        KMessageBox::error(this, i18n("Deleting key <b>%1</b> failed.", delkey->getBeautifiedFingerprint()), i18n("Delete key"));
+    }*/
+    mCtx->emitKeyDBChanged();
+    delkey->deleteLater();
 }
 
 void KeyMgmt::showKeyDetails()

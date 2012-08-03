@@ -28,6 +28,7 @@
 #include "keyimportdetaildialog.h"
 #include "keyserverimportdialog.h"
 #include "keygendialog.h"
+#include "kgpg/transactions/kgpgdelkey.h"
 #include <QtGui>
 
 QT_BEGIN_NAMESPACE
@@ -60,6 +61,7 @@ public slots:
     void deleteCheckedKeys();
     void generateKeyDialog();
     void showKeyDetails();
+    void slotKeyDeleted(int retcode);
 
 signals:
     void statusBarChanged(QString);
