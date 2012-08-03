@@ -31,6 +31,7 @@
 #include "verifynotification.h"
 #include "wizard.h"
 #include "kgpg/core/kgpgkey.h"
+#include "kgpg/transactions/kgpgencrypt.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
@@ -87,6 +88,7 @@ private slots:
      * with the currently checked keys
      */
     void encrypt();
+    void slotEncryptDone(int result);
 
     /**
      * @details Show a passphrase dialog and decrypt the text of currently active tab.

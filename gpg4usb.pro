@@ -46,6 +46,7 @@ HEADERS += attachments.h \
     kgpg/kprocess.h \
     kgpg/kprocess_p.h \
     kgpg/kgpginterface.h \
+    gpgconstants.h \
     kgpg/core/kgpgkey.h \
     kgpg/core/KGpgSignableNode.h \
     kgpg/core/KGpgExpandableNode.h \
@@ -62,7 +63,10 @@ HEADERS += attachments.h \
     kgpg/core/KGpgOrphanNode.h \
     kgpg/core/convert.h \
     kgpg/core/images.h \
-    gpgconstants.h
+    kgpg/transactions/kgpgtransaction.h \
+    kgpg/transactions/kgpgtextorfiletransaction.h \
+    kgpg/transactions/kgpgencrypt.h
+
 
 SOURCES += attachments.cpp \
     gpgcontext.cpp \
@@ -87,6 +91,7 @@ SOURCES += attachments.cpp \
     verifykeydetailbox.cpp \
     wizard.cpp \
     helppage.cpp \
+    gpgconstants.cpp \
     kgpg/gpgproc.cpp \
     kgpg/klinebufferedprocess.cpp \
     kgpg/kprocess.cpp \
@@ -107,7 +112,9 @@ SOURCES += attachments.cpp \
     kgpg/core/KGpgOrphanNode.cpp \
     kgpg/core/convert.cpp \
     kgpg/core/images.cpp \
-    gpgconstants.cpp
+    kgpg/transactions/kgpgtransaction.cpp \
+    kgpg/transactions/kgpgtextorfiletransaction.cpp \
+    kgpg/transactions/kgpgencrypt.cpp
 
 RC_FILE = gpg4usb.rc
 

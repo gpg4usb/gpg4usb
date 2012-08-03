@@ -24,6 +24,7 @@
 #include "kgpg/kgpginterface.h"
 #include "kgpg/klinebufferedprocess.h"
 #include "kgpg/core/kgpgkey.h"
+#include "kgpg/transactions/kgpgencrypt.h"
 #ifdef _WIN32
 #include <windows.h>
 #include <unistd.h>    /* contains read/write */
@@ -274,7 +275,7 @@ void GpgContext::deleteKeys(QStringList *uidList)
 bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer)
 {
 
-    gpgme_data_t in = 0, out = 0;
+    /*gpgme_data_t in = 0, out = 0;
     outBuffer->resize(0);
 
     if (uidList->count() == 0) {
@@ -285,7 +286,7 @@ bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByte
     //gpgme_encrypt_result_t e_result;
     gpgme_key_t recipients[uidList->count()+1];
 
-    /* get key for user */
+    // get key for user
     for (int i = 0; i < uidList->count(); i++) {
         // the last 0 is for public keys, 1 would return private keys
         gpgme_op_keylist_start(mCtx, uidList->at(i).toAscii().constData(), 0);
@@ -312,7 +313,7 @@ bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByte
 			}
 		}
 	}
-    /* unref all keys */
+    // unref all keys
     for (int i = 0; i <= uidList->count(); i++) {
         gpgme_key_unref(recipients[i]);
     }
@@ -322,8 +323,16 @@ bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByte
     if (out) {
         gpgme_data_release(out);
     }
-    return (err == GPG_ERR_NO_ERROR);
+    return (err == GPG_ERR_NO_ERROR);*/
+    QStringList options;
+    KGpgEncrypt::EncryptOptions opts = KGpgEncrypt::DefaultEncryption;
+
+    //KGpgEncrypt *encr = new KGpgEncrypt(this, uidList, toPlainText(), opts, options);
+    //encr->start();
+    //connect(encr, SIGNAL(done(int)), SLOT(slotEncodeUpdate(int)));
 }
+
+
 
 /** Decrypt QByteAarray, return QByteArray
  *  mainly from http://basket.kde.org/ (kgpgme.cpp)

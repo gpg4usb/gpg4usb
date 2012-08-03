@@ -775,10 +775,35 @@ void MainWindow::encrypt()
     QStringList *uidList = mKeyList->getChecked();
 
     QByteArray *tmp = new QByteArray();
-    if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
+    /*if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
         QString *tmp2 = new QString(*tmp);
         edit->fillTextEditWithText(*tmp2);
+    }*/
+
+    QStringList options;
+    KGpgEncrypt::EncryptOptions opts = KGpgEncrypt::DefaultEncryption;
+
+    KGpgEncrypt *encr = new KGpgEncrypt(this, *uidList, edit->curTextPage()->toPlainText(), opts, options);
+    encr->start();
+    connect(encr, SIGNAL(done(int)), SLOT(slotEncryptDone(int)));
+}
+
+void MainWindow::slotEncryptDone(int result)
+{
+    KGpgEncrypt *enc = qobject_cast<KGpgEncrypt *>(sender());
+    Q_ASSERT(enc != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+        const QString lf = QLatin1String("\n");
+        //setPlainText(enc->encryptedText().join(lf) + lf);
+        edit->fillTextEditWithText(enc->encryptedText().join(lf) + lf);
+    } else {
+        /*KMessageBox::sorry(this, i18n("The encryption failed with error code %1", result),
+                i18n("Encryption failed."));*/
+        qDebug() << "The encryption failed with error code " << result;
     }
+
+    sender()->deleteLater();
 }
 
 void MainWindow::sign()

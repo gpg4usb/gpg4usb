@@ -35,6 +35,7 @@
 #include <QString>
 #include <QTextStream>
 #include <QDebug>
+#include <QInputDialog>
 
 using namespace KgpgCore;
 
@@ -143,28 +144,37 @@ void KgpgInterface::setGpgBoolSetting(const QString &name, const bool enable, co
 	}
 }
 
-/*int KgpgInterface::sendPassphrase(const QString &text, KProcess *process, QWidget *widget)
+int KgpgInterface::sendPassphrase(const QString &text, KProcess *process, QWidget *widget)
 {
 	QPointer<KProcess> gpgprocess = process;
 	QByteArray passphrase;
-	int code;
+    //int code;
+    bool result;
 
-	QPointer<KPasswordDialog> dlg = new KPasswordDialog(widget);
+    /*QPointer<KPasswordDialog> dlg = new KPasswordDialog(widget);
 	QObject::connect(process, SIGNAL(processExited()), dlg->button(KDialog::Cancel), SLOT(click()));
 	dlg->setPrompt(text);
-	code = dlg->exec();
+    code = dlg->exec();
+
 	if (!dlg.isNull())
 		passphrase = dlg->password().toUtf8();
 	delete dlg;
 
 	if (code != KPasswordDialog::Accepted)
 		return 1;
+*/
+
+    QString password = QInputDialog::getText(QApplication::activeWindow(), QObject::tr("Enter Password"),
+                       text, QLineEdit::Password,
+                       "", &result);
+
+    passphrase = password.toAscii();
 
 	if (!gpgprocess.isNull())
 		gpgprocess->write(passphrase + '\n');
 
 	return 0;
-}*/
+}
 
 /**
  * @param p the process that reads the GnuPG data
