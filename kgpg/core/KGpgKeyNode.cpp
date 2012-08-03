@@ -24,7 +24,7 @@
 #include "KGpgUatNode.h"
 #include "KGpgUidNode.h"
 #include "convert.h"
-#include "kgpginterface.h"
+#include "../kgpginterface.h"
 //#include "kgpgsettings.h"
 //#include "model/kgpgitemmodel.h"
 

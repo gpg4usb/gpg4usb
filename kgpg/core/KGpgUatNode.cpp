@@ -18,7 +18,7 @@
  */
 #include "KGpgUatNode.h"
 
-#include "gpgproc.h"
+#include "../gpgproc.h"
 #include "KGpgKeyNode.h"
 
 //#include <KLocale>

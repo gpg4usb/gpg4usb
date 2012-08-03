@@ -19,7 +19,7 @@
 #include "KGpgRootNode.h"
 
 #include "KGpgGroupNode.h"
-#include "kgpginterface.h"
+#include "../kgpginterface.h"
 #include "KGpgOrphanNode.h"
 //#include "kgpgsettings.h"
 

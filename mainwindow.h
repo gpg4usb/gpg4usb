@@ -30,7 +30,7 @@
 #include "settingsdialog.h"
 #include "verifynotification.h"
 #include "wizard.h"
-#include "kgpg/kgpgkey.h"
+#include "kgpg/core/kgpgkey.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;

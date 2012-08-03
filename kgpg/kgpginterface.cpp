@@ -15,12 +15,12 @@
 #include "kgpginterface.h"
 
 #include "gpgproc.h"
-#include "convert.h"
-#include "KGpgKeyNode.h"
-#include "KGpgSignNode.h"
-#include "KGpgSubkeyNode.h"
-#include "KGpgUatNode.h"
-#include "KGpgUidNode.h"
+#include "core/convert.h"
+#include "core/KGpgKeyNode.h"
+#include "core/KGpgSignNode.h"
+#include "core/KGpgSubkeyNode.h"
+#include "core/KGpgUatNode.h"
+#include "core/KGpgUidNode.h"
 
 /*#include <KConfig>
 #include <KDebug>

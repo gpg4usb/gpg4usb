@@ -15,7 +15,7 @@
 #ifndef KGPGINTERFACE_H
 #define KGPGINTERFACE_H
 
-#include "kgpgkey.h"
+#include "core/kgpgkey.h"
 #include <QStringList>
 
 class KGpgKeyNode;

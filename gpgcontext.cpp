@@ -23,7 +23,7 @@
 #include "kgpg/gpgproc.h"
 #include "kgpg/kgpginterface.h"
 #include "kgpg/klinebufferedprocess.h"
-#include "kgpg/kgpgkey.h"
+#include "kgpg/core/kgpgkey.h"
 #ifdef _WIN32
 #include <windows.h>
 #include <unistd.h>    /* contains read/write */
@@ -193,19 +193,6 @@ bool GpgContext::exportKeys(QStringList *uidList, QByteArray *outBuffer)
     }
     return true;
 }
-
-/*gpgme_key_t GpgContext::getKeyDetails(QString uid)
-{
-    gpgme_key_t key;
-
-    // try secret
-    gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 1);
-    // ok, its a public key
-    if (!key) {
-        gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 0);
-    }
-    return key;
-}*/
 
 KgpgCore::KgpgKey GpgContext::getKeyDetails(QString uid) {
 

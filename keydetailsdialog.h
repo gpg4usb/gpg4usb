@@ -23,7 +23,7 @@
 #define __KEYDETAILSDIALOG_H__
 
 #include "gpgcontext.h"
-#include "kgpg/kgpgkey.h"
+#include "kgpg/core/kgpgkey.h"
 #include <gpgme.h>
 
 QT_BEGIN_NAMESPACE

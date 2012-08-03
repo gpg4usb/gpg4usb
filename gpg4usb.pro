@@ -46,22 +46,22 @@ HEADERS += attachments.h \
     kgpg/kprocess.h \
     kgpg/kprocess_p.h \
     kgpg/kgpginterface.h \
-    kgpg/kgpgkey.h \
-    kgpg/KGpgSignableNode.h \
-    kgpg/KGpgExpandableNode.h \
-    kgpg/KGpgSignNode.h \
-    kgpg/KGpgUidNode.h \
-    kgpg/KGpgUatNode.h \
-    kgpg/KGpgKeyNode.h \
-    kgpg/KGpgSubKeyNode.h \
-    kgpg/KGpgNode.h \
-    kgpg/KGpgRefNode.h \
-    kgpg/KGpgRootNode.h \
-    kgpg/KGpgGroupNode.h \
-    kgpg/KGpgGroupMemberNode.h \
-    kgpg/KGpgOrphanNode.h \
-    kgpg/convert.h \
-    kgpg/images.h \
+    kgpg/core/kgpgkey.h \
+    kgpg/core/KGpgSignableNode.h \
+    kgpg/core/KGpgExpandableNode.h \
+    kgpg/core/KGpgSignNode.h \
+    kgpg/core/KGpgUidNode.h \
+    kgpg/core/KGpgUatNode.h \
+    kgpg/core/KGpgKeyNode.h \
+    kgpg/core/KGpgSubKeyNode.h \
+    kgpg/core/KGpgNode.h \
+    kgpg/core/KGpgRefNode.h \
+    kgpg/core/KGpgRootNode.h \
+    kgpg/core/KGpgGroupNode.h \
+    kgpg/core/KGpgGroupMemberNode.h \
+    kgpg/core/KGpgOrphanNode.h \
+    kgpg/core/convert.h \
+    kgpg/core/images.h \
     gpgconstants.h
 
 SOURCES += attachments.cpp \
@@ -91,22 +91,22 @@ SOURCES += attachments.cpp \
     kgpg/klinebufferedprocess.cpp \
     kgpg/kprocess.cpp \
     kgpg/kgpginterface.cpp \
-    kgpg/kgpgkey.cpp \
-    kgpg/KGpgSignableNode.cpp \
-    kgpg/KGpgExpandableNode.cpp \
-    kgpg/KGpgSignNode.cpp \
-    kgpg/KGpgUidNode.cpp \
-    kgpg/KGpgUatNode.cpp \
-    kgpg/KGpgKeyNode.cpp \
-    kgpg/KGpgSubKeyNode.cpp \
-    kgpg/KGpgNode.cpp \
-    kgpg/KGpgRefNode.cpp \
-    kgpg/KGpgRootNode.cpp \
-    kgpg/KGpgGroupNode.cpp \
-    kgpg/KGpgGroupMemberNode.cpp \
-    kgpg/KGpgOrphanNode.cpp \
-    kgpg/convert.cpp \
-    kgpg/images.cpp \
+    kgpg/core/kgpgkey.cpp \
+    kgpg/core/KGpgSignableNode.cpp \
+    kgpg/core/KGpgExpandableNode.cpp \
+    kgpg/core/KGpgSignNode.cpp \
+    kgpg/core/KGpgUidNode.cpp \
+    kgpg/core/KGpgUatNode.cpp \
+    kgpg/core/KGpgKeyNode.cpp \
+    kgpg/core/KGpgSubKeyNode.cpp \
+    kgpg/core/KGpgNode.cpp \
+    kgpg/core/KGpgRefNode.cpp \
+    kgpg/core/KGpgRootNode.cpp \
+    kgpg/core/KGpgGroupNode.cpp \
+    kgpg/core/KGpgGroupMemberNode.cpp \
+    kgpg/core/KGpgOrphanNode.cpp \
+    kgpg/core/convert.cpp \
+    kgpg/core/images.cpp \
     gpgconstants.cpp
 
 RC_FILE = gpg4usb.rc

@@ -28,7 +28,7 @@
 #include <gpgme.h>
 #include <QLinkedList>
 #include <QtGui>
-#include "kgpg/kgpgkey.h"
+#include "kgpg/core/kgpgkey.h"
 
 QT_BEGIN_NAMESPACE
 class QMessageBox;
