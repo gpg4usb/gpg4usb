@@ -24,6 +24,7 @@
 
 #include "keygenthread.h"
 #include "gpgcontext.h"
+#include "kgpg/transactions/kgpggeneratekey.h"
 #include <QtGui>
 
 QT_BEGIN_NAMESPACE

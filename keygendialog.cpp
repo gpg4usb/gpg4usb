@@ -124,7 +124,7 @@ void KeyGenDialog::keyGenAccept()
         /**
          * create the string for key generation
          */
-        keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
+        /*keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
                        "Key-Type: DSA\n"
                        "Key-Length: 1024\n"
                        "Subkey-Type: ELG-E\n"
@@ -148,7 +148,20 @@ void KeyGenDialog::keyGenAccept()
         keyGenParams += "</GnupgKeyParms>";
 
         KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
-        kg->start();
+        kg->start();*/
+
+
+        // TODO: expdate
+        KGpgGenerateKey *genkey = new KGpgGenerateKey(this,
+                                                      nameEdit->text(),
+                                                      emailEdit->text(),
+                                                      commentEdit->text(),
+                                                      KgpgCore::ALGO_RSA_RSA,
+                                                      keySizeSpinBox->cleanText().toInt(),
+                                                      0,
+                                                      'd');
+
+        genkey->start();
 
         this->accept();
 
@@ -167,7 +180,9 @@ void KeyGenDialog::keyGenAccept()
 
         dialog->show();
 
-        while (kg->isRunning()) {
+        //genkey->thread()->isRunning()
+
+        while (genkey->thread()->isRunning()) {
             QCoreApplication::processEvents();
         }
 
