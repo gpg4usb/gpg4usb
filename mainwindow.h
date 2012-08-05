@@ -30,11 +30,13 @@
 #include "settingsdialog.h"
 #include "verifynotification.h"
 #include "wizard.h"
+//#include "kgpg/kgpgtextinterface.h"
 #include "kgpg/core/kgpgkey.h"
 #include "kgpg/transactions/kgpgencrypt.h"
 #include "kgpg/transactions/kgpgdecrypt.h"
 #include "kgpg/transactions/kgpgexport.h"
 #include "kgpg/transactions/kgpgimport.h"
+#include "kgpg/transactions/kgpgsigntext.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
@@ -103,6 +105,7 @@ private slots:
      * @details Sign the text of currently active tab with the checked private keys
      */
     void sign();
+    void slotSignDone(int result);
 
     /**
      * @details Verify the text of currently active tab and show verify information.

@@ -77,6 +77,7 @@ void
 KGpgTransactionPrivate::slotReadReady()
 {
 	QString line;
+
 	QWeakPointer<GPGProc> process(m_process);
 	QWeakPointer<KGpgTransaction> par(m_parent);
 
@@ -84,8 +85,10 @@ KGpgTransactionPrivate::slotReadReady()
 		if (m_quitTries)
 			m_quitLines << line;
 #ifdef KGPG_DEBUG_TRANSACTIONS
-		kDebug(2100) << m_parent << line;
+        qDebug() << m_parent << line;
 #endif /* KGPG_DEBUG_TRANSACTIONS */
+        //qDebug() << "trans-read: " << m_parent << line;
+
 
 		if (line.startsWith(QLatin1String("[GNUPG:] USERID_HINT "))) {
 			m_parent->addIdHint(line);
@@ -114,7 +117,11 @@ KGpgTransactionPrivate::slotReadReady()
 				line.startsWith(QLatin1String("[GNUPG:] GOOD_PASSPHRASE"))) {
 			// signal GnuPG that there will be no further input and it can
 			// begin sending output.
-			m_process->closeWriteChannel();
+
+            // except when signing text...
+            if(QString::fromAscii(m_parent->metaObject()->className()) != "KGpgSignText"){
+                m_process->closeWriteChannel();
+            }
 		} else if (line.startsWith(QLatin1String("[GNUPG:] GET_BOOL "))) {
 			switch (m_parent->boolQuestion(line.mid(18))) {
 			case KGpgTransaction::BA_YES:
@@ -206,8 +213,9 @@ KGpgTransactionPrivate::write(const QByteArray &a)
 {
 	m_process->write(a);
 #ifdef KGPG_DEBUG_TRANSACTIONS
-	kDebug(2100) << m_parent << a;
+    qDebug() << m_parent << a;
 #endif /* KGPG_DEBUG_TRANSACTIONS */
+    qDebug() << "trans-write: " << m_parent << a;
 }
 
 void
@@ -259,6 +267,8 @@ KGpgTransaction::write(const int i)
 void
 KGpgTransaction::askNewPassphrase(const QString& text)
 {
+    qDebug() << "KGpgTransaction::askNewPassphrase called";
+
     emit statusMessage(tr("Requesting Passphrase"));
 
     /*d->m_passwordDialog = new KNewPasswordDialog(qobject_cast<QWidget *>(parent()));
@@ -268,6 +278,8 @@ KGpgTransaction::askNewPassphrase(const QString& text)
 	connect(d->m_passwordDialog, SIGNAL(rejected()), SLOT(slotPasswordAborted()));
 	connect(d->m_process, SIGNAL(processExited()), d->m_passwordDialog->button(KDialog::Cancel), SLOT(clicked()));
     d->m_passwordDialog->show();*/
+
+
 }
 
 int
@@ -324,6 +336,7 @@ KGpgTransaction::unexpectedLine(const QString &line)
 KGpgTransaction::ts_passphrase_actions
 KGpgTransaction::passphraseRequested()
 {
+    qDebug() << "KGpgTransaction::passphraseRequested called";
 	if (!askPassphrase())
 		return PA_USER_ABORTED;
 	else
@@ -432,6 +445,8 @@ KGpgTransaction::addArgumentRef(int *ref)
 bool
 KGpgTransaction::askPassphrase(const QString &message)
 {
+    qDebug() << "KGpgTransaction::askPassphrase called";
+
 	if (d->m_passphraseAction == PA_USER_ABORTED)
 		return false;
 

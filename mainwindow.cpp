@@ -887,11 +887,55 @@ void MainWindow::sign()
 
     QStringList *uidList = mKeyList->getPrivateChecked();
 
-    QByteArray *tmp = new QByteArray();
-
-    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
-        edit->fillTextEditWithText(QString::fromUtf8(*tmp));
+    if(uidList->isEmpty()) {
+        QMessageBox::critical(0, tr("Key Selection"), tr("No Private Key Selected"));
+        return;
     }
+
+    //QByteArray *tmp = new QByteArray();
+
+    /*if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
+        edit->fillTextEditWithText(QString::fromUtf8(*tmp));
+    }*/
+
+    // TODO: more than one signers
+    KGpgSignText *signt = new KGpgSignText(this, uidList->first(), edit->curTextPage()->toPlainText());
+    connect(signt, SIGNAL(done(int)), SLOT(slotSignDone(int)));
+    signt->start();
+    //KGpgTextInterface *interface = new KGpgTextInterface(message, signkeyid, options);
+    //connect(interface, SIGNAL(txtSigningFinished(QString)), SLOT(slotSignUpdate(QString)));
+    //interface->signText(message, signkeyid, options);
+}
+
+void MainWindow::slotSignDone(int result)
+{
+    const KGpgSignText * const signt = qobject_cast<KGpgSignText *>(sender());
+    sender()->deleteLater();
+    Q_ASSERT(signt != NULL);
+
+    if (result != KGpgTransaction::TS_OK) {
+        //KMessageBox::sorry(this, i18n("Signing not possible: bad passphrase or missing key"));
+        //return;
+        qDebug() << "Signing not possible: bad passphrase or missing key";
+        return;
+    } else {
+        edit->fillTextEditWithText(signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n"));
+    }
+
+    //signt->deleteLater();
+    //const QString content = signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n");
+    //setPlainText(content);
+    //emit resetEncoding(false);
+    /*sender()->deleteLater();
+
+    if (text.isEmpty())
+    {
+        qDebug() << "Signing not possible: bad passphrase or missing key";
+        return;
+    }
+
+    edit->fillTextEditWithText(signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n"));
+    */
 }
 
 void MainWindow::decrypt()

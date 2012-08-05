@@ -65,9 +65,7 @@ KGpgTextOrFileTransaction::preStart()
 
 		if (url.isLocalFile()) {
 			locfiles.append(url.toLocalFile());
-            qDebug() << "iffed";
         } else {
-            qDebug() << "not iffed";
         /*	QString tmpfile;
         //TODO: QIODevice ...?
                         if (KIO::NetAccess::download(url, tmpfile, 0)) {
@@ -81,10 +79,8 @@ KGpgTextOrFileTransaction::preStart()
         }
     }
 
-    qDebug() << "prestart locf list:";
-    foreach(QString l, locfiles) {
-        qDebug() << l;
-    }
+    qDebug() << "m_text: " << m_text;
+    qDebug() << "hasInputTransaction: " << hasInputTransaction();
 
 	if (locfiles.isEmpty() && m_tempfiles.isEmpty() && m_text.isEmpty() && !hasInputTransaction()) {
 		setSuccess(TS_MSG_SEQUENCE);
@@ -99,8 +95,10 @@ KGpgTextOrFileTransaction::preStart()
 	if (!locfiles.isEmpty() && !m_tempfiles.isEmpty()) {
 		args << QLatin1String("--command-fd=0");
 		m_closeInput = false;
+        qDebug() << "if";
 	} else {
 		m_closeInput = !args.contains(QLatin1String("--command-fd=0"));
+        qDebug() << "else";
 	}
 	if (locfiles.count() + m_tempfiles.count() > 1)
 		args << QLatin1String("--multifile");
@@ -113,17 +111,19 @@ KGpgTextOrFileTransaction::preStart()
 void
 KGpgTextOrFileTransaction::postStart()
 {
+    qDebug() << "post-start! " << m_text;
 	if (!m_text.isEmpty()){
 		GPGProc *proc = getProcess();
 		proc->write(m_text.toUtf8());
 		if (m_closeInput)
 			proc->closeWriteChannel();
-	}
+    }
 }
 
 bool
 KGpgTextOrFileTransaction::nextLine(const QString &line)
 {
+    qDebug() << "nextline called: " << line;
 	if (!line.startsWith(QLatin1String("[GNUPG:] SIGEXPIRED")) && !line.startsWith(QLatin1String("[GNUPG:] KEYEXPIRED ")))
 		m_messages.append(line);
 

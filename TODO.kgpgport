@@ -1,4 +1,5 @@
 TODO:
 - central import, move code duplication from keymgmt, mainwindow and keyserverimport to central place, e.g. keyimportdetaildialog
 -reactivate keyimportdetaildialog
-
+- sign should work for more than one secret keyid
+- why is listkeys called so often (twice?)

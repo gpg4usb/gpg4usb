@@ -146,10 +146,12 @@ void KgpgInterface::setGpgBoolSetting(const QString &name, const bool enable, co
 
 int KgpgInterface::sendPassphrase(const QString &text, KProcess *process, QWidget *widget)
 {
+    qDebug() << "KgpgInterface::sendPassphrase called";
+
 	QPointer<KProcess> gpgprocess = process;
 	QByteArray passphrase;
     //int code;
-    bool result;
+    bool ok;
 
     /*QPointer<KPasswordDialog> dlg = new KPasswordDialog(widget);
 	QObject::connect(process, SIGNAL(processExited()), dlg->button(KDialog::Cancel), SLOT(click()));
@@ -166,12 +168,15 @@ int KgpgInterface::sendPassphrase(const QString &text, KProcess *process, QWidge
 
     QString password = QInputDialog::getText(QApplication::activeWindow(), QObject::tr("Enter Password"),
                        text, QLineEdit::Password,
-                       "", &result);
+                       "", &ok);
+
+    if(!ok) return 1;
 
     passphrase = password.toAscii();
 
-	if (!gpgprocess.isNull())
+    if (!gpgprocess.isNull()) {
 		gpgprocess->write(passphrase + '\n');
+    }
 
 	return 0;
 }

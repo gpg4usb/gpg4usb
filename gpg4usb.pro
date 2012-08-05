@@ -41,12 +41,12 @@ HEADERS += attachments.h \
     verifykeydetailbox.h \
     wizard.h \
     helppage.h \
+    gpgconstants.h \
     kgpg/gpgproc.h \
     kgpg/klinebufferedprocess.h \
     kgpg/kprocess.h \
     kgpg/kprocess_p.h \
     kgpg/kgpginterface.h \
-    gpgconstants.h \
     kgpg/core/kgpgkey.h \
     kgpg/core/KGpgSignableNode.h \
     kgpg/core/KGpgExpandableNode.h \
@@ -70,7 +70,8 @@ HEADERS += attachments.h \
     kgpg/transactions/kgpgexport.h \
     kgpg/transactions/kgpgimport.h \
     kgpg/transactions/kgpgdelkey.h \
-    kgpg/transactions/kgpggeneratekey.h
+    kgpg/transactions/kgpggeneratekey.h \
+    kgpg/transactions/kgpgsigntext.h
 
 
 SOURCES += attachments.cpp \
@@ -124,7 +125,8 @@ SOURCES += attachments.cpp \
     kgpg/transactions/kgpgexport.cpp \
     kgpg/transactions/kgpgimport.cpp \
     kgpg/transactions/kgpgdelkey.cpp \
-    kgpg/transactions/kgpggeneratekey.cpp
+    kgpg/transactions/kgpggeneratekey.cpp \
+    kgpg/transactions/kgpgsigntext.cpp
 
 RC_FILE = gpg4usb.rc
 
