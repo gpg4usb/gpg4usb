@@ -159,7 +159,7 @@ GPGProc::resetProcess(const QString &binary)
     GnupgBinary *bin = lastBinary();
 	QString executable;
 
-    qDebug() << "bin:" << binary;
+    //qDebug() << "bin:" << binary;
 
     if (binary.isEmpty()) {
         //executable = KGpgSettings::gpgBinaryPath();
@@ -180,7 +180,7 @@ GPGProc::resetProcess(const QString &binary)
 
     if (bin->binary() != executable)
         bin->setBinary(executable);
-    qDebug() << "ex: " << executable;
+    //qDebug() << "ex: " << executable;
     setProgram(executable, bin->standardArguments());
 
 	setOutputChannelMode(OnlyStdoutChannel);

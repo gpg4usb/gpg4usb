@@ -58,7 +58,7 @@ public:
 
 private slots:
     void import();
-
+    void slotImportDone(int result);
     void searchFinished();
     void importFinished();
     void search();

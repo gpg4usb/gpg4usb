@@ -21,6 +21,7 @@
  */
 
 #include "keyserverimportdialog.h"
+#include "keymgmt.h"
 
 KeyServerImportDialog::KeyServerImportDialog(GpgME::GpgContext *ctx, KeyList *keyList, QWidget *parent)
     : QDialog(parent)
@@ -308,6 +309,44 @@ void KeyServerImportDialog::importFinished()
 
 void KeyServerImportDialog::importKeys(QByteArray inBuffer)
 {
-    GpgImportInformation result = mCtx->importKey(inBuffer);
-    new KeyImportDetailDialog(mCtx, result, this);
+    //GpgImportInformation result = mCtx->importKey(inBuffer);
+    KGpgImport *imp =  new KGpgImport(this, QString(inBuffer));
+    connect(imp, SIGNAL(done(int)), SLOT(slotImportDone(int)));
+    imp->start();
+
+}
+
+void KeyServerImportDialog::slotImportDone(int result)
+{
+    KGpgImport *import = qobject_cast<KGpgImport *>(sender());
+
+    Q_ASSERT(import != NULL);
+    const QStringList rawmsgs(import->getMessages());
+
+    if (result != 0) {
+        /*KMessageBox::detailedSorry(this, i18n("Key importing failed. Please see the detailed log for more information."),
+                rawmsgs.join( QLatin1String( "\n")) , i18n("Key Import" ));*/
+        qDebug() << "Key importing failed. Please see the detailed log for more information." << rawmsgs.join( QLatin1String( "\n"));
+    }
+
+    QStringList keys(import->getImportedIds(0x1f));
+    const bool needsRefresh = !keys.isEmpty();
+    keys << import->getImportedIds(0);
+/*
+    if (!keys.isEmpty()) {
+        const QString msg(import->getImportMessage());
+        const QStringList keynames(import->getImportedKeys());
+
+        new KgpgDetailedInfo(this, msg, rawmsgs.join( QLatin1String( "\n") ), keynames, i18n("Key Import" ));
+        if (needsRefresh)
+            imodel->refreshKeys(keys);
+        else
+            changeMessage(i18nc("Application ready for user input", "Ready"));
+    } else{
+        changeMessage(i18nc("Application ready for user input", "Ready"));
+    }
+*/
+    //changeMessage(tr("Application ready for user input", "Ready"));
+    mCtx->emitKeyDBChanged();
+    import->deleteLater();
 }

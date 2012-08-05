@@ -17,6 +17,7 @@
 
 //#include <KIO/NetAccess>
 //#include <KLocale>
+#include <QDebug>
 
 KGpgTextOrFileTransaction::KGpgTextOrFileTransaction(QObject *parent, const QString &text, const bool allowChaining)
 	: KGpgTransaction(parent, allowChaining),
@@ -47,6 +48,10 @@ KGpgTextOrFileTransaction::setUrls(const QList<QUrl> &files)
 {
 	m_text.clear();
 	m_inpfiles = files;
+    qDebug() << "files set:";
+    foreach(QUrl file, m_inpfiles) {
+        qDebug() << file.toString();
+    }
 }
 
 bool
@@ -54,12 +59,16 @@ KGpgTextOrFileTransaction::preStart()
 {
 	QStringList locfiles;
 
- /*   foreach (const QUrl &url, m_inpfiles) {
+    foreach (const QUrl &url, m_inpfiles) {
                 // qt 4.8 ! todo mac
+        qDebug() << "what the loc:" << url.isLocalFile();
+
 		if (url.isLocalFile()) {
 			locfiles.append(url.toLocalFile());
-		} else {
-			QString tmpfile;
+            qDebug() << "iffed";
+        } else {
+            qDebug() << "not iffed";
+        /*	QString tmpfile;
         //TODO: QIODevice ...?
                         if (KIO::NetAccess::download(url, tmpfile, 0)) {
 				m_tempfiles.append(tmpfile);
@@ -68,9 +77,14 @@ KGpgTextOrFileTransaction::preStart()
 				cleanUrls();
 				setSuccess(TS_KIO_FAILED);
 				return false;
-            }
-		}
-        }*/
+            }*/
+        }
+    }
+
+    qDebug() << "prestart locf list:";
+    foreach(QString l, locfiles) {
+        qDebug() << l;
+    }
 
 	if (locfiles.isEmpty() && m_tempfiles.isEmpty() && m_text.isEmpty() && !hasInputTransaction()) {
 		setSuccess(TS_MSG_SEQUENCE);

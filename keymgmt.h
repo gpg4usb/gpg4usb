@@ -29,6 +29,7 @@
 #include "keyserverimportdialog.h"
 #include "keygendialog.h"
 #include "kgpg/transactions/kgpgdelkey.h"
+#include "kgpg/transactions/kgpgimport.h"
 #include <QtGui>
 
 QT_BEGIN_NAMESPACE
@@ -45,7 +46,7 @@ class KeyMgmt : public QMainWindow
     Q_OBJECT
 
 public:
-    KeyMgmt(GpgME::GpgContext* ctx, QWidget *parent = 0);
+    KeyMgmt(GpgME::GpgContext *ctx, QWidget *parent);
     QAction *importKeyFromClipboardAct;
     QAction *importKeyFromFileAct;
     QAction *importKeyFromKeyServerAct;
@@ -54,7 +55,8 @@ public slots:
     void importKeyFromFile();
     void importKeyFromClipboard();
     void importKeyFromKeyServer();
-    void importKeys(QByteArray inBuffer);
+    void importKeys(QString text);
+    void slotImportDone(int result);
     void exportKeyToFile();
     void exportKeyToClipboard();
     void deleteSelectedKeys();
