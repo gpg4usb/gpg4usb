@@ -3,3 +3,4 @@ TODO:
 -reactivate keyimportdetaildialog
 - sign should work for more than one secret keyid
 - why is listkeys called so often (twice?)
+- signverify on one button like kgpg?

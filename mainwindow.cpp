@@ -918,24 +918,10 @@ void MainWindow::slotSignDone(int result)
         //return;
         qDebug() << "Signing not possible: bad passphrase or missing key";
         return;
-    } else {
-        edit->fillTextEditWithText(signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n"));
-    }
-
-    //signt->deleteLater();
-    //const QString content = signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n");
-    //setPlainText(content);
-    //emit resetEncoding(false);
-    /*sender()->deleteLater();
-
-    if (text.isEmpty())
-    {
-        qDebug() << "Signing not possible: bad passphrase or missing key";
-        return;
     }
 
     edit->fillTextEditWithText(signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n"));
-    */
+
 }
 
 void MainWindow::decrypt()

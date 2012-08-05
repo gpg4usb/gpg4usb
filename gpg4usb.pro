@@ -71,7 +71,10 @@ HEADERS += attachments.h \
     kgpg/transactions/kgpgimport.h \
     kgpg/transactions/kgpgdelkey.h \
     kgpg/transactions/kgpggeneratekey.h \
-    kgpg/transactions/kgpgsigntext.h
+    kgpg/transactions/kgpgsigntext.h \
+    kgpg/transactions/kgpgverify.h \
+    #kgpg/model/kgpgitemmodel.h \
+    #kgpg/model/kgpgitemnode.h
 
 
 SOURCES += attachments.cpp \
@@ -126,7 +129,9 @@ SOURCES += attachments.cpp \
     kgpg/transactions/kgpgimport.cpp \
     kgpg/transactions/kgpgdelkey.cpp \
     kgpg/transactions/kgpggeneratekey.cpp \
-    kgpg/transactions/kgpgsigntext.cpp
+    kgpg/transactions/kgpgsigntext.cpp \
+    kgpg/transactions/kgpgverify.cpp \
+    #kgpg/model/kgpgitemmodel.cpp
 
 RC_FILE = gpg4usb.rc
 
