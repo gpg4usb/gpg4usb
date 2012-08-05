@@ -224,7 +224,7 @@ void KeyGenDialog::keySizeChanged()
 {
     if (keySizeSpinBox->value() > 2048 && lastKeySize <=2048) {
         QMessageBox::warning(this, tr("Key size warning"),
-                             tr("You've set the keysize to more than 2048 bits. This setting is for advanced users only. The key generation could take a very, very long time."));
+                             tr("You've set the keysize to more than 2048 bits. This setting is for advanced users only. The key generation may take a very, very long time."));
     }
     lastKeySize=keySizeSpinBox->value();
 }
