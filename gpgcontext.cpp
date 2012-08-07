@@ -197,18 +197,21 @@ bool GpgContext::exportKeys(QStringList *uidList, QByteArray *outBuffer)
 
 KgpgCore::KgpgKey GpgContext::getKeyDetails(QString uid) {
 
-    //KgpgCore::KgpgKey key;
+
     // try secret
-    /*qDebug() << "blubb";
-    KgpgCore::KgpgKey key = KgpgInterface::readSecretKeys(QStringList() << uid).first();
+    KgpgCore::KgpgKeyList keys = KgpgInterface::readSecretKeys(QStringList() << uid);
+    if(keys.empty()) {
+        // ok try public
+        keys = KgpgInterface::readPublicKeys(QStringList() << uid);
+        // that should not happen
+        /*if(keys.empty()) {
+            qDebug() << "error, no key with uid" << uid;
+            return ;
+        }*/
 
-    qDebug() << "bla";
-    qDebug() << "id: " << key.id();
+    }
 
-    // ok, its a public key
-    if (key.id() == "") {*/
-        KgpgCore::KgpgKey key = KgpgInterface::readPublicKeys(QStringList() << uid).first();
-    //}
+    KgpgCore::KgpgKey key = keys.first();
     return key;
 
 }

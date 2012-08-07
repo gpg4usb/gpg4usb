@@ -20,6 +20,7 @@
  */
 
 #include "keydetailsdialog.h"
+#include "kgpg/transactions/kgpgexport.h"
 
 KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key, QWidget *parent)
     : QDialog(parent)
@@ -192,7 +193,7 @@ void KeyDetailsDialog::exportPrivateKey()
 
     // export key, if ok was clicked
     if (ret == QMessageBox::Ok) {
-        QByteArray *keyArray = new QByteArray();
+       /* QByteArray *keyArray = new QByteArray();
         mCtx->exportSecretKey(*keyid, keyArray);
         KgpgCore::KgpgKey key = mCtx->getKeyDetails(*keyid);
         QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub_sec.asc";
@@ -205,8 +206,31 @@ void KeyDetailsDialog::exportPrivateKey()
         QTextStream stream(&file);
         stream << *keyArray;
         file.close();
-        delete keyArray;
+        delete keyArray;*/
+        KgpgCore::KgpgKey key = mCtx->getKeyDetails(*keyid);
+        QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub_sec.asc";
+
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+
+        QStringList expopts;
+        expopts.append(QLatin1String( "--armor" ));
+        KGpgExport *exp = new KGpgExport(this, QStringList() << *keyid, fileName, expopts, true);
+        connect(exp, SIGNAL(done(int)), SLOT(slotExportPrivateKeyDone(int)));
+        exp->start();
     }
+}
+
+void KeyDetailsDialog::slotExportPrivateKeyDone(int result) {
+    KGpgExport *exp = qobject_cast<KGpgExport *>(sender());
+    Q_ASSERT(exp != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+        qDebug() << "export seems ok";
+    } else {
+       qDebug() << "Your key could not be exported\nCheck the key.";
+    }
+
+    exp->deleteLater();
 }
 
 QString KeyDetailsDialog::beautifyFingerprint(QString fingerprint)

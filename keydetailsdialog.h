@@ -57,6 +57,7 @@ private slots:
      * @details Export the key to a file, which is choosen in a file dialog
      */
     void exportPrivateKey();
+    void slotExportPrivateKeyDone(int result);
 
     /**
      * @details Copy the fingerprint to clipboard
