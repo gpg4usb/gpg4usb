@@ -125,13 +125,14 @@ void KeyGenDialog::keyGenAccept()
          * create the string for key generation
          */
         keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
-                       "Key-Type: DSA\n"
-			"Key-Length: " 
-			+ keySizeSpinBox->cleanText() + "\n"
-                       "Subkey-Type: ELG-E\n"
-                       "Subkey-Length: "
-                       + keySizeSpinBox->cleanText() + "\n"
-                       "Name-Real: " + nameEdit->text().toUtf8() + "\n";
+                       "Key-Type: RSA\n"
+                       "Key-Usage: sign\n"
+                       "Key-Length: " + keySizeSpinBox->cleanText() + "\n"
+                       "Subkey-Type: RSA\n"
+                       "Subkey-Length: " + keySizeSpinBox->cleanText() + "\n"
+                       "Subkey-Usage: encrypt\n";
+
+        keyGenParams += "Name-Real: " + nameEdit->text().toUtf8() + "\n";
         if (!(commentEdit->text().isEmpty())) {
             keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
         }
