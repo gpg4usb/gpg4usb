@@ -41,19 +41,19 @@ void KeyGenDialog::generateKeyDialog()
     commentEdit = new QLineEdit(this);
 
     keySizeSpinBox = new QSpinBox(this);
-    keySizeSpinBox->setRange(768, 16384);
+    keySizeSpinBox->setRange(1024, 4096);
     keySizeSpinBox->setValue(2048);
 
-    keySizeSpinBox->setSingleStep(256);
+    keySizeSpinBox->setSingleStep(1024);
 
     dateEdit = new QDateEdit(QDate::currentDate().addYears(5), this);
     dateEdit->setMinimumDate(QDate::currentDate());
     dateEdit->setDisplayFormat("dd/MM/yyyy");
     dateEdit->setCalendarPopup(true);
-    dateEdit->setEnabled(false);
+    dateEdit->setEnabled(true);
 
     expireCheckBox = new QCheckBox(this);
-    expireCheckBox->setCheckState(Qt::Checked);
+    expireCheckBox->setCheckState(Qt::Unchecked);
 
     passwordEdit = new QLineEdit(this);
     repeatpwEdit = new QLineEdit(this);
