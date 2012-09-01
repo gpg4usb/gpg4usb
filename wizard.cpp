@@ -22,6 +22,10 @@
 
 #include "wizard.h"
 
+#ifdef Q_OS_WIN
+#include "windows.h"
+#endif
+
 Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     : QWizard(parent)
 {
@@ -320,12 +324,20 @@ QString ImportFromGnupgPage::getGnuPGHome()
 {
     QString gnuPGHome="";
     #ifdef _WIN32
-        QSettings gnuPGsettings("HKEY_CURRENT_USER\\Software\\GNU\\GNUPG", QSettings::NativeFormat);
-        gnuPGHome = gnuPGsettings.value("HomeDir").toString();
-        if (gnuPGHome.isEmpty()) {
-            return NULL;
-        }
+    bool existsAndSuccess = false;
 
+    HKEY hKey;
+
+    existsAndSuccess = (RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\GNU\\GNUPG", 0, KEY_READ, &hKey) == ERROR_SUCCESS);
+
+    if (existsAndSuccess) {
+        QSettings gnuPGsettings("HKEY_CURRENT_USER\\Software\\GNU\\GNUPG", QSettings::NativeFormat);
+            if (gnuPGsettings.contains("HomeDir")) {
+                gnuPGHome = gnuPGsettings.value("HomeDir").toString();
+            } else {
+                return NULL;
+            }
+        }
     #else
         gnuPGHome=QDir::homePath()+"/.gnupg";
         if (! QFile(gnuPGHome).exists()) {
