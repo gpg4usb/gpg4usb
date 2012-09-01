@@ -126,7 +126,8 @@ void KeyGenDialog::keyGenAccept()
          */
         keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
                        "Key-Type: DSA\n"
-                       "Key-Length: 1024\n"
+			"Key-Length: " 
+			+ keySizeSpinBox->cleanText() + "\n"
                        "Subkey-Type: ELG-E\n"
                        "Subkey-Length: "
                        + keySizeSpinBox->cleanText() + "\n"
