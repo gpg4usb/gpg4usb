@@ -107,6 +107,7 @@ private slots:
  class KeyserverTab : public QWidget
  {
      Q_OBJECT
+
  public:
     KeyserverTab(QWidget *parent = 0);
     void setSettings();
@@ -114,11 +115,11 @@ private slots:
 
  private:
     QComboBox *comboBox;
-    QLineEdit *newKeyServerEdit;
 
  private slots:
     void addKeyServer();
     void removeKeyServer();
+    void editTextChangedAction();
 };
 
  class AdvancedTab : public QWidget

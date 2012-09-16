@@ -396,7 +396,6 @@ void AppearanceTab::applySettings()
     case 3:settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon);
         break;
     }
-
     settings.setValue("window/windowSave", windowSizeCheckBox->isChecked());
 }
 
@@ -405,48 +404,40 @@ KeyserverTab::KeyserverTab(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
+    QWidget *keyServerBox = new QWidget(this);
+    QHBoxLayout *keyServerBoxLayout = new QHBoxLayout(keyServerBox);
+
     comboBox = new QComboBox;
     comboBox->setEditable(false);
     comboBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
-    /*
-     * box for adding a new keyserver
-     */
-    QWidget *addKeyServerBox = new QWidget(this);
-    QHBoxLayout *addKeyServerLayout = new QHBoxLayout(addKeyServerBox);
-    QLabel *http = new QLabel("http://");
-    newKeyServerEdit = new QLineEdit(this);
-    QPushButton *newKeyServerButton = new QPushButton(tr("Add to keyserverlist"), this);
-    connect(newKeyServerButton,SIGNAL(clicked()), this, SLOT(addKeyServer()));
-    addKeyServerLayout->addWidget(http);
-    addKeyServerLayout->addWidget(newKeyServerEdit);
-    addKeyServerLayout->addWidget(newKeyServerButton);
-
-    /*
-     * box for removing currently chosen keyserver
-     */
-    QWidget *removeKeyServerBox = new QWidget(this);
-    QPushButton *removeKeyServerButton = new QPushButton(tr("Remove currently chosen from keyserverlist"), this);
+    // button for removing currently chosen keyserver
+    QIcon ico(":button_trash.png");
+    QPushButton *removeKeyServerButton = new QPushButton(QIcon(ico.pixmap(24, 24)), "");
+    removeKeyServerButton->setToolTip(tr("remove currently selected server from list"));
     connect(removeKeyServerButton,SIGNAL(clicked()), this, SLOT(removeKeyServer()));
-    QHBoxLayout *removeKeyServerBoxLayout = new QHBoxLayout(removeKeyServerBox);
-    removeKeyServerBoxLayout->addStretch(1);
-    removeKeyServerBoxLayout->addWidget(removeKeyServerButton);
+
+    QIcon ico2(":button_plus.png");
+    QPushButton *addKeyServerButton = new QPushButton(QIcon(ico2.pixmap(24, 24)), "");
+    addKeyServerButton->setToolTip(tr("Add new keyserver to list"));
+    connect(addKeyServerButton,SIGNAL(clicked()), this, SLOT(addKeyServer()));
+
+    keyServerBoxLayout->addWidget(comboBox);
+    keyServerBoxLayout->addWidget(removeKeyServerButton);
+    keyServerBoxLayout->addWidget(addKeyServerButton);
+    keyServerBoxLayout->addStretch(1);
 
     /*
      * add everything to the mainlayout
      */
-    mainLayout->addWidget(new QLabel(tr("Default Keyserver for import:")));
-    mainLayout->addWidget(comboBox);
-    mainLayout->addWidget(new QLabel(tr("The currently chosen server is set as default keyserver for all keyserver related operations.")));
-    mainLayout->addWidget(removeKeyServerBox);
-    mainLayout->addWidget(addKeyServerBox);
-
+    mainLayout->addWidget(new QLabel(tr("Default keyserver:")));
+    mainLayout->addWidget(keyServerBox);
     mainLayout->addStretch(1);
 
     // Read keylist from ini-file and fill it into combobox
     setSettings();
+    connect(comboBox, SIGNAL(editTextChanged(QString)), this, SLOT(editTextChangedAction()));
 }
-
 
 /**********************************
  * Read the settings from config
@@ -482,12 +473,15 @@ void KeyserverTab::applySettings()
   *************************************/
 void KeyserverTab::addKeyServer()
 {
-    if (newKeyServerEdit->text().startsWith("http://")) {
-        comboBox->addItem(newKeyServerEdit->text());
-    } else {
-        comboBox->addItem("http://" +newKeyServerEdit->text());
-    }
+    comboBox->addItem("http://");
+    comboBox->setEditable(true);
     comboBox->setCurrentIndex(comboBox->count()-1);
+    comboBox->setFocus();
+}
+
+void KeyserverTab::editTextChangedAction()
+{
+    comboBox->setItemText(comboBox->currentIndex(),comboBox->currentText());
 }
 
 void KeyserverTab::removeKeyServer()
