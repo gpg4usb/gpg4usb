@@ -167,7 +167,8 @@ void KeyGenDialog::keyGenAccept()
                                                       KgpgCore::ALGO_RSA_RSA,
                                                       keySizeSpinBox->cleanText().toInt(),
                                                       0,
-                                                      'd');
+                                                      'd',
+                                                      passwordEdit->text());
 
         genkey->start();
 

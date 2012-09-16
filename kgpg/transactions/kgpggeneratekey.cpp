@@ -22,7 +22,7 @@
 
 KGpgGenerateKey::KGpgGenerateKey(QObject *parent, const QString &name, const QString &email, const QString &comment,
 		const KgpgCore::KgpgKeyAlgo &algorithm, const uint size, const unsigned int expire,
-		const char expireunit)
+        const char expireunit, const QString &password)
 	: KGpgTransaction(parent)
 {
 	addArgument(QLatin1String( "--status-fd=1" ));
@@ -37,6 +37,7 @@ KGpgGenerateKey::KGpgGenerateKey(QObject *parent, const QString &name, const QSt
 	setAlgorithm(algorithm);
 	setSize(size);
 	setExpire(expire, expireunit);
+    setPassword(password);
 
 	getProcess()->setOutputChannelMode(KProcess::SeparateChannels);
 }
@@ -103,10 +104,14 @@ KGpgGenerateKey::postStart()
 		keymessage.append(QByteArray::number(m_expire));
 		keymessage.append(m_expireunit);
 	}
-	keymessage.append("\nPassphrase: ");
-	write(keymessage, false);
 
-	QString passdlgmessage;
+
+	keymessage.append("\nPassphrase: ");
+    keymessage.append(m_password.toUtf8());
+    write(keymessage, true);
+    write("%commit");
+
+    /*QString passdlgmessage;
 	if (!m_email.isEmpty()) {
         passdlgmessage = QObject::tr("<p><b>Enter passphrase for %1 &lt;%2&gt;</b>:<br />Passphrase should include non alphanumeric characters and random sequences.</p>").arg(m_name).arg(m_email);
 	} else {
@@ -114,7 +119,7 @@ KGpgGenerateKey::postStart()
 	}
 
 	QApplication::restoreOverrideCursor();
-	askNewPassphrase(passdlgmessage);
+    askNewPassphrase(passdlgmessage);*/
 }
 
 bool
@@ -259,6 +264,12 @@ KGpgGenerateKey::setExpire(const unsigned int expire, const char expireunit)
 			(expireunit == 'm') || (expireunit == 'y'));
 	m_expire = expire;
 	m_expireunit = expireunit;
+}
+
+void
+KGpgGenerateKey::setPassword(const QString &password)
+{
+    m_password = password;
 }
 
 QString

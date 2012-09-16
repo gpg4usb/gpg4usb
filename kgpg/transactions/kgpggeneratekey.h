@@ -47,7 +47,7 @@ public:
 	 */
 	KGpgGenerateKey(QObject *parent, const QString &name, const QString &email, const QString &comment,
 			 const KgpgCore::KgpgKeyAlgo &algorithm, const uint size, const unsigned int expire = 0,
-			 const char expireunit = 'd');
+                    const char expireunit = 'd', const QString &password = "");
 	virtual ~KGpgGenerateKey();
 
 	void setName(const QString &name);
@@ -57,6 +57,7 @@ public:
 	void setComment(const QString &comment);
 	void setAlgorithm(const KgpgCore::KgpgKeyAlgo &algorithm);
 	void setSize(const unsigned int size);
+    void setPassword(const QString &password);
 	/**
 	 * @brief set expire date for key
 	 * @param expire defines the key expiry time together with \em expireunit, 0 for unlimited key lifetime
@@ -87,6 +88,7 @@ private:
 	QString m_name;
 	QString m_email;
 	QString m_comment;
+    QString m_password;
 	KgpgCore::KgpgKeyAlgo m_algorithm;
 	unsigned int m_size;
 	unsigned int m_expire;
