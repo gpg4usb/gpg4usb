@@ -155,26 +155,61 @@ void KeyMgmt::createToolBars()
 
 }
 
-void KeyMgmt::importKeys(QByteArray inBuffer)
-{
-    GpgImportInformation result = mCtx->importKey(inBuffer);
-    new KeyImportDetailDialog(mCtx, result, this);
 
+// import for text based keys
+void KeyMgmt::importKeys(QString text)
+{
+    KGpgImport *imp =  new KGpgImport(this, text);
+    connect(imp, SIGNAL(done(int)), SLOT(slotImportDone(int)));
+    imp->start();
+}
+
+void KeyMgmt::slotImportDone(int result)
+{
+    KGpgImport *import = qobject_cast<KGpgImport *>(sender());
+
+    Q_ASSERT(import != NULL);
+    const QStringList rawmsgs(import->getMessages());
+
+    if (result != 0) {
+        /*KMessageBox::detailedSorry(this, i18n("Key importing failed. Please see the detailed log for more information."),
+                rawmsgs.join( QLatin1String( "\n")) , i18n("Key Import" ));*/
+        qDebug() << "Key importing failed. Please see the detailed log for more information." << rawmsgs.join( QLatin1String( "\n"));
+    }
+
+    QStringList keys(import->getImportedIds(0x1f));
+    const bool needsRefresh = !keys.isEmpty();
+    keys << import->getImportedIds(0);
+/*
+    if (!keys.isEmpty()) {
+        const QString msg(import->getImportMessage());
+        const QStringList keynames(import->getImportedKeys());
+
+        new KgpgDetailedInfo(this, msg, rawmsgs.join( QLatin1String( "\n") ), keynames, i18n("Key Import" ));
+        if (needsRefresh)
+            imodel->refreshKeys(keys);
+        else
+            changeMessage(i18nc("Application ready for user input", "Ready"));
+    } else{
+        changeMessage(i18nc("Application ready for user input", "Ready"));
+    }
+*/
+    //changeMessage(tr("Application ready for user input", "Ready"));
+    mCtx->emitKeyDBChanged();
+    import->deleteLater();
 }
 
 void KeyMgmt::importKeyFromFile()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;"+tr("Keyring files")+" (*.gpg);;All Files (*)");
     if (! fileName.isNull()) {
-        QFile file;
-        file.setFileName(fileName);
-        if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << tr("Couldn't Open File: ") + fileName;
-            return;
-        }
-        QByteArray inBuffer = file.readAll();
-        importKeys(inBuffer);
-        file.close();
+
+        QList<QUrl> urlList;
+        urlList << QUrl::fromLocalFile(fileName);
+
+        KGpgImport *imp =  new KGpgImport(this, urlList);
+        connect(imp, SIGNAL(done(int)), SLOT(slotImportDone(int)));
+        imp->start();
     }
 }
 
@@ -212,9 +247,9 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
     }
     QString keynames;
     foreach (QString uid, *uidList) {
-        keynames.append(QString::fromUtf8(mCtx->getKeyDetails(uid)->uids->name));
+        keynames.append(mCtx->getKeyDetails(uid).name());
         keynames.append("<i> &lt;");
-        keynames.append(QString::fromUtf8(mCtx->getKeyDetails(uid)->uids->email));
+        keynames.append(mCtx->getKeyDetails(uid).email());
         keynames.append("&gt; </i><br/>");
     }
 
@@ -224,8 +259,26 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
                                     QMessageBox::No | QMessageBox::Yes);
 
     if (ret == QMessageBox::Yes) {
-        mCtx->deleteKeys(uidList);
+        //mCtx->deleteKeys(uidList);
+        KGpgDelKey *delkey = new KGpgDelKey(this, *uidList);
+        connect(delkey, SIGNAL(done(int)), SLOT(slotKeyDeleted(int)));
+        delkey->start();
     }
+}
+
+void KeyMgmt::slotKeyDeleted(int retcode)
+{
+    KGpgDelKey *delkey = qobject_cast<KGpgDelKey *>(sender());
+
+    /*KGpgKeyNode *delkey = m_delkey->keys().first();
+    if (retcode == 0) {
+        KMessageBox::information(this, i18n("Key <b>%1</b> deleted.", delkey->getBeautifiedFingerprint()), i18n("Delete key"));
+        imodel->delNode(delkey);
+    } else {
+        KMessageBox::error(this, i18n("Deleting key <b>%1</b> failed.", delkey->getBeautifiedFingerprint()), i18n("Delete key"));
+    }*/
+    mCtx->emitKeyDBChanged();
+    delkey->deleteLater();
 }
 
 void KeyMgmt::showKeyDetails()
@@ -235,7 +288,7 @@ void KeyMgmt::showKeyDetails()
     }
 
     // TODO: first...?
-    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
 
     new KeyDetailsDialog(mCtx, key);
 }
@@ -246,8 +299,8 @@ void KeyMgmt::exportKeyToFile()
     if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
         return;
     }
-    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getChecked()->first());
-    QString fileString = QString::fromUtf8(key->uids->name) + " " + QString::fromUtf8(key->uids->email) + "(" + QString(key->subkeys->keyid)+ ")_pub.asc";
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getChecked()->first());
+    QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub.asc";
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
     QFile file(fileName);

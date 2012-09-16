@@ -23,6 +23,7 @@
 
 MainWindow::MainWindow()
 {
+	qDebug() << "hallo";
     mCtx = new GpgME::GpgContext();
 
     /* get path were app was started */
@@ -731,7 +732,78 @@ void MainWindow::importKeyFromEdit()
         return;
     }
 
-    keyMgmt->importKeys(edit->curTextPage()->toPlainText().toAscii());
+    //keyMgmt->importKeys(edit->curTextPage()->toPlainText().toAscii());
+    QString text = edit->curTextPage()->toPlainText();
+
+    if (text.isEmpty())
+            return;
+
+    KGpgImport *imp;
+
+    if (!KGpgImport::isKey(text) && KGpgDecrypt::isEncryptedText(text)) {
+        /*if (KMessageBox::questionYesNo(this,
+                i18n("<qt>The text in the clipboard does not look like a key, but like encrypted text.<br />Do you want to decrypt it first and then try importing it?</qt>"),
+                           i18n("Import from Clipboard")) != KMessageBox::Yes)
+            return;*/
+
+        imp = new KGpgImport(this);
+        KGpgDecrypt *decr = new KGpgDecrypt(this, text);
+        imp->setInputTransaction(decr);
+    } else {
+        imp = new KGpgImport(this, text);
+    }
+
+    startImport(imp);
+}
+
+void MainWindow::startImport(KGpgImport *import)
+{
+    qDebug() << "start import";
+    changeMessage(tr("Importing..."), true);
+    connect(import, SIGNAL(done(int)), SLOT(slotImportDone(int)));
+    import->start();
+}
+
+void MainWindow::slotImportDone(int result)
+{
+    KGpgImport *import = qobject_cast<KGpgImport *>(sender());
+
+    Q_ASSERT(import != NULL);
+    const QStringList rawmsgs(import->getMessages());
+
+    if (result != 0) {
+        /*KMessageBox::detailedSorry(this, i18n("Key importing failed. Please see the detailed log for more information."),
+                rawmsgs.join( QLatin1String( "\n")) , i18n("Key Import" ));*/
+        qDebug() << "Key importing failed. Please see the detailed log for more information." << rawmsgs.join( QLatin1String( "\n"));
+    }
+
+    QStringList keys(import->getImportedIds(0x1f));
+    const bool needsRefresh = !keys.isEmpty();
+    keys << import->getImportedIds(0);
+/*
+    if (!keys.isEmpty()) {
+        const QString msg(import->getImportMessage());
+        const QStringList keynames(import->getImportedKeys());
+
+        new KgpgDetailedInfo(this, msg, rawmsgs.join( QLatin1String( "\n") ), keynames, i18n("Key Import" ));
+        if (needsRefresh)
+            imodel->refreshKeys(keys);
+        else
+            changeMessage(i18nc("Application ready for user input", "Ready"));
+    } else{
+        changeMessage(i18nc("Application ready for user input", "Ready"));
+    }
+*/
+    changeMessage(tr("Application ready for user input", "Ready"));
+    mCtx->emitKeyDBChanged();
+    import->deleteLater();
+}
+
+void MainWindow::changeMessage(const QString &msg, const bool keep)
+{
+    int timeout = keep ? 0 : 10000;
+
+    statusBar()->showMessage(msg, timeout);
 }
 
 void MainWindow::openKeyManagement()
@@ -749,11 +821,38 @@ void MainWindow::encrypt()
 
     QStringList *uidList = mKeyList->getChecked();
 
-    QByteArray *tmp = new QByteArray();
-    if (mCtx->encrypt(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
-        QString *tmp2 = new QString(*tmp);
-        edit->fillTextEditWithText(*tmp2);
+    if (uidList->count() == 0) {
+        QMessageBox::critical(0, tr("No Key Selected"), tr("No Key Selected"));
+        return;
     }
+
+    QStringList options;
+    KGpgEncrypt::EncryptOptions opts = KGpgEncrypt::DefaultEncryption;
+
+    opts |= KGpgEncrypt::AllowUntrustedEncryption;
+    opts |= KGpgEncrypt::AsciiArmored;
+
+    KGpgEncrypt *encr = new KGpgEncrypt(this, *uidList, edit->curTextPage()->toPlainText(), opts, options);
+    encr->start();
+    connect(encr, SIGNAL(done(int)), SLOT(slotEncryptDone(int)));
+}
+
+void MainWindow::slotEncryptDone(int result)
+{
+    KGpgEncrypt *enc = qobject_cast<KGpgEncrypt *>(sender());
+    Q_ASSERT(enc != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+        const QString lf = QLatin1String("\n");
+        //setPlainText(enc->encryptedText().join(lf) + lf);
+        edit->fillTextEditWithText(enc->encryptedText().join(lf) + lf);
+    } else {
+        /*KMessageBox::sorry(this, i18n("The encryption failed with error code %1", result),
+                i18n("Encryption failed."));*/
+        qDebug() << "The encryption failed with error code " << result;
+    }
+
+    sender()->deleteLater();
 }
 
 void MainWindow::sign()
@@ -764,11 +863,41 @@ void MainWindow::sign()
 
     QStringList *uidList = mKeyList->getPrivateChecked();
 
-    QByteArray *tmp = new QByteArray();
-
-    if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
-        edit->fillTextEditWithText(QString::fromUtf8(*tmp));
+    if(uidList->isEmpty()) {
+        QMessageBox::critical(0, tr("Key Selection"), tr("No Private Key Selected"));
+        return;
     }
+
+    //QByteArray *tmp = new QByteArray();
+
+    /*if (mCtx->sign(uidList, edit->curTextPage()->toPlainText().toUtf8(), tmp)) {
+        edit->fillTextEditWithText(QString::fromUtf8(*tmp));
+    }*/
+
+    // TODO: more than one signers
+    KGpgSignText *signt = new KGpgSignText(this, uidList->first(), edit->curTextPage()->toPlainText());
+    connect(signt, SIGNAL(done(int)), SLOT(slotSignDone(int)));
+    signt->start();
+    //KGpgTextInterface *interface = new KGpgTextInterface(message, signkeyid, options);
+    //connect(interface, SIGNAL(txtSigningFinished(QString)), SLOT(slotSignUpdate(QString)));
+    //interface->signText(message, signkeyid, options);
+}
+
+void MainWindow::slotSignDone(int result)
+{
+    const KGpgSignText * const signt = qobject_cast<KGpgSignText *>(sender());
+    sender()->deleteLater();
+    Q_ASSERT(signt != NULL);
+
+    if (result != KGpgTransaction::TS_OK) {
+        //KMessageBox::sorry(this, i18n("Signing not possible: bad passphrase or missing key"));
+        //return;
+        qDebug() << "Signing not possible: bad passphrase or missing key";
+        return;
+    }
+
+    edit->fillTextEditWithText(signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n"));
+
 }
 
 void MainWindow::decrypt()
@@ -777,21 +906,36 @@ void MainWindow::decrypt()
         return;
     }
 
-    QByteArray *decrypted = new QByteArray();
-    QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
-    mCtx->preventNoDataErr(&text);
+    //QByteArray *decrypted = new QByteArray();
+    //QByteArray text = edit->curTextPage()->toPlainText().toAscii(); // TODO: toUtf8() here?
+
+
+    const QString fullcontent = edit->curTextPage()->toPlainText();
+    // TODO: do we still need this with kgpg?
+    //mCtx->preventNoDataErr(fullcontent.toAscii());
+
+    // TODO: whats the use of this?
+    int m_posstart = -1;
+    int m_posend = -1;
+
+    if (!KGpgDecrypt::isEncryptedText(fullcontent, &m_posstart, &m_posend))
+        return;
+
+    KGpgDecrypt *decr = new KGpgDecrypt(this, fullcontent.mid(m_posstart, m_posend - m_posstart));
+    connect(decr, SIGNAL(done(int)), SLOT(slotDecryptDone(int)));
+    decr->start();
 
     // try decrypt, if fail do nothing, especially don't replace text
-    if(!mCtx->decrypt(text, decrypted)) {
+ /*   if(!mCtx->decrypt(text, decrypted)) {
         return;
-    }
+    }*/
 
     /*
          *   1) is it mime (content-type:)
          *   2) parse header
          *   2) choose action depending on content-type
          */
-    if(Mime::isMime(decrypted)) {
+/*    if(Mime::isMime(decrypted)) {
         Header header = Mime::getHeader(decrypted);
         // is it multipart, is multipart-parsing enabled
         if(header.getValue("Content-Type") == "multipart/mixed"
@@ -807,8 +951,31 @@ void MainWindow::decrypt()
             }
         }
     }
-    edit->fillTextEditWithText(QString::fromUtf8(*decrypted));
+    edit->fillTextEditWithText(QString::fromUtf8(*decrypted));*/
 }
+
+void MainWindow::slotDecryptDone(int result)
+{
+    KGpgDecrypt *decr = qobject_cast<KGpgDecrypt *>(sender());
+    Q_ASSERT(decr != NULL);
+
+    /*if (!m_tempfile.isEmpty()) {
+        KIO::NetAccess::removeTempFile(m_tempfile);
+        m_tempfile.clear();
+    }*/
+
+    if (result == KGpgTransaction::TS_OK) {
+        // FIXME choose codec
+        //setPlainText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
+        edit->fillTextEditWithText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
+    } else if (result != KGpgTransaction::TS_USER_ABORTED) {
+        //KMessageBox::detailedSorry(this, i18n("Decryption failed."), decr->getMessages().join( QLatin1String( "\n" )));
+        qDebug() << "Decryption failed."  << decr->getMessages().join( QLatin1String( "\n" ));
+    }
+
+    decr->deleteLater();
+}
+
 
 void MainWindow::verify()
 {
@@ -839,9 +1006,24 @@ void MainWindow::appendSelectedKeys()
         return;
     }
 
-    QByteArray *keyArray = new QByteArray();
-    mCtx->exportKeys(mKeyList->getSelected(), keyArray);
-    edit->curTextPage()->append(*keyArray);
+    QStringList expopts;
+    KGpgExport *exp = new KGpgExport(this, *mKeyList->getSelected(), expopts);
+    connect(exp, SIGNAL(done(int)), SLOT(slotAppendSelectedKeysReady(int)));
+    exp->start();
+}
+
+void MainWindow::slotAppendSelectedKeysReady(int result) {
+    KGpgExport *exp = qobject_cast<KGpgExport *>(sender());
+    Q_ASSERT(exp != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+        edit->curTextPage()->append(QLatin1String( exp->getOutputData() ));
+    } else {
+        //KMessageBox::sorry(this, i18n("Your public key could not be exported\nCheck the key."));
+        qDebug() << "Your public key could not be exported\nCheck the key.";
+    }
+
+    exp->deleteLater();
 }
 
 void MainWindow::copyMailAddressToClipboard()
@@ -850,9 +1032,9 @@ void MainWindow::copyMailAddressToClipboard()
         return;
     }
 
-    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     QClipboard *cb = QApplication::clipboard();
-    QString mail = key->uids->email;
+    QString mail = key.email();
     cb->setText(mail);
 }
 
@@ -862,8 +1044,8 @@ void MainWindow::showKeyDetails()
         return;
     }
 
-    gpgme_key_t key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
-    if (key) {
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
+    if (key.id() != "") {
         new KeyDetailsDialog(mCtx, key, this);
     }
 }

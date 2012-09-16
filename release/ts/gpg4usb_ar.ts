@@ -933,9 +933,9 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.Do you really want to export your private key?</source>
-        <translation>أنت بصدد تصدير مفتاح السريّ.
-هذا ليس مفتاحك العلنيّ.
-احرص على حفظه في أمان. أتريد حقا تصدير مفتاحك السريّ؟</translation>
+        <translation>أنت بصدد تصدير مفتاحك السريّ الذي تُظهّر به و توقّع.
+هذا ليس مفتاحك العلنيّ الذي.تشاركه مع الآخرين ليُراسلوك.
+إن صدّرته فاحرص على حفظه في أمان. أتريد حقا تصدير مفتاحك السريّ؟</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -1113,7 +1113,7 @@ Weak -&gt; Strong</source>
         <source>You should create a new keypair.The pair consists of a public and a private key.&lt;br&gt;Other users can use the public key to encrypt messages for you and verify messages signed by you.You can use the private key to decrypt and sign messages.&lt;br&gt;For more information have a look at the offline tutorial (which then is shown in the main window):</source>
         <translatorcomment>To be more informative, I phrased the second sentence as &quot;Uses of tools ompatible with the GPG system can use your public key for you [...]&quot;</translatorcomment>
         <translation>ينبغي عليك توليد زوج مفاتيح يتألف من مفتاح علنيّ و آخر سريّ.&lt;br /&gt;
-يمكن لمن يستخدمون أدوات متوافقةمع نظام التعمية GPG استخدام مفتاحك العلنيّ لتعمية الرسائل لك و للتحقق من توقيعك على الرسائل التي وقّعتها. بينما تستخدم أنت مفتاحك السريّ لتظهير الرسائل المعماة لك و لتوقيع الرسائل.&lt;br /&gt;
+يمكن لمن يستخدمون أدوات متوافقةمع نظام التعمية PGP استخدام مفتاحك العلنيّ لتعمية الرسائل لك و للتحقق من توقيعك على الرسائل التي وقّعتها. بينما تستخدم أنت مفتاحك السريّ لتظهير الرسائل المعماة لك و لتوقيع الرسائل.&lt;br /&gt;
 لمزيد من المعلومات طالع الشرح (الذي سيظهر في النافذة الرئيسية):</translation>
     </message>
     <message>
@@ -2313,7 +2313,8 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="61"/>
         <source>Error Validating signature</source>
-        <translation>خطأ أثناء التحقق من توقيع</translation>
+        <translatorcomment>This should better be phrased as &quot;Invalid signature by %1&quot;, as &quot;error&quot; imples that the verification process itself filed, instead of yielding a complete, yet undesired, result.</translatorcomment>
+        <translation>توقيع غير صحيح من</translation>
     </message>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="67"/>
@@ -2377,7 +2378,7 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="62"/>
         <source>OK</source>
-        <translation>حَسَنٌ</translation>
+        <translation>جيِّد</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="69"/>
@@ -2395,12 +2396,12 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifynotification.cpp" line="38"/>
         <source>Show detailed verify information</source>
-        <translation>أظهر بيانات تفصيلية للاستيثاق</translation>
+        <translation>أظهر تفاصيلَ بيانات الاستيثاق</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="47"/>
         <source>Details</source>
-        <translation>بيانات</translation>
+        <translation>تفاصيل</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="117"/>
@@ -2415,12 +2416,12 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifynotification.cpp" line="164"/>
         <source>Text was completely signed by: </source>
-        <translation>النصُّ كُلُّه وقَّعه %1: </translation>
+        <translation>النصُّ كُلُّه وقَّعه: </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
-        <translation>النصُّ بعضُه وقَّعه %1: </translation>
+        <translation>النصُّ بعضُه وقَّعه: </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="147"/>

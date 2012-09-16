@@ -24,6 +24,7 @@
 
 #include "editorpage.h"
 #include "verifydetailsdialog.h"
+#include "kgpg/transactions/kgpgverify.h"
 #include <gpgme.h>
 #include <QWidget>
 
@@ -75,6 +76,8 @@ public:
 
     QStringList *keysNotInList; /** List with keys, which are in signature but not in keylist */
 
+    QString getReport(const QStringList &log);
+
 
 public slots:
     /**
@@ -92,6 +95,8 @@ public slots:
      * @details Refresh the contents of dialog.
      */
     bool refresh();
+
+    void slotVerifyDone(int result);
 
 private:
     QMenu *detailMenu; /** Menu for te Button in verfiyNotification */

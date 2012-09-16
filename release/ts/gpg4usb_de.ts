@@ -83,34 +83,6 @@
 <context>
     <name>Attachments</name>
     <message>
-        <source>Add File</source>
-        <translation type="obsolete">Datei hinzufügen</translation>
-    </message>
-    <message>
-        <source>Add a file</source>
-        <translation type="obsolete">Füge eine Datei hinzu</translation>
-    </message>
-    <message>
-        <source>Encrypt</source>
-        <translation type="obsolete">Verschlüsseln</translation>
-    </message>
-    <message>
-        <source>Encrypt marked File(s)</source>
-        <translation type="obsolete">Verschlüssele die markierten Dateien</translation>
-    </message>
-    <message>
-        <source>Decrypt</source>
-        <translation type="obsolete">Entschlüsseln</translation>
-    </message>
-    <message>
-        <source>Decrypt marked File(s)</source>
-        <translation type="obsolete">Entschlüssele die markierten Dateien</translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">Konnte Datei nicht öffnen:</translation>
-    </message>
-    <message>
         <location filename="../../attachments.cpp" line="78"/>
         <location filename="../../attachments.cpp" line="115"/>
         <source>Save File</source>
@@ -282,21 +254,9 @@
         <translation>Die Datei existiert bereits! Möchten sie sie überschreiben?</translation>
     </message>
     <message>
-        <source>Files</source>
-        <translation type="obsolete">Dateien</translation>
-    </message>
-    <message>
-        <source>All Files (*)</source>
-        <translation type="obsolete">Alle Dateien (*) </translation>
-    </message>
-    <message>
         <location filename="../../fileencryptiondialog.cpp" line="142"/>
         <source>Save File</source>
         <translation>Datei Speichern</translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">Konnte Datei nicht öffnen:</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="180"/>
@@ -341,49 +301,6 @@
         <location filename="../../settingsdialog.cpp" line="132"/>
         <source>Language</source>
         <translation>Sprache</translation>
-    </message>
-    <message>
-        <source>Language change is applied after restarting program.</source>
-        <translation type="obsolete">Die Änderung der Sprache wird beim nächsten Programmstart übernommen.</translation>
-    </message>
-    <message>
-        <source>System Default</source>
-        <translation type="obsolete">Systemstandard</translation>
-    </message>
-</context>
-<context>
-    <name>GpgME::Context</name>
-    <message>
-        <source>No Key Selected</source>
-        <translation type="obsolete">Kein Schlüssel ausgewählt</translation>
-    </message>
-    <message>
-        <source>Unsupported algorithm</source>
-        <translation type="obsolete">Nicht unterstützter Algorithmus</translation>
-    </message>
-    <message>
-        <source>Error decrypting:</source>
-        <translation type="obsolete">Fehler beim Entschlüsseln:</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation type="obsolete">Falsches Passwort</translation>
-    </message>
-    <message>
-        <source>Enter Password</source>
-        <translation type="obsolete">Bitte Passwort eingeben</translation>
-    </message>
-    <message>
-        <source>Key Selection</source>
-        <translation type="obsolete">Schlüsselauswahl</translation>
-    </message>
-    <message>
-        <source>No Private Key Selected</source>
-        <translation type="obsolete">Kein privater Schlüssel ausgewählt</translation>
-    </message>
-    <message>
-        <source>Error signing:</source>
-        <translation type="obsolete">Fehler beim Signieren:</translation>
     </message>
 </context>
 <context>
@@ -437,453 +354,6 @@
         <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
         <translation>Fehler beim Signieren:</translation>
-    </message>
-</context>
-<context>
-    <name>GpgWin</name>
-    <message>
-        <source>&amp;Open...</source>
-        <translation type="obsolete">Ö&amp;ffnen...</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Strg+O</translation>
-    </message>
-    <message>
-        <source>Open an existing file</source>
-        <translation type="obsolete">Öffen Datei</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation type="obsolete">&amp;Speichern</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Strg+S</translation>
-    </message>
-    <message>
-        <source>Save the current File</source>
-        <translation type="obsolete">Speichere Datei</translation>
-    </message>
-    <message>
-        <source>Save &amp;As</source>
-        <translation type="obsolete">Speichern &amp;unter</translation>
-    </message>
-    <message>
-        <source>Ctrl+A</source>
-        <translation type="obsolete">Strg+A</translation>
-    </message>
-    <message>
-        <source>Save the current File as...</source>
-        <translation type="obsolete">Speichere aktuelle Datei als....</translation>
-    </message>
-    <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">&amp;Drucken</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Strg+P</translation>
-    </message>
-    <message>
-        <source>Print Document</source>
-        <translation type="obsolete">Drucken</translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation type="obsolete">&amp;Beenden</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Strg+Q</translation>
-    </message>
-    <message>
-        <source>Quit Program</source>
-        <translation type="obsolete">Beende das Programm</translation>
-    </message>
-    <message>
-        <source>&amp;Paste</source>
-        <translation type="obsolete">E&amp;infügen</translation>
-    </message>
-    <message>
-        <source>Ctrl+V</source>
-        <translation type="obsolete">Strg+V</translation>
-    </message>
-    <message>
-        <source>Paste Text From Clipboard</source>
-        <translation type="obsolete">Füge Text aus der Zwischenablage ein</translation>
-    </message>
-    <message>
-        <source>Cu&amp;t</source>
-        <translation type="obsolete">&amp;Ausschneiden</translation>
-    </message>
-    <message>
-        <source>Ctrl+X</source>
-        <translation type="obsolete">Strg+X</translation>
-    </message>
-    <message>
-        <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">aktuelle Auswahl ausschneiden und in Zwischenablage einfügen</translation>
-    </message>
-    <message>
-        <source>&amp;Copy</source>
-        <translation type="obsolete">&amp;Kopieren</translation>
-    </message>
-    <message>
-        <source>Ctrl+C</source>
-        <translation type="obsolete">Strg+C</translation>
-    </message>
-    <message>
-        <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">aktuelle Auswahl in Zwischenablage kopieren</translation>
-    </message>
-    <message>
-        <source>Select &amp;All</source>
-        <translation type="obsolete">Alles &amp;markieren</translation>
-    </message>
-    <message>
-        <source>Select the whole text</source>
-        <translation type="obsolete">Den ganzen Text markieren</translation>
-    </message>
-    <message>
-        <source>Open settings dialog</source>
-        <translation type="obsolete">Öffne den Einstellungsdialog</translation>
-    </message>
-    <message>
-        <source>&amp;Encrypt</source>
-        <translation type="obsolete">&amp;Verschlüsseln</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ctrl+E</translation>
-    </message>
-    <message>
-        <source>Encrypt Message</source>
-        <translation type="obsolete">Verschlüssele den Text</translation>
-    </message>
-    <message>
-        <source>&amp;Decrypt</source>
-        <translation type="obsolete">&amp;Entschlüsseln</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Decrypt Message</source>
-        <translation type="obsolete">Entschlüssele den Text</translation>
-    </message>
-    <message>
-        <source>Import New Key From File</source>
-        <translation type="obsolete">Importiere einen neuen Schlüssel aus Datei</translation>
-    </message>
-    <message>
-        <source>Import New Key From Editor</source>
-        <translation type="obsolete">Importiere einen neuen Schlüssel aus dem Textfeld</translation>
-    </message>
-    <message>
-        <source>&amp;About</source>
-        <translation type="obsolete">&amp;Info</translation>
-    </message>
-    <message>
-        <source>Show the application&apos;s About box</source>
-        <translation type="obsolete">Zeige die Information über die Anwendung</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="obsolete">&amp;Datei</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="obsolete">&amp;Bearbeiten</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="obsolete">&amp;Hilfe</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation type="obsolete">Datei</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="obsolete">Bearbeiten</translation>
-    </message>
-    <message>
-        <source>&amp;Undo</source>
-        <translation type="obsolete">&amp;Rückgängig</translation>
-    </message>
-    <message>
-        <source>&amp;New</source>
-        <translation type="obsolete">&amp;Neu</translation>
-    </message>
-    <message>
-        <source>Open a new file</source>
-        <translation type="obsolete">Öffne eine neue Datei</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation type="obsolete">&amp;Schliessen</translation>
-    </message>
-    <message>
-        <source>Close file</source>
-        <translation type="obsolete">Schliesse die Datei</translation>
-    </message>
-    <message>
-        <source>Undo Last Edit Action</source>
-        <translation type="obsolete">Mache die letzte Aktion rückgängig</translation>
-    </message>
-    <message>
-        <source>&amp;Redo</source>
-        <translation type="obsolete">&amp;Wiederherstellen</translation>
-    </message>
-    <message>
-        <source>Redo Last Edit Action</source>
-        <translation type="obsolete">Stelle die letzte Editieraktion wieder her</translation>
-    </message>
-    <message>
-        <source>&amp;Quote</source>
-        <translation type="obsolete">&amp;Kommentiere</translation>
-    </message>
-    <message>
-        <source>Quote whole text</source>
-        <translation type="obsolete">Kommentiere den gesamten Text</translation>
-    </message>
-    <message>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="obsolete">Entferne doppelte &amp;Zeilenumbrüche</translation>
-    </message>
-    <message>
-        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="obsolete">Entferne doppelte Zeilenumbrüche, z.B. bei eingefügtem Text aus einem Webmailer</translation>
-    </message>
-    <message>
-        <source>Se&amp;ttings</source>
-        <translation type="obsolete">Ei&amp;nstellungen</translation>
-    </message>
-    <message>
-        <source>&amp;File Encryption</source>
-        <translatorcomment>Datei Verschlüsselung</translatorcomment>
-        <translation type="obsolete">&amp;Datei Verschlüsselung</translation>
-    </message>
-    <message>
-        <source>Encrypt/Decrypt File</source>
-        <translation type="obsolete">Ver-/Entschlüssele Datei</translation>
-    </message>
-    <message>
-        <source>&amp;Sign</source>
-        <translation type="obsolete">&amp;Signiere</translation>
-    </message>
-    <message>
-        <source>Sign Message</source>
-        <translation type="obsolete">Signiere die Nachricht</translation>
-    </message>
-    <message>
-        <source>&amp;Verify</source>
-        <translation type="obsolete">&amp;Verifiziere</translation>
-    </message>
-    <message>
-        <source>Verify Message</source>
-        <translation type="obsolete">Verifiziere die Nachricht</translation>
-    </message>
-    <message>
-        <source>Key Management</source>
-        <translation type="obsolete">Schlüsselverwaltung</translation>
-    </message>
-    <message>
-        <source>Open Keymanagement</source>
-        <translation type="obsolete">Öffne die Schlüsselverwaltung</translation>
-    </message>
-    <message>
-        <source>Open Import New Key Dialog</source>
-        <translation type="obsolete">Öffne den Schlüsselimport Dialog</translation>
-    </message>
-    <message>
-        <source>Online &amp;Tutorial</source>
-        <translation type="obsolete">Online &amp;Dokumentation</translation>
-    </message>
-    <message>
-        <source>Open Online Tutorial</source>
-        <translation type="obsolete">Öffne die Online Dokumentation</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb</source>
-        <translation type="obsolete">Übersetze gpg4usb</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb yourself</source>
-        <translation type="obsolete">Übersetze gpg4usb selbst</translation>
-    </message>
-    <message>
-        <source>Append Selected Key(s) To Text</source>
-        <translation type="obsolete">Hänge die ausgewählten Schlüssel an den Text an</translation>
-    </message>
-    <message>
-        <source>Append The Selected Keys To Text in Editor</source>
-        <translation type="obsolete">Hänge den gewählten Schhlüssel an den Text im Editor an</translation>
-    </message>
-    <message>
-        <source>Copy EMail-address</source>
-        <translation type="obsolete">Kopiere EMail-Adresse</translation>
-    </message>
-    <message>
-        <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="obsolete">Kopiere die ausgewählten EMail-Adresse in die Zwischenablage</translation>
-    </message>
-    <message>
-        <source>Show Keydetails</source>
-        <translation type="obsolete">Eigenschaften anzeigen</translation>
-    </message>
-    <message>
-        <source>Show Details for this Key</source>
-        <translation type="obsolete">Details zu diesem Schlüssel anzeigen</translation>
-    </message>
-    <message>
-        <source>&amp;Keys</source>
-        <translation type="obsolete">Sch&amp;lüssel</translation>
-    </message>
-    <message>
-        <source>&amp;Import Key From...</source>
-        <translation type="obsolete">&amp;Importiere Schlüssel aus...</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="obsolete">&amp;Ansicht</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="obsolete">Schlüssel</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation type="obsolete">Fertig</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="obsolete">&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;kontaktieren sie uns unter&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen Sie uns in unserem xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt; oder senden Sie eine Email an unsere Mailingliste unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>&amp;Keyserver</source>
-        <translation type="obsolete">&amp;Schlüsselserver</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="obsolete">&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;kontaktieren sie uns unter&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen Sie uns in unserem xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="obsolete">&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;kontaktieren sie uns unter&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen Sie uns in unserem xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <source>There is one unencrypted file in attachment folder</source>
-        <translation type="obsolete">Es gibt unverschlüsselte Dateien im Attachment Ordner</translation>
-    </message>
-    <message>
-        <source>There are </source>
-        <translation type="obsolete">Es gibt</translation>
-    </message>
-    <message>
-        <source> unencrypted files in attachment folder</source>
-        <translation type="obsolete">unverschlüsselte Dateien im Attachment Ordner</translation>
-    </message>
-    <message>
-        <source>Encrypt for:</source>
-        <translation type="obsolete">Verschlüssele für:</translation>
-    </message>
-    <message>
-        <source>Attached files:</source>
-        <translation type="obsolete">Angehängte Dateien:</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation type="obsolete">Anwendung</translation>
-    </message>
-    <message>
-        <source>Cannot read file %1:
-%2.</source>
-        <translation type="obsolete">Kann Datei nicht lesen %1: %2.</translation>
-    </message>
-    <message>
-        <source>File loaded</source>
-        <translation type="obsolete">Datei geladen</translation>
-    </message>
-    <message>
-        <source>The document has been modified.
-Do you want to save your changes?</source>
-        <translation type="obsolete">Die Datei würde verändert. Möchten Sie die Änderung speichern?</translation>
-    </message>
-    <message>
-        <source>Cannot write file %1:
-%2.</source>
-        <translation type="obsolete">Kann Datei nicht lesen %1: %2.</translation>
-    </message>
-    <message>
-        <source>Saved &apos;%1&apos;</source>
-        <translation type="obsolete">%1 gespeichert</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="obsolete">&lt;center&gt;Diese Anwendung ermöglicht einfaches&lt;br&gt;Ver- und Entschlüsseln von Texten und Dateien.&lt;br&gt;Sie steht unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;Falls Sie irgendwelche Fragen und/oder &lt;br&gt;Vorschläge haben, kontaktieren Sie uns über&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen sie uns einfach in unserem XMPP-Channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <source>Open Key</source>
-        <translation type="obsolete">Öffne Datei</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="obsolete">&lt;center&gt;Diese Anwendung erlaubt das einfache&lt;br&gt; Ver-und Entschlüsseln von Texten und Dateien.&lt;br&gt;Die Anwendung ist lizensiert unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Kirill (ru), Alessandro (pt)&lt;br&gt;&lt;br&gt;Falls sie Fragen oder Anregungen haben,&lt;br&gt; kontaktieren sie uns unter gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen sie uns in unserem XMPP-Channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">Konnte Datei nicht öffnen:</translation>
-    </message>
-    <message>
-        <source>&amp;Editor</source>
-        <translation type="obsolete">&amp;Editor</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="obsolete">&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;kontaktieren sie uns unter&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen Sie uns in unserem xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt; oder senden Sie eine Email an unsere Mailingliste unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>&amp;Clipboard</source>
-        <translation type="obsolete">&amp;Zwischenablage</translation>
-    </message>
-    <message>
-        <source>Import New Key From Clipboard</source>
-        <translation type="obsolete">Importiere neuen Schlüssel aus der Zwischenablage</translation>
-    </message>
-    <message>
-        <source>Import Key</source>
-        <translation type="obsolete">Schlüsselimport</translation>
-    </message>
-    <message>
-        <source>&amp;Crypt</source>
-        <translation type="obsolete">&amp;Crypt</translation>
-    </message>
-    <message>
-        <source>Crypt</source>
-        <translation type="obsolete">Crypt</translation>
-    </message>
-    <message>
-        <source>About </source>
-        <translation type="obsolete">Über</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This Application allows you to do simple&lt;br&gt;encryption/decryption of your text-message or file.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru)&lt;br&gt;&lt;br&gt;If you have any questions and/or&lt;br&gt;suggestions, contact us at&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;or feel free to meet us in our xmpp-channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</source>
-        <translation type="obsolete">&lt;center&gt;Diese Anwendung ermöglicht einfaches&lt;br&gt;Ver- und Entschlüsseln von Texten und Dateien.&lt;br&gt;Sie steht unter der GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Alex (fr), Kirill (ru), Viriato (es)&lt;br&gt;&lt;br&gt;Falls Sie irgendwelche Fragen und/oder &lt;br&gt;Vorschläge haben, kontaktieren Sie uns über&lt;br&gt;gpg4usb at cpunk.de&lt;/a&gt;&lt;br&gt;&lt;br&gt;oder treffen sie uns einfach in unserem XMPP-Channel:&lt;br&gt;gpg4usb at conference.jabber.ccc.de&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <source>Key Files</source>
-        <translation type="obsolete">Schlüssel Dateien</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation type="obsolete">Alle Dateien</translation>
-    </message>
-    <message>
-        <source>Import Key From...</source>
-        <translation type="obsolete">Impoertiere neuen Schlüssel aus...</translation>
     </message>
 </context>
 <context>
@@ -965,10 +435,6 @@ Do you want to save your changes?</source>
         <location filename="../../wizard.cpp" line="260"/>
         <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
         <translation>Einstellungen wurden erfolgreich aus anderen gpg4usb importiert.&lt;br&gt;  Starte neu, um die Einstellungen zu aktivieren.</translation>
-    </message>
-    <message>
-        <source>Imported Configuration from old gpg4usb.&lt;br/&gt;Will now restart to activate the configuration.</source>
-        <translation type="obsolete">Einstellungen wurden erfolgreich aus anderen gpg4usb importiert.&lt;br&gt;  Starte neu, um die Einstellungen zu aktivieren.</translation>
     </message>
 </context>
 <context>
@@ -1119,14 +585,6 @@ Make sure you keep it save.Do you really want to export your private key?</sourc
         <translation>Privaten Schlüssel exportieren</translation>
     </message>
     <message>
-        <source>You are about to export your private key.
-This is NOT your public key, so don&apos;t give it away.
-Make sure you keep it save.</source>
-        <translation type="obsolete">Sie sind dabei ihren privaten Schlüssel zu exportieren.
-Das ist NICHT ihr öffentlicher Schlüssel,
-also geben sie ihn nicht weiter.</translation>
-    </message>
-    <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
         <source>Export Key To File</source>
         <translation>Schlüssel In Datei exportieren</translation>
@@ -1135,10 +593,6 @@ also geben sie ihn nicht weiter.</translation>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
         <source>Key Files</source>
         <translation>Schlüssel Dateien</translation>
-    </message>
-    <message>
-        <source>Key Files </source>
-        <translation type="obsolete">Schlüsseldateien</translation>
     </message>
 </context>
 <context>
@@ -1432,17 +886,9 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>Beende die Schlüsselverwaltung</translation>
     </message>
     <message>
-        <source>Import From &amp;File</source>
-        <translation type="obsolete">&amp;Import aus Datei</translation>
-    </message>
-    <message>
         <location filename="../../keymgmt.cpp" line="76"/>
         <source>Import New Key From File</source>
         <translation>Importiere einen neuen Schlüssel aus einer Datei</translation>
-    </message>
-    <message>
-        <source>Import From &amp;Clipboard</source>
-        <translation type="obsolete">Import aus &amp;Zwischenablage</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="81"/>
@@ -1561,10 +1007,6 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>Sch&amp;lüssel</translation>
     </message>
     <message>
-        <source>Crypt</source>
-        <translation type="obsolete">Crypt</translation>
-    </message>
-    <message>
         <location filename="../../keymgmt.cpp" line="167"/>
         <source>Open Key</source>
         <translation>Öffne Datei</translation>
@@ -1601,80 +1043,9 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>&lt;br/&gt;Diese Aktion kann nicht rückgängig gemacht werden.</translation>
     </message>
     <message>
-        <source>Are you sure that you want to delete the selected keys?.
-The action can not be undone.</source>
-        <translation type="obsolete">Sind Sie sicher, das sie die ausgewählten Schlüssel löschen wollen?
-Die Aktion kann nicht rückgängig gemacht werden.</translation>
-    </message>
-    <message>
         <location filename="../../keymgmt.cpp" line="252"/>
         <source>Export Key To File</source>
         <translation>Schlüssel exportieren</translation>
-    </message>
-    <message>
-        <source>Name:</source>
-        <translation type="obsolete">Name:</translation>
-    </message>
-    <message>
-        <source>E-Mailaddress::</source>
-        <translation type="obsolete">E-Mailadresse:</translation>
-    </message>
-    <message>
-        <source>Comment:</source>
-        <translation type="obsolete">Kommentar:</translation>
-    </message>
-    <message>
-        <source>KeySize (in Bit):</source>
-        <translation type="obsolete">Schlüsselgröße (in Bit):</translation>
-    </message>
-    <message>
-        <source>Expiration Date:</source>
-        <translation type="obsolete">Ablaufdatum:</translation>
-    </message>
-    <message>
-        <source>Password:</source>
-        <translation type="obsolete">Passwort:</translation>
-    </message>
-    <message>
-        <source>Repeat Password:</source>
-        <translation type="obsolete">Passwort wiederholen:</translation>
-    </message>
-    <message>
-        <source>Never Expire</source>
-        <translation type="obsolete">läuft nie ab</translation>
-    </message>
-    <message>
-        <source>Password: Strength
-Weak -&gt; Strong</source>
-        <translation type="obsolete">Passwortstärke
-Schwach -&gt; Stark</translation>
-    </message>
-    <message>
-        <source>Password Strength</source>
-        <translation type="obsolete">Passwortstärke</translation>
-    </message>
-    <message>
-        <source>  Name must contain at least five characters.  
-</source>
-        <translation type="obsolete">Name muss mindestens 5 Buchstaben lang sein.</translation>
-    </message>
-    <message>
-        <source>  Password and Repeat don&apos;t match.  </source>
-        <translation type="obsolete">Passwort und Wiederholung stimmen nicht überein.</translation>
-    </message>
-    <message>
-        <source>Generating Key...</source>
-        <translation type="obsolete">Erzeuge Schlüssel...</translation>
-    </message>
-    <message>
-        <source>Collecting random data for key generation.
- This may take a while.
- To speed up the process use your computer
- (e.g. browse the net, listen to music,...)</source>
-        <translation type="obsolete">Sammle Zufallsdaten für Schlüsselerzeugung.
-Das kann etwas dauern.
-Benutze den Computer um den Vorgang zu 
-Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
     </message>
 </context>
 <context>
@@ -1730,62 +1101,58 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>Bemerkung</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="153"/>
+        <location filename="../../keyserverimportdialog.cpp" line="154"/>
         <source>Couldn&apos;t contact keyserver!</source>
         <translation>Konnte Schlüsselserver nicht erreichen!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="161"/>
+        <location filename="../../keyserverimportdialog.cpp" line="162"/>
         <source>Too many responses from keyserver!</source>
         <translation>Zu viele Antworten vom Schlüsselserver!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="167"/>
+        <location filename="../../keyserverimportdialog.cpp" line="168"/>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
         <translation>Keine Schlüssel gefunden, der Suchbegriff könnte eine Schlüssel-ID sein. Wiederhole suche mit vorangestellten 0x.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="171"/>
+        <location filename="../../keyserverimportdialog.cpp" line="172"/>
         <source>No keys found containing the search string!</source>
         <translation>Keinen Schlüssel gefunden, der den Suchbegriff enthält!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="174"/>
+        <location filename="../../keyserverimportdialog.cpp" line="175"/>
         <source>Insufficiently specific search string!</source>
         <translation>Suchbegriff zu ungenau definiert!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="201"/>
+        <location filename="../../keyserverimportdialog.cpp" line="203"/>
         <source>revoked</source>
         <translation>abgelaufen</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="204"/>
+        <location filename="../../keyserverimportdialog.cpp" line="206"/>
         <source>disabled</source>
         <translation>deaktiviert</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="243"/>
+        <location filename="../../keyserverimportdialog.cpp" line="245"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
         <translation>%1 Schlüssel gefunden. Importiere durch Doppelklick.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="288"/>
+        <location filename="../../keyserverimportdialog.cpp" line="291"/>
         <source>Error while contacting keyserver!</source>
         <translation>Fehler bei der Verbindung zum Schlüsselserver!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="292"/>
+        <location filename="../../keyserverimportdialog.cpp" line="295"/>
         <source>Key imported</source>
         <translation>Schlüssel importiert</translation>
     </message>
 </context>
 <context>
     <name>KeyserverTab</name>
-    <message>
-        <source>Deafult Keyserver for import:</source>
-        <translation type="obsolete">Standard Schlüsselserver für den Import:</translation>
-    </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="404"/>
         <source>Default Keyserver for import:</source>
@@ -2350,99 +1717,6 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <source>Iconsize</source>
-        <translation type="obsolete">Optionen</translation>
-    </message>
-    <message>
-        <source>small</source>
-        <translation type="obsolete">klein</translation>
-    </message>
-    <message>
-        <source>medium</source>
-        <translation type="obsolete">mittel</translation>
-    </message>
-    <message>
-        <source>large</source>
-        <translation type="obsolete">gross</translation>
-    </message>
-    <message>
-        <source>Iconstyle</source>
-        <translation type="obsolete">Iconstil</translation>
-    </message>
-    <message>
-        <source>just text</source>
-        <translation type="obsolete">Nur Text</translation>
-    </message>
-    <message>
-        <source>just icons</source>
-        <translation type="obsolete">Nur Icons</translation>
-    </message>
-    <message>
-        <source>text and icons</source>
-        <translation type="obsolete">Text und Icons</translation>
-    </message>
-    <message>
-        <source>Windowstate</source>
-        <translation type="obsolete">Fenstereinstellungen</translation>
-    </message>
-    <message>
-        <source>Save window size and position on exit.</source>
-        <translation type="obsolete">Speichere Fenstergröße und -position beim Beenden.</translation>
-    </message>
-    <message>
-        <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation type="obsolete">Speichere ausgewählte private Schlüssel beim Beenden und stelle diese beim nächsten Start wieder her.</translation>
-    </message>
-    <message>
-        <source>MIME-parsing (Experimental)</source>
-        <translation type="obsolete">MIME-Parsing (Experimentell)</translation>
-    </message>
-    <message>
-        <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation type="obsolete">Versuche, die Anhänge von PGP-MIME verschlüsselten Nachrichten zu extrahieren.</translation>
-    </message>
-    <message>
-        <source>Try to recognize quoted printable.</source>
-        <translation type="obsolete">Versuche Quoted Printable Text zu erkennen.</translation>
-    </message>
-    <message>
-        <source>Enable open with external app, saves file in tmp folder.</source>
-        <translation type="obsolete">Aktiviere das Öffnen mit externen Anwendungen (dieses speichert die Datei im Temp Verzeichnis).</translation>
-    </message>
-    <message>
-        <source>Remember Password</source>
-        <translation type="obsolete">Behalte das Passwort</translation>
-    </message>
-    <message>
-        <source>Remember password till closing gpg4usb</source>
-        <translation type="obsolete">Behalte das Passwort bis gpg4usb geschlossen wird</translation>
-    </message>
-    <message>
-        <source>save window size and position on exit</source>
-        <translation type="obsolete">Speichere Fenstergröße und -position beim Beenden</translation>
-    </message>
-    <message>
-        <source>Save Checked Keys</source>
-        <translation type="obsolete">Schlüsselspeicherung</translation>
-    </message>
-    <message>
-        <source>Save checked private keys on exit and restore them on next start</source>
-        <translation type="obsolete">Speichere ausgewählte private Schlüssel beim Beenden und stelle diese beim nächsten Start wieder her.</translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="obsolete">Sprache</translation>
-    </message>
-    <message>
-        <source>Language change is applied after restarting program.</source>
-        <translation type="obsolete">DIe Änderung der Sprache wird beim nächsten Progrmmstart übernommen.</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation type="obsolete">Deutsch</translation>
-    </message>
-    <message>
         <location filename="../../settingsdialog.cpp" line="34"/>
         <source>General</source>
         <translation>Allgemein</translation>
@@ -2466,10 +1740,6 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <location filename="../../settingsdialog.cpp" line="38"/>
         <source>Advanced</source>
         <translation>Erweitert</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <translation type="obsolete">Deutsch</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="72"/>
@@ -2559,16 +1829,6 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
  %1 by:
 </source>
         <translation>Der Text wurde teilweise signiert am %1 von:</translation>
-    </message>
-    <message>
-        <source>Text was completly signed on %1 by:
-</source>
-        <translation type="obsolete">Der Text wurde vollständig signiert am %1 durch:</translation>
-    </message>
-    <message>
-        <source>Text was partially signed on %1 by:
-</source>
-        <translation type="obsolete">Der Text wurde teilweise signiert am %1 durch:</translation>
     </message>
 </context>
 <context>
@@ -2662,21 +1922,9 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>Der Text wurde teilweise signiert von:</translation>
     </message>
     <message>
-        <source>Key not present with Fingerprint: </source>
-        <translation type="obsolete">Schlüssel nicht vorhanden mit Fingerabdruck:</translation>
-    </message>
-    <message>
         <location filename="../../verifynotification.cpp" line="147"/>
         <source>Error for key with fingerprint </source>
         <translation>Fehler den den Schlüssel mit Fingerabdruck </translation>
-    </message>
-    <message>
-        <source>Text is completly signed by: </source>
-        <translation type="obsolete">Text ist vollständig signiert durch: </translation>
-    </message>
-    <message>
-        <source>Text is partially signed by: </source>
-        <translation type="obsolete">Text ist teilweise signiert durch: </translation>
     </message>
 </context>
 <context>

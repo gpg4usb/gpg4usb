@@ -193,9 +193,10 @@ void FileEncryptionDialog::executeAction()
         if (! mCtx->decrypt(inBuffer, outBuffer)) return;
     }
 
-    if( mAction == Sign ) {
+    // TODO: with kgpg
+    /*if( mAction == Sign ) {
         if(! mCtx->sign(mKeyList->getChecked(), inBuffer, outBuffer, true)) return;
-    }
+    }*/
 
     if( mAction == Verify ) {
         QFile signfile;

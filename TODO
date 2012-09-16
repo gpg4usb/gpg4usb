@@ -25,6 +25,10 @@ BUGS:
 Release 0.3.4
 - Catch bad passphrase message
 - add keyless encryption
+- create revocation file 
+	- on key generation
+	- later
+- add posibility to add keyserver in settings
 - set gpgme error language to chosen language (context.cpp:49)
 - Add default key functionality 
 - encrypt and sign, decrypt and verify (?)

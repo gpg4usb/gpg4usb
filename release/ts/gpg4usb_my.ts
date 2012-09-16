@@ -116,10 +116,6 @@
 %2.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Cannot write file %1: %2.</source>
-        <translation type="obsolete">ဖိုင် %1: %2 ကို ရေးလို့မရပါ။</translation>
-    </message>
 </context>
 <context>
     <name>ChoosePage</name>
@@ -212,10 +208,6 @@
         <translation>လုပ်ဆောင်ချက်</translation>
     </message>
     <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
-    </message>
-    <message>
         <location filename="../../fileencryptiondialog.cpp" line="31"/>
         <source>Decrypt File</source>
         <translation type="unfinished"></translation>
@@ -267,14 +259,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>couldn&apos;t open file:</source>
-        <translation type="obsolete">ဖိုင်ကို ဖွင့်လို့ မရပါ -</translation>
-    </message>
-    <message>
-        <source>Cannot write file %1: %2.</source>
-        <translation type="obsolete">ဖိုင် %1: %2 ကို ရေးလို့ မရပါ။</translation>
-    </message>
-    <message>
         <location filename="../../fileencryptiondialog.cpp" line="171"/>
         <source>File exists! Do you want to overwrite it?</source>
         <translation>ဖိုင် ရှိနေတယ်။ အဲဒီဖိုင်ကို ဖျက်လိုပါသလား။</translation>
@@ -316,49 +300,6 @@
         <location filename="../../settingsdialog.cpp" line="132"/>
         <source>Language</source>
         <translation>ဘာသာစကား</translation>
-    </message>
-    <message>
-        <source>Language change is applied after restarting program.</source>
-        <translation type="obsolete">ဘာသာစကား အ​ပြောင်းအလဲကို ပရိုဂရမ် ပြန်ဖွင့်တဲ့အခါ အတည်ပြုသွားမှာ ဖြစ်တယ်။</translation>
-    </message>
-    <message>
-        <source>System Default</source>
-        <translation type="obsolete">နည်းစနစ် သတ်မှတ်ချက်</translation>
-    </message>
-</context>
-<context>
-    <name>GpgME::Context</name>
-    <message>
-        <source>No Key Selected</source>
-        <translation type="obsolete">ကီး ရွေးချယ်မထားပါ</translation>
-    </message>
-    <message>
-        <source>Unsupported algorithm</source>
-        <translation type="obsolete">ပံ့ပိုးမထားတဲ့ အယ်လဂိုရီသမ်</translation>
-    </message>
-    <message>
-        <source>Error decrypting:</source>
-        <translation type="obsolete">စာဝှက်ဖြည်နေစဉ် အမှားအယွင်း ဖြစ်ပေါ်နေတယ် -</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation type="obsolete">စကားဝှက် မှားနေတယ်</translation>
-    </message>
-    <message>
-        <source>Enter Password</source>
-        <translation type="obsolete">စကားဝှက်ကို ရေးထည့်ရန်</translation>
-    </message>
-    <message>
-        <source>Key Selection</source>
-        <translation type="obsolete">ကီး ရွေးချယ်မှု</translation>
-    </message>
-    <message>
-        <source>No Private Key Selected</source>
-        <translation type="obsolete">Private ကီး ရွေးချယ်မထားပါ</translation>
-    </message>
-    <message>
-        <source>Error signing:</source>
-        <translation type="obsolete">လက်မှတ်ရေးထိုးနေစဉ် အမှားအယွင်း ဖြစ်ပေါ်နေတယ် -</translation>
     </message>
 </context>
 <context>
@@ -412,333 +353,6 @@
         <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
         <translation type="unfinished">လက်မှတ်ရေးထိုးနေစဉ် အမှားအယွင်း ဖြစ်ပေါ်နေတယ် -</translation>
-    </message>
-</context>
-<context>
-    <name>GpgWin</name>
-    <message>
-        <source>&amp;Open...</source>
-        <translation type="obsolete">ဖွင့်ရန်...</translation>
-    </message>
-    <message>
-        <source>Open an existing file</source>
-        <translation type="obsolete">ရှိပြီးသား ဖိုင်ကို ဖွင့်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation type="obsolete">သိမ်းဆည်းရန်</translation>
-    </message>
-    <message>
-        <source>Save the current File</source>
-        <translation type="obsolete">လက်ရှိ ဖိုင်ကို သိမ်းဆည်းရန်</translation>
-    </message>
-    <message>
-        <source>Save &amp;As</source>
-        <translation type="obsolete">သိမ်းဆည်းမဲ့ ပုံစံ</translation>
-    </message>
-    <message>
-        <source>Save the current File as...</source>
-        <translation type="obsolete">လက်ရှိ ဖိုင်ကို သိမ်းဆည်းမဲ့ ပုံစံ...</translation>
-    </message>
-    <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">ပရင့်ထုတ်ရန်</translation>
-    </message>
-    <message>
-        <source>Print Document</source>
-        <translation type="obsolete">မှတ်တမ်းမှတ်ရာကို ပရင့်ထုတ်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation type="obsolete">ပိတ်ရန်</translation>
-    </message>
-    <message>
-        <source>Close file</source>
-        <translation type="obsolete">ဖိုင်ကို ပိတ်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation type="obsolete">ပိတ်ရန်</translation>
-    </message>
-    <message>
-        <source>Quit Program</source>
-        <translation type="obsolete">ပရိုဂရမ်ကို ပိတ်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Undo</source>
-        <translation type="obsolete">ပြန်ပြင်ရန်</translation>
-    </message>
-    <message>
-        <source>Undo Last Edit Action</source>
-        <translation type="obsolete">နောက်ဆုံး တည်းဖြတ်မှုကို ပြန်ပြင်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Redo</source>
-        <translation type="obsolete">ပြန်​ဖြည်ရန်</translation>
-    </message>
-    <message>
-        <source>Redo Last Edit Action</source>
-        <translation type="obsolete">နောက်ဆုံး လုပ်ဆောင်ချက်ကို ပြန်ဖြည်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Paste</source>
-        <translation type="obsolete">ပွားရန်</translation>
-    </message>
-    <message>
-        <source>Paste Text From Clipboard</source>
-        <translation type="obsolete">Clipboard ထဲက စာသားကို ပွားရန်</translation>
-    </message>
-    <message>
-        <source>Cu&amp;t</source>
-        <translation type="obsolete">ဖြတ်ထုတ်ရန်</translation>
-    </message>
-    <message>
-        <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">လက်ရှိ ရွေးချယ်ထားတဲ့ အကြောင်းအရာကို clipboard ထဲကို ဖြတ်ယူရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Copy</source>
-        <translation type="obsolete">ကော်ပီကူးရန်</translation>
-    </message>
-    <message>
-        <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">လက်ရှိ ရွေးချယ်ထားတဲ့ အကြောင်းအရာများကို clipboard ထဲ ကော်ပီကူးရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Quote</source>
-        <translation type="obsolete">ကိုးကားရန်</translation>
-    </message>
-    <message>
-        <source>Quote whole text</source>
-        <translation type="obsolete">စာသား တခုလုံးကို ကိုးကားရန်</translation>
-    </message>
-    <message>
-        <source>Select &amp;All</source>
-        <translation type="obsolete">အားလုံးကို ရွေးချယ်ရန်</translation>
-    </message>
-    <message>
-        <source>Select the whole text</source>
-        <translation type="obsolete">စာသား တခုလုံးကို ရွေးချယ်ရန်</translation>
-    </message>
-    <message>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="obsolete">နှစ်ထပ် မျဉ်းကြောင်းကို ဖယ်ရှားရန်</translation>
-    </message>
-    <message>
-        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="obsolete">နှစ်ထပ် မျဉ်းကြောင်းကို ဖယ်ရှားရန်၊ ဥပမာ - webmailer ကနေ ပွားယူလိုက်တဲ့ စာသားထဲမှ</translation>
-    </message>
-    <message>
-        <source>Open settings dialog</source>
-        <translation type="obsolete">settings dialog ကို ဖွင့်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Encrypt</source>
-        <translation type="obsolete">စာဝှက်ရန်</translation>
-    </message>
-    <message>
-        <source>Encrypt Message</source>
-        <translation type="obsolete">ပေးစာကို စာဝှက်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Decrypt</source>
-        <translation type="obsolete">စာဝှက်ဖြည်ရန်</translation>
-    </message>
-    <message>
-        <source>Decrypt Message</source>
-        <translation type="obsolete">ပေးစာကို စာဝှက်ဖြည်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;File Encryption</source>
-        <translation type="obsolete">ဖိုင်ကို စာဝှက်ခြင်း</translation>
-    </message>
-    <message>
-        <source>Encrypt/Decrypt File</source>
-        <translation type="obsolete">ဖိုင်ကို စာဝှက်ရန်/စာဝှက်ဖြည်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Sign</source>
-        <translation type="obsolete">လက်မှတ်ရေးထိုးရန်</translation>
-    </message>
-    <message>
-        <source>Sign Message</source>
-        <translation type="obsolete">ပေးစာကို လက်မှတ်ရေးထိုးရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Verify</source>
-        <translation type="obsolete">အတည်ပြုရန်</translation>
-    </message>
-    <message>
-        <source>Verify Message</source>
-        <translation type="obsolete">ပေးစာကို အတည်ပြုရန်</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="obsolete">&lt;center&gt;ဒီလုပ်ငန်းသုံး ဆော့ဗ်ဝဲကို အသုံးပြုပြီး ပေးစာများ (သို့) ဖိုင်များကို &lt;br/&gt;ရိုးရိုး စာဝှက်ပေးခြင်းနဲ့၊ စာဝှက်​ဖြည်ခြင်း ပြုလုပ်နိုင်တယ်။&lt;br&gt;၄င်းကို GPL v3 အောက်မှာ လိုင်စင် ပြုလုပ်ထားတယ်။&lt;br&gt;&lt;br&gt;&lt;b&gt;ဖန်တီး လုပ်ဆောင်သူများ -&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;ဘာသာပြန်ဆိုခြင်း -&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;အကယ်လို့ သင့်မှာ မေးစရာ မေးခွန်များ (သို့) အကြံပြုချက်များ ရှိရင်&lt;br/&gt;ကျွန်ုပ်တို့ရဲ့ &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;ဆက်သွယ်ရန် စာမျက်နှာ&lt;/a&gt; ကို သွားရောက်နိုင်တယ် &lt;br/&gt; (သို့) ကျွန်ုပ်တို့ရဲ့ အီးမေးလ် အုပ်စု&lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;ကို ​စာ​ ရေးသားပေးပို့နိုင်တယ်။</translation>
-    </message>
-    <message>
-        <source>&amp;Keyserver</source>
-        <translation type="obsolete">ကီးဆာဗာ</translation>
-    </message>
-    <message>
-        <source>Import New Key From Editor</source>
-        <translation type="obsolete">ကီး အသစ်ကို အယ်ဒီတာကနေ တင်သွင်းရန်</translation>
-    </message>
-    <message>
-        <source>Key Management</source>
-        <translation type="obsolete">ကီး စီမံခန့်ခွဲရေး</translation>
-    </message>
-    <message>
-        <source>Open Keymanagement</source>
-        <translation type="obsolete">Keymanagement ကို ဖွင့်ရန်</translation>
-    </message>
-    <message>
-        <source>Open Import New Key Dialog</source>
-        <translation type="obsolete">Import New Key Dialog ကို ဖွင့်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;About</source>
-        <translation type="obsolete">အကြောင်းအရာ</translation>
-    </message>
-    <message>
-        <source>Show the application&apos;s About box</source>
-        <translation type="obsolete">ဒီလုပ်ငန်းသုံး ဆော့ဗ်ဝဲရဲ့ အကြောင်းအရာ ဇယားကို ဖေါ်ပြရန်</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="obsolete">ဖိုင်</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="obsolete">တည်းဖြတ်ရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="obsolete">အကူအညီ</translation>
-    </message>
-    <message>
-        <source>Append Selected Key(s) To Text</source>
-        <translation type="obsolete">ရွေးချယ်ထားတဲ့ ကီး(များ)ကို စာသားနဲ့ ပူးတွဲပေးရန်</translation>
-    </message>
-    <message>
-        <source>Se&amp;ttings</source>
-        <translation type="obsolete">ချိန်ညှိချက်များ</translation>
-    </message>
-    <message>
-        <source>&amp;New</source>
-        <translation type="obsolete">အသစ်</translation>
-    </message>
-    <message>
-        <source>Open a new file</source>
-        <translation type="obsolete">ဖိုင်အသစ် ဖွင့်ရန်</translation>
-    </message>
-    <message>
-        <source>Online &amp;Tutorial</source>
-        <translation type="obsolete">အွန်လိုင်း သင်တန်းလမ်းညွှန်</translation>
-    </message>
-    <message>
-        <source>Open Online Tutorial</source>
-        <translation type="obsolete">အွန်လိုင်း သင်တန်းလမ်းညွှန်ကို ဖွင့်ရန်</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb</source>
-        <translation type="obsolete">gpg4usb ကို ဘာသာပြန်ဆိုရန်</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb yourself</source>
-        <translation type="obsolete">gpg4usb ကို ကိုယ်တိုင် ဘာသာပြန်ဆိုရန်</translation>
-    </message>
-    <message>
-        <source>Append The Selected Keys To Text in Editor</source>
-        <translation type="obsolete">ရွေးချယ်ထားတဲ့ ကီးများကို အယ်ဒီတာထဲမှာ စာသားနဲ့ ပူးတွဲပေးရန်</translation>
-    </message>
-    <message>
-        <source>Copy EMail-address</source>
-        <translation type="obsolete">အီးမေးလ် လိပ်စာကို ကော်ပီကူးရန်</translation>
-    </message>
-    <message>
-        <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="obsolete">အီးမေးလ် လိပ်စာကို clipboard မှာ ကော်ပီကူးရန်</translation>
-    </message>
-    <message>
-        <source>Show Keydetails</source>
-        <translation type="obsolete">ကီးအကြောင်း အသေးစိတ်ကို ဖေါ်ပြရန်</translation>
-    </message>
-    <message>
-        <source>Show Details for this Key</source>
-        <translation type="obsolete">ဒီကီးအကြောင်း အသေးစိတ်ကို ဖေါ်ပြရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Keys</source>
-        <translation type="obsolete">ကီး</translation>
-    </message>
-    <message>
-        <source>&amp;Import Key From...</source>
-        <translation type="obsolete">ကီးကို တင်သွင်းရမဲ့ နေရာ...</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="obsolete">ကြည့်ရှုရန်</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation type="obsolete">အဆင်သင့်</translation>
-    </message>
-    <message>
-        <source>Encrypt for:</source>
-        <translation type="obsolete">စာဝှက်မဲ့အချက် -</translation>
-    </message>
-    <message>
-        <source>Attached files:</source>
-        <translation type="obsolete">ပူးတွဲထားတဲ့ ဖိုင်များ -</translation>
-    </message>
-    <message>
-        <source>There is one unencrypted file in attachment folder</source>
-        <translation type="obsolete">ပူးတွဲထားတဲ့ ဖိုင်ထဲမှာ စာဝှက်မထားတဲ့ ဖိုင်တခု ရှိတယ်</translation>
-    </message>
-    <message>
-        <source>There are</source>
-        <translation type="obsolete">ပါ၀င်တဲ့အချက်</translation>
-    </message>
-    <message>
-        <source>unencrypted files in attachment folder</source>
-        <translation type="obsolete">ပူးတွဲထားတဲ့ ဖိုင်တွဲထဲက စာဝှက်မထားတဲ့ ဖိုင်များ</translation>
-    </message>
-    <message>
-        <source>&amp;Editor</source>
-        <translation type="obsolete">အယ်ဒီတာ</translation>
-    </message>
-    <message>
-        <source>&amp;Clipboard</source>
-        <translation type="obsolete">&amp;Clipboard</translation>
-    </message>
-    <message>
-        <source>Import Key</source>
-        <translation type="obsolete">ကီးကို တင်သွင်းရန်</translation>
-    </message>
-    <message>
-        <source>&amp;Crypt</source>
-        <translation type="obsolete">စာဝှက်ရန်</translation>
-    </message>
-    <message>
-        <source>Crypt</source>
-        <translation type="obsolete">စာဝှက်ရန်</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="obsolete">ကီး</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="obsolete">တည်းဖြတ်ရန်</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="obsolete">အကြောင်းအရာ</translation>
-    </message>
-    <message>
-        <source>Import Key From...</source>
-        <translation type="obsolete">ကီးကို တင်သွင်းရမဲ့ နေရာ...</translation>
     </message>
 </context>
 <context>
@@ -923,18 +537,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Expires on:</source>
-        <translation type="obsolete">သက်တမ်း ကုန်ဆုံးချိန် -</translation>
-    </message>
-    <message>
-        <source>Created on:</source>
-        <translation type="obsolete">ဖန်တီးတဲ့ နေ့စွဲ -</translation>
-    </message>
-    <message>
-        <source>Key ID:</source>
-        <translation type="obsolete">ကီး ID -</translation>
-    </message>
-    <message>
         <location filename="../../keydetailsdialog.cpp" line="158"/>
         <source>Warning: Key expired</source>
         <translation>သတိပေးချက် - ကီးရဲ့ သက်တမ်း ကုန်ဆုံးပြီ</translation>
@@ -967,17 +569,9 @@ Make sure you keep it save.Do you really want to export your private key?</sourc
         <translation>ကီး အရွယ်အစား -</translation>
     </message>
     <message>
-        <source>Algorithm:</source>
-        <translation type="obsolete">ဘယ်လဂိုရီသမ် -</translation>
-    </message>
-    <message>
         <location filename="../../keydetailsdialog.cpp" line="50"/>
         <source>Never</source>
         <translation>လုံး၀</translation>
-    </message>
-    <message>
-        <source>/ Never</source>
-        <translation type="obsolete">/ လုံး၀</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="139"/>
@@ -993,10 +587,6 @@ Make sure you keep it save.Do you really want to export your private key?</sourc
         <location filename="../../keydetailsdialog.cpp" line="186"/>
         <source>Exporting private Key</source>
         <translation>Private ကီးကို တင်ပို့နေတယ်</translation>
-    </message>
-    <message>
-        <source>You are about to export your private key. This is NOT your public key, so don&apos;t give it away. Make sure you keep it save.</source>
-        <translation type="obsolete">သင်ဟာ သင့်ရဲ့ private ကီးကို တင်ပို့ဖို့ လုပ်ဆောင်နေတယ်။ ဒါဟာ သင့်ရဲ့ public ကီးမဟုတ်တဲ့အတွက်၊ ဒီတိုင်း ပစ်မထားပဲ၊ လုံလုံခြုံခြုံ သိမ်းဆည်းထားပါ။</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -1263,17 +853,9 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You&apos;ve dropped something on the keylist.  gpg4usb will now try to import key(s).</source>
-        <translation type="obsolete">ကီးစာရင်းထဲမှာ သင် တစုံတခု ထည့်သွင်းထားတယ်။ အခု gpg4usb က ကီးတွေကို တင်သွင်းလာလိမ့်မယ်။</translation>
-    </message>
-    <message>
         <location filename="../../keylist.cpp" line="198"/>
         <source>Always import without bothering.</source>
         <translation>အနှောင့်အယှက် မရှိပဲ အမြဲတမ်း တင်သွင်းရန်။</translation>
-    </message>
-    <message>
-        <source>Couldn&apos;t Open File:</source>
-        <translation type="obsolete">ဖိုင်ကို ဖွင့်လို့ မရပါ -</translation>
     </message>
 </context>
 <context>
@@ -1441,10 +1023,6 @@ Weak -&gt; Strong</source>
         <translation>ကီးဖိုင်များ</translation>
     </message>
     <message>
-        <source>Couldn&apos;t Open File:</source>
-        <translation type="obsolete">ဖိုင်ကို ဖွင့်မရပါ -</translation>
-    </message>
-    <message>
         <location filename="../../keymgmt.cpp" line="221"/>
         <source>Deleting Keys</source>
         <translation>ကီးများကို ပယ်ဖျက်ရန်</translation>
@@ -1463,62 +1041,6 @@ Weak -&gt; Strong</source>
         <location filename="../../keymgmt.cpp" line="252"/>
         <source>Export Key To File</source>
         <translation>ကီးကို ဖိုင်အဖြစ် တင်ပို့ရန်</translation>
-    </message>
-    <message>
-        <source>Name:</source>
-        <translation type="obsolete">နာမည် -</translation>
-    </message>
-    <message>
-        <source>E-Mailaddress::</source>
-        <translation type="obsolete">အီးမေးလ် လိပ်စာ -</translation>
-    </message>
-    <message>
-        <source>Comment:</source>
-        <translation type="obsolete">မှတ်ချက် -</translation>
-    </message>
-    <message>
-        <source>KeySize (in Bit):</source>
-        <translation type="obsolete">ကီး အ​ရွယ်အစား (Bit) -</translation>
-    </message>
-    <message>
-        <source>Expiration Date:</source>
-        <translation type="obsolete">သက်တမ်း ကုန်ဆုံးချိန် -</translation>
-    </message>
-    <message>
-        <source>Password:</source>
-        <translation type="obsolete">စကားဝှက် -</translation>
-    </message>
-    <message>
-        <source>Repeat Password:</source>
-        <translation type="obsolete">စကားဝှက်ကို ထပ်ရေးရန် -</translation>
-    </message>
-    <message>
-        <source>Never Expire</source>
-        <translation type="obsolete">သက်တမ်း ကုန်ဆုံးချိန် မရှိ</translation>
-    </message>
-    <message>
-        <source>Password: Strength Weak -&gt; Strong</source>
-        <translation type="obsolete">စကားဝှက် - ကြံ့ခိုင်မှု အားနည်း -&gt; အားကောင်း</translation>
-    </message>
-    <message>
-        <source>Password Strength</source>
-        <translation type="obsolete">စကားဝှက်ရဲ့ ကြံ့ခိုင်မှု</translation>
-    </message>
-    <message>
-        <source>Name must contain at least five characters.</source>
-        <translation type="obsolete">နာမည်ထဲမှာ အနည်းဆုံး အက္ခရာစာလုံး ငါးလုံး ပါဝင်ရမယ်။</translation>
-    </message>
-    <message>
-        <source>Password and Repeat don&apos;t match.</source>
-        <translation type="obsolete">စကားဝှက်နဲ့ ထပ်မံ ရေးသားချက် မကိုက်ညီပါ။</translation>
-    </message>
-    <message>
-        <source>Generating Key...</source>
-        <translation type="obsolete">ကီး ထုတ်လုပ်ရန်...</translation>
-    </message>
-    <message>
-        <source>Collecting random data for key generation.  This may take a while.  To speed up the process use your computer  (e.g. browse the net, listen to music,...)</source>
-        <translation type="obsolete">ကီး ထုတ်လုပ်ဖို့ ကျပန်း ဒေတာများကို စုဆောင်းနေတယ်။ အချိန်အတော်ကြာ ယူနိုင်တယ်။ လုပ်ငန်းကို အရှိန်မြှင့်ဖို့ ကွန်ပျူတာ အသုံးပြုပါ (ဥပမာ - အင်တာနက်ကို သုံးပါ၊ တေးသီချင်းများ နား​ဆင်ပါ၊...)</translation>
     </message>
 </context>
 <context>
@@ -1574,52 +1096,52 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="153"/>
+        <location filename="../../keyserverimportdialog.cpp" line="154"/>
         <source>Couldn&apos;t contact keyserver!</source>
         <translation>ကီးဆာဗာကို ဆက်သွယ်လို့ မရပါ။</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="161"/>
+        <location filename="../../keyserverimportdialog.cpp" line="162"/>
         <source>Too many responses from keyserver!</source>
         <translation>ကီးဆာဗာဆီရဲ့ တုံ့ပြန်ချက် အလွန်များပြားနေတယ်။</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="167"/>
+        <location filename="../../keyserverimportdialog.cpp" line="168"/>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
         <translation>ကီး မတွေ့ရှိပါ၊ ဖြည့်သွင်းချက်ဟာ kexId ဖြစ်နေနိုင်တယ်၊ 0x ကို အသုံးပြုပြီး ထပ်မံရှာဖွေပါ။</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="171"/>
+        <location filename="../../keyserverimportdialog.cpp" line="172"/>
         <source>No keys found containing the search string!</source>
         <translation>ရှာဖွေနေတဲ့ အက္ခရာစာလုံး ပါတဲ့ ကီးကို မတွေ့ရှိပါ။</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="174"/>
+        <location filename="../../keyserverimportdialog.cpp" line="175"/>
         <source>Insufficiently specific search string!</source>
         <translation>ပြည့်စုံမှု မရှိတဲ့ ရှာဖွေရေး အက္ခရာစာလုံး။</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="201"/>
+        <location filename="../../keyserverimportdialog.cpp" line="203"/>
         <source>revoked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="204"/>
+        <location filename="../../keyserverimportdialog.cpp" line="206"/>
         <source>disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="243"/>
+        <location filename="../../keyserverimportdialog.cpp" line="245"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
         <translation>ကီး %1 ခုကို တွေ့ရှိရတယ်။ သူ့ကို တင်သွင်းဖို့ ကီးတခုကို နှစ်ချက် နှိပ်ပါ။</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="288"/>
+        <location filename="../../keyserverimportdialog.cpp" line="291"/>
         <source>Error while contacting keyserver!</source>
         <translation>ကီး​ဆာဗာကို ဆက်သွယ်နေစဉ် အမှားအယွင်း ဖြစ်ပေါ်နေတယ်။</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="292"/>
+        <location filename="../../keyserverimportdialog.cpp" line="295"/>
         <source>Key imported</source>
         <translation>တင်သွင်းလိုက်တဲ့ ကီး</translation>
     </message>
@@ -2185,11 +1707,6 @@ Weak -&gt; Strong</source>
 <context>
     <name>SettingsDialog</name>
     <message>
-        <source>English</source>
-        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation type="obsolete">English</translation>
-    </message>
-    <message>
         <location filename="../../settingsdialog.cpp" line="34"/>
         <source>General</source>
         <translation>အထွေထွေ</translation>
@@ -2223,10 +1740,6 @@ Weak -&gt; Strong</source>
         <location filename="../../settingsdialog.cpp" line="72"/>
         <source>System Default</source>
         <translation type="unfinished">နည်းစနစ် သတ်မှတ်ချက်</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <translation type="obsolete">အင်္ဂလိပ် (My)</translation>
     </message>
 </context>
 <context>
@@ -2266,21 +1779,9 @@ Weak -&gt; Strong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cannot read file %1: %2.</source>
-        <translation type="obsolete">ဖိုင် %1: %2 ကို ဖတ်လို့ မရဘူး။</translation>
-    </message>
-    <message>
         <location filename="../../textedit.cpp" line="142"/>
         <source>File</source>
         <translation>ဖုိင်</translation>
-    </message>
-    <message>
-        <source>Cannot write file %1: %2.</source>
-        <translation type="obsolete">ဖိုင် %1: %2 ကို ရေးလို့ မရဘူး။</translation>
-    </message>
-    <message>
-        <source>Save file</source>
-        <translation type="obsolete">ဖိုင်ကို သိမ်းဆည်းရန်</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="231"/>
@@ -2323,14 +1824,6 @@ Weak -&gt; Strong</source>
  %1 by:
 </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Text was completely signed on  %1 by:</source>
-        <translation type="obsolete">စသားကို %1 မှာ အပြည့်အစုံ  လက်မှတ်ရေးထိုးပေးတဲ့သူ -</translation>
-    </message>
-    <message>
-        <source>Text was partially signed on  %1 by:</source>
-        <translation type="obsolete">စာသားကို  %1 တပိုင်းတစနဲ့  လက်မှတ်ရေးထိုးပေးသူ -</translation>
     </message>
 </context>
 <context>
@@ -2427,22 +1920,6 @@ Weak -&gt; Strong</source>
         <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error validating signature by:</source>
-        <translation type="obsolete">လက်မှတ် အတည်ပြုမှု အမှားအယွင်းကို ဖန်တီးသူ -</translation>
-    </message>
-    <message>
-        <source>Text was completely signed by:</source>
-        <translation type="obsolete">စာသားကို အပြည့်အစုံ လက်မှတ်ရေးထိုးသူ -</translation>
-    </message>
-    <message>
-        <source>Text was partially signed by:</source>
-        <translation type="obsolete">စာသားကို တပိုင်းတစနဲ့ လက်မှတ်ရေးထိုးသူ -</translation>
-    </message>
-    <message>
-        <source>Error for key with fingerprint</source>
-        <translation type="obsolete">လက်ဗွေပါတဲ့ ကီးရဲ့ မှားယွင်းချက်</translation>
     </message>
 </context>
 <context>

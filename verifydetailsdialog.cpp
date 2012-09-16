@@ -59,9 +59,11 @@ void VerifyDetailsDialog::refresh()
     //mCtx->preventNoDataErr(&text);
     gpgme_signature_t sign;
     if(mInputSignature != 0) {
-        sign = mCtx->verify(mInputData, mInputSignature);
+        // TODO: kgpg
+        //sign = mCtx->verify(mInputData, mInputSignature);
     } else {
-        sign = mCtx->verify(mInputData);
+        //TODO kgpg
+        //sign = mCtx->verify(mInputData);
     }
 
     if(sign==0) {

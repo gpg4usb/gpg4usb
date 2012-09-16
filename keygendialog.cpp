@@ -27,6 +27,7 @@ KeyGenDialog::KeyGenDialog(GpgME::GpgContext *ctx, QWidget *parent)
 {
     mCtx = ctx;
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+
     this->setWindowTitle(tr("Generate Key"));
     this->setModal(true);
     generateKeyDialog();
@@ -42,7 +43,6 @@ void KeyGenDialog::generateKeyDialog()
     keySizeSpinBox = new QSpinBox(this);
     keySizeSpinBox->setRange(768, 16384);
     keySizeSpinBox->setValue(2048);
-    this->lastKeySize=2048;
 
     keySizeSpinBox->setSingleStep(256);
 
@@ -132,24 +132,13 @@ void KeyGenDialog::keyGenAccept()
         /**
          * create the string for key generation
          */
-
-        if (keyTypeComboBox->currentText() == "RSA") {
-            keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
-                           "Key-Type: RSA\n"
-                           "Key-Usage: sign\n"
-                           "Key-Length: " + keySizeSpinBox->cleanText() + "\n"
-                           "Subkey-Type: RSA\n"
-                           "Subkey-Length: " + keySizeSpinBox->cleanText() + "\n"
-                           "Subkey-Usage: encrypt\n";
-        } else {
-            keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
-                           "Key-Type: DSA\n"
-                           "Key-Length: " + keySizeSpinBox->cleanText() + "\n"
-                           "Subkey-Type: ELG-E\n"
-                           "Subkey-Length: "
-                           + keySizeSpinBox->cleanText() + "\n";
-       }
-        keyGenParams += "Name-Real: " + nameEdit->text().toUtf8() + "\n";
+        /*keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
+                       "Key-Type: DSA\n"
+                       "Key-Length: 1024\n"
+                       "Subkey-Type: ELG-E\n"
+                       "Subkey-Length: "
+                       + keySizeSpinBox->cleanText() + "\n"
+                       "Name-Real: " + nameEdit->text().toUtf8() + "\n";
         if (!(commentEdit->text().isEmpty())) {
             keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
         }
@@ -167,7 +156,20 @@ void KeyGenDialog::keyGenAccept()
         keyGenParams += "</GnupgKeyParms>";
 
         KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
-        kg->start();
+        kg->start();*/
+
+
+        // TODO: expdate
+        KGpgGenerateKey *genkey = new KGpgGenerateKey(this,
+                                                      nameEdit->text(),
+                                                      emailEdit->text(),
+                                                      commentEdit->text(),
+                                                      KgpgCore::ALGO_RSA_RSA,
+                                                      keySizeSpinBox->cleanText().toInt(),
+                                                      0,
+                                                      'd');
+
+        genkey->start();
 
         this->accept();
 
@@ -186,7 +188,9 @@ void KeyGenDialog::keyGenAccept()
 
         dialog->show();
 
-        while (kg->isRunning()) {
+        //genkey->thread()->isRunning()
+
+        while (genkey->thread()->isRunning()) {
             QCoreApplication::processEvents();
         }
 

@@ -31,6 +31,13 @@
 #include "aboutdialog.h"
 #include "verifynotification.h"
 #include "wizard.h"
+//#include "kgpg/kgpgtextinterface.h"
+#include "kgpg/core/kgpgkey.h"
+#include "kgpg/transactions/kgpgencrypt.h"
+#include "kgpg/transactions/kgpgdecrypt.h"
+#include "kgpg/transactions/kgpgexport.h"
+#include "kgpg/transactions/kgpgimport.h"
+#include "kgpg/transactions/kgpgsigntext.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
@@ -87,16 +94,19 @@ private slots:
      * with the currently checked keys
      */
     void encrypt();
+    void slotEncryptDone(int result);
 
     /**
      * @details Show a passphrase dialog and decrypt the text of currently active tab.
      */
     void decrypt();
+    void slotDecryptDone(int result);
 
     /**
      * @details Sign the text of currently active tab with the checked private keys
      */
     void sign();
+    void slotSignDone(int result);
 
     /**
      * @details Verify the text of currently active tab and show verify information.
@@ -129,11 +139,14 @@ private slots:
      * @details Import keys from currently active tab to keylist if possible.
      */
     void importKeyFromEdit();
+    void startImport(KGpgImport *import);
+    void slotImportDone(int result);
 
     /**
      * @details Append the selected keys to currently active textedit.
      */
     void appendSelectedKeys();
+    void slotAppendSelectedKeysReady(int result);
 
     /**
      * @details Copy the mailaddress of selected key to clipboard.
@@ -276,6 +289,13 @@ private:
      * @param message
      */
     void parseMime(QByteArray *message);
+
+    /**
+     * @brief show a message in the status bar
+     * @param msg the text to show
+     * @param keep if the text should stay visible or may be hidden after a while
+     */
+    void changeMessage(const QString &msg, const bool keep = false);
 
     TextEdit *edit; /** Tabwidget holding the edit-windows */
     QMenu *fileMenu; /** Submenu for file operations*/

@@ -20,7 +20,11 @@
  */
 
 #include "gpgcontext.h"
-
+#include "kgpg/gpgproc.h"
+#include "kgpg/kgpginterface.h"
+#include "kgpg/klinebufferedprocess.h"
+#include "kgpg/core/kgpgkey.h"
+#include "kgpg/transactions/kgpgencrypt.h"
 #ifdef _WIN32
 #include <windows.h>
 #include <unistd.h>    /* contains read/write */
@@ -41,80 +45,35 @@ GpgContext::GpgContext()
     /** The function `gpgme_check_version' must be called before any other
      *  function in the library, because it initializes the thread support
      *  subsystem in GPGME. (from the info page) */
-    gpgme_check_version(NULL);
 
-    // TODO: Set gpgme_language to config
-    /*QSettings settings;
-    qDebug() << " - " << settings.value("int/lang").toLocale().name();
-    qDebug() << " - " << QLocale(settings.value("int/lang").toString()).name();*/
+#ifdef Q_WS_WIN
+    gpgBin = appPath + "/bin/gpg.exe";
+    gpgKeys = appPath + "/keydb";
+#endif
+#ifdef Q_WS_MAC
+    gpgBin = appPath + "/bin/gpg-mac.app";
 
-    // the locale set here is used for the other setlocale calls which have NULL
-    // -> NULL means use default, which is configured here
-    setlocale(LC_ALL, "");
+    gpgKeys = appPath + "/keydb";
 
-    /** set locale, because tests do also */
-    gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));
-    //qDebug() << "Locale set to" << LC_CTYPE << " - " << setlocale(LC_CTYPE, NULL);
-#ifndef _WIN32
-    gpgme_set_locale(NULL, LC_MESSAGES, setlocale(LC_MESSAGES, NULL));
+	qDebug() << "gpg bin:" << gpgBin;
+	qDebug() << "gpg keydb: " << gpgKeys;
+#endif
+#ifdef Q_WS_X11
+    gpgBin = appPath + "/bin/gpg";
+    gpgKeys = appPath + "/keydb";
 #endif
 
-    err = gpgme_new(&mCtx);
+    QStringList args;
+    args << "--homedir" << gpgKeys << "--list-keys";
 
-    checkErr(err);
-    /** here come the settings, instead of /usr/bin/gpg
-     * a executable in the same path as app is used.
-     * also lin/win must  be checked, for calling gpg.exe if needed
-     */
-#ifdef _WIN32
-    QString gpgBin = appPath + "/bin/gpg.exe";
-#else
-    QString gpgBin = appPath + "/bin/gpg";
-#endif
+/*    QProcess gpg;
+    gpg.setProcessChannelMode(QProcess::MergedChannels);
+    gpg.start(gpgBin, args);
 
-    QSettings settings;
-    QString accKeydbPath = settings.value("gpgpaths/keydbpath").toString();
-    QString gpgKeys = appPath + "/keydb/"+accKeydbPath;
+    gpg.waitForFinished(-1);
 
-    if (accKeydbPath != "") {
-        if (!QDir(gpgKeys).exists()) {
-            QMessageBox::critical(0,tr("keydb path"),tr("Didn't find keydb directory. Switching to gpg4usb's default keydb directory for this session."));
-            gpgKeys = appPath + "/keydb";
-        }
-    }
-
-    /*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
-                                        gpgBin.toUtf8().constData(),
-                                        gpgKeys.toUtf8().constData());*/
-#ifndef GPG4USB_NON_PORTABLE
-    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
-                                    gpgBin.toLocal8Bit().constData(),
-                                    gpgKeys.toLocal8Bit().constData());
-    checkErr(err);
-#endif
-    gpgme_engine_info_t engineInfo;
-    engineInfo = gpgme_ctx_get_engine_info(mCtx);
-
-
-    while (engineInfo !=NULL ) {
-        qDebug() << gpgme_get_protocol_name(engineInfo->protocol);
-        engineInfo=engineInfo->next;
-    }
-
-    /** Setting the output type must be done at the beginning */
-    /** think this means ascii-armor --> ? */
-    gpgme_set_armor(mCtx, 1);
-    /** passphrase-callback */
-    gpgme_set_passphrase_cb(mCtx, passphraseCb, this);
-
-    /** check if app is called with -d from command line */
-    if (qApp->arguments().contains("-d")) {
-        qDebug() << "gpgme_data_t debug on";
-        debug = true;
-    } else {
-        debug = false;
-    }
-
+    qDebug() << "huhu" << gpg.readAll();
+*/
     connect(this,SIGNAL(keyDBChanged()),this,SLOT(refreshKeyList()));
     refreshKeyList();
 }
@@ -124,8 +83,8 @@ GpgContext::GpgContext()
  */
 GpgContext::~GpgContext()
 {
-    if (mCtx) gpgme_release(mCtx);
-    mCtx = 0;
+    //if (mCtx) gpgme_release(mCtx);
+    //mCtx = 0;
 }
 
 /** Import Key from QByteArray
@@ -236,67 +195,62 @@ bool GpgContext::exportKeys(QStringList *uidList, QByteArray *outBuffer)
     return true;
 }
 
-gpgme_key_t GpgContext::getKeyDetails(QString uid)
-{
-    gpgme_key_t key;
+KgpgCore::KgpgKey GpgContext::getKeyDetails(QString uid) {
+
 
     // try secret
-    gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 1);
-    // ok, its a public key
-    if (!key) {
-        gpgme_get_key(mCtx, uid.toAscii().constData(), &key, 0);
+    KgpgCore::KgpgKeyList keys = KgpgInterface::readSecretKeys(QStringList() << uid);
+    if(keys.empty()) {
+        // ok try public
+        keys = KgpgInterface::readPublicKeys(QStringList() << uid);
+        // that should not happen
+        /*if(keys.empty()) {
+            qDebug() << "error, no key with uid" << uid;
+            return ;
+        }*/
+
     }
+
+    KgpgCore::KgpgKey key = keys.first();
     return key;
+
 }
+
+
 
 /** List all availabe Keys (VERY much like kgpgme)
  */
 GpgKeyList GpgContext::listKeys()
 {
-    gpgme_error_t err;
-    gpgme_key_t key;
+
+    KgpgInterface::readPublicKeys();
+
 
     GpgKeyList keys;
-    //TODO dont run the loop more often than necessary
-    // list all keys ( the 0 is for all )
-    err = gpgme_op_keylist_start(mCtx, NULL, 0);
-    checkErr(err);
-    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
-        GpgKey gpgkey;
+    KgpgCore::KgpgKeyList kl = KgpgInterface::readPublicKeys();
 
-        if (!key->subkeys)
-            continue;
-
-        gpgkey.id = key->subkeys->keyid;
-        gpgkey.fpr = key->subkeys->fpr;
-        gpgkey.expired = (key->expired != 0);
-        gpgkey.revoked = (key->revoked != 0);
-
-        if (key->uids) {
-            gpgkey.name = QString::fromUtf8(key->uids->name);
-            gpgkey.email = QString::fromUtf8(key->uids->email);
-        }
-        keys.append(gpgkey);
-        gpgme_key_unref(key);
+    foreach(KgpgCore::KgpgKey kkey, kl) {
+        GpgKey key;
+        key.email = kkey.email();
+        //key.expired = kkey.expirationDate().toString();
+        key.expired = false;
+        key.fpr = kkey.fingerprint();
+        key.id = kkey.id();
+        key.name = kkey.name();
+        key.revoked = false;
+        keys.append(key);
     }
-    gpgme_op_keylist_end(mCtx);
 
-    // list only private keys ( the 1 does )
-    gpgme_op_keylist_start(mCtx, NULL, 1);
-    while (!(err = gpgme_op_keylist_next(mCtx, &key))) {
-        if (!key->subkeys)
-            continue;
+    foreach(KgpgCore::KgpgKey skey, KgpgInterface::readSecretKeys()) {
         // iterate keys, mark privates
         GpgKeyList::iterator it = keys.begin();
         while (it != keys.end()) {
-            if (key->subkeys->keyid == it->id.toStdString())
+            if (skey.id() == it->id) {
                 it->privkey = true;
+            }
             it++;
         }
-
-        gpgme_key_unref(key);
     }
-    gpgme_op_keylist_end(mCtx);
 
     return keys;
 }
@@ -324,7 +278,7 @@ void GpgContext::deleteKeys(QStringList *uidList)
 bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer)
 {
 
-    gpgme_data_t in = 0, out = 0;
+    /*gpgme_data_t in = 0, out = 0;
     outBuffer->resize(0);
 
     if (uidList->count() == 0) {
@@ -335,7 +289,7 @@ bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByte
     //gpgme_encrypt_result_t e_result;
     gpgme_key_t recipients[uidList->count()+1];
 
-    /* get key for user */
+    // get key for user
     for (int i = 0; i < uidList->count(); i++) {
         // the last 0 is for public keys, 1 would return private keys
         gpgme_op_keylist_start(mCtx, uidList->at(i).toAscii().constData(), 0);
@@ -362,7 +316,7 @@ bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByte
 			}
 		}
 	}
-    /* unref all keys */
+    // unref all keys
     for (int i = 0; i <= uidList->count(); i++) {
         gpgme_key_unref(recipients[i]);
     }
@@ -372,8 +326,16 @@ bool GpgContext::encrypt(QStringList *uidList, const QByteArray &inBuffer, QByte
     if (out) {
         gpgme_data_release(out);
     }
-    return (err == GPG_ERR_NO_ERROR);
+    return (err == GPG_ERR_NO_ERROR);*/
+    QStringList options;
+    KGpgEncrypt::EncryptOptions opts = KGpgEncrypt::DefaultEncryption;
+
+    //KGpgEncrypt *encr = new KGpgEncrypt(this, uidList, toPlainText(), opts, options);
+    //encr->start();
+    //connect(encr, SIGNAL(done(int)), SLOT(slotEncodeUpdate(int)));
 }
+
+
 
 /** Decrypt QByteAarray, return QByteArray
  *  mainly from http://basket.kde.org/ (kgpgme.cpp)
@@ -609,14 +571,12 @@ void GpgContext::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QB
 }
 
 /***
-  * if sigbuffer not set, the inbuffer should contain signed text
-  *
   * TODO: return type should contain:
   * -> list of sigs
   * -> valid
   * -> errors
   */
-gpgme_signature_t GpgContext::verify(QByteArray *inBuffer, QByteArray *sigBuffer) {
+gpgme_signature_t GpgContext::verify(QByteArray inBuffer) {
 
     int error=0;
     gpgme_data_t in;
@@ -624,16 +584,10 @@ gpgme_signature_t GpgContext::verify(QByteArray *inBuffer, QByteArray *sigBuffer
     gpgme_signature_t sign;
     gpgme_verify_result_t result;
 
-    err = gpgme_data_new_from_mem(&in, inBuffer->data(), inBuffer->size(), 1);
+    err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
     checkErr(err);
 
-    if (sigBuffer != NULL ) {
-       gpgme_data_t sigdata;
-       err = gpgme_data_new_from_mem(&sigdata, sigBuffer->data(), sigBuffer->size(), 1);
-       err = gpgme_op_verify (mCtx, sigdata, in, NULL);
-    } else {
-       err = gpgme_op_verify (mCtx, in, NULL, in);
-    }
+    err = gpgme_op_verify (mCtx, in, NULL, in);
     error = checkErr(err);
 
     if (error != 0) {
@@ -666,12 +620,11 @@ gpgme_signature_t GpgContext::verify(QByteArray *inBuffer, QByteArray *sigBuffer
  */
 //}
 
-bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer, bool detached ) {
+bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {
 
     gpgme_error_t err;
     gpgme_data_t in, out;
     gpgme_sign_result_t result;
-    gpgme_sig_mode_t mode;
 
     if (uidList->count() == 0) {
         QMessageBox::critical(0, tr("Key Selection"), tr("No Private Key Selected"));
@@ -714,13 +667,7 @@ bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArr
                mode settings of the context are ignored.
      */
 
-     if(detached) {
-        mode =  GPGME_SIG_MODE_DETACH;
-     } else {
-        mode = GPGME_SIG_MODE_CLEAR;
-     }
-
-     err = gpgme_op_sign (mCtx, in, out, mode);
+     err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_CLEAR);
      checkErr (err);
 
      if (err == GPG_ERR_CANCELED) {
@@ -738,6 +685,10 @@ bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArr
 
      gpgme_data_release(in);
      gpgme_data_release(out);
+
+     if (! settings.value("general/rememberPassword").toBool()) {
+         clearPasswordCache();
+     }
 
      return (err == GPG_ERR_NO_ERROR);
 }
@@ -822,7 +773,12 @@ QString GpgContext::getGpgmeVersion() {
      return QString(gpgme_check_version(NULL));
 }
 
+void GpgContext::emitKeyDBChanged() {
+    emit keyDBChanged();
 }
+
+}
+
 
 
 

@@ -23,6 +23,7 @@
 #define __KEYDETAILSDIALOG_H__
 
 #include "gpgcontext.h"
+#include "kgpg/core/kgpgkey.h"
 #include <gpgme.h>
 
 QT_BEGIN_NAMESPACE
@@ -42,14 +43,7 @@ class KeyDetailsDialog : public QDialog
     Q_OBJECT
 
 public:
-    /**
-     * @details Constructor of this class
-     *
-     * @param ctx The current GpgME context
-     * @param key The key to show details of
-     * @param parent The parent of this widget
-     */
-    KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWidget *parent = 0);
+    KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key, QWidget *parent = 0);
 
     /**
      * @details Return QString with a space inserted at every fourth character
@@ -63,6 +57,7 @@ private slots:
      * @details Export the key to a file, which is choosen in a file dialog
      */
     void exportPrivateKey();
+    void slotExportPrivateKeyDone(int result);
 
     /**
      * @details Copy the fingerprint to clipboard

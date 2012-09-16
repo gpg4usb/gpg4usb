@@ -28,6 +28,7 @@
 #include <gpgme.h>
 #include <QLinkedList>
 #include <QtGui>
+#include "kgpg/core/kgpgkey.h"
 
 QT_BEGIN_NAMESPACE
 class QMessageBox;
@@ -118,10 +119,11 @@ public:
     bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
     void clearPasswordCache();
     void exportSecretKey(QString uid, QByteArray *outBuffer);
-    gpgme_key_t getKeyDetails(QString uid);
-    gpgme_signature_t verify(QByteArray *inBuffer, QByteArray *sigBuffer = NULL);
+    //gpgme_key_t getKeyDetails(QString uid);
+    KgpgCore::KgpgKey getKeyDetails(QString uid);
+    gpgme_signature_t verify(QByteArray in);
 //    void decryptVerify(QByteArray in);
-    bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer, bool detached = false );
+    bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );
     /**
      * @details If text contains PGP-message, put a linebreak before the message,
      * so that gpgme can decrypt correctly
@@ -132,6 +134,8 @@ public:
 
     GpgKey getKeyByFpr(QString fpr);
     GpgKey getKeyById(QString id);
+
+    void emitKeyDBChanged();
 
     static QString gpgErrString(gpgme_error_t err);
     static QString getGpgmeVersion();
@@ -175,6 +179,9 @@ private:
     void executeGpgCommand(QStringList arguments,
                            QByteArray *stdOut,
                            QByteArray *stdErr);
+
+    QString gpgBin;
+    QString gpgKeys;
 
 };
 } // namespace GpgME
