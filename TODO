@@ -1,54 +1,50 @@
 TODO:
 -----
-Release 0.3.3
+Release 0.4
+- MacOS build
+	- replace gpgme with kgpg (lots of work and trouble!!!)
 - Change private key password 
 - create revocation file 
 	- on key generation
 	- later
 - Refresh key from keyserver [DONE]
-- set maximum keysize to 16384 (should be discussed)
 - Upload key to keyserver 
 - show message if verify has no valid signature
 - exclude translators list from about dialog [DONE]
 - change docu on file de- and encryption
-- localize output of gpgme
 - add possibility to set alternative relative path to keydb [DONE]
 - add possibility for creation of RSA keys [DONE]
-- set DSA subkey to user specified size, not only 1024 bit [DONE]
 - add posibility to add keyserver in settings [DONE]
 - add posibility to remove keyserver in settings [DONE]
-
-BUGS:
-- key generation doesn't work sometimes
-- The new wizard leaves an empty key in the registry (with GnuPG not installed locally): HKEY_CURRENT_USER\Software\GNU\GNUPG [FIXED]
-
-Release 0.3.4
-- Catch bad passphrase message
-- add keyless encryption
-- create revocation file 
-	- on key generation
-	- later
-- add posibility to add keyserver in settings
-- set gpgme error language to chosen language (context.cpp:49)
-- Add default key functionality 
+- add find action in textedit
+- keysigning and owner trust
+- catch bad passphrase message (in case of multiple private keys available for decryption)
+- add keyless encryption (symmetric, password only)
 - encrypt and sign, decrypt and verify (?)
+- check and add missing statusbar messages
+- drop key management window (integrate in main window)
+	- key details in tab
+- save the last used directory in open file dialog
 - discuss: show message, when key export is successful (statusbar)
-- update gpgme-library
+
+BUG:
+- check PGP-Mime
+
+Release 0.4.1
+- Add default key functionality 
 - investigate in embedding a steganography tool 
 	http://steghide.sourceforge.net/
 	http://www.outguess.org/
 - optionally open new tab after encryption/decrytion 
-- check and add missing statusbar messages
 - set mainwindow-statusbar text via signal
-- clear password-cache after quit (siehe kbasket)
-- save the last used directory in open file dialog
+- clear password-cache after quit (look at kbasket)
 - Settings-Dialog:
 	- add tab for editor options, like font-size, line-break, tab-width, line-numbers,..
 - remember Password:
 	- checkbox in password dialog to remember password
 	- Timer to remember password for x minutes?
 
-Release 0.3.5
+Release 0.4.2
 - keylist rewrite using tablemodel
 	- make keylist browsable with keyboard
 	- key should blink short in keylist after import
@@ -69,10 +65,9 @@ Release 0.3.5
 		- encrypting
 	- status-tip "saved file" when saving file for "open with" [DONE]
 
-Release 0.4
+Release 0.5
 - save state on closing as encrypted file, allow recovery with password on next start
 	- generate functional key for user
-- investigate using libqgpgme1 (qt binding for gpgme)
 
 Later:
 - more internationalisation:
@@ -86,11 +81,4 @@ Later:
 - Policy ( dialogs, what's warning, what an error )
 
 - some kind of locking for keydb, as gpg.conf uses lock-never, for ability to run on usb-drives (fat-formatted)
-
-- make use of GPGME IO-Callbacks from QT, read chapter 7.8.2 from GPGME info page
-
-BUGS
-----
-- entering wrong password for decrypt on windows hangs program -> possible bug in gpgme
-- Sometimes two or more stars are added to title of modified tabs
 
