@@ -30,6 +30,7 @@
 #include "settingsdialog.h"
 #include "aboutdialog.h"
 #include "verifynotification.h"
+#include "findwidget.h"
 #include "wizard.h"
 //#include "kgpg/kgpgtextinterface.h"
 #include "kgpg/core/kgpgkey.h"
@@ -114,6 +115,11 @@ private slots:
      * key from keyserver in Menu of verifynotification.
      */
     void verify();
+
+    /**
+     * @details Open find widget.
+     */
+    void find();
 
     /**
      * @details Show the details of the first of the first of selected keys
@@ -342,6 +348,7 @@ private:
     QAction *cutAct; /** Action to cut text */
     QAction *pasteAct; /** Action to paste text */
     QAction *selectallAct; /** Action to select whole text */
+    QAction *findAct; /** Action to find text */
     QAction *undoAct; /** Action to undo last action */
     QAction *redoAct; /** Action to redo last action */
     QAction *zoomInAct; /** Action to zoom in */

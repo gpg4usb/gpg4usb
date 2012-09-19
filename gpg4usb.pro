@@ -76,6 +76,7 @@ HEADERS += attachments.h \
     kgpg/transactions/kgpgverify.h \
     #kgpg/model/kgpgitemmodel.h \
     #kgpg/model/kgpgitemnode.h
+    findwidget.h
 
 
 SOURCES += attachments.cpp \
@@ -134,6 +135,7 @@ SOURCES += attachments.cpp \
     kgpg/transactions/kgpgsigntext.cpp \
     kgpg/transactions/kgpgverify.cpp \
     #kgpg/model/kgpgitemmodel.cpp
+    findwidget.cpp
 
 RC_FILE = gpg4usb.rc
 

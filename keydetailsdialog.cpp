@@ -54,6 +54,8 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
     }
 
     keyAlgoVal = key.algorithm();
+
+    qDebug() << key.algorithm();
     keyCreatedVal = key.creationDate().toString("dd. MMM. yyyy");
 
     // have el-gamal key?

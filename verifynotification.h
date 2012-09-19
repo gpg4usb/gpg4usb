@@ -54,12 +54,13 @@ class VerifyNotification : public QWidget
     Q_OBJECT
 public:
     /**
-     * @brief
-     *
-     * @param ctx The GPGme-Context
-     * @param parent The parent widget
-     */
+    * @brief
+    *
+    * @param ctx The GPGme-Context
+    * @param parent The parent widget
+    */
     explicit VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, KeyList *keyList,QTextEdit *edit);
+
     /**
      * @details Set the text and background-color of verify notification.
      *
