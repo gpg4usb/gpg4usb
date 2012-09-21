@@ -17,46 +17,27 @@ FindWidget::FindWidget(QWidget *parent, QTextEdit *edit) :
 
     // The timer is necessary for setting the focus
     QTimer::singleShot(0, findEdit, SLOT(setFocus()));
-    cursorFormat = cursor.charFormat();
-    cursorFormat.setBackground(QBrush(Qt::yellow));
-    cursor.setCharFormat(cursorFormat);
-
 }
 
 void FindWidget::findNext()
 {
-    // set background of previous selection back to white
-    cursorFormat.setBackground(QBrush(Qt::white));
-    cursor.setCharFormat(cursorFormat);
-
     cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
-
+    mTextpage->setTextCursor(cursor);
     // if end of document is reached, restart search from beginning
     if (cursor.position() == -1) {
         cursor.setPosition(0);
         cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
     }
-
-    // set background of current selection to yellow
-    cursorFormat.setBackground(QBrush(Qt::yellow));
-    cursor.setCharFormat(cursorFormat);
 }
 
 void FindWidget::find()
 {
-    // set background of previous selection back to white
-    cursorFormat.setBackground(QBrush(Qt::white));
-    cursor.setCharFormat(cursorFormat);
-
     if (cursor.anchor() == -1) {
         cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
     } else {
         cursor = mTextpage->document()->find(findEdit->text(), cursor.anchor(), QTextDocument::FindCaseSensitively);
     }
-
-    // set background of current selection to yellow
-    cursorFormat.setBackground(QBrush(Qt::yellow));
-    cursor.setCharFormat(cursorFormat);
+    mTextpage->setTextCursor(cursor);
 }
 
 void FindWidget::keyPressEvent( QKeyEvent* e )
