@@ -22,12 +22,12 @@ public:
     explicit FindWidget(QWidget *parent, QTextEdit *edit);
 
 private:
+    void keyPressEvent( QKeyEvent* e );
+
     QTextEdit *mTextpage; /** Textedit associated to the notification */
     QLineEdit *findEdit; /** Label holding the text shown in verifyNotification */
-    bool haveHit;
-    int start;
-    void keyPressEvent( QKeyEvent* e );
     QTextCursor cursor;
+    QTextCharFormat cursorFormat;
 
 private slots:
     void findNext();
