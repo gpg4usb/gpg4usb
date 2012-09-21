@@ -38,6 +38,8 @@ TextEdit::TextEdit()
     connect(tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(removeTab(int)));
     newTab();
     setAcceptDrops(false);
+    QPushButton *newButton = new QPushButton("new",this);
+    tabWidget->setCornerWidget(newButton,Qt::TopRightCorner);
 }
 
 void TextEdit::newTab()
