@@ -3,11 +3,13 @@ TODO:
 Release 0.4
 - MacOS build
 	- replace gpgme with kgpg (lots of work and trouble!!!)
+- Refresh key from keyserver [DONE]
+- add find action in textedit [DONE]
+	- BUG: hit strg+f and then esc -> textedit uneditable, same after hitting escape after entering a non found text
 - Change private key password 
 - create revocation file 
 	- on key generation
 	- later
-- Refresh key from keyserver [DONE]
 - Upload key to keyserver 
 - show message if verify has no valid signature
 - exclude translators list from about dialog [DONE]
@@ -16,7 +18,6 @@ Release 0.4
 - add possibility for creation of RSA keys [DONE]
 - add posibility to add keyserver in settings [DONE]
 - add posibility to remove keyserver in settings [DONE]
-- add find action in textedit
 - keysigning and owner trust
 - catch bad passphrase message (in case of multiple private keys available for decryption)
 - add keyless encryption (symmetric, password only)
