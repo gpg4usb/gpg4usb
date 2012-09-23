@@ -71,11 +71,6 @@ void FindWidget::keyPressEvent( QKeyEvent* e )
     case Qt::Key_Escape:
         this->closeSlot();
         break;
-/*    case Qt::Key_Enter:
-        this->findNext();
-    case Qt::Key_Return:
-        this->findNext();
-*/
     case Qt::Key_F3:
         this->findNext();
         break;
@@ -84,6 +79,7 @@ void FindWidget::keyPressEvent( QKeyEvent* e )
 
 void FindWidget::closeSlot() {
     if ( cursor.position() == -1) {
+        cursor = mTextpage->textCursor();
         cursor.setPosition(0);
         mTextpage->setTextCursor(cursor);
     }
