@@ -15,7 +15,7 @@ FindWidget::FindWidget(QWidget *parent, QTextEdit *edit) :
     notificationWidgetLayout->addWidget(closeButton);
 
     this->setLayout(notificationWidgetLayout);
-    connect(findEdit,SIGNAL(textChanged(QString)),this,SLOT(find()));
+    connect(findEdit,SIGNAL(textEdited(QString)),this,SLOT(find()));
     connect(findEdit,SIGNAL(returnPressed()),this,SLOT(findNext()));
     connect(closeButton,SIGNAL(clicked()),this,SLOT(closeSlot()));
 
