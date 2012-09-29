@@ -209,7 +209,8 @@ void FileEncryptionDialog::executeAction()
             return;
         }
         QByteArray signBuffer = signfile.readAll();
-        new VerifyDetailsDialog(this, mCtx, mKeyList, &inBuffer, &signBuffer);
+        // TODO
+        //new VerifyDetailsDialog(this, mCtx, mKeyList, &inBuffer, &signBuffer);
         return;
     }
 

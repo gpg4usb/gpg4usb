@@ -87,9 +87,9 @@ void VerifyNotification::showImportAction(bool visible)
 
 void VerifyNotification::showVerifyDetails()
 {
-    QByteArray text = mTextpage->toPlainText().toUtf8();
-    mCtx->preventNoDataErr(&text);
-    new VerifyDetailsDialog(this, mCtx, mKeyList, &text);
+    //QByteArray text = mTextpage->toPlainText().toUtf8();
+    //mCtx->preventNoDataErr(&text);
+    new VerifyDetailsDialog(this, mCtx, mKeyList, mTextpage->toPlainText());
 }
 
 bool VerifyNotification::refresh()

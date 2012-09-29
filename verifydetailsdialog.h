@@ -30,17 +30,18 @@ class VerifyDetailsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList, QByteArray* inputData, QByteArray* inputSignature = 0);
+    explicit VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList, const QString &inputData, QByteArray* inputSignature = 0);
 
 private slots:
     void refresh();
+    void slotVerifyDone(int result);
 
 private:
     GpgME::GpgContext *mCtx;
     KeyList *mKeyList;
     QHBoxLayout *mainLayout;
     QWidget *mVbox;
-    QByteArray* mInputData; /** Data to be verified */
+    QString mInputData; /** Data to be verified */
     QByteArray* mInputSignature; /** Data to be verified */
     QDialogButtonBox* buttonBox;
 };

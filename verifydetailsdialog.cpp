@@ -21,7 +21,7 @@
 
 #include "verifydetailsdialog.h"
 
-VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, QByteArray* inputData, QByteArray* inputSignature) :
+VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, const QString &inputData, QByteArray* inputSignature) :
     QDialog(parent)
 {
     mCtx = ctx;
@@ -64,6 +64,9 @@ void VerifyDetailsDialog::refresh()
     } else {
         //TODO kgpg
         //sign = mCtx->verify(mInputData);
+        KGpgVerify *verify = new KGpgVerify(this, mInputData);
+        connect(verify, SIGNAL(done(int)), SLOT(slotVerifyDone(int)));
+        verify->start();
     }
 
     /*if(sign==0) {
@@ -104,4 +107,15 @@ void VerifyDetailsDialog::refresh()
     }*/
 
     mVboxLayout->addWidget(buttonBox);
+}
+
+void VerifyDetailsDialog::slotVerifyDone(int result) {
+    const KGpgVerify * const verify = qobject_cast<KGpgVerify *>(sender());
+    sender()->deleteLater();
+    Q_ASSERT(verify != NULL);
+
+    const QStringList messages = verify->getMessages();
+    foreach(QString mess, messages) {
+        qDebug() << "vm: " <<  mess;
+    }
 }
