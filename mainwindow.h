@@ -174,6 +174,16 @@ private slots:
     void slotImportDone(int result);
 
     /**
+     * @details Export checked keys to file.
+     */
+    void exportKeyToFile();
+
+    /**
+     * @details Export checked keys to clipboard.
+     */
+    void exportKeyToClipboard();
+
+    /**
      * @details Append the selected keys to currently active textedit.
      */
     void appendSelectedKeys();
@@ -342,6 +352,7 @@ private:
     QMenu *keyMenu; /** Submenu for key-operations */
     QMenu *viewMenu; /** Submenu for view operations */
     QMenu *importKeyMenu; /** Sumenu for import operations */
+    QMenu *exportKeyMenu; /** Sumenu for export operations */
     QMenu *steganoMenu; /** Submenu for steganographic operations*/
     QToolBar *cryptToolBar; /** Toolbar holding crypt actions */
     QToolBar *fileToolBar; /** Toolbar holding file actions */
@@ -368,6 +379,8 @@ private:
     QAction *signAct; /** Action to sign text */
     QAction *verifyAct; /** Action to verify text */
     QAction *importKeyFromEditAct; /** Action to import key from edit */
+    QAction *exportKeyToClipboardAct; /** Action to export selected keys to clipboard */
+    QAction *exportKeyToFileAct; /** Action to export selected keys to file */
     QAction *cleanDoubleLinebreaksAct; /** Action to remove double line breaks */
 
     QAction *appendSelectedKeysAct; /** Action to append selected keys to edit */

@@ -306,11 +306,20 @@ void MainWindow::createActions()
 
     /* Key Menu
      */
-
     importKeyFromEditAct = new QAction(tr("&Editor"), this);
     importKeyFromEditAct->setIcon(QIcon(":txt.png"));
     importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
+
+    exportKeyToClipboardAct = new QAction(tr("&Clipboard"), this);
+    exportKeyToClipboardAct->setIcon(QIcon(":export_key_to_clipboard.png"));
+    exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
+    connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
+
+    exportKeyToFileAct = new QAction(tr("&File"), this);
+    exportKeyToFileAct->setIcon(QIcon(":export_key_to_file.png"));
+    exportKeyToFileAct->setToolTip(tr("Export Selected Key(s) To File"));
+    connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(exportKeyToFile()));
 
     deleteCheckedKeysAct = new QAction(tr("Delete Checked Key(s)"), this);
     deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
@@ -490,6 +499,11 @@ void MainWindow::createMenus()
     importKeyMenu->addAction(keyMgmt->importKeyFromClipboardAct);
     importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
     importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
+
+    exportKeyMenu = keyMenu->addMenu(tr("&Export Key(s) To..."));
+    exportKeyMenu->setIcon(QIcon(":key_export.png"));
+    exportKeyMenu->addAction(exportKeyToFileAct);
+    exportKeyMenu->addAction(exportKeyToClipboardAct);
 
     keyMenu->addSeparator();
     keyMenu->addAction(deleteCheckedKeysAct);
@@ -1138,6 +1152,41 @@ void MainWindow::copyMailAddressToClipboard()
     QClipboard *cb = QApplication::clipboard();
     QString mail = key.email();
     cb->setText(mail);
+}
+
+void MainWindow::exportKeyToFile()
+{
+// TODO
+/*    QByteArray *keyArray = new QByteArray();
+    if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
+        return;
+    }
+    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getChecked()->first());
+    QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub.asc";
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+    QTextStream stream(&file);
+    stream << *keyArray;
+    file.close();
+    delete keyArray;
+    emit statusBarChanged(QString(tr("key(s) exported")));
+*/
+}
+
+void MainWindow::exportKeyToClipboard()
+{
+// TODO
+/*    QByteArray *keyArray = new QByteArray();
+    QClipboard *cb = QApplication::clipboard();
+    if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
+        return;
+    }
+    cb->setText(*keyArray);
+    delete keyArray;
+*/
 }
 
 void MainWindow::generateKeyDialog()
