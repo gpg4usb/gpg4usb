@@ -312,10 +312,21 @@ void MainWindow::createActions()
     importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
 
+    deleteCheckedKeysAct = new QAction(tr("Delete Checked Key(s)"), this);
+    deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
+    deleteCheckedKeysAct->setIcon(QIcon(":button_cancel.png"));
+    connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
+
     openKeyManagementAct = new QAction(tr("Manage &keys"), this);
     openKeyManagementAct->setIcon(QIcon(":keymgmt.png"));
     openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
     connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
+
+    generateKeyDialogAct = new QAction(tr("Generate Key"), this);
+    generateKeyDialogAct->setToolTip(tr("Generate New Key"));
+    generateKeyDialogAct->setIcon(QIcon(":key_generate.png"));
+    connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(generateKeyDialog()));
+
 
     /* About Menu
      */
@@ -358,11 +369,6 @@ void MainWindow::createActions()
     deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
     deleteSelectedKeysAct->setToolTip(tr("Delete the Selected keys"));
     connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
-
-    deleteCheckedKeysAct = new QAction(tr("Delete Checked Key(s)"), this);
-    deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
-    deleteCheckedKeysAct->setIcon(QIcon(":button_cancel.png"));
-    connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
 
     refreshKeysFromKeyserverAct = new QAction(tr("Refresh key from keyserver"), this);
     refreshKeysFromKeyserverAct->setToolTip(tr("Refresh key from default keyserver"));
@@ -487,6 +493,8 @@ void MainWindow::createMenus()
 
     keyMenu->addSeparator();
     keyMenu->addAction(deleteCheckedKeysAct);
+    keyMenu->addSeparator();
+    keyMenu->addAction(generateKeyDialogAct);
     keyMenu->addAction(openKeyManagementAct);
 
     steganoMenu = menuBar()->addMenu(tr("&Steganography"));
@@ -1130,6 +1138,12 @@ void MainWindow::copyMailAddressToClipboard()
     QClipboard *cb = QApplication::clipboard();
     QString mail = key.email();
     cb->setText(mail);
+}
+
+void MainWindow::generateKeyDialog()
+{
+    KeyGenDialog *keyGenDialog = new KeyGenDialog(mCtx,this);
+    keyGenDialog->show();
 }
 
 void MainWindow::showKeyDetails()

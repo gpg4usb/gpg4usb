@@ -157,6 +157,11 @@ private slots:
     void slotKeyDeleted(int retcode);
 
     /**
+    * @details Slot to show generate key dialog
+    */
+    void generateKeyDialog();
+
+    /**
     * @details Delete keys, but show a warn dialog before
     */
     void deleteKeysWithWarning(QStringList *uidList);
@@ -366,6 +371,7 @@ private:
     QAction *cleanDoubleLinebreaksAct; /** Action to remove double line breaks */
 
     QAction *appendSelectedKeysAct; /** Action to append selected keys to edit */
+    QAction *generateKeyDialogAct; /** Action to open key generation dialog */
     QAction *copyMailAddressToClipboardAct; /** Action to copy mail to clipboard */
     QAction *openKeyManagementAct; /** Action to open key management */
     QAction *copyAct; /** Action to copy text */
