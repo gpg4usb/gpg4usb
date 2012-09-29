@@ -23,7 +23,6 @@
 #define __KEYIMPORTDETAILSDIALOG_H__
 
 #include "gpgcontext.h"
-#include <gpgme.h>
 
 QT_BEGIN_NAMESPACE
 class QGridLayout;

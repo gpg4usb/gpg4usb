@@ -24,7 +24,6 @@
 
 #include "gpgcontext.h"
 #include "kgpg/core/kgpgkey.h"
-#include <gpgme.h>
 
 QT_BEGIN_NAMESPACE
 class QDateTime;

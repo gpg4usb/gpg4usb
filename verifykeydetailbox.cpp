@@ -21,16 +21,16 @@
 
 #include "verifykeydetailbox.h"
 
-VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, gpgme_signature_t signature) :
+VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, KGpgVerify signature) :
     QGroupBox(parent)
 {
     this->mCtx = ctx;
     this->mKeyList = keyList;
-    this->fpr=signature->fpr;
+    //this->fpr=signature->fpr;
 
     QGridLayout *grid = new QGridLayout();
-
-    switch (gpg_err_code(signature->status))
+// TODO
+/*    switch (gpg_err_code(signature->status))
     {
         case GPG_ERR_NO_PUBKEY:
         {
@@ -80,7 +80,7 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, 
 
             break;
         }
-    }
+    }*/
     this->setLayout(grid);
 }
 

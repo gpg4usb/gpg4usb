@@ -23,7 +23,6 @@
 #define __KEYMGMT_H__
 
 #include "keylist.h"
-#include "keygenthread.h"
 #include "keydetailsdialog.h"
 #include "keyimportdetaildialog.h"
 #include "keyserverimportdialog.h"

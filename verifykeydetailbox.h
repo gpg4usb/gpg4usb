@@ -24,6 +24,7 @@
 
 #include "keylist.h"
 #include "keyserverimportdialog.h"
+#include "kgpg/transactions/kgpgverify.h"
 #include <QDialog>
 #include <QGroupBox>
 
@@ -31,7 +32,7 @@ class VerifyKeyDetailBox: public QGroupBox
 {
     Q_OBJECT
 public:
-    explicit VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList,  gpgme_signature_t signature);
+    explicit VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList,  KGpgVerify signature);
 
 private slots:
     void importFormKeyserver();

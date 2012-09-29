@@ -22,7 +22,6 @@
 #ifndef __KEYGENDIALOG_H__
 #define __KEYGENDIALOG_H__
 
-#include "keygenthread.h"
 #include "gpgcontext.h"
 #include "kgpg/transactions/kgpggeneratekey.h"
 #include <QtGui>
@@ -52,7 +51,6 @@ private:
     int checkPassWordStrength();
 
     GpgME::GpgContext *mCtx; /** The current gpg context */
-    KeyGenThread *keyGenThread; /** Thread for key generation */
     QStringList errorMessages; /** List of errors occuring when checking entries of lineedits */
     QDialogButtonBox *buttonBox; /** Box for standardbuttons */
     QLabel *errorLabel; /** Label containing error message */

@@ -25,7 +25,6 @@
 #include "editorpage.h"
 #include "verifydetailsdialog.h"
 #include "kgpg/transactions/kgpgverify.h"
-#include <gpgme.h>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
