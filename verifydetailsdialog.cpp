@@ -57,7 +57,7 @@ void VerifyDetailsDialog::refresh()
     // Get signature information of current text
     //QByteArray text = mTextpage->toPlainText().toUtf8();
     //mCtx->preventNoDataErr(&text);
-    gpgme_signature_t sign;
+    //gpgme_signature_t sign;
     if(mInputSignature != 0) {
         // TODO: kgpg
         //sign = mCtx->verify(mInputData, mInputSignature);
@@ -66,18 +66,18 @@ void VerifyDetailsDialog::refresh()
         //sign = mCtx->verify(mInputData);
     }
 
-    if(sign==0) {
+    /*if(sign==0) {
        mVboxLayout->addWidget(new QLabel(tr("No valid input found")));
        mVboxLayout->addWidget(buttonBox);
        return;
-    }
+    }*/
 
     // Get timestamp of signature of current text
     QDateTime timestamp;
-    timestamp.setTime_t(sign->timestamp);
+//    timestamp.setTime_t(sign->timestamp);
 
     // Set the title widget depending on sign status
-    if(gpg_err_code(sign->status) == GPG_ERR_BAD_SIGNATURE) {
+    /*if(gpg_err_code(sign->status) == GPG_ERR_BAD_SIGNATURE) {
         mVboxLayout->addWidget(new QLabel(tr("Error Validating signature")));
     } else if (mInputSignature != 0) {
         mVboxLayout->addWidget(new QLabel(tr("File was signed on <br/> %1 by:<br/>").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
@@ -101,7 +101,7 @@ void VerifyDetailsDialog::refresh()
         VerifyKeyDetailBox *sbox = new VerifyKeyDetailBox(this,mCtx,mKeyList,sign);
         sign = sign->next;
         mVboxLayout->addWidget(sbox);
-    }
+    }*/
 
     mVboxLayout->addWidget(buttonBox);
 }
