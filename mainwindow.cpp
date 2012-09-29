@@ -48,17 +48,12 @@ MainWindow::MainWindow()
 
     createActions();
     createMenus();
+    createKeyListMenu();
     createToolBars();
     createStatusBar();
     createDockWindows();
 
     connect(edit->tabWidget,SIGNAL(currentChanged(int)),this,SLOT(disableTabActions(int)));
-
-    mKeyList->addMenuAction(appendSelectedKeysAct);
-    mKeyList->addMenuAction(copyMailAddressToClipboardAct);
-    mKeyList->addMenuAction(showKeyDetailsAct);
-    mKeyList->addMenuAction(refreshKeysFromKeyserverAct);
-    mKeyList->addMenuAction(uploadKeyToServerAct);
 
     restoreSettings();
 
@@ -360,6 +355,15 @@ void MainWindow::createActions()
     showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
     connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(showKeyDetails()));
 
+    deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
+    deleteSelectedKeysAct->setToolTip(tr("Delete the Selected keys"));
+    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
+
+    deleteCheckedKeysAct = new QAction(tr("Delete Checked Key(s)"), this);
+    deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
+    deleteCheckedKeysAct->setIcon(QIcon(":button_cancel.png"));
+    connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
+
     refreshKeysFromKeyserverAct = new QAction(tr("Refresh key from keyserver"), this);
     refreshKeysFromKeyserverAct->setToolTip(tr("Refresh key from default keyserver"));
     connect(refreshKeysFromKeyserverAct, SIGNAL(triggered()), this, SLOT(refreshKeysFromKeyserver()));
@@ -476,9 +480,13 @@ void MainWindow::createMenus()
     importKeyMenu->setIcon(QIcon(":key_import.png"));
     importKeyMenu->addAction(keyMgmt->importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
+
     importKeyMenu->addAction(keyMgmt->importKeyFromClipboardAct);
     importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
     importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
+
+    keyMenu->addSeparator();
+    keyMenu->addAction(deleteCheckedKeysAct);
     keyMenu->addAction(openKeyManagementAct);
 
     steganoMenu = menuBar()->addMenu(tr("&Steganography"));
@@ -501,6 +509,16 @@ void MainWindow::createMenus()
     helpMenu->addSeparator();
     helpMenu->addAction(aboutAct);
 
+}
+
+void MainWindow::createKeyListMenu()
+{
+    mKeyList->addMenuAction(appendSelectedKeysAct);
+    mKeyList->addMenuAction(copyMailAddressToClipboardAct);
+    mKeyList->addMenuAction(showKeyDetailsAct);
+    mKeyList->addMenuAction(refreshKeysFromKeyserverAct);
+    mKeyList->addMenuAction(uploadKeyToServerAct);
+    mKeyList->addMenuAction(deleteSelectedKeysAct);
 }
 
 void MainWindow::createToolBars()
@@ -731,6 +749,62 @@ void MainWindow::checkAttachmentFolder() {
     } else {
         statusBarIcon->hide();
     }
+}
+
+void MainWindow::deleteSelectedKeys()
+{
+    deleteKeysWithWarning(mKeyList->getSelected());
+}
+
+void MainWindow::deleteCheckedKeys()
+{
+    deleteKeysWithWarning(mKeyList->getChecked());
+}
+
+void MainWindow::deleteKeysWithWarning(QStringList *uidList)
+{
+    /**
+     * TODO: Different Messages for private/public key, check if
+     * more than one selected... compare to seahorse "delete-dialog"
+     */
+
+    if (uidList->isEmpty()) {
+        return;
+    }
+    QString keynames;
+    foreach (QString uid, *uidList) {
+        keynames.append(mCtx->getKeyDetails(uid).name());
+        keynames.append("<i> &lt;");
+        keynames.append(mCtx->getKeyDetails(uid).email());
+        keynames.append("&gt; </i><br/>");
+    }
+
+    int ret = QMessageBox::warning(this, tr("Deleting Keys"),
+                                    "<b>"+tr("Are you sure that you want to delete the following keys?")+"</b><br/><br/>"+keynames+
+                                    +"<br/>"+tr("The action can not be undone."),
+                                    QMessageBox::No | QMessageBox::Yes);
+
+    if (ret == QMessageBox::Yes) {
+        //mCtx->deleteKeys(uidList);
+        KGpgDelKey *delkey = new KGpgDelKey(this, *uidList);
+        connect(delkey, SIGNAL(done(int)), SLOT(slotKeyDeleted(int)));
+        delkey->start();
+    }
+}
+
+void MainWindow::slotKeyDeleted(int retcode)
+{
+    KGpgDelKey *delkey = qobject_cast<KGpgDelKey *>(sender());
+
+    /*KGpgKeyNode *delkey = m_delkey->keys().first();
+    if (retcode == 0) {
+        KMessageBox::information(this, i18n("Key <b>%1</b> deleted.", delkey->getBeautifiedFingerprint()), i18n("Delete key"));
+        imodel->delNode(delkey);
+    } else {
+        KMessageBox::error(this, i18n("Deleting key <b>%1</b> failed.", delkey->getBeautifiedFingerprint()), i18n("Delete key"));
+    }*/
+    mCtx->emitKeyDBChanged();
+    delkey->deleteLater();
 }
 
 void MainWindow::importKeyFromEdit()

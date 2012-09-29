@@ -139,7 +139,27 @@ private slots:
     /**
       * @details start the wizard
       */
-     void startWizard();
+    void startWizard();
+
+    /**
+    * @details Delete selected keys in keyklist
+    */
+    void deleteSelectedKeys();
+
+    /**
+    * @details Delete checked keys in keyklist
+    */
+    void deleteCheckedKeys();
+
+    /**
+    * @details Slot called after deleting keys
+    */
+    void slotKeyDeleted(int retcode);
+
+    /**
+    * @details Delete keys, but show a warn dialog before
+    */
+    void deleteKeysWithWarning(QStringList *uidList);
 
     /**
      * @details Import keys from currently active tab to keylist if possible.
@@ -245,7 +265,7 @@ private slots:
 
 private:
     /**
-     * @details Create actions for the main-menu and the context-menu of the keylist.
+     * @details Create actions for the main-menu.
      */
     void createActions();
 
@@ -268,6 +288,11 @@ private:
      * @details Create keylist- and attachment-dockwindows.
      */
     void createDockWindows();
+
+    /**
+     * @details Create the context menu of the keylist.
+     */
+    void createKeyListMenu();
 
     /**
      * @details Create attachment-dockwindow.
@@ -363,6 +388,8 @@ private:
     QAction *openTutorialAct; /** Action to open tutorial */
     QAction *openHelpAct; /** Action to open tutorial */
     QAction *showKeyDetailsAct; /** Action to open key-details dialog */
+    QAction *deleteSelectedKeysAct; /** Action to delete selected keys */
+    QAction *deleteCheckedKeysAct; /** Action to delete checked keys */
     QAction *refreshKeysFromKeyserverAct; /** Action to refresh a key from keyserver */
     QAction *uploadKeyToServerAct; /** Action to append selected keys to edit */
     QAction *startWizardAct; /** Action to open the wizard */
