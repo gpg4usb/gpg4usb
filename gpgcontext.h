@@ -25,7 +25,6 @@
 #include "gpgconstants.h"
 #include <locale.h>
 #include <errno.h>
-#include <gpgme.h>
 #include <QLinkedList>
 #include <QtGui>
 #include "kgpg/core/kgpgkey.h"
@@ -109,21 +108,10 @@ class GpgContext : public QObject
 public:
     GpgContext(); // Constructor
     ~GpgContext(); // Destructor
-    GpgImportInformation importKey(QByteArray inBuffer);
-    bool exportKeys(QStringList *uidList, QByteArray *outBuffer);
-    void generateKey(QString *params);
     GpgKeyList listKeys();
-    void deleteKeys(QStringList *uidList);
-    bool encrypt(QStringList *uidList, const QByteArray &inBuffer,
-                 QByteArray *outBuffer);
-    bool decrypt(const QByteArray &inBuffer, QByteArray *outBuffer);
     void clearPasswordCache();
-    void exportSecretKey(QString uid, QByteArray *outBuffer);
-    //gpgme_key_t getKeyDetails(QString uid);
     KgpgCore::KgpgKey getKeyDetails(QString uid);
-    gpgme_signature_t verify(QByteArray in);
-//    void decryptVerify(QByteArray in);
-    bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );
+
     /**
      * @details If text contains PGP-message, put a linebreak before the message,
      * so that gpgme can decrypt correctly
@@ -136,9 +124,6 @@ public:
     GpgKey getKeyById(QString id);
 
     void emitKeyDBChanged();
-
-    static QString gpgErrString(gpgme_error_t err);
-    static QString getGpgmeVersion();
 
     /**
      * @brief
@@ -158,28 +143,10 @@ private slots:
     void refreshKeyList();
 
 private:
-    gpgme_ctx_t mCtx;
-    gpgme_data_t in, out;
-    gpgme_error_t err;
-    gpgme_error_t readToBuffer(gpgme_data_t in, QByteArray *outBuffer);
     QByteArray mPasswordCache;
     QSettings settings;
     bool debug;
     GpgKeyList mKeyList;
-    int checkErr(gpgme_error_t err) const;
-    int checkErr(gpgme_error_t err, QString comment) const;
-
-    static gpgme_error_t passphraseCb(void *hook, const char *uid_hint,
-                                      const char *passphrase_info,
-                                      int last_was_bad, int fd);
-    gpgme_error_t passphrase(const char *uid_hint,
-                             const char *passphrase_info,
-                             int last_was_bad, int fd);
-
-    void executeGpgCommand(QStringList arguments,
-                           QByteArray *stdOut,
-                           QByteArray *stdErr);
-
     QString gpgBin;
     QString gpgKeys;
 

@@ -8,8 +8,7 @@ TEMPLATE = app
 # mac:TARGET = start_mac
 DESTDIR = release
 DEPENDPATH += .
-INCLUDEPATH += . \
-    ./include
+INCLUDEPATH += . 
 
 #DEFINES += GPG4USB_NON_PORTABLE
 
@@ -26,7 +25,6 @@ HEADERS += attachments.h \
     keyimportdetaildialog.h \
     mime.h \
     keygendialog.h \
-    keygenthread.h \
     keydetailsdialog.h \
     keylist.h \
     keymgmt.h \
@@ -87,7 +85,6 @@ SOURCES += attachments.cpp \
     keyimportdetaildialog.cpp \
     mime.cpp \
     keygendialog.cpp \
-    keygenthread.cpp \
     keydetailsdialog.cpp \
     keylist.cpp \
     keymgmt.cpp \
@@ -140,18 +137,6 @@ SOURCES += attachments.cpp \
 RC_FILE = gpg4usb.rc
 
 RESOURCES = gpg4usb.qrc
-
-# comment out line below for static building
-LIBS += -lgpgme \
-     -lgpg-error \
-
-# comment in for static buildding in windows
-#INCLUDEPATH += ./winbuild/include 
-#LIBS +=./winbuild/lib/libgpgme.a ./winbuild/lib/libgpg-error.a 
-
-#INCLUDEPATH += ./macbuild/include
-#LIBS +=./macbuild/lib/libgpgme.a ./macbuild/lib/libgpg-error.a
-
     
 DEFINES += _FILE_OFFSET_BITS=64
 TRANSLATIONS = release/ts/gpg4usb_en.ts \

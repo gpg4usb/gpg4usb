@@ -187,10 +187,12 @@ void FileEncryptionDialog::executeAction()
     QByteArray *outBuffer = new QByteArray();
     infile.close();
     if ( mAction == Encrypt ) {
-        if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
+    // TODO
+    //    if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
     }
     if ( mAction == Decrypt )  {
-        if (! mCtx->decrypt(inBuffer, outBuffer)) return;
+    // TODO
+    //    if (! mCtx->decrypt(inBuffer, outBuffer)) return;
     }
 
     // TODO: with kgpg

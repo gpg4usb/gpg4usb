@@ -260,8 +260,9 @@ void KeyList::markKeys(QStringList *keyIds)
 
 void KeyList::importKeys(QByteArray inBuffer)
 {
-    GpgImportInformation result = mCtx->importKey(inBuffer);
-    new KeyImportDetailDialog(mCtx, result, this);
+// TODO
+//    GpgImportInformation result = mCtx->importKey(inBuffer);
+//    new KeyImportDetailDialog(mCtx, result, this);
 }
 
 void KeyList::uploadKeyToServer(QByteArray *keys)

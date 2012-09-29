@@ -295,7 +295,8 @@ void KeyMgmt::showKeyDetails()
 
 void KeyMgmt::exportKeyToFile()
 {
-    QByteArray *keyArray = new QByteArray();
+// TODO
+/*    QByteArray *keyArray = new QByteArray();
     if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
         return;
     }
@@ -311,17 +312,20 @@ void KeyMgmt::exportKeyToFile()
     file.close();
     delete keyArray;
     emit statusBarChanged(QString(tr("key(s) exported")));
+*/
 }
 
 void KeyMgmt::exportKeyToClipboard()
 {
-    QByteArray *keyArray = new QByteArray();
+// TODO
+/*    QByteArray *keyArray = new QByteArray();
     QClipboard *cb = QApplication::clipboard();
     if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
         return;
     }
     cb->setText(*keyArray);
     delete keyArray;
+*/
 }
 
 void KeyMgmt::generateKeyDialog()

@@ -74,7 +74,8 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, 
 
             grid->addWidget(new QLabel(key.name), 0, 1);
             grid->addWidget(new QLabel(key.email), 1, 1);
-            grid->addWidget(new QLabel(gpg_strerror(signature->status)), 2, 1);
+            // TODO
+            //grid->addWidget(new QLabel(gpg_strerror(signature->status)), 2, 1);
             grid->addWidget(new QLabel(beautifyFingerprint(key.fpr)), 3, 1);
 
             break;

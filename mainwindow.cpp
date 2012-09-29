@@ -1083,9 +1083,11 @@ void MainWindow::refreshKeysFromKeyserver()
 void MainWindow::uploadKeyToServer()
 {
     QByteArray *keyArray = new QByteArray();
-    mCtx->exportKeys(mKeyList->getSelected(), keyArray);
 
-    mKeyList->uploadKeyToServer(keyArray);
+    // TODO:
+    //mCtx->exportKeys(mKeyList->getSelected(), keyArray);
+
+    //mKeyList->uploadKeyToServer(keyArray);
 }
 
 void MainWindow::fileEncrypt()

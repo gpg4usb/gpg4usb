@@ -59,7 +59,7 @@ InfoTab::InfoTab(QWidget *parent)
                                      "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"
                                      "contact page</a> or send a mail to our<br/> mailing list at"
                                      " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>.") + tr("<br><br> Built with Qt ") + qVersion()
-                                + tr(" and GPGME ") + GpgME::GpgContext::getGpgmeVersion() +"</center>");
+                                + "</center>");
 
     QGridLayout *layout = new QGridLayout();
     QLabel *pixmapLabel = new QLabel();
