@@ -51,7 +51,7 @@ public:
     QAction *importKeyFromKeyServerAct;
 
 public slots:
-    void SlotimportKeyFromFile();
+    void slotimportKeyFromFile();
     void slotImportKeyFromClipboard();
     void slotImportKeyFromKeyServer();
     void slotImportKeys(QString text);

@@ -87,7 +87,7 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, 
 void VerifyKeyDetailBox::importFormKeyserver()
 {
     KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,mKeyList,this);
-    importDialog->import(QStringList(fpr));
+    importDialog->slotImport(QStringList(fpr));
 }
 
 QString VerifyKeyDetailBox::beautifyFingerprint(QString fingerprint)

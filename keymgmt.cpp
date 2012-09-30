@@ -74,7 +74,7 @@ void KeyMgmt::createActions()
     importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(":import_key_from_file.png"));
     importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
-    connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(SlotimportKeyFromFile()));
+    connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(slotimportKeyFromFile()));
 
     importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
     importKeyFromClipboardAct->setIcon(QIcon(":import_key_from_clipboard.png"));
@@ -199,7 +199,7 @@ void KeyMgmt::slotImportDone(int result)
     import->deleteLater();
 }
 
-void KeyMgmt::SlotimportKeyFromFile()
+void KeyMgmt::slotimportKeyFromFile()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;"+tr("Keyring files")+" (*.gpg);;All Files (*)");
     if (! fileName.isNull()) {

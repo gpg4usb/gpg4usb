@@ -56,7 +56,7 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, 
 void VerifyNotification::importFromKeyserver()
 {
     KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,mKeyList, this);
-    importDialog->import(*keysNotInList);
+    importDialog->slotImport(*keysNotInList);
 }
 
 void VerifyNotification::setVerifyLabel(QString text, verify_label_status verifyLabelStatus)

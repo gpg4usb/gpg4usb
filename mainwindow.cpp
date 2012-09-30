@@ -1213,7 +1213,7 @@ void MainWindow::slotRefreshKeysFromKeyserver()
     }
 
     KeyServerImportDialog *ksid = new KeyServerImportDialog(mCtx,mKeyList,this);
-    ksid->import(*mKeyList->getSelected());
+    ksid->slotImport(*mKeyList->getSelected());
 }
 
 void MainWindow::slotUploadKeyToServer()
