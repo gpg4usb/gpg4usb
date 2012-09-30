@@ -226,7 +226,7 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     QLabel *configLabel = new QLabel(tr("Configuration"));
 
     QPushButton *importFromGpg4usbButton = new QPushButton(tr("Import from gpg4usb"));
-    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importFromOlderGpg4usb()));
+    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(slotImportFromOlderGpg4usb()));
 
     QGridLayout *gpg4usbLayout = new QGridLayout();
     gpg4usbLayout->addWidget(topLabel,1,1,1,2);
@@ -239,7 +239,7 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     this->setLayout(gpg4usbLayout);
 }
 
-void ImportFromGpg4usbPage::importFromOlderGpg4usb()
+void ImportFromGpg4usbPage::slotImportFromOlderGpg4usb()
 {
     QString dir = QFileDialog::getExistingDirectory(this,tr("Other gpg4usb directory"));
 
@@ -257,7 +257,7 @@ void ImportFromGpg4usbPage::importFromOlderGpg4usb()
 
     // try to import config, if appropriate box is checked
     if (gpg4usbConfigCheckBox->isChecked()) {
-        importConfFromGpg4usb(dir);
+        slotImportConfFromGpg4usb(dir);
 
         QSettings settings;
         settings.setValue("wizard/nextPage", this->nextId());
@@ -269,7 +269,7 @@ void ImportFromGpg4usbPage::importFromOlderGpg4usb()
     wizard()->next();
 }
 
-bool ImportFromGpg4usbPage::importConfFromGpg4usb(QString dir) {
+bool ImportFromGpg4usbPage::slotImportConfFromGpg4usb(QString dir) {
     QString path = dir+"/conf/gpg4usb.ini";
     QSettings oldconf(path, QSettings::IniFormat, this);
     QSettings actualConf;
@@ -297,7 +297,7 @@ ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgm
     gnupgLabel->setWordWrap(true);
 
     importFromGnupgButton = new QPushButton(tr("Import keys from GnuPG"));
-    connect(importFromGnupgButton, SIGNAL(clicked()), this, SLOT(importKeysFromGnupg()));
+    connect(importFromGnupgButton, SIGNAL(clicked()), this, SLOT(slotImportKeysFromGnupg()));
 
     QGridLayout *layout = new QGridLayout();
     layout->addWidget(gnupgLabel);
@@ -306,7 +306,7 @@ ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgm
     this->setLayout(layout);
 }
 
-void ImportFromGnupgPage::importKeysFromGnupg()
+void ImportFromGnupgPage::slotImportKeysFromGnupg()
 {
     // first get gnupghomedir and check, if it exists
     QString gnuPGHome = getGnuPGHome();
@@ -381,7 +381,7 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
     layout->addWidget(topLabel);
     layout->addWidget(linkLabel);
     layout->addWidget(createKeyButtonBox);
-    connect(createKeyButton, SIGNAL(clicked()), this, SLOT(generateKeyDialog()));
+    connect(createKeyButton, SIGNAL(clicked()), this, SLOT(slotRenerateKeyDialog()));
 
     setLayout(layout);
 }
@@ -391,7 +391,7 @@ int KeyGenPage::nextId() const
     return Wizard::Page_Conclusion;
 }
 
-void KeyGenPage::generateKeyDialog()
+void KeyGenPage::slotRenerateKeyDialog()
 {
     KeyGenDialog *keyGenDialog = new KeyGenDialog(mCtx, this);
     keyGenDialog->exec();

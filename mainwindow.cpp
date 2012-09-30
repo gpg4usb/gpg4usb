@@ -1105,7 +1105,7 @@ void MainWindow::slotVerify()
     VerifyNotification *vn = new VerifyNotification(this, mCtx, mKeyList, edit->curTextPage());
 
     // if signing information is found, show the notification, otherwise close it
-    if (vn->refresh()) {
+    if (vn->slotRefresh()) {
         edit->curPage()->showNotificationWidget(vn, "verifyNotification");
     } else {
         vn->close();

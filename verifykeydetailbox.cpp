@@ -84,7 +84,7 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, 
     this->setLayout(grid);
 }
 
-void VerifyKeyDetailBox::importFormKeyserver()
+void VerifyKeyDetailBox::slotImportFormKeyserver()
 {
     KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,mKeyList,this);
     importDialog->slotImport(QStringList(fpr));

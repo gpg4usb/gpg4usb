@@ -84,17 +84,17 @@ public slots:
      * @details Import the keys contained in keysNotInList from keyserver
      *
      */
-    void importFromKeyserver();
+    void slotImportFromKeyserver();
 
     /**
      * @details Show a dialog with signing details.
      */
-    void showVerifyDetails();
+    void slotShowVerifyDetails();
 
     /**
      * @details Refresh the contents of dialog.
      */
-    bool refresh();
+    bool slotRefresh();
 
     void slotVerifyDone(int result);
 

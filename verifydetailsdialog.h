@@ -33,7 +33,7 @@ public:
     explicit VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList, const QString &inputData, QByteArray* inputSignature = 0);
 
 private slots:
-    void refresh();
+    void slotRefresh();
     void slotVerifyDone(int result);
 
 private:

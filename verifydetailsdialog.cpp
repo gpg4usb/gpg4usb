@@ -32,17 +32,17 @@ VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx
 
     this->setWindowTitle(tr("Signaturedetails"));
 
-    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
+    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(slotRefresh()));
     mainLayout = new QHBoxLayout();
     this->setLayout(mainLayout);
 
     mVbox = new QWidget();
-    refresh();
+    slotRefresh();
 
     this->exec();
 }
 
-void VerifyDetailsDialog::refresh()
+void VerifyDetailsDialog::slotRefresh()
 {
     mVbox->close();
 

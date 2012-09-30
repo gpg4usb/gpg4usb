@@ -96,8 +96,8 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    void importFromOlderGpg4usb();
-    bool importConfFromGpg4usb(QString dir);
+    void slotImportFromOlderGpg4usb();
+    bool slotImportConfFromGpg4usb(QString dir);
 
 private:
     int nextId() const;
@@ -119,7 +119,7 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    void importKeysFromGnupg();
+    void slotImportKeysFromGnupg();
 
 private:
     KeyMgmt *mKeyMgmt;
@@ -145,7 +145,7 @@ public:
     int nextId() const;
 
 private slots:
-    void generateKeyDialog();
+    void slotRenerateKeyDialog();
 
 private:
     GpgME::GpgContext *mCtx;

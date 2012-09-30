@@ -35,7 +35,7 @@ public:
     explicit VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList,  KGpgVerify signature);
 
 private slots:
-    void importFormKeyserver();
+    void slotImportFormKeyserver();
 
 private:
     GpgME::GpgContext* mCtx;
