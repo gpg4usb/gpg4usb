@@ -8,18 +8,21 @@ FindWidget::FindWidget(QWidget *parent, QTextEdit *edit) :
     findEdit = new QLineEdit(this);
     QPushButton *closeButton= new QPushButton(this->style()->standardIcon(QStyle::SP_TitleBarCloseButton),"",this);
     QPushButton *nextButton= new QPushButton(QIcon(":button_next.png"), "");
+    QPushButton *previousButton= new QPushButton(QIcon(":button_previous.png"), "");
 
     QHBoxLayout *notificationWidgetLayout = new QHBoxLayout(this);
     notificationWidgetLayout->setContentsMargins(10,0,0,0);
     notificationWidgetLayout->addWidget(new QLabel(tr("Find:")));
     notificationWidgetLayout->addWidget(findEdit,2);
     notificationWidgetLayout->addWidget(nextButton);
+    notificationWidgetLayout->addWidget(previousButton);
     notificationWidgetLayout->addWidget(closeButton);
 
     this->setLayout(notificationWidgetLayout);
     connect(findEdit,SIGNAL(textEdited(QString)),this,SLOT(slotFind()));
     connect(findEdit,SIGNAL(returnPressed()),this,SLOT(slotFindNext()));
     connect(nextButton,SIGNAL(clicked()),this,SLOT(slotFindNext()));
+    connect(previousButton,SIGNAL(clicked()),this,SLOT(slotFindPrevious()));
     connect(closeButton,SIGNAL(clicked()),this,SLOT(slotClose()));
 
     // The timer is necessary for setting the focus
@@ -67,12 +70,47 @@ void FindWidget::slotFind()
     mTextpage->setTextCursor(cursor);
 }
 
+void FindWidget::slotFindPrevious()
+{
+    QTextDocument::FindFlags flags;
+    flags |= QTextDocument::FindBackward;
+    flags |= QTextDocument::FindCaseSensitively;
+
+    cursor = mTextpage->document()->find(findEdit->text(), cursor, flags);
+
+    // if end of document is reached, restart search from beginning
+    if (cursor.position() == -1) {
+        qDebug() << "cursor:" << cursor.position();
+        qDebug() << "length: " << mTextpage->document()->toPlainText().length()-1;
+
+        cursor.movePosition(QTextCursor::End);
+        qDebug() << "cursor2: " << cursor.position();
+        cursor = mTextpage->document()->find(findEdit->text(), cursor, flags);
+        qDebug() << "cursor3: " << cursor.position();
+
+    }
+
+    // if match is found set background of QLineEdit to white, otherwise to red
+    QPalette bgPalette( findEdit->palette() );
+    if ((cursor.position() == -1) && (!findEdit->text().isEmpty())) {
+        bgPalette.setColor( QPalette::Base, "#ececba");
+    } else {
+        bgPalette.setColor( QPalette::Base, Qt::white);
+    }
+    findEdit->setPalette(bgPalette);
+
+    mTextpage->setTextCursor(cursor);
+}
+
 void FindWidget::keyPressEvent( QKeyEvent* e )
 {
     switch ( e->key() )
     {
     case Qt::Key_Escape:
         this->slotClose();
+        break;
+    case Qt::Key_F3 + Qt::SHIFT:
+        this->slotFindPrevious();
         break;
     case Qt::Key_F3:
         this->slotFindNext();

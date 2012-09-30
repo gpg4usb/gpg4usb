@@ -5,6 +5,9 @@ Release 0.4
 	- replace gpgme with kgpg (lots of work and trouble!!!)
 - Refresh key from keyserver [DONE]
 - add find action in textedit [DONE]
+	- BUG: hit strg+f, then hit escape -> text not editable anymore, same with not found expression
+	- When earch revious, text should be searched from end again, if no hit is found
+	- save the search expression, so that it is automatically used next time
 - Change private key password 
 - create revocation file 
 	- on key generation

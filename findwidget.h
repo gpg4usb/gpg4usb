@@ -31,6 +31,7 @@ private:
 
 private slots:
     void slotFindNext();
+    void slotFindPrevious();
     void slotFind();
     void slotClose();
 };
