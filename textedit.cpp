@@ -36,13 +36,13 @@ TextEdit::TextEdit()
     setLayout(layout);
 
     connect(tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(removeTab(int)));
-    newTab();
+    slotNewTab();
     setAcceptDrops(false);
     QPushButton *newButton = new QPushButton("new",this);
     tabWidget->setCornerWidget(newButton,Qt::TopRightCorner);
 }
 
-void TextEdit::newTab()
+void TextEdit::slotNewTab()
 {
     QString header = tr("untitled") +
                      QString::number(++countPage)+".txt";
@@ -51,10 +51,10 @@ void TextEdit::newTab()
     tabWidget->addTab(page, header);
     tabWidget->setCurrentIndex(tabWidget->count() - 1);
     page->getTextPage()->setFocus();
-    connect(page->getTextPage()->document(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
+    connect(page->getTextPage()->document(), SIGNAL(modificationChanged(bool)), this, SLOT(slotShowModified()));
  }
 
-void TextEdit::newHelpTab(QString title, QString path)
+void TextEdit::slotNewHelpTab(QString title, QString path)
 {
 
     HelpPage *page = new HelpPage(path);
@@ -63,7 +63,7 @@ void TextEdit::newHelpTab(QString title, QString path)
 
 }
 
-void TextEdit::open()
+void TextEdit::slotOpen()
 {
     QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open file"),
                                                           QDir::currentPath());
@@ -85,7 +85,7 @@ void TextEdit::open()
                 tabWidget->setCurrentIndex(tabWidget->count() - 1);
                 QApplication::restoreOverrideCursor();
                 page->getTextPage()->setFocus();
-                connect(page->getTextPage()->document(), SIGNAL(modificationChanged(bool)), this, SLOT(showModified()));
+                connect(page->getTextPage()->document(), SIGNAL(modificationChanged(bool)), this, SLOT(slotShowModified()));
                 //enableAction(true)
                 file.close();
             } else {
@@ -98,7 +98,7 @@ void TextEdit::open()
     }
 }
 
-void TextEdit::save()
+void TextEdit::slotSave()
 {
     if (tabWidget->count() == 0 || curPage() == 0) {
         return;
@@ -109,7 +109,7 @@ void TextEdit::save()
     if (fileName.isEmpty()) {
         //QString docname = tabWidget->tabText(tabWidget->currentIndex());
         //docname.remove(0,2);
-        saveAs();
+        slotSaveAs();
     } else {
         saveFile(fileName);
     }
@@ -150,7 +150,7 @@ bool TextEdit::saveFile(const QString &fileName)
 }
 
 
-bool TextEdit::saveAs()
+bool TextEdit::slotSaveAs()
 {
     if (tabWidget->count() == 0 || curPage() == 0) {
         return true;
@@ -169,7 +169,7 @@ bool TextEdit::saveAs()
     return saveFile(fileName);
 }
 
-void TextEdit::closeTab()
+void TextEdit::slotCloseTab()
 {
     removeTab(tabWidget->currentIndex());
     if (tabWidget->count() != 0) {
@@ -239,7 +239,7 @@ bool TextEdit::maybeSaveCurrentTab(bool askToSave) {
             if (filePath == "") {
                 //QString docname = tabWidget->tabText(tabWidget->currentIndex());
                 //docname.remove(0,2);
-                return saveAs();
+                return slotSaveAs();
             } else {
                 return saveFile(filePath);
             }
@@ -343,7 +343,7 @@ EditorPage* TextEdit::curPage()
     return curPage;
 }
 
-void TextEdit::quote()
+void TextEdit::slotQuote()
 {
     if (tabWidget->count() == 0 || curTextPage() == 0) {
         return;
@@ -365,7 +365,7 @@ void TextEdit::quote()
     cursor.endEditBlock();
 }
 
-void TextEdit::fillTextEditWithText(QString text) {
+void TextEdit::slotFillTextEditWithText(QString text) {
     QTextCursor cursor(curTextPage()->document());
     cursor.beginEditBlock();
     this->curTextPage()->selectAll();
@@ -398,7 +398,7 @@ QString TextEdit::strippedName(const QString &fullFileName)
     return QFileInfo(fullFileName).fileName();
 }
 
-void TextEdit::print()
+void TextEdit::slotPrint()
 {
     if (tabWidget->count() == 0) {
         return;
@@ -423,7 +423,7 @@ void TextEdit::print()
 #endif
 }
 
-void TextEdit::showModified() {
+void TextEdit::slotShowModified() {
     int index=tabWidget->currentIndex();
     QString title= tabWidget->tabText(index);
     // if doc is modified now, add leading * to title,
@@ -435,14 +435,14 @@ void TextEdit::showModified() {
     }
 }
 
-void TextEdit::switchTabUp() {
+void TextEdit::slotSwitchTabUp() {
     if (tabWidget->count() > 1) {
         int newindex=(tabWidget->currentIndex()+1)%(tabWidget->count());
         tabWidget->setCurrentIndex(newindex);
     }
 }
 
-void TextEdit::switchTabDown() {
+void TextEdit::slotSwitchTabDown() {
     if (tabWidget->count() > 1) {
         int newindex=(tabWidget->currentIndex()-1+tabWidget->count())%tabWidget->count();
         tabWidget->setCurrentIndex(newindex);

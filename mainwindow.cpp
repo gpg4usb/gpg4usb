@@ -154,36 +154,36 @@ void MainWindow::createActions()
     newTabActShortcutList.append(QKeySequence (Qt::CTRL + Qt::Key_T));
     newTabAct->setShortcuts(newTabActShortcutList);
     newTabAct->setToolTip(tr("Open a new file"));
-    connect(newTabAct, SIGNAL(triggered()), edit, SLOT(newTab()));
+    connect(newTabAct, SIGNAL(triggered()), edit, SLOT(slotNewTab()));
 
     openAct = new QAction(tr("&Open..."), this);
     openAct->setIcon(QIcon(":fileopen.png"));
     openAct->setShortcut(QKeySequence::Open);
     openAct->setToolTip(tr("Open an existing file"));
-    connect(openAct, SIGNAL(triggered()), edit, SLOT(open()));
+    connect(openAct, SIGNAL(triggered()), edit, SLOT(slotOpen()));
 
     saveAct = new QAction(tr("&Save"), this);
     saveAct->setIcon(QIcon(":filesave.png"));
     saveAct->setShortcut(QKeySequence::Save);
     saveAct->setToolTip(tr("Save the current File"));
-    connect(saveAct, SIGNAL(triggered()), edit, SLOT(save()));
+    connect(saveAct, SIGNAL(triggered()), edit, SLOT(slotSave()));
 
     saveAsAct = new QAction(tr("Save &As")+"...", this);
     saveAsAct->setIcon(QIcon(":filesaveas.png"));
     saveAsAct->setShortcut(QKeySequence::SaveAs);
     saveAsAct->setToolTip(tr("Save the current File as..."));
-    connect(saveAsAct, SIGNAL(triggered()), edit, SLOT(saveAs()));
+    connect(saveAsAct, SIGNAL(triggered()), edit, SLOT(slotSaveAs()));
 
     printAct = new QAction(tr("&Print"), this);
     printAct->setIcon(QIcon(":fileprint.png"));
     printAct->setShortcut(QKeySequence::Print);
     printAct->setToolTip(tr("Print Document"));
-    connect(printAct, SIGNAL(triggered()), edit, SLOT(print()));
+    connect(printAct, SIGNAL(triggered()), edit, SLOT(slotPrint()));
 
     closeTabAct = new QAction(tr("&Close"), this);
     closeTabAct->setShortcut(QKeySequence::Close);
     closeTabAct->setToolTip(tr("Close file"));
-    connect(closeTabAct, SIGNAL(triggered()), edit, SLOT(closeTab()));
+    connect(closeTabAct, SIGNAL(triggered()), edit, SLOT(slotCloseTab()));
 
     quitAct = new QAction(tr("&Quit"), this);
     quitAct->setShortcut(QKeySequence::Quit);
@@ -234,7 +234,7 @@ void MainWindow::createActions()
     quoteAct = new QAction(tr("&Quote"), this);
     quoteAct->setIcon(QIcon(":quote.png"));
     quoteAct->setToolTip(tr("Quote whole text"));
-    connect(quoteAct, SIGNAL(triggered()), edit, SLOT(quote()));
+    connect(quoteAct, SIGNAL(triggered()), edit, SLOT(slotQuote()));
 
     selectallAct = new QAction(tr("Select &All"), this);
     selectallAct->setIcon(QIcon(":edit.png"));
@@ -390,12 +390,12 @@ void MainWindow::createActions()
      */
     switchTabUpAct = new QAction(this);
     switchTabUpAct->setShortcut(QKeySequence::NextChild);
-    connect(switchTabUpAct, SIGNAL(triggered()), edit, SLOT(switchTabUp()));
+    connect(switchTabUpAct, SIGNAL(triggered()), edit, SLOT(slotSwitchTabUp()));
     this->addAction(switchTabUpAct);
 
     switchTabDownAct = new QAction(this);
     switchTabDownAct->setShortcut(QKeySequence::PreviousChild);
-    connect(switchTabDownAct, SIGNAL(triggered()), edit, SLOT(switchTabDown()));
+    connect(switchTabDownAct, SIGNAL(triggered()), edit, SLOT(slotSwitchTabDown()));
     this->addAction(switchTabDownAct);
 
     cutPgpHeaderAct = new QAction(tr("Remove PGP Header"), this);
@@ -696,7 +696,7 @@ void MainWindow::slotOpenHelp() {
 
 void MainWindow::slotOpenHelp(const QString page)
 {
-    edit->newHelpTab("help", "file:" + qApp->applicationDirPath() + "/help/" + page);
+    edit->slotNewHelpTab("help", "file:" + qApp->applicationDirPath() + "/help/" + page);
 }
 
 void MainWindow::slotSetStatusBarText(QString text)
@@ -947,7 +947,7 @@ void MainWindow::slotEncryptDone(int result)
     if (result == KGpgTransaction::TS_OK) {
         const QString lf = QLatin1String("\n");
         //setPlainText(enc->encryptedText().join(lf) + lf);
-        edit->fillTextEditWithText(enc->encryptedText().join(lf) + lf);
+        edit->slotFillTextEditWithText(enc->encryptedText().join(lf) + lf);
     } else {
         /*KMessageBox::sorry(this, i18n("The encryption failed with error code %1", result),
                 i18n("Encryption failed."));*/
@@ -998,7 +998,7 @@ void MainWindow::slotSignDone(int result)
         return;
     }
 
-    edit->fillTextEditWithText(signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n"));
+    edit->slotFillTextEditWithText(signt->signedText().join(QLatin1String("\n")) + QLatin1String("\n"));
 
 }
 
@@ -1069,7 +1069,7 @@ void MainWindow::slotDecryptDone(int result)
     if (result == KGpgTransaction::TS_OK) {
         // FIXME choose codec
         //setPlainText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
-        edit->fillTextEditWithText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
+        edit->slotFillTextEditWithText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
     } else if (result != KGpgTransaction::TS_USER_ABORTED) {
         //KMessageBox::detailedSorry(this, i18n("Decryption failed."), decr->getMessages().join( QLatin1String( "\n" )));
         qDebug() << "Decryption failed."  << decr->getMessages().join( QLatin1String( "\n" ));
@@ -1323,7 +1323,7 @@ void MainWindow::slotCleanDoubleLinebreaks()
         content.replace("\n\n", "\n");
     }
 
-    edit->fillTextEditWithText(content);
+    edit->slotFillTextEditWithText(content);
 }
 
 void MainWindow::slotAddPgpHeader() {
@@ -1336,7 +1336,7 @@ void MainWindow::slotAddPgpHeader() {
     content.prepend("\n\n").prepend(GpgConstants::PGP_CRYPT_BEGIN);
     content.append("\n").append(GpgConstants::PGP_CRYPT_END);
 
-    edit->fillTextEditWithText(content);
+    edit->slotFillTextEditWithText(content);
 }
 
 void MainWindow::slotCutPgpHeader() {
@@ -1361,5 +1361,5 @@ void MainWindow::slotCutPgpHeader() {
     end = content.indexOf(GpgConstants::PGP_CRYPT_END);
     content.remove(end, QString(GpgConstants::PGP_CRYPT_END).size());
 
-    edit->fillTextEditWithText(content.trimmed());
+    edit->slotFillTextEditWithText(content.trimmed());
 }

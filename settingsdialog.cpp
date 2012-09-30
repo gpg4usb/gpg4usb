@@ -538,9 +538,9 @@ GpgPathsTab::GpgPathsTab(QWidget *parent)
     keydbLabel = new QLabel(accKeydbPath,this);
 
     QPushButton *keydbButton = new QPushButton("Change keydb path",this);
-    connect(keydbButton, SIGNAL(clicked()), this, SLOT(chooseKeydbDir()));
+    connect(keydbButton, SIGNAL(clicked()), this, SLOT(slotChooseKeydbDir()));
     QPushButton *keydbDefaultButton = new QPushButton("Set keydb to default path",this);
-    connect(keydbDefaultButton, SIGNAL(clicked()), this, SLOT(setKeydbPathToDefault()));
+    connect(keydbDefaultButton, SIGNAL(clicked()), this, SLOT(slotSetKeydbPathToDefault()));
 
     keydbBox->setLayout(keydbBoxLayout);
     keydbBoxLayout->addWidget(new QLabel(tr("Current keydb path: ")),1,1);
@@ -568,13 +568,13 @@ QString GpgPathsTab::getRelativePath(const QString dir1,const QString dir2)
     return s;
 }
 
-void GpgPathsTab::setKeydbPathToDefault()
+void GpgPathsTab::slotSetKeydbPathToDefault()
 {
     accKeydbPath = ".";
     keydbLabel->setText(".");
 }
 
-QString GpgPathsTab::chooseKeydbDir()
+QString GpgPathsTab::slotChooseKeydbDir()
 {
     QString dir = QFileDialog::getExistingDirectory(this,tr ("Choose keydb directory"),accKeydbPath,QFileDialog::ShowDirsOnly);
 

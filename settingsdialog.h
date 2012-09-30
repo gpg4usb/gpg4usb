@@ -150,8 +150,8 @@ private:
     void setSettings();
 
  private slots:
-     QString chooseKeydbDir();
-     void setKeydbPathToDefault();
+     QString slotChooseKeydbDir();
+     void slotSetKeydbPathToDefault();
 
  };
 
