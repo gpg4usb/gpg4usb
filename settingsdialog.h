@@ -171,7 +171,7 @@ public:
 
 
 public slots:
-    void accept();
+    void slotAccept();
 
 private:
     QTabWidget *tabWidget;

@@ -107,7 +107,7 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs)
 }
 
 
-void QuitDialog::myDiscard()
+void QuitDialog::slotMyDiscard()
 {
     discarded =true;
     reject();

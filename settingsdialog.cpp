@@ -55,7 +55,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     exec(); 
 }
 
-void SettingsDialog::accept()
+void SettingsDialog::slotAccept()
 {
     generalTab->applySettings();
     mimeTab->applySettings();
