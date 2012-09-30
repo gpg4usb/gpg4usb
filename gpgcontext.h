@@ -140,7 +140,7 @@ signals:
     void keyDBChanged();
 
 private slots:
-    void refreshKeyList();
+    void slotRefreshKeyList();
 
 private:
     QByteArray mPasswordCache;

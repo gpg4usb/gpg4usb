@@ -65,31 +65,32 @@ private:
     QCheckBox *expireCheckBox; /** Checkbox, if key should expire */
     QSlider *pwStrengthSlider; /** Slider showing the password strength */
     int lastKeySize; /** integer to remember to last selected keysize (only display warning first tim above 2048)*/
+
 private slots:
     /**
      * @details when expirebox was checked/unchecked, enable/disable the expiration date box
      */
-    void expireBoxChanged();
+    void slotExpireBoxChanged();
 
     /**
      * @details When passwordedit changed, set new value for password strength slider
      */
-    void passwordEditChanged();
+    void slotPasswordEditChanged();
 
     /**
      * @details When keysize changed, show message, when too large
      */
-    void keySizeChanged();
+    void slotKeySizeChanged();
 
     /**
      * @details When passwordedit changed, set keysize appropriately
      */
-    void keyTypeChanged();
+    void slotKeyTypeChanged();
 
     /**
      * @details check all lineedits for false entries. Show error, when there is one, otherwise generate the key
      */
-    void keyGenAccept();
+    void slotKeyGenAccept();
 
 };
 #endif // __KEYGENDIALOG_H__

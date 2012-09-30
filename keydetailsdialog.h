@@ -55,13 +55,13 @@ private slots:
     /**
      * @details Export the key to a file, which is choosen in a file dialog
      */
-    void exportPrivateKey();
+    void slotExportPrivateKey();
     void slotExportPrivateKeyDone(int result);
 
     /**
      * @details Copy the fingerprint to clipboard
      */
-    void copyFingerprint();
+    void slotCopyFingerprint();
 
 private:
     QString *keyid; /** The id of the key the details should be shown for */

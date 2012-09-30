@@ -30,8 +30,8 @@ private:
     QTextCharFormat cursorFormat;
 
 private slots:
-    void findNext();
-    void find();
-    void closeSlot();
+    void slotFindNext();
+    void slotFind();
+    void slotClose();
 };
 #endif // FINDWIDGET_H

@@ -117,7 +117,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
     //copyFingerprintButton.setStyleSheet("QPushButton {border: 0px; } QPushButton:Pressed {}  ");
     copyFingerprintButton.setFlat(true);
     copyFingerprintButton.setToolTip(tr("copy fingerprint to clipboard"));
-    connect(&copyFingerprintButton, SIGNAL(clicked()), this, SLOT(copyFingerprint()));
+    connect(&copyFingerprintButton, SIGNAL(clicked()), this, SLOT(slotCopyFingerprint()));
 
     hboxFP->addWidget(&copyFingerprintButton);
 
@@ -144,7 +144,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
 
         QPushButton *exportButton = new QPushButton(tr("Export Private Key"));
         vboxPK->addWidget(exportButton);
-        connect(exportButton, SIGNAL(clicked()), this, SLOT(exportPrivateKey()));
+        connect(exportButton, SIGNAL(clicked()), this, SLOT(slotExportPrivateKey()));
 
         privKeyBox->setLayout(vboxPK);
         mvbox->addWidget(privKeyBox);
@@ -183,7 +183,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
     exec();
 }
 
-void KeyDetailsDialog::exportPrivateKey()
+void KeyDetailsDialog::slotExportPrivateKey()
 {
     // Show a information box with explanation about private key
     int ret = QMessageBox::information(this, tr("Exporting private Key"),
@@ -244,7 +244,7 @@ QString KeyDetailsDialog::beautifyFingerprint(QString fingerprint)
     return fingerprint;
 }
 
-void KeyDetailsDialog::copyFingerprint() {
+void KeyDetailsDialog::slotCopyFingerprint() {
     QString fpr = fingerPrintVarLabel->text().trimmed().replace(" ", "");
     QClipboard *cb = QApplication::clipboard();
     cb->setText(fpr);

@@ -104,17 +104,17 @@ void KeyGenDialog::generateKeyDialog()
     vbox2->addWidget(errorLabel);
     vbox2->addWidget(buttonBox);
 
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(keyGenAccept()));
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotKeyGenAccept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-    connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
-    connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
-    connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(keyTypeChanged()));
-    connect(keySizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(keySizeChanged()));
+    connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(slotExpireBoxChanged()));
+    connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(slotPasswordEditChanged()));
+    connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(slotKeyTypeChanged()));
+    connect(keySizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slotKeySizeChanged()));
     this->setLayout(vbox2);
 }
 
-void KeyGenDialog::keyGenAccept()
+void KeyGenDialog::slotKeyGenAccept()
 {
     QString errorString = "";
     QString keyGenParams = "";
@@ -211,7 +211,7 @@ void KeyGenDialog::keyGenAccept()
     }
 }
 
-void KeyGenDialog::expireBoxChanged()
+void KeyGenDialog::slotExpireBoxChanged()
 {
     if (expireCheckBox->checkState()) {
         dateEdit->setEnabled(false);
@@ -220,12 +220,12 @@ void KeyGenDialog::expireBoxChanged()
     }
 }
 
-void KeyGenDialog::passwordEditChanged()
+void KeyGenDialog::slotPasswordEditChanged()
 {
     pwStrengthSlider->setValue(checkPassWordStrength());
     update();
 }
-void KeyGenDialog::keySizeChanged()
+void KeyGenDialog::slotKeySizeChanged()
 {
     if (keySizeSpinBox->value() > 2048 && lastKeySize <=2048) {
         QMessageBox::warning(this, tr("Key size warning"),
@@ -234,7 +234,7 @@ void KeyGenDialog::keySizeChanged()
     lastKeySize=keySizeSpinBox->value();
 }
 
-void KeyGenDialog::keyTypeChanged()
+void KeyGenDialog::slotKeyTypeChanged()
 {
     if (keyTypeComboBox->currentText() == "RSA") {
         keySizeSpinBox->setMaximum(16384);

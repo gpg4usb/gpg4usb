@@ -66,8 +66,8 @@ GpgContext::GpgContext()
     QStringList args;
     args << "--homedir" << gpgKeys << "--list-keys";
 
-    connect(this,SIGNAL(keyDBChanged()),this,SLOT(refreshKeyList()));
-    refreshKeyList();
+    connect(this,SIGNAL(keyDBChanged()),this,SLOT(slotRefreshKeyList()));
+    slotRefreshKeyList();
 }
 
 /** Destructor
@@ -256,7 +256,7 @@ QString GpgContext::beautifyFingerprint(QString fingerprint)
     return fingerprint;
 }
 
-void GpgContext::refreshKeyList() {
+void GpgContext::slotRefreshKeyList() {
     mKeyList = this->listKeys();
 }
 

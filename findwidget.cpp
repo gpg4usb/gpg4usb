@@ -17,16 +17,16 @@ FindWidget::FindWidget(QWidget *parent, QTextEdit *edit) :
     notificationWidgetLayout->addWidget(closeButton);
 
     this->setLayout(notificationWidgetLayout);
-    connect(findEdit,SIGNAL(textEdited(QString)),this,SLOT(find()));
-    connect(findEdit,SIGNAL(returnPressed()),this,SLOT(findNext()));
-    connect(nextButton,SIGNAL(clicked()),this,SLOT(findNext()));
-    connect(closeButton,SIGNAL(clicked()),this,SLOT(closeSlot()));
+    connect(findEdit,SIGNAL(textEdited(QString)),this,SLOT(slotFind()));
+    connect(findEdit,SIGNAL(returnPressed()),this,SLOT(slotFindNext()));
+    connect(nextButton,SIGNAL(clicked()),this,SLOT(slotFindNext()));
+    connect(closeButton,SIGNAL(clicked()),this,SLOT(slotClose()));
 
     // The timer is necessary for setting the focus
     QTimer::singleShot(0, findEdit, SLOT(setFocus()));
 }
 
-void FindWidget::findNext()
+void FindWidget::slotFindNext()
 {
     cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
     // if end of document is reached, restart search from beginning
@@ -47,7 +47,7 @@ void FindWidget::findNext()
     mTextpage->setTextCursor(cursor);
 }
 
-void FindWidget::find()
+void FindWidget::slotFind()
 {
     if (cursor.anchor() == -1) {
         cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
@@ -72,15 +72,15 @@ void FindWidget::keyPressEvent( QKeyEvent* e )
     switch ( e->key() )
     {
     case Qt::Key_Escape:
-        this->closeSlot();
+        this->slotClose();
         break;
     case Qt::Key_F3:
-        this->findNext();
+        this->slotFindNext();
         break;
     }
 }
 
-void FindWidget::closeSlot() {
+void FindWidget::slotClose() {
     if ( cursor.position() == -1) {
         cursor = mTextpage->textCursor();
         cursor.setPosition(0);
