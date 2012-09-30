@@ -71,39 +71,44 @@ public slots:
     /**
      * @details
      *
-     * @fn selectInputFile
+     * @fn slotSelectInputFile
      */
-    void selectInputFile();
+    void slotSelectInputFile();
+
     /**
      * @brief
      *
-     * @fn selectOutputFile
+     * @fn slotSelectOutputFile
      */
-    void selectOutputFile();
+    void slotSelectOutputFile();
+
     /**
      * @brief
      *
-     * @fn selectSignFile
+     * @fn slotSelectSignFile
      */
-    void selectSignFile();
+    void slotSelectSignFile();
+
     /**
      * @brief
      *
-     * @fn executeAction
+     * @fn slotExecuteAction
      */
-    void executeAction();
+    void slotExecuteAction();
+
     /**
      * @brief
      *
-     * @fn hideKeyList
+     * @fn slotHideKeyList
      */
-    void hideKeyList();
+    void slotHideKeyList();
+
     /**
      * @brief
      *
-     * @fn showKeyList
+     * @fn slotShowKeyList
      */
-    void showKeyList();
+    void slotShowKeyList();
 
 private:
     QLineEdit *outputFileEdit; /**< TODO */
@@ -111,6 +116,7 @@ private:
     QLineEdit *signFileEdit; /**< TODO */
     DialogAction mAction; /**< TODO */
     QLabel *statusLabel; /**< TODO */
+
 protected:
     GpgME::GpgContext *mCtx; /**< TODO */
     KeyList *mKeyList; /**< TODO */

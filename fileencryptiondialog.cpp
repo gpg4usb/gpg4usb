@@ -44,7 +44,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     setModal(true);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(executeAction()));
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotExecuteAction()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     QGroupBox *groupBox1 = new QGroupBox(tr("File"));
@@ -52,13 +52,13 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     /* Setup input & Outputfileselection*/
     inputFileEdit = new QLineEdit();
     QPushButton *fb1 = new QPushButton("...");
-    connect(fb1, SIGNAL(clicked()), this, SLOT(selectInputFile()));
+    connect(fb1, SIGNAL(clicked()), this, SLOT(slotSelectInputFile()));
     QLabel *fl1 = new QLabel(tr("Input"));
     fl1->setBuddy(inputFileEdit);
 
     outputFileEdit = new QLineEdit();
     QPushButton *fb2 = new QPushButton("...");
-    connect(fb2, SIGNAL(clicked()), this, SLOT(selectOutputFile()));
+    connect(fb2, SIGNAL(clicked()), this, SLOT(slotSelectOutputFile()));
     QLabel *fl2 = new QLabel(tr("Output"));
     fl2->setBuddy(outputFileEdit);
 
@@ -74,7 +74,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     } else {
         signFileEdit = new QLineEdit();
         QPushButton *sfb1 = new QPushButton("...");
-        connect(sfb1, SIGNAL(clicked()), this, SLOT(selectSignFile()));
+        connect(sfb1, SIGNAL(clicked()), this, SLOT(slotSelectSignFile()));
         QLabel *sfl1 = new QLabel(tr("Signature"));
         sfl1->setBuddy(signFileEdit);
 
@@ -103,13 +103,13 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     setLayout(vbox2);
 
     if(action == Encrypt || action == Sign) {
-        showKeyList();
+        slotShowKeyList();
     }
 
     exec();
 }
 
-void FileEncryptionDialog::selectInputFile()
+void FileEncryptionDialog::slotSelectInputFile()
 {
     QString path = "";
     if (inputFileEdit->text().size() > 0) {
@@ -142,7 +142,7 @@ void FileEncryptionDialog::selectInputFile()
     }
 }
 
-void FileEncryptionDialog::selectOutputFile()
+void FileEncryptionDialog::slotSelectOutputFile()
 {
     QString path = "";
     if (outputFileEdit->text().size() > 0) {
@@ -154,7 +154,7 @@ void FileEncryptionDialog::selectOutputFile()
 
 }
 
-void FileEncryptionDialog::selectSignFile()
+void FileEncryptionDialog::slotSelectSignFile()
 {
     QString path = "";
     if (signFileEdit->text().size() > 0) {
@@ -172,7 +172,7 @@ void FileEncryptionDialog::selectSignFile()
 
 }
 
-void FileEncryptionDialog::executeAction()
+void FileEncryptionDialog::slotExecuteAction()
 {
 
     QFile infile;
@@ -241,12 +241,12 @@ void FileEncryptionDialog::executeAction()
     accept();
 }
 
-void FileEncryptionDialog::showKeyList()
+void FileEncryptionDialog::slotShowKeyList()
 {
     mKeyList->show();
 }
 
-void FileEncryptionDialog::hideKeyList()
+void FileEncryptionDialog::slotHideKeyList()
 {
     mKeyList->hide();
 }
