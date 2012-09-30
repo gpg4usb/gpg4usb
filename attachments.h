@@ -45,8 +45,8 @@ class Attachments : public QWidget
     Q_OBJECT
 
 public slots:
-    void saveFile();
-    void openFile();
+    void slotSaveFile();
+    void slotOpenFile();
 
 public:
     Attachments(QWidget *parent = 0);

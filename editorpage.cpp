@@ -73,7 +73,7 @@ void EditorPage::closeNoteByClass(const char *className)
     }
 }
 
-void EditorPage::formatGpgHeader() {
+void EditorPage::slotFormatGpgHeader() {
 
     QString content = textPage->toPlainText();
 
