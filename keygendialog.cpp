@@ -170,33 +170,30 @@ void KeyGenDialog::slotKeyGenAccept()
                                                       'd',
                                                       passwordEdit->text());
 
+       // m_genkey = new KGpgTransactionJob(genkey);
+
+        //connect(m_genkey, SIGNAL(result(KJob*)), SLOT(slotGenerateKeyDone(KJob*)));
+
+        connect(genkey, SIGNAL(done(int)), SLOT(slotGenkeyDone(int)));
         genkey->start();
 
         this->accept();
 
-        QDialog *dialog = new QDialog(this, Qt::CustomizeWindowHint | Qt::WindowTitleHint);
-        dialog->setModal(true);
-        dialog->setWindowTitle(tr("Generating Key..."));
+        m_dialog = new QDialog(this, Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+        m_dialog->setModal(true);
+        m_dialog->setWindowTitle(tr("Generating Key..."));
 
         QLabel *waitMessage = new QLabel(tr("Collecting random data for key generation.\n This may take a while.\n To speed up the process use your computer\n (e.g. browse the net, listen to music,...)"));
         QProgressBar *pb = new QProgressBar();
         pb->setRange(0, 0);
 
-        QVBoxLayout *layout = new QVBoxLayout(dialog);
+        QVBoxLayout *layout = new QVBoxLayout(m_dialog);
         layout->addWidget(waitMessage);
         layout->addWidget(pb);
-        dialog->setLayout(layout);
+        m_dialog->setLayout(layout);
 
-        dialog->show();
+        m_dialog->show();
 
-        //genkey->thread()->isRunning()
-
-        while (genkey->thread()->isRunning()) {
-            QCoreApplication::processEvents();
-        }
-
-        dialog->close();
-        QMessageBox::information(0,tr("Success"),tr("New key created"));
     } else {
         /**
          * create error message
@@ -209,6 +206,43 @@ void KeyGenDialog::slotKeyGenAccept()
 
         this->show();
     }
+}
+
+void KeyGenDialog::slotGenkeyDone(int result) {
+
+    qDebug() << "genkey done";
+
+    KGpgGenerateKey *genkey = qobject_cast<KGpgGenerateKey *>(sender());
+    Q_ASSERT(genkey != NULL);
+
+    const QString infomessage(tr("Generating new key pair"));
+
+    // TODO:
+    switch (result) {
+    case KGpgTransaction::TS_BAD_PASSPHRASE:
+            QMessageBox::warning(this, infomessage, tr("Bad passphrase. Cannot generate a new key pair."));
+            break;
+        case KGpgTransaction::TS_USER_ABORTED:
+            QMessageBox::warning(this, infomessage, tr("Aborted by the user. Cannot generate a new key pair."));
+            break;
+        case KGpgTransaction::TS_INVALID_EMAIL:
+            QMessageBox::warning(this, infomessage, tr("The email address is not valid. Cannot generate a new key pair."));
+            break;
+        case KGpgGenerateKey::TS_INVALID_NAME:
+            QMessageBox::warning(this, infomessage, tr("The name is not accepted by gpg. Cannot generate a new key pair."));
+            break;
+        case KGpgTransaction::TS_OK:
+            mCtx->emitKeyDBChanged();
+            m_dialog->close();
+            // TODO: could be much more info, have a look at keysmanager::slotGenerateKeyDone from kgpg
+            QMessageBox::information(this,tr("Success"),tr("New key created: ").arg(genkey->getName()));
+            break;
+        default:
+            QMessageBox::warning(this, infomessage, tr("gpg process did not finish. Cannot generate a new key pair.").arg(genkey->gpgErrorMessage()));
+    }
+
+
+
 }
 
 void KeyGenDialog::slotExpireBoxChanged()

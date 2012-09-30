@@ -65,6 +65,7 @@ private:
     QCheckBox *expireCheckBox; /** Checkbox, if key should expire */
     QSlider *pwStrengthSlider; /** Slider showing the password strength */
     int lastKeySize; /** integer to remember to last selected keysize (only display warning first tim above 2048)*/
+    QDialog *m_dialog;
 
 private slots:
     /**
@@ -91,6 +92,8 @@ private slots:
      * @details check all lineedits for false entries. Show error, when there is one, otherwise generate the key
      */
     void slotKeyGenAccept();
+
+    void slotGenkeyDone(int result);
 
 };
 #endif // __KEYGENDIALOG_H__
