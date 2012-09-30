@@ -28,7 +28,6 @@ private:
     QLineEdit *findEdit; /** Label holding the text shown in verifyNotification */
     QTextCursor cursor;
     QTextCharFormat cursorFormat;
-    QPushButton *closeButton;
 
 private slots:
     void findNext();

@@ -6,17 +6,20 @@ FindWidget::FindWidget(QWidget *parent, QTextEdit *edit) :
 {
     mTextpage = edit;
     findEdit = new QLineEdit(this);
-    closeButton= new QPushButton(this->style()->standardIcon(QStyle::SP_TitleBarCloseButton),"",this);
+    QPushButton *closeButton= new QPushButton(this->style()->standardIcon(QStyle::SP_TitleBarCloseButton),"",this);
+    QPushButton *nextButton= new QPushButton(QIcon(":button_next.png"), "");
 
     QHBoxLayout *notificationWidgetLayout = new QHBoxLayout(this);
     notificationWidgetLayout->setContentsMargins(10,0,0,0);
     notificationWidgetLayout->addWidget(new QLabel(tr("Find:")));
     notificationWidgetLayout->addWidget(findEdit,2);
+    notificationWidgetLayout->addWidget(nextButton);
     notificationWidgetLayout->addWidget(closeButton);
 
     this->setLayout(notificationWidgetLayout);
     connect(findEdit,SIGNAL(textEdited(QString)),this,SLOT(find()));
     connect(findEdit,SIGNAL(returnPressed()),this,SLOT(findNext()));
+    connect(nextButton,SIGNAL(clicked()),this,SLOT(findNext()));
     connect(closeButton,SIGNAL(clicked()),this,SLOT(closeSlot()));
 
     // The timer is necessary for setting the focus
