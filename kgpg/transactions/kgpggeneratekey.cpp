@@ -18,6 +18,7 @@
 //#include <KLocale>
 //#include <KMessageBox>
 //#include <kpimutils/email.h>
+#include <QDebug>
 #include <QApplication>
 
 KGpgGenerateKey::KGpgGenerateKey(QObject *parent, const QString &name, const QString &email, const QString &comment,
@@ -132,6 +133,8 @@ KGpgGenerateKey::nextLine(const QString &line)
 
 	int result = false;
 
+    //qDebug() << "line:" << line;
+
 	if (line.contains(QLatin1String( "PROGRESS" ))) {
             QStringList parts(line.mid(18).split(QLatin1Char( ' ' )));
 		if (parts.count() >= 4) {
@@ -169,6 +172,7 @@ KGpgGenerateKey::nextLine(const QString &line)
 	}
 
 	emit statusMessage(msg);
+    //qDebug() << "generateKey says: " << msg;
 
 	return result;
 }

@@ -175,6 +175,7 @@ void KeyGenDialog::slotKeyGenAccept()
         //connect(m_genkey, SIGNAL(result(KJob*)), SLOT(slotGenerateKeyDone(KJob*)));
 
         connect(genkey, SIGNAL(done(int)), SLOT(slotGenkeyDone(int)));
+        connect(genkey, SIGNAL(infoProgress(qulonglong,qulonglong)), SLOT(slotInfoProgress(qulonglong,qulonglong)));
         genkey->start();
 
         this->accept();
@@ -241,8 +242,11 @@ void KeyGenDialog::slotGenkeyDone(int result) {
             QMessageBox::warning(this, infomessage, tr("gpg process did not finish. Cannot generate a new key pair.").arg(genkey->gpgErrorMessage()));
     }
 
+}
 
-
+void KeyGenDialog::slotInfoProgress(qulonglong processedAmount, qulonglong totalAmount)
+{
+    qDebug() << "pA: " << processedAmount << " | tA: " << totalAmount;
 }
 
 void KeyGenDialog::slotExpireBoxChanged()

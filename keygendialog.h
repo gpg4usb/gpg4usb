@@ -95,5 +95,7 @@ private slots:
 
     void slotGenkeyDone(int result);
 
+    void slotInfoProgress(qulonglong processedAmount, qulonglong totalAmount);
+
 };
 #endif // __KEYGENDIALOG_H__
