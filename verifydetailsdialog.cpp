@@ -47,7 +47,7 @@ void VerifyDetailsDialog::slotRefresh()
     mVbox->close();
 
     mVbox = new QWidget();
-    QVBoxLayout *mVboxLayout = new QVBoxLayout(mVbox);
+    mVboxLayout = new QVBoxLayout(mVbox);
     mainLayout->addWidget(mVbox);
 
     // Button Box for close button
@@ -114,8 +114,13 @@ void VerifyDetailsDialog::slotVerifyDone(int result) {
     sender()->deleteLater();
     Q_ASSERT(verify != NULL);
 
-    const QStringList messages = verify->getMessages();
+    /*const QStringList messages = verify->getMessages();
     foreach(QString mess, messages) {
         qDebug() << "vm: " <<  mess;
-    }
+    }*/
+
+    QString report = GpgME::GpgContext::getReport(verify->getMessages());
+    mVboxLayout->addWidget(new QLabel(report));
+
+
 }

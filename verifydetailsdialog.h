@@ -44,6 +44,7 @@ private:
     QString mInputData; /** Data to be verified */
     QByteArray* mInputSignature; /** Data to be verified */
     QDialogButtonBox* buttonBox;
+    QVBoxLayout *mVboxLayout;
 };
 
 #endif // __VERIFYDETAILSDIALOG_H__

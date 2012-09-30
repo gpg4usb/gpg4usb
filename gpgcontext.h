@@ -28,6 +28,7 @@
 #include <QLinkedList>
 #include <QtGui>
 #include "kgpg/core/kgpgkey.h"
+#include "kgpg/transactions/kgpgverify.h"
 
 QT_BEGIN_NAMESPACE
 class QMessageBox;
@@ -134,7 +135,9 @@ public:
      *          \li 0, if the text is not signed at all.
      */
     int textIsSigned(const QByteArray &text);
-    QString beautifyFingerprint(QString fingerprint);
+    static QString beautifyFingerprint(QString fingerprint);
+
+    static QString getReport(const QStringList &log);
 
 signals:
     void keyDBChanged();
