@@ -27,7 +27,7 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, 
     this->mCtx = ctx;
     this->mKeyList = keyList;
     //this->fpr=signature->fpr;
-    qDebug() << "dbsig report: " << GpgME::GpgContext::getReport(signature.getMessages());
+    //qDebug() << "dbsig report: " << GpgME::GpgContext::getReport(signature.getMessages());
 
     QGridLayout *grid = new QGridLayout();
 // TODO

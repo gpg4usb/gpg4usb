@@ -173,7 +173,7 @@ KgpgCore::KgpgKey GpgContext::getKeyDetails(QString uid) {
 GpgKeyList GpgContext::listKeys()
 {
 
-    KgpgInterface::readPublicKeys();
+    //KgpgInterface::readPublicKeys();
 
 
     GpgKeyList keys;
@@ -313,12 +313,11 @@ sigTimeMessage(const QString &sigtime)
     if (!stamp.isValid())
         return QString();
 
-/*	return tr("first argument is formatted date, second argument is formatted time",
-                    "The signature was created at %1 %2",
-                    KGlobal::locale()->formatDate(stamp.date(), KLocale::LongDate),
-                    KGlobal::locale()->formatTime(stamp.time(), KLocale::LongDate)) +
-            QLatin1String("<br/>");*/
-    return "todo";
+    return QObject::tr("The signature was created at %1 %2")
+            .arg(stamp.date().toString())
+            .arg(stamp.time().toString() + QLatin1String("<br/>")
+                 , "first argument is formatted date, second argument is formatted time");
+
 }
 
 QString GpgContext::getReport(const QStringList &log)
@@ -345,6 +344,22 @@ QString GpgContext::getReport(const QStringList &log)
             //                <hash-algo> <sig-class> <primary-key-fpr>
             const QStringList vsig = msg.mid(9).split(QLatin1Char(' '), QString::SkipEmptyParts);
             Q_ASSERT(vsig.count() >= 10);
+
+            //result += vsig[9];
+
+            GpgKey key = getKeyByFpr(vsig[9]);
+
+            // ignore for now if this is signed with the primary id (vsig[0] == vsig[9]) or not
+            if (key.email.isEmpty()) {
+                result += tr("<qt>Good signature from:<br /><b>%1</b><br />Key ID: %2<br /></qt>")
+                        .arg(key.name).arg(vsig[9]);
+            } else {
+                result += tr("Good signature from: NAME <EMAIL>, Key ID: HEXID",
+                        "<qt>Good signature from:<br /><b>%1 &lt;%2&gt;</b><br />Key ID: %3<br /></qt>")
+                        .arg(key.name).arg(key.email).arg(vsig[9]);
+            }
+            result += sigTimeMessage(vsig[2]);
+
 
 /*			const KGpgKeyNode *node = model->findKeyNode(vsig[9]);
 

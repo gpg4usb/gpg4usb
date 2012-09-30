@@ -137,7 +137,7 @@ public:
     int textIsSigned(const QByteArray &text);
     static QString beautifyFingerprint(QString fingerprint);
 
-    static QString getReport(const QStringList &log);
+    QString getReport(const QStringList &log);
 
 signals:
     void keyDBChanged();

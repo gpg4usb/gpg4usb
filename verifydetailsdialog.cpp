@@ -119,7 +119,7 @@ void VerifyDetailsDialog::slotVerifyDone(int result) {
         qDebug() << "vm: " <<  mess;
     }*/
 
-    QString report = GpgME::GpgContext::getReport(verify->getMessages());
+    QString report = mCtx->getReport(verify->getMessages());
     mVboxLayout->addWidget(new QLabel(report));
 
 
