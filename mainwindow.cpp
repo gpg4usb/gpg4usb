@@ -43,7 +43,7 @@ MainWindow::MainWindow()
     keyMgmt->hide();
     /* test attachmentdir for files alll 15s */
     QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(checkAttachmentFolder()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(slotCheckAttachmentFolder()));
     timer->start(5000);
 
     createActions();
@@ -53,7 +53,7 @@ MainWindow::MainWindow()
     createStatusBar();
     createDockWindows();
 
-    connect(edit->tabWidget,SIGNAL(currentChanged(int)),this,SLOT(disableTabActions(int)));
+    connect(edit->tabWidget,SIGNAL(currentChanged(int)),this,SLOT(slotDisableTabActions(int)));
 
     restoreSettings();
 
@@ -73,7 +73,7 @@ MainWindow::MainWindow()
     // and keylist doesn't contain a private key
     QSettings settings;
     if (settings.value("wizard/showWizard",true).toBool() || !settings.value("wizard/nextPage").isNull()) {
-        startWizard();
+        slotStartWizard();
     }
 }
 
@@ -246,18 +246,18 @@ void MainWindow::createActions()
     findAct = new QAction(tr("&Find"), this);
     findAct->setShortcut(QKeySequence::Find);
     findAct->setToolTip(tr("Find a word"));
-    connect(findAct, SIGNAL(triggered()), this, SLOT(find()));
+    connect(findAct, SIGNAL(triggered()), this, SLOT(slotFind()));
 
     cleanDoubleLinebreaksAct = new QAction(tr("Remove &spacing"), this);
     cleanDoubleLinebreaksAct->setIcon(QIcon(":format-line-spacing-triple.png"));
     //cleanDoubleLineBreaksAct->setShortcut(QKeySequence::SelectAll);
     cleanDoubleLinebreaksAct->setToolTip(tr("Remove double linebreaks, e.g. in pasted text from webmailer"));
-    connect(cleanDoubleLinebreaksAct, SIGNAL(triggered()), this, SLOT(cleanDoubleLinebreaks()));
+    connect(cleanDoubleLinebreaksAct, SIGNAL(triggered()), this, SLOT(slotCleanDoubleLinebreaks()));
 
     openSettingsAct = new QAction(tr("Se&ttings"), this);
     openSettingsAct->setToolTip(tr("Open settings dialog"));
     openSettingsAct->setShortcut(QKeySequence::Preferences);
-    connect(openSettingsAct, SIGNAL(triggered()), this, SLOT(openSettingsDialog()));
+    connect(openSettingsAct, SIGNAL(triggered()), this, SLOT(slotOpenSettingsDialog()));
 
     /* Crypt Menu
      */
@@ -265,76 +265,76 @@ void MainWindow::createActions()
     encryptAct->setIcon(QIcon(":encrypted.png"));
     encryptAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E));
     encryptAct->setToolTip(tr("Encrypt Message"));
-    connect(encryptAct, SIGNAL(triggered()), this, SLOT(encrypt()));
+    connect(encryptAct, SIGNAL(triggered()), this, SLOT(slotEncrypt()));
 
     decryptAct = new QAction(tr("&Decrypt"), this);
     decryptAct->setIcon(QIcon(":decrypted.png"));
     decryptAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_D));
     decryptAct->setToolTip(tr("Decrypt Message"));
-    connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
+    connect(decryptAct, SIGNAL(triggered()), this, SLOT(slotDecrypt()));
 
     /*
      * File encryption submenu
      */
     fileEncryptAct = new QAction(tr("&Encrypt File"), this);
     fileEncryptAct->setToolTip(tr("Encrypt File"));
-    connect(fileEncryptAct, SIGNAL(triggered()), this, SLOT(fileEncrypt()));
+    connect(fileEncryptAct, SIGNAL(triggered()), this, SLOT(slotFileEncrypt()));
 
     fileDecryptAct = new QAction(tr("&Decrypt File"), this);
     fileDecryptAct->setToolTip(tr("Decrypt File"));
-    connect(fileDecryptAct, SIGNAL(triggered()), this, SLOT(fileDecrypt()));
+    connect(fileDecryptAct, SIGNAL(triggered()), this, SLOT(slotFileDecrypt()));
 
     fileSignAct = new QAction(tr("&Sign File"), this);
     fileSignAct->setToolTip(tr("Sign File"));
-    connect(fileSignAct, SIGNAL(triggered()), this, SLOT(fileSign()));
+    connect(fileSignAct, SIGNAL(triggered()), this, SLOT(slotFileSign()));
 
     fileVerifyAct = new QAction(tr("&Verify File"), this);
     fileVerifyAct->setToolTip(tr("Verify File"));
-    connect(fileVerifyAct, SIGNAL(triggered()), this, SLOT(fileVerify()));
+    connect(fileVerifyAct, SIGNAL(triggered()), this, SLOT(slotFileVerify()));
 
     signAct = new QAction(tr("&Sign"), this);
     signAct->setIcon(QIcon(":signature.png"));
     signAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_I));
     signAct->setToolTip(tr("Sign Message"));
-    connect(signAct, SIGNAL(triggered()), this, SLOT(sign()));
+    connect(signAct, SIGNAL(triggered()), this, SLOT(slotSign()));
 
     verifyAct = new QAction(tr("&Verify"), this);
     verifyAct->setIcon(QIcon(":verify.png"));
     verifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_V));
     verifyAct->setToolTip(tr("Verify Message"));
-    connect(verifyAct, SIGNAL(triggered()), this, SLOT(verify()));
+    connect(verifyAct, SIGNAL(triggered()), this, SLOT(slotVerify()));
 
     /* Key Menu
      */
     importKeyFromEditAct = new QAction(tr("&Editor"), this);
     importKeyFromEditAct->setIcon(QIcon(":txt.png"));
     importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
-    connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(importKeyFromEdit()));
+    connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(slotImportKeyFromEdit()));
 
     exportKeyToClipboardAct = new QAction(tr("&Clipboard"), this);
     exportKeyToClipboardAct->setIcon(QIcon(":export_key_to_clipboard.png"));
     exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
-    connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
+    connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(slotExportKeyToClipboard()));
 
     exportKeyToFileAct = new QAction(tr("&File"), this);
     exportKeyToFileAct->setIcon(QIcon(":export_key_to_file.png"));
     exportKeyToFileAct->setToolTip(tr("Export Selected Key(s) To File"));
-    connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(exportKeyToFile()));
+    connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(slotExportKeyToFile()));
 
     deleteCheckedKeysAct = new QAction(tr("Delete Checked Key(s)"), this);
     deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
     deleteCheckedKeysAct->setIcon(QIcon(":button_cancel.png"));
-    connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
+    connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(slotDeleteCheckedKeys()));
 
     openKeyManagementAct = new QAction(tr("Manage &keys"), this);
     openKeyManagementAct->setIcon(QIcon(":keymgmt.png"));
     openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
-    connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(openKeyManagement()));
+    connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(slotOpenKeyManagement()));
 
     generateKeyDialogAct = new QAction(tr("Generate Key"), this);
     generateKeyDialogAct->setToolTip(tr("Generate New Key"));
     generateKeyDialogAct->setIcon(QIcon(":key_generate.png"));
-    connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(generateKeyDialog()));
+    connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(slotGenerateKeyDialog()));
 
 
     /* About Menu
@@ -342,50 +342,50 @@ void MainWindow::createActions()
     aboutAct = new QAction(tr("&About"), this);
     aboutAct->setIcon(QIcon(":help.png"));
     aboutAct->setToolTip(tr("Show the application's About box"));
-    connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
+    connect(aboutAct, SIGNAL(triggered()), this, SLOT(slotAbout()));
 
     openHelpAct = new QAction(tr("Integrated Help"), this);
     openHelpAct->setToolTip(tr("Open integrated Help"));
-    connect(openHelpAct, SIGNAL(triggered()), this, SLOT(openHelp()));
+    connect(openHelpAct, SIGNAL(triggered()), this, SLOT(slotOpenHelp()));
 
     openTutorialAct = new QAction(tr("Online &Tutorials"), this);
     openTutorialAct->setToolTip(tr("Open Online Tutorials"));
-    connect(openTutorialAct, SIGNAL(triggered()), this, SLOT(openTutorial()));
+    connect(openTutorialAct, SIGNAL(triggered()), this, SLOT(slotOpenTutorial()));
 
     openTranslateAct = new QAction(tr("Translate gpg4usb"), this);
     openTranslateAct->setToolTip(tr("Translate gpg4usb yourself"));
-    connect(openTranslateAct, SIGNAL(triggered()), this, SLOT(openTranslate()));
+    connect(openTranslateAct, SIGNAL(triggered()), this, SLOT(slotOpenTranslate()));
 
     startWizardAct= new QAction(tr("Open &Wizard"), this);
     startWizardAct->setToolTip(tr("Open the wizard"));
-    connect(startWizardAct, SIGNAL(triggered()), this, SLOT(startWizard()));
+    connect(startWizardAct, SIGNAL(triggered()), this, SLOT(slotStartWizard()));
 
     /* Popup-Menu-Action for KeyList
      */
     appendSelectedKeysAct = new QAction(tr("Append Selected Key(s) To Text"), this);
     appendSelectedKeysAct->setToolTip(tr("Append The Selected Keys To Text in Editor"));
-    connect(appendSelectedKeysAct, SIGNAL(triggered()), this, SLOT(appendSelectedKeys()));
+    connect(appendSelectedKeysAct, SIGNAL(triggered()), this, SLOT(slotAppendSelectedKeys()));
 
     copyMailAddressToClipboardAct = new QAction(tr("Copy EMail-address"), this);
     copyMailAddressToClipboardAct->setToolTip(tr("Copy selected EMailaddress to clipboard"));
-    connect(copyMailAddressToClipboardAct, SIGNAL(triggered()), this, SLOT(copyMailAddressToClipboard()));
+    connect(copyMailAddressToClipboardAct, SIGNAL(triggered()), this, SLOT(slotCopyMailAddressToClipboard()));
 
     // TODO: find central place for shared actions, to avoid code-duplication with keymgmt.cpp
     showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
     showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
-    connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(showKeyDetails()));
+    connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(slotShowKeyDetails()));
 
     deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
     deleteSelectedKeysAct->setToolTip(tr("Delete the Selected keys"));
-    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
+    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(slotDeleteSelectedKeys()));
 
     refreshKeysFromKeyserverAct = new QAction(tr("Refresh key from keyserver"), this);
     refreshKeysFromKeyserverAct->setToolTip(tr("Refresh key from default keyserver"));
-    connect(refreshKeysFromKeyserverAct, SIGNAL(triggered()), this, SLOT(refreshKeysFromKeyserver()));
+    connect(refreshKeysFromKeyserverAct, SIGNAL(triggered()), this, SLOT(slotRefreshKeysFromKeyserver()));
 
     uploadKeyToServerAct = new QAction(tr("Upload Key(s) To Server"), this);
     uploadKeyToServerAct->setToolTip(tr("Upload The Selected Keys To Server"));
-    connect(uploadKeyToServerAct, SIGNAL(triggered()), this, SLOT(uploadKeyToServer()));
+    connect(uploadKeyToServerAct, SIGNAL(triggered()), this, SLOT(slotUploadKeyToServer()));
 
     /* Key-Shortcuts for Tab-Switchung-Action
      */
@@ -400,13 +400,13 @@ void MainWindow::createActions()
     this->addAction(switchTabDownAct);
 
     cutPgpHeaderAct = new QAction(tr("Remove PGP Header"), this);
-    connect(cutPgpHeaderAct, SIGNAL(triggered()), this, SLOT(cutPgpHeader()));
+    connect(cutPgpHeaderAct, SIGNAL(triggered()), this, SLOT(slotCutPgpHeader()));
 
     addPgpHeaderAct = new QAction(tr("Add PGP Header"), this);
-    connect(addPgpHeaderAct, SIGNAL(triggered()), this, SLOT(addPgpHeader()));
+    connect(addPgpHeaderAct, SIGNAL(triggered()), this, SLOT(slotAddPgpHeader()));
 }
 
-void MainWindow::disableTabActions(int number)
+void MainWindow::slotDisableTabActions(int number)
 {
     bool disable;
 
@@ -676,36 +676,36 @@ void MainWindow::closeEvent(QCloseEvent *event)
     mCtx->clearPasswordCache();
 }
 
-void MainWindow::about()
+void MainWindow::slotAbout()
 {
     new AboutDialog(this);
 }
 
-void MainWindow::openTranslate()
+void MainWindow::slotOpenTranslate()
 {
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu_translate.html"));
 }
 
-void MainWindow::openTutorial()
+void MainWindow::slotOpenTutorial()
 {
     QDesktopServices::openUrl(QUrl("http://gpg4usb.cpunk.de/docu.html"));
 }
 
-void MainWindow::openHelp() {
-    openHelp("docu.html");
+void MainWindow::slotOpenHelp() {
+    slotOpenHelp("docu.html");
 }
 
-void MainWindow::openHelp(const QString page)
+void MainWindow::slotOpenHelp(const QString page)
 {
     edit->newHelpTab("help", "file:" + qApp->applicationDirPath() + "/help/" + page);
 }
 
-void MainWindow::setStatusBarText(QString text)
+void MainWindow::slotSetStatusBarText(QString text)
 {
     statusBar()->showMessage(text,20000);
 }
 
-void MainWindow::startWizard()
+void MainWindow::slotStartWizard()
 {
     Wizard *wizard = new Wizard(mCtx,keyMgmt,this);
     wizard->show();
@@ -750,7 +750,7 @@ void MainWindow::parseMime(QByteArray *message)
     }
 }
 
-void MainWindow::checkAttachmentFolder() {
+void MainWindow::slotCheckAttachmentFolder() {
     // TODO: always check?
     if(!settings.value("mime/parseMime").toBool()) {
         return;
@@ -773,17 +773,17 @@ void MainWindow::checkAttachmentFolder() {
     }
 }
 
-void MainWindow::deleteSelectedKeys()
+void MainWindow::slotDeleteSelectedKeys()
 {
-    deleteKeysWithWarning(mKeyList->getSelected());
+    slotDdeleteKeysWithWarning(mKeyList->getSelected());
 }
 
-void MainWindow::deleteCheckedKeys()
+void MainWindow::slotDeleteCheckedKeys()
 {
-    deleteKeysWithWarning(mKeyList->getChecked());
+    slotDdeleteKeysWithWarning(mKeyList->getChecked());
 }
 
-void MainWindow::deleteKeysWithWarning(QStringList *uidList)
+void MainWindow::slotDdeleteKeysWithWarning(QStringList *uidList)
 {
     /**
      * TODO: Different Messages for private/public key, check if
@@ -829,7 +829,7 @@ void MainWindow::slotKeyDeleted(int retcode)
     delkey->deleteLater();
 }
 
-void MainWindow::importKeyFromEdit()
+void MainWindow::slotImportKeyFromEdit()
 {
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
@@ -856,10 +856,10 @@ void MainWindow::importKeyFromEdit()
         imp = new KGpgImport(this, text);
     }
 
-    startImport(imp);
+    slotStartImport(imp);
 }
 
-void MainWindow::startImport(KGpgImport *import)
+void MainWindow::slotStartImport(KGpgImport *import)
 {
     qDebug() << "start import";
     changeMessage(tr("Importing..."), true);
@@ -909,14 +909,14 @@ void MainWindow::changeMessage(const QString &msg, const bool keep)
     statusBar()->showMessage(msg, timeout);
 }
 
-void MainWindow::openKeyManagement()
+void MainWindow::slotOpenKeyManagement()
 {
     keyMgmt->show();
     keyMgmt->raise();
     keyMgmt->activateWindow();
 }
 
-void MainWindow::encrypt()
+void MainWindow::slotEncrypt()
 {
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
@@ -958,7 +958,7 @@ void MainWindow::slotEncryptDone(int result)
     sender()->deleteLater();
 }
 
-void MainWindow::sign()
+void MainWindow::slotSign()
 {
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
@@ -1003,7 +1003,7 @@ void MainWindow::slotSignDone(int result)
 
 }
 
-void MainWindow::decrypt()
+void MainWindow::slotDecrypt()
 {
     if (edit->tabCount()== 0 || edit->curPage() == 0) {
         return;
@@ -1079,7 +1079,7 @@ void MainWindow::slotDecryptDone(int result)
     decr->deleteLater();
 }
 
-void MainWindow::find()
+void MainWindow::slotFind()
 {
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
@@ -1093,7 +1093,7 @@ void MainWindow::find()
 
 }
 
-void MainWindow::verify()
+void MainWindow::slotVerify()
 {
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
@@ -1116,7 +1116,7 @@ void MainWindow::verify()
 /*
  * Append the selected (not checked!) Key(s) To Textedit
  */
-void MainWindow::appendSelectedKeys()
+void MainWindow::slotAppendSelectedKeys()
 {
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
@@ -1142,7 +1142,7 @@ void MainWindow::slotAppendSelectedKeysReady(int result) {
     exp->deleteLater();
 }
 
-void MainWindow::copyMailAddressToClipboard()
+void MainWindow::slotCopyMailAddressToClipboard()
 {
     if (mKeyList->getSelected()->isEmpty()) {
         return;
@@ -1154,7 +1154,7 @@ void MainWindow::copyMailAddressToClipboard()
     cb->setText(mail);
 }
 
-void MainWindow::exportKeyToFile()
+void MainWindow::slotExportKeyToFile()
 {
 // TODO
 /*    QByteArray *keyArray = new QByteArray();
@@ -1176,7 +1176,7 @@ void MainWindow::exportKeyToFile()
 */
 }
 
-void MainWindow::exportKeyToClipboard()
+void MainWindow::slotExportKeyToClipboard()
 {
 // TODO
 /*    QByteArray *keyArray = new QByteArray();
@@ -1189,13 +1189,13 @@ void MainWindow::exportKeyToClipboard()
 */
 }
 
-void MainWindow::generateKeyDialog()
+void MainWindow::slotGenerateKeyDialog()
 {
     KeyGenDialog *keyGenDialog = new KeyGenDialog(mCtx,this);
     keyGenDialog->show();
 }
 
-void MainWindow::showKeyDetails()
+void MainWindow::slotShowKeyDetails()
 {
     if (mKeyList->getSelected()->isEmpty()) {
         return;
@@ -1207,7 +1207,7 @@ void MainWindow::showKeyDetails()
     }
 }
 
-void MainWindow::refreshKeysFromKeyserver()
+void MainWindow::slotRefreshKeysFromKeyserver()
 {
     if (mKeyList->getSelected()->isEmpty()) {
         return;
@@ -1217,7 +1217,7 @@ void MainWindow::refreshKeysFromKeyserver()
     ksid->import(*mKeyList->getSelected());
 }
 
-void MainWindow::uploadKeyToServer()
+void MainWindow::slotUploadKeyToServer()
 {
     QByteArray *keyArray = new QByteArray();
 
@@ -1227,35 +1227,35 @@ void MainWindow::uploadKeyToServer()
     //mKeyList->uploadKeyToServer(keyArray);
 }
 
-void MainWindow::fileEncrypt()
+void MainWindow::slotFileEncrypt()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
         new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Encrypt, this);
 }
 
-void MainWindow::fileDecrypt()
+void MainWindow::slotFileDecrypt()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
         new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Decrypt, this);
 }
 
-void MainWindow::fileSign()
+void MainWindow::slotFileSign()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
         new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Sign, this);
 }
 
-void MainWindow::fileVerify()
+void MainWindow::slotFileVerify()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
         new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Verify, this);
 }
 
-void MainWindow::openSettingsDialog()
+void MainWindow::slotOpenSettingsDialog()
 {
 
     QString preLang = settings.value("int/lang").toString();
@@ -1298,7 +1298,7 @@ void MainWindow::openSettingsDialog()
 
 }
 
-void MainWindow::cleanDoubleLinebreaks()
+void MainWindow::slotCleanDoubleLinebreaks()
 {
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
@@ -1327,7 +1327,7 @@ void MainWindow::cleanDoubleLinebreaks()
     edit->fillTextEditWithText(content);
 }
 
-void MainWindow::addPgpHeader() {
+void MainWindow::slotAddPgpHeader() {
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;
     }
@@ -1340,7 +1340,7 @@ void MainWindow::addPgpHeader() {
     edit->fillTextEditWithText(content);
 }
 
-void MainWindow::cutPgpHeader() {
+void MainWindow::slotCutPgpHeader() {
 
     if (edit->tabCount()==0 || edit->curPage() == 0) {
         return;

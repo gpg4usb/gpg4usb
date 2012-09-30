@@ -80,7 +80,7 @@ public:
      */
     MainWindow();
 public slots:
-    void setStatusBarText(QString text);
+    void slotSetStatusBarText(QString text);
 
 protected:
     /**
@@ -94,19 +94,19 @@ private slots:
      * @details encrypt the text of currently active textedit-page
      * with the currently checked keys
      */
-    void encrypt();
+    void slotEncrypt();
     void slotEncryptDone(int result);
 
     /**
      * @details Show a passphrase dialog and decrypt the text of currently active tab.
      */
-    void decrypt();
+    void slotDecrypt();
     void slotDecryptDone(int result);
 
     /**
      * @details Sign the text of currently active tab with the checked private keys
      */
-    void sign();
+    void slotSign();
     void slotSignDone(int result);
 
     /**
@@ -114,42 +114,42 @@ private slots:
      * If document is signed with a key, which is not in keylist, show import missing
      * key from keyserver in Menu of verifynotification.
      */
-    void verify();
+    void slotVerify();
 
     /**
      * @details Open find widget.
      */
-    void find();
+    void slotFind();
 
     /**
      * @details Show the details of the first of the first of selected keys
      */
-     void showKeyDetails();
+     void slotShowKeyDetails();
  
     /**
      * @details Refresh key information of selected keys from default keyserver
      */
-     void refreshKeysFromKeyserver();
+     void slotRefreshKeysFromKeyserver();
  
     /**
       * @details upload the selected key to the keyserver
       */
-     void uploadKeyToServer();
+     void slotUploadKeyToServer();
  
     /**
       * @details start the wizard
       */
-    void startWizard();
+    void slotStartWizard();
 
     /**
     * @details Delete selected keys in keyklist
     */
-    void deleteSelectedKeys();
+    void slotDeleteSelectedKeys();
 
     /**
     * @details Delete checked keys in keyklist
     */
-    void deleteCheckedKeys();
+    void slotDeleteCheckedKeys();
 
     /**
     * @details Slot called after deleting keys
@@ -159,116 +159,116 @@ private slots:
     /**
     * @details Slot to show generate key dialog
     */
-    void generateKeyDialog();
+    void slotGenerateKeyDialog();
 
     /**
     * @details Delete keys, but show a warn dialog before
     */
-    void deleteKeysWithWarning(QStringList *uidList);
+    void slotDdeleteKeysWithWarning(QStringList *uidList);
 
     /**
      * @details Import keys from currently active tab to keylist if possible.
      */
-    void importKeyFromEdit();
-    void startImport(KGpgImport *import);
+    void slotImportKeyFromEdit();
+    void slotStartImport(KGpgImport *import);
     void slotImportDone(int result);
 
     /**
      * @details Export checked keys to file.
      */
-    void exportKeyToFile();
+    void slotExportKeyToFile();
 
     /**
      * @details Export checked keys to clipboard.
      */
-    void exportKeyToClipboard();
+    void slotExportKeyToClipboard();
 
     /**
      * @details Append the selected keys to currently active textedit.
      */
-    void appendSelectedKeys();
+    void slotAppendSelectedKeys();
     void slotAppendSelectedKeysReady(int result);
 
     /**
      * @details Copy the mailaddress of selected key to clipboard.
      * Method for keylists contextmenu.
      */
-    void copyMailAddressToClipboard();
+    void slotCopyMailAddressToClipboard();
 
     /**
      * @details Open key management dialog.
      */
-    void openKeyManagement();
+    void slotOpenKeyManagement();
 
     /**
      * @details Open about-dialog.
      */
-    void about();
+    void slotAbout();
 
     /**
      * @details Open dialog for encrypting file.
      */
-    void fileEncrypt();
+    void slotFileEncrypt();
 
     /**
      * @details Open dialog for decrypting file.
      */
-    void fileDecrypt();
+    void slotFileDecrypt();
 
     /**
      * @details Open dialog for encrypting file.
      */
-    void fileSign();
+    void slotFileSign();
 
     /**
      * @details Open dialog for decrypting file.
      */
-    void fileVerify();
+    void slotFileVerify();
 
     /**
      * @details Open settings-dialog.
      */
-    void openSettingsDialog();
+    void slotOpenSettingsDialog();
 
     /**
      * @details Open online-tutorial in default browser.
      */
-    void openTutorial();
+    void slotOpenTutorial();
 
     /**
      * @details Open integrated help in new tab.
      */
-    void openHelp();
+    void slotOpenHelp();
 
     /**
      * @details Open integrated help in new tab with the specified page.
      */
-    void openHelp(const QString page);
+    void slotOpenHelp(const QString page);
 
     /**
      * @details Show a warn message in status bar, if there are files in attachment folder.
      */
-    void checkAttachmentFolder();
+    void slotCheckAttachmentFolder();
 
     /**
      * @details Open online translation tutorial in default browser.
      */
-    void openTranslate();
+    void slotOpenTranslate();
 
     /**
      * @details Replace double linebreaks by single linebreaks in currently active tab.
      */
-    void cleanDoubleLinebreaks();
+    void slotCleanDoubleLinebreaks();
 
     /**
      * @details Cut the existing PGP header and footer from current tab.
      */
-    void cutPgpHeader();
+    void slotCutPgpHeader();
 
     /**
      * @details Add PGP header and footer to current tab.
      */
-    void addPgpHeader();
+    void slotAddPgpHeader();
 
 //    void dropEvent(QDropEvent *event);
 
@@ -276,7 +276,7 @@ private slots:
      * @details Disable tab related actions, if number of tabs is 0.
      * @param number number of the opened tabs and -1, if no tab is opened
      */
-    void disableTabActions(int number);
+    void slotDisableTabActions(int number);
 
 private:
     /**

@@ -35,7 +35,7 @@ KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QWidget *parent )  : QMainWindow(parent
     createActions();
     createMenus();
     createToolBars();
-    connect(this,SIGNAL(statusBarChanged(QString)),this->parent(),SLOT(setStatusBarText(QString)));
+    connect(this,SIGNAL(statusBarChanged(QString)),this->parent(),SLOT(slotSetStatusBarText(QString)));
 
     /* Restore the iconstyle */
     QSettings settings;
