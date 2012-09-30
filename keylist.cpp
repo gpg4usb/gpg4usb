@@ -58,12 +58,12 @@ KeyList::KeyList(GpgME::GpgContext *ctx, QWidget *parent)
     setLayout(layout);
 
     popupMenu = new QMenu(this);
-    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
+    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(slotRefresh()));
     setAcceptDrops(true);
-    refresh();
+    slotRefresh();
 }
 
-void KeyList::refresh()
+void KeyList::slotRefresh()
 {
     QStringList *keyList;
     keyList = getChecked();
@@ -265,7 +265,7 @@ void KeyList::importKeys(QByteArray inBuffer)
 //    new KeyImportDetailDialog(mCtx, result, this);
 }
 
-void KeyList::uploadKeyToServer(QByteArray *keys)
+void KeyList::slotUploadKeyToServer(QByteArray *keys)
 {
     QUrl reqUrl("http://localhost:11371/pks/add");
     qnam = new QNetworkAccessManager(this);
@@ -286,12 +286,12 @@ void KeyList::uploadKeyToServer(QByteArray *keys)
 
     QNetworkReply *reply = qnam->post(req,params.encodedQuery());
     connect(reply, SIGNAL(finished()),
-            this, SLOT(uploadFinished()));
+            this, SLOT(slotUploadFinished()));
     qDebug() << "REQURL: " << reqUrl;
     qDebug() << "PARAMS.ENCODED: " << params.toEncoded();
 }
 
-void KeyList::uploadFinished()
+void KeyList::slotUploadFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
 

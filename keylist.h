@@ -54,8 +54,8 @@ public:
     bool containsPrivateKeys();
 
 public slots:
-    void refresh();
-    void uploadKeyToServer(QByteArray *keys);
+    void slotRefresh();
+    void slotUploadKeyToServer(QByteArray *keys);
 
 private:
     void importKeys(QByteArray inBuffer);
@@ -65,7 +65,7 @@ private:
     QNetworkAccessManager *qnam;
 
 private slots:
-    void uploadFinished();
+    void slotUploadFinished();
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);

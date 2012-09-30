@@ -51,17 +51,17 @@ public:
     QAction *importKeyFromKeyServerAct;
 
 public slots:
-    void importKeyFromFile();
-    void importKeyFromClipboard();
-    void importKeyFromKeyServer();
-    void importKeys(QString text);
+    void SlotimportKeyFromFile();
+    void slotImportKeyFromClipboard();
+    void slotImportKeyFromKeyServer();
+    void slotImportKeys(QString text);
     void slotImportDone(int result);
-    void exportKeyToFile();
-    void exportKeyToClipboard();
-    void deleteSelectedKeys();
-    void deleteCheckedKeys();
-    void generateKeyDialog();
-    void showKeyDetails();
+    void slotExportKeyToFile();
+    void slotExportKeyToClipboard();
+    void slotDeleteSelectedKeys();
+    void slotDeleteCheckedKeys();
+    void slotGenerateKeyDialog();
+    void slotShowKeyDetails();
     void slotKeyDeleted(int retcode);
 
 signals:

@@ -98,7 +98,7 @@ bool Wizard::importPubAndSecKeysFromDir(const QString dir, KeyMgmt *keyMgmt)
         inBuffer.append(pubRingFile.readAll());
         pubRingFile.close();
     }
-    keyMgmt->importKeys(inBuffer);
+    keyMgmt->slotImportKeys(inBuffer);
     inBuffer.clear();
 
     return true;
