@@ -29,15 +29,9 @@ FindWidget::FindWidget(QWidget *parent, QTextEdit *edit) :
     QTimer::singleShot(0, findEdit, SLOT(setFocus()));
 }
 
-void FindWidget::slotFindNext()
+void FindWidget::setBackground()
 {
-    cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
-    // if end of document is reached, restart search from beginning
-    if (cursor.position() == -1) {
-        cursor.setPosition(0);
-        cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
-    }
-
+    cursor = mTextpage->textCursor();
     // if match is found set background of QLineEdit to white, otherwise to red
     QPalette bgPalette( findEdit->palette() );
     if ((cursor.position() == -1) && (!findEdit->text().isEmpty())) {
@@ -46,8 +40,19 @@ void FindWidget::slotFindNext()
         bgPalette.setColor( QPalette::Base, Qt::white);
     }
     findEdit->setPalette(bgPalette);
+}
+
+void FindWidget::slotFindNext()
+{
+    cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
+    // if end of document is reached, restart search from beginning
+    if (cursor.position() == -1) {
+        //cursor.setPosition(0);
+        cursor = mTextpage->document()->find(findEdit->text(), QTextCursor::Start, QTextDocument::FindCaseSensitively);
+    }
 
     mTextpage->setTextCursor(cursor);
+    this->setBackground();
 }
 
 void FindWidget::slotFind()
@@ -58,16 +63,8 @@ void FindWidget::slotFind()
         cursor = mTextpage->document()->find(findEdit->text(), cursor.anchor(), QTextDocument::FindCaseSensitively);
     }
 
-    // if match is found set background of QLineEdit to white, otherwise to red
-    QPalette bgPalette( findEdit->palette() );
-    if ((cursor.position() == -1) && (!findEdit->text().isEmpty())) {
-        bgPalette.setColor( QPalette::Base, "#ececba");
-    } else {
-        bgPalette.setColor( QPalette::Base, Qt::white);
-    }
-    findEdit->setPalette(bgPalette);
-
     mTextpage->setTextCursor(cursor);
+    this->setBackground();
 }
 
 void FindWidget::slotFindPrevious()
@@ -87,19 +84,10 @@ void FindWidget::slotFindPrevious()
         qDebug() << "cursor2: " << cursor.position();
         cursor = mTextpage->document()->find(findEdit->text(), cursor, flags);
         qDebug() << "cursor3: " << cursor.position();
-
     }
-
-    // if match is found set background of QLineEdit to white, otherwise to red
-    QPalette bgPalette( findEdit->palette() );
-    if ((cursor.position() == -1) && (!findEdit->text().isEmpty())) {
-        bgPalette.setColor( QPalette::Base, "#ececba");
-    } else {
-        bgPalette.setColor( QPalette::Base, Qt::white);
-    }
-    findEdit->setPalette(bgPalette);
 
     mTextpage->setTextCursor(cursor);
+	this->setBackground();
 }
 
 void FindWidget::keyPressEvent( QKeyEvent* e )

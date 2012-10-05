@@ -23,6 +23,11 @@ public:
 
 private:
     void keyPressEvent( QKeyEvent* e );
+    /**
+     * @details Set background of findEdit to red, if no match is found (Documents textcursor position equals -1),
+     *          otherwise set it to white.
+     */
+    void setBackground();
 
     QTextEdit *mTextpage; /** Textedit associated to the notification */
     QLineEdit *findEdit; /** Label holding the text shown in verifyNotification */
