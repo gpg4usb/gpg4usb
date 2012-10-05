@@ -97,11 +97,12 @@ void FindWidget::keyPressEvent( QKeyEvent* e )
     case Qt::Key_Escape:
         this->slotClose();
         break;
-    case Qt::Key_F3 + Qt::SHIFT:
-        this->slotFindPrevious();
-        break;
     case Qt::Key_F3:
-        this->slotFindNext();
+        if (e->modifiers() & Qt::ShiftModifier) {
+            this->slotFindPrevious();
+        } else {
+            this->slotFindNext();
+        }
         break;
     }
 }
