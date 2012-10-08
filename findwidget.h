@@ -31,7 +31,6 @@ private:
 
     QTextEdit *mTextpage; /** Textedit associated to the notification */
     QLineEdit *findEdit; /** Label holding the text shown in verifyNotification */
-    QTextCursor cursor;
     QTextCharFormat cursorFormat;
 
 private slots:

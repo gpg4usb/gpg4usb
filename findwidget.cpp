@@ -31,7 +31,7 @@ FindWidget::FindWidget(QWidget *parent, QTextEdit *edit) :
 
 void FindWidget::setBackground()
 {
-    cursor = mTextpage->textCursor();
+    QTextCursor cursor = mTextpage->textCursor();
     // if match is found set background of QLineEdit to white, otherwise to red
     QPalette bgPalette( findEdit->palette() );
     if ((cursor.position() == -1) && (!findEdit->text().isEmpty())) {
@@ -44,11 +44,12 @@ void FindWidget::setBackground()
 
 void FindWidget::slotFindNext()
 {
+    QTextCursor cursor = mTextpage->textCursor();
     cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
     // if end of document is reached, restart search from beginning
     if (cursor.position() == -1) {
         //cursor.setPosition(0);
-        cursor = mTextpage->document()->find(findEdit->text(), QTextCursor::Start, QTextDocument::FindCaseSensitively);
+        QTextCursor cursor = mTextpage->document()->find(findEdit->text(), QTextCursor::Start, QTextDocument::FindCaseSensitively);
     }
 
     mTextpage->setTextCursor(cursor);
@@ -57,6 +58,8 @@ void FindWidget::slotFindNext()
 
 void FindWidget::slotFind()
 {
+    QTextCursor cursor = mTextpage->textCursor();
+
     if (cursor.anchor() == -1) {
         cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
     } else {
@@ -73,6 +76,7 @@ void FindWidget::slotFindPrevious()
     flags |= QTextDocument::FindBackward;
     flags |= QTextDocument::FindCaseSensitively;
 
+    QTextCursor cursor = mTextpage->textCursor();
     cursor = mTextpage->document()->find(findEdit->text(), cursor, flags);
 
     // if end of document is reached, restart search from beginning
@@ -80,9 +84,9 @@ void FindWidget::slotFindPrevious()
         qDebug() << "cursor:" << cursor.position();
         qDebug() << "length: " << mTextpage->document()->toPlainText().length()-1;
 
-        cursor.movePosition(QTextCursor::End);
+        cursor = mTextpage->document()->find(findEdit->text(), QTextCursor::End, QTextDocument::FindCaseSensitively);
         qDebug() << "cursor2: " << cursor.position();
-        cursor = mTextpage->document()->find(findEdit->text(), cursor, flags);
+        QTextCursor cursor = mTextpage->document()->find(findEdit->text(), cursor, flags);
         qDebug() << "cursor3: " << cursor.position();
     }
 
@@ -108,8 +112,9 @@ void FindWidget::keyPressEvent( QKeyEvent* e )
 }
 
 void FindWidget::slotClose() {
+    QTextCursor cursor = mTextpage->textCursor();
+
     if ( cursor.position() == -1) {
-        cursor = mTextpage->textCursor();
         cursor.setPosition(0);
         mTextpage->setTextCursor(cursor);
     }
