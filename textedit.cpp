@@ -36,13 +36,13 @@ TextEdit::TextEdit()
     setLayout(layout);
 
     connect(tabWidget, SIGNAL(tabCloseRequested(int)), this, SLOT(removeTab(int)));
-    slotNewTab();
+    slotNewEditorPageTab();
     setAcceptDrops(false);
     QPushButton *newButton = new QPushButton("new",this);
     tabWidget->setCornerWidget(newButton,Qt::TopRightCorner);
 }
 
-void TextEdit::slotNewTab()
+void TextEdit::slotNewEditorPageTab()
 {
     QString header = tr("untitled") +
                      QString::number(++countPage)+".txt";

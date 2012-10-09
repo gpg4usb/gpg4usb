@@ -6,7 +6,7 @@ Release 0.4
 - Refresh key from keyserver [DONE]
 - add find action in textedit [DONE]
 	- BUG: hit strg+f, then hit escape -> text not editable anymore, same with not found expression
-	- When earch revious, text should be searched from end again, if no hit is found
+	- When search previous, text should be searched from end again, if no hit is found
 	- save the search expression, so that it is automatically used next time
 - Change private key password 
 - create revocation file 
@@ -32,6 +32,7 @@ Release 0.4
 
 BUG:
 - check PGP-Mime
+- for secret keys the name is not shown in details dialog
 
 Release 0.4.1
 - Add default key functionality 

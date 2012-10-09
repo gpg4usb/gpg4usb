@@ -137,7 +137,7 @@ public slots:
      * @details Adds a new tab with the title "untitled"+countpage+".txt"
      *                      Sets the focus to the new tab. Increase Tab-Count by one
      */
-    void slotNewTab();
+    void slotNewEditorPageTab();
 
     /**
      * @details Adds a new tab with the given title and opens given html file.
