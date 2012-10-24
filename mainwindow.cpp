@@ -154,7 +154,7 @@ void MainWindow::createActions()
     newTabActShortcutList.append(QKeySequence (Qt::CTRL + Qt::Key_T));
     newTabAct->setShortcuts(newTabActShortcutList);
     newTabAct->setToolTip(tr("Open a new file"));
-    connect(newTabAct, SIGNAL(triggered()), edit, SLOT(slotNewTab()));
+    connect(newTabAct, SIGNAL(triggered()), edit, SLOT(slotNewEditorPageTab()));
 
     openAct = new QAction(tr("&Open..."), this);
     openAct->setIcon(QIcon(":fileopen.png"));
