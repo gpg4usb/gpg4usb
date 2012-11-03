@@ -188,6 +188,7 @@ int KgpgInterface::sendPassphrase(const QString &text, KProcess *process, QWidge
 static KgpgCore::KgpgKeyList
 readPublicKeysProcess(GPGProc &p, KGpgKeyNode *readNode)
 {
+    qDebug() << "\n------\nread public keys process\n-----\n";
 	QStringList lsp;
 	int items;
 	KgpgCore::KgpgKeyList publiclistkeys;
@@ -354,6 +355,7 @@ void KgpgInterface::readSignatures(KGpgKeyNode *node)
 static KgpgCore::KgpgKeyList
 readSecretKeysProcess(GPGProc &p)
 {
+    qDebug() << "\n------\nread secret keys process\n-----\n";
 	QStringList lsp;
 	int items;
 	bool hasuid = true;
@@ -362,6 +364,7 @@ readSecretKeysProcess(GPGProc &p)
 
 	while ( (items = p.readln(lsp)) >= 0 ) {
 		if ((lsp.at(0) == QLatin1String( "sec" )) && (items >= 10)) {
+
 			result << KgpgKey(lsp.at(4), lsp.at(2).toUInt(), Convert::toTrust(lsp.at(1)),
 				Convert::toAlgo(lsp.at(3).toInt()), QDateTime::fromTime_t(lsp.at(5).toUInt()));
 

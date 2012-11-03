@@ -112,6 +112,7 @@ public:
     GpgKeyList listKeys();
     void clearPasswordCache();
     KgpgCore::KgpgKey getKeyDetails(QString uid);
+    bool isSecretKey(QString uid);
 
     /**
      * @details If text contains PGP-message, put a linebreak before the message,

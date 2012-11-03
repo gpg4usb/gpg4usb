@@ -23,7 +23,7 @@
 
 //#include <KGlobal>
 //#include <KLocale>
-#include <QTranslator>
+
 //#include "kgpgsettings.h"
 #include "images.h"
 
@@ -81,7 +81,7 @@ QColor Convert::toColor(const KgpgKeyTrust trust)
     switch (trust)
     {
         case TRUST_INVALID:
-        /*case TRUST_DISABLED:    return KGpgSettings::colorBad();
+/*        case TRUST_DISABLED:    return KGpgSettings::colorBad();
         case TRUST_EXPIRED:     return KGpgSettings::colorExpired();
         case TRUST_MARGINAL:    return KGpgSettings::colorMarginal();
         case TRUST_REVOKED:     return KGpgSettings::colorRev();
@@ -90,14 +90,17 @@ QColor Convert::toColor(const KgpgKeyTrust trust)
         case TRUST_FULL:        return KGpgSettings::colorGood();
         case TRUST_ULTIMATE:    return KGpgSettings::colorUltimate();*/
         case TRUST_UNKNOWN:
-        default:                return QColor(0,0,0);
-                            //return KGpgSettings::colorUnknown();
+//        default:                return KGpgSettings::colorUnknown();
+        default:
+        return QColor();
     }
 }
 
 QString Convert::toString(const QDate &date)
 {
+    // TODO
     //return KGlobal::locale()->formatDate(date, KLocale::ShortDate);
+    return "TODO";
 }
 
 KgpgKeyAlgo Convert::toAlgo(const uint v)

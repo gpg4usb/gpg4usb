@@ -147,10 +147,11 @@ GpgContext::~GpgContext()
 
 KgpgCore::KgpgKey GpgContext::getKeyDetails(QString uid) {
 
+    KgpgCore::KgpgKeyList keys;
 
     // try secret
-    KgpgCore::KgpgKeyList keys = KgpgInterface::readSecretKeys(QStringList() << uid);
-    if(keys.empty()) {
+    //KgpgCore::KgpgKeyList keys = KgpgInterface::readSecretKeys(QStringList() << uid);
+    //if(keys.empty()) {
         // ok try public
         keys = KgpgInterface::readPublicKeys(QStringList() << uid);
         // that should not happen
@@ -159,7 +160,7 @@ KgpgCore::KgpgKey GpgContext::getKeyDetails(QString uid) {
             return ;
         }*/
 
-    }
+    //}
 
     KgpgCore::KgpgKey key = keys.first();
     return key;
@@ -177,9 +178,8 @@ GpgKeyList GpgContext::listKeys()
 
 
     GpgKeyList keys;
-    KgpgCore::KgpgKeyList kl = KgpgInterface::readPublicKeys();
 
-    foreach(KgpgCore::KgpgKey kkey, kl) {
+    foreach(KgpgCore::KgpgKey kkey, KgpgInterface::readPublicKeys()) {
         GpgKey key;
         key.email = kkey.email();
         //key.expired = kkey.expirationDate().toString();
@@ -203,6 +203,17 @@ GpgKeyList GpgContext::listKeys()
     }
 
     return keys;
+}
+
+// TODO: do we really need to call gpg or could we use an already existing list
+bool GpgContext::isSecretKey(QString uid) {
+
+    foreach(KgpgCore::KgpgKey skey, KgpgInterface::readSecretKeys()) {
+        if(skey.id() == uid) return true;
+    }
+
+    return false;
+
 }
 
 /** also from kgpgme.cpp, seems to clear password from mem */

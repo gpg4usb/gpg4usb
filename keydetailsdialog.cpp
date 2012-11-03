@@ -21,6 +21,7 @@
 
 #include "keydetailsdialog.h"
 #include "kgpg/transactions/kgpgexport.h"
+//#include "kgpg/core/convert.h"
 
 KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key, QWidget *parent)
     : QDialog(parent)
@@ -54,6 +55,8 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
     }
 
     keyAlgoVal = key.algorithm();
+    // TODO: algorithm
+    //keyAlgoVal = KgpgCore::Convert::toString(key.algorithm()) + QLatin1String( " / " ) + KgpgCore::Convert::toString(key.encryptionAlgorithm());
 
     qDebug() << key.algorithm();
     keyCreatedVal = key.creationDate().toString("dd. MMM. yyyy");
@@ -138,7 +141,8 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
         mvbox->addWidget(additionalUidBox);
     }*/
 
-    if (key.secret()) {
+    //if (key.secret()) {
+    if(mCtx->isSecretKey(key.id())) {
         QGroupBox *privKeyBox = new QGroupBox(tr("Private Key"));
         QVBoxLayout *vboxPK = new QVBoxLayout();
 
