@@ -51,31 +51,16 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
     if (key.expirationDate().isNull()) {
         keyExpireVal = tr("Never");
     } else {
-        keyExpireVal = key.expirationDate().toString("dd. MMM. yyyy");
+        keyExpireVal = KgpgCore::Convert::toString(key.expirationDate().date());
     }
 
-    //keyAlgoVal = key.algorithm();
-    // TODO: algorithm
     keyAlgoVal = KgpgCore::Convert::toString(key.algorithm()) + QLatin1String( " / " ) + KgpgCore::Convert::toString(key.encryptionAlgorithm());
+    keyCreatedVal = KgpgCore::Convert::toString(key.creationDate().date());
 
-    qDebug() << key.algorithm();
-    keyCreatedVal = key.creationDate().toString("dd. MMM. yyyy");
-
-    // have el-gamal key?
-    /*if (key->subkeys->next) {
-        keySizeVal.sprintf("%d / %d",  int(key->subkeys->length), int(key->subkeys->next->length));
-        if (key->subkeys->next->expires == 0) {
-            keyExpireVal += tr(" / Never");
-        } else {
-            keyExpireVal += " / " + QDateTime::fromTime_t(key->subkeys->next->expires).toString("dd. MMM. yyyy");
-        }
-        keyAlgoVal.append(" / ").append(gpgme_pubkey_algo_name(key->subkeys->next->pubkey_algo));
-        keyCreatedVal += " / " + QDateTime::fromTime_t(key->subkeys->next->timestamp).toString("dd. MMM. yyyy");
-    } else {
-        keySizeVal.setNum(int(key->subkeys->length));
-    }*/
+    keySizeVal = QString::number(key.size()) + "/" + QString::number(key.encryptionSize());
 
     keySizeVarLabel = new QLabel(keySizeVal);
+    keySizeVarLabel->setWhatsThis(tr("<qt>The left part is the algorithm used by the <b>signature</b> key. The right part is the algorithm used by the <b>encryption</b> key.</qt>"));
     expireVarLabel = new QLabel(keyExpireVal);
     createdVarLabel = new QLabel(keyCreatedVal);
     algorithmVarLabel = new QLabel(keyAlgoVal);

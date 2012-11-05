@@ -98,9 +98,7 @@ QColor Convert::toColor(const KgpgKeyTrust trust)
 
 QString Convert::toString(const QDate &date)
 {
-    // TODO
-    //return KGlobal::locale()->formatDate(date, KLocale::ShortDate);
-    return "TODO";
+    return date.toString("dd. MMM. yyyy");
 }
 
 KgpgKeyAlgo Convert::toAlgo(const uint v)
