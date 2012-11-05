@@ -54,7 +54,7 @@ QString Convert::toString(const KgpgKeyOwnerTrust ownertrust)
         case OWTRUST_FULL:      return QObject::tr("Fully");
         case OWTRUST_ULTIMATE:  return QObject::tr("Ultimately");
         case OWTRUST_UNKNOWN:
-        default:                return QObject::tr("Unknown trust in key owner", "Unknown");
+        default:                return QObject::tr("Unknown", "Unknown trust in key owner");
     }
 }
 
@@ -62,17 +62,17 @@ QString Convert::toString(const KgpgKeyTrust trust)
 {
     switch (trust)
     {
-        case TRUST_INVALID:     return QObject::tr("Invalid key", "Invalid");
-        case TRUST_DISABLED:    return QObject::tr("Disabled key", "Disabled");
+        case TRUST_INVALID:     return QObject::tr("Invalid", "Invalid key");
+        case TRUST_DISABLED:    return QObject::tr("Disabled", "Disabled key");
         case TRUST_REVOKED:     return QObject::tr("Revoked");
-        case TRUST_EXPIRED:     return QObject::tr("Expired key", "Expired");
-        case TRUST_UNDEFINED:   return QObject::tr("Undefined key trust", "Undefined");
-        case TRUST_NONE:        return QObject::tr("No trust in key", "None");
-        case TRUST_MARGINAL:    return QObject::tr("Marginal trust in key", "Marginal");
-        case TRUST_FULL:        return QObject::tr("Full trust in key", "Full");
-        case TRUST_ULTIMATE:    return QObject::tr("Ultimate trust in key", "Ultimate");
+        case TRUST_EXPIRED:     return QObject::tr("Expired", "Expired key");
+        case TRUST_UNDEFINED:   return QObject::tr("Undefined", "Undefined key trust");
+        case TRUST_NONE:        return QObject::tr("None", "No trust in key");
+        case TRUST_MARGINAL:    return QObject::tr("Marginal", "Marginal trust in key");
+        case TRUST_FULL:        return QObject::tr("Full", "Full trust in key");
+        case TRUST_ULTIMATE:    return QObject::tr("Ultimate", "Ultimate trust in key");
         case TRUST_UNKNOWN:
-        default:                return QObject::tr("Unknown trust in key", "Unknown");
+        default:                return QObject::tr("Unknown", "Unknown trust in key");
     }
 }
 
