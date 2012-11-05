@@ -34,13 +34,13 @@ QString Convert::toString(const KgpgKeyAlgo algorithm)
 {
     switch (algorithm)
     {
-        case ALGO_RSA:          return QObject::tr("Encryption algorithm", "RSA");
-        case ALGO_DSA:          return QObject::tr("Encryption algorithm", "DSA");
-        case ALGO_ELGAMAL:      return QObject::tr("Encryption algorithm", "ElGamal");
-        case ALGO_DSA_ELGAMAL:  return QObject::tr("Encryption algorithm", "DSA & ElGamal");
-        case ALGO_RSA_RSA:      return QObject::tr("Encryption algorithm RSA, Signing algorithm RSA", "RSA & RSA");
+        case ALGO_RSA:          return QObject::tr("RSA", "Encryption algorithm");
+        case ALGO_DSA:          return QObject::tr("DSA", "Encryption algorithm");
+        case ALGO_ELGAMAL:      return QObject::tr("ElGamal", "Encryption algorithm");
+        case ALGO_DSA_ELGAMAL:  return QObject::tr("DSA & ElGamal", "Encryption algorithm");
+        case ALGO_RSA_RSA:      return QObject::tr("RSA & RSA", "Encryption algorithm RSA, Signing algorithm RSA");
         case ALGO_UNKNOWN:
-        default:                return QObject::tr("Unknown algorithm", "Unknown");
+        default:                return QObject::tr("Unknown", "Unknown algorithm");
     }
 }
 
