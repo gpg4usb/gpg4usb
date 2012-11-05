@@ -21,7 +21,7 @@
 
 #include "keydetailsdialog.h"
 #include "kgpg/transactions/kgpgexport.h"
-//#include "kgpg/core/convert.h"
+#include "kgpg/core/convert.h"
 
 KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key, QWidget *parent)
     : QDialog(parent)
@@ -54,9 +54,9 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
         keyExpireVal = key.expirationDate().toString("dd. MMM. yyyy");
     }
 
-    keyAlgoVal = key.algorithm();
+    //keyAlgoVal = key.algorithm();
     // TODO: algorithm
-    //keyAlgoVal = KgpgCore::Convert::toString(key.algorithm()) + QLatin1String( " / " ) + KgpgCore::Convert::toString(key.encryptionAlgorithm());
+    keyAlgoVal = KgpgCore::Convert::toString(key.algorithm()) + QLatin1String( " / " ) + KgpgCore::Convert::toString(key.encryptionAlgorithm());
 
     qDebug() << key.algorithm();
     keyCreatedVal = key.creationDate().toString("dd. MMM. yyyy");

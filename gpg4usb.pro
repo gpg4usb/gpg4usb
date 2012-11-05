@@ -46,7 +46,6 @@ HEADERS += attachments.h \
     kgpg/kprocess.h \
     kgpg/kprocess_p.h \
     kgpg/kgpginterface.h \
-#    kgpg/core/convert.h \
     kgpg/core/kgpgkey.h \
     kgpg/core/KGpgSignableNode.h \
     kgpg/core/KGpgExpandableNode.h \
@@ -106,7 +105,6 @@ SOURCES += attachments.cpp \
     kgpg/klinebufferedprocess.cpp \
     kgpg/kprocess.cpp \
     kgpg/kgpginterface.cpp \
-#    kgpg/core/convert.cpp \
     kgpg/core/kgpgkey.cpp \
     kgpg/core/KGpgSignableNode.cpp \
     kgpg/core/KGpgExpandableNode.cpp \
