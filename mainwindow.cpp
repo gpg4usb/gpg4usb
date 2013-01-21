@@ -1260,7 +1260,7 @@ void MainWindow::slotOpenSettingsDialog()
     QString preLang = settings.value("int/lang").toString();
     QString preKeydbPath = settings.value("gpgpaths/keydbpath").toString();
 
-    new SettingsDialog(this);
+    new SettingsDialog(mCtx, this);
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     this->setIconSize(iconSize);

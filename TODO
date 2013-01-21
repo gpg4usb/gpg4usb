@@ -4,6 +4,7 @@ Release 0.4
 - MacOS build
 	- replace gpgme with kgpg (lots of work and trouble!!!)
 - Refresh key from keyserver [DONE]
+- add encrypt to self functionality [DONE]
 - add find action in textedit [DONE]
 	- BUG: hit strg+f, then hit escape -> text not editable anymore, same with not found expression
 	- When search previous, text should be searched from end again, if no hit is found
@@ -33,6 +34,7 @@ Release 0.4
 BUG:
 - check PGP-Mime
 - for secret keys the name is not shown in details dialog
+- remove double line breaks doesn't work for text containing a signature
 
 Release 0.4.1
 - Add default key functionality 

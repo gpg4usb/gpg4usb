@@ -124,6 +124,17 @@ QStringList *KeyList::getChecked()
     return ret;
 }
 
+QStringList *KeyList::getAllPrivateKeys()
+{
+    QStringList *ret = new QStringList();
+    for (int i = 0; i < mKeyList->rowCount(); i++) {
+        if (mKeyList->item(i, 1)) {
+            *ret << mKeyList->item(i, 4)->text();
+        }
+    }
+    return ret;
+}
+
 QStringList *KeyList::getPrivateChecked()
 {
     QStringList *ret = new QStringList();

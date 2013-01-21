@@ -22,6 +22,8 @@
 #ifndef __SETTINGSDIALOG_H__
 #define __SETTINGSDIALOG_H__
 
+#include "keylist.h"
+
 #include <QHash>
 #include <QWidget>
 #include <QtGui>
@@ -51,7 +53,7 @@ class GeneralTab : public QWidget
      Q_OBJECT
 
  public:
-     GeneralTab(QWidget *parent = 0);
+     GeneralTab(GpgME::GpgContext *ctx, QWidget *parent = 0);
      void setSettings();
      void applySettings();
 
@@ -61,10 +63,15 @@ class GeneralTab : public QWidget
      QCheckBox *saveCheckedKeysCheckBox;
      QCheckBox *importConfirmationCheckBox;
      QComboBox *langSelectBox;
+     QComboBox *ownKeySelectBox;
      QHash<QString, QString> lang;
+     QHash<QString, QString> keyIds;
+     QString ownKeyId;
+     KeyList *mKeyList;
+     GpgME::GpgContext *mCtx; /** The current gpg context */
 
 private slots:
-
+    void slotOwnKeyIdChanged();
  };
 
  class MimeTab : public QWidget
@@ -102,6 +109,7 @@ private slots:
      QRadioButton *iconIconsButton;
      QRadioButton *iconAllButton;
      QCheckBox *windowSizeCheckBox;
+
  };
 
  class KeyserverTab : public QWidget
@@ -160,7 +168,7 @@ private:
     Q_OBJECT
 
 public:
-    SettingsDialog(QWidget *parent = 0);
+    SettingsDialog(GpgME::GpgContext *ctx, QWidget *parent = 0);
     GeneralTab *generalTab;
     MimeTab *mimeTab;
     AppearanceTab *appearanceTab;
@@ -176,6 +184,8 @@ public slots:
 private:
     QTabWidget *tabWidget;
     QDialogButtonBox *buttonBox;
+    GpgME::GpgContext *mCtx; /** The current gpg context */
+
 };
 
 #endif  // __SETTINGSDIALOG_H__

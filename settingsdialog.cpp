@@ -21,11 +21,12 @@
 
 #include "settingsdialog.h"
 
-SettingsDialog::SettingsDialog(QWidget *parent)
+SettingsDialog::SettingsDialog(GpgME::GpgContext *ctx, QWidget *parent)
     : QDialog(parent)
 {
+    mCtx=ctx;
     tabWidget = new QTabWidget;
-    generalTab = new GeneralTab;
+    generalTab = new GeneralTab(mCtx);
     appearanceTab = new AppearanceTab;
     mimeTab = new MimeTab;
     keyserverTab = new KeyserverTab;
@@ -42,7 +43,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
                                      | QDialogButtonBox::Cancel);
 
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotAccept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -98,9 +99,10 @@ QHash<QString, QString> SettingsDialog::listLanguages()
 
 
 
-GeneralTab::GeneralTab(QWidget *parent)
+GeneralTab::GeneralTab(GpgME::GpgContext *ctx,QWidget *parent)
     : QWidget(parent)
 {
+    mCtx=ctx;
 
     /*****************************************
      * remember Password-Box
@@ -145,11 +147,49 @@ GeneralTab::GeneralTab(QWidget *parent)
     langBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the language!")));
     langBox->setLayout(langBoxLayout);
 
+    /*****************************************
+     * Own Key Select Box
+     *****************************************/
+    QGroupBox *ownKeyBox = new QGroupBox(tr("Own key"));
+    QVBoxLayout *ownKeyBoxLayout = new QVBoxLayout();
+    ownKeySelectBox = new QComboBox;
+
+    ownKeyBox->setLayout(ownKeyBoxLayout);
+    mKeyList = new KeyList(mCtx);
+
+    // Fill the keyid hashmap
+    keyIds.insert("", tr("<none>"));
+
+    foreach (QString keyid, *mKeyList->getAllPrivateKeys()) {
+        KgpgCore::KgpgKey key = mCtx->getKeyDetails(keyid);
+        QString newKey = " ("+key.id()+")";
+        if (! key.email().isEmpty()) {
+            newKey.prepend( " <"+ key.email()+">");
+        }
+        if (! key.name().isEmpty()) {
+            newKey.prepend( " "+ key.name());
+        }
+        keyIds.insert(key.id(), newKey);
+    }
+    foreach(QString k , keyIds) {
+        ownKeySelectBox->addItem(k);
+    }
+    connect(ownKeySelectBox,SIGNAL(currentIndexChanged(int)),this,SLOT(slotOwnKeyIdChanged()));
+
+    ownKeyBoxLayout->addWidget(new QLabel(tr("All messages are additionaly encrypted to the following key:")));
+    ownKeyBoxLayout->addWidget(ownKeySelectBox);
+
+
+    /*****************************************
+     * Mainlayout
+     *****************************************/
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(rememberPasswordBox);
     mainLayout->addWidget(saveCheckedKeysBox);
     mainLayout->addWidget(importConfirmationBox);
     mainLayout->addWidget(langBox);
+    mainLayout->addWidget(ownKeyBox);
+
     setSettings();
     mainLayout->addStretch(1);
     setLayout(mainLayout);
@@ -179,7 +219,33 @@ void GeneralTab::setSettings()
     if (langKey != "") {
         langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
     }
-    // Ask for confirmation to import, if keyfiles are dropped on keylist
+
+    // Get own key information from keydb/gpg.conf (if contained)
+    QFile gpgConfFile(qApp->applicationDirPath() + "/keydb/gpg.conf");
+    gpgConfFile.open(QFile::ReadOnly);
+    while (!gpgConfFile.atEnd())
+    {
+        QString line = gpgConfFile.readLine();
+        if (line.startsWith("hidden-encrypt-to")){
+            QStringList args;
+
+            // get key id from gpg.conf
+            args=line.split(" ");
+            ownKeyId = args.at(1);
+            // remove linebreak at end of id
+            ownKeyId.remove("\n");
+            ownKeyId.remove("\r");
+        }
+    }
+    gpgConfFile.close();
+    if (ownKeyId.isEmpty()) {
+        ownKeySelectBox->setCurrentIndex(ownKeySelectBox->findText("none", Qt::MatchContains));
+    } else {
+        ownKeySelectBox->setCurrentIndex(ownKeySelectBox->findText(ownKeyId, Qt::MatchContains));
+        qDebug() << ownKeySelectBox->findText(ownKeyId);
+    }
+
+
     if (settings.value("general/confirmImportKeys",Qt::Checked).toBool()){
         importConfirmationCheckBox->setCheckState(Qt::Checked);
     }
@@ -197,6 +263,52 @@ void GeneralTab::applySettings()
     settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
     settings.setValue("general/confirmImportKeys", importConfirmationCheckBox->isChecked());
+}
+
+void GeneralTab::slotOwnKeyIdChanged()
+{
+    // Set ownKeyId to currently selected
+
+    QHashIterator<QString, QString> i(keyIds);
+    while (i.hasNext()) {
+        i.next();
+        if (ownKeySelectBox->currentText() == i.value()) {
+            ownKeyId = i.key();
+        }
+    }
+
+    /*****************************************
+     * Write keyid of own key to gpg.conf
+     *****************************************/
+    QFile gpgConfFile(qApp->applicationDirPath() + "/keydb/gpg.conf");
+    gpgConfFile.open(QFile::ReadWrite);
+    QFile gpgConfTempFile(qApp->applicationDirPath() + "/keydb/gpg.conf.swp");
+    gpgConfTempFile.open(QFile::WriteOnly);
+
+    // remove line with the hidden-encrypt-to
+    while (!gpgConfFile.atEnd())
+    {
+        QByteArray line = gpgConfFile.readLine();
+        if (!line.startsWith("hidden-encrypt-to")) {
+            gpgConfTempFile.write(line);
+        }
+    }
+
+    // add line with hidden-encrypt-to, if a key is chosen
+    if (!ownKeyId.isEmpty()) {
+        QByteArray string("hidden-encrypt-to ");
+        string.append(ownKeyId);
+        string.append("\n");
+        gpgConfTempFile.write(string);
+    }
+
+    gpgConfFile.close();
+    gpgConfTempFile.close();
+
+    // move the temporary gpg.conffile to the actual one
+    gpgConfFile.remove();
+    gpgConfTempFile.copy(gpgConfTempFile.fileName(),gpgConfFile.fileName());
+    gpgConfTempFile.remove();
 }
 
 MimeTab::MimeTab(QWidget *parent)
