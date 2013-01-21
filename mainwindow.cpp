@@ -370,7 +370,7 @@ void MainWindow::createActions()
     connect(copyMailAddressToClipboardAct, SIGNAL(triggered()), this, SLOT(slotCopyMailAddressToClipboard()));
 
     // TODO: find central place for shared actions, to avoid code-duplication with keymgmt.cpp
-    showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
+    showKeyDetailsAct = new QAction(tr("Show key details"), this);
     showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
     connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(slotShowKeyDetails()));
 

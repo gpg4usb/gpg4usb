@@ -70,7 +70,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, KgpgCore::KgpgKey key
     QGridLayout *vboxOD = new QGridLayout();
 
     vboxOD->addWidget(new QLabel(tr("Name:")), 0, 0);
-    vboxOD->addWidget(new QLabel(tr("E-Mailaddress:")), 1, 0);
+    vboxOD->addWidget(new QLabel(tr("Email address:")), 1, 0);
     vboxOD->addWidget(new QLabel(tr("Comment:")), 2, 0);
     vboxOD->addWidget(nameVarLabel, 0, 1);
     vboxOD->addWidget(emailVarLabel, 1, 1);
