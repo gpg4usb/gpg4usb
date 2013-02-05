@@ -5,6 +5,7 @@ Release 0.4
 	- replace gpgme with kgpg (lots of work and trouble!!!)
 - Refresh key from keyserver [DONE]
 - add encrypt to self functionality [DONE]
+	- add automatic restart if key changed
 - add find action in textedit [DONE]
 	- BUG: hit strg+f, then hit escape -> text not editable anymore, same with not found expression
 	- When search previous, text should be searched from end again, if no hit is found
@@ -18,6 +19,7 @@ Release 0.4
 - exclude translators list from about dialog [DONE]
 - change docu on file de- and encryption
 - add possibility to set alternative relative path to keydb [DONE]
+	- on startup check, if keydb path exists, if keydb path isn't default
 - add possibility for creation of RSA keys [DONE]
 - add posibility to add keyserver in settings [DONE]
 - add posibility to remove keyserver in settings [DONE]

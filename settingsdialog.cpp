@@ -176,8 +176,9 @@ GeneralTab::GeneralTab(GpgME::GpgContext *ctx,QWidget *parent)
     }
     connect(ownKeySelectBox,SIGNAL(currentIndexChanged(int)),this,SLOT(slotOwnKeyIdChanged()));
 
-    ownKeyBoxLayout->addWidget(new QLabel(tr("All messages are additionaly encrypted to the following key:")));
+    ownKeyBoxLayout->addWidget(new QLabel(tr("Encrypt all messages additionally to the chosen key:")));
     ownKeyBoxLayout->addWidget(ownKeySelectBox);
+    ownKeyBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the own key!")));
 
 
     /*****************************************
