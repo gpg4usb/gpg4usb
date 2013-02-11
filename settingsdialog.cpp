@@ -45,7 +45,6 @@ SettingsDialog::SettingsDialog(GpgME::GpgContext *ctx, QWidget *parent)
 
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotAccept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(tabWidget);
     mainLayout->addWidget(buttonBox);
@@ -53,7 +52,27 @@ SettingsDialog::SettingsDialog(GpgME::GpgContext *ctx, QWidget *parent)
 
     setWindowTitle(tr("Settings"));
 
+    // slots for handling the restartneeded member
+    this->slotSetRestartNeeded(false);
+    connect(generalTab, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
+    connect(appearanceTab, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
+    connect(mimeTab, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
+    connect(keyserverTab, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
+    connect(gpgPathsTab, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
+    connect(advancedTab, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
+
     exec(); 
+}
+
+bool SettingsDialog::getRestartNeeded()
+{
+    return this->restartNeeded;
+}
+
+void SettingsDialog::slotSetRestartNeeded(bool needed)
+{
+    qDebug() << "slot restart needed (settingsdialog): " << needed;
+    this->restartNeeded = needed;
 }
 
 void SettingsDialog::slotAccept()
@@ -64,6 +83,9 @@ void SettingsDialog::slotAccept()
     keyserverTab->applySettings();
     advancedTab->applySettings();
     gpgPathsTab->applySettings();
+    if (getRestartNeeded()) {
+        emit signalRestartNeeded(true);
+    }
     close();
 }
 
@@ -146,6 +168,7 @@ GeneralTab::GeneralTab(GpgME::GpgContext *ctx,QWidget *parent)
     langBoxLayout->addWidget(langSelectBox);
     langBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the language!")));
     langBox->setLayout(langBoxLayout);
+    connect(langSelectBox,SIGNAL(currentIndexChanged(int)),this,SLOT(slotLanguageChanged()));
 
     /*****************************************
      * Own Key Select Box
@@ -179,7 +202,6 @@ GeneralTab::GeneralTab(GpgME::GpgContext *ctx,QWidget *parent)
     ownKeyBoxLayout->addWidget(new QLabel(tr("Encrypt all messages additionally to the chosen key:")));
     ownKeyBoxLayout->addWidget(ownKeySelectBox);
     ownKeyBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the own key!")));
-
 
     /*****************************************
      * Mainlayout
@@ -243,9 +265,7 @@ void GeneralTab::setSettings()
         ownKeySelectBox->setCurrentIndex(ownKeySelectBox->findText("none", Qt::MatchContains));
     } else {
         ownKeySelectBox->setCurrentIndex(ownKeySelectBox->findText(ownKeyId, Qt::MatchContains));
-        qDebug() << ownKeySelectBox->findText(ownKeyId);
     }
-
 
     if (settings.value("general/confirmImportKeys",Qt::Checked).toBool()){
         importConfirmationCheckBox->setCheckState(Qt::Checked);
@@ -264,6 +284,12 @@ void GeneralTab::applySettings()
     settings.setValue("general/rememberPassword", rememberPasswordCheckBox->isChecked());
     settings.setValue("int/lang", lang.key(langSelectBox->currentText()));
     settings.setValue("general/confirmImportKeys", importConfirmationCheckBox->isChecked());
+}
+
+void GeneralTab::slotLanguageChanged()
+{
+    qDebug() << "slot language changed";
+    emit signalRestartNeeded(true);
 }
 
 void GeneralTab::slotOwnKeyIdChanged()
@@ -310,6 +336,9 @@ void GeneralTab::slotOwnKeyIdChanged()
     gpgConfFile.remove();
     gpgConfTempFile.copy(gpgConfTempFile.fileName(),gpgConfFile.fileName());
     gpgConfTempFile.remove();
+
+    // emit signal, thta application has to be restarted
+    emit signalRestartNeeded(true);
 }
 
 MimeTab::MimeTab(QWidget *parent)
@@ -674,7 +703,6 @@ QString GpgPathsTab::getRelativePath(const QString dir1,const QString dir2)
     QString s;
 
     s = dir.relativeFilePath(dir2);
-    qDebug() << "relative path: " << s;
     if (s.isEmpty()) {
         s = ".";
     }

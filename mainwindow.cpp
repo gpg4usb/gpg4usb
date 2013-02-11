@@ -38,6 +38,9 @@ MainWindow::MainWindow()
     /* List of binary Attachments */
     attachmentDockCreated = false;
 
+    /* Variable containing if restart is needed */
+    this->slotSetRestartNeeded(false);
+
     keyMgmt = new KeyMgmt(mCtx, this);
     keyMgmt->hide();
     /* test attachmentdir for files alll 15s */
@@ -1256,11 +1259,10 @@ void MainWindow::slotFileVerify()
 
 void MainWindow::slotOpenSettingsDialog()
 {
+    SettingsDialog *settingsdialog = new SettingsDialog(mCtx, this);
 
-    QString preLang = settings.value("int/lang").toString();
-    QString preKeydbPath = settings.value("gpgpaths/keydbpath").toString();
+    connect(settingsdialog, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
 
-    new SettingsDialog(mCtx, this);
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     this->setIconSize(iconSize);
@@ -1280,8 +1282,8 @@ void MainWindow::slotOpenSettingsDialog()
         closeAttachmentDock();
     }
 
-    // restart mainwindow if langugage or keydbpath changed
-    if((preLang != settings.value("int/lang").toString()) || preKeydbPath != settings.value("gpgpaths/keydbpath").toString()) {
+    // restart mainwindow if necessary
+    if(getRestartNeeded()) {
         if(edit->maybeSaveAnyTab()) {
             saveSettings();
             qApp->exit(RESTART_CODE);
@@ -1294,7 +1296,6 @@ void MainWindow::slotOpenSettingsDialog()
     } else {
         this->menuBar()->insertAction(viewMenu->menuAction(), steganoMenu->menuAction());
     }
-
 }
 
 void MainWindow::slotCleanDoubleLinebreaks()
@@ -1362,4 +1363,14 @@ void MainWindow::slotCutPgpHeader() {
     content.remove(end, QString(GpgConstants::PGP_CRYPT_END).size());
 
     edit->slotFillTextEditWithText(content.trimmed());
+}
+
+void MainWindow::slotSetRestartNeeded(bool needed)
+{
+    this->restartNeeded = needed;
+}
+
+bool MainWindow::getRestartNeeded()
+{
+    return this->restartNeeded;
 }

@@ -278,6 +278,12 @@ private slots:
      */
     void slotDisableTabActions(int number);
 
+    /**
+     * @details get value of member restartNeeded to needed.
+     * @param needed true, if application has to be restarted
+     */
+    void slotSetRestartNeeded(bool needed);
+
 private:
     /**
      * @details Create actions for the main-menu.
@@ -342,6 +348,11 @@ private:
      * @param keep if the text should stay visible or may be hidden after a while
      */
     void changeMessage(const QString &msg, const bool keep = false);
+
+    /**
+     * @brief return true, if restart is needed
+     */
+    bool getRestartNeeded();
 
     TextEdit *edit; /** Tabwidget holding the edit-windows */
     QMenu *fileMenu; /** Submenu for file operations*/
@@ -423,6 +434,7 @@ private:
     KeyMgmt *keyMgmt; /**< TODO */
     KeyServerImportDialog *importDialog; /**< TODO */
     bool attachmentDockCreated;
+    bool restartNeeded;
 };
 
 #endif // __GPGWIN_H__

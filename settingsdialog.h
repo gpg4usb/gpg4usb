@@ -72,7 +72,12 @@ class GeneralTab : public QWidget
 
 private slots:
     void slotOwnKeyIdChanged();
- };
+    void slotLanguageChanged();
+
+signals:
+    void signalRestartNeeded(bool needed);
+
+};
 
  class MimeTab : public QWidget
  {
@@ -87,6 +92,10 @@ private slots:
      QCheckBox *mimeParseCheckBox;
      QCheckBox *mimeQPCheckBox;
      QCheckBox *mimeOpenAttachmentCheckBox;
+
+ signals:
+     void signalRestartNeeded(bool needed);
+
  };
 
  class AppearanceTab : public QWidget
@@ -110,6 +119,9 @@ private slots:
      QRadioButton *iconAllButton;
      QCheckBox *windowSizeCheckBox;
 
+ signals:
+     void signalRestartNeeded(bool needed);
+
  };
 
  class KeyserverTab : public QWidget
@@ -128,7 +140,11 @@ private slots:
     void addKeyServer();
     void removeKeyServer();
     void editTextChangedAction();
-};
+
+ signals:
+    void signalRestartNeeded(bool needed);
+
+ };
 
  class AdvancedTab : public QWidget
  {
@@ -140,6 +156,9 @@ private slots:
 
  private:
      QCheckBox *steganoCheckBox;
+
+ signals:
+     void signalRestartNeeded(bool needed);
 
  };
 
@@ -161,13 +180,16 @@ private:
      QString slotChooseKeydbDir();
      void slotSetKeydbPathToDefault();
 
+ signals:
+     void signalRestartNeeded(bool needed);
+
  };
 
  class SettingsDialog : public QDialog
 {
     Q_OBJECT
 
-public:
+ public:
     SettingsDialog(GpgME::GpgContext *ctx, QWidget *parent = 0);
     GeneralTab *generalTab;
     MimeTab *mimeTab;
@@ -177,14 +199,21 @@ public:
     GpgPathsTab *gpgPathsTab;
     static QHash<QString, QString> listLanguages();
 
-
-public slots:
+ public slots:
     void slotAccept();
 
-private:
+ signals:
+    void signalRestartNeeded(bool needed);
+
+ private:
     QTabWidget *tabWidget;
     QDialogButtonBox *buttonBox;
     GpgME::GpgContext *mCtx; /** The current gpg context */
+    bool restartNeeded;
+    bool getRestartNeeded();
+
+ private slots:
+    void slotSetRestartNeeded(bool needed);
 
 };
 
