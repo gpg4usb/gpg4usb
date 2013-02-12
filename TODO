@@ -20,7 +20,7 @@ Release 0.4
 - change docu on file de- and encryption
 - add possibility to set alternative relative path to keydb [DONE]
 	- on startup check, if keydb path exists, if keydb path isn't default
-	- add automatic restart, if keydb path changed (check for signal if keydbLabel changed)
+	- add automatic restart, if keydb path changed (check for signal if keydbLabel changed) [DONE]
 - add possibility for creation of RSA keys [DONE]
 - add posibility to add keyserver in settings [DONE]
 - add posibility to remove keyserver in settings [DONE]

@@ -721,6 +721,7 @@ QString GpgPathsTab::slotChooseKeydbDir()
 
     accKeydbPath = getRelativePath(defKeydbPath, dir);
     keydbLabel->setText(accKeydbPath);
+    emit signalRestartNeeded(true);
     return "";
 }
 
