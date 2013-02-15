@@ -149,6 +149,7 @@ signals:
  class AdvancedTab : public QWidget
  {
      Q_OBJECT
+
  public:
      AdvancedTab(QWidget *parent = 0);
      void setSettings();

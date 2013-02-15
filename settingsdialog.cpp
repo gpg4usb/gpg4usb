@@ -61,6 +61,8 @@ SettingsDialog::SettingsDialog(GpgME::GpgContext *ctx, QWidget *parent)
     connect(gpgPathsTab, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
     connect(advancedTab, SIGNAL(signalRestartNeeded(bool)), this, SLOT(slotSetRestartNeeded(bool)));
 
+    connect(this, SIGNAL(signalRestartNeeded(bool)), parent, SLOT(slotSetRestartNeeded(bool)));
+
     exec(); 
 }
 
@@ -71,7 +73,6 @@ bool SettingsDialog::getRestartNeeded()
 
 void SettingsDialog::slotSetRestartNeeded(bool needed)
 {
-    qDebug() << "slot restart needed (settingsdialog): " << needed;
     this->restartNeeded = needed;
 }
 
@@ -288,7 +289,6 @@ void GeneralTab::applySettings()
 
 void GeneralTab::slotLanguageChanged()
 {
-    qDebug() << "slot language changed";
     emit signalRestartNeeded(true);
 }
 
