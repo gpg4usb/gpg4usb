@@ -196,18 +196,62 @@ void VerifyNotification::slotVerifyDone(int result)
     sender()->deleteLater();
     Q_ASSERT(verify != NULL);
 
+    QString verifyLabelText;
+    verify_label_status verifyStatus=VERIFY_ERROR_CRITICAL;
+
+    // unknown signer key
     if (result == KGpgVerify::TS_MISSING_KEY) {
         qDebug() << "missing keys" << verify->missingId();
-        this->keysNotInList->append(verify->missingId());
+        //this->keysNotInList->append(verify->missingId());
         this->showImportAction(true);
+
+        verifyStatus=VERIFY_ERROR_WARN;
+        verifyLabelText.append(tr("Key not present with id 0x")+QString(verify->missingId()));
+        this->keysNotInList->append(verify->missingId());
+        //unknownKeyFound=true;
+    } else {
+
+        const QStringList messages = verify->getMessages();
+//        foreach(QString mess, messages) {
+//            qDebug() << "vm: " <<  mess;
+//        }
+
+        foreach (const QString &line, messages) {
+            qDebug() << "vm: " <<  line;
+
+            if (!line.startsWith(QLatin1String("[GNUPG:] ")))
+                continue;
+
+            const QString msg = line.mid(9);
+
+            // was: GPG_NO_ERROR
+            if (msg.startsWith(QLatin1String("VALIDSIG "))) {
+                // from GnuPG source, doc/DETAILS:
+                //   VALIDSIG    <fingerprint in hex> <sig_creation_date> <sig-timestamp>
+                //                <expire-timestamp> <sig-version> <reserved> <pubkey-algo>
+                //                <hash-algo> <sig-class> <primary-key-fpr>
+                const QStringList vsig = msg.mid(9).split(QLatin1Char(' '), QString::SkipEmptyParts);
+                Q_ASSERT(vsig.count() >= 10);
+
+                qDebug() << "sig: " << vsig[9];
+
+                GpgKey key = mCtx->getKeyByFpr(vsig[9]);
+                verifyLabelText.append(key.name);
+                if (!key.email.isEmpty()) {
+                    verifyLabelText.append("<"+key.email+">");
+                }
+                verifyStatus = VERIFY_ERROR_OK;
+            }
+        }
+
+        //verifyStatus=VERIFY_ERROR_WARN;
+        //verifyLabelText.append("not yet implemented");
+        //getReport(messages);
     }
 
-    const QStringList messages = verify->getMessages();
-    foreach(QString mess, messages) {
-        qDebug() << "vm: " <<  mess;
-    }
+    verifyLabelText.remove(verifyLabelText.length()-1,1);
+    this->setVerifyLabel(verifyLabelText,verifyStatus);
 
-    getReport(messages);
     /*emit verifyFinished();
 
     if (result == KGpgVerify::TS_MISSING_KEY) {
@@ -230,6 +274,7 @@ void VerifyNotification::slotVerifyDone(int result)
     */
 }
 
+// TODO: Require good sigs on request?
 QString VerifyNotification::getReport(const QStringList &log)
 {
     QString verifyLabelText;
@@ -242,9 +287,6 @@ QString VerifyNotification::getReport(const QStringList &log)
     const QRegExp validsig(QLatin1String("^\\[GNUPG:\\] VALIDSIG([ ]+[^ ]+){10,}.*$"));
 
 
-//	const bool useGoodSig = (model != NULL) && (log.indexOf(validsig) == -1);
-    const bool useGoodSig = false;
-
     QString sigtime;	// timestamp of signature creation
 
     foreach (const QString &line, log) {
@@ -253,7 +295,7 @@ QString VerifyNotification::getReport(const QStringList &log)
 
         const QString msg = line.mid(9);
 
-        if (msg.startsWith(QLatin1String("VALIDSIG ")) && !useGoodSig) {
+        if (msg.startsWith(QLatin1String("VALIDSIG "))) {
             // from GnuPG source, doc/DETAILS:
             //   VALIDSIG    <fingerprint in hex> <sig_creation_date> <sig-timestamp>
             //                <expire-timestamp> <sig-version> <reserved> <pubkey-algo>
@@ -265,8 +307,6 @@ QString VerifyNotification::getReport(const QStringList &log)
 
             verifyStatus=VERIFY_ERROR_WARN;
             verifyLabelText.append(tr("Error for key with fingerprint ")+mCtx->beautifyFingerprint(QString(vsig[9])));
-
-
         }
     }
 

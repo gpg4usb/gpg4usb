@@ -33,6 +33,7 @@ Release 0.4
 	- key details in tab
 - save the last used directory in open file dialog
 - discuss: show message, when key export is successful (statusbar)
+- set focus to close dialog with unsaved data 
 
 BUG:
 - check PGP-Mime
