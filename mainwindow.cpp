@@ -1259,7 +1259,7 @@ void MainWindow::slotFileVerify()
 
 void MainWindow::slotOpenSettingsDialog()
 {
-    settingsdialog = new SettingsDialog(mCtx, this);
+    new SettingsDialog(mCtx, this);
 
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();

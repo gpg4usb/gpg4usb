@@ -433,7 +433,6 @@ private:
     GpgME::GpgContext *mCtx; /**< TODO */
     KeyMgmt *keyMgmt; /**< TODO */
     KeyServerImportDialog *importDialog; /**< TODO */
-    SettingsDialog *settingsdialog; /**< TODO */
     bool attachmentDockCreated;
     bool restartNeeded;
 };
