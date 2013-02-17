@@ -98,7 +98,7 @@ bool VerifyNotification::slotRefresh()
 
     QByteArray text = mTextpage->toPlainText().toUtf8();
     mCtx->preventNoDataErr(&text);
-    int textIsSigned = mCtx->textIsSigned(text);
+    //int textIsSigned = mCtx->textIsSigned(text);
 
     //gpgme_signature_t sign = mCtx->verify(text);
 
@@ -196,6 +196,10 @@ void VerifyNotification::slotVerifyDone(int result)
     sender()->deleteLater();
     Q_ASSERT(verify != NULL);
 
+    QByteArray text = mTextpage->toPlainText().toUtf8();
+    mCtx->preventNoDataErr(&text);
+    int textIsSigned = mCtx->textIsSigned(text);
+
     QString verifyLabelText;
     verify_label_status verifyStatus=VERIFY_ERROR_CRITICAL;
 
@@ -241,12 +245,65 @@ void VerifyNotification::slotVerifyDone(int result)
                     verifyLabelText.append("<"+key.email+">");
                 }
                 verifyStatus = VERIFY_ERROR_OK;
+            } else if (msg.startsWith(QLatin1String("UNEXPECTED")) ||
+                       msg.startsWith(QLatin1String("NODATA"))) {
+
+               // verifyStatus=VERIFY_ERROR_CRITICAL;
+               // verifyLabelText.append("no sig found");
+
+                //textIsSigned = 3;
+                //verifyStatus=VERIFY_ERROR_CRITICAL;
+
+                verifyLabelText.append("No signature found ");
+
+                /*GpgKey key = mCtx->getKeyById(sign->fpr);
+                verifyLabelText.append(key.name);
+                if (!key.email.isEmpty()) {
+                    verifyLabelText.append("<"+key.email+">");
+                }*/
+            } else if (msg.startsWith(QLatin1String("BADSIG"))) {
+
+                int sigpos = msg.indexOf( ' ', 7);
+                // name not used...?
+                QString name = msg.mid(sigpos + 1).replace(QLatin1Char('<'), QLatin1String("&lt;"));
+                QString id = msg.mid(7, sigpos - 7);
+
+                qDebug() << "id:" << id << "|name:" << name;
+
+                textIsSigned = 3;
+                verifyStatus=VERIFY_ERROR_CRITICAL;
+                GpgKey key = mCtx->getKeyById(id);
+                verifyLabelText.append(key.name);
+                if (!key.email.isEmpty()) {
+                    verifyLabelText.append("<"+key.email+">");
+                }
+                break;
+
             }
         }
 
         //verifyStatus=VERIFY_ERROR_WARN;
         //verifyLabelText.append("not yet implemented");
         //getReport(messages);
+    }
+
+    switch (textIsSigned)
+    {
+        case 3:
+            {
+                verifyLabelText.prepend(tr("Error validating signature by: "));
+                break;
+            }
+        case 2:
+            {
+                verifyLabelText.prepend(tr("Text was completely signed by: "));
+                break;
+            }
+        case 1:
+            {
+                verifyLabelText.prepend(tr("Text was partially signed by: "));
+                break;
+            }
     }
 
     verifyLabelText.remove(verifyLabelText.length()-1,1);
