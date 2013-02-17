@@ -240,6 +240,7 @@ void VerifyNotification::slotVerifyDone(int result)
                 qDebug() << "sig: " << vsig[9];
 
                 GpgKey key = mCtx->getKeyByFpr(vsig[9]);
+
                 verifyLabelText.append(key.name);
                 if (!key.email.isEmpty()) {
                     verifyLabelText.append("<"+key.email+">");
@@ -251,7 +252,7 @@ void VerifyNotification::slotVerifyDone(int result)
                // verifyStatus=VERIFY_ERROR_CRITICAL;
                // verifyLabelText.append("no sig found");
 
-                //textIsSigned = 3;
+                textIsSigned = 3;
                 //verifyStatus=VERIFY_ERROR_CRITICAL;
 
                 verifyLabelText.append("No signature found ");
@@ -263,19 +264,17 @@ void VerifyNotification::slotVerifyDone(int result)
                 }*/
             } else if (msg.startsWith(QLatin1String("BADSIG"))) {
 
-                int sigpos = msg.indexOf( ' ', 7);
+                int sigpos = msg.indexOf( ' ', 8);
                 // name not used...?
-                QString name = msg.mid(sigpos + 1).replace(QLatin1Char('<'), QLatin1String("&lt;"));
+                //QString name = msg.mid(sigpos + 1).replace(QLatin1Char('<'), QLatin1String("&lt;"));
                 QString id = msg.mid(7, sigpos - 7);
-
-                qDebug() << "id:" << id << "|name:" << name;
 
                 textIsSigned = 3;
                 verifyStatus=VERIFY_ERROR_CRITICAL;
                 GpgKey key = mCtx->getKeyById(id);
                 verifyLabelText.append(key.name);
                 if (!key.email.isEmpty()) {
-                    verifyLabelText.append("<"+key.email+">");
+                    verifyLabelText.append("&lt;"+key.email+"&gt;");
                 }
                 break;
 

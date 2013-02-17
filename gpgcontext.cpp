@@ -75,6 +75,7 @@ GpgKeyList GpgContext::listKeys()
         key.expired = false;
         key.fpr = kkey.fingerprint();
         key.id = kkey.id();
+        key.fullid = kkey.fullId();
         key.name = kkey.name();
         key.revoked = false;
         keys.append(key);
@@ -176,11 +177,12 @@ GpgKey GpgContext::getKeyByFpr(QString fpr) {
 
 /**
  * note: privkey status is not returned
+ * TODO: Long Ids also should be supported
  */
 GpgKey GpgContext::getKeyById(QString id) {
 
     foreach  (GpgKey key, mKeyList) {
-        if(key.id == id) {
+        if(key.id == id || key.fullid == id) {
             return key;
         }
     }

@@ -45,6 +45,7 @@ public:
         privkey = false;
     }
     QString id;
+    QString fullid;
     QString name;
     QString email;
     QString fpr;
