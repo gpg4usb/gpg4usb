@@ -278,7 +278,9 @@ void KeyList::importKeys(QByteArray inBuffer)
 
 void KeyList::slotUploadKeyToServer(QByteArray *keys)
 {
-    QUrl reqUrl("http://localhost:11371/pks/add");
+    qDebug() << "slot upload";
+    // TODO: Replace url by actual keyserver
+    QUrl reqUrl("http://gpg4usb.org:11371/pks/add");
     qnam = new QNetworkAccessManager(this);
 
     QUrl params;

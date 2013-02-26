@@ -134,8 +134,9 @@ private slots:
     /**
       * @details upload the selected key to the keyserver
       */
-     void slotUploadKeyToServer();
- 
+    void slotUploadKeyToServer();
+    void slotUploadKeyToServerReady(int result);
+
     /**
       * @details start the wizard
       */

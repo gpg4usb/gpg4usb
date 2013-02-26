@@ -1144,6 +1144,32 @@ void MainWindow::slotAppendSelectedKeysReady(int result) {
     exp->deleteLater();
 }
 
+void MainWindow::slotUploadKeyToServer()
+{
+    QStringList expopts;
+    KGpgExport *exp = new KGpgExport(this, *mKeyList->getSelected(), expopts);
+    connect(exp, SIGNAL(done(int)), SLOT(slotUploadKeyToServerReady(int)));
+    exp->start();
+}
+
+void MainWindow::slotUploadKeyToServerReady(int result)
+{
+    KGpgExport *exp = qobject_cast<KGpgExport *>(sender());
+    Q_ASSERT(exp != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+//        QByteArray keyArray = new QByteArray();
+        QByteArray keyArray = exp->getOutputData();
+       mKeyList->slotUploadKeyToServer(&keyArray);
+    } else {
+        //KMessageBox::sorry(this, i18n("Your public key could not be exported\nCheck the key."));
+        qDebug() << "Your public key could not be exported\nCheck the key.";
+    }
+
+    exp->deleteLater();
+
+}
+
 void MainWindow::slotCopyMailAddressToClipboard()
 {
     if (mKeyList->getSelected()->isEmpty()) {
@@ -1217,16 +1243,6 @@ void MainWindow::slotRefreshKeysFromKeyserver()
 
     KeyServerImportDialog *ksid = new KeyServerImportDialog(mCtx,mKeyList,this);
     ksid->slotImport(*mKeyList->getSelected());
-}
-
-void MainWindow::slotUploadKeyToServer()
-{
-    QByteArray *keyArray = new QByteArray();
-
-    // TODO:
-    //mCtx->exportKeys(mKeyList->getSelected(), keyArray);
-
-    //mKeyList->uploadKeyToServer(keyArray);
 }
 
 void MainWindow::slotFileEncrypt()

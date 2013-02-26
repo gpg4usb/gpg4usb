@@ -4,6 +4,10 @@ Release 0.4
 - MacOS build
 	- replace gpgme with kgpg (lots of work and trouble!!!)
 - Refresh key from keyserver [DONE]
+- Update GnuPG binary to 1.4.13 
+	- for windows [DONE]
+	- for linux [DONE]
+	- for macos 
 - add encrypt to self functionality [DONE]
 	- add automatic restart if key changed [DONE]
 - add find action in textedit [DONE]
@@ -14,7 +18,9 @@ Release 0.4
 - create revocation file 
 	- on key generation
 	- later
-- Upload key to keyserver 
+- Upload key to keyserver [DONE]
+	- error handling 
+	- show message on successful upload
 - show message if verify has no valid signature
 - exclude translators list from about dialog [DONE]
 - change docu on file de- and encryption
