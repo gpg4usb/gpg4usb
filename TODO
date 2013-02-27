@@ -40,6 +40,7 @@ Release 0.4
 - save the last used directory in open file dialog
 - discuss: show message, when key export is successful (statusbar)
 - set focus to close dialog with unsaved data 
+- have a look on selected/checked keys (which keys should when be used?)
 
 BUG:
 - check PGP-Mime

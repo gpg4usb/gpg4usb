@@ -1167,7 +1167,6 @@ void MainWindow::slotUploadKeyToServerReady(int result)
     }
 
     exp->deleteLater();
-
 }
 
 void MainWindow::slotCopyMailAddressToClipboard()
@@ -1184,37 +1183,64 @@ void MainWindow::slotCopyMailAddressToClipboard()
 
 void MainWindow::slotExportKeyToFile()
 {
-// TODO
-/*    QByteArray *keyArray = new QByteArray();
-    if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
-        return;
-    }
-    KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getChecked()->first());
-    QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub.asc";
+    QStringList expopts;
+    KGpgExport *exp = new KGpgExport(this, *mKeyList->getChecked(), expopts);
+    connect(exp, SIGNAL(done(int)), SLOT(slotExportKeyToFileReady(int)));
+    exp->start();
+}
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
-    QFile file(fileName);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-        return;
-    QTextStream stream(&file);
-    stream << *keyArray;
-    file.close();
-    delete keyArray;
-    emit statusBarChanged(QString(tr("key(s) exported")));
-*/
+void MainWindow::slotExportKeyToFileReady(int result)
+{
+    KGpgExport *exp = qobject_cast<KGpgExport *>(sender());
+    Q_ASSERT(exp != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+
+        GpgKey key = mCtx->getKeyById(exp->getKeyIds().first());
+
+        QString fileString = key.name + " " + key.email + "(" + key.id+ ")_pub.asc";
+
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+        QTextStream stream(&file);
+        QByteArray keyArray = exp->getOutputData();
+        qDebug() << *keyArray;
+        stream << keyArray;
+        file.close();
+        //emit statusBarChanged(QString(tr("key(s) exported")));
+    } else {
+        //KMessageBox::sorry(this, i18n("Your public key could not be exported\nCheck the key."));
+        qDebug() << "Your public key could not be exported\nCheck the key.";
+    }
+
+    exp->deleteLater();
 }
 
 void MainWindow::slotExportKeyToClipboard()
 {
-// TODO
-/*    QByteArray *keyArray = new QByteArray();
-    QClipboard *cb = QApplication::clipboard();
-    if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
-        return;
+    QStringList expopts;
+    KGpgExport *exp = new KGpgExport(this, *mKeyList->getChecked(), expopts);
+    connect(exp, SIGNAL(done(int)), SLOT(slotExportKeyToClipboardReady(int)));
+    exp->start();
+}
+
+void MainWindow::slotExportKeyToClipboardReady(int result)
+{
+    KGpgExport *exp = qobject_cast<KGpgExport *>(sender());
+    Q_ASSERT(exp != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+        QClipboard *cb = QApplication::clipboard();
+        cb->setText(exp->getOutputData());
+        //emit statusBarChanged(QString(tr("key(s) exported")));
+    } else {
+        //KMessageBox::sorry(this, i18n("Your public key could not be exported\nCheck the key."));
+        qDebug() << "Your public key could not be exported\nCheck the key.";
     }
-    cb->setText(*keyArray);
-    delete keyArray;
-*/
+
+    exp->deleteLater();
 }
 
 void MainWindow::slotGenerateKeyDialog()

@@ -178,11 +178,13 @@ private slots:
      * @details Export checked keys to file.
      */
     void slotExportKeyToFile();
+    void slotExportKeyToFileReady(int result);
 
     /**
      * @details Export checked keys to clipboard.
      */
     void slotExportKeyToClipboard();
+    void slotExportKeyToClipboardReady(int result);
 
     /**
      * @details Append the selected keys to currently active textedit.
