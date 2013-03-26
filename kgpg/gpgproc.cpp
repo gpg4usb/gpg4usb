@@ -362,7 +362,13 @@ QString GPGProc::getGpgHome(const QString &binary)
 
     //KStandardDirs::makeDir(gpgHome, 0700);*/
     QString appPath = qApp->applicationDirPath();
+#ifdef Q_WS_MAC 
+    QString gpgHome = appPath + "/../../../keydb";
+#else
     QString gpgHome = appPath + "/keydb";
+#endif
+
+     qDebug() << "gpghome set to: " << gpgHome;
 
 	return gpgHome;
 }

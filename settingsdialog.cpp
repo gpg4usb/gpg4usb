@@ -97,9 +97,13 @@ QHash<QString, QString> SettingsDialog::listLanguages()
     QHash<QString, QString> languages;
 
     languages.insert("", tr("System Default"));
-
+    
     QString appPath = qApp->applicationDirPath();
+#ifdef Q_WS_MAC
+    QDir qmDir = QDir(appPath + "/../../../ts/");
+#else
     QDir qmDir = QDir(appPath + "/ts/");
+#endif
     QStringList fileNames =
             qmDir.entryList(QStringList("gpg4usb_*.qm"));
 

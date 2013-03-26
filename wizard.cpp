@@ -44,7 +44,7 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     setWindowTitle(tr("First Start Wizard"));
 
     // http://www.flickr.com/photos/laureenp/6141822934/
-    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/keys2.jpg"));
+    setPixmap(QWizard::WatermarkPixmap, QPixmap(":/wizard_keys.png"));
     setPixmap(QWizard::LogoPixmap, QPixmap(":/logo_small.png"));
     setPixmap(QWizard::BannerPixmap, QPixmap(":/banner.png"));
 

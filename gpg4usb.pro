@@ -12,9 +12,9 @@ INCLUDEPATH += .
 
 #DEFINES += GPG4USB_NON_PORTABLE
 
-#CONFIG += release static
+CONFIG += release static
 #CONFIG += release
-CONFIG += debug
+#CONFIG += debug
 
 QT += network
 # Input

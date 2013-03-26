@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
 
     // get application path
     QString appPath = qApp->applicationDirPath();
+#ifdef Q_WS_MAC
+    appPath.append("/../../../");
+#endif
 
     app.setApplicationVersion("0.3.2");
     app.setApplicationName("gpg4usb");
@@ -56,8 +59,8 @@ int main(int argc, char *argv[])
     putenv(QString("GNUPGHOME=" + appPath + "/keydb").toAscii().data());
     
     // this may help with newer gpgme versions on windows
-    putenv(QString("GPGME_GPGPATH=" + appPath + "/gpg-mac").toAscii().data());
-	qDebug() << appPath + "/gpg-mac";
+//    putenv(QString("GPGME_GPGPATH=" + appPath + "/gpg-mac").toAscii().data());
+//	qDebug() << appPath + "/gpg-mac";
     // QSettings uses org-name for automatically setting path...
     app.setOrganizationName("conf");
 
@@ -75,7 +78,7 @@ int main(int argc, char *argv[])
     }*/
 
     // css
-    QFile file(qApp->applicationDirPath() + "/css/default.css");
+    QFile file(appPath + "/css/default.css");
     file.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(file.readAll());
     qApp->setStyleSheet(styleSheet);
