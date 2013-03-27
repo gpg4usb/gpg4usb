@@ -169,7 +169,7 @@ GPGProc::resetProcess(const QString &binary)
             gpgBin = appPath + "/bin/gpg.exe";
         #endif
         #ifdef Q_WS_MAC
-            gpgBin = appPath + "/gpg-mac";
+            gpgBin = appPath + "/../../../bin/gpg-mac";
         #endif
         #ifdef Q_WS_X11
             gpgBin = appPath + "/bin/gpg";
