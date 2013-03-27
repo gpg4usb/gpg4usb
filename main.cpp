@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     appPath.append("/../../../");
 #endif
 
-    app.setApplicationVersion("0.3.2");
+    app.setApplicationVersion("0.4.0-alpha");
     app.setApplicationName("gpg4usb");
 
     // dont show icons in menus

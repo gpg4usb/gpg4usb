@@ -79,7 +79,11 @@ TranslatorsTab::TranslatorsTab(QWidget *parent)
     : QWidget(parent)
 {
     QFile translatorsFile;
+#ifdef Q_WS_MAC
+    translatorsFile.setFileName(qApp->applicationDirPath()+"/../../../TRANSLATORS");
+#else
     translatorsFile.setFileName(qApp->applicationDirPath()+"/TRANSLATORS");
+#endif
     translatorsFile.open(QIODevice::ReadOnly);
     QByteArray inBuffer = translatorsFile.readAll();
 
