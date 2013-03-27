@@ -1,2 +1,5 @@
 build gpg:
 http://macgpg.sourceforge.net/docs/howto-build-gpg-osx.txt.asc
+
+check dll inclusion:
+$ otool -L release/bin/gpg-mac
