@@ -3,6 +3,9 @@ TODO:
 Release 0.4
 - MacOS build
 	- replace gpgme with kgpg (lots of work and trouble!!!)
+	- fix applicationdirpath (QDir)
+	- move icons out of release-dir
+	- get key-image in wizard working
 - Refresh key from keyserver [DONE]
 - Update GnuPG binary to 1.4.13 
 	- for windows [DONE]
