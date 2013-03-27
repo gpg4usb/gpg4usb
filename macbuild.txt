@@ -1,0 +1,2 @@
+build gpg:
+http://macgpg.sourceforge.net/docs/howto-build-gpg-osx.txt.asc
