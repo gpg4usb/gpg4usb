@@ -20,6 +20,7 @@
  */
 
 #include "aboutdialog.h"
+#include "version.h"
 
 AboutDialog::AboutDialog(QWidget *parent)
     : QDialog(parent)
@@ -50,6 +51,7 @@ InfoTab::InfoTab(QWidget *parent)
     QPixmap *pixmap = new QPixmap(":gpg4usb-logo.png");
     QString *text = new QString("<center><h2>" + qApp->applicationName() + " "
                                 + qApp->applicationVersion() + "</h2></center>"
+                                + "<center><em>Build: " + QString::number(Version::BUILD) + " - Revision:" + QString::number(Version::REVISION) + "</em></center>"
                                 + tr("<center>This application allows simple encryption <br>"
                                      "and decryption of text messages or files.<br>"
                                      "It's licensed under the GPL v3<br><br>"

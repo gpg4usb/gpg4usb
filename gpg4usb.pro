@@ -38,6 +38,7 @@ HEADERS += attachments.h \
     verifynotification.h \
     verifydetailsdialog.h \
     verifykeydetailbox.h \
+    version.h \
     wizard.h \
     helppage.h \
     gpgconstants.h \
