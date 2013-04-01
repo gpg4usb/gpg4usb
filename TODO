@@ -50,6 +50,7 @@ BUG:
 - for secret keys the name is not shown in details dialog
 - remove double line breaks doesn't work for text containing a signature
 - brakets are set wrong in the language selection dialog for rtl languages
+- on export of private key: Hit cancel in file dialog => an error dialog is shown. This shouldn't happen
 
 Release 0.4.1
 - Add default key functionality 
