@@ -18,6 +18,8 @@ CONFIG += release static
 
 QT += network
 # Input
+include(kgpg/kgpg.pri)
+
 HEADERS += attachments.h \
     gpgcontext.h \
     mainwindow.h \
@@ -42,41 +44,7 @@ HEADERS += attachments.h \
     wizard.h \
     helppage.h \
     gpgconstants.h \
-    kgpg/gpgproc.h \
-    kgpg/klinebufferedprocess.h \
-    kgpg/kprocess.h \
-    kgpg/kprocess_p.h \
-    kgpg/kgpginterface.h \
-    kgpg/core/kgpgkey.h \
-    kgpg/core/KGpgSignableNode.h \
-    kgpg/core/KGpgExpandableNode.h \
-    kgpg/core/KGpgSignNode.h \
-    kgpg/core/KGpgUidNode.h \
-    kgpg/core/KGpgUatNode.h \
-    kgpg/core/KGpgKeyNode.h \
-    kgpg/core/KGpgSubKeyNode.h \
-    kgpg/core/KGpgNode.h \
-    kgpg/core/KGpgRefNode.h \
-    kgpg/core/KGpgRootNode.h \
-    kgpg/core/KGpgGroupNode.h \
-    kgpg/core/KGpgGroupMemberNode.h \
-    kgpg/core/KGpgOrphanNode.h \
-    kgpg/core/convert.h \
-    kgpg/core/images.h \
-    kgpg/transactions/kgpgtransaction.h \
-    kgpg/transactions/kgpgtextorfiletransaction.h \
-    kgpg/transactions/kgpgencrypt.h \
-    kgpg/transactions/kgpgdecrypt.h \
-    kgpg/transactions/kgpgexport.h \
-    kgpg/transactions/kgpgimport.h \
-    kgpg/transactions/kgpgdelkey.h \
-    kgpg/transactions/kgpggeneratekey.h \
-    kgpg/transactions/kgpgsigntext.h \
-    kgpg/transactions/kgpgverify.h \
-    #kgpg/model/kgpgitemmodel.h \
-    #kgpg/model/kgpgitemnode.h
     findwidget.h
-
 
 SOURCES += attachments.cpp \
     gpgcontext.cpp \
@@ -102,37 +70,6 @@ SOURCES += attachments.cpp \
     wizard.cpp \
     helppage.cpp \
     gpgconstants.cpp \
-    kgpg/gpgproc.cpp \
-    kgpg/klinebufferedprocess.cpp \
-    kgpg/kprocess.cpp \
-    kgpg/kgpginterface.cpp \
-    kgpg/core/kgpgkey.cpp \
-    kgpg/core/KGpgSignableNode.cpp \
-    kgpg/core/KGpgExpandableNode.cpp \
-    kgpg/core/KGpgSignNode.cpp \
-    kgpg/core/KGpgUidNode.cpp \
-    kgpg/core/KGpgUatNode.cpp \
-    kgpg/core/KGpgKeyNode.cpp \
-    kgpg/core/KGpgSubKeyNode.cpp \
-    kgpg/core/KGpgNode.cpp \
-    kgpg/core/KGpgRefNode.cpp \
-    kgpg/core/KGpgRootNode.cpp \
-    kgpg/core/KGpgGroupNode.cpp \
-    kgpg/core/KGpgGroupMemberNode.cpp \
-    kgpg/core/KGpgOrphanNode.cpp \
-    kgpg/core/convert.cpp \
-    kgpg/core/images.cpp \
-    kgpg/transactions/kgpgtransaction.cpp \
-    kgpg/transactions/kgpgtextorfiletransaction.cpp \
-    kgpg/transactions/kgpgencrypt.cpp \
-    kgpg/transactions/kgpgdecrypt.cpp \
-    kgpg/transactions/kgpgexport.cpp \
-    kgpg/transactions/kgpgimport.cpp \
-    kgpg/transactions/kgpgdelkey.cpp \
-    kgpg/transactions/kgpggeneratekey.cpp \
-    kgpg/transactions/kgpgsigntext.cpp \
-    kgpg/transactions/kgpgverify.cpp \
-    #kgpg/model/kgpgitemmodel.cpp
     findwidget.cpp
 
 RC_FILE = gpg4usb.rc
