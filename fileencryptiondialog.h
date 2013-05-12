@@ -25,6 +25,7 @@
 #include "gpgcontext.h"
 #include "keylist.h"
 #include "verifydetailsdialog.h"
+#include "kgpg/transactions/kgpgencrypt.h"
 
 QT_BEGIN_NAMESPACE
 class QDialog;
@@ -96,6 +97,8 @@ public slots:
      */
     void slotExecuteAction();
 
+    void slotEncryptDone(int result);
+
     /**
      * @brief
      *
@@ -116,6 +119,7 @@ private:
     QLineEdit *signFileEdit; /**< TODO */
     DialogAction mAction; /**< TODO */
     QLabel *statusLabel; /**< TODO */
+    QPushButton *okButton;
 
 protected:
     GpgME::GpgContext *mCtx; /**< TODO */

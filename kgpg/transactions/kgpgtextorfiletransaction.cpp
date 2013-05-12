@@ -61,6 +61,7 @@ KGpgTextOrFileTransaction::preStart()
 
     foreach (const QUrl &url, m_inpfiles) {
                 // qt 4.8 ! todo mac
+        qDebug() << "fileurl: "<< url;
         qDebug() << "what the loc:" << url.isLocalFile();
 
 		if (url.isLocalFile()) {

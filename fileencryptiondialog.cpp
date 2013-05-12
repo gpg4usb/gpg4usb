@@ -19,6 +19,12 @@
  *      along with gpg4usb.  If not, see <http://www.gnu.org/licenses/>
  */
 
+/**
+  TODO:
+    - OK button should be enabled when at least one key selected
+    - option for ascii-armor or pgp binary output
+ */
+
 #include "fileencryptiondialog.h"
 
 FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, DialogAction action, QWidget *parent)
@@ -47,6 +53,10 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotExecuteAction()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
+    // disable ok button till inputfile & outputfile correctly set
+    okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+
     QGroupBox *groupBox1 = new QGroupBox(tr("File"));
 
     /* Setup input & Outputfileselection*/
@@ -57,8 +67,8 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     fl1->setBuddy(inputFileEdit);
 
     outputFileEdit = new QLineEdit();
-    QPushButton *fb2 = new QPushButton("...");
-    connect(fb2, SIGNAL(clicked()), this, SLOT(slotSelectOutputFile()));
+    outputFileEdit->setReadOnly(true);
+
     QLabel *fl2 = new QLabel(tr("Output"));
     fl2->setBuddy(outputFileEdit);
 
@@ -70,7 +80,6 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     if(mAction != Verify) {
         gLayout->addWidget(fl2, 1, 0);
         gLayout->addWidget(outputFileEdit, 1, 1);
-        gLayout->addWidget(fb2, 1, 2);
     } else {
         signFileEdit = new QLineEdit();
         QPushButton *sfb1 = new QPushButton("...");
@@ -121,11 +130,20 @@ void FileEncryptionDialog::slotSelectInputFile()
     inputFileEdit->setText(infileName);
 
     // try to find a matching output-filename, if not yet done
-    if (infileName > 0
-            && outputFileEdit->text().size() == 0
-            && signFileEdit->text().size() == 0) {
+    if (infileName > 0 ) {
         if (mAction == Encrypt) {
             outputFileEdit->setText(infileName + ".asc");
+            QFile outfile(outputFileEdit->text());
+            if (outfile.exists()){
+                statusLabel->setText( tr("File %1 already existing").arg(outputFileEdit->text()));
+                outputFileEdit->setStyleSheet("QLineEdit { background: red }");
+                okButton->setEnabled(false);
+            } else {
+                statusLabel->setText("");
+                // TODO: this should match the system style for textedits
+                outputFileEdit->setStyleSheet("QLineEdit { background: white }");
+                okButton->setEnabled(true);
+            }
         } else if (mAction == Sign) {
             outputFileEdit->setText(infileName + ".sig");
         } else if (mAction == Verify) {
@@ -175,20 +193,31 @@ void FileEncryptionDialog::slotSelectSignFile()
 void FileEncryptionDialog::slotExecuteAction()
 {
 
-    QFile infile;
+    /*QFile infile;
     infile.setFileName(inputFileEdit->text());
     if (!infile.open(QIODevice::ReadOnly)) {
         statusLabel->setText( tr("Couldn't open file"));
         inputFileEdit->setStyleSheet("QLineEdit { background: yellow }");
         return;
-    }
+    }*/
 
-    QByteArray inBuffer = infile.readAll();
-    QByteArray *outBuffer = new QByteArray();
-    infile.close();
+    QUrl infileURL = QUrl::fromLocalFile(inputFileEdit->text());
+
     if ( mAction == Encrypt ) {
-    // TODO
-    //    if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
+        QList<QUrl> infileURLs;
+        infileURLs << infileURL;
+        QStringList *uidList = mKeyList->getChecked();
+        QStringList options;
+        KGpgEncrypt::EncryptOptions opts = KGpgEncrypt::DefaultEncryption;
+
+        opts |= KGpgEncrypt::AllowUntrustedEncryption;
+        opts |= KGpgEncrypt::AsciiArmored;
+
+        KGpgEncrypt *encr = new KGpgEncrypt(this, *uidList, infileURLs, opts, options);
+        encr->start();
+        connect(encr, SIGNAL(done(int)), SLOT(slotEncryptDone(int)));
+
+        return;
     }
     if ( mAction == Decrypt )  {
     // TODO
@@ -214,31 +243,26 @@ void FileEncryptionDialog::slotExecuteAction()
         return;
     }
 
-    QFile outfile(outputFileEdit->text());
-    if (outfile.exists()){
-        QMessageBox::StandardButton ret;
-        ret = QMessageBox::warning(this, tr("File"),
-                                           tr("File exists! Do you want to overwrite it?"),
-                                           QMessageBox::Ok|QMessageBox::Cancel);
-        if (ret == QMessageBox::Cancel){
-            return;
-        }
-    }
-
-    if (!outfile.open(QFile::WriteOnly)) {
-        QMessageBox::warning(this, tr("File"),
-                             tr("Cannot write file %1:\n%2.")
-                             .arg(outputFileEdit->text())
-                             .arg(outfile.errorString()));
-        return;
-    }
-
-    QDataStream out(&outfile);
-    out.writeRawData(outBuffer->data(), outBuffer->length());
-    outfile.close();
     QMessageBox::information(0, "Done", "Output saved to " + outputFileEdit->text());
 
     accept();
+}
+
+void FileEncryptionDialog::slotEncryptDone(int result) {
+
+    KGpgEncrypt *enc = qobject_cast<KGpgEncrypt *>(sender());
+    Q_ASSERT(enc != NULL);
+    sender()->deleteLater();
+
+    if (result == KGpgTransaction::TS_OK) {
+        qDebug() << "FileEncryption succesfull, code: " << result;
+        QMessageBox::information(0, tr("Filencryption succesfull"), tr("Output saved to %1").arg(outputFileEdit->text()));
+        accept();
+    } else {
+        QMessageBox::critical(0, tr("Filencryption failed"), tr("The encryption failed."));
+        qDebug() << "The fileencryption failed with error code " << result;
+    }
+
 }
 
 void FileEncryptionDialog::slotShowKeyList()

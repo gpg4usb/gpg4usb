@@ -20,6 +20,7 @@
 //#include <kio/renamedialog.h>
 //#include <KLocale>
 #include <QPointer>
+#include <QDebug>
 
 static QStringList trustOptions(const QString &binary)
 {
@@ -100,6 +101,7 @@ KGpgEncrypt::encryptedText() const
 bool
 KGpgEncrypt::nextLine(const QString &line)
 {
+    qDebug() << "KGpgEncrypt::nextLine called";
     const QList<QUrl> &inputFiles = getInputFiles();
 
 	if (line.startsWith(QLatin1String("[GNUPG:] MISSING_PASSPHRASE"))) {
@@ -120,6 +122,9 @@ KGpgEncrypt::nextLine(const QString &line)
             emit statusMessage(tr("Status message 'Encrypted <filename>' (operation was completed)", "Encrypted %1").arg(m_currentFile));
 			m_fileIndex++;
 			emit infoProgress(2 * m_fileIndex, inputFiles.count() * 2);
+        } else if (line == askName) {
+            qDebug() << "KGpgEncrypt::nextLine - name asked for file...";
+        }
 // TODO
 /*		} else if (line == askName) {
 			QPointer<KIO::RenameDialog> over = new KIO::RenameDialog(qobject_cast<QWidget *>(parent()),
@@ -134,7 +139,7 @@ KGpgEncrypt::nextLine(const QString &line)
             }
 			write(over->newDestUrl().path().toUtf8());
             delete over;*/
-        }
+        //}
 	}
 
 	return KGpgTextOrFileTransaction::nextLine(line);
