@@ -26,6 +26,7 @@
 #include "keylist.h"
 #include "verifydetailsdialog.h"
 #include "kgpg/transactions/kgpgencrypt.h"
+#include "kgpg/transactions/kgpgdecrypt.h"
 
 QT_BEGIN_NAMESPACE
 class QDialog;
@@ -67,6 +68,7 @@ public:
      * @param parent
      */
     FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList,  DialogAction action, QWidget *parent = 0);
+    void checkOutFileOK();
 
 public slots:
     /**
@@ -98,6 +100,7 @@ public slots:
     void slotExecuteAction();
 
     void slotEncryptDone(int result);
+    void slotDecryptDone(int result);
 
     /**
      * @brief

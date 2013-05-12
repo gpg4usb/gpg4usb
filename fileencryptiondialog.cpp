@@ -23,6 +23,7 @@
   TODO:
     - OK button should be enabled when at least one key selected
     - option for ascii-armor or pgp binary output
+    - KGpgDecrypt has possibility to set outfile, use this, maybe also implemement in KGpgEncrypt
  */
 
 #include "fileencryptiondialog.h"
@@ -133,30 +134,40 @@ void FileEncryptionDialog::slotSelectInputFile()
     if (infileName > 0 ) {
         if (mAction == Encrypt) {
             outputFileEdit->setText(infileName + ".asc");
-            QFile outfile(outputFileEdit->text());
-            if (outfile.exists()){
-                statusLabel->setText( tr("File %1 already existing").arg(outputFileEdit->text()));
-                outputFileEdit->setStyleSheet("QLineEdit { background: red }");
-                okButton->setEnabled(false);
-            } else {
-                statusLabel->setText("");
-                // TODO: this should match the system style for textedits
-                outputFileEdit->setStyleSheet("QLineEdit { background: white }");
-                okButton->setEnabled(true);
-            }
+            checkOutFileOK();
         } else if (mAction == Sign) {
             outputFileEdit->setText(infileName + ".sig");
         } else if (mAction == Verify) {
             signFileEdit->setText(infileName + ".sig");
         } else {
-            if (infileName.endsWith(".asc", Qt::CaseInsensitive)) {
+            if (infileName.endsWith(".asc", Qt::CaseInsensitive) || infileName.endsWith(".gpg", Qt::CaseInsensitive)) {
                 QString ofn = infileName;
                 ofn.chop(4);
                 outputFileEdit->setText(ofn);
-            } else {
+                checkOutFileOK();
+            } /*else {
                 outputFileEdit->setText(infileName + ".out");
-            }
+            }*/
         }
+    }
+}
+
+/**
+ * Raise error if output file already existing, otherwise enable ok button
+ * @brief FileEncryptionDialog::checkFileExists
+ * @param filename
+ */
+void FileEncryptionDialog::checkOutFileOK() {
+    QFile outfile(outputFileEdit->text());
+    if (outfile.exists()){
+        statusLabel->setText( tr("File %1 already existing").arg(outputFileEdit->text()));
+        outputFileEdit->setStyleSheet("QLineEdit { background: red }");
+        okButton->setEnabled(false);
+    } else {
+        statusLabel->setText("");
+        // TODO: this should match the system style for textedits
+        outputFileEdit->setStyleSheet("QLineEdit { background: white }");
+        okButton->setEnabled(true);
     }
 }
 
@@ -202,10 +213,11 @@ void FileEncryptionDialog::slotExecuteAction()
     }*/
 
     QUrl infileURL = QUrl::fromLocalFile(inputFileEdit->text());
+    QList<QUrl> infileURLs;
+    infileURLs << infileURL;
 
     if ( mAction == Encrypt ) {
-        QList<QUrl> infileURLs;
-        infileURLs << infileURL;
+
         QStringList *uidList = mKeyList->getChecked();
         QStringList options;
         KGpgEncrypt::EncryptOptions opts = KGpgEncrypt::DefaultEncryption;
@@ -222,6 +234,12 @@ void FileEncryptionDialog::slotExecuteAction()
     if ( mAction == Decrypt )  {
     // TODO
     //    if (! mCtx->decrypt(inBuffer, outBuffer)) return;
+        //KGpgDecrypt *decr = new KGpgDecrypt(this, infileURLs);
+        QUrl outfileURL = QUrl::fromLocalFile(outputFileEdit->text());
+        KGpgDecrypt *decr = new KGpgDecrypt(this, infileURL, outfileURL);
+        connect(decr, SIGNAL(done(int)), SLOT(slotDecryptDone(int)));
+        decr->start();
+        return;
     }
 
     // TODO: with kgpg
@@ -259,8 +277,27 @@ void FileEncryptionDialog::slotEncryptDone(int result) {
         QMessageBox::information(0, tr("Filencryption succesfull"), tr("Output saved to %1").arg(outputFileEdit->text()));
         accept();
     } else {
-        QMessageBox::critical(0, tr("Filencryption failed"), tr("The encryption failed."));
-        qDebug() << "The fileencryption failed with error code " << result;
+        QMessageBox::critical(0, tr("Filencryption failed"), enc->getMessages().join( QLatin1String( "\n" )));
+        qDebug() << "The fileencryption failed with error code " << result << "reason:" << enc->getMessages().join( QLatin1String( "\n" ));
+    }
+
+}
+
+void FileEncryptionDialog::slotDecryptDone(int result) {
+
+    KGpgDecrypt *decr = qobject_cast<KGpgDecrypt *>(sender());
+    Q_ASSERT(decr != NULL);
+    sender()->deleteLater();
+
+    if (result == KGpgTransaction::TS_OK) {
+        qDebug() << "FileDecryption succesfull, code: " << result;
+        QMessageBox::information(0, tr("Filedecryption succesfull"), tr("Output saved to %1").arg(outputFileEdit->text()));
+        accept();
+    } else if (result != KGpgTransaction::TS_USER_ABORTED) {
+        QMessageBox::critical(0, tr("Filencryption failed"), decr->getMessages().join( QLatin1String( "\n" )));
+        qDebug() << "The fileencryption failed with error code " << result << "reason:" << decr->getMessages().join( QLatin1String( "\n" ));
+
+
     }
 
 }
