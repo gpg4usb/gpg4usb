@@ -44,6 +44,7 @@ Release 0.4
 - discuss: show message, when key export is successful (statusbar)
 - set focus to close dialog with unsaved data 
 - have a look on selected/checked keys (which keys should when be used?)
+- Check, ig gpg is initialized correctly
 
 BUG:
 - check PGP-Mime

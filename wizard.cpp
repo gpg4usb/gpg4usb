@@ -38,9 +38,8 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     setPage(Page_ImportFromGnupg,new ImportFromGnupgPage(mCtx, mKeyMgmt, this));
     setPage(Page_GenKey,new KeyGenPage(mCtx, this));
     setPage(Page_Conclusion,new ConclusionPage(this));
-#ifndef Q_WS_MAC
+    
     setWizardStyle(ModernStyle);
-#endif
     setWindowTitle(tr("First Start Wizard"));
 
     // http://www.flickr.com/photos/laureenp/6141822934/

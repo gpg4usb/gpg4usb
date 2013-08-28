@@ -5,14 +5,15 @@ TEMPLATE = app
 
 # unix:TARGET = start_linux
 # win32:TARGET = start_windows
-# mac:TARGET = start_mac
+mac:TARGET = start_mac
 DESTDIR = release
 DEPENDPATH += .
 INCLUDEPATH += . 
 
 #DEFINES += GPG4USB_NON_PORTABLE
+DEFINES += QT_NO_DEBUG_OUTPUT QT_NO_WARNING_OUTPUT
 
-CONFIG += release static
+CONFIG += release static 
 #CONFIG += release
 #CONFIG += debug
 
