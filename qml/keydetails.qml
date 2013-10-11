@@ -1,8 +1,8 @@
 import QtQuick 1.1
 
-Rectangle {
-    width: 1600   //these are the only explicit sizes set
-    height: 1200   //all others are relative
+FocusScope {
+    //width: 1600   //these are the only explicit sizes set
+    //height: 1200   //all others are relative
 
     anchors.fill: parent
 
@@ -84,6 +84,36 @@ Rectangle {
          text: qsTr("Keydetails")
          font.pixelSize:22
      }
+
+     TextField {
+         x: 119
+         y: 155
+         id: tf1
+         text: "some other text"
+     }
+
+     Button {
+         x: 246
+         y: 155
+         text: "ok"
+         onClicked: console.log("ok clicked, text: " +  tf1.text)
+     }
+
+     TextField {
+         x: 119
+         y: 188
+         id: tf2
+         text: "some other text"
+     }
+
+     Button {
+         x: 246
+         y: 188
+         text: "ok2"
+         onClicked: console.log("ok2: " + tf2.text)
+     }
+
+
 
 
 }

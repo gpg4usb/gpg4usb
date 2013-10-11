@@ -68,6 +68,7 @@ void TextEdit::slotNewHelpTab(QString title, QString path)
 
 void TextEdit::slotNewQMLTab(QString title, KgpgCore::KgpgKey key) {
     QMLPage *page = new QMLPage(key);
+    // todo: should parent also be given?
     tabWidget->addTab(page, title);
     tabWidget->setCurrentIndex(tabWidget->count() - 1);
 }
