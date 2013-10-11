@@ -18,6 +18,8 @@ CONFIG += release static
 #CONFIG += debug
 
 QT += network
+QT += declarative
+
 # Input
 include(kgpg/kgpg.pri)
 
@@ -45,7 +47,8 @@ HEADERS += attachments.h \
     wizard.h \
     helppage.h \
     gpgconstants.h \
-    findwidget.h
+    findwidget.h \
+    qmlpage.h
 
 SOURCES += attachments.cpp \
     gpgcontext.cpp \
@@ -71,7 +74,8 @@ SOURCES += attachments.cpp \
     wizard.cpp \
     helppage.cpp \
     gpgconstants.cpp \
-    findwidget.cpp
+    findwidget.cpp \
+    qmlpage.cpp
 
 RC_FILE = gpg4usb.rc
 
@@ -95,3 +99,15 @@ TRANSLATIONS = release/ts/gpg4usb_en.ts \
 contains(DEFINES, GPG4USB_NON_PORTABLE) {
    message(Building non portable version...)
 }
+
+OTHER_FILES += \
+    qml/keydetails.qml
+
+# http://stackoverflow.com/questions/3984104/qmake-how-to-copy-a-file-to-the-output
+#unix {
+    for(FILE, OTHER_FILES){
+#        QMAKE_POST_LINK += $$quote(cp $${PWD}/$${FILE} $${DESTDIR}$$escape_expand(\\n\\t))
+         QMAKE_POST_LINK += $$QMAKE_COPY $$quote($$FILE) $$quote($$DESTDIR) $$escape_expand(\\n\\t)
+#        INSTALLS += $$QMAKE_COPY $$quote($$FILE) $$quote($$DESTDIR) $$escape_expand(\\n\\t)
+}
+

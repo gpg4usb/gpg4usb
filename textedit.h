@@ -147,6 +147,8 @@ public slots:
      */
     void slotNewHelpTab(QString title, QString path);
 
+    void slotNewQMLTab(QString title, QString qmlfile);
+
     /**
      * @details put a * in front of current tabs title, if current textedit is modified
      */

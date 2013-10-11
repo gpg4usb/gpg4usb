@@ -20,6 +20,7 @@
  */
 
 #include "textedit.h"
+#include "qmlpage.h"
 
 TextEdit::TextEdit()
 {
@@ -63,6 +64,12 @@ void TextEdit::slotNewHelpTab(QString title, QString path)
     tabWidget->addTab(page, title);
     tabWidget->setCurrentIndex(tabWidget->count() - 1);
 
+}
+
+void TextEdit::slotNewQMLTab(QString title, QString qmlfile) {
+    QMLPage *page = new QMLPage(qmlfile);
+    tabWidget->addTab(page, title);
+    tabWidget->setCurrentIndex(tabWidget->count() - 1);
 }
 
 void TextEdit::slotOpen()
