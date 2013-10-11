@@ -23,10 +23,8 @@ QMLPage::QMLPage(KgpgCore::KgpgKey key, QWidget *parent) :
 
     qDebug() << "qml:::::" << QUrl::fromLocalFile("keydetails.qml");
 
-
-    //QWidget *widget = myExistingWidget();
-    //QVBoxLayout *layout = new QVBoxLayout(this);
-    QGridLayout *layout = new QGridLayout(this);
-    layout->setOriginCorner(Qt::TopLeftCorner);
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    //QGridLayout *layout = new QGridLayout(this);
+    //layout->setOriginCorner(Qt::TopLeftCorner);
     layout->addWidget(qmlView);
 }
