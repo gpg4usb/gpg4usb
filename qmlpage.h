@@ -2,6 +2,7 @@
 #define QMLPAGE_H
 
 #include <QWidget>
+#include "kgpg/core/kgpgkey.h"
 
 class QMLPage : public QWidget
 {
@@ -9,7 +10,7 @@ class QMLPage : public QWidget
     Q_OBJECT
 
 public:
-    QMLPage(const QString qmlfile, QWidget *parent = 0);
+    QMLPage(KgpgCore::KgpgKey key, QWidget *parent = 0);
 
 };
 

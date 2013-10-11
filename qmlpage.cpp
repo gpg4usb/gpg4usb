@@ -5,7 +5,7 @@
 #include <QDeclarativeContext>
 
 
-QMLPage::QMLPage(const QString qmlfile, QWidget *parent) :
+QMLPage::QMLPage(KgpgCore::KgpgKey key, QWidget *parent) :
     QWidget(parent)
 {
 
@@ -15,7 +15,9 @@ QMLPage::QMLPage(const QString qmlfile, QWidget *parent) :
     qmlView->setSource(QUrl("qrc:/qml/keydetails.qml"));
 
     QDeclarativeContext *context = qmlView->rootContext();
-    context->setContextProperty("var1", "derText");
+    context->setContextProperty("id", key.id());
+    context->setContextProperty("email", key.email());
+    context->setContextProperty("name", key.name());
 
     qDebug() << "qml:::::" << QUrl::fromLocalFile("keydetails.qml");
 

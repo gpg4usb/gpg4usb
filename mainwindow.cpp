@@ -1255,11 +1255,11 @@ void MainWindow::slotShowKeyDetails()
         return;
     }
 
-    // TODO: get qml working here ;-)
-    edit->slotNewQMLTab("KeyDetailsQML", "TODO");
-
     KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     if (key.id() != "") {
+        // TODO: get qml working here ;-)
+        edit->slotNewQMLTab("KeyDetailsQML", key);
+
         new KeyDetailsDialog(mCtx, key, this);
     }
 
