@@ -20,6 +20,7 @@
  */
 
 #include <QApplication>
+#include <QCleanlooksStyle>
 #include "mainwindow.h"
 #include "gpgconstants.h"
 
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
 
     app.setApplicationVersion("0.4.0-alpha");
     app.setApplicationName("gpg4usb");
+    app.setStyle("cleanlooks");
 
     // dont show icons in menus
     app.setAttribute(Qt::AA_DontShowIconsInMenus);
