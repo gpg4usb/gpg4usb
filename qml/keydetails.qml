@@ -9,7 +9,7 @@ Rectangle {
     //color: "red"
      Text {
          // qsTr() for internationalisation, like tr()
-         text: qsTr("var1:")
+         text: qsTr("var:")
      }
      Text {
          x: 54

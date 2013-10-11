@@ -103,11 +103,4 @@ contains(DEFINES, GPG4USB_NON_PORTABLE) {
 OTHER_FILES += \
     qml/keydetails.qml
 
-# http://stackoverflow.com/questions/3984104/qmake-how-to-copy-a-file-to-the-output
-#unix {
-    for(FILE, OTHER_FILES){
-#        QMAKE_POST_LINK += $$quote(cp $${PWD}/$${FILE} $${DESTDIR}$$escape_expand(\\n\\t))
-         QMAKE_POST_LINK += $$QMAKE_COPY $$quote($$FILE) $$quote($$DESTDIR) $$escape_expand(\\n\\t)
-#        INSTALLS += $$QMAKE_COPY $$quote($$FILE) $$quote($$DESTDIR) $$escape_expand(\\n\\t)
-}
 

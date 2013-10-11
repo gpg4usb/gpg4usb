@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+        <file>qml/keydetails.qml</file>
         <file alias="keymgmt.png">release/icons/keymgmt.png</file>
         <file alias="help.png">release/icons/help.png</file>
         <file alias="button_copy.png">release/icons/button_copy.png</file>

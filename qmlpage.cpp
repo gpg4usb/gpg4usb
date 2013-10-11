@@ -10,8 +10,9 @@ QMLPage::QMLPage(const QString qmlfile, QWidget *parent) :
 {
 
     // http://harmattan-dev.nokia.com/docs/library/html/qt4/qml-integration.html
+    // http://qt-project.org/doc/qt-4.8/qtbinding.html
     QDeclarativeView *qmlView = new QDeclarativeView;
-    qmlView->setSource(QUrl::fromLocalFile("keydetails.qml"));
+    qmlView->setSource(QUrl("qrc:/qml/keydetails.qml"));
 
     QDeclarativeContext *context = qmlView->rootContext();
     context->setContextProperty("var1", "derText");
