@@ -1,8 +1,8 @@
 import QtQuick 1.1
 
 Rectangle {
-    width: 1200   //these are the only explicit sizes set
-    height: 1000   //all others are relative
+    width: 1600   //these are the only explicit sizes set
+    height: 1200   //all others are relative
 
     anchors.fill: parent
 
@@ -11,7 +11,7 @@ Rectangle {
         id: rectangle2
         x: 0
         y: 0
-        width: 1200
+        width: 1600
         height: 47
         color: "#99bff1"
     }
@@ -21,7 +21,7 @@ Rectangle {
         x: 0
         y: 0
         width: 107
-        height: 1000
+        height: 1200
         color: "#978c79"
     }
 
