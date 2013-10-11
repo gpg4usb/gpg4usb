@@ -1,7 +1,6 @@
 #include "qmlpage.h"
 #include <QtDeclarative/QDeclarativeView>
 #include <QVBoxLayout>
-#include <QGridLayout>
 #include <QDebug>
 #include <QDeclarativeContext>
 
@@ -23,8 +22,8 @@ QMLPage::QMLPage(KgpgCore::KgpgKey key, QWidget *parent) :
 
     qDebug() << "qml:::::" << QUrl::fromLocalFile("keydetails.qml");
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    //QGridLayout *layout = new QGridLayout(this);
-    //layout->setOriginCorner(Qt::TopLeftCorner);
-    layout->addWidget(qmlView);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(0,0,0,0);
+    mainLayout->addWidget(qmlView);
 }
