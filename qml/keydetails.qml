@@ -1,10 +1,19 @@
 import QtQuick 1.1
 
-FocusScope {
+
+//FocusScope {
+Rectangle {
     //width: 1600   //these are the only explicit sizes set
     //height: 1200   //all others are relative
 
+    id: keydetails
+
+    signal clicked
+
     anchors.fill: parent
+
+    property alias tf1Text: tf1.text
+    property alias tf2Text: tf2.text
 
     //color: "red"
     Rectangle {
@@ -89,15 +98,17 @@ FocusScope {
          x: 119
          y: 155
          id: tf1
-         text: "some other text"
+         text: "some text"
      }
 
-     Button {
+    /* Button {
          x: 246
          y: 155
          text: "ok"
-         onClicked: console.log("ok clicked, text: " +  tf1.text)
-     }
+         onClicked: {
+             console.log("ok clicked, text: " +  tf1.text)
+         }
+     }*/
 
      TextField {
          x: 119
@@ -109,8 +120,12 @@ FocusScope {
      Button {
          x: 246
          y: 188
-         text: "ok2"
-         onClicked: console.log("ok2: " + tf2.text)
+         text: "ok"
+         onClicked: {
+            console.log("ok clicked, text: " +  tf1.text)
+            console.log("tf2: " + tf2.text)
+            keydetails.clicked();
+         }
      }
 
 

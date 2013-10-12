@@ -6,20 +6,12 @@ Rectangle {
 
     property alias text: textInput.text
 
-    //width: 100
-    //height: 62
-
-    //Rectangle {
-     //   id: rectangle4
-        width: 114
-        height: 28
-        color: "#ffffff"
-        radius: 3
-        border.width: 1
-        border.color: "#999999"
-    //}
-
-
+    width: 114
+    height: 28
+    color: "#ffffff"
+    radius: 3
+    border.width: 1
+    border.color: "#999999"
 
     TextInput {
         id: textInput
@@ -30,7 +22,6 @@ Rectangle {
         selectionColor: "#008000"
         font.pixelSize: 12
         anchors.centerIn:parent
-        //onActiveFocusChanged: rectangle4.border.color = "#0000ff";
         onActiveFocusChanged: {
                 if (textInput.activeFocus)
                     parent.border.color = "#0000ff";

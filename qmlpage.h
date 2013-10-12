@@ -2,6 +2,8 @@
 #define QMLPAGE_H
 
 #include <QWidget>
+#include <QDeclarativeContext>
+#include <QGraphicsObject>
 #include "kgpg/core/kgpgkey.h"
 
 class QMLPage : public QWidget
@@ -11,6 +13,13 @@ class QMLPage : public QWidget
 
 public:
     QMLPage(KgpgCore::KgpgKey key, QWidget *parent = 0);
+
+public slots:
+    void qmlClicked();
+
+private:
+    QDeclarativeContext *context;
+    QGraphicsObject *obj;
 
 };
 
