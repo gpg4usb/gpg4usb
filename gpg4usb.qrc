@@ -53,5 +53,6 @@
         <file alias="button_previous.png">release/icons/button_previous.png</file>
         <file>qml/Button.qml</file>
         <file>qml/TextField.qml</file>
+        <file>qml/KeyInfoRow.qml</file>
     </qresource>
 </RCC>

@@ -103,6 +103,7 @@ contains(DEFINES, GPG4USB_NON_PORTABLE) {
 OTHER_FILES += \
     qml/keydetails.qml \
     qml/Button.qml \
-    qml/TextField.qml
+    qml/TextField.qml \
+    qml/KeyInfoRow.qml
 
 

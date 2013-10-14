@@ -15,6 +15,10 @@ Rectangle {
     property alias tf1Text: tf1.text
     property alias tf2Text: tf2.text
 
+//    property keyid : ""
+//    property email : ""
+//    property name : ""
+
     //color: "red"
     Rectangle {
         id: rectangle2
@@ -34,44 +38,33 @@ Rectangle {
         color: "#978c79"
     }
 
-    Text {
+     KeyInfoRow {
+         x: 119
+         y: 54
          // qsTr() for internationalisation, like tr()
-         x: 118
-         y: 54
-         text: qsTr("id:")
-     }
-     Text {
-         x: 172
-         y: 54
-         text: id
+         key: qsTr("id:")
+         value: id
      }
 
-     Text {
-         id: text1
-         x: 118
+     KeyInfoRow {
+         x: 119
          y: 75
-         text: qsTr("email:")
+         key: qsTr("email:")
+         value: email
      }
 
-     Text {
-         id: text2
-         x: 172
-         y: 75
-         text: email
-     }
-
-     Text {
-         id: text3
+     KeyInfoRow {
          x: 119
          y: 96
-         text: qsTr("name:")
+         key: qsTr("name:")
+         value: name
      }
 
-     Text {
-         id: text4
-         x: 172
-         y: 96
-         text: name
+     KeyInfoRow {
+         x: 119
+         y: 117
+         key: qsTr("keysize")
+         value: key.size() / key.encyptionSize()
      }
 
 

@@ -18,12 +18,14 @@ QMLPage::QMLPage(KgpgCore::KgpgKey key, QWidget *parent) :
 
     QDeclarativeView *qmlView = new QDeclarativeView;
     qmlView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
-    qmlView->setSource(QUrl("qrc:/qml/keydetails.qml"));
+
 
     context = qmlView->rootContext();
     context->setContextProperty("id", key.id());
     context->setContextProperty("email", key.email());
     context->setContextProperty("name", key.name());
+
+    qmlView->setSource(QUrl("qrc:/qml/keydetails.qml"));
 
     /*
     or: http://xizhizhu.blogspot.de/2010/10/hybrid-application-using-qml-and-qt-c.html
