@@ -21,13 +21,10 @@
  */
 
 #include "keyserverimportdialog.h"
-#include "keymgmt.h"
 
 KeyServerImportDialog::KeyServerImportDialog(GpgME::GpgContext *ctx, KeyList *keyList, QWidget *parent)
-    : QDialog(parent)
+    : QDialog(parent), mCtx(ctx), mKeyList(keyList)
 {
-    mCtx = ctx;
-    mKeyList = keyList;
     // Buttons
     closeButton = createButton(tr("&Close"), SLOT(close()));
     importButton = createButton(tr("&Import"), SLOT(slotImport()));

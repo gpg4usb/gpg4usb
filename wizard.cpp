@@ -26,16 +26,13 @@
 #include "windows.h"
 #endif
 
-Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
-    : QWizard(parent)
+Wizard::Wizard(GpgME::GpgContext *ctx, QWidget *parent)
+    : QWizard(parent), mCtx(ctx)
 {
-    mCtx=ctx;
-    mKeyMgmt=keyMgmt;
-
     setPage(Page_Intro,new IntroPage(this));
     setPage(Page_Choose, new ChoosePage(this));
-    setPage(Page_ImportFromGpg4usb,new ImportFromGpg4usbPage(mCtx, mKeyMgmt, this));
-    setPage(Page_ImportFromGnupg,new ImportFromGnupgPage(mCtx, mKeyMgmt, this));
+    setPage(Page_ImportFromGpg4usb,new ImportFromGpg4usbPage(mCtx, this));
+    setPage(Page_ImportFromGnupg,new ImportFromGnupgPage(mCtx, this));
     setPage(Page_GenKey,new KeyGenPage(mCtx, this));
     setPage(Page_Conclusion,new ConclusionPage(this));
     
@@ -66,7 +63,7 @@ void Wizard::wizardAccepted() {
     }
 }
 
-bool Wizard::importPubAndSecKeysFromDir(const QString dir, KeyMgmt *keyMgmt)
+bool Wizard::importPubAndSecKeysFromDir(const QString dir, GpgME::GpgContext *ctx)
 {
     QFile secRingFile(dir+"/secring.gpg");
     QFile pubRingFile(dir+"/pubring.gpg");
@@ -97,7 +94,7 @@ bool Wizard::importPubAndSecKeysFromDir(const QString dir, KeyMgmt *keyMgmt)
         inBuffer.append(pubRingFile.readAll());
         pubRingFile.close();
     }
-    keyMgmt->slotImportKeys(inBuffer);
+    ctx->slotImportKeys(inBuffer);
     inBuffer.clear();
 
     return true;
@@ -203,11 +200,9 @@ void ChoosePage::jumpPage(const QString& page)
     wizard()->next();
 }
 
-ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
-     : QWizardPage(parent)
+ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, QWidget *parent)
+    : QWizardPage(parent), mCtx(ctx)
 {
-    mCtx=ctx;
-    mKeyMgmt=keyMgmt;
     setTitle(tr("Import from..."));
     setSubTitle(tr("...existing gpg4usb"));
 
@@ -249,7 +244,7 @@ void ImportFromGpg4usbPage::slotImportFromOlderGpg4usb()
 
     // try to import keys, if appropriate box is checked, return, if import was unsuccessful
     if (gpg4usbKeyCheckBox->isChecked()) {
-        if (!Wizard::importPubAndSecKeysFromDir(dir+"/keydb",mKeyMgmt)) {
+        if (!Wizard::importPubAndSecKeysFromDir(dir+"/keydb",mCtx)) {
             return;
         }
     }
@@ -283,11 +278,9 @@ int ImportFromGpg4usbPage::nextId() const
     return Wizard::Page_Conclusion;
 }
 
-ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
-     : QWizardPage(parent)
+ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, QWidget *parent)
+    : QWizardPage(parent), mCtx(ctx)
 {
-    mCtx=ctx;
-    mKeyMgmt=keyMgmt;
     setTitle(tr("Import keys..."));
     setSubTitle(tr("...from existing GnuPG installation"));
 
@@ -315,7 +308,7 @@ void ImportFromGnupgPage::slotImportKeysFromGnupg()
     }
 
     // Try to import the keyring files and return the return value of the method
-    Wizard::importPubAndSecKeysFromDir(gnuPGHome,mKeyMgmt);
+    Wizard::importPubAndSecKeysFromDir(gnuPGHome,mCtx);
     wizard()->next();
 }
 

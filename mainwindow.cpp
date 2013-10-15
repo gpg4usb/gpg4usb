@@ -41,13 +41,10 @@ MainWindow::MainWindow()
     /* Variable containing if restart is needed */
     this->slotSetRestartNeeded(false);
 
-    keyMgmt = new KeyMgmt(mCtx, this);
-    keyMgmt->hide();
     /* test attachmentdir for files alll 15s */
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(slotCheckAttachmentFolder()));
     timer->start(5000);
-
     createActions();
     createMenus();
     createKeyListMenu();
@@ -313,6 +310,21 @@ void MainWindow::createActions()
     importKeyFromEditAct->setToolTip(tr("Import New Key From Editor"));
     connect(importKeyFromEditAct, SIGNAL(triggered()), this, SLOT(slotImportKeyFromEdit()));
 
+    importKeyFromFileAct = new QAction(tr("&File"), this);
+    importKeyFromFileAct->setIcon(QIcon(":import_key_from_file.png"));
+    importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
+    connect(importKeyFromFileAct, SIGNAL(triggered()), mCtx, SLOT(slotimportKeyFromFile()));
+
+    importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
+    importKeyFromClipboardAct->setIcon(QIcon(":import_key_from_clipboard.png"));
+    importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
+    connect(importKeyFromClipboardAct, SIGNAL(triggered()), mCtx, SLOT(slotImportKeyFromClipboard()));
+
+    importKeyFromKeyServerAct = new QAction(tr("&Keyserver"), this);
+    importKeyFromKeyServerAct->setIcon(QIcon(":import_key_from_server.png"));
+    importKeyFromKeyServerAct->setToolTip(tr("Import New Key From Keyserver"));
+    connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(slotImportKeyFromKeyServer()));
+
     exportKeyToClipboardAct = new QAction(tr("&Clipboard"), this);
     exportKeyToClipboardAct->setIcon(QIcon(":export_key_to_clipboard.png"));
     exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
@@ -327,11 +339,6 @@ void MainWindow::createActions()
     deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
     deleteCheckedKeysAct->setIcon(QIcon(":button_cancel.png"));
     connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(slotDeleteCheckedKeys()));
-
-    openKeyManagementAct = new QAction(tr("Manage &keys"), this);
-    openKeyManagementAct->setIcon(QIcon(":keymgmt.png"));
-    openKeyManagementAct->setToolTip(tr("Open Keymanagement"));
-    connect(openKeyManagementAct, SIGNAL(triggered()), this, SLOT(slotOpenKeyManagement()));
 
     generateKeyDialogAct = new QAction(tr("Generate Key"), this);
     generateKeyDialogAct->setToolTip(tr("Generate New Key"));
@@ -372,7 +379,6 @@ void MainWindow::createActions()
     copyMailAddressToClipboardAct->setToolTip(tr("Copy selected EMailaddress to clipboard"));
     connect(copyMailAddressToClipboardAct, SIGNAL(triggered()), this, SLOT(slotCopyMailAddressToClipboard()));
 
-    // TODO: find central place for shared actions, to avoid code-duplication with keymgmt.cpp
     showKeyDetailsAct = new QAction(tr("Show key details"), this);
     showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
     connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(slotShowKeyDetails()));
@@ -495,12 +501,11 @@ void MainWindow::createMenus()
     keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
     importKeyMenu->setIcon(QIcon(":key_import.png"));
-    importKeyMenu->addAction(keyMgmt->importKeyFromFileAct);
+    importKeyMenu->addAction(importKeyFromFileAct);
     importKeyMenu->addAction(importKeyFromEditAct);
 
-    importKeyMenu->addAction(keyMgmt->importKeyFromClipboardAct);
-    importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
-    importKeyMenu->addAction(keyMgmt->importKeyFromKeyServerAct);
+    importKeyMenu->addAction(importKeyFromClipboardAct);
+    importKeyMenu->addAction(importKeyFromKeyServerAct);
 
     exportKeyMenu = keyMenu->addMenu(tr("&Export Key(s) To..."));
     exportKeyMenu->setIcon(QIcon(":key_export.png"));
@@ -511,7 +516,6 @@ void MainWindow::createMenus()
     keyMenu->addAction(deleteCheckedKeysAct);
     keyMenu->addSeparator();
     keyMenu->addAction(generateKeyDialogAct);
-    keyMenu->addAction(openKeyManagementAct);
 
     steganoMenu = menuBar()->addMenu(tr("&Steganography"));
     steganoMenu->addAction(cutPgpHeaderAct);
@@ -565,7 +569,6 @@ void MainWindow::createToolBars()
 
     keyToolBar = addToolBar(tr("Key"));
     keyToolBar->setObjectName("keyToolBar");
-    keyToolBar->addAction(openKeyManagementAct);
     viewMenu->addAction(keyToolBar->toggleViewAction());
 
     editToolBar = addToolBar(tr("Edit"));
@@ -709,7 +712,7 @@ void MainWindow::slotSetStatusBarText(QString text)
 
 void MainWindow::slotStartWizard()
 {
-    Wizard *wizard = new Wizard(mCtx,keyMgmt,this);
+    Wizard *wizard = new Wizard(mCtx,this);
     wizard->show();
     wizard->setModal(true);
 }
@@ -861,6 +864,12 @@ void MainWindow::slotImportKeyFromEdit()
     slotStartImport(imp);
 }
 
+void MainWindow::slotImportKeyFromKeyServer()
+{
+    KeyServerImportDialog *importDialog = new KeyServerImportDialog(mCtx, mKeyList, this);
+    importDialog->show();
+}
+
 void MainWindow::slotStartImport(KGpgImport *import)
 {
     qDebug() << "start import";
@@ -909,13 +918,6 @@ void MainWindow::changeMessage(const QString &msg, const bool keep)
     int timeout = keep ? 0 : 10000;
 
     statusBar()->showMessage(msg, timeout);
-}
-
-void MainWindow::slotOpenKeyManagement()
-{
-    keyMgmt->show();
-    keyMgmt->raise();
-    keyMgmt->activateWindow();
 }
 
 void MainWindow::slotEncrypt()
@@ -1227,8 +1229,6 @@ void MainWindow::slotShowKeyDetails()
     if (key.id() != "") {
         // TODO: get qml working here ;-)
         edit->slotNewQMLTab(tr("Key: ") + key.name(), mCtx, key);
-
-        new KeyDetailsDialog(mCtx, key, this);
     }
 
 }

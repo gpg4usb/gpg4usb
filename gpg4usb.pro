@@ -30,9 +30,7 @@ HEADERS += attachments.h \
     keyimportdetaildialog.h \
     mime.h \
     keygendialog.h \
-    keydetailsdialog.h \
     keylist.h \
-    keymgmt.h \
     settingsdialog.h \
     attachmenttablemodel.h \
     textedit.h \
@@ -58,9 +56,7 @@ SOURCES += attachments.cpp \
     keyimportdetaildialog.cpp \
     mime.cpp \
     keygendialog.cpp \
-    keydetailsdialog.cpp \
     keylist.cpp \
-    keymgmt.cpp \
     settingsdialog.cpp \
     attachmenttablemodel.cpp \
     textedit.cpp \

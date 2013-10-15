@@ -24,7 +24,6 @@
 
 #include "gpgconstants.h"
 #include "attachments.h"
-#include "keymgmt.h"
 #include "textedit.h"
 #include "fileencryptiondialog.h"
 #include "settingsdialog.h"
@@ -39,6 +38,7 @@
 #include "kgpg/transactions/kgpgexport.h"
 #include "kgpg/transactions/kgpgimport.h"
 #include "kgpg/transactions/kgpgsigntext.h"
+#include "kgpg/transactions/kgpgdelkey.h"
 
 QT_BEGIN_NAMESPACE
 class QMainWindow;
@@ -171,6 +171,7 @@ private slots:
      * @details Import keys from currently active tab to keylist if possible.
      */
     void slotImportKeyFromEdit();
+    void slotImportKeyFromKeyServer();
     void slotStartImport(KGpgImport *import);
     void slotImportDone(int result);
 
@@ -196,11 +197,6 @@ private slots:
      * Method for keylists contextmenu.
      */
     void slotCopyMailAddressToClipboard();
-
-    /**
-     * @details Open key management dialog.
-     */
-    void slotOpenKeyManagement();
 
     /**
      * @details Open about-dialog.
@@ -399,7 +395,6 @@ private:
     QAction *appendSelectedKeysAct; /** Action to append selected keys to edit */
     QAction *generateKeyDialogAct; /** Action to open key generation dialog */
     QAction *copyMailAddressToClipboardAct; /** Action to copy mail to clipboard */
-    QAction *openKeyManagementAct; /** Action to open key management */
     QAction *copyAct; /** Action to copy text */
     QAction *quoteAct; /** Action to quote text */
     QAction *cutAct; /** Action to cut text */
@@ -427,13 +422,15 @@ private:
     QAction *startWizardAct; /** Action to open the wizard */
     QAction *cutPgpHeaderAct; /** Action for cutting the PGP header */
     QAction *addPgpHeaderAct; /** Action for adding the PGP header */
+    QAction *importKeyFromFileAct;
+    QAction *importKeyFromClipboardAct;
+    QAction *importKeyFromKeyServerAct;
 
     QLabel *statusBarIcon; /**< TODO */
     QSettings settings; /**< TODO */
     KeyList *mKeyList; /**< TODO */
     Attachments *mAttachments; /**< TODO */
     GpgME::GpgContext *mCtx; /**< TODO */
-    KeyMgmt *keyMgmt; /**< TODO */
     KeyServerImportDialog *importDialog; /**< TODO */
     bool attachmentDockCreated;
     bool restartNeeded;

@@ -308,6 +308,69 @@ void GpgContext::slotExportPrivateKeyDone(int result) {
     exp->deleteLater();
 }
 
+// import for text based keys
+void GpgContext::slotImportKeys(QString text)
+{
+    KGpgImport *imp =  new KGpgImport(this, text);
+    connect(imp, SIGNAL(done(int)), SLOT(slotImportDone(int)));
+    imp->start();
+}
+
+void GpgContext::slotImportDone(int result)
+{
+    KGpgImport *import = qobject_cast<KGpgImport *>(sender());
+
+    Q_ASSERT(import != NULL);
+    const QStringList rawmsgs(import->getMessages());
+
+    if (result != 0) {
+        /*KMessageBox::detailedSorry(this, i18n("Key importing failed. Please see the detailed log for more information."),
+                rawmsgs.join( QLatin1String( "\n")) , i18n("Key Import" ));*/
+        qDebug() << "Key importing failed. Please see the detailed log for more information." << rawmsgs.join( QLatin1String( "\n"));
+    }
+
+    QStringList keys(import->getImportedIds(0x1f));
+    const bool needsRefresh = !keys.isEmpty();
+    keys << import->getImportedIds(0);
+/*
+    if (!keys.isEmpty()) {
+        const QString msg(import->getImportMessage());
+        const QStringList keynames(import->getImportedKeys());
+
+        new KgpgDetailedInfo(this, msg, rawmsgs.join( QLatin1String( "\n") ), keynames, i18n("Key Import" ));
+        if (needsRefresh)
+            imodel->refreshKeys(keys);
+        else
+            changeMessage(i18nc("Application ready for user input", "Ready"));
+    } else{
+        changeMessage(i18nc("Application ready for user input", "Ready"));
+    }
+*/
+    //changeMessage(tr("Application ready for user input", "Ready"));
+    emitKeyDBChanged();
+    import->deleteLater();
+}
+
+void GpgContext::slotimportKeyFromFile()
+{
+    QString fileName = QFileDialog::getOpenFileName(NULL, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;"+tr("Keyring files")+" (*.gpg);;All Files (*)");
+    if (! fileName.isNull()) {
+
+        QList<QUrl> urlList;
+        urlList << QUrl::fromLocalFile(fileName);
+
+        KGpgImport *imp =  new KGpgImport(this, urlList);
+        connect(imp, SIGNAL(done(int)), SLOT(slotImportDone(int)));
+        imp->start();
+    }
+}
+
+void GpgContext::slotImportKeyFromClipboard()
+{
+    QClipboard *cb = QApplication::clipboard();
+    slotImportKeys(cb->text(QClipboard::Clipboard).toAscii());
+}
+
 QString GpgContext::getReport(const QStringList &log)
 {
     QString result;

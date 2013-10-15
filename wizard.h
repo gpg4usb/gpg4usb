@@ -25,7 +25,6 @@
 
 #include <QWizard>
 #include "keygendialog.h"
-#include "keymgmt.h"
 #include "gpgconstants.h"
 #include "settingsdialog.h"
 
@@ -43,12 +42,11 @@ public:
     enum WizardPages { Page_Intro, Page_Choose, Page_ImportFromGpg4usb, Page_ImportFromGnupg, Page_GenKey,
                 Page_Conclusion };
 
-    Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
-    static bool importPubAndSecKeysFromDir(const QString dir, KeyMgmt *keyMgmt);
+    Wizard(GpgME::GpgContext *ctx, QWidget *parent = 0);
+    static bool importPubAndSecKeysFromDir(const QString dir, GpgME::GpgContext *ctx);
 
 private:
     GpgME::GpgContext *mCtx;
-    KeyMgmt *mKeyMgmt;
 
 private slots:
     void wizardAccepted();
@@ -90,7 +88,7 @@ class ImportFromGpg4usbPage : public QWizardPage
     Q_OBJECT
 
 public:
-    ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
+    ImportFromGpg4usbPage(GpgME::GpgContext *ctx, QWidget *parent = 0);
 
 private slots:
     /**
@@ -102,7 +100,6 @@ private slots:
 private:
     int nextId() const;
 
-    KeyMgmt *mKeyMgmt;
     GpgME::GpgContext *mCtx;
     QCheckBox *gpg4usbKeyCheckBox;
     QCheckBox *gpg4usbConfigCheckBox;
@@ -113,7 +110,7 @@ class ImportFromGnupgPage : public QWizardPage
     Q_OBJECT
 
 public:
-    ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent = 0);
+    ImportFromGnupgPage(GpgME::GpgContext *ctx, QWidget *parent = 0);
 
 private slots:
     /**
@@ -122,7 +119,6 @@ private slots:
     void slotImportKeysFromGnupg();
 
 private:
-    KeyMgmt *mKeyMgmt;
     int nextId() const;
 
     /**

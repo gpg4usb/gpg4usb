@@ -31,6 +31,7 @@
 #include "kgpg/core/kgpgkey.h"
 #include "kgpg/transactions/kgpgverify.h"
 #include "kgpg/transactions/kgpgexport.h"
+#include "kgpg/transactions/kgpgimport.h"
 
 QT_BEGIN_NAMESPACE
 class QMessageBox;
@@ -109,6 +110,12 @@ namespace GpgME
 class GpgContext : public QObject
 {
     Q_OBJECT
+
+public slots:
+    void slotimportKeyFromFile();
+    void slotImportKeyFromClipboard();
+    void slotImportKeys(QString text);
+    void slotImportDone(int result);
 
 public:
     GpgContext(); // Constructor
