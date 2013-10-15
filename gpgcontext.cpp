@@ -72,11 +72,12 @@ GpgKeyList GpgContext::listKeys()
         GpgKey key;
         key.email = kkey.email();
         //key.expired = kkey.expirationDate().toString();
-        key.expired = false;
+        key.expired = (kkey.expirationDate().date() < QDate::currentDate() &! kkey.expirationDate().isNull());
         key.fpr = kkey.fingerprint();
         key.id = kkey.id();
         key.fullid = kkey.fullId();
         key.name = kkey.name();
+        // TODO
         key.revoked = false;
         keys.append(key);
     }

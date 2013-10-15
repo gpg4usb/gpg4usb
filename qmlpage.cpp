@@ -43,9 +43,10 @@ QMLPage::QMLPage(GpgME::GpgContext *ctx, KgpgCore::KgpgKey key, QWidget *parent)
     keymap.insert("expirationDate",KgpgCore::Convert::toString(key.expirationDate().date()));
     keymap.insert("fingerprint",key.fingerprintBeautified());
     keymap.insert("isSecret",ctx->isSecretKey(key.id()));
+    keymap.insert("expired", (key.expirationDate().date() < QDate::currentDate() &! key.expirationDate().isNull()));
     context->setContextProperty("keymap", &keymap);
 
-
+    qDebug() << "keydate vs current: " <<key.expirationDate().date() << " - "<< QDate::currentDate() << ":" << (key.expirationDate().date() < QDate::currentDate());
 
 
     // http://stackoverflow.com/questions/5947455/connecting-qml-signals-to-qt

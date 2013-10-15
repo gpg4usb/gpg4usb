@@ -31,6 +31,25 @@ Rectangle {
         width: 1600
         height: 47
         color: "#99bff1"
+
+        Text {
+            id: text5
+            x: 117
+            y: 8
+            text: qsTr("Keydetails")
+            font.pixelSize:22
+        }
+
+        Text {
+            id: text3
+            x: 247
+            y: 8
+            text: qsTr("expired")
+            font.italic: true
+            font.pixelSize: 22
+            visible: keymap.expired
+            color: "#ff0000"
+        }
     }
 
     Rectangle {
@@ -82,15 +101,6 @@ Rectangle {
          source: "qrc:/wizard_keys.png"
      }
 
-     Text {
-         id: text5
-         x: 118
-         y: 7
-         width: 20
-         height: 15
-         text: qsTr("Keydetails")
-         font.pixelSize:22
-     }
 
      TextField {
          x: 237
