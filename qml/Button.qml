@@ -4,9 +4,11 @@ import QtQuick 1.0
      id: container
 
      property variant text
+     property variant image
      signal clicked
 
-     height: text.height + 10; width: text.width + 20
+     height: buttonImage.height + 10;
+     width: text.width + buttonImage.width + 15
      border.width: 1
      radius: 4
      smooth: true
@@ -30,11 +32,26 @@ import QtQuick 1.0
          onClicked: container.clicked()
      }
 
+     Image {
+         id: buttonImage
+         y: 5
+         x: 5
+         source: container.image
+         height: 25
+         width: 25
+         //anchors.horizontalCenter: parent.horizontalCenter
+         //anchors.fill: parent
+     }
+
      Text {
          id: text
-         anchors.centerIn:parent
+         x: buttonImage.width +10
+         y: buttonImage.y
+         //anchors.centerIn:parent
          font.pointSize: 10
          text: parent.text
+         //anchors.verticalCenterOffset: 20
+         //anchors.horizontalCenterOffset: 59
          color: activePalette.buttonText
      }
  }

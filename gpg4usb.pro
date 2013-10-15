@@ -100,6 +100,7 @@ OTHER_FILES += \
     qml/keydetails.qml \
     qml/Button.qml \
     qml/TextField.qml \
-    qml/KeyInfoRow.qml
+    qml/KeyInfoRow.qml \
+    qml/ImageButton.qml
 
 

@@ -54,5 +54,6 @@
         <file>qml/Button.qml</file>
         <file>qml/TextField.qml</file>
         <file>qml/KeyInfoRow.qml</file>
+        <file>qml/ImageButton.qml</file>
     </qresource>
 </RCC>

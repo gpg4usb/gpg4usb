@@ -199,9 +199,10 @@ Rectangle {
 
      Button {
          id: exportPrivateKeyButton
-         x: 316
+         x: 367
          y: 392
          text: qsTr("Export private key")
+         image: "qrc:/export_key_to_file.png"
          onClicked: {
             keydetails.exportPrivateKeyClicked();
          }
@@ -210,9 +211,10 @@ Rectangle {
 
      Button {
          id: copyFingerprintButton
-         x: 401
+         x: fingerprint.x + fingerprint.width + 10
          y: 341
-         text: qsTr("copy")
+         //text: qsTr("copy")
+         image: "qrc:/button_copy.png"
          onClicked: {
              fingerprint.selectAll();
              fingerprint.copy();
