@@ -10,10 +10,14 @@ Rectangle {
 
     signal clicked
 
+    signal exportPrivateKeyClicked
+    signal exportPublicKeyClicked
+
     anchors.fill: parent
 
     property alias tf1Text: tf1.text
     property alias tf2Text: tf2.text
+    property string keyid: keymap.id
 
 //    property keyid : ""
 //    property email : ""
@@ -39,33 +43,34 @@ Rectangle {
     }
 
      KeyInfoRow {
-         x: 119
-         y: 54
+         x: 144
+         y: 281
          // qsTr() for internationalisation, like tr()
-         key: qsTr("id:")
-         value: id
+         key: qsTr("keyid:")
+         value: keymap.id
      }
 
      KeyInfoRow {
-         x: 119
-         y: 75
+         x: 144
+         y: 103
          key: qsTr("email:")
-         value: email
+         value: keymap.email
      }
 
      KeyInfoRow {
-         x: 119
-         y: 96
+         x: 144
+         y: 79
          key: qsTr("name:")
-         value: name
+         value: keymap.name
      }
 
      KeyInfoRow {
-         x: 119
-         y: 117
+         x: 144
+         y: 189
          key: qsTr("keysize")
-         value: key.size() / key.encyptionSize()
-     }
+         value: keymap.size + "/" + keymap.encryptionSize
+    }
+
 
 
      Image {
@@ -88,36 +93,130 @@ Rectangle {
      }
 
      TextField {
-         x: 119
-         y: 155
+         x: 237
+         y: 651
          id: tf1
          text: "some text"
      }
 
-    /* Button {
-         x: 246
-         y: 155
-         text: "ok"
-         onClicked: {
-             console.log("ok clicked, text: " +  tf1.text)
-         }
-     }*/
-
      TextField {
-         x: 119
-         y: 188
+         x: 237
+         y: 684
          id: tf2
          text: "some other text"
      }
 
      Button {
-         x: 246
-         y: 188
+         x: 364
+         y: 684
          text: "ok"
          onClicked: {
             console.log("ok clicked, text: " +  tf1.text)
             console.log("tf2: " + tf2.text)
             keydetails.clicked();
+         }
+     }
+
+     Text {
+         id: text1
+         x: 137
+         y: 54
+         text: qsTr("Owner")
+         font.bold: true
+         font.pixelSize: 12
+     }
+
+     KeyInfoRow {
+         id: comment
+         x: 144
+         y: 126
+         key: qsTr("Comment")
+         value: keymap.comment
+     }
+
+     Text {
+         id: text2
+         x: 137
+         y: 163
+         text: qsTr("Keydetails")
+         font.pixelSize: 12
+         font.bold: true
+     }
+
+     KeyInfoRow {
+         id: creation
+         x: 144
+         y: 258
+         key: qsTr("Created on")
+         value: keymap.creationDate
+     }
+
+     Text {
+         id: fingerprintLabel
+         x: 137
+         y: 326
+         text: qsTr("Fingerprint")
+         font.pixelSize: 12
+         font.bold: true
+     }
+
+     TextEdit {
+         id: fingerprint
+         x: 145
+         y: 346
+         text: keymap.fingerprint
+         font.pixelSize: 12
+         readOnly: true
+
+     }
+
+     KeyInfoRow {
+         id: expiration
+         x: 144
+         y: 212
+         key: qsTr("Expires on")
+         value: keymap.expirationDate
+     }
+
+     KeyInfoRow {
+         id: type
+         x: 144
+         y: 235
+         key: qsTr("Algorithm")
+         value: keymap.algorithm + "/" + keymap.encryptionAlgorithm
+     }
+
+     Button {
+         id: exportPublicKeyButton
+         x: 144
+         y: 392
+         text: qsTr("Export public key")
+         onClicked: {
+            keydetails.exportPublicKeyClicked();
+         }
+
+     }
+
+     Button {
+         id: exportPrivateKeyButton
+         x: 316
+         y: 392
+         text: qsTr("Export private key")
+         onClicked: {
+            keydetails.exportPrivateKeyClicked();
+         }
+         visible: keymap.isSecret
+     }
+
+     Button {
+         id: copyFingerprintButton
+         x: 401
+         y: 341
+         text: qsTr("copy")
+         onClicked: {
+             fingerprint.selectAll();
+             fingerprint.copy();
+             fingerprint.deselect();
          }
      }
 

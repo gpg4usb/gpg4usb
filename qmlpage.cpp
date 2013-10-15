@@ -4,10 +4,11 @@
 #include <QDebug>
 #include <QGraphicsObject>
 #include <QDeclarativeProperty>
+#include <QDeclarativePropertyMap>
+#include "kgpg/core/convert.h"
 
-
-QMLPage::QMLPage(KgpgCore::KgpgKey key, QWidget *parent) :
-    QWidget(parent)
+QMLPage::QMLPage(GpgME::GpgContext *ctx, KgpgCore::KgpgKey key, QWidget *parent) :
+    QWidget(parent), mCtx(ctx)
 {
 
     // http://harmattan-dev.nokia.com/docs/library/html/qt4/qml-integration.html
@@ -27,19 +28,31 @@ QMLPage::QMLPage(KgpgCore::KgpgKey key, QWidget *parent) :
 
     qmlView->setSource(QUrl("qrc:/qml/keydetails.qml"));
 
-    /*
-    or: http://xizhizhu.blogspot.de/2010/10/hybrid-application-using-qml-and-qt-c.html
-    DeclarativePropertyMap map;
-    map.insert("key1", "value1");
-    map.insert("key2", "value2");
-    context->setContextProperty("map", &map);
 
-    */
+    //or: http://xizhizhu.blogspot.de/2010/10/hybrid-application-using-qml-and-qt-c.html
+    QDeclarativePropertyMap keymap;
+    keymap.insert("id", key.id());
+    keymap.insert("email", key.email());
+    keymap.insert("name", key.name());
+    keymap.insert("comment", key.comment());
+    keymap.insert("size", key.size());
+    keymap.insert("encryptionSize", key.encryptionSize());
+    keymap.insert("algorithm",KgpgCore::Convert::toString(key.algorithm()));
+    keymap.insert("encryptionAlgorithm", KgpgCore::Convert::toString(key.encryptionAlgorithm()));
+    keymap.insert("creationDate", KgpgCore::Convert::toString(key.creationDate().date()));
+    keymap.insert("expirationDate",KgpgCore::Convert::toString(key.expirationDate().date()));
+    keymap.insert("fingerprint",key.fingerprintBeautified());
+    keymap.insert("isSecret",ctx->isSecretKey(key.id()));
+    context->setContextProperty("keymap", &keymap);
+
+
 
 
     // http://stackoverflow.com/questions/5947455/connecting-qml-signals-to-qt
     obj = qmlView->rootObject();
     connect( obj, SIGNAL(clicked()), this, SLOT(qmlClicked()));
+    connect( obj, SIGNAL(exportPublicKeyClicked()), this, SLOT(slotExportPublicKey()));
+    connect( obj, SIGNAL(exportPrivateKeyClicked()), this, SLOT(slotExportPrivateKey()));
 
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setSpacing(0);
@@ -58,3 +71,12 @@ void QMLPage::qmlClicked() {
     qDebug() << "text2 "<< obj->property("tf2Text");
 }
 
+void QMLPage::slotExportPublicKey() {
+    QString id=obj->property("keyid").toString();
+    mCtx->exportKeyToFile(QStringList(id));
+}
+
+void QMLPage::slotExportPrivateKey() {
+    QString id=obj->property("keyid").toString();
+    mCtx->exportPrivateKey(id);
+}

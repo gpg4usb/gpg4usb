@@ -29,7 +29,7 @@
 #include <windows.h>
 #include <unistd.h>    /* contains read/write */
 #endif
-
+class QMessageBox;
 
 namespace GpgME
 {
@@ -216,6 +216,96 @@ sigTimeMessage(const QString &sigtime)
             .arg(stamp.time().toString() + QLatin1String("<br/>")
                  , "first argument is formatted date, second argument is formatted time");
 
+}
+
+void GpgContext::exportKeyToFile(const QStringList &keyList)
+{
+    if (keyList.size() < 1) return;
+
+    QStringList expopts;
+    KGpgExport *exp = new KGpgExport(this, keyList, expopts);
+    connect(exp, SIGNAL(done(int)), SLOT(slotExportKeyToFileReady(int)));
+    exp->start();
+}
+
+void GpgContext::slotExportKeyToFileReady(int result)
+{
+    KGpgExport *exp = qobject_cast<KGpgExport *>(sender());
+    Q_ASSERT(exp != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+        GpgKey key = this->getKeyById(exp->getKeyIds().first());
+
+        QString fileString = key.name + " " + key.email + "(" + key.id+ ")_pub.asc";
+
+        QString fileName = QFileDialog::getSaveFileName(NULL, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+        QTextStream stream(&file);
+        QByteArray keyArray = exp->getOutputData();
+        qDebug() << *keyArray;
+        stream << keyArray;
+        file.close();
+        //emit statusBarChanged(QString(tr("key(s) exported")));
+    } else {
+        //KMessageBox::sorry(this, i18n("Your public key could not be exported\nCheck the key."));
+        qDebug() << "Your public key could not be exported\nCheck the key.";
+    }
+
+    exp->deleteLater();
+}
+
+void GpgContext::exportPrivateKey(const QString &keyid)
+{
+    // Show a information box with explanation about private key
+    int ret = QMessageBox::information(NULL, tr("Exporting private Key"),
+                                       tr("You are about to export your private key.\n"
+                                          "This is NOT your public key, so don't give it away.\n"
+                                          "Make sure you keep it save."
+                                          "Do you really want to export your private key?"),
+                                       QMessageBox::Cancel | QMessageBox::Ok);
+
+    // export key, if ok was clicked
+    if (ret == QMessageBox::Ok) {
+       /* QByteArray *keyArray = new QByteArray();
+        mCtx->exportSecretKey(*keyid, keyArray);
+        KgpgCore::KgpgKey key = mCtx->getKeyDetails(*keyid);
+        QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub_sec.asc";
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            QMessageBox::critical(0,tr("Export error"),tr("Couldn't open %1 for writing").arg(fileName));
+            return;
+        }
+        QTextStream stream(&file);
+        stream << *keyArray;
+        file.close();
+        delete keyArray;*/
+        KgpgCore::KgpgKey key = this->getKeyDetails(keyid);
+        QString fileString = key.name() + " " + key.email() + "(" + key.id()+ ")_pub_sec.asc";
+
+        QString fileName = QFileDialog::getSaveFileName(NULL, tr("Export Key To File"), fileString, tr("Key Files") + " (*.asc *.txt);;All Files (*)");
+
+        QStringList expopts;
+        expopts.append(QLatin1String( "--armor" ));
+        KGpgExport *exp = new KGpgExport(this, QStringList() << keyid, fileName, expopts, true);
+        connect(exp, SIGNAL(done(int)), SLOT(slotExportPrivateKeyDone(int)));
+        exp->start();
+    }
+}
+
+void GpgContext::slotExportPrivateKeyDone(int result) {
+    KGpgExport *exp = qobject_cast<KGpgExport *>(sender());
+    Q_ASSERT(exp != NULL);
+
+    if (result == KGpgTransaction::TS_OK) {
+        qDebug() << "export seems ok";
+    } else {
+       qDebug() << "Your key could not be exported\nCheck the key.";
+    }
+
+    exp->deleteLater();
 }
 
 QString GpgContext::getReport(const QStringList &log)

@@ -26,6 +26,7 @@
 #include "helppage.h"
 #include "quitdialog.h"
 #include "kgpg/core/kgpgkey.h"
+#include "gpgcontext.h"
 
 QT_BEGIN_NAMESPACE
 class QDebug;
@@ -148,7 +149,7 @@ public slots:
      */
     void slotNewHelpTab(QString title, QString path);
 
-    void slotNewQMLTab(QString title, KgpgCore::KgpgKey key);
+    void slotNewQMLTab(QString title, GpgME::GpgContext *ctx, KgpgCore::KgpgKey key);
 
     /**
      * @details put a * in front of current tabs title, if current textedit is modified

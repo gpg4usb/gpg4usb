@@ -27,8 +27,10 @@
 #include <errno.h>
 #include <QLinkedList>
 #include <QtGui>
+
 #include "kgpg/core/kgpgkey.h"
 #include "kgpg/transactions/kgpgverify.h"
+#include "kgpg/transactions/kgpgexport.h"
 
 QT_BEGIN_NAMESPACE
 class QMessageBox;
@@ -36,6 +38,7 @@ class sstream;
 class QApplication;
 class QByteArray;
 class QString;
+class QFileDialog;
 QT_END_NAMESPACE
 
 class GpgKey
@@ -126,6 +129,9 @@ public:
     GpgKey getKeyByFpr(QString fpr);
     GpgKey getKeyById(QString id);
 
+    void exportKeyToFile(const QStringList &keyList);
+    void exportPrivateKey(const QString &keyid);
+
     void emitKeyDBChanged();
 
     /**
@@ -146,6 +152,8 @@ signals:
 
 private slots:
     void slotRefreshKeyList();
+    void slotExportKeyToFileReady(int result);
+    void slotExportPrivateKeyDone(int result);
 
 private:
     QByteArray mPasswordCache;

@@ -17,7 +17,7 @@ Rectangle {
 
      Text {
          id: valueText
-         x: 50
+         x: 150
          y: 0
          text: value
      }
