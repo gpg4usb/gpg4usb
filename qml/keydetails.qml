@@ -198,7 +198,7 @@ Rectangle {
          x: 144
          y: 212
          key: qsTr("Expires on")
-         value: keymap.expirationDate
+         value: (keymap.expirationDate != "") ? keymap.expirationDate : qsTr("never")
      }
 
      KeyInfoRow {
