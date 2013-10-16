@@ -50,6 +50,19 @@ Rectangle {
             visible: keymap.expired
             color: "#ff0000"
         }
+
+
+        Text {
+            id: text4
+            x: 287
+            y: 8
+            text: qsTr("revoked")
+            font.italic: true
+            font.pixelSize: 22
+            visible: keymap.revoked
+            color: "#ff0000"
+        }
+
     }
 
     Rectangle {

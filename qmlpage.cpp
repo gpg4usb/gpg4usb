@@ -44,6 +44,7 @@ QMLPage::QMLPage(GpgME::GpgContext *ctx, KgpgCore::KgpgKey key, QWidget *parent)
     keymap.insert("fingerprint",key.fingerprintBeautified());
     keymap.insert("isSecret",ctx->isSecretKey(key.id()));
     keymap.insert("expired", (key.expirationDate().date() < QDate::currentDate() &! key.expirationDate().isNull()));
+    keymap.insert("revoked", !key.valid());
     context->setContextProperty("keymap", &keymap);
 
     qDebug() << "keydate vs current: " <<key.expirationDate().date() << " - "<< QDate::currentDate() << ":" << (key.expirationDate().date() < QDate::currentDate());

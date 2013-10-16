@@ -77,8 +77,7 @@ GpgKeyList GpgContext::listKeys()
         key.id = kkey.id();
         key.fullid = kkey.fullId();
         key.name = kkey.name();
-        // TODO
-        key.revoked = false;
+        key.revoked = !kkey.valid();
         keys.append(key);
     }
 
