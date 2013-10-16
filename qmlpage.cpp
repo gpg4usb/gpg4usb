@@ -16,20 +16,10 @@ QMLPage::QMLPage(GpgME::GpgContext *ctx, KgpgCore::KgpgKey key, QWidget *parent)
     // http://jryannel.wordpress.com/
     // http://stackoverflow.com/questions/5594769/normal-desktop-user-interface-controls-with-qml
 
-
     QDeclarativeView *qmlView = new QDeclarativeView;
     qmlView->setResizeMode(QDeclarativeView::SizeRootObjectToView);
-
-
     context = qmlView->rootContext();
-    context->setContextProperty("id", key.id());
-    context->setContextProperty("email", key.email());
-    context->setContextProperty("name", key.name());
 
-    qmlView->setSource(QUrl("qrc:/qml/keydetails.qml"));
-
-
-    //or: http://xizhizhu.blogspot.de/2010/10/hybrid-application-using-qml-and-qt-c.html
     QDeclarativePropertyMap keymap;
     keymap.insert("id", key.id());
     keymap.insert("email", key.email());
@@ -47,12 +37,10 @@ QMLPage::QMLPage(GpgME::GpgContext *ctx, KgpgCore::KgpgKey key, QWidget *parent)
     keymap.insert("revoked", !key.valid());
     context->setContextProperty("keymap", &keymap);
 
-    qDebug() << "keydate vs current: " <<key.expirationDate().date() << " - "<< QDate::currentDate() << ":" << (key.expirationDate().date() < QDate::currentDate());
+    qmlView->setSource(QUrl("qrc:/qml/keydetails.qml"));
 
-
-    // http://stackoverflow.com/questions/5947455/connecting-qml-signals-to-qt
     obj = qmlView->rootObject();
-    connect( obj, SIGNAL(clicked()), this, SLOT(qmlClicked()));
+    //connect( obj, SIGNAL(clicked()), this, SLOT(qmlClicked()));
     connect( obj, SIGNAL(exportPublicKeyClicked()), this, SLOT(slotExportPublicKey()));
     connect( obj, SIGNAL(exportPrivateKeyClicked()), this, SLOT(slotExportPrivateKey()));
 

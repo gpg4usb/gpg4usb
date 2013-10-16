@@ -15,15 +15,10 @@ Rectangle {
 
     anchors.fill: parent
 
-    property alias tf1Text: tf1.text
-    property alias tf2Text: tf2.text
+    //property alias tf1Text: tf1.text
+    //property alias tf2Text: tf2.text
     property string keyid: keymap.id
 
-//    property keyid : ""
-//    property email : ""
-//    property name : ""
-
-    //color: "red"
     Rectangle {
         id: rectangle2
         x: 0
@@ -65,6 +60,15 @@ Rectangle {
 
     }
 
+    Image {
+        id: image1
+        x: 0
+        y: 0
+        width: 107
+        height: 229
+        source: "qrc:/wizard_keys.png"
+    }
+
     Rectangle {
         id: rectangle1
         x: 0
@@ -74,110 +78,89 @@ Rectangle {
         color: "#978c79"
     }
 
-     KeyInfoRow {
-         x: 144
-         y: 281
-         // qsTr() for internationalisation, like tr()
-         key: qsTr("keyid:")
-         value: keymap.id
-     }
-
-     KeyInfoRow {
-         x: 144
-         y: 103
-         key: qsTr("email:")
-         value: keymap.email
-     }
-
-     KeyInfoRow {
-         x: 144
-         y: 79
-         key: qsTr("name:")
-         value: keymap.name
-     }
-
-     KeyInfoRow {
-         x: 144
-         y: 189
-         key: qsTr("keysize")
-         value: keymap.size + "/" + keymap.encryptionSize
+    Text {
+        id: text1
+        x: 118
+        y: 57
+        text: qsTr("Owner details")
+        font.bold: true
+        font.pixelSize: 12
     }
 
 
+    KeyInfoRow {
+        x: 144
+        y: 79
+        key: qsTr("Name:")
+        value: keymap.name
+    }
 
-     Image {
-         id: image1
-         x: 0
-         y: 0
-         width: 107
-         height: 229
-         source: "qrc:/wizard_keys.png"
-     }
+    KeyInfoRow {
+        x: 144
+        y: 103
+        key: qsTr("Email address:")
+        value: keymap.email
+    }
 
+    KeyInfoRow {
+        id: comment
+        x: 144
+        y: 126
+        key: qsTr("Comment:")
+        value: keymap.comment
+    }
 
-     TextField {
-         x: 237
-         y: 651
-         id: tf1
-         text: "some text"
-     }
+    Text {
+        id: text2
+        x: 118
+        y: 166
+        text: qsTr("Keydetails")
+        font.pixelSize: 12
+        font.bold: true
+    }
 
-     TextField {
-         x: 237
-         y: 684
-         id: tf2
-         text: "some other text"
-     }
+    KeyInfoRow {
+        x: 144
+        y: 189
+        key: qsTr("Key size:")
+        value: keymap.size + "/" + keymap.encryptionSize
+    }
 
-     Button {
-         x: 364
-         y: 684
-         text: "ok"
-         onClicked: {
-            console.log("ok clicked, text: " +  tf1.text)
-            console.log("tf2: " + tf2.text)
-            keydetails.clicked();
-         }
-     }
+    KeyInfoRow {
+        id: expiration
+        x: 144
+        y: 212
+        key: qsTr("Expires on:")
+        value: (keymap.expirationDate != "") ? keymap.expirationDate : qsTr("Never")
+    }
 
-     Text {
-         id: text1
-         x: 137
-         y: 54
-         text: qsTr("Owner")
-         font.bold: true
-         font.pixelSize: 12
-     }
+    KeyInfoRow {
+        id: type
+        x: 144
+        y: 235
+        key: qsTr("Algorithm:")
+        value: keymap.algorithm + "/" + keymap.encryptionAlgorithm
+    }
 
-     KeyInfoRow {
-         id: comment
+    KeyInfoRow {
+        id: creation
+        x: 144
+        y: 258
+        key: qsTr("Created on:")
+        value: keymap.creationDate
+    }
+
+    KeyInfoRow {
          x: 144
-         y: 126
-         key: qsTr("Comment")
-         value: keymap.comment
-     }
-
-     Text {
-         id: text2
-         x: 137
-         y: 163
-         text: qsTr("Keydetails")
-         font.pixelSize: 12
-         font.bold: true
-     }
-
-     KeyInfoRow {
-         id: creation
-         x: 144
-         y: 258
-         key: qsTr("Created on")
-         value: keymap.creationDate
+         y: 281
+         key: qsTr("Key ID:")
+         value: keymap.id
      }
 
      Text {
          id: fingerprintLabel
-         x: 137
-         y: 326
+         x: 118
+         y: 329
          text: qsTr("Fingerprint")
          font.pixelSize: 12
          font.bold: true
@@ -185,28 +168,11 @@ Rectangle {
 
      TextEdit {
          id: fingerprint
-         x: 145
-         y: 346
+         x: 144
+         y: 350
          text: keymap.fingerprint
          font.pixelSize: 12
          readOnly: true
-
-     }
-
-     KeyInfoRow {
-         id: expiration
-         x: 144
-         y: 212
-         key: qsTr("Expires on")
-         value: (keymap.expirationDate != "") ? keymap.expirationDate : qsTr("never")
-     }
-
-     KeyInfoRow {
-         id: type
-         x: 144
-         y: 235
-         key: qsTr("Algorithm")
-         value: keymap.algorithm + "/" + keymap.encryptionAlgorithm
      }
 
      Button {
@@ -246,6 +212,30 @@ Rectangle {
      }
 
 
+     /* some test stuff, should become change pw */
+/*     TextField {
+         x: 237
+         y: 651
+         id: tf1
+         text: "some text"
+     }
 
+     TextField {
+         x: 237
+         y: 684
+         id: tf2
+         text: "some other text"
+     }
+
+     Button {
+         x: 364
+         y: 684
+         text: "ok"
+         onClicked: {
+            console.log("ok clicked, text: " +  tf1.text)
+            console.log("tf2: " + tf2.text)
+            keydetails.clicked();
+         }
+     }*/
 
 }
