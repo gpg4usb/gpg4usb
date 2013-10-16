@@ -20,7 +20,6 @@
  */
 
 #include "textedit.h"
-#include "widgets/keydetailswidget.h"
 
 TextEdit::TextEdit()
 {
@@ -66,8 +65,15 @@ void TextEdit::slotNewHelpTab(QString title, QString path)
 
 }
 
-void TextEdit::slotNewQMLTab(QString title, GpgME::GpgContext *ctx, KgpgCore::KgpgKey key) {
+void TextEdit::slotNewKeyDetailsTab(QString title, GpgME::GpgContext *ctx, KgpgCore::KgpgKey key) {
     KeyDetailsWidget *page = new KeyDetailsWidget(ctx, key);
+    // todo: should parent also be given?
+    tabWidget->addTab(page, title);
+    tabWidget->setCurrentIndex(tabWidget->count() - 1);
+}
+
+void TextEdit::slotNewFileEncryptionTab(QString title, GpgME::GpgContext *ctx, KeyList *keyList) {
+    FileEncryptionWidget *page = new FileEncryptionWidget(ctx, keyList);
     // todo: should parent also be given?
     tabWidget->addTab(page, title);
     tabWidget->setCurrentIndex(tabWidget->count() - 1);

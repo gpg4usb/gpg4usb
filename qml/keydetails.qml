@@ -8,7 +8,7 @@ Rectangle {
 
     id: keydetails
 
-    signal clicked
+   // signal clicked
 
     signal exportPrivateKeyClicked
     signal exportPublicKeyClicked

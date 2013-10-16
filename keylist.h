@@ -58,6 +58,9 @@ public slots:
     void slotRefresh();
     void slotUploadKeyToServer(QByteArray *keys);
 
+signals:
+    void keySelectionChanged();
+
 private:
     void importKeys(QByteArray inBuffer);
     GpgME::GpgContext *mCtx;

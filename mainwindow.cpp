@@ -1228,7 +1228,7 @@ void MainWindow::slotShowKeyDetails()
     KgpgCore::KgpgKey key = mCtx->getKeyDetails(mKeyList->getSelected()->first());
     if (key.id() != "") {
         // TODO: get qml working here ;-)
-        edit->slotNewQMLTab(tr("Key: ") + key.name(), mCtx, key);
+        edit->slotNewKeyDetailsTab(tr("Key: ") + key.name(), mCtx, key);
     }
 
 }
@@ -1245,9 +1245,12 @@ void MainWindow::slotRefreshKeysFromKeyserver()
 
 void MainWindow::slotFileEncrypt()
 {
-        QStringList *keyList;
-        keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Encrypt, this);
+    edit->slotNewFileEncryptionTab(tr("Encrypt File"), mCtx, mKeyList);
+
+    QStringList *keyList;
+    keyList = mKeyList->getChecked();
+    new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Encrypt, this);
+
 }
 
 void MainWindow::slotFileDecrypt()

@@ -40,6 +40,7 @@ public slots:
     void qmlClicked();
     void slotExportPublicKey();
     void slotExportPrivateKey();
+
 private:
     QDeclarativeContext *context;
     QGraphicsObject *obj;

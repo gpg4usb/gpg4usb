@@ -27,6 +27,9 @@
 #include "quitdialog.h"
 #include "kgpg/core/kgpgkey.h"
 #include "gpgcontext.h"
+#include "keylist.h"
+#include "widgets/keydetailswidget.h"
+#include "widgets/fileencryptionwidget.h"
 
 QT_BEGIN_NAMESPACE
 class QDebug;
@@ -149,7 +152,9 @@ public slots:
      */
     void slotNewHelpTab(QString title, QString path);
 
-    void slotNewQMLTab(QString title, GpgME::GpgContext *ctx, KgpgCore::KgpgKey key);
+    void slotNewKeyDetailsTab(QString title, GpgME::GpgContext *ctx, KgpgCore::KgpgKey key);
+
+    void slotNewFileEncryptionTab(QString title, GpgME::GpgContext *ctx, KeyList *keyList);
 
     /**
      * @details put a * in front of current tabs title, if current textedit is modified

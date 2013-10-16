@@ -46,7 +46,8 @@ HEADERS += attachments.h \
     helppage.h \
     gpgconstants.h \
     findwidget.h \
-    widgets/keydetailswidget.h
+    widgets/keydetailswidget.h \
+    widgets/fileencryptionwidget.h
 
 SOURCES += attachments.cpp \
     gpgcontext.cpp \
@@ -71,7 +72,8 @@ SOURCES += attachments.cpp \
     helppage.cpp \
     gpgconstants.cpp \
     findwidget.cpp \
-    widgets/keydetailswidget.cpp
+    widgets/keydetailswidget.cpp \
+    widgets/fileencryptionwidget.cpp
 
 RC_FILE = gpg4usb.rc
 
@@ -101,6 +103,7 @@ OTHER_FILES += \
     qml/Button.qml \
     qml/TextField.qml \
     qml/KeyInfoRow.qml \
-    qml/ImageButton.qml
+    qml/ImageButton.qml \
+    qml/fileencryption.qml
 
 

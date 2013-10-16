@@ -34,7 +34,7 @@ KeyList::KeyList(GpgME::GpgContext *ctx, QWidget *parent)
     mKeyList->setColumnWidth(1, 20);
     mKeyList->sortByColumn(2, Qt::AscendingOrder);
     mKeyList->setSelectionBehavior(QAbstractItemView::SelectRows);
-    // hide id and fingerprint of key
+    // hide id and fingerprint of keyQVariant
     mKeyList->setColumnHidden(4, true);
     mKeyList->setColumnHidden(5, true);
 
@@ -50,6 +50,8 @@ KeyList::KeyList(GpgME::GpgContext *ctx, QWidget *parent)
     labels << "" << "" << tr("Name") << tr("EMail") << "id" << "fpr";
     mKeyList->setHorizontalHeaderLabels(labels);
     mKeyList->horizontalHeader()->setStretchLastSection(true);
+
+    connect(mKeyList, SIGNAL(itemActivated(QTableWidgetItem*)), this, SIGNAL(keySelectionChanged()));
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(mKeyList);
