@@ -20,7 +20,7 @@
  */
 
 #include "textedit.h"
-#include "qmlpage.h"
+#include "widgets/keydetailswidget.h"
 
 TextEdit::TextEdit()
 {
@@ -67,7 +67,7 @@ void TextEdit::slotNewHelpTab(QString title, QString path)
 }
 
 void TextEdit::slotNewQMLTab(QString title, GpgME::GpgContext *ctx, KgpgCore::KgpgKey key) {
-    QMLPage *page = new QMLPage(ctx, key);
+    KeyDetailsWidget *page = new KeyDetailsWidget(ctx, key);
     // todo: should parent also be given?
     tabWidget->addTab(page, title);
     tabWidget->setCurrentIndex(tabWidget->count() - 1);

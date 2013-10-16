@@ -1,4 +1,25 @@
-#include "qmlpage.h"
+/*
+ *      keydetailswidget.cpp
+ *
+ *      Copyright 2013 gpg4usb-team <gpg4usb@cpunk.de>
+ *
+ *      This file is part of gpg4usb.
+ *
+ *      Gpg4usb is free software: you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation, either version 3 of the License, or
+ *      (at your option) any later version.
+ *
+ *      Gpg4usb is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *
+ *      You should have received a copy of the GNU General Public License
+ *      along with gpg4usb.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+#include "keydetailswidget.h"
 #include <QtDeclarative/QDeclarativeView>
 #include <QHBoxLayout>
 #include <QDebug>
@@ -7,7 +28,7 @@
 #include <QDeclarativePropertyMap>
 #include "kgpg/core/convert.h"
 
-QMLPage::QMLPage(GpgME::GpgContext *ctx, KgpgCore::KgpgKey key, QWidget *parent) :
+KeyDetailsWidget::KeyDetailsWidget(GpgME::GpgContext *ctx, KgpgCore::KgpgKey key, QWidget *parent) :
     QWidget(parent), mCtx(ctx)
 {
 
@@ -51,7 +72,7 @@ QMLPage::QMLPage(GpgME::GpgContext *ctx, KgpgCore::KgpgKey key, QWidget *parent)
 
 }
 
-void QMLPage::qmlClicked() {
+void KeyDetailsWidget::qmlClicked() {
 
     // http://stackoverflow.com/questions/9062189/how-to-modify-a-qml-text-from-c
     qDebug() << "c++, click recieved from qml";
@@ -61,12 +82,12 @@ void QMLPage::qmlClicked() {
     qDebug() << "text2 "<< obj->property("tf2Text");
 }
 
-void QMLPage::slotExportPublicKey() {
+void KeyDetailsWidget::slotExportPublicKey() {
     QString id=obj->property("keyid").toString();
     mCtx->exportKeyToFile(QStringList(id));
 }
 
-void QMLPage::slotExportPrivateKey() {
+void KeyDetailsWidget::slotExportPrivateKey() {
     QString id=obj->property("keyid").toString();
     mCtx->exportPrivateKey(id);
 }

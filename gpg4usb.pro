@@ -46,7 +46,7 @@ HEADERS += attachments.h \
     helppage.h \
     gpgconstants.h \
     findwidget.h \
-    qmlpage.h
+    widgets/keydetailswidget.h
 
 SOURCES += attachments.cpp \
     gpgcontext.cpp \
@@ -71,7 +71,7 @@ SOURCES += attachments.cpp \
     helppage.cpp \
     gpgconstants.cpp \
     findwidget.cpp \
-    qmlpage.cpp
+    widgets/keydetailswidget.cpp
 
 RC_FILE = gpg4usb.rc
 
