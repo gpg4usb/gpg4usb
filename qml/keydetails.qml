@@ -60,15 +60,6 @@ Rectangle {
 
     }
 
-    Image {
-        id: image1
-        x: 0
-        y: 0
-        width: 107
-        height: 229
-        source: "qrc:/wizard_keys.png"
-    }
-
     Rectangle {
         id: rectangle1
         x: 0
@@ -76,6 +67,15 @@ Rectangle {
         width: 107
         height: 1200
         color: "#978c79"
+    }
+
+    Image {
+        id: image1
+        x: 0
+        y: 0
+        width: 107
+        height: 229
+        source: "qrc:/wizard_keys.png"
     }
 
     Text {
