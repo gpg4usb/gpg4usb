@@ -121,42 +121,42 @@
 <context>
     <name>ChoosePage</name>
     <message>
-        <location filename="../../wizard.cpp" line="159"/>
+        <location filename="../../wizard.cpp" line="163"/>
         <source>Choose your action...</source>
         <translation>Выберите действие...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="160"/>
+        <location filename="../../wizard.cpp" line="164"/>
         <source>...by clicking on the apropriate link.</source>
         <translation>...нажатием на соответствующую ссылку.</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="162"/>
+        <location filename="../../wizard.cpp" line="166"/>
         <source>If you have never used gpg4usb before and also don&apos;t own a gpg key yet you may possibly want to </source>
         <translation>Если вы ранее не использовали gpg4usb и не имеете своих ключей openPGP, то может вы захотите </translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="164"/>
+        <location filename="../../wizard.cpp" line="168"/>
         <source>create a new keypair</source>
         <translation>создать новую ключевую пару</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="168"/>
+        <location filename="../../wizard.cpp" line="172"/>
         <source>If you upgrade from an older version of gpg4usb you may want to </source>
         <translation>Если вы обновляете старую версию gpg4usb, может быть вы захотите </translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="170"/>
+        <location filename="../../wizard.cpp" line="174"/>
         <source>import settings and/or keys from gpg4usb</source>
         <translation>импортировать настройки и/или ключи из gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="174"/>
+        <location filename="../../wizard.cpp" line="178"/>
         <source>If you are already using GnuPG you may want to </source>
         <translation>Если вы уже используете GnuPG, быть может вам захочется </translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="176"/>
+        <location filename="../../wizard.cpp" line="180"/>
         <source>import keys from GnuPG</source>
         <translation>импортировать ключи из GnuPG</translation>
     </message>
@@ -164,27 +164,27 @@
 <context>
     <name>ConclusionPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="391"/>
+        <location filename="../../wizard.cpp" line="403"/>
         <source>Ready.</source>
         <translation>Готово.</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="392"/>
+        <location filename="../../wizard.cpp" line="404"/>
         <source>Have fun with gpg4usb!</source>
         <translation>Удачного использования gpg4usb!</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="394"/>
+        <location filename="../../wizard.cpp" line="406"/>
         <source>You are ready to use gpg4usb now.&lt;br&gt;&lt;br&gt;The offline help will get you started with gpg4usb. It will open in the main window.&lt;br&gt;</source>
         <translation>Теперь вы готовы к использованию gpg4usb.&lt;br&gt;&lt;br&gt;Встроенная справка (англ.) поможет вам освоить gpg4usb.&lt;br&gt;Она откроется в главном окне.&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="399"/>
+        <location filename="../../wizard.cpp" line="411"/>
         <source>Open offline help.</source>
         <translation>Открыть встроенную справку.</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="402"/>
+        <location filename="../../wizard.cpp" line="414"/>
         <source>Dont show the wizard again.</source>
         <translation>Не открывать этот Мастер при следующем запуске.</translation>
     </message>
@@ -342,17 +342,17 @@
         <translation>Введите  Пароль</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="649"/>
+        <location filename="../../gpgcontext.cpp" line="652"/>
         <source>Key Selection</source>
         <translation>Выбор Ключа</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="649"/>
+        <location filename="../../gpgcontext.cpp" line="652"/>
         <source>No Private Key Selected</source>
         <translation>Не выбран Секретный Ключ</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="697"/>
+        <location filename="../../gpgcontext.cpp" line="700"/>
         <source>Error signing:</source>
         <translation>Ошибка подписания:</translation>
     </message>
@@ -360,32 +360,32 @@
 <context>
     <name>ImportFromGnupgPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="288"/>
+        <location filename="../../wizard.cpp" line="292"/>
         <source>Import keys...</source>
         <translation>Импорт ключей...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="289"/>
+        <location filename="../../wizard.cpp" line="293"/>
         <source>...from existing GnuPG installation</source>
         <translation>...из имеющейся инсталляции GnuPG</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="291"/>
+        <location filename="../../wizard.cpp" line="295"/>
         <source>You can import keys from a locally installed GnuPG.&lt;br&gt;&lt;br&gt; The location is read from registry in Windows or assumed to be the .gnupg folder in the your home directory in Linux.&lt;br&gt;</source>
         <translation>Вы можете импортировать ключи из локальной установки GnuPG.&lt;br&gt;&lt;br&gt;Путь считывается из реестра Windows или предполагается папка .gnupg домашнего каталога пользователя под Linux.&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="295"/>
+        <location filename="../../wizard.cpp" line="299"/>
         <source>Import keys from GnuPG</source>
         <translation>Импортировать ключи из GnuPG</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="310"/>
+        <location filename="../../wizard.cpp" line="314"/>
         <source>Import Error</source>
         <translation>Ошибка импорта</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="310"/>
+        <location filename="../../wizard.cpp" line="314"/>
         <source>Couldn&apos;t locate GnuPG home directory</source>
         <translation>Не могу найти папку ключей GnuPG</translation>
     </message>
@@ -393,47 +393,47 @@
 <context>
     <name>ImportFromGpg4usbPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="208"/>
+        <location filename="../../wizard.cpp" line="212"/>
         <source>Import from...</source>
         <translation>Импорт из...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="209"/>
+        <location filename="../../wizard.cpp" line="213"/>
         <source>...existing gpg4usb</source>
         <translation>...имеющегося gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="211"/>
+        <location filename="../../wizard.cpp" line="215"/>
         <source>You can import keys and/or settings from existing gpg4usb. &lt;br&gt;&lt;br&gt;Just check what you want to import, click the import button and choose the directory of your other gpg4usb in the appearing file dialog.</source>
         <translation>Вы можете импортировать ключи и/или настройки из уже имеющегося gpg4usb &lt;br&gt;&lt;br&gt;Просто отметьте, что вы хотите импортировать, нажмите на кнопку &quot;Импорт из gpg4usb&quot; и в возникшем окне укажите путь к папке прежнего gpg4usb.</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="218"/>
+        <location filename="../../wizard.cpp" line="222"/>
         <source>Keys</source>
         <translation>Ключи</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="222"/>
+        <location filename="../../wizard.cpp" line="226"/>
         <source>Configuration</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="224"/>
+        <location filename="../../wizard.cpp" line="228"/>
         <source>Import from gpg4usb</source>
         <translation>Импорт из gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="240"/>
+        <location filename="../../wizard.cpp" line="244"/>
         <source>Other gpg4usb directory</source>
         <translation>Другая папка gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="260"/>
+        <location filename="../../wizard.cpp" line="264"/>
         <source>Configuration Imported</source>
         <translation>Настройки импортированы</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="260"/>
+        <location filename="../../wizard.cpp" line="264"/>
         <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
         <translation>Настройки успешно импортированы из прежнего gpg4usb. &lt;br&gt;Перезапускаюсь для активации новых настроек.</translation>
     </message>
@@ -441,22 +441,22 @@
 <context>
     <name>IntroPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="106"/>
+        <location filename="../../wizard.cpp" line="110"/>
         <source>Getting started...</source>
         <translation>Первые шаги...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="107"/>
+        <location filename="../../wizard.cpp" line="111"/>
         <source>... with gpg4usb</source>
         <translation>...с gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="109"/>
+        <location filename="../../wizard.cpp" line="113"/>
         <source>To use gpg4usb for decrypting and signing messages, you need a private key. The next page will help you with key generation or import.&lt;br&gt;&lt;br&gt;For more information have a look at the &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (by clicking the link, the page will open in the main window). &lt;br&gt;</source>
         <translation>Чтобы использовать gpg4usb для подписания и расшифрования сообщений вам потребуется Секретный Ключ. Следующая страница поможет вам его создать или импортировать.&lt;br&gt;&lt;br&gt;Подробности смотрите в главе &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; встроенной справки &lt;br&gt;(при нажатии на ссылку страница откроется в главном окне). &lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="118"/>
+        <location filename="../../wizard.cpp" line="122"/>
         <source>Choose a Language</source>
         <translation>Выберите язык</translation>
     </message>
@@ -671,12 +671,12 @@ Weak -&gt; Strong</source>
         <translation>Повторно введённый Пароль не совпал.</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="157"/>
+        <location filename="../../keygendialog.cpp" line="159"/>
         <source>Generating Key...</source>
         <translation>Генерация ключа...</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="159"/>
+        <location filename="../../keygendialog.cpp" line="161"/>
         <source>Collecting random data for key generation.
  This may take a while.
  To speed up the process use your computer
@@ -687,12 +687,12 @@ Weak -&gt; Strong</source>
 страницы интернета, слушая музыку и т.д.)</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="175"/>
+        <location filename="../../keygendialog.cpp" line="177"/>
         <source>Success</source>
         <translation>Успешно</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="175"/>
+        <location filename="../../keygendialog.cpp" line="177"/>
         <source>New key created</source>
         <translation>Новый Ключ создан</translation>
     </message>
@@ -700,27 +700,27 @@ Weak -&gt; Strong</source>
 <context>
     <name>KeyGenPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="348"/>
+        <location filename="../../wizard.cpp" line="360"/>
         <source>Create a keypair...</source>
         <translation>Создание ключевой пары...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="349"/>
+        <location filename="../../wizard.cpp" line="361"/>
         <source>...for decrypting and signing messages</source>
         <translation>...для расшифрования и подписания сообщений</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="350"/>
+        <location filename="../../wizard.cpp" line="362"/>
         <source>You should create a new keypair.The pair consists of a public and a private key.&lt;br&gt;Other users can use the public key to encrypt messages for you and verify messages signed by you.You can use the private key to decrypt and sign messages.&lt;br&gt;For more information have a look at the offline tutorial (which then is shown in the main window):</source>
         <translation>Вам следует создать новую ключевую пару. Пара состоит из публичного (открытого) и приватного (секретного) ключей.&lt;br&gt;Открытым ключём другие пользователи смогут зашифровывать сообщения для вас и проверять вашу подпись. Секретный ключ должны использовать толко вы для расшифрования и подписания сообщений.&lt;br&gt;Подробности смотрите во встроенной справке (откроется в главном окне, англ.):</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="357"/>
+        <location filename="../../wizard.cpp" line="369"/>
         <source>Offline tutorial</source>
         <translation>Встроенная справка</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="364"/>
+        <location filename="../../wizard.cpp" line="376"/>
         <source>Create New Key</source>
         <translation>Создать новый Ключ</translation>
     </message>
@@ -1938,33 +1938,33 @@ gpg4usb попробует импортировать ключ(и).</translation
 <context>
     <name>Wizard</name>
     <message>
-        <location filename="../../wizard.cpp" line="40"/>
+        <location filename="../../wizard.cpp" line="44"/>
         <source>First Start Wizard</source>
         <translation>Мастер Первого Запуска</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="73"/>
+        <location filename="../../wizard.cpp" line="77"/>
         <source>Import Error</source>
         <translation>Ошибка импорта</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="73"/>
+        <location filename="../../wizard.cpp" line="77"/>
         <source>Couldn&apos;t locate any keyring file in %1</source>
         <translation>Не обнаружено файлов ключей в %1</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="81"/>
-        <location filename="../../wizard.cpp" line="91"/>
+        <location filename="../../wizard.cpp" line="85"/>
+        <location filename="../../wizard.cpp" line="95"/>
         <source>Import error</source>
         <translation>Ошибка импорта</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="81"/>
+        <location filename="../../wizard.cpp" line="85"/>
         <source>Couldn&apos;t open private keyringfile: %1</source>
         <translation>Не удалось открыть связку секретных ключей: %1</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="91"/>
+        <location filename="../../wizard.cpp" line="95"/>
         <source>Couldn&apos;t open public keyringfile: %1</source>
         <translation>Не удалось открыть связку открытых ключей: %1</translation>
     </message>
