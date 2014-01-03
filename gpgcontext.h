@@ -119,9 +119,9 @@ public:
     void clearPasswordCache();
     void exportSecretKey(QString uid, QByteArray *outBuffer);
     gpgme_key_t getKeyDetails(QString uid);
-    gpgme_signature_t verify(QByteArray *inBuffer, QByteArray *sigBuffer = NULL);
+    gpgme_signature_t verify(QByteArray in);
 //    void decryptVerify(QByteArray in);
-    bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer, bool detached = false );
+    bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer );
     /**
      * @details If text contains PGP-message, put a linebreak before the message,
      * so that gpgme can decrypt correctly
@@ -175,7 +175,8 @@ private:
     void executeGpgCommand(QStringList arguments,
                            QByteArray *stdOut,
                            QByteArray *stdErr);
-
+    QString gpgBin;
+    QString gpgKeys;
 };
 } // namespace GpgME
 

@@ -120,42 +120,42 @@
 <context>
     <name>ChoosePage</name>
     <message>
-        <location filename="../../wizard.cpp" line="159"/>
+        <location filename="../../wizard.cpp" line="163"/>
         <source>Choose your action...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="160"/>
+        <location filename="../../wizard.cpp" line="164"/>
         <source>...by clicking on the apropriate link.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="162"/>
+        <location filename="../../wizard.cpp" line="166"/>
         <source>If you have never used gpg4usb before and also don&apos;t own a gpg key yet you may possibly want to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="164"/>
+        <location filename="../../wizard.cpp" line="168"/>
         <source>create a new keypair</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="168"/>
+        <location filename="../../wizard.cpp" line="172"/>
         <source>If you upgrade from an older version of gpg4usb you may want to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="170"/>
+        <location filename="../../wizard.cpp" line="174"/>
         <source>import settings and/or keys from gpg4usb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="174"/>
+        <location filename="../../wizard.cpp" line="178"/>
         <source>If you are already using GnuPG you may want to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="176"/>
+        <location filename="../../wizard.cpp" line="180"/>
         <source>import keys from GnuPG</source>
         <translation type="unfinished"></translation>
     </message>
@@ -163,27 +163,27 @@
 <context>
     <name>ConclusionPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="391"/>
+        <location filename="../../wizard.cpp" line="403"/>
         <source>Ready.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="392"/>
+        <location filename="../../wizard.cpp" line="404"/>
         <source>Have fun with gpg4usb!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="394"/>
+        <location filename="../../wizard.cpp" line="406"/>
         <source>You are ready to use gpg4usb now.&lt;br&gt;&lt;br&gt;The offline help will get you started with gpg4usb. It will open in the main window.&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="399"/>
+        <location filename="../../wizard.cpp" line="411"/>
         <source>Open offline help.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="402"/>
+        <location filename="../../wizard.cpp" line="414"/>
         <source>Dont show the wizard again.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -206,10 +206,6 @@
         <location filename="../../fileencryptiondialog.cpp" line="47"/>
         <source>Action</source>
         <translation>Thực hiện</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="31"/>
@@ -255,10 +251,6 @@
         <location filename="../../fileencryptiondialog.cpp" line="153"/>
         <source>Couldn&apos;t Open file: </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>couldn&apos;t open file: </source>
-        <translation type="obsolete">Không mở được tệp:</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="180"/>
@@ -310,49 +302,6 @@
         <source>Language</source>
         <translation>Ngôn ngữ</translation>
     </message>
-    <message>
-        <source>Language change is applied after restarting program.</source>
-        <translation type="obsolete">Thay đổi Ngôn ngữ được áp dụng sau khi khởi động lại chương trình.</translation>
-    </message>
-    <message>
-        <source>System Default</source>
-        <translation type="obsolete">Mặc định Hệ thống</translation>
-    </message>
-</context>
-<context>
-    <name>GpgME::Context</name>
-    <message>
-        <source>No Key Selected</source>
-        <translation type="obsolete">Không có Khóa được chọn</translation>
-    </message>
-    <message>
-        <source>Unsupported algorithm</source>
-        <translation type="obsolete">Thuật toán không được hỗ trợ</translation>
-    </message>
-    <message>
-        <source>Error decrypting:</source>
-        <translation type="obsolete">Lỗi giải mã hóa:</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation type="obsolete">Mật khẩu không chính xác</translation>
-    </message>
-    <message>
-        <source>Enter Password</source>
-        <translation type="obsolete">Nhập Mật khẩu</translation>
-    </message>
-    <message>
-        <source>Key Selection</source>
-        <translation type="obsolete">Chọn Khóa</translation>
-    </message>
-    <message>
-        <source>No Private Key Selected</source>
-        <translation type="obsolete">Không có Khóa riêng được chọn</translation>
-    </message>
-    <message>
-        <source>Error signing:</source>
-        <translation type="obsolete">Lỗi tạo chữ ký số:</translation>
-    </message>
 </context>
 <context>
     <name>GpgME::GpgContext</name>
@@ -392,381 +341,50 @@
         <translation type="unfinished">Nhập Mật khẩu</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="649"/>
+        <location filename="../../gpgcontext.cpp" line="652"/>
         <source>Key Selection</source>
         <translation type="unfinished">Chọn Khóa</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="649"/>
+        <location filename="../../gpgcontext.cpp" line="652"/>
         <source>No Private Key Selected</source>
         <translation type="unfinished">Không có Khóa riêng được chọn</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="697"/>
+        <location filename="../../gpgcontext.cpp" line="700"/>
         <source>Error signing:</source>
         <translation type="unfinished">Lỗi tạo chữ ký số:</translation>
     </message>
 </context>
 <context>
-    <name>GpgWin</name>
-    <message>
-        <source>&amp;Open...</source>
-        <translation type="obsolete">&amp;Mở...</translation>
-    </message>
-    <message>
-        <source>Open an existing file</source>
-        <translation type="obsolete">Mở tệp đã tồn tại</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation type="obsolete">&amp;Lưu</translation>
-    </message>
-    <message>
-        <source>Save the current File</source>
-        <translation type="obsolete">Lưu Tệp hiện hành</translation>
-    </message>
-    <message>
-        <source>Save &amp;As</source>
-        <translation type="obsolete">Lưu &amp;như</translation>
-    </message>
-    <message>
-        <source>Save the current File as...</source>
-        <translation type="obsolete">Lưu Tệp hiện hành như...</translation>
-    </message>
-    <message>
-        <source>&amp;Print</source>
-        <translation type="obsolete">&amp;In</translation>
-    </message>
-    <message>
-        <source>Print Document</source>
-        <translation type="obsolete">In Tài liệu</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation type="obsolete">&amp;Đóng</translation>
-    </message>
-    <message>
-        <source>Close file</source>
-        <translation type="obsolete">Đóng tệp</translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation type="obsolete">&amp;Thoát</translation>
-    </message>
-    <message>
-        <source>Quit Program</source>
-        <translation type="obsolete">Thoát Chương trình</translation>
-    </message>
-    <message>
-        <source>&amp;Undo</source>
-        <translation type="obsolete">&amp;Hoàn tác</translation>
-    </message>
-    <message>
-        <source>Undo Last Edit Action</source>
-        <translation type="obsolete">Hoàn tác Thao tác Soạn thảo Sau cùng</translation>
-    </message>
-    <message>
-        <source>&amp;Redo</source>
-        <translation type="obsolete">&amp;Hủy hoàn tác</translation>
-    </message>
-    <message>
-        <source>Redo Last Edit Action</source>
-        <translation type="obsolete">Thực hiện lại Thao tác Soạn thảo Sau cùng</translation>
-    </message>
-    <message>
-        <source>&amp;Paste</source>
-        <translation type="obsolete">&amp;Dán</translation>
-    </message>
-    <message>
-        <source>Paste Text From Clipboard</source>
-        <translation type="obsolete">Chép Văn bản từ Clipboard</translation>
-    </message>
-    <message>
-        <source>Cu&amp;t</source>
-        <translation type="obsolete">Cắ&amp;t</translation>
-    </message>
-    <message>
-        <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">Cắt và sao nội dung được chọn vào clipboard</translation>
-    </message>
-    <message>
-        <source>&amp;Copy</source>
-        <translation type="obsolete">&amp;Sao chép</translation>
-    </message>
-    <message>
-        <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation type="obsolete">Chép nội dung được chọn vào clipboard</translation>
-    </message>
-    <message>
-        <source>&amp;Quote</source>
-        <translation type="obsolete">&amp;Trích dẫn</translation>
-    </message>
-    <message>
-        <source>Quote whole text</source>
-        <translation type="obsolete">Trích dẫn toàn bộ đoạn văn bản</translation>
-    </message>
-    <message>
-        <source>Select &amp;All</source>
-        <translation type="obsolete">Chọn &amp;Toàn bộ</translation>
-    </message>
-    <message>
-        <source>Select the whole text</source>
-        <translation type="obsolete">Chọn toàn bộ đoạn văn bản</translation>
-    </message>
-    <message>
-        <source>Remove double &amp;Linebreaks</source>
-        <translation type="obsolete">Bỏ cách dòng và &amp;Xuống dòng</translation>
-    </message>
-    <message>
-        <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation type="obsolete">Bỏ dấu cách dòng kép, ví dụ trong các đoạn văn bản sao chép từ thư từ trang web</translation>
-    </message>
-    <message>
-        <source>Open settings dialog</source>
-        <translation type="obsolete">Mở hộp thoại thiết đặt</translation>
-    </message>
-    <message>
-        <source>&amp;Encrypt</source>
-        <translation type="obsolete">&amp;Mã hóa</translation>
-    </message>
-    <message>
-        <source>Encrypt Message</source>
-        <translation type="obsolete">Mã hóa Tin nhắn</translation>
-    </message>
-    <message>
-        <source>&amp;Decrypt</source>
-        <translation type="obsolete">&amp;Giải Mã</translation>
-    </message>
-    <message>
-        <source>Decrypt Message</source>
-        <translation type="obsolete">Giải mã Tin nhắn</translation>
-    </message>
-    <message>
-        <source>&amp;File Encryption</source>
-        <translation type="obsolete">&amp;Mã hóa Tệp</translation>
-    </message>
-    <message>
-        <source>Encrypt/Decrypt File</source>
-        <translation type="obsolete">Mã hóa/Giải mã Tệp</translation>
-    </message>
-    <message>
-        <source>&amp;Sign</source>
-        <translation type="obsolete">&amp;Ký số</translation>
-    </message>
-    <message>
-        <source>Sign Message</source>
-        <translation type="obsolete">Ký Tin nhắn</translation>
-    </message>
-    <message>
-        <source>&amp;Verify</source>
-        <translation type="obsolete">&amp;Kiểm tra</translation>
-    </message>
-    <message>
-        <source>Verify Message</source>
-        <translation type="obsolete">Kiểm tra Tin nhắn</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="obsolete">&lt;center&gt;Ứng dụng này cho phép mã hóa &lt;br/&gt;và giải mã văn bản hoặc tệp dữ liệu.&lt;br&gt;Bản quyền chương trình tuân thủ GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Nhóm phát triển:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Chuyển ngữ:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Phol (es), Viriato (es), Serse (it), Tom (vi) &lt;br&gt;&lt;br&gt;Nếu bạn có bất kỳ thắc măc hay gợi ý nào hãy liên hệ với chúng tôi &lt;br/&gt;tại trang &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;liên hệ&lt;/a&gt; hoặc qua&lt;br/&gt;  địa chỉ thư &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>&amp;Keyserver</source>
-        <translation type="obsolete">&amp;Máy chủ Khóa</translation>
-    </message>
-    <message>
-        <source>Import New Key From Editor</source>
-        <translation type="obsolete">Nhập Khóa Mới Từ Trình Soạn Thảo</translation>
-    </message>
-    <message>
-        <source>Key Management</source>
-        <translation type="obsolete">Quản lý Khóa</translation>
-    </message>
-    <message>
-        <source>Open Keymanagement</source>
-        <translation type="obsolete">Mở Trình Quản lý Khóa</translation>
-    </message>
-    <message>
-        <source>Open Import New Key Dialog</source>
-        <translation type="obsolete">Mở Hộp thoại Nhập Khóa mới</translation>
-    </message>
-    <message>
-        <source>&amp;About</source>
-        <translation type="obsolete">&amp;Thông tin</translation>
-    </message>
-    <message>
-        <source>Show the application&apos;s About box</source>
-        <translation type="obsolete">Hiện hộp Thông tin Ứng dụng</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="obsolete">&amp;Tệp</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="obsolete">&amp;Soạn thảo</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="obsolete">&amp;Trợ giúp</translation>
-    </message>
-    <message>
-        <source>Append Selected Key(s) To Text</source>
-        <translation type="obsolete">Nối tiếp Khóa Được Chọn vào Văn bản</translation>
-    </message>
-    <message>
-        <source>Se&amp;ttings</source>
-        <translation type="obsolete">Thiế&amp;t đặt</translation>
-    </message>
-    <message>
-        <source>&amp;New</source>
-        <translation type="obsolete">&amp;Tạo mới</translation>
-    </message>
-    <message>
-        <source>Open a new file</source>
-        <translation type="obsolete">Mở một tệp mới</translation>
-    </message>
-    <message>
-        <source>Online &amp;Tutorial</source>
-        <translation type="obsolete">Hướng dẫn &amp;Trực tuyến</translation>
-    </message>
-    <message>
-        <source>Open Online Tutorial</source>
-        <translation type="obsolete">Mở Hướng dẫn Trực tuyến</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb</source>
-        <translation type="obsolete">Chuyển ngữ cho gpg4usb</translation>
-    </message>
-    <message>
-        <source>Translate gpg4usb yourself</source>
-        <translation type="obsolete">Bạn hãy dịch gpg4usb sang ngôn ngữ khác</translation>
-    </message>
-    <message>
-        <source>Append The Selected Keys To Text in Editor</source>
-        <translation type="obsolete">Nối tiếp Khóa Được Chọn Vào Văn bản trong Trình Soạn Thảo</translation>
-    </message>
-    <message>
-        <source>Copy EMail-address</source>
-        <translation type="obsolete">Chép Địa chỉ EMail</translation>
-    </message>
-    <message>
-        <source>Copy selected EMailaddress to clipboard</source>
-        <translation type="obsolete">Chép Địa chỉ Email được chọn vào clipboard</translation>
-    </message>
-    <message>
-        <source>Show Keydetails</source>
-        <translation type="obsolete">Hiển thị thông tin Khóa</translation>
-    </message>
-    <message>
-        <source>Show Details for this Key</source>
-        <translation type="obsolete">Hiển thị Thông tin của Khóa này</translation>
-    </message>
-    <message>
-        <source>&amp;Keys</source>
-        <translation type="obsolete">&amp;Khóa mã hóa</translation>
-    </message>
-    <message>
-        <source>&amp;Import Key From...</source>
-        <translation type="obsolete">&amp;Nhập Khóa Từ...</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="obsolete">&amp;Hiển thị</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation type="obsolete">Sẵn sàng</translation>
-    </message>
-    <message>
-        <source>Encrypt for:</source>
-        <translation type="obsolete">Mã hóa cho:</translation>
-    </message>
-    <message>
-        <source>Attached files:</source>
-        <translation type="obsolete">Các tệp đính kèm:</translation>
-    </message>
-    <message>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br/&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="obsolete">&lt;center&gt;Ứng dụng này cho phép mã hóa &lt;br/&gt;và giải mã văn bản hoặc tệp dữ liệu.&lt;br&gt;Bản quyền chương trình tuân thủ GPL v2.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Nhóm phát triển:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Chuyển ngữ:&lt;/b&gt;&lt;br&gt;Alessandro (pt_br), Kirill (ru), Viriato (es), Serse (it) &lt;br&gt;&lt;br&gt;Nếu bạn có bất kỳ thắc măc hay gợi ý nào hãy liên hệ với chúng tôi &lt;br/&gt;tại trang &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;liên hệ&lt;/a&gt; hoặc qua&lt;br/&gt;  địa chỉ thư &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
-    </message>
-    <message>
-        <source>There is one unencrypted file in attachment folder</source>
-        <translation type="obsolete">Có một tệp không được mã hóa trong phần đính kèm</translation>
-    </message>
-    <message>
-        <source>There are </source>
-        <translation type="obsolete">Có</translation>
-    </message>
-    <message>
-        <source> unencrypted files in attachment folder</source>
-        <translation type="obsolete">các tệp không được mã hóa trong phần đính kèm</translation>
-    </message>
-    <message>
-        <source>&amp;Editor</source>
-        <translation type="obsolete">&amp;Trình soạn thảo</translation>
-    </message>
-    <message>
-        <source>&amp;Clipboard</source>
-        <translation type="obsolete">&amp;Clipboard</translation>
-    </message>
-    <message>
-        <source>Import Key</source>
-        <translation type="obsolete">Nhập Khóa mã hóa</translation>
-    </message>
-    <message>
-        <source>&amp;Crypt</source>
-        <translation type="obsolete">&amp;Mã hóa</translation>
-    </message>
-    <message>
-        <source>Crypt</source>
-        <translation type="obsolete">Mã hóa</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="obsolete">Khóa</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="obsolete">Soạn thảo</translation>
-    </message>
-    <message>
-        <source>About </source>
-        <translation type="obsolete">Thông tin</translation>
-    </message>
-    <message>
-        <source>Import Key From...</source>
-        <translation type="obsolete">Nhập Khóa từ...</translation>
-    </message>
-</context>
-<context>
     <name>ImportFromGnupgPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="288"/>
+        <location filename="../../wizard.cpp" line="292"/>
         <source>Import keys...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="289"/>
+        <location filename="../../wizard.cpp" line="293"/>
         <source>...from existing GnuPG installation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="291"/>
+        <location filename="../../wizard.cpp" line="295"/>
         <source>You can import keys from a locally installed GnuPG.&lt;br&gt;&lt;br&gt; The location is read from registry in Windows or assumed to be the .gnupg folder in the your home directory in Linux.&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="295"/>
+        <location filename="../../wizard.cpp" line="299"/>
         <source>Import keys from GnuPG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="310"/>
+        <location filename="../../wizard.cpp" line="314"/>
         <source>Import Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="310"/>
+        <location filename="../../wizard.cpp" line="314"/>
         <source>Couldn&apos;t locate GnuPG home directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -774,47 +392,47 @@
 <context>
     <name>ImportFromGpg4usbPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="208"/>
+        <location filename="../../wizard.cpp" line="212"/>
         <source>Import from...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="209"/>
+        <location filename="../../wizard.cpp" line="213"/>
         <source>...existing gpg4usb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="211"/>
+        <location filename="../../wizard.cpp" line="215"/>
         <source>You can import keys and/or settings from existing gpg4usb. &lt;br&gt;&lt;br&gt;Just check what you want to import, click the import button and choose the directory of your other gpg4usb in the appearing file dialog.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="218"/>
+        <location filename="../../wizard.cpp" line="222"/>
         <source>Keys</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="222"/>
+        <location filename="../../wizard.cpp" line="226"/>
         <source>Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="224"/>
+        <location filename="../../wizard.cpp" line="228"/>
         <source>Import from gpg4usb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="240"/>
+        <location filename="../../wizard.cpp" line="244"/>
         <source>Other gpg4usb directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="260"/>
+        <location filename="../../wizard.cpp" line="264"/>
         <source>Configuration Imported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="260"/>
+        <location filename="../../wizard.cpp" line="264"/>
         <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -822,22 +440,22 @@
 <context>
     <name>IntroPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="106"/>
+        <location filename="../../wizard.cpp" line="110"/>
         <source>Getting started...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="107"/>
+        <location filename="../../wizard.cpp" line="111"/>
         <source>... with gpg4usb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="109"/>
+        <location filename="../../wizard.cpp" line="113"/>
         <source>To use gpg4usb for decrypting and signing messages, you need a private key. The next page will help you with key generation or import.&lt;br&gt;&lt;br&gt;For more information have a look at the &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (by clicking the link, the page will open in the main window). &lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="118"/>
+        <location filename="../../wizard.cpp" line="122"/>
         <source>Choose a Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -972,14 +590,6 @@ Make sure you keep it save.Do you really want to export your private key?</sourc
         <translation>Đang xuất Khóa riêng</translation>
     </message>
     <message>
-        <source>You are about to export your private key.
-This is NOT your public key, so don&apos;t give it away.
-Make sure you keep it save.</source>
-        <translation type="obsolete">Bạn chuẩn bị xuất khóa riêng.
-Đây KHÔNG&apos; phải khóa công khai của bạn, đừng tiết lộ cho ai.
-Hãy chắc chắn bạn cất giữ khóa riêng này an toàn.</translation>
-    </message>
-    <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
         <source>Export Key To File</source>
         <translation>Xuất Khóa ra Tệp</translation>
@@ -1057,12 +667,12 @@ Yếu -&gt; Mạnh</translation>
         <translation type="unfinished">Mật khẩu và Xác nhận mật khẩu không khớp.</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="157"/>
+        <location filename="../../keygendialog.cpp" line="159"/>
         <source>Generating Key...</source>
         <translation type="unfinished">Đang Tạo Khóa...</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="159"/>
+        <location filename="../../keygendialog.cpp" line="161"/>
         <source>Collecting random data for key generation.
  This may take a while.
  To speed up the process use your computer
@@ -1073,12 +683,12 @@ Yếu -&gt; Mạnh</translation>
  (ví dụ vào Internet, nghe nhạc,...)</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="175"/>
+        <location filename="../../keygendialog.cpp" line="177"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="175"/>
+        <location filename="../../keygendialog.cpp" line="177"/>
         <source>New key created</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1086,27 +696,27 @@ Yếu -&gt; Mạnh</translation>
 <context>
     <name>KeyGenPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="348"/>
+        <location filename="../../wizard.cpp" line="360"/>
         <source>Create a keypair...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="349"/>
+        <location filename="../../wizard.cpp" line="361"/>
         <source>...for decrypting and signing messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="350"/>
+        <location filename="../../wizard.cpp" line="362"/>
         <source>You should create a new keypair.The pair consists of a public and a private key.&lt;br&gt;Other users can use the public key to encrypt messages for you and verify messages signed by you.You can use the private key to decrypt and sign messages.&lt;br&gt;For more information have a look at the offline tutorial (which then is shown in the main window):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="357"/>
+        <location filename="../../wizard.cpp" line="369"/>
         <source>Offline tutorial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="364"/>
+        <location filename="../../wizard.cpp" line="376"/>
         <source>Create New Key</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1439,72 +1049,6 @@ Yếu -&gt; Mạnh</translation>
         <source>Export Key To File</source>
         <translation>Xuất Khóa ra Tệp</translation>
     </message>
-    <message>
-        <source>Name:</source>
-        <translation type="obsolete">Tên:</translation>
-    </message>
-    <message>
-        <source>E-Mailaddress::</source>
-        <translation type="obsolete">Địa chỉ Email:</translation>
-    </message>
-    <message>
-        <source>Comment:</source>
-        <translation type="obsolete">Nhận xét:</translation>
-    </message>
-    <message>
-        <source>KeySize (in Bit):</source>
-        <translation type="obsolete">Kích thước Khóa (Bit):</translation>
-    </message>
-    <message>
-        <source>Expiration Date:</source>
-        <translation type="obsolete">Ngày hết hạn:</translation>
-    </message>
-    <message>
-        <source>Password:</source>
-        <translation type="obsolete">Mật khẩu:</translation>
-    </message>
-    <message>
-        <source>Repeat Password:</source>
-        <translation type="obsolete">Nhập lại Mật khẩu:</translation>
-    </message>
-    <message>
-        <source>Never Expire</source>
-        <translation type="obsolete">Không bao giời hết hạn</translation>
-    </message>
-    <message>
-        <source>Password: Strength
-Weak -&gt; Strong</source>
-        <translation type="obsolete">Mật khẩu: Độ mạnh
-Yếu -&gt; Mạnh</translation>
-    </message>
-    <message>
-        <source>Password Strength</source>
-        <translation type="obsolete">Độ mạnh Mật khẩu</translation>
-    </message>
-    <message>
-        <source>  Name must contain at least five characters.  
-</source>
-        <translation type="obsolete">  Tên phải gồm ít nhất năm ký tự.  
-</translation>
-    </message>
-    <message>
-        <source>  Password and Repeat don&apos;t match.  </source>
-        <translation type="obsolete">Mật khẩu và Xác nhận mật khẩu không khớp.</translation>
-    </message>
-    <message>
-        <source>Generating Key...</source>
-        <translation type="obsolete">Đang Tạo Khóa...</translation>
-    </message>
-    <message>
-        <source>Collecting random data for key generation.
- This may take a while.
- To speed up the process use your computer
- (e.g. browse the net, listen to music,...)</source>
-        <translation type="obsolete">Đang lấy dữ liệu ngẫu nhiên để tạo khóa.
- Thao tác này có thể mất chút thời gian.
- Để đẩy nhanh tiến trình, hãy sử dụng máy tính
- (ví dụ vào Internet, nghe nhạc,...)</translation>
-    </message>
 </context>
 <context>
     <name>KeyServerImportDialog</name>
@@ -1559,52 +1103,52 @@ Yếu -&gt; Mạnh</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="153"/>
+        <location filename="../../keyserverimportdialog.cpp" line="154"/>
         <source>Couldn&apos;t contact keyserver!</source>
         <translation>Không thể kết nối máy chủ khóa!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="161"/>
+        <location filename="../../keyserverimportdialog.cpp" line="162"/>
         <source>Too many responses from keyserver!</source>
         <translation>Quá nhiều trả lời từ máy chủ khóa!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="167"/>
+        <location filename="../../keyserverimportdialog.cpp" line="168"/>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="171"/>
+        <location filename="../../keyserverimportdialog.cpp" line="172"/>
         <source>No keys found containing the search string!</source>
         <translation>Không tìm thấy khóa chứa chuỗi tìm kiếm!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="174"/>
+        <location filename="../../keyserverimportdialog.cpp" line="175"/>
         <source>Insufficiently specific search string!</source>
         <translation>Chuỗi tìm kiếm không đủ riêng biệt!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="201"/>
+        <location filename="../../keyserverimportdialog.cpp" line="203"/>
         <source>revoked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="204"/>
+        <location filename="../../keyserverimportdialog.cpp" line="206"/>
         <source>disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="243"/>
+        <location filename="../../keyserverimportdialog.cpp" line="245"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
         <translation>%1 khóa được tìm thấy. Nhấn đúp chuột để nhập khóa.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="288"/>
+        <location filename="../../keyserverimportdialog.cpp" line="291"/>
         <source>Error while contacting keyserver!</source>
         <translation>Lỗi kết nối máy chủ khóa!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="292"/>
+        <location filename="../../keyserverimportdialog.cpp" line="295"/>
         <source>Key imported</source>
         <translation>Khóa được nhập</translation>
     </message>
@@ -1803,7 +1347,7 @@ Yếu -&gt; Mạnh</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="266"/>
         <source>&amp;Decrypt</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Giải mã hóa</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="269"/>
@@ -1958,7 +1502,7 @@ Yếu -&gt; Mạnh</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="350"/>
         <source>Show Details for this Key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hiển thị thông tin cho Khóa đang chọn</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="410"/>
@@ -1983,11 +1527,21 @@ Yếu -&gt; Mạnh</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="449"/>
         <source>&amp;Import Key From...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Nhập Khóa từ...</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="458"/>
         <source>&amp;Steganography</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <source>About</source>
+        <translation>Thông tin</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="623"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2071,14 +1625,8 @@ Yếu -&gt; Mạnh</translation>
         <translation type="unfinished">Các tệp đính kèm:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
-        <translation type="unfinished">Thông tin</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="623"/>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Thông tin</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>
@@ -2170,11 +1718,6 @@ Yếu -&gt; Mạnh</translation>
 <context>
     <name>SettingsDialog</name>
     <message>
-        <source>English</source>
-        <comment>Insert local name of language here. This is used for the language menu of the settingsdialog</comment>
-        <translation type="obsolete">English</translation>
-    </message>
-    <message>
         <location filename="../../settingsdialog.cpp" line="34"/>
         <source>General</source>
         <translation>Tổng quát</translation>
@@ -2208,10 +1751,6 @@ Yếu -&gt; Mạnh</translation>
         <location filename="../../settingsdialog.cpp" line="72"/>
         <source>System Default</source>
         <translation type="unfinished">Mặc định Hệ thống</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <translation type="obsolete">Tiếng Việt</translation>
     </message>
 </context>
 <context>
@@ -2298,18 +1837,6 @@ Yếu -&gt; Mạnh</translation>
  %1 by:
 </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Text was completly signed on %1 by:
-</source>
-        <translation type="obsolete">Văn bản đã được ký hoàn toàn vào %1 bởi:
-</translation>
-    </message>
-    <message>
-        <source>Text was partially signed on %1 by:
-</source>
-        <translation type="obsolete">Văn bản đã được ký từng phần vào %1 bởi:
-</translation>
     </message>
 </context>
 <context>
@@ -2403,53 +1930,41 @@ Yếu -&gt; Mạnh</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Key not present with Fingerprint: </source>
-        <translation type="obsolete">Khóa không gồm Vân tay số:</translation>
-    </message>
-    <message>
         <location filename="../../verifynotification.cpp" line="147"/>
         <source>Error for key with fingerprint </source>
         <translation>Lỗi khóa với Vân tay số</translation>
-    </message>
-    <message>
-        <source>Text is completly signed by: </source>
-        <translation type="obsolete">Văn bản được ký số hoàn toàn bởi:</translation>
-    </message>
-    <message>
-        <source>Text is partially signed by: </source>
-        <translation type="obsolete">Văn bản được ký số từng phần bởi:</translation>
     </message>
 </context>
 <context>
     <name>Wizard</name>
     <message>
-        <location filename="../../wizard.cpp" line="40"/>
+        <location filename="../../wizard.cpp" line="44"/>
         <source>First Start Wizard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="73"/>
+        <location filename="../../wizard.cpp" line="77"/>
         <source>Import Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="73"/>
+        <location filename="../../wizard.cpp" line="77"/>
         <source>Couldn&apos;t locate any keyring file in %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="81"/>
-        <location filename="../../wizard.cpp" line="91"/>
+        <location filename="../../wizard.cpp" line="85"/>
+        <location filename="../../wizard.cpp" line="95"/>
         <source>Import error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="81"/>
+        <location filename="../../wizard.cpp" line="85"/>
         <source>Couldn&apos;t open private keyringfile: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="91"/>
+        <location filename="../../wizard.cpp" line="95"/>
         <source>Couldn&apos;t open public keyringfile: %1</source>
         <translation type="unfinished"></translation>
     </message>

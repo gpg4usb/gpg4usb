@@ -28,7 +28,6 @@
 #include "textedit.h"
 #include "fileencryptiondialog.h"
 #include "settingsdialog.h"
-#include "aboutdialog.h"
 #include "verifynotification.h"
 #include "wizard.h"
 
@@ -105,25 +104,10 @@ private slots:
      */
     void verify();
 
-    /**
-     * @details Show the details of the first of the first of selected keys
-     */
-     void showKeyDetails();
- 
-    /**
-     * @details Refresh key information of selected keys from default keyserver
-     */
-     void refreshKeysFromKeyserver();
- 
-    /**
-      * @details upload the selected key to the keyserver
-      */
-     void uploadKeyToServer();
- 
-    /**
-      * @details start the wizard
-      */
-     void startWizard();
+    void showKeyDetails();
+
+
+    void startWizard();
 
     /**
      * @details Import keys from currently active tab to keylist if possible.
@@ -152,6 +136,11 @@ private slots:
     void about();
 
     /**
+     * @details Open fileencrytion dialog.
+     */
+    void fileEncryption();
+
+    /**
      * @details Open dialog for encrypting file.
      */
     void fileEncrypt();
@@ -160,16 +149,6 @@ private slots:
      * @details Open dialog for decrypting file.
      */
     void fileDecrypt();
-
-    /**
-     * @details Open dialog for encrypting file.
-     */
-    void fileSign();
-
-    /**
-     * @details Open dialog for decrypting file.
-     */
-    void fileVerify();
 
     /**
      * @details Open settings-dialog.
@@ -278,10 +257,9 @@ private:
     void parseMime(QByteArray *message);
 
     TextEdit *edit; /** Tabwidget holding the edit-windows */
-    QMenu *fileMenu; /** Submenu for file operations*/
-    QMenu *editMenu; /** Submenu for text operations*/
-    QMenu *cryptMenu; /** Submenu for crypt operations */
-    QMenu* fileEncMenu; /** Submenu for file crypt operations */
+    QMenu *fileMenu; /** Submenu for file-operations*/
+    QMenu *editMenu; /** Submenu for text-operations*/
+    QMenu *cryptMenu; /** Submenu for crypt-operations */
     QMenu *helpMenu; /** Submenu for help-operations */
     QMenu *keyMenu; /** Submenu for key-operations */
     QMenu *viewMenu; /** Submenu for view operations */
@@ -327,17 +305,14 @@ private:
     QAction *zoomInAct; /** Action to zoom in */
     QAction *zoomOutAct; /** Action to zoom out */
     QAction *aboutAct; /** Action to open about dialog */
+    QAction *fileEncryptionAct; /** Action to open file-encryption dialog */
     QAction *fileEncryptAct; /** Action to open dialog for encrypting file */
     QAction *fileDecryptAct; /** Action to open dialog for decrypting file */
-    QAction *fileSignAct; /** Action to open dialog for signing file */
-    QAction *fileVerifyAct; /** Action to open dialog for verifying file */
     QAction *openSettingsAct; /** Action to open settings dialog */
     QAction *openTranslateAct; /** Action to open translate doc*/
     QAction *openTutorialAct; /** Action to open tutorial */
     QAction *openHelpAct; /** Action to open tutorial */
     QAction *showKeyDetailsAct; /** Action to open key-details dialog */
-    QAction *refreshKeysFromKeyserverAct; /** Action to refresh a key from keyserver */
-    QAction *uploadKeyToServerAct; /** Action to append selected keys to edit */
     QAction *startWizardAct; /** Action to open the wizard */
     QAction *cutPgpHeaderAct; /** Action for cutting the PGP header */
     QAction *addPgpHeaderAct; /** Action for adding the PGP header */

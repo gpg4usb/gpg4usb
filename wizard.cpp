@@ -320,7 +320,6 @@ void ImportFromGnupgPage::importKeysFromGnupg()
     wizard()->next();
 }
 
-
 QString ImportFromGnupgPage::getGnuPGHome()
 {
     QString gnuPGHome="";

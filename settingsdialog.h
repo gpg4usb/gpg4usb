@@ -34,6 +34,7 @@ class QHBoxLayout;
 class QVBoxLayout;
 class QComboBox;
 class QCheckBox;
+class QSettings;
 class QDebug;
 class QSettings;
 class QApplication;
@@ -107,7 +108,6 @@ private slots:
  class KeyserverTab : public QWidget
  {
      Q_OBJECT
-
  public:
     KeyserverTab(QWidget *parent = 0);
     void setSettings();
@@ -115,11 +115,7 @@ private slots:
 
  private:
     QComboBox *comboBox;
-
- private slots:
-    void addKeyServer();
-    void removeKeyServer();
-    void editTextChangedAction();
+    QLabel *label;
 };
 
  class AdvancedTab : public QWidget
@@ -135,27 +131,7 @@ private slots:
 
  };
 
- class GpgPathsTab : public QWidget
- {
-     Q_OBJECT
- public:
-     GpgPathsTab(QWidget *parent = 0);
-     void applySettings();
-
-private:
-    QString getRelativePath(const QString dir1,const QString dir2);
-    QString defKeydbPath; /** The default keydb path used by gpg4usb */
-    QString accKeydbPath; /** The currently used keydb path */
-    QLabel *keydbLabel;
-    void setSettings();
-
- private slots:
-     QString chooseKeydbDir();
-     void setKeydbPathToDefault();
-
- };
-
- class SettingsDialog : public QDialog
+class SettingsDialog : public QDialog
 {
     Q_OBJECT
 
@@ -166,7 +142,6 @@ public:
     AppearanceTab *appearanceTab;
     KeyserverTab *keyserverTab;
     AdvancedTab *advancedTab;
-    GpgPathsTab *gpgPathsTab;
     static QHash<QString, QString> listLanguages();
 
 

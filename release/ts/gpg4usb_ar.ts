@@ -121,42 +121,42 @@
 <context>
     <name>ChoosePage</name>
     <message>
-        <location filename="../../wizard.cpp" line="159"/>
+        <location filename="../../wizard.cpp" line="163"/>
         <source>Choose your action...</source>
         <translation>اختر فعلا...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="160"/>
+        <location filename="../../wizard.cpp" line="164"/>
         <source>...by clicking on the apropriate link.</source>
         <translation>...بالنقر على الرابط الملائم.</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="162"/>
+        <location filename="../../wizard.cpp" line="166"/>
         <source>If you have never used gpg4usb before and also don&apos;t own a gpg key yet you may possibly want to </source>
         <translation>إن كنت لم تستخدم gpg4usb أبدا من قبل لكنك ليس لديك مفتاح GPG فلربما تريد </translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="164"/>
+        <location filename="../../wizard.cpp" line="168"/>
         <source>create a new keypair</source>
         <translation>توليد زوج مفاتيح جديد</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="168"/>
+        <location filename="../../wizard.cpp" line="172"/>
         <source>If you upgrade from an older version of gpg4usb you may want to </source>
         <translation>إن كنت حدّثت إصدارة gpg4usb من إصدارة أقدم فلربما تريد</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="170"/>
+        <location filename="../../wizard.cpp" line="174"/>
         <source>import settings and/or keys from gpg4usb</source>
         <translation>استيراد التضبيطات و/أو المفاتيح من gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="174"/>
+        <location filename="../../wizard.cpp" line="178"/>
         <source>If you are already using GnuPG you may want to </source>
         <translation>إن كنت تستخدم GnuPG من قبل فلربما أردت </translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="176"/>
+        <location filename="../../wizard.cpp" line="180"/>
         <source>import keys from GnuPG</source>
         <translation>استيراد المفاتيح من GnuPG</translation>
     </message>
@@ -164,29 +164,29 @@
 <context>
     <name>ConclusionPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="391"/>
+        <location filename="../../wizard.cpp" line="403"/>
         <source>Ready.</source>
         <translation>جاهز.</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="392"/>
+        <location filename="../../wizard.cpp" line="404"/>
         <source>Have fun with gpg4usb!</source>
         <translation>استمتع باستخدام gpg4usb!</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="394"/>
+        <location filename="../../wizard.cpp" line="406"/>
         <source>You are ready to use gpg4usb now.&lt;br&gt;&lt;br&gt;The offline help will get you started with gpg4usb. It will open in the main window.&lt;br&gt;</source>
         <translation>أنت الآن جاهز لاستخدام gpg4usb.&lt;br /&gt;
 &lt;br /&gt;
 دليل المساعدة سييسر عليك البدء باستخدام gpg4usb؛ و سيظهر في النافذة الرئيسية.&lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="399"/>
+        <location filename="../../wizard.cpp" line="411"/>
         <source>Open offline help.</source>
         <translation>افتح دليل المساعدة.</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="402"/>
+        <location filename="../../wizard.cpp" line="414"/>
         <source>Dont show the wizard again.</source>
         <translation>لا تظهر هذا المُرشد مُجددًا.</translation>
     </message>
@@ -395,17 +395,17 @@
         <translation>أدخل عبارة السرّ</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="649"/>
+        <location filename="../../gpgcontext.cpp" line="652"/>
         <source>Key Selection</source>
         <translation>اختيار المفاتيح</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="649"/>
+        <location filename="../../gpgcontext.cpp" line="652"/>
         <source>No Private Key Selected</source>
         <translation>لا مفاتيح سرية مُختارة</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="697"/>
+        <location filename="../../gpgcontext.cpp" line="700"/>
         <source>Error signing:</source>
         <translation>خطأ عند توقيع:</translation>
     </message>
@@ -575,8 +575,7 @@
 &lt;b&gt;المُطوِّرون:&lt;/b&gt;
 Bene و Heimer و Juergen و Nils و Ubbo&lt;br/&gt;
 &lt;br/&gt;
-&lt;b&gt;المترجمون:&lt;/b&gt;&lt;br/&gt;
-Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و Tom (vi) و أحمد غربية (ar)&lt;br/&gt;
+&lt;b&gt;المترجمون:&lt;/b&gt;&lt;br/&gt;  أحمد غربية (ar) و Alessandro (pt_br) و Åke (sv) و&lt;br/&gt;Elad (he) و George (el) و Jedi Lin (zh_tw) و&lt;br/&gt;Kirill (ru) و Marek Bogacz (pl) و Phol (es) و&lt;br/&gt;Russell (my) و Serse (it) و Tom (vi) و&lt;br/&gt;Toughworm(zh) و Viriato (es)&lt;br/&gt;
 &lt;br/&gt;
 تواصل معنا عبر &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;صفحة الاتصال&lt;/a&gt; إن كانت لديك اقتراحات أو أرسل إلى القائمة البريدية &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
@@ -748,34 +747,34 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
 <context>
     <name>ImportFromGnupgPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="288"/>
+        <location filename="../../wizard.cpp" line="292"/>
         <source>Import keys...</source>
         <translation>استورد مفاتيح...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="289"/>
+        <location filename="../../wizard.cpp" line="293"/>
         <source>...from existing GnuPG installation</source>
         <translation>...من تنصيبة GnuPG قامة</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="291"/>
+        <location filename="../../wizard.cpp" line="295"/>
         <source>You can import keys from a locally installed GnuPG.&lt;br&gt;&lt;br&gt; The location is read from registry in Windows or assumed to be the .gnupg folder in the your home directory in Linux.&lt;br&gt;</source>
         <translation>يمكنك استيراد مفاتيح من تنصيبة GnuPG محلية.&lt;br /&gt;
 &lt;br /&gt;
 موقع حفظ الملفات يُعرفُ من سجِّل تضبيطات وِندوز أو دليل ‭.gnupg‬ في الدليل المَنزِل في لينُكس.&lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="295"/>
+        <location filename="../../wizard.cpp" line="299"/>
         <source>Import keys from GnuPG</source>
         <translation>استورد المفاتيح من GnuPG</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="310"/>
+        <location filename="../../wizard.cpp" line="314"/>
         <source>Import Error</source>
         <translation>خطأ في الاستيراد</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="310"/>
+        <location filename="../../wizard.cpp" line="314"/>
         <source>Couldn&apos;t locate GnuPG home directory</source>
         <translation>تعذَّر إيجاد الدليل المَنزِل لأداة GnuPG</translation>
     </message>
@@ -783,49 +782,49 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
 <context>
     <name>ImportFromGpg4usbPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="208"/>
+        <location filename="../../wizard.cpp" line="212"/>
         <source>Import from...</source>
         <translation>استورد من...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="209"/>
+        <location filename="../../wizard.cpp" line="213"/>
         <source>...existing gpg4usb</source>
         <translation>...تنصيبة gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="211"/>
+        <location filename="../../wizard.cpp" line="215"/>
         <source>You can import keys and/or settings from existing gpg4usb. &lt;br&gt;&lt;br&gt;Just check what you want to import, click the import button and choose the directory of your other gpg4usb in the appearing file dialog.</source>
         <translation>يمكنك استيراد المفاتيح و التضبيطات من تنصيبة gpg4usb قائمة.&lt;br /&gt;
 &lt;br /&gt;
 أشِّر على ما تريد استيراده، ثم اضغط زرّ الاستيراد و في صندوق الحوار اختر الدليل المنصبة فيه gpg4usb.</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="218"/>
+        <location filename="../../wizard.cpp" line="222"/>
         <source>Keys</source>
         <translation>المفاتيح</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="222"/>
+        <location filename="../../wizard.cpp" line="226"/>
         <source>Configuration</source>
         <translation>التضبيطات</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="224"/>
+        <location filename="../../wizard.cpp" line="228"/>
         <source>Import from gpg4usb</source>
         <translation>استورد من gpg4usb</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="240"/>
+        <location filename="../../wizard.cpp" line="244"/>
         <source>Other gpg4usb directory</source>
         <translation>من دليل gpg4usb آخر</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="260"/>
+        <location filename="../../wizard.cpp" line="264"/>
         <source>Configuration Imported</source>
         <translation>تم بنجاح استيراد التضبيطات</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="260"/>
+        <location filename="../../wizard.cpp" line="264"/>
         <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
         <translation>تم بنجاح استيراد التضبيطات من تنصيبة gpg4usb سابقة.&lt;br /&gt;
 ستجري إعادة التشغيل لتفعيل التضبيطات.</translation>
@@ -834,24 +833,24 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
 <context>
     <name>IntroPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="106"/>
+        <location filename="../../wizard.cpp" line="110"/>
         <source>Getting started...</source>
         <translation>البدء باستخدام...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="107"/>
+        <location filename="../../wizard.cpp" line="111"/>
         <source>... with gpg4usb</source>
         <translation>‎...gpg4usb‬</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="109"/>
+        <location filename="../../wizard.cpp" line="113"/>
         <source>To use gpg4usb for decrypting and signing messages, you need a private key. The next page will help you with key generation or import.&lt;br&gt;&lt;br&gt;For more information have a look at the &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (by clicking the link, the page will open in the main window). &lt;br&gt;</source>
         <translation>لاستخدام gpg4usb لتعمية و توقيع الرسائل يجب أن يكون لديك زوج مفاتيح. الصفحة التالية ستساعدك في توليد أو استيراد المفاتيح.&lt;br /&gt;
 &lt;br /&gt;
 لمزيد من المعلومات طالع وثيقة &lt;a href=&quot;docu_concepts.html&quot;&gt;المفاهيم&lt;/a&gt; (بالنقر على الرابط فإن الصفحة ستفتح في نافذة جديدة).&lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="118"/>
+        <location filename="../../wizard.cpp" line="122"/>
         <source>Choose a Language</source>
         <translation>اختَر لغة</translation>
     </message>
@@ -933,9 +932,9 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.Do you really want to export your private key?</source>
-        <translation>أنت بصدد تصدير مفتاح السريّ.
-هذا ليس مفتاحك العلنيّ.
-احرص على حفظه في أمان. أتريد حقا تصدير مفتاحك السريّ؟</translation>
+        <translation>أنت بصدد تصدير مفتاحك السريّ الذي تُظهّر به و توقّع.
+هذا ليس مفتاحك العلنيّ الذي.تشاركه مع الآخرين ليُراسلوك.
+إن صدّرته فاحرص على حفظه في أمان. أتريد حقا تصدير مفتاحك السريّ؟</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -1071,12 +1070,12 @@ Weak -&gt; Strong</source>
         <translation>عبارة السر و تكرارها لا يتطابقان.</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="157"/>
+        <location filename="../../keygendialog.cpp" line="159"/>
         <source>Generating Key...</source>
         <translation>يجري توليد زوج مفاتيح...</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="159"/>
+        <location filename="../../keygendialog.cpp" line="161"/>
         <source>Collecting random data for key generation.
  This may take a while.
  To speed up the process use your computer
@@ -1086,12 +1085,12 @@ Weak -&gt; Strong</source>
 لتسريع الصيرورة استخدم الحاسوب في أغراض أخرى</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="175"/>
+        <location filename="../../keygendialog.cpp" line="177"/>
         <source>Success</source>
         <translation>تم بنجاح</translation>
     </message>
     <message>
-        <location filename="../../keygendialog.cpp" line="175"/>
+        <location filename="../../keygendialog.cpp" line="177"/>
         <source>New key created</source>
         <translation>تم توليد زوج مفاتيح جديد</translation>
     </message>
@@ -1099,30 +1098,30 @@ Weak -&gt; Strong</source>
 <context>
     <name>KeyGenPage</name>
     <message>
-        <location filename="../../wizard.cpp" line="348"/>
+        <location filename="../../wizard.cpp" line="360"/>
         <source>Create a keypair...</source>
         <translation>ولِّد زوج مفاتيح...</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="349"/>
+        <location filename="../../wizard.cpp" line="361"/>
         <source>...for decrypting and signing messages</source>
         <translation>..لتظهير و توقيع الرسائل</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="350"/>
+        <location filename="../../wizard.cpp" line="362"/>
         <source>You should create a new keypair.The pair consists of a public and a private key.&lt;br&gt;Other users can use the public key to encrypt messages for you and verify messages signed by you.You can use the private key to decrypt and sign messages.&lt;br&gt;For more information have a look at the offline tutorial (which then is shown in the main window):</source>
         <translatorcomment>To be more informative, I phrased the second sentence as &quot;Uses of tools ompatible with the GPG system can use your public key for you [...]&quot;</translatorcomment>
         <translation>ينبغي عليك توليد زوج مفاتيح يتألف من مفتاح علنيّ و آخر سريّ.&lt;br /&gt;
-يمكن لمن يستخدمون أدوات متوافقةمع نظام التعمية GPG استخدام مفتاحك العلنيّ لتعمية الرسائل لك و للتحقق من توقيعك على الرسائل التي وقّعتها. بينما تستخدم أنت مفتاحك السريّ لتظهير الرسائل المعماة لك و لتوقيع الرسائل.&lt;br /&gt;
+يمكن لمن يستخدمون أدوات متوافقةمع نظام التعمية PGP استخدام مفتاحك العلنيّ لتعمية الرسائل لك و للتحقق من توقيعك على الرسائل التي وقّعتها. بينما تستخدم أنت مفتاحك السريّ لتظهير الرسائل المعماة لك و لتوقيع الرسائل.&lt;br /&gt;
 لمزيد من المعلومات طالع الشرح (الذي سيظهر في النافذة الرئيسية):</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="357"/>
+        <location filename="../../wizard.cpp" line="369"/>
         <source>Offline tutorial</source>
         <translation>وثيقة شرح</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="364"/>
+        <location filename="../../wizard.cpp" line="376"/>
         <source>Create New Key</source>
         <translation>ولِّد زوج مفاتيح</translation>
     </message>
@@ -1573,53 +1572,53 @@ Weak -&gt; Strong</source>
         <translation>وسم</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="153"/>
+        <location filename="../../keyserverimportdialog.cpp" line="154"/>
         <source>Couldn&apos;t contact keyserver!</source>
         <translation>تعذّر الاتصال بخادوم المفاتيح!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="161"/>
+        <location filename="../../keyserverimportdialog.cpp" line="162"/>
         <source>Too many responses from keyserver!</source>
         <translatorcomment>recommended phrasing: &quot;Search returned too many results. try to be more specific.&quot;</translatorcomment>
         <translation>أوجد البحث نتائج كثيرة جدا. حاول أن تكون أكثر تحديدًا.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="167"/>
+        <location filename="../../keyserverimportdialog.cpp" line="168"/>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
         <translation>لم توجد مفاتيح. ربما كانت العبار مُعرف مفتاح سِتَّعَشري، يجري البحث باستخدام 0x.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="171"/>
+        <location filename="../../keyserverimportdialog.cpp" line="172"/>
         <source>No keys found containing the search string!</source>
         <translation>لم توجد مفاتيح تحوي عبارة البحث!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="174"/>
+        <location filename="../../keyserverimportdialog.cpp" line="175"/>
         <source>Insufficiently specific search string!</source>
         <translation>عبارة بحث غير كافية!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="201"/>
+        <location filename="../../keyserverimportdialog.cpp" line="203"/>
         <source>revoked</source>
         <translation>منقوض</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="204"/>
+        <location filename="../../keyserverimportdialog.cpp" line="206"/>
         <source>disabled</source>
         <translation>مُعطَّل</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="243"/>
+        <location filename="../../keyserverimportdialog.cpp" line="245"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
         <translation>وُجدَ %1 مفاتيح. انقر على مفتاح لاستيراده.</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="288"/>
+        <location filename="../../keyserverimportdialog.cpp" line="291"/>
         <source>Error while contacting keyserver!</source>
         <translation>خطأ أثناء الاتصال بخادوم المفاتيح!</translation>
     </message>
     <message>
-        <location filename="../../keyserverimportdialog.cpp" line="292"/>
+        <location filename="../../keyserverimportdialog.cpp" line="295"/>
         <source>Key imported</source>
         <translation>تم استيراد المفتاح</translation>
     </message>
@@ -2089,13 +2088,28 @@ Weak -&gt; Strong</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="620"/>
-        <source>About </source>
+        <source>About</source>
         <translation>عن الأداة</translation>
     </message>
     <message>
+        <source>About </source>
+        <translation type="obsolete">عن الأداة</translation>
+    </message>
+    <message>
         <location filename="../../mainwindow.cpp" line="623"/>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
         <translation>&lt;center&gt;تتيح هذه الأداة التعمية و التظهير اليسيرين للرسائل النصية و الملفات&lt;br/&gt;
+و هي منشورة بالإصدارة الثالثة من رخصة GPL&lt;br/&gt;&lt;br/&gt;
+&lt;b&gt;المُطوِّرون:&lt;/b&gt;
+Bene و Heimer و Juergen و Nils و Ubbo&lt;br/&gt;
+&lt;br/&gt;
+&lt;b&gt;المترجمون:&lt;/b&gt;&lt;br/&gt;  أحمد غربية (ar) و Alessandro (pt_br) و Åke (sv) و&lt;br/&gt;Elad (he) و George (el) و Jedi Lin (zh_tw) و&lt;br/&gt;Kirill (ru) و Marek Bogacz (pl) و Phol (es) و&lt;br/&gt;Russell (my) و Serse (it) و Tom (vi) و&lt;br/&gt;Toughworm(zh) و Viriato (es)&lt;br/&gt;
+&lt;br/&gt;
+تواصل معنا عبر &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;صفحة الاتصال&lt;/a&gt; إن كانت لديك اقتراحات أو أرسل إلى القائمة البريدية &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation type="obsolete">&lt;center&gt;تتيح هذه الأداة التعمية و التظهير اليسيرين للرسائل النصية و الملفات&lt;br/&gt;
 و هي منشورة بالإصدارة الثالثة من رخصة GPL&lt;br/&gt;&lt;br/&gt;
 &lt;b&gt;المُطوِّرون:&lt;/b&gt;
 Bene و Heimer و Juergen و Nils و Ubbo&lt;br/&gt;
@@ -2313,7 +2327,8 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="61"/>
         <source>Error Validating signature</source>
-        <translation>خطأ أثناء التحقق من توقيع</translation>
+        <translatorcomment>This should better be phrased as &quot;Invalid signature by %1&quot;, as &quot;error&quot; imples that the verification process itself filed, instead of yielding a complete, yet undesired, result.</translatorcomment>
+        <translation>توقيع غير صحيح من</translation>
     </message>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="67"/>
@@ -2377,7 +2392,7 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="62"/>
         <source>OK</source>
-        <translation>حَسَنٌ</translation>
+        <translation>جيِّد</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="69"/>
@@ -2395,12 +2410,12 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifynotification.cpp" line="38"/>
         <source>Show detailed verify information</source>
-        <translation>أظهر بيانات تفصيلية للاستيثاق</translation>
+        <translation>أظهر تفاصيلَ بيانات الاستيثاق</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="47"/>
         <source>Details</source>
-        <translation>بيانات</translation>
+        <translation>تفاصيل</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="117"/>
@@ -2415,12 +2430,12 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
     <message>
         <location filename="../../verifynotification.cpp" line="164"/>
         <source>Text was completely signed by: </source>
-        <translation>النصُّ كُلُّه وقَّعه %1: </translation>
+        <translation>النصُّ كُلُّه وقَّعه: </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
-        <translation>النصُّ بعضُه وقَّعه %1: </translation>
+        <translation>النصُّ بعضُه وقَّعه: </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="147"/>
@@ -2431,33 +2446,33 @@ Alessandro (pt_br) و Kirill (ru) و Phol (es) و Viriato (es) و Serse (it) و 
 <context>
     <name>Wizard</name>
     <message>
-        <location filename="../../wizard.cpp" line="40"/>
+        <location filename="../../wizard.cpp" line="44"/>
         <source>First Start Wizard</source>
         <translation>مُرشد التشغيل الأوّل</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="73"/>
+        <location filename="../../wizard.cpp" line="77"/>
         <source>Import Error</source>
         <translation>خطأ في الاستيراد</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="73"/>
+        <location filename="../../wizard.cpp" line="77"/>
         <source>Couldn&apos;t locate any keyring file in %1</source>
         <translation>لم يُعثر على ملف حلقة منفاتيح في %1</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="81"/>
-        <location filename="../../wizard.cpp" line="91"/>
+        <location filename="../../wizard.cpp" line="85"/>
+        <location filename="../../wizard.cpp" line="95"/>
         <source>Import error</source>
         <translation>خطأ في الاستيراد</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="81"/>
+        <location filename="../../wizard.cpp" line="85"/>
         <source>Couldn&apos;t open private keyringfile: %1</source>
         <translation>تعذّر فتح ملف حلقة المفاتيح السرية: %1</translation>
     </message>
     <message>
-        <location filename="../../wizard.cpp" line="91"/>
+        <location filename="../../wizard.cpp" line="95"/>
         <source>Couldn&apos;t open public keyringfile: %1</source>
         <translation>تعذّر فتح ملف حلقة المفاتيح العلنية: %1</translation>
     </message>

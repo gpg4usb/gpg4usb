@@ -21,23 +21,19 @@
 
 #include "fileencryptiondialog.h"
 
-FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, DialogAction action, QWidget *parent)
+FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, QWidget *parent, DialogAction action)
         : QDialog(parent)
 
 {
     mAction = action;
     mCtx = ctx;
-    if (mAction == Decrypt) {
+    if(mAction == Decrypt) {
         setWindowTitle(tr("Decrypt File"));
-        resize(500, 200);
     } else if (mAction == Encrypt) {
         setWindowTitle(tr("Encrypt File"));
-        resize(500, 400);
-    } else if (mAction == Sign) {
-        setWindowTitle(tr("Sign File"));
-        resize(500, 400);
-    } else if (mAction == Verify) {
-        setWindowTitle(tr("Verify File"));
+        resize(500, 300);
+    } else {
+        setWindowTitle(tr("Encrypt / Decrypt File"));
         resize(500, 200);
     }
 
@@ -48,6 +44,7 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     QGroupBox *groupBox1 = new QGroupBox(tr("File"));
+    QGroupBox *actionGroupBox = new QGroupBox(tr("Action"));
 
     /* Setup input & Outputfileselection*/
     inputFileEdit = new QLineEdit();
@@ -66,23 +63,9 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     gLayout->addWidget(fl1, 0, 0);
     gLayout->addWidget(inputFileEdit, 0, 1);
     gLayout->addWidget(fb1, 0, 2);
-    // verify does not need outfile, but signature file
-    if(mAction != Verify) {
-        gLayout->addWidget(fl2, 1, 0);
-        gLayout->addWidget(outputFileEdit, 1, 1);
-        gLayout->addWidget(fb2, 1, 2);
-    } else {
-        signFileEdit = new QLineEdit();
-        QPushButton *sfb1 = new QPushButton("...");
-        connect(sfb1, SIGNAL(clicked()), this, SLOT(selectSignFile()));
-        QLabel *sfl1 = new QLabel(tr("Signature"));
-        sfl1->setBuddy(signFileEdit);
-
-        gLayout->addWidget(sfl1, 1, 0);
-        gLayout->addWidget(signFileEdit, 1, 1);
-        gLayout->addWidget(sfb1, 1, 2);
-    }
-    groupBox1->setLayout(gLayout);
+    gLayout->addWidget(fl2, 1, 0);
+    gLayout->addWidget(outputFileEdit, 1, 1);
+    gLayout->addWidget(fb2, 1, 2);
 
     /*Setup KeyList*/
     mKeyList = new KeyList(mCtx);
@@ -91,18 +74,31 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     mKeyList->setColumnWidth(3, 150);
     mKeyList->setChecked(&keyList);
 
-    statusLabel = new QLabel();
-    statusLabel->setStyleSheet("QLabel {color: red;}");
+    /* Setup Action */
+    radioEnc = new QRadioButton(tr("&Encrypt"));
+    connect(radioEnc, SIGNAL(clicked()), this, SLOT(showKeyList()));
+    radioDec = new QRadioButton(tr("&Decrypt"));
+    connect(radioDec, SIGNAL(clicked()), this, SLOT(hideKeyList()));
+    radioDec->setChecked(true);
+
+    QHBoxLayout *hbox1 = new QHBoxLayout();
+    hbox1->addWidget(radioDec);
+    hbox1->addWidget(radioEnc);
+
+    groupBox1->setLayout(gLayout);
+    actionGroupBox->setLayout(hbox1);
 
     QVBoxLayout *vbox2 = new QVBoxLayout();
+    if(action == Both) {
+        vbox2->addWidget(actionGroupBox);
+    }
     vbox2->addWidget(groupBox1);
     vbox2->addWidget(mKeyList);
-    vbox2->addWidget(statusLabel);
     vbox2->addWidget(buttonBox);
     vbox2->addStretch(0);
     setLayout(vbox2);
 
-    if(action == Encrypt || action == Sign) {
+    if(action == Encrypt) {
         showKeyList();
     }
 
@@ -121,15 +117,9 @@ void FileEncryptionDialog::selectInputFile()
     inputFileEdit->setText(infileName);
 
     // try to find a matching output-filename, if not yet done
-    if (infileName > 0
-            && outputFileEdit->text().size() == 0
-            && signFileEdit->text().size() == 0) {
-        if (mAction == Encrypt) {
+    if (infileName > 0 && outputFileEdit->text().size() == 0) {
+        if (mAction == Encrypt || (mAction == Both && radioEnc->isChecked())) {
             outputFileEdit->setText(infileName + ".asc");
-        } else if (mAction == Sign) {
-            outputFileEdit->setText(infileName + ".sig");
-        } else if (mAction == Verify) {
-            signFileEdit->setText(infileName + ".sig");
         } else {
             if (infileName.endsWith(".asc", Qt::CaseInsensitive)) {
                 QString ofn = infileName;
@@ -154,60 +144,24 @@ void FileEncryptionDialog::selectOutputFile()
 
 }
 
-void FileEncryptionDialog::selectSignFile()
-{
-    QString path = "";
-    if (signFileEdit->text().size() > 0) {
-        path = QFileInfo(signFileEdit->text()).absolutePath();
-    }
-
-    QString signfileName = QFileDialog::getSaveFileName(this, tr("Open File"),path, NULL ,NULL ,QFileDialog::DontConfirmOverwrite);
-    signFileEdit->setText(signfileName);
-
-    if (inputFileEdit->text().size() == 0 && signfileName.endsWith(".sig", Qt::CaseInsensitive)) {
-        QString sfn = signfileName;
-        sfn.chop(4);
-        inputFileEdit->setText(sfn);
-    }
-
-}
-
 void FileEncryptionDialog::executeAction()
 {
 
     QFile infile;
     infile.setFileName(inputFileEdit->text());
     if (!infile.open(QIODevice::ReadOnly)) {
-        statusLabel->setText( tr("Couldn't open file"));
-        inputFileEdit->setStyleSheet("QLineEdit { background: yellow }");
-        return;
+        qDebug() << tr("Couldn't Open file: ") + inputFileEdit->text();
     }
 
     QByteArray inBuffer = infile.readAll();
     QByteArray *outBuffer = new QByteArray();
     infile.close();
-    if ( mAction == Encrypt ) {
+    if ( mAction == Encrypt || (mAction == Both && radioEnc->isChecked())) {
         if (! mCtx->encrypt(mKeyList->getChecked(), inBuffer, outBuffer)) return;
     }
-    if ( mAction == Decrypt )  {
+
+    if (mAction == Decrypt || (mAction == Both && radioDec->isChecked()))  {
         if (! mCtx->decrypt(inBuffer, outBuffer)) return;
-    }
-
-    if( mAction == Sign ) {
-        if(! mCtx->sign(mKeyList->getChecked(), inBuffer, outBuffer, true)) return;
-    }
-
-    if( mAction == Verify ) {
-        QFile signfile;
-        signfile.setFileName(signFileEdit->text());
-        if (!signfile.open(QIODevice::ReadOnly)) {
-            statusLabel->setText( tr("Couldn't open file"));
-            signFileEdit->setStyleSheet("QLineEdit { background: yellow }");
-            return;
-        }
-        QByteArray signBuffer = signfile.readAll();
-        new VerifyDetailsDialog(this, mCtx, mKeyList, &inBuffer, &signBuffer);
-        return;
     }
 
     QFile outfile(outputFileEdit->text());

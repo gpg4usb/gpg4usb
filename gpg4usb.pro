@@ -33,7 +33,6 @@ HEADERS += attachments.h \
     textedit.h \
     editorpage.h \
     quitdialog.h \
-    aboutdialog.h \
     keyserverimportdialog.h \
     verifynotification.h \
     verifydetailsdialog.h \
@@ -59,7 +58,6 @@ SOURCES += attachments.cpp \
     textedit.cpp \
     editorpage.cpp \
     quitdialog.cpp \
-    aboutdialog.cpp \
     keyserverimportdialog.cpp \
     verifynotification.cpp \
     verifydetailsdialog.cpp \
@@ -85,12 +83,16 @@ DEFINES += _FILE_OFFSET_BITS=64
 TRANSLATIONS = release/ts/gpg4usb_en.ts \
     release/ts/gpg4usb_de.ts \
     release/ts/gpg4usb_ru.ts \
-#    release/ts/gpg4usb_it.ts \
     release/ts/gpg4usb_pt_BR.ts \
     release/ts/gpg4usb_es.ts \
     release/ts/gpg4usb_vi.ts \
     release/ts/gpg4usb_my.ts \
 	release/ts/gpg4usb_zh.ts \
+	release/ts/gpg4usb_zh_tw.ts \
+	release/ts/gpg4usb_he.ts \
+	release/ts/gpg4usb_sv.ts \
+	release/ts/gpg4usb_pl.ts \
+	release/ts/gpg4usb_el.ts \
 	release/ts/gpg4usb_ar.ts 
 
 

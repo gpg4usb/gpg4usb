@@ -42,13 +42,6 @@ class KeyDetailsDialog : public QDialog
     Q_OBJECT
 
 public:
-    /**
-     * @details Constructor of this class
-     *
-     * @param ctx The current GpgME context
-     * @param key The key to show details of
-     * @param parent The parent of this widget
-     */
     KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWidget *parent = 0);
 
     /**

@@ -56,8 +56,6 @@ MainWindow::MainWindow()
     mKeyList->addMenuAction(appendSelectedKeysAct);
     mKeyList->addMenuAction(copyMailAddressToClipboardAct);
     mKeyList->addMenuAction(showKeyDetailsAct);
-    mKeyList->addMenuAction(refreshKeysFromKeyserverAct);
-    mKeyList->addMenuAction(uploadKeyToServerAct);
 
     restoreSettings();
 
@@ -100,8 +98,7 @@ void MainWindow::restoreSettings()
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(24, 24)).toSize();
     this->setIconSize(iconSize);
-    importButton->setIconSize(iconSize);
-    fileEncButton->setIconSize(iconSize);
+
     // set list of keyserver if not defined
     QStringList *keyServerDefaultList;
     keyServerDefaultList = new QStringList("http://pgp.mit.edu");
@@ -272,25 +269,23 @@ void MainWindow::createActions()
     decryptAct->setToolTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(decrypt()));
 
+    fileEncryptionAct = new QAction(tr("&File Encryption"), this);
+    fileEncryptionAct->setIcon(QIcon(":fileencrytion.png"));
+    fileEncryptionAct->setToolTip(tr("Encrypt/Decrypt File"));
+    connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(fileEncryption()));
+
     /*
      * File encryption submenu
      */
     fileEncryptAct = new QAction(tr("&Encrypt File"), this);
+    //fileEncryptAct->setIcon(QIcon(":fileencrytion.png"));
     fileEncryptAct->setToolTip(tr("Encrypt File"));
     connect(fileEncryptAct, SIGNAL(triggered()), this, SLOT(fileEncrypt()));
 
     fileDecryptAct = new QAction(tr("&Decrypt File"), this);
+    //fileDecryptAct->setIcon(QIcon(":fileencrytion.png"));
     fileDecryptAct->setToolTip(tr("Decrypt File"));
     connect(fileDecryptAct, SIGNAL(triggered()), this, SLOT(fileDecrypt()));
-
-    fileSignAct = new QAction(tr("&Sign File"), this);
-    fileSignAct->setToolTip(tr("Sign File"));
-    connect(fileSignAct, SIGNAL(triggered()), this, SLOT(fileSign()));
-
-    fileVerifyAct = new QAction(tr("&Verify File"), this);
-    fileVerifyAct->setToolTip(tr("Verify File"));
-    connect(fileVerifyAct, SIGNAL(triggered()), this, SLOT(fileVerify()));
-
 
     signAct = new QAction(tr("&Sign"), this);
     signAct->setIcon(QIcon(":signature.png"));
@@ -354,14 +349,6 @@ void MainWindow::createActions()
     showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
     showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
     connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(showKeyDetails()));
-
-    refreshKeysFromKeyserverAct = new QAction(tr("Refresh key from keyserver"), this);
-    refreshKeysFromKeyserverAct->setToolTip(tr("Refresh key from default keyserver"));
-    connect(refreshKeysFromKeyserverAct, SIGNAL(triggered()), this, SLOT(refreshKeysFromKeyserver()));
-
-    uploadKeyToServerAct = new QAction(tr("Upload Key(s) To Server"), this);
-    uploadKeyToServerAct->setToolTip(tr("Upload The Selected Keys To Server"));
-    connect(uploadKeyToServerAct, SIGNAL(triggered()), this, SLOT(uploadKeyToServer()));
 
     /* Key-Shortcuts for Tab-Switchung-Action
      */
@@ -448,12 +435,6 @@ void MainWindow::createMenus()
     editMenu->addSeparator();
     editMenu->addAction(openSettingsAct);
 
-    fileEncMenu = new QMenu(tr("&File..."));
-    fileEncMenu->addAction(fileEncryptAct);
-    fileEncMenu->addAction(fileDecryptAct);
-    fileEncMenu->addAction(fileSignAct);
-    fileEncMenu->addAction(fileVerifyAct);
-
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
@@ -461,7 +442,8 @@ void MainWindow::createMenus()
     cryptMenu->addAction(signAct);
     cryptMenu->addAction(verifyAct);
     cryptMenu->addSeparator();
-    cryptMenu->addMenu(fileEncMenu);
+    cryptMenu->addAction(fileEncryptAct);
+    cryptMenu->addAction(fileDecryptAct);
 
     keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
@@ -511,6 +493,7 @@ void MainWindow::createToolBars()
     cryptToolBar->addAction(decryptAct);
     cryptToolBar->addAction(signAct);
     cryptToolBar->addAction(verifyAct);
+    //cryptToolBar->addAction(fileEncryptionAct);
     viewMenu->addAction(cryptToolBar->toggleViewAction());
 
     keyToolBar = addToolBar(tr("Key"));
@@ -542,6 +525,9 @@ void MainWindow::createToolBars()
 
     // Add dropdown menu for file encryption/decryption to crypttoolbar
     fileEncButton = new QToolButton();
+    QMenu* fileEncMenu = new QMenu();
+    fileEncMenu->addAction(fileEncryptAct);
+    fileEncMenu->addAction(fileDecryptAct);
     fileEncButton->setMenu(fileEncMenu);
     fileEncButton->setPopupMode(QToolButton::InstantPopup);
     fileEncButton->setIcon(QIcon(":fileencryption.png"));
@@ -630,7 +616,45 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::about()
 {
-    new AboutDialog(this);
+    QPixmap *pixmap = new QPixmap(":gpg4usb-logo.png");
+    QString *title = new QString(tr("About") +" "+ qApp->applicationName());
+    QString *text = new QString("<center><h2>" + qApp->applicationName() + " "
+                                + qApp->applicationVersion() + "</h2></center>"
+                                + tr("<center>This application allows simple encryption <br>"
+                                     "and decryption of text messages or files.<br>"
+                                     "It's licensed under the GPL v3<br><br>"
+                                     "<b>Developer:</b><br>"
+                                     "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
+                                     "<b>Translation:</b><br>"
+                                     "Ahmad (ar), Alessandro (pt_br), Åke (sv),<br/>Elad (he), George (el), Jedi Lin (zh_tw),<br/>Kirill (ru), Marek Bogacz (pl), Phol (es),<br/>Russell (my), Serse (it), Tom (vi),<br/>Toughworm(zh), Viriato (es)"
+                                     "<br><br>"
+                                     "If you have any questions or suggestions have a look<br/>"
+                                     "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"
+                                     "contact page</a> or send a mail to our<br/> mailing list at"
+                                     " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>.")
+                                + tr("<br><br> Built with Qt ") + qVersion()
+                                + tr(" and GPGME ") + GpgME::GpgContext::getGpgmeVersion() +"</center>");
+
+    QDialog *dialog = new QDialog(this);
+    dialog->setWindowTitle(*title);
+    QPushButton *closeButton = new QPushButton(tr("&Close"));
+    connect(closeButton, SIGNAL(clicked()), dialog, SLOT(close()));
+
+    QGridLayout *layout = new QGridLayout(dialog);
+    QLabel *pixmapLabel = new QLabel();
+    pixmapLabel->setPixmap(*pixmap);
+    layout->addWidget(pixmapLabel, 0, 0, 1, -1, Qt::AlignCenter);
+    QLabel *aboutLabel = new QLabel();
+    aboutLabel->setText(*text);
+    aboutLabel->setOpenExternalLinks(true);
+    layout->addWidget(aboutLabel, 1, 0, 1, -1);
+    layout->addItem(new QSpacerItem(20, 10, QSizePolicy::Minimum,
+                                    QSizePolicy::Fixed), 2, 1, 1, 1);
+    layout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding), 3, 0, 1, 1);
+    layout->addWidget(closeButton, 3, 1, 1, 1);
+    layout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding), 3, 2, 1, 1);
+
+    dialog->exec();
 }
 
 void MainWindow::openTranslate()
@@ -868,64 +892,36 @@ void MainWindow::showKeyDetails()
     }
 }
 
-void MainWindow::refreshKeysFromKeyserver()
+void MainWindow::fileEncryption()
 {
-    if (mKeyList->getSelected()->isEmpty()) {
-        return;
-    }
-
-    KeyServerImportDialog *ksid = new KeyServerImportDialog(mCtx,mKeyList,this);
-    ksid->import(*mKeyList->getSelected());
-}
-
-void MainWindow::uploadKeyToServer()
-{
-    QByteArray *keyArray = new QByteArray();
-    mCtx->exportKeys(mKeyList->getSelected(), keyArray);
-
-    mKeyList->uploadKeyToServer(keyArray);
+        QStringList *keyList;
+        keyList = mKeyList->getChecked();
+        new FileEncryptionDialog(mCtx, *keyList, this);
 }
 
 void MainWindow::fileEncrypt()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Encrypt, this);
+        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Encrypt);
 }
 
 void MainWindow::fileDecrypt()
 {
         QStringList *keyList;
         keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Decrypt, this);
-}
-
-void MainWindow::fileSign()
-{
-        QStringList *keyList;
-        keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Sign, this);
-}
-
-void MainWindow::fileVerify()
-{
-        QStringList *keyList;
-        keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, FileEncryptionDialog::Verify, this);
+        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Decrypt);
 }
 
 void MainWindow::openSettingsDialog()
 {
 
     QString preLang = settings.value("int/lang").toString();
-    QString preKeydbPath = settings.value("gpgpaths/keydbpath").toString();
 
     new SettingsDialog(this);
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     this->setIconSize(iconSize);
-    importButton->setIconSize(iconSize);
-    fileEncButton->setIconSize(iconSize);
 
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
@@ -940,8 +936,8 @@ void MainWindow::openSettingsDialog()
         closeAttachmentDock();
     }
 
-    // restart mainwindow if langugage or keydbpath changed
-    if((preLang != settings.value("int/lang").toString()) || preKeydbPath != settings.value("gpgpaths/keydbpath").toString()) {
+    // restart mainwindow if langugage changed
+    if(preLang != settings.value("int/lang").toString()) {
         if(edit->maybeSaveAnyTab()) {
             saveSettings();
             qApp->exit(RESTART_CODE);

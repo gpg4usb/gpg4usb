@@ -67,22 +67,11 @@ GpgContext::GpgContext()
      * also lin/win must  be checked, for calling gpg.exe if needed
      */
 #ifdef _WIN32
-    QString gpgBin = appPath + "/bin/gpg.exe";
+    gpgBin = appPath + "/bin/gpg.exe";
 #else
-    QString gpgBin = appPath + "/bin/gpg";
+    gpgBin = appPath + "/bin/gpg";
 #endif
-
-    QSettings settings;
-    QString accKeydbPath = settings.value("gpgpaths/keydbpath").toString();
-    QString gpgKeys = appPath + "/keydb/"+accKeydbPath;
-
-    if (accKeydbPath != "") {
-        if (!QDir(gpgKeys).exists()) {
-            QMessageBox::critical(0,tr("keydb path"),tr("Didn't find keydb directory. Switching to gpg4usb's default keydb directory for this session."));
-            gpgKeys = appPath + "/keydb";
-        }
-    }
-
+    gpgKeys = appPath + "/keydb";
     /*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
                                         gpgBin.toUtf8().constData(),
                                         gpgKeys.toUtf8().constData());*/
@@ -92,14 +81,6 @@ GpgContext::GpgContext()
                                     gpgKeys.toLocal8Bit().constData());
     checkErr(err);
 #endif
-    gpgme_engine_info_t engineInfo;
-    engineInfo = gpgme_ctx_get_engine_info(mCtx);
-
-
-    while (engineInfo !=NULL ) {
-        qDebug() << gpgme_get_protocol_name(engineInfo->protocol);
-        engineInfo=engineInfo->next;
-    }
 
     /** Setting the output type must be done at the beginning */
     /** think this means ascii-armor --> ? */
@@ -578,6 +559,7 @@ QString GpgContext::gpgErrString(gpgme_error_t err) {
 
 void GpgContext::exportSecretKey(QString uid, QByteArray *outBuffer)
 {
+    qDebug() << *outBuffer;
     // export private key to outBuffer
     QStringList arguments;
     arguments << "--armor" << "--export-secret-key" << uid;
@@ -595,28 +577,28 @@ void GpgContext::exportSecretKey(QString uid, QByteArray *outBuffer)
 /** return type should be gpgme_error_t*/
 void GpgContext::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByteArray *stdErr)
 {
-    gpgme_engine_info_t engine = gpgme_ctx_get_engine_info(mCtx);
-
     QStringList args;
-    args << "--homedir" << engine->home_dir << "--batch" << arguments;
+    args << "--homedir" << gpgKeys << "--batch" << arguments;
 
+    qDebug() << args;
     QProcess gpg;
-    gpg.start(engine->file_name, args);
+  //  qDebug() << "engine->file_name" << engine->file_name;
+
+    gpg.start(gpgBin, args);
     gpg.waitForFinished();
 
     *stdOut = gpg.readAllStandardOutput();
     *stdErr = gpg.readAllStandardError();
+    qDebug() << *stdOut;
 }
 
 /***
-  * if sigbuffer not set, the inbuffer should contain signed text
-  *
   * TODO: return type should contain:
   * -> list of sigs
   * -> valid
   * -> errors
   */
-gpgme_signature_t GpgContext::verify(QByteArray *inBuffer, QByteArray *sigBuffer) {
+gpgme_signature_t GpgContext::verify(QByteArray inBuffer) {
 
     int error=0;
     gpgme_data_t in;
@@ -624,16 +606,10 @@ gpgme_signature_t GpgContext::verify(QByteArray *inBuffer, QByteArray *sigBuffer
     gpgme_signature_t sign;
     gpgme_verify_result_t result;
 
-    err = gpgme_data_new_from_mem(&in, inBuffer->data(), inBuffer->size(), 1);
+    err = gpgme_data_new_from_mem(&in, inBuffer.data(), inBuffer.size(), 1);
     checkErr(err);
 
-    if (sigBuffer != NULL ) {
-       gpgme_data_t sigdata;
-       err = gpgme_data_new_from_mem(&sigdata, sigBuffer->data(), sigBuffer->size(), 1);
-       err = gpgme_op_verify (mCtx, sigdata, in, NULL);
-    } else {
-       err = gpgme_op_verify (mCtx, in, NULL, in);
-    }
+    err = gpgme_op_verify (mCtx, in, NULL, in);
     error = checkErr(err);
 
     if (error != 0) {
@@ -666,12 +642,11 @@ gpgme_signature_t GpgContext::verify(QByteArray *inBuffer, QByteArray *sigBuffer
  */
 //}
 
-bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer, bool detached ) {
+bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {
 
     gpgme_error_t err;
     gpgme_data_t in, out;
     gpgme_sign_result_t result;
-    gpgme_sig_mode_t mode;
 
     if (uidList->count() == 0) {
         QMessageBox::critical(0, tr("Key Selection"), tr("No Private Key Selected"));
@@ -714,13 +689,7 @@ bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArr
                mode settings of the context are ignored.
      */
 
-     if(detached) {
-        mode =  GPGME_SIG_MODE_DETACH;
-     } else {
-        mode = GPGME_SIG_MODE_CLEAR;
-     }
-
-     err = gpgme_op_sign (mCtx, in, out, mode);
+     err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_CLEAR);
      checkErr (err);
 
      if (err == GPG_ERR_CANCELED) {
@@ -738,6 +707,10 @@ bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArr
 
      gpgme_data_release(in);
      gpgme_data_release(out);
+
+     if (! settings.value("general/rememberPassword").toBool()) {
+         clearPasswordCache();
+     }
 
      return (err == GPG_ERR_NO_ERROR);
 }

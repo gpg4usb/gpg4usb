@@ -47,7 +47,5 @@
         <file alias="mimetypes/image-x-generic.png">release/icons/mimetypes/image-x-generic.png</file>
         <file alias="mimetypes/text-plain.png">release/icons/mimetypes/text-plain.png</file>
         <file alias="mimetypes/unknown.png">release/icons/mimetypes/unknown.png</file>
-        <file alias="button_trash.png">release/icons/button_trash.png</file>
-        <file alias="button_plus.png">release/icons/button_plus.png</file>
     </qresource>
 </RCC>

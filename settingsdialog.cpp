@@ -30,13 +30,11 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mimeTab = new MimeTab;
     keyserverTab = new KeyserverTab;
     advancedTab = new AdvancedTab;
-    gpgPathsTab = new GpgPathsTab;
 
     tabWidget->addTab(generalTab, tr("General"));
     tabWidget->addTab(appearanceTab, tr("Appearance"));
     tabWidget->addTab(mimeTab, tr("PGP/Mime"));
     tabWidget->addTab(keyserverTab, tr("Keyserver"));
-    tabWidget->addTab(gpgPathsTab, tr("Gpg paths"));
     tabWidget->addTab(advancedTab, tr("Advanced"));
 
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
@@ -62,7 +60,6 @@ void SettingsDialog::accept()
     appearanceTab->applySettings();
     keyserverTab->applySettings();
     advancedTab->applySettings();
-    gpgPathsTab->applySettings();
     close();
 }
 
@@ -142,7 +139,6 @@ GeneralTab::GeneralTab(QWidget *parent)
     }
 
     langBoxLayout->addWidget(langSelectBox);
-    langBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the language!")));
     langBox->setLayout(langBoxLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -396,6 +392,7 @@ void AppearanceTab::applySettings()
     case 3:settings.setValue("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon);
         break;
     }
+
     settings.setValue("window/windowSave", windowSizeCheckBox->isChecked());
 }
 
@@ -404,40 +401,21 @@ KeyserverTab::KeyserverTab(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    QWidget *keyServerBox = new QWidget(this);
-    QHBoxLayout *keyServerBoxLayout = new QHBoxLayout(keyServerBox);
-
+    label = new QLabel(tr("Default Keyserver for import:"));
     comboBox = new QComboBox;
-    comboBox->setEditable(false);
+    comboBox->setEditable(true);
     comboBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
-    // button for removing currently chosen keyserver
-    QIcon ico(":button_trash.png");
-    QPushButton *removeKeyServerButton = new QPushButton(QIcon(ico.pixmap(24, 24)), "");
-    removeKeyServerButton->setToolTip(tr("remove currently selected server from list"));
-    connect(removeKeyServerButton,SIGNAL(clicked()), this, SLOT(removeKeyServer()));
-
-    QIcon ico2(":button_plus.png");
-    QPushButton *addKeyServerButton = new QPushButton(QIcon(ico2.pixmap(24, 24)), "");
-    addKeyServerButton->setToolTip(tr("Add new keyserver to list"));
-    connect(addKeyServerButton,SIGNAL(clicked()), this, SLOT(addKeyServer()));
-
-    keyServerBoxLayout->addWidget(comboBox);
-    keyServerBoxLayout->addWidget(removeKeyServerButton);
-    keyServerBoxLayout->addWidget(addKeyServerButton);
-    keyServerBoxLayout->addStretch(1);
-
-    /*
-     * add everything to the mainlayout
-     */
-    mainLayout->addWidget(new QLabel(tr("Default keyserver:")));
-    mainLayout->addWidget(keyServerBox);
+    mainLayout->addWidget(label);
+    mainLayout->addWidget(comboBox);
     mainLayout->addStretch(1);
 
     // Read keylist from ini-file and fill it into combobox
+    QSettings settings;
+    comboBox->addItems(settings.value("keyserver/keyServerList").toStringList());
     setSettings();
-    connect(comboBox, SIGNAL(editTextChanged(QString)), this, SLOT(editTextChangedAction()));
 }
+
 
 /**********************************
  * Read the settings from config
@@ -447,9 +425,8 @@ KeyserverTab::KeyserverTab(QWidget *parent)
 void KeyserverTab::setSettings()
 {
     QSettings settings;
-    QString defKeyserver = settings.value("keyserver/defaultKeyServer").toString();
-    comboBox->addItems(settings.value("keyserver/keyServerList").toStringList());
-    comboBox->setCurrentIndex(comboBox->findText(defKeyserver));
+    QString keyserver = settings.value("keyserver/defaultKeyServer").toString();
+    comboBox->setCurrentIndex(comboBox->findText(keyserver));
 }
 
 /***********************************
@@ -460,33 +437,6 @@ void KeyserverTab::applySettings()
 {
     QSettings settings;
     settings.setValue("keyserver/defaultKeyServer",comboBox->currentText());
-    QStringList *keyServerList = new QStringList();
-    for(int i=0; i < comboBox->count(); i++) {
-        keyServerList->append(comboBox->itemText(i));
-    }
-    settings.setValue("keyserver/keyServerList", *keyServerList);
-}
-
-/***********************************
-  * add the keyserver from the
-  * qlineedit to the keyserverlist
-  *************************************/
-void KeyserverTab::addKeyServer()
-{
-    comboBox->addItem("http://");
-    comboBox->setEditable(true);
-    comboBox->setCurrentIndex(comboBox->count()-1);
-    comboBox->setFocus();
-}
-
-void KeyserverTab::editTextChangedAction()
-{
-    comboBox->setItemText(comboBox->currentIndex(),comboBox->currentText());
-}
-
-void KeyserverTab::removeKeyServer()
-{
-    comboBox->removeItem(comboBox->currentIndex());
 }
 
 AdvancedTab::AdvancedTab(QWidget *parent)
@@ -521,81 +471,4 @@ void AdvancedTab::applySettings()
 {
     QSettings settings;
     settings.setValue("advanced/steganography", steganoCheckBox->isChecked());
-}
-
-GpgPathsTab::GpgPathsTab(QWidget *parent)
-    : QWidget(parent)
-{
-    setSettings();
-
-    /*****************************************
-     * Keydb Box
-     *****************************************/
-    QGroupBox *keydbBox = new QGroupBox(tr("Relative path to keydb"));
-    QGridLayout *keydbBoxLayout = new QGridLayout();
-
-    // Label containing the current keydbpath relative to default keydb path
-    keydbLabel = new QLabel(accKeydbPath,this);
-
-    QPushButton *keydbButton = new QPushButton("Change keydb path",this);
-    connect(keydbButton, SIGNAL(clicked()), this, SLOT(chooseKeydbDir()));
-    QPushButton *keydbDefaultButton = new QPushButton("Set keydb to default path",this);
-    connect(keydbDefaultButton, SIGNAL(clicked()), this, SLOT(setKeydbPathToDefault()));
-
-    keydbBox->setLayout(keydbBoxLayout);
-    keydbBoxLayout->addWidget(new QLabel(tr("Current keydb path: ")),1,1);
-    keydbBoxLayout->addWidget(keydbLabel,1,2);
-    keydbBoxLayout->addWidget(keydbButton,1,3);
-    keydbBoxLayout->addWidget(keydbDefaultButton,2,3);
-    keydbBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the keydb path!")),3,1,1,3);
-
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(keydbBox);
-    mainLayout->addStretch(1);
-    setLayout(mainLayout);
-}
-
-QString GpgPathsTab::getRelativePath(const QString dir1,const QString dir2)
-{
-    QDir dir(dir1);
-    QString s;
-
-    s = dir.relativeFilePath(dir2);
-    qDebug() << "relative path: " << s;
-    if (s.isEmpty()) {
-        s = ".";
-    }
-    return s;
-}
-
-void GpgPathsTab::setKeydbPathToDefault()
-{
-    accKeydbPath = ".";
-    keydbLabel->setText(".");
-}
-
-QString GpgPathsTab::chooseKeydbDir()
-{
-    QString dir = QFileDialog::getExistingDirectory(this,tr ("Choose keydb directory"),accKeydbPath,QFileDialog::ShowDirsOnly);
-
-    accKeydbPath = getRelativePath(defKeydbPath, dir);
-    keydbLabel->setText(accKeydbPath);
-    return "";
-}
-
-void GpgPathsTab::setSettings()
-{
-    defKeydbPath = qApp->applicationDirPath() + "/keydb";
-
-    QSettings settings;
-    accKeydbPath = settings.value("gpgpaths/keydbpath").toString();
-    if (accKeydbPath.isEmpty()) {
-        accKeydbPath = ".";
-    }
-}
-
-void GpgPathsTab::applySettings()
-{
-    QSettings settings;
-    settings.setValue("gpgpaths/keydbpath",accKeydbPath);
 }

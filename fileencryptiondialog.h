@@ -24,7 +24,6 @@
 
 #include "gpgcontext.h"
 #include "keylist.h"
-#include "verifydetailsdialog.h"
 
 QT_BEGIN_NAMESPACE
 class QDialog;
@@ -37,6 +36,7 @@ class QHBoxLayout;
 class QVBoxLayout;
 class QDebug;
 class QFileDialog;
+class QRadioButton;
 QT_END_NAMESPACE
 
 /**
@@ -53,8 +53,7 @@ public:
     enum DialogAction {
         Encrypt,
         Decrypt,
-        Sign,
-        Verify
+        Both
     };
 
     /**
@@ -65,7 +64,7 @@ public:
      * @param keyList
      * @param parent
      */
-    FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList,  DialogAction action, QWidget *parent = 0);
+    FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList keyList, QWidget *parent = 0, DialogAction action = Both);
 
 public slots:
     /**
@@ -80,12 +79,6 @@ public slots:
      * @fn selectOutputFile
      */
     void selectOutputFile();
-    /**
-     * @brief
-     *
-     * @fn selectSignFile
-     */
-    void selectSignFile();
     /**
      * @brief
      *
@@ -108,9 +101,9 @@ public slots:
 private:
     QLineEdit *outputFileEdit; /**< TODO */
     QLineEdit *inputFileEdit; /**< TODO */
-    QLineEdit *signFileEdit; /**< TODO */
+    QRadioButton *radioEnc; /**< TODO */
+    QRadioButton *radioDec; /**< TODO */
     DialogAction mAction; /**< TODO */
-    QLabel *statusLabel; /**< TODO */
 protected:
     GpgME::GpgContext *mCtx; /**< TODO */
     KeyList *mKeyList; /**< TODO */

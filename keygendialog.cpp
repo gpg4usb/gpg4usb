@@ -27,6 +27,7 @@ KeyGenDialog::KeyGenDialog(GpgME::GpgContext *ctx, QWidget *parent)
 {
     mCtx = ctx;
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+
     this->setWindowTitle(tr("Generate Key"));
     this->setModal(true);
     generateKeyDialog();
@@ -40,24 +41,19 @@ void KeyGenDialog::generateKeyDialog()
     commentEdit = new QLineEdit(this);
 
     keySizeSpinBox = new QSpinBox(this);
-    keySizeSpinBox->setRange(768, 16384);
+    keySizeSpinBox->setRange(1024, 4096);
     keySizeSpinBox->setValue(2048);
-    this->lastKeySize=2048;
 
-    keySizeSpinBox->setSingleStep(256);
+    keySizeSpinBox->setSingleStep(1024);
 
-    keyTypeComboBox = new QComboBox(this);
-    keyTypeComboBox->addItem("DSA/Elgamal");
-    keyTypeComboBox->addItem("RSA");
-    keyTypeComboBox->setCurrentIndex(0);
     dateEdit = new QDateEdit(QDate::currentDate().addYears(5), this);
     dateEdit->setMinimumDate(QDate::currentDate());
     dateEdit->setDisplayFormat("dd/MM/yyyy");
     dateEdit->setCalendarPopup(true);
-    dateEdit->setEnabled(false);
+    dateEdit->setEnabled(true);
 
     expireCheckBox = new QCheckBox(this);
-    expireCheckBox->setCheckState(Qt::Checked);
+    expireCheckBox->setCheckState(Qt::Unchecked);
 
     passwordEdit = new QLineEdit(this);
     repeatpwEdit = new QLineEdit(this);
@@ -80,10 +76,9 @@ void KeyGenDialog::generateKeyDialog()
     vbox1->addWidget(new QLabel(tr("Expiration Date:")), 3, 0);
     vbox1->addWidget(new QLabel(tr("Never Expire")), 3, 3);
     vbox1->addWidget(new QLabel(tr("KeySize (in Bit):")), 4, 0);
-    vbox1->addWidget(new QLabel(tr("Key Type:")), 5, 0);
-    vbox1->addWidget(new QLabel(tr("Password:")), 6, 0);
-    vbox1->addWidget(new QLabel(tr("Password: Strength\nWeak -> Strong")), 6, 3);
-    vbox1->addWidget(new QLabel(tr("Repeat Password:")), 7, 0);
+    vbox1->addWidget(new QLabel(tr("Password:")), 5, 0);
+    vbox1->addWidget(new QLabel(tr("Password: Strength\nWeak -> Strong")), 5, 3);
+    vbox1->addWidget(new QLabel(tr("Repeat Password:")), 6, 0);
 
     vbox1->addWidget(nameEdit, 0, 1);
     vbox1->addWidget(emailEdit, 1, 1);
@@ -91,10 +86,9 @@ void KeyGenDialog::generateKeyDialog()
     vbox1->addWidget(dateEdit, 3, 1);
     vbox1->addWidget(expireCheckBox, 3, 2);
     vbox1->addWidget(keySizeSpinBox, 4, 1);
-    vbox1->addWidget(keyTypeComboBox,5, 1);
-    vbox1->addWidget(passwordEdit, 6, 1);
-    vbox1->addWidget(repeatpwEdit, 7, 1);
-    vbox1->addWidget(pwStrengthSlider, 7, 3);
+    vbox1->addWidget(passwordEdit, 5, 1);
+    vbox1->addWidget(repeatpwEdit, 6, 1);
+    vbox1->addWidget(pwStrengthSlider, 6, 3);
 
     QWidget *nameList = new QWidget(this);
     nameList->setLayout(vbox1);
@@ -109,8 +103,6 @@ void KeyGenDialog::generateKeyDialog()
 
     connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
     connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
-    connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(keyTypeChanged()));
-    connect(keySizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(keySizeChanged()));
     this->setLayout(vbox2);
 }
 
@@ -132,23 +124,14 @@ void KeyGenDialog::keyGenAccept()
         /**
          * create the string for key generation
          */
+        keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
+                       "Key-Type: RSA\n"
+                       "Key-Usage: sign\n"
+                       "Key-Length: " + keySizeSpinBox->cleanText() + "\n"
+                       "Subkey-Type: RSA\n"
+                       "Subkey-Length: " + keySizeSpinBox->cleanText() + "\n"
+                       "Subkey-Usage: encrypt\n";
 
-        if (keyTypeComboBox->currentText() == "RSA") {
-            keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
-                           "Key-Type: RSA\n"
-                           "Key-Usage: sign\n"
-                           "Key-Length: " + keySizeSpinBox->cleanText() + "\n"
-                           "Subkey-Type: RSA\n"
-                           "Subkey-Length: " + keySizeSpinBox->cleanText() + "\n"
-                           "Subkey-Usage: encrypt\n";
-        } else {
-            keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
-                           "Key-Type: DSA\n"
-                           "Key-Length: " + keySizeSpinBox->cleanText() + "\n"
-                           "Subkey-Type: ELG-E\n"
-                           "Subkey-Length: "
-                           + keySizeSpinBox->cleanText() + "\n";
-       }
         keyGenParams += "Name-Real: " + nameEdit->text().toUtf8() + "\n";
         if (!(commentEdit->text().isEmpty())) {
             keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
@@ -219,25 +202,6 @@ void KeyGenDialog::passwordEditChanged()
 {
     pwStrengthSlider->setValue(checkPassWordStrength());
     update();
-}
-void KeyGenDialog::keySizeChanged()
-{
-    if (keySizeSpinBox->value() > 2048 && lastKeySize <=2048) {
-        QMessageBox::warning(this, tr("Key size warning"),
-                             tr("You've set the keysize to more than 2048 bits. This setting is for advanced users only. The key generation may take a very, very long time."));
-    }
-    lastKeySize=keySizeSpinBox->value();
-}
-
-void KeyGenDialog::keyTypeChanged()
-{
-    if (keyTypeComboBox->currentText() == "RSA") {
-        keySizeSpinBox->setMaximum(16384);
-        keySizeSpinBox->setMinimum(1024);
-    } else {
-        keySizeSpinBox->setMaximum(16384);
-        keySizeSpinBox->setMinimum(768);
-    }
 }
 
 int KeyGenDialog::checkPassWordStrength()

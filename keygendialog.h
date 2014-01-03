@@ -61,11 +61,10 @@ private:
     QLineEdit *passwordEdit; /** Lineedit for the keys password */
     QLineEdit *repeatpwEdit; /** Lineedit for the repetition of the keys password */
     QSpinBox *keySizeSpinBox; /** Spinbox for the keys size (in bit) */
-    QComboBox *keyTypeComboBox; /** Combobox for Keytpe */
     QDateTimeEdit *dateEdit; /** Dateedit for expiration date */
     QCheckBox *expireCheckBox; /** Checkbox, if key should expire */
     QSlider *pwStrengthSlider; /** Slider showing the password strength */
-    int lastKeySize; /** integer to remember to last selected keysize (only display warning first tim above 2048)*/
+
 private slots:
     /**
      * @details when expirebox was checked/unchecked, enable/disable the expiration date box
@@ -76,16 +75,6 @@ private slots:
      * @details When passwordedit changed, set new value for password strength slider
      */
     void passwordEditChanged();
-
-    /**
-     * @details When keysize changed, show message, when too large
-     */
-    void keySizeChanged();
-
-    /**
-     * @details When passwordedit changed, set keysize appropriately
-     */
-    void keyTypeChanged();
 
     /**
      * @details check all lineedits for false entries. Show error, when there is one, otherwise generate the key

@@ -66,7 +66,7 @@ KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QWidget *parent )  : QMainWindow(parent
 void KeyMgmt::createActions()
 {
     closeAct = new QAction(tr("&Close Key Management"), this);
-    closeAct->setShortcut(QKeySequence::Quit);
+    closeAct->setShortcut(tr("Ctrl+Q"));
     closeAct->setIcon(QIcon(":exit.png"));
     closeAct->setToolTip(tr("Close Key Management"));
     connect(closeAct, SIGNAL(triggered()), this, SLOT(close()));
@@ -219,8 +219,8 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
     }
 
     int ret = QMessageBox::warning(this, tr("Deleting Keys"),
-                                    "<b>"+tr("Are you sure that you want to delete the following keys?")+"</b><br/><br/>"+keynames+
-                                    +"<br/>"+tr("The action can not be undone."),
+                                    tr("<b>Are you sure that you want to delete the following keys?.</b><br/><br/>")+keynames+
+                                    tr("<br/>The action can not be undone."),
                                     QMessageBox::No | QMessageBox::Yes);
 
     if (ret == QMessageBox::Yes) {
