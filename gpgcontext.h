@@ -175,7 +175,8 @@ private:
     void executeGpgCommand(QStringList arguments,
                            QByteArray *stdOut,
                            QByteArray *stdErr);
-
+    QString gpgBin;
+    QString gpgKeys;
 };
 } // namespace GpgME
 

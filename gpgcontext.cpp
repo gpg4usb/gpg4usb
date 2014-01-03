@@ -67,11 +67,11 @@ GpgContext::GpgContext()
      * also lin/win must  be checked, for calling gpg.exe if needed
      */
 #ifdef _WIN32
-    QString gpgBin = appPath + "/bin/gpg.exe";
+    gpgBin = appPath + "/bin/gpg.exe";
 #else
-    QString gpgBin = appPath + "/bin/gpg";
+    gpgBin = appPath + "/bin/gpg";
 #endif
-    QString gpgKeys = appPath + "/keydb";
+    gpgKeys = appPath + "/keydb";
     /*    err = gpgme_ctx_set_engine_info(mCtx, GPGME_PROTOCOL_OpenPGP,
                                         gpgBin.toUtf8().constData(),
                                         gpgKeys.toUtf8().constData());*/
@@ -559,6 +559,7 @@ QString GpgContext::gpgErrString(gpgme_error_t err) {
 
 void GpgContext::exportSecretKey(QString uid, QByteArray *outBuffer)
 {
+    qDebug() << *outBuffer;
     // export private key to outBuffer
     QStringList arguments;
     arguments << "--armor" << "--export-secret-key" << uid;
@@ -576,17 +577,19 @@ void GpgContext::exportSecretKey(QString uid, QByteArray *outBuffer)
 /** return type should be gpgme_error_t*/
 void GpgContext::executeGpgCommand(QStringList arguments, QByteArray *stdOut, QByteArray *stdErr)
 {
-    gpgme_engine_info_t engine = gpgme_ctx_get_engine_info(mCtx);
-
     QStringList args;
-    args << "--homedir" << engine->home_dir << "--batch" << arguments;
+    args << "--homedir" << gpgKeys << "--batch" << arguments;
 
+    qDebug() << args;
     QProcess gpg;
-    gpg.start(engine->file_name, args);
+  //  qDebug() << "engine->file_name" << engine->file_name;
+
+    gpg.start(gpgBin, args);
     gpg.waitForFinished();
 
     *stdOut = gpg.readAllStandardOutput();
     *stdErr = gpg.readAllStandardError();
+    qDebug() << *stdOut;
 }
 
 /***
