@@ -1284,11 +1284,11 @@ gpg4usb intentara ahora importar la(s) llave(s).</translation>
     </message>
     <message>
         <source>About </source>
-        <translation>Acerca de&apos;</translation>
+        <translation type="obsolete">Acerca de&apos;</translation>
     </message>
     <message>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Este programa permite un fácil cifrado &lt;br&gt;y descifrado de mensajes de texto o archivos.&lt;br&gt;Esta licenciada para GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Desarrollador:&lt;/b&gt;&lt;br&gt;Bene Heimer, Jurgen Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traducción:&lt;b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br), Krill (ru), Tom (vi),&lt;br&gt;Chen (zh), Ahmad (ar)&lt;br&gt;&lt;br&gt;Si tiene alguna pregunta o sugerencia diríjase&lt;br/&gt;a nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;página de contacto&lt;a/&gt;o envíe un correo a nuestra&lt;br/&gt; lista de correos en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;a/&gt;.</translation>
+        <translation type="obsolete">&lt;center&gt;Este programa permite un fácil cifrado &lt;br&gt;y descifrado de mensajes de texto o archivos.&lt;br&gt;Esta licenciada para GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Desarrollador:&lt;/b&gt;&lt;br&gt;Bene Heimer, Jurgen Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traducción:&lt;b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;Si tiene alguna pregunta o sugerencia diríjase&lt;br/&gt;a nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;página de contacto&lt;a/&gt;o envíe un correo a nuestra&lt;br/&gt; lista de correos en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;a/&gt;.</translation>
     </message>
     <message>
         <source>&lt;br&gt;&lt;br&gt; Built with Qt </source>
@@ -1325,6 +1325,14 @@ gpg4usb intentara ahora importar la(s) llave(s).</translation>
     <message>
         <source>File..</source>
         <translation>Archivo..</translation>
+    </message>
+    <message>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation>&lt;center&gt;Este programa permite un fácil cifrado &lt;br&gt;y descifrado de mensajes de texto o archivos.&lt;br&gt;Esta licenciada para GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Desarrollador:&lt;/b&gt;&lt;br&gt;Bene Heimer, Jurgen Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traducción:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;Si tiene alguna pregunta o sugerencia diríjase&lt;br/&gt;a nuestra &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;página de contacto&lt;a/&gt;o envíe un correo a nuestra&lt;br/&gt; lista de correos en &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;a/&gt;.</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>Acerca de&apos;</translation>
     </message>
 </context>
 <context>

@@ -1533,6 +1533,16 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>&amp;Steganografie</translation>
     </message>
     <message>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <source>About</source>
+        <translation>Über</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="623"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation>&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;schauen Sie auf unsere&lt;br&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Kontaktseite&lt;/a&gt; &lt;br&gt;oder senden Sie eine Email an unsere Mailingliste&lt;br&gt;unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
         <location filename="../../mainwindow.cpp" line="365"/>
         <source>Remove PGP Header</source>
         <translation>Entferne PGP Header</translation>
@@ -1613,14 +1623,12 @@ Beschleunugen(z.B. Internet-surfen, Musik hören, ...)</translation>
         <translation>Angehängte Dateien:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
-        <translation>Über</translation>
+        <translation type="obsolete">Über</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi),&lt;br&gt;Chen (zh), Ahmad (ar)&lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;schauen Sie auf unsere&lt;br&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Kontaktseite&lt;/a&gt; &lt;br&gt;oder senden Sie eine Email an unsere Mailingliste&lt;br&gt;unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation type="obsolete">&lt;center&gt;Diese Anwendung erlaubt es, auf einfache &lt;br&gt;Art Texte und Dateien zu ver- und entschlüsseln. &lt;br&gt;Sie steht unter der GPL v3.0&lt;br&gt;&lt;br&gt;&lt;b&gt;Entwickler:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Übersetzung:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;Falls sie Fragen und/oder Vorschläge haben,&lt;br&gt;schauen Sie auf unsere&lt;br&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Kontaktseite&lt;/a&gt; &lt;br&gt;oder senden Sie eine Email an unsere Mailingliste&lt;br&gt;unter &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>

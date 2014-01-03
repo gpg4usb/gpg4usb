@@ -39,6 +39,9 @@ int main(int argc, char *argv[])
     // dont show icons in menus
     app.setAttribute(Qt::AA_DontShowIconsInMenus);
 
+    // unicode in source
+    QTextCodec::setCodecForTr(QTextCodec::codecForName("utf-8"));
+
     // set environment variables
     // TODO:
     //   - unsetenv on windows?

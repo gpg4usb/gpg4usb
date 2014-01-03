@@ -617,7 +617,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 void MainWindow::about()
 {
     QPixmap *pixmap = new QPixmap(":gpg4usb-logo.png");
-    QString *title = new QString(tr("About ") + qApp->applicationName());
+    QString *title = new QString(tr("About") +" "+ qApp->applicationName());
     QString *text = new QString("<center><h2>" + qApp->applicationName() + " "
                                 + qApp->applicationVersion() + "</h2></center>"
                                 + tr("<center>This application allows simple encryption <br>"
@@ -626,7 +626,7 @@ void MainWindow::about()
                                      "<b>Developer:</b><br>"
                                      "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                                      "<b>Translation:</b><br>"
-                                     "Viriato/Phol (es), <br>Serse (it), Russell (my),<br>Alessandro (pt_br),  Kirill (ru), Tom (vi)"
+                                     "Ahmad (ar), Alessandro (pt_br), Åke (sv),<br/>Elad (he), George (el), Jedi Lin (zh_tw),<br/>Kirill (ru), Marek Bogacz (pl), Phol (es),<br/>Russell (my), Serse (it), Tom (vi),<br/>Toughworm(zh), Viriato (es)"
                                      "<br><br>"
                                      "If you have any questions or suggestions have a look<br/>"
                                      "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"

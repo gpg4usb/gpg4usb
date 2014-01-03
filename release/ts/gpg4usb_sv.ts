@@ -1537,6 +1537,16 @@ Svag    -&gt;    Stark</translation>
         <translation>&amp;Steganografi</translation>
     </message>
     <message>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <source>About</source>
+        <translation>Om</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="623"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation>&lt;center&gt;Detta program tillhandahåller enkel kryptering &lt;br&gt;och dekryptering av textmeddelanden och filer.&lt;br&gt;Det är licencierat under GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Utvecklarer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Översättning:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;Har du några frågor eller förslag, kan du använda vår&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;kontaktsida&lt;/a&gt; eller skicka e-post till vår&lt;br/&gt; e-postlista. &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
         <location filename="../../mainwindow.cpp" line="365"/>
         <source>Remove PGP Header</source>
         <translation>Ta bort PGP-huvud</translation>
@@ -1617,14 +1627,12 @@ Svag    -&gt;    Stark</translation>
         <translation>Bifogade filer:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
-        <translation>Om</translation>
+        <translation type="obsolete">Om</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Detta program tillhandahåller enkel kryptering &lt;br&gt;och dekryptering av textmeddelanden och filer.&lt;br&gt;Det är licencierat under GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Utvecklarer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Översättning:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi) Åke (sv)&lt;br&gt;&lt;br&gt;Har du några frågor eller förslag, kan du använda vår&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;kontaktsida&lt;/a&gt; eller skicka e-post till vår&lt;br/&gt; e-postlista. &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation type="obsolete">&lt;center&gt;Detta program tillhandahåller enkel kryptering &lt;br&gt;och dekryptering av textmeddelanden och filer.&lt;br&gt;Det är licencierat under GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Utvecklarer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Översättning:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;Har du några frågor eller förslag, kan du använda vår&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;kontaktsida&lt;/a&gt; eller skicka e-post till vår&lt;br/&gt; e-postlista. &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>

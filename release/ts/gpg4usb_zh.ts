@@ -1311,6 +1311,16 @@ gpg4usb将尝试导入密钥.</translation>
         <translation type="unfinished">管理密钥</translation>
     </message>
     <message>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <source>About</source>
+        <translation>关于</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="623"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation>&lt;center&gt;本程序可对文字信息或是文件进行加密或是解密.&lt;br&gt;本程序遵循GPL v3授权协议.&lt;br&gt;&lt;br&gt;&lt;b&gt;开发人员:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;软件本地化:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(简体中文), Viriato (es)&lt;br&gt;&lt;br&gt;如果你有任何建议或是问题请浏览&lt;br/&gt; &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;联系方式&lt;/a&gt; 或是发电子邮件给我们&lt;br/&gt;  &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.&lt;br&gt;中文版问题可联系&lt;br/&gt;&lt;a href=&quot;mailto:toughworm@hotmail.com&quot;&gt;toughworm@hotmail.com&lt;/a&gt;</translation>
+    </message>
+    <message>
         <location filename="../../mainwindow.cpp" line="250"/>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
         <translation type="unfinished">删除两换行符如从网页邮件中复制过来的文字</translation>
@@ -1591,9 +1601,8 @@ gpg4usb将尝试导入密钥.</translation>
         <translation type="unfinished">附加文件</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation type="unfinished">&lt;center&gt;本程序可对文字信息或是文件进行加密或是解密.&lt;br&gt;本程序遵循GPL v3授权协议.&lt;br&gt;&lt;br&gt;&lt;b&gt;开发人员:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;软件本地化:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br), Kirill (ru), Tom (vi),Toughworm(简体中文)&lt;br&gt;&lt;br&gt;如果你有任何建议或是问题请浏览&lt;br/&gt; &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;联系方式&lt;/a&gt; 或是发电子邮件给我们&lt;br/&gt;  &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.&lt;br&gt;中文版问题可联系&lt;br/&gt;&lt;a href=&quot;mailto:toughworm@hotmail.com&quot;&gt;toughworm@hotmail.com&lt;/a&gt;</translation>
+        <translation type="obsolete">&lt;center&gt;本程序可对文字信息或是文件进行加密或是解密.&lt;br&gt;本程序遵循GPL v3授权协议.&lt;br&gt;&lt;br&gt;&lt;b&gt;开发人员:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;软件本地化:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(简体中文), Viriato (es)&lt;br&gt;&lt;br&gt;如果你有任何建议或是问题请浏览&lt;br/&gt; &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;联系方式&lt;/a&gt; 或是发电子邮件给我们&lt;br/&gt;  &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.&lt;br&gt;中文版问题可联系&lt;br/&gt;&lt;a href=&quot;mailto:toughworm@hotmail.com&quot;&gt;toughworm@hotmail.com&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>
@@ -1646,9 +1655,8 @@ gpg4usb将尝试导入密钥.</translation>
         <translation type="unfinished">编辑</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
-        <translation type="unfinished">关于</translation>
+        <translation type="obsolete">关于</translation>
     </message>
 </context>
 <context>

@@ -1538,6 +1538,16 @@ Weak -&gt; Strong</source>
         <translation>資訊偽裝 (&amp;S)</translation>
     </message>
     <message>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <source>About</source>
+        <translation>關於 </translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="623"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation>&lt;center&gt;本應用程式讓你能夠輕鬆地對文字訊息和檔案&lt;br&gt;予以加密和解密。&lt;br&gt;本程式係採用 GPL v3 授權&lt;br&gt;&lt;br&gt;&lt;b&gt;開發者:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;正體中文翻譯:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;如果你有任何疑問或建議事項，請至我們的&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;聯絡頁面&lt;/a&gt;或寫信至我們的郵遞論壇: &lt;br/&gt;&lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;&lt;br/&gt;繁體中文翻譯方面的建議或更正事項，請直接&lt;br/&gt;與 Jedi 聯繫: &lt;a href=&quot;mailto:JediLin@Gmail.com&quot;&gt;JediLin@Gmail.com&lt;/a&gt;</translation>
+    </message>
+    <message>
         <location filename="../../mainwindow.cpp" line="365"/>
         <source>Remove PGP Header</source>
         <translation>移除 PGP 標頭</translation>
@@ -1618,14 +1628,12 @@ Weak -&gt; Strong</source>
         <translation>附加檔案:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
-        <translation>關於 </translation>
+        <translation type="obsolete">關於 </translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;本應用程式讓你能夠輕鬆地對文字訊息和檔案&lt;br&gt;予以加密和解密。&lt;br&gt;本程式係採用 GPL v3 授權&lt;br&gt;&lt;br&gt;&lt;b&gt;開發者:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;正體中文翻譯:&lt;/b&gt;&lt;br&gt;Jedi Lin&lt;br&gt;&lt;br&gt;如果你有任何疑問或建議事項，請至我們的&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;聯絡頁面&lt;/a&gt;或寫信至我們的郵遞論壇: &lt;br/&gt;&lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;&lt;br/&gt;繁體中文翻譯方面的建議或更正事項，請直接&lt;br/&gt;與 Jedi 聯繫: &lt;a href=&quot;mailto:JediLin@Gmail.com&quot;&gt;JediLin@Gmail.com&lt;/a&gt;</translation>
+        <translation type="obsolete">&lt;center&gt;本應用程式讓你能夠輕鬆地對文字訊息和檔案&lt;br&gt;予以加密和解密。&lt;br&gt;本程式係採用 GPL v3 授權&lt;br&gt;&lt;br&gt;&lt;b&gt;開發者:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;正體中文翻譯:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;如果你有任何疑問或建議事項，請至我們的&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;聯絡頁面&lt;/a&gt;或寫信至我們的郵遞論壇: &lt;br/&gt;&lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;&lt;br/&gt;繁體中文翻譯方面的建議或更正事項，請直接&lt;br/&gt;與 Jedi 聯繫: &lt;a href=&quot;mailto:JediLin@Gmail.com&quot;&gt;JediLin@Gmail.com&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>

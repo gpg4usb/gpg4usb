@@ -1538,6 +1538,16 @@ gpg4usb będzie teraz próbować importować klucz(e).</translation>
         <translation>&amp;Steganografia</translation>
     </message>
     <message>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <source>About</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="623"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation>&lt;center&gt;Aplikacja ta umożliwia proste szyfrowanie &lt;br&gt;i deszyfrowanie wiadomości tekstowych lub plików.&lt;br&gt;Jest oparta na licencji GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Twórca:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tłumaczenie:&lt;/b&gt;&lt;br&gt; Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;Jeśli masz jakieś pytania lub propozycje odwiedź&lt;br/&gt; naszą stronę &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Strona domowa&lt;/a&gt; lub wyślij e-mail do naszej&lt;br/&gt; Listy dyskusyjnej na &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
         <location filename="../../mainwindow.cpp" line="365"/>
         <source>Remove PGP Header</source>
         <translation>Usuń nagłówek PGP</translation>
@@ -1618,14 +1628,12 @@ gpg4usb będzie teraz próbować importować klucz(e).</translation>
         <translation>Dołączone pliki:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
-        <translation>O programie</translation>
+        <translation type="obsolete">O programie</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Aplikacja ta umożliwia proste szyfrowanie &lt;br&gt;i deszyfrowanie wiadomości tekstowych lub plików.&lt;br&gt;Jest oparta na licencji GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Twórca:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tłumaczenie:&lt;/b&gt;&lt;br&gt; Marek Bogacz (pl), Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;Jeśli masz jakieś pytania lub propozycje odwiedź&lt;br/&gt; naszą stronę &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Strona domowa&lt;/a&gt; lub wyślij e-mail do naszej&lt;br/&gt; Listy dyskusyjnej na &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation type="obsolete">&lt;center&gt;Aplikacja ta umożliwia proste szyfrowanie &lt;br&gt;i deszyfrowanie wiadomości tekstowych lub plików.&lt;br&gt;Jest oparta na licencji GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Twórca:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Tłumaczenie:&lt;/b&gt;&lt;br&gt; Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;Jeśli masz jakieś pytania lub propozycje odwiedź&lt;br/&gt; naszą stronę &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;Strona domowa&lt;/a&gt; lub wyślij e-mail do naszej&lt;br/&gt; Listy dyskusyjnej na &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>

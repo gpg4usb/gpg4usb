@@ -1538,6 +1538,16 @@ Weak -&gt; Strong</source>
         <translation>&amp;Στεγανογραφία</translation>
     </message>
     <message>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <source>About</source>
+        <translation>Σχετικά</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="623"/>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation>&lt;center&gt;Η εφαρμογή αυτή επιτρέπει την απλή κρυπτογράφηση&lt;br&gt; και αποκρυπτογράφηση μηνυμάτων κειμένου ή αρχείων. .&lt;br&gt;Αδειοδοτείται υπό την άδεια GPL v3 &lt;br&gt;&lt;br&gt;&lt;b&gt;Ανάπτυξη:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo &lt;br&gt;&lt;br&gt;&lt;b&gt;Μετάφραση:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt; Αν έχετε ερωτήσεις ή προτάσεις, ρίξτε μια ματιά&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt; στην σελίδα των επαφών μας&lt;/a&gt; ή στείλτε μας ένα μήνυμα&lt;br/&gt; στην λίστα ταχυδρομείου &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+    </message>
+    <message>
         <location filename="../../mainwindow.cpp" line="365"/>
         <source>Remove PGP Header</source>
         <translation>Διαγραφή της κεφαλίδας PGP</translation>
@@ -1618,14 +1628,12 @@ Weak -&gt; Strong</source>
         <translation>Επισυναπτόμενα αρχεία:</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="620"/>
         <source>About </source>
-        <translation>Σχετικά</translation>
+        <translation type="obsolete">Σχετικά</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="623"/>
         <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Viriato/Phol (es), &lt;br&gt;Serse (it), Russell (my),&lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Η εφαρμογή αυτή επιτρέπει την απλή κρυπτογράφηση&lt;br&gt; και αποκρυπτογράφηση μηνυμάτων κειμένου ή αρχείων. .&lt;br&gt;Αδειοδοτείται υπό την άδεια GPL v3 &lt;br&gt;&lt;br&gt;&lt;b&gt;Ανάπτυξη:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo &lt;br&gt;&lt;br&gt;&lt;b&gt;Μετάφραση:&lt;/b&gt;&lt;br&gt;Viriato (es), &lt;br&gt;Serse (it), Russell (my) &lt;br&gt;Alessandro (pt_br),  Kirill (ru), Tom (vi),  George (el)&lt;br&gt;&lt;br&gt; Αν έχετε ερωτήσεις ή προτάσεις, ρίξτε μια ματιά&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt; στην σελίδα των επαφών μας&lt;/a&gt; ή στείλτε μας ένα μήνυμα&lt;br/&gt; στην λίστα ταχυδρομείου &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <translation type="obsolete">&lt;center&gt;Η εφαρμογή αυτή επιτρέπει την απλή κρυπτογράφηση&lt;br&gt; και αποκρυπτογράφηση μηνυμάτων κειμένου ή αρχείων. .&lt;br&gt;Αδειοδοτείται υπό την άδεια GPL v3 &lt;br&gt;&lt;br&gt;&lt;b&gt;Ανάπτυξη:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo &lt;br&gt;&lt;br&gt;&lt;b&gt;Μετάφραση:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt; Αν έχετε ερωτήσεις ή προτάσεις, ρίξτε μια ματιά&lt;br/&gt;&lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt; στην σελίδα των επαφών μας&lt;/a&gt; ή στείλτε μας ένα μήνυμα&lt;br/&gt; στην λίστα ταχυδρομείου &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>
