@@ -126,7 +126,7 @@ KeyDetailsDialog::KeyDetailsDialog(GpgME::GpgContext* ctx, gpgme_key_t key, QWid
     if (addUserIds !=NULL) {
         QVBoxLayout *vboxUID = new QVBoxLayout();
         while (addUserIds != NULL){
-            addUserIdsVarLabel = new QLabel(addUserIds->name+ QString(" <")+addUserIds->email+">");
+            addUserIdsVarLabel = new QLabel(QString::fromUtf8(addUserIds->name)+ QString(" <")+addUserIds->email+">");
             addUserIdsVarLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
             vboxUID->addWidget(addUserIdsVarLabel);
             addUserIds=addUserIds->next;
