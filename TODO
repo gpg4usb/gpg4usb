@@ -7,9 +7,7 @@ Release 0.4
 	- move icons out of release-dir
 	- get key-image in wizard working
 - Refresh key from keyserver [DONE]
-- Update GnuPG binary to 1.4.13 
-	- for windows [DONE]
-	- for linux [DONE]
+- Update GnuPG binary to 1.4.16 
 	- for macos 
 - add encrypt to self functionality [DONE]
 	- add automatic restart if key changed [DONE]
@@ -39,14 +37,15 @@ Release 0.4
 - add keyless encryption (symmetric, password only)
 - encrypt and sign, decrypt and verify (?)
 - check and add missing statusbar messages
-- drop key management window (integrate in main window)
-	- key details in tab
+- drop key management window (integrate in main window) [DONE]
+- key details in tab
 - save the last used directory in open file dialog
 - discuss: show message, when key export is successful (statusbar)
 - set focus to close dialog with unsaved data 
 - have a look on selected/checked keys (which keys should when be used?)
 - Check, ig gpg is initialized correctly
 - On key import, check if key creation date is in the future
+- progress dialog for file encryption 
 
 BUG:
 - check PGP-Mime
