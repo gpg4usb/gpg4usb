@@ -5,7 +5,7 @@ TEMPLATE = app
 
 # unix:TARGET = start_linux
 # win32:TARGET = start_windows
-mac:TARGET = start_mac
+#mac:TARGET = start_mac
 DESTDIR = release
 DEPENDPATH += .
 INCLUDEPATH += . 
