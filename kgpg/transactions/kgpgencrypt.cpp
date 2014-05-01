@@ -101,7 +101,7 @@ KGpgEncrypt::encryptedText() const
 bool
 KGpgEncrypt::nextLine(const QString &line)
 {
-    qDebug() << "KGpgEncrypt::nextLine called";
+    //qDebug() << "KGpgEncrypt::nextLine called";
     const QList<QUrl> &inputFiles = getInputFiles();
 
 	if (line.startsWith(QLatin1String("[GNUPG:] MISSING_PASSPHRASE"))) {

@@ -48,7 +48,7 @@ KGpgTextOrFileTransaction::setUrls(const QList<QUrl> &files)
 {
 	m_text.clear();
 	m_inpfiles = files;
-    qDebug() << "files set:";
+    //qDebug() << "files set:";
     foreach(QUrl file, m_inpfiles) {
         qDebug() << file.toString();
     }
@@ -61,8 +61,8 @@ KGpgTextOrFileTransaction::preStart()
 
     foreach (const QUrl &url, m_inpfiles) {
                 // qt 4.8 ! todo mac
-        qDebug() << "fileurl: "<< url;
-        qDebug() << "what the loc:" << url.isLocalFile();
+        //qDebug() << "fileurl: "<< url;
+        //qDebug() << "what the loc:" << url.isLocalFile();
 
 		if (url.isLocalFile()) {
 			locfiles.append(url.toLocalFile());
@@ -80,8 +80,8 @@ KGpgTextOrFileTransaction::preStart()
         }
     }
 
-    qDebug() << "m_text: " << m_text;
-    qDebug() << "hasInputTransaction: " << hasInputTransaction();
+    //qDebug() << "m_text: " << m_text;
+    //qDebug() << "hasInputTransaction: " << hasInputTransaction();
 
 	if (locfiles.isEmpty() && m_tempfiles.isEmpty() && m_text.isEmpty() && !hasInputTransaction()) {
 		setSuccess(TS_MSG_SEQUENCE);
@@ -96,10 +96,10 @@ KGpgTextOrFileTransaction::preStart()
 	if (!locfiles.isEmpty() && !m_tempfiles.isEmpty()) {
 		args << QLatin1String("--command-fd=0");
 		m_closeInput = false;
-        qDebug() << "if";
+        //qDebug() << "if";
 	} else {
 		m_closeInput = !args.contains(QLatin1String("--command-fd=0"));
-        qDebug() << "else";
+        //qDebug() << "else";
 	}
 	if (locfiles.count() + m_tempfiles.count() > 1)
 		args << QLatin1String("--multifile");
@@ -112,7 +112,7 @@ KGpgTextOrFileTransaction::preStart()
 void
 KGpgTextOrFileTransaction::postStart()
 {
-    qDebug() << "post-start! " << m_text;
+    //qDebug() << "post-start! " << m_text;
 	if (!m_text.isEmpty()){
 		GPGProc *proc = getProcess();
 		proc->write(m_text.toUtf8());
@@ -124,7 +124,7 @@ KGpgTextOrFileTransaction::postStart()
 bool
 KGpgTextOrFileTransaction::nextLine(const QString &line)
 {
-    qDebug() << "nextline called: " << line;
+    //qDebug() << "nextline called: " << line;
 	if (!line.startsWith(QLatin1String("[GNUPG:] SIGEXPIRED")) && !line.startsWith(QLatin1String("[GNUPG:] KEYEXPIRED ")))
 		m_messages.append(line);
 
