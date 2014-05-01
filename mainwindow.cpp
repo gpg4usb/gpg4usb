@@ -1074,7 +1074,7 @@ void MainWindow::slotDecryptDone(int result)
     if (result == KGpgTransaction::TS_OK) {
         // FIXME choose codec
         //setPlainText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
-        edit->slotFillTextEditWithText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1Char('\n'));
+        edit->slotFillTextEditWithText(decr->decryptedText().join(QLatin1String("\n")) + QLatin1String("\n"));
     } else if (result != KGpgTransaction::TS_USER_ABORTED) {
         //KMessageBox::detailedSorry(this, i18n("Decryption failed."), decr->getMessages().join( QLatin1String( "\n" )));
         qDebug() << "Decryption failed."  << decr->getMessages().join( QLatin1String( "\n" ));

@@ -14,6 +14,10 @@ INCLUDEPATH += .
 #DEFINES += QT_NO_DEBUG_OUTPUT QT_NO_WARNING_OUTPUT
 
 CONFIG += release static 
+
+# qdebug on windows
+CONFIG += console
+
 #CONFIG += release
 #CONFIG += debug
 
