@@ -118,7 +118,6 @@ void KeyGenDialog::generateKeyDialog()
 void KeyGenDialog::slotKeyGenAccept()
 {
     QString errorString = "";
-    QString keyGenParams = "";
     /**
      * check for errors in keygen dialog input
      */

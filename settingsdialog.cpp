@@ -35,7 +35,7 @@ SettingsDialog::SettingsDialog(GpgME::GpgContext *ctx, QWidget *parent)
 
     tabWidget->addTab(generalTab, tr("General"));
     tabWidget->addTab(appearanceTab, tr("Appearance"));
-    tabWidget->addTab(mimeTab, tr("PGP/Mime"));
+    //tabWidget->addTab(mimeTab, tr("PGP/Mime"));
     tabWidget->addTab(keyserverTab, tr("Keyserver"));
     tabWidget->addTab(gpgPathsTab, tr("Gpg paths"));
     tabWidget->addTab(advancedTab, tr("Advanced"));
