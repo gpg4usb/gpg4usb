@@ -215,7 +215,7 @@ KGpgTransactionPrivate::write(const QByteArray &a)
 #ifdef KGPG_DEBUG_TRANSACTIONS
     qDebug() << m_parent << a;
 #endif /* KGPG_DEBUG_TRANSACTIONS */
-    qDebug() << "trans-write: " << m_parent << a;
+    //qDebug() << "trans-write: " << m_parent << a;
 }
 
 void
