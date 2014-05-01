@@ -41,23 +41,23 @@ void KeyGenDialog::generateKeyDialog()
     commentEdit = new QLineEdit(this);
 
     keySizeSpinBox = new QSpinBox(this);
-    keySizeSpinBox->setRange(768, 16384);
+    keySizeSpinBox->setRange(1024, 4096);
     keySizeSpinBox->setValue(2048);
 
-    keySizeSpinBox->setSingleStep(256);
+    keySizeSpinBox->setSingleStep(1024);
 
     keyTypeComboBox = new QComboBox(this);
-    keyTypeComboBox->addItem("DSA/Elgamal");
     keyTypeComboBox->addItem("RSA");
+    keyTypeComboBox->addItem("DSA/Elgamal");
     keyTypeComboBox->setCurrentIndex(0);
     dateEdit = new QDateEdit(QDate::currentDate().addYears(5), this);
     dateEdit->setMinimumDate(QDate::currentDate());
     dateEdit->setDisplayFormat("dd/MM/yyyy");
     dateEdit->setCalendarPopup(true);
-    dateEdit->setEnabled(false);
+    dateEdit->setEnabled(true);
 
     expireCheckBox = new QCheckBox(this);
-    expireCheckBox->setCheckState(Qt::Checked);
+    expireCheckBox->setCheckState(Qt::Unchecked);
 
     passwordEdit = new QLineEdit(this);
     repeatpwEdit = new QLineEdit(this);
@@ -109,8 +109,8 @@ void KeyGenDialog::generateKeyDialog()
 
     connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(slotExpireBoxChanged()));
     connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(slotPasswordEditChanged()));
-    connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(slotKeyTypeChanged()));
-    connect(keySizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slotKeySizeChanged()));
+//    connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(slotKeyTypeChanged()));
+//    connect(keySizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slotKeySizeChanged()));
     this->setLayout(vbox2);
 }
 
@@ -262,25 +262,6 @@ void KeyGenDialog::slotPasswordEditChanged()
 {
     pwStrengthSlider->setValue(checkPassWordStrength());
     update();
-}
-void KeyGenDialog::slotKeySizeChanged()
-{
-    if (keySizeSpinBox->value() > 2048 && lastKeySize <=2048) {
-        QMessageBox::warning(this, tr("Key size warning"),
-                             tr("You've set the keysize to more than 2048 bits. This setting is for advanced users only. The key generation may take a very, very long time."));
-    }
-    lastKeySize=keySizeSpinBox->value();
-}
-
-void KeyGenDialog::slotKeyTypeChanged()
-{
-    if (keyTypeComboBox->currentText() == "RSA") {
-        keySizeSpinBox->setMaximum(16384);
-        keySizeSpinBox->setMinimum(1024);
-    } else {
-        keySizeSpinBox->setMaximum(16384);
-        keySizeSpinBox->setMinimum(768);
-    }
 }
 
 int KeyGenDialog::checkPassWordStrength()

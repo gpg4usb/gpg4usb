@@ -46,6 +46,8 @@ Release 0.4
 - Check, ig gpg is initialized correctly
 - On key import, check if key creation date is in the future
 - progress dialog for file encryption 
+- sign with multiple keys
+- expire date in keygenerating needs to be implemented
 
 BUG:
 - check PGP-Mime
