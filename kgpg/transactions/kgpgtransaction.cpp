@@ -267,7 +267,7 @@ KGpgTransaction::write(const int i)
 void
 KGpgTransaction::askNewPassphrase(const QString& text)
 {
-    qDebug() << "KGpgTransaction::askNewPassphrase called";
+    //qDebug() << "KGpgTransaction::askNewPassphrase called";
 
     emit statusMessage(tr("Requesting Passphrase"));
 
@@ -336,7 +336,7 @@ KGpgTransaction::unexpectedLine(const QString &line)
 KGpgTransaction::ts_passphrase_actions
 KGpgTransaction::passphraseRequested()
 {
-    qDebug() << "KGpgTransaction::passphraseRequested called";
+    //qDebug() << "KGpgTransaction::passphraseRequested called";
 	if (!askPassphrase())
 		return PA_USER_ABORTED;
 	else
@@ -445,7 +445,7 @@ KGpgTransaction::addArgumentRef(int *ref)
 bool
 KGpgTransaction::askPassphrase(const QString &message)
 {
-    qDebug() << "KGpgTransaction::askPassphrase called";
+   // qDebug() << "KGpgTransaction::askPassphrase called";
 
 	if (d->m_passphraseAction == PA_USER_ABORTED)
 		return false;

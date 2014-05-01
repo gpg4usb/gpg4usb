@@ -244,7 +244,7 @@ void GpgContext::slotExportKeyToFileReady(int result)
             return;
         QTextStream stream(&file);
         QByteArray keyArray = exp->getOutputData();
-        qDebug() << *keyArray;
+        //qDebug() << *keyArray;
         stream << keyArray;
         file.close();
         //emit statusBarChanged(QString(tr("key(s) exported")));
