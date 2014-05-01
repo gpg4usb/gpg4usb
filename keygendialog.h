@@ -79,16 +79,6 @@ private slots:
     void slotPasswordEditChanged();
 
     /**
-     * @details When keysize changed, show message, when too large
-     */
-    void slotKeySizeChanged();
-
-    /**
-     * @details When passwordedit changed, set keysize appropriately
-     */
-    void slotKeyTypeChanged();
-
-    /**
      * @details check all lineedits for false entries. Show error, when there is one, otherwise generate the key
      */
     void slotKeyGenAccept();

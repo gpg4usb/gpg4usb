@@ -21,6 +21,7 @@
  */
 
 #include "keygendialog.h"
+#include "qdebug.h"
 
 KeyGenDialog::KeyGenDialog(GpgME::GpgContext *ctx, QWidget *parent)
  : QDialog(parent)
@@ -41,23 +42,23 @@ void KeyGenDialog::generateKeyDialog()
     commentEdit = new QLineEdit(this);
 
     keySizeSpinBox = new QSpinBox(this);
-    keySizeSpinBox->setRange(768, 16384);
+    keySizeSpinBox->setRange(1024, 4096);
     keySizeSpinBox->setValue(2048);
 
-    keySizeSpinBox->setSingleStep(256);
+    keySizeSpinBox->setSingleStep(1024);
 
     keyTypeComboBox = new QComboBox(this);
-    keyTypeComboBox->addItem("DSA/Elgamal");
     keyTypeComboBox->addItem("RSA");
+    keyTypeComboBox->addItem("DSA/Elgamal");
     keyTypeComboBox->setCurrentIndex(0);
     dateEdit = new QDateEdit(QDate::currentDate().addYears(5), this);
     dateEdit->setMinimumDate(QDate::currentDate());
     dateEdit->setDisplayFormat("dd/MM/yyyy");
     dateEdit->setCalendarPopup(true);
-    dateEdit->setEnabled(false);
+    dateEdit->setEnabled(true);
 
     expireCheckBox = new QCheckBox(this);
-    expireCheckBox->setCheckState(Qt::Checked);
+    expireCheckBox->setCheckState(Qt::Unchecked);
 
     passwordEdit = new QLineEdit(this);
     repeatpwEdit = new QLineEdit(this);
@@ -109,15 +110,14 @@ void KeyGenDialog::generateKeyDialog()
 
     connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(slotExpireBoxChanged()));
     connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(slotPasswordEditChanged()));
-    connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(slotKeyTypeChanged()));
-    connect(keySizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slotKeySizeChanged()));
+//    connect(keyTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(slotKeyTypeChanged()));
+//    connect(keySizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slotKeySizeChanged()));
     this->setLayout(vbox2);
 }
 
 void KeyGenDialog::slotKeyGenAccept()
 {
     QString errorString = "";
-    QString keyGenParams = "";
     /**
      * check for errors in keygen dialog input
      */
@@ -129,50 +129,29 @@ void KeyGenDialog::slotKeyGenAccept()
     }
 
     if (errorString.isEmpty()) {
-        /**
-         * create the string for key generation
-         */
-        /*keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
-                       "Key-Type: DSA\n"
-                       "Key-Length: 1024\n"
-                       "Subkey-Type: ELG-E\n"
-                       "Subkey-Length: "
-                       + keySizeSpinBox->cleanText() + "\n"
-                       "Name-Real: " + nameEdit->text().toUtf8() + "\n";
-        if (!(commentEdit->text().isEmpty())) {
-            keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
-        }
-        if (!(emailEdit->text().isEmpty())) {
-            keyGenParams += "Name-Email: " + emailEdit->text().toUtf8() + "\n";
-        }
-        if (expireCheckBox->checkState()) {
-            keyGenParams += "Expire-Date: 0\n";
-        } else {
-            keyGenParams += "Expire-Date: " + dateEdit->sectionText(QDateTimeEdit::YearSection) + "-" + dateEdit->sectionText(QDateTimeEdit::MonthSection) + "-" + dateEdit->sectionText(QDateTimeEdit::DaySection) + "\n";
-        }
-        if (!(passwordEdit->text().isEmpty())) {
-            keyGenParams += "Passphrase: " + passwordEdit->text() + "\n";
-        }
-        keyGenParams += "</GnupgKeyParms>";
 
-        KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
-        kg->start();*/
+        KgpgCore::KgpgKeyAlgo algo;
+        if(keyTypeComboBox->currentText() == "RSA") {
+            algo = KgpgCore::ALGO_RSA_RSA;
+        } else if (keyTypeComboBox->currentText() == "DSA/Elgamal") {
+            algo = KgpgCore::ALGO_DSA_ELGAMAL;
+        }
 
+        int expiredays = 0;
+        if (!expireCheckBox->checkState()) {
+            expiredays = QDate::currentDate().daysTo(dateEdit->date());
+        }
 
-        // TODO: expdate
         KGpgGenerateKey *genkey = new KGpgGenerateKey(this,
                                                       nameEdit->text(),
                                                       emailEdit->text(),
                                                       commentEdit->text(),
-                                                      KgpgCore::ALGO_RSA_RSA,
+                                                      algo,
                                                       keySizeSpinBox->cleanText().toInt(),
-                                                      0,
+                                                      expiredays,
                                                       'd',
                                                       passwordEdit->text());
 
-       // m_genkey = new KGpgTransactionJob(genkey);
-
-        //connect(m_genkey, SIGNAL(result(KJob*)), SLOT(slotGenerateKeyDone(KJob*)));
 
         connect(genkey, SIGNAL(done(int)), SLOT(slotGenkeyDone(int)));
         connect(genkey, SIGNAL(infoProgress(qulonglong,qulonglong)), SLOT(slotInfoProgress(qulonglong,qulonglong)));
@@ -262,25 +241,6 @@ void KeyGenDialog::slotPasswordEditChanged()
 {
     pwStrengthSlider->setValue(checkPassWordStrength());
     update();
-}
-void KeyGenDialog::slotKeySizeChanged()
-{
-    if (keySizeSpinBox->value() > 2048 && lastKeySize <=2048) {
-        QMessageBox::warning(this, tr("Key size warning"),
-                             tr("You've set the keysize to more than 2048 bits. This setting is for advanced users only. The key generation may take a very, very long time."));
-    }
-    lastKeySize=keySizeSpinBox->value();
-}
-
-void KeyGenDialog::slotKeyTypeChanged()
-{
-    if (keyTypeComboBox->currentText() == "RSA") {
-        keySizeSpinBox->setMaximum(16384);
-        keySizeSpinBox->setMinimum(1024);
-    } else {
-        keySizeSpinBox->setMaximum(16384);
-        keySizeSpinBox->setMinimum(768);
-    }
 }
 
 int KeyGenDialog::checkPassWordStrength()

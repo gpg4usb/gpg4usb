@@ -1,5 +1,7 @@
 build gpg:
 http://macgpg.sourceforge.net/docs/howto-build-gpg-osx.txt.asc
 
+$ ./configure --prefix=/usr --exec-prefix=/usr --without-libusb
+$ make
 check dll inclusion:
-$ otool -L release/bin/gpg-mac
+$ otool -L g10/gpg
