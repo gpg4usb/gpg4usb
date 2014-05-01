@@ -21,6 +21,7 @@
  */
 
 #include "keygendialog.h"
+#include "qdebug.h"
 
 KeyGenDialog::KeyGenDialog(GpgME::GpgContext *ctx, QWidget *parent)
  : QDialog(parent)
@@ -129,50 +130,29 @@ void KeyGenDialog::slotKeyGenAccept()
     }
 
     if (errorString.isEmpty()) {
-        /**
-         * create the string for key generation
-         */
-        /*keyGenParams = "<GnupgKeyParms format=\"internal\">\n"
-                       "Key-Type: DSA\n"
-                       "Key-Length: 1024\n"
-                       "Subkey-Type: ELG-E\n"
-                       "Subkey-Length: "
-                       + keySizeSpinBox->cleanText() + "\n"
-                       "Name-Real: " + nameEdit->text().toUtf8() + "\n";
-        if (!(commentEdit->text().isEmpty())) {
-            keyGenParams += "Name-Comment: " + commentEdit->text().toUtf8() + "\n";
-        }
-        if (!(emailEdit->text().isEmpty())) {
-            keyGenParams += "Name-Email: " + emailEdit->text().toUtf8() + "\n";
-        }
-        if (expireCheckBox->checkState()) {
-            keyGenParams += "Expire-Date: 0\n";
-        } else {
-            keyGenParams += "Expire-Date: " + dateEdit->sectionText(QDateTimeEdit::YearSection) + "-" + dateEdit->sectionText(QDateTimeEdit::MonthSection) + "-" + dateEdit->sectionText(QDateTimeEdit::DaySection) + "\n";
-        }
-        if (!(passwordEdit->text().isEmpty())) {
-            keyGenParams += "Passphrase: " + passwordEdit->text() + "\n";
-        }
-        keyGenParams += "</GnupgKeyParms>";
 
-        KeyGenThread *kg = new KeyGenThread(keyGenParams, mCtx);
-        kg->start();*/
+        KgpgCore::KgpgKeyAlgo algo;
+        if(keyTypeComboBox->currentText() == "RSA") {
+            algo = KgpgCore::ALGO_RSA_RSA;
+        } else if (keyTypeComboBox->currentText() == "DSA/Elgamal") {
+            algo = KgpgCore::ALGO_DSA_ELGAMAL;
+        }
 
+        int expiredays = 0;
+        if (!expireCheckBox->checkState()) {
+            expiredays = QDate::currentDate().daysTo(dateEdit->date());
+        }
 
-        // TODO: expdate
         KGpgGenerateKey *genkey = new KGpgGenerateKey(this,
                                                       nameEdit->text(),
                                                       emailEdit->text(),
                                                       commentEdit->text(),
-                                                      KgpgCore::ALGO_RSA_RSA,
+                                                      algo,
                                                       keySizeSpinBox->cleanText().toInt(),
-                                                      0,
+                                                      expiredays,
                                                       'd',
                                                       passwordEdit->text());
 
-       // m_genkey = new KGpgTransactionJob(genkey);
-
-        //connect(m_genkey, SIGNAL(result(KJob*)), SLOT(slotGenerateKeyDone(KJob*)));
 
         connect(genkey, SIGNAL(done(int)), SLOT(slotGenkeyDone(int)));
         connect(genkey, SIGNAL(infoProgress(qulonglong,qulonglong)), SLOT(slotInfoProgress(qulonglong,qulonglong)));

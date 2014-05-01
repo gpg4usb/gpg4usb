@@ -106,9 +106,10 @@ KGpgGenerateKey::postStart()
 		keymessage.append(m_expireunit);
 	}
 
-
-	keymessage.append("\nPassphrase: ");
-    keymessage.append(m_password.toUtf8());
+    if(!m_password.isEmpty()) {
+        keymessage.append("\nPassphrase: ");
+        keymessage.append(m_password.toUtf8());
+    }
     write(keymessage, true);
     write("%commit");
 
