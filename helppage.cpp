@@ -33,8 +33,46 @@ HelpPage::HelpPage(const QString path, QWidget *parent) :
     setLayout(mainLayout);
     //setAttribute(Qt::WA_DeleteOnClose);
     //browser->setSource(QUrl::fromLocalFile(path));
-    browser->setSource(QUrl(path));
+
+    connect(browser, SIGNAL(anchorClicked(QUrl)), this, SLOT(openUrl(QUrl)));
+    browser->setOpenLinks(false);
+    browser->setSource(localizedHelp(QUrl(path)));
     browser->setFocus();
+
+}
+
+void HelpPage::openUrl(QUrl url) {
+     browser->setSource(localizedHelp(url));
+};
+
+/**
+ * @brief HelpPage::localizedHelp
+ * check if the requested file is also available with the locale,
+ * e.g. return index.de.html if index.html was requested but the
+ * locale is de and index.de.html is available
+ * @param url
+ * @return
+ */
+QUrl HelpPage::localizedHelp(QUrl url) {
+    QString path = url.toLocalFile();
+    QString filename = path.mid(path.lastIndexOf("/") + 1 );
+    QString filepath = path.left(path.lastIndexOf("/") + 1 );
+    QStringList fileparts = filename.split(".");
+
+    //QSettings settings;
+    QString lang = QSettings().value("int/lang", QLocale::system().name()).toString();
+    if (lang.isEmpty()) {
+        lang = QLocale::system().name();
+    }
+
+    fileparts.insert(1,lang);
+    QString langfile = filepath + fileparts.join(".");
+
+    if(QFile(QUrl(langfile).toLocalFile()).exists()) {
+        return langfile;
+    } else {
+        return path;
+    }
 
 }
 

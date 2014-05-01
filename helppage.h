@@ -25,6 +25,9 @@
 #include <QWidget>
 #include <QTextBrowser>
 #include <QVBoxLayout>
+#include <QSettings>
+#include <QFile>
+#include <QLocale>
 
 class HelpPage : public QWidget
 {
@@ -36,9 +39,11 @@ public:
 signals:
 
 public slots:
+    void openUrl(QUrl url);
 
 private:
     QTextBrowser *browser; /** The textbrowser of the tab */
+    QUrl localizedHelp(QUrl path);
 
 };
 
