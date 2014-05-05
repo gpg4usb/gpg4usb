@@ -50,7 +50,7 @@ KGpgTextOrFileTransaction::setUrls(const QList<QUrl> &files)
 	m_inpfiles = files;
     //qDebug() << "files set:";
     foreach(QUrl file, m_inpfiles) {
-        qDebug() << file.toString();
+        //qDebug() << file.toString();
     }
 }
 

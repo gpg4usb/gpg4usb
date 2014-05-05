@@ -87,7 +87,7 @@ KGpgTransactionPrivate::slotReadReady()
 #ifdef KGPG_DEBUG_TRANSACTIONS
         qDebug() << m_parent << line;
 #endif /* KGPG_DEBUG_TRANSACTIONS */
-        qDebug() << "trans-read: " << m_parent << line;
+        //qDebug() << "trans-read: " << m_parent << line;
 
 
 		if (line.startsWith(QLatin1String("[GNUPG:] USERID_HINT "))) {
@@ -172,7 +172,7 @@ KGpgTransactionPrivate::sendQuit(void)
 	if (m_quitTries++ >= 3) {
         qDebug() << "tried" << m_quitTries << "times to quit the GnuPG session";
         qDebug() << "last input was" << m_quitLines;
-        qDebug() << "please file a bug report at https://bugs.kde.org";
+        //qDebug() << "please file a bug report at https://bugs.kde.org";
 		m_process->closeWriteChannel();
 		m_success = KGpgTransaction::TS_MSG_SEQUENCE;
 	}
@@ -215,7 +215,7 @@ KGpgTransactionPrivate::write(const QByteArray &a)
 #ifdef KGPG_DEBUG_TRANSACTIONS
     qDebug() << m_parent << a;
 #endif /* KGPG_DEBUG_TRANSACTIONS */
-    qDebug() << "trans-write: " << m_parent << a;
+    //qDebug() << "trans-write: " << m_parent << a;
 }
 
 void

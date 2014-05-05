@@ -77,10 +77,25 @@ bool KLineBufferedProcess::readLineStandardOutput(QByteArray *line)
 
     // don't copy '\n'
     *line = d->m_stdoutBuffer.left(d->m_newlineInStdout);
+
+#ifdef Q_OS_WIN32
+    // sometimes there may be a single "\n", which confuses decrypt on win
+    if(d->m_stdoutBuffer.at(d->m_newlineInStdout) == '\r') {
+        d->m_stdoutBuffer.remove(0, d->m_newlineInStdout + 2);
+    } else {
+        d->m_stdoutBuffer.remove(0, d->m_newlineInStdout + 1);
+    }
+
+    int lepos = d->m_stdoutBuffer.indexOf("\n");
+    if(d->m_stdoutBuffer.at(lepos-1) == '\r') {
+        lepos = lepos - 1;
+    }
+    d->m_newlineInStdout = lepos;
+#else
     d->m_stdoutBuffer.remove(0, d->m_newlineInStdout + d->m_lineEnd.length());
 
     d->m_newlineInStdout = d->m_stdoutBuffer.indexOf(d->m_lineEnd);
-
+#endif
     return true;
 }
 
