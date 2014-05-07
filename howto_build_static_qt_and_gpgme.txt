@@ -1,0 +1,35 @@
+#######################################
+# build static Qt 
+#######################################
+apt-get install libfontconfig1-dev libfreetype6-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxft-dev libxi-dev libxrandr-dev libxrender-dev
+
+wget http://alfred.qt-project.org/qt/official_releases/qt/4.8/4.8.5/qt-everywhere-opensource-src-4.8.5.tar.gz
+tar xfv qt-everywhere-opensource-src-4.8.5.tar.gz 
+cd qt-everywhere-opensource-src-4.8.5
+./configure -no-xrandr -no-xinerama -no-glib -no-sm -no-webkit -qt-zlib -qt-libpng -qt-libmng -qt-libjpeg -no-qt3support -no-phonon -no-phonon-backend -no-gtkstyle -static -nomake examples -nomake demos -nomake docs -opensource -prefix /home/gpg4usb/qt-4.8.5
+ 
+
+#######################################
+# build libgpg error 
+#######################################
+mkdir ~/gpgme-build
+cd 
+wget ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.7.tar.gz
+tar -zxvf libgpg-error-1.7.tar.gz 
+cd libgpg-error-1.7
+./configure --enable-static --prefix=/home/gpg4usb/gpgme-build
+make 
+make install
+
+#######################################
+# build gpgme
+#######################################
+cd
+iwget ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.1.6.tar.gz
+tar -zxvf gpgme-1.1.6.tar.gz 
+cd gpgme-1.1.6
+export LDFLAGS="-s -static"
+./configure --enable-static --prefix=/home/gpg4usb/gpgme-build --without-gpgsm --without-gpgconf --with-gpg-error-prefix=/home/gpg4usb/gpgme-build/
+make
+make install
+
