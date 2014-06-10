@@ -176,7 +176,7 @@
     <message>
         <location filename="../../wizard.cpp" line="406"/>
         <source>You are ready to use gpg4usb now.&lt;br&gt;&lt;br&gt;The offline help will get you started with gpg4usb. It will open in the main window.&lt;br&gt;</source>
-        <translation>あなたはgpg4usbを使う準備ができました。&lt;br&gt;&lt;br&gt; あなたがgpg4usbを開始したときオフラインヘルプが表示されます。メインウィンドウでひらからる.&lt;br&gt;</translation>
+        <translation>gpg4usbを使う準備ができました。&lt;br&gt;&lt;br&gt; あなたがgpg4usbを開始するとオフラインヘルプがメインウィンドウに表示されます。&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="411"/>
@@ -281,7 +281,7 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="114"/>
         <source>Save Checked Keys</source>
-        <translation type="unfinished">チェックされた鍵を保存する</translation>
+        <translation>チェックされた鍵を保存する</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="116"/>
@@ -296,7 +296,7 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="125"/>
         <source>Import files dropped on the keylist without confirmation.</source>
-        <translation type="unfinished">ドロップされた鍵リストを追認なしでインポートする</translation>
+        <translation>ドロップされた鍵リストを追認なしでインポートする</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="132"/>
@@ -309,12 +309,12 @@
     <message>
         <location filename="../../gpgcontext.cpp" line="312"/>
         <source>No Key Selected</source>
-        <translation type="unfinished">鍵が選択されていません</translation>
+        <translation>鍵が選択されていません</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="384"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
-        <translation type="unfinished">&lt;br&gt;鍵リングにあうuid %1の秘密鍵がありません</translation>
+        <translation>&lt;br&gt;鍵束に合致するid %1の秘密鍵がありません</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="392"/>
@@ -349,7 +349,7 @@
     <message>
         <location filename="../../gpgcontext.cpp" line="652"/>
         <source>No Private Key Selected</source>
-        <translation type="unfinished">秘密鍵が選択されていません</translation>
+        <translation>秘密鍵が選択されていません</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="700"/>
@@ -372,7 +372,7 @@
     <message>
         <location filename="../../wizard.cpp" line="295"/>
         <source>You can import keys from a locally installed GnuPG.&lt;br&gt;&lt;br&gt; The location is read from registry in Windows or assumed to be the .gnupg folder in the your home directory in Linux.&lt;br&gt;</source>
-        <translation type="unfinished">ローカルにインストールされたGnuPGから鍵をインポートできます。&lt;br&gt;&lt;br&gt; ロケーションはWindowsのレジストリから読み取られるか、Linuxのホームディレクトリの.gnupgフォルダーから読み取られます。&lt;br&gt;</translation>
+        <translation>ローカルにインストールされたGnuPGから鍵をインポートできます。&lt;br&gt;&lt;br&gt; ロケーションはWindowsのレジストリから読み取られるか、Linuxのホームディレクトリの.gnupgフォルダーから読み取られます。&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="299"/>
@@ -387,7 +387,7 @@
     <message>
         <location filename="../../wizard.cpp" line="314"/>
         <source>Couldn&apos;t locate GnuPG home directory</source>
-        <translation type="unfinished">ホームディレクトリからGnuPGを捜し出せませんでした。</translation>
+        <translation>ホームディレクトリからGnuPGを捜し出せませんでした。</translation>
     </message>
 </context>
 <context>
@@ -405,12 +405,12 @@
     <message>
         <location filename="../../wizard.cpp" line="215"/>
         <source>You can import keys and/or settings from existing gpg4usb. &lt;br&gt;&lt;br&gt;Just check what you want to import, click the import button and choose the directory of your other gpg4usb in the appearing file dialog.</source>
-        <translation type="unfinished">あなたは鍵やセッティングをすでに使っているgpg4usbからインポートできます。 &lt;br&gt;&lt;br&gt;インポートしたいものをチェックし、インポートボタンをクリックしてダイアログに他のgpg4usbのディレクトリを選択してください.</translation>
+        <translation>あなたは鍵やセッティングをすでに使っているgpg4usbからインポートできます。 &lt;br&gt;&lt;br&gt;インポートしたいものをチェックし、インポートボタンをクリックしてダイアログに他のgpg4usbのディレクトリを選択してください.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="222"/>
         <source>Keys</source>
-        <translation type="unfinished">鍵</translation>
+        <translation>鍵</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="226"/>
@@ -730,37 +730,37 @@ Weak -&gt; Strong</source>
         <location filename="../../keyimportdetaildialog.cpp" line="31"/>
         <location filename="../../keyimportdetaildialog.cpp" line="47"/>
         <source>Key import details</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="31"/>
         <source>No keys found to import</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="56"/>
         <source>Genral key import info</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="59"/>
         <source>Considered:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="63"/>
         <source>Public unchanged:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="68"/>
         <source>Imported:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="73"/>
         <source>Not imported:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="78"/>
@@ -775,7 +775,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="88"/>
         <source>Private unchanged:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
@@ -805,12 +805,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="131"/>
         <source>public</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="134"/>
         <source>unchanged</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="137"/>
@@ -873,12 +873,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keymgmt.cpp" line="61"/>
         <source>Keymanagement</source>
-        <translation>鍵マネージメント</translation>
+        <translation>鍵管理</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="68"/>
         <source>&amp;Close Key Management</source>
-        <translation>鍵マネージメントを閉じる</translation>
+        <translation>鍵管理を閉じる</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="69"/>
@@ -888,7 +888,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keymgmt.cpp" line="71"/>
         <source>Close Key Management</source>
-        <translation>鍵マネージメントを閉じる</translation>
+        <translation>鍵管理を閉じる</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="76"/>
@@ -903,7 +903,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keymgmt.cpp" line="84"/>
         <source>&amp;Keyserver</source>
-        <translation type="unfinished">&amp;鍵サーバー</translation>
+        <translation>鍵サーバー</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="86"/>
@@ -918,7 +918,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keymgmt.cpp" line="91"/>
         <source>Export Selected Key(s) To Clipboard</source>
-        <translation>秘密鍵をクリップボードにエクスポートする</translation>
+        <translation>選択された鍵をクリップボードにエクスポートする</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="94"/>
@@ -928,7 +928,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keymgmt.cpp" line="96"/>
         <source>Export Selected Key(s) To File</source>
-        <translation>秘密鍵をファイルにエクスポートする</translation>
+        <translation>選択された鍵をファイルにエクスポートする</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="99"/>
@@ -1025,7 +1025,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keymgmt.cpp" line="167"/>
         <source>Keyring files</source>
-        <translation type="unfinished">鍵リングファイル</translation>
+        <translation>鍵束ファイル</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="172"/>
@@ -1169,7 +1169,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="152"/>
         <source>&amp;New</source>
-        <translation>新しくテキストを開く</translation>
+        <translation>新規</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="158"/>
@@ -1189,7 +1189,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="167"/>
         <source>&amp;Save</source>
-        <translation>保存する</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="170"/>
@@ -1199,7 +1199,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="173"/>
         <source>Save &amp;As</source>
-        <translation>このファイルを保存する</translation>
+        <translation>名前をつけてを保存する</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="176"/>
@@ -1420,12 +1420,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="310"/>
         <source>Manage &amp;keys</source>
-        <translation>鍵をマネージする</translation>
+        <translation>鍵管理</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="312"/>
         <source>Open Keymanagement</source>
-        <translation>鍵マネージメントを開く</translation>
+        <translation>鍵管理を開く</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="317"/>
@@ -1480,12 +1480,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="340"/>
         <source>Append Selected Key(s) To Text</source>
-        <translation>秘密鍵をテキストに追加添付する</translation>
+        <translation>選択された鍵をテキストに追加添付する</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="341"/>
         <source>Append The Selected Keys To Text in Editor</source>
-        <translation>選択された秘密鍵をエディタに追加添付する</translation>
+        <translation>選択された鍵をエディタに追加添付する</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="344"/>
@@ -1947,7 +1947,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../wizard.cpp" line="77"/>
         <source>Couldn&apos;t locate any keyring file in %1</source>
-        <translation>%1を鍵リングから捜し出せませんでした。</translation>
+        <translation>%1を鍵束から捜し出せませんでした。</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="85"/>
@@ -1958,12 +1958,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../wizard.cpp" line="85"/>
         <source>Couldn&apos;t open private keyringfile: %1</source>
-        <translation>秘密鍵リングを開けません: %1</translation>
+        <translation>秘密鍵束ファイルを開けません: %1</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="95"/>
         <source>Couldn&apos;t open public keyringfile: %1</source>
-        <translation>公開鍵リングを開けません: %1</translation>
+        <translation>公開鍵束ファイルを開けません: %1</translation>
     </message>
 </context>
 </TS>
