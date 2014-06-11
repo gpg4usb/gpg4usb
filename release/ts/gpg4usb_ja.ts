@@ -314,7 +314,7 @@
     <message>
         <location filename="../../gpgcontext.cpp" line="384"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
-        <translation>&lt;br&gt;鍵束に合致するid %1の秘密鍵がありません</translation>
+        <translation>&lt;br&gt;id %1に合致する秘密鍵が鍵束にありません</translation>
     </message>
     <message>
         <location filename="../../gpgcontext.cpp" line="392"/>
@@ -395,12 +395,12 @@
     <message>
         <location filename="../../wizard.cpp" line="212"/>
         <source>Import from...</source>
-        <translation>ここからインポートする...</translation>
+        <translation>既存のgpg4usbから...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="213"/>
         <source>...existing gpg4usb</source>
-        <translation>...現存するgpg4usb</translation>
+        <translation>...インポートする</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="215"/>
@@ -701,12 +701,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../wizard.cpp" line="360"/>
         <source>Create a keypair...</source>
-        <translation>新しい鍵ペアをつくる...</translation>
+        <translation>復号化と署名のために...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="361"/>
         <source>...for decrypting and signing messages</source>
-        <translation>...復号化と署名のために</translation>
+        <translation>...新しい鍵ペアをつくる</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="362"/>
@@ -1138,12 +1138,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="206"/>
         <source>disabled</source>
-        <translation>障害</translation>
+        <translation>無効化</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="245"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
-        <translation>&amp;1 鍵が見つかりました。インポートするにはダブルクリックしてください。</translation>
+        <translation>%1個の鍵が見つかりました。インポートするにはダブルクリックしてください。</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="291"/>
@@ -1184,7 +1184,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="164"/>
         <source>Open an existing file</source>
-        <translation>現存するファイルを開く</translation>
+        <translation>既存のファイルを開く</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="167"/>
@@ -1320,12 +1320,12 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="247"/>
         <source>Remove &amp;spacing</source>
-        <translation>スペースを取り除く</translation>
+        <translation>二重改行を取り除く</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="250"/>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation>ダブルラインブレークを取り除く</translation>
+        <translation>行間を取り除く</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="253"/>
@@ -1390,7 +1390,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="290"/>
         <source>&amp;Sign</source>
-        <translation>&amp;署名</translation>
+        <translation>署名</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="293"/>
@@ -1400,7 +1400,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="296"/>
         <source>&amp;Verify</source>
-        <translation>&amp;検証</translation>
+        <translation>検証</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="299"/>
@@ -1480,7 +1480,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="340"/>
         <source>Append Selected Key(s) To Text</source>
-        <translation>選択された鍵をテキストに追加添付する</translation>
+        <translation>選択された鍵をテキストに書き足す</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="341"/>
@@ -1535,7 +1535,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../mainwindow.cpp" line="458"/>
         <source>&amp;Steganography</source>
-        <translation>&amp;ステガノグラフィー</translation>
+        <translation>ステガノグラフィー</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="620"/>
@@ -1826,14 +1826,14 @@ Weak -&gt; Strong</source>
         <source>Text was completely signed on
  %1 by:
 </source>
-        <translation>%1による完全な署名です</translation>
+        <translation>%1に行われたによる完全な署名です</translation>
     </message>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="72"/>
         <source>Text was partially signed on
  %1 by:
 </source>
-        <translation>%1による不完全な署名です</translation>
+        <translation>%1行われた不完全な署名です</translation>
     </message>
 </context>
 <context>
