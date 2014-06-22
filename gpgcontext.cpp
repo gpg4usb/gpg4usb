@@ -20,13 +20,10 @@
  */
 
 #include "gpgcontext.h"
-
+#include <unistd.h>    /* contains read/write */
 #ifdef _WIN32
 #include <windows.h>
-#include <unistd.h>    /* contains read/write */
 #endif
-
-
 namespace GpgME
 {
 
