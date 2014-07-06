@@ -20,6 +20,7 @@
  */
 
 #include "helppage.h"
+#include <QDebug>
 
 HelpPage::HelpPage(const QString path, QWidget *parent) :
     QWidget(parent)
@@ -32,7 +33,8 @@ HelpPage::HelpPage(const QString path, QWidget *parent) :
     mainLayout->setContentsMargins(0,0,0,0);
     setLayout(mainLayout);
     //setAttribute(Qt::WA_DeleteOnClose);
-    browser->setSource(QUrl::fromLocalFile(path));
+    //qDebug() << path << " : " << QUrl::fromLocalFile(path);
+    browser->setSource(QUrl(path));
 
     //connect(browser, SIGNAL(anchorClicked(QUrl)), this, SLOT(openUrl(QUrl)));
     //browser->setOpenLinks(false);
