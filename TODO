@@ -1,5 +1,8 @@
 TODO:
 -----
+Release 0.3.4 
+- include signaures and additional information when exporting a key
+
 Release 0.4
 - MacOS build
 	- replace gpgme with kgpg (lots of work and trouble!!!)
