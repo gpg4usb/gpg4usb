@@ -14,8 +14,8 @@ Of course gpg4usb is open source, as are included libs and binaries.
 
 OBTAINING
 ---------
-You can get prepacked zip-files from http://gpg4usb.cpunk.de/download.html .
-For retrieving the source checkout http://cpunk.de/svn/src/ .
+You can get prepacked zip-files from http://www.gpg4usb.org/download.html
+For retrieving the source checkout http://cpunk.de/svn/src/
 
 HOWTO USE
 ---------
@@ -26,10 +26,9 @@ HOWTO USE
 
 CONTACT
 -------
-If you have any questions and/or suggestions contact us at
-gpg4usb@cpunk.de - or feel free to meet us at gpg4usb@conference.jabber.ccc.de
+If you have any questions and/or suggestions contact us at gpg4usb@cpunk.de
 
-Our homepage is located at http://gpg4usb.cpunk.de .
+Our homepage is located at http://www.gpg4usb.org/
 
 LICENSES
 --------
