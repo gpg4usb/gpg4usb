@@ -360,52 +360,52 @@
 <context>
     <name>GpgME::GpgContext</name>
     <message>
-        <location filename="../../gpgcontext.cpp" line="312"/>
+        <location filename="../../gpgcontext.cpp" line="309"/>
         <source>No Key Selected</source>
         <translation>لا مفاتيح مُختارة</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="384"/>
+        <location filename="../../gpgcontext.cpp" line="381"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
         <translation>&lt;br&gt;ليس في حلقة المفاتيح مفتاحٌ بالمعرِّف %1</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="392"/>
+        <location filename="../../gpgcontext.cpp" line="389"/>
         <source>Unsupported algorithm</source>
         <translation>خوارميّة غير مدعومة</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="402"/>
+        <location filename="../../gpgcontext.cpp" line="399"/>
         <source>Error decrypting:</source>
         <translation>خطأ عند تظهير:</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="476"/>
+        <location filename="../../gpgcontext.cpp" line="473"/>
         <source>Wrong password</source>
         <translation>عبارة سرّ غير صحيحة</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="484"/>
+        <location filename="../../gpgcontext.cpp" line="481"/>
         <source>Enter Password for</source>
         <translation>أدخل عبارة سرِّ</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="488"/>
+        <location filename="../../gpgcontext.cpp" line="485"/>
         <source>Enter Password</source>
         <translation>أدخل عبارة السرّ</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>Key Selection</source>
         <translation>اختيار المفاتيح</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>No Private Key Selected</source>
         <translation>لا مفاتيح سرية مُختارة</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="700"/>
+        <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
         <translation>خطأ عند توقيع:</translation>
     </message>

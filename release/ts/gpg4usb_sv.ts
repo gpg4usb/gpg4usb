@@ -307,52 +307,52 @@
 <context>
     <name>GpgME::GpgContext</name>
     <message>
-        <location filename="../../gpgcontext.cpp" line="312"/>
+        <location filename="../../gpgcontext.cpp" line="309"/>
         <source>No Key Selected</source>
         <translation>Ingen nyckel vald</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="384"/>
+        <location filename="../../gpgcontext.cpp" line="381"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
         <translation>&lt;br&gt;Det finns ingen nyckel med ID %1, i din nyckelring</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="392"/>
+        <location filename="../../gpgcontext.cpp" line="389"/>
         <source>Unsupported algorithm</source>
         <translation>Algoritmen saknar stöd</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="402"/>
+        <location filename="../../gpgcontext.cpp" line="399"/>
         <source>Error decrypting:</source>
         <translation>Fel vid dekryptering:</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="476"/>
+        <location filename="../../gpgcontext.cpp" line="473"/>
         <source>Wrong password</source>
         <translation>Fel lösenord</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="484"/>
+        <location filename="../../gpgcontext.cpp" line="481"/>
         <source>Enter Password for</source>
         <translation>Ange lösenord för</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="488"/>
+        <location filename="../../gpgcontext.cpp" line="485"/>
         <source>Enter Password</source>
         <translation>Ange lösenord</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>Key Selection</source>
         <translation>Nyckelsamling</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>No Private Key Selected</source>
         <translation>Ingen privat nyckel vald</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="700"/>
+        <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
         <translation>Fel vid signering:</translation>
     </message>

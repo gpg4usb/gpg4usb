@@ -6,12 +6,12 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="448"/>
         <source>Show Steganography Options [Advanced]</source>
-        <translation>Afficher options stÃ©ganographiques [AvancÃ©]</translation>
+        <translation>Afficher options stéganographiques [Avancé]</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="450"/>
         <source>Show Steganographic Options.</source>
-        <translation>Afficher options stÃ©ganographiques.</translation>
+        <translation>Afficher options stéganographiques.</translation>
     </message>
 </context>
 <context>
@@ -59,12 +59,12 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="319"/>
         <source>Windowstate</source>
-        <translation>Etat de la fenÃªtre</translation>
+        <translation>Etat de la fenêtre</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="321"/>
         <source>Save window size and position on exit.</source>
-        <translation>Sauvegarder l&apos;Ã©tat de la fenÃªtre en quittant.</translation>
+        <translation>Sauvegarder l&apos;état de la fenêtre en quittant.</translation>
     </message>
 </context>
 <context>
@@ -114,7 +114,7 @@
         <location filename="../../attachments.cpp" line="167"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>Ne peut Ã©crire le fichier %1:
+        <translation>Ne peut écrire le fichier %1:
 %2.</translation>
     </message>
 </context>
@@ -128,37 +128,37 @@
     <message>
         <location filename="../../wizard.cpp" line="164"/>
         <source>...by clicking on the apropriate link.</source>
-        <translation>...en cliquant sur le lien appropriÃ©.</translation>
+        <translation>...en cliquant sur le lien approprié.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="166"/>
         <source>If you have never used gpg4usb before and also don&apos;t own a gpg key yet you may possibly want to </source>
-        <translation>Si vous n&apos;avez jamais utilisÃ© gpg4usb auparavant et n&apos;avez pas encore votre propre clef GPG vous pouvez vouloir </translation>
+        <translation>Si vous n&apos;avez jamais utilisé gpg4usb auparavant et n&apos;avez pas encore votre propre clef GPG vous pouvez vouloir </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="168"/>
         <source>create a new keypair</source>
-        <translation>crÃ©er une nouvelle paire de clefs</translation>
+        <translation>créer une nouvelle paire de clefs</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="172"/>
         <source>If you upgrade from an older version of gpg4usb you may want to </source>
-        <translation>Si vous mettez Ã  jour Ã  partir d&apos;une ancienne version de gpg4usb vous pouvez vouloir </translation>
+        <translation>Si vous mettez à jour à partir d&apos;une ancienne version de gpg4usb vous pouvez vouloir </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="174"/>
         <source>import settings and/or keys from gpg4usb</source>
-        <translation>importer les paramÃ¨tres et/ou les clefs de gpg4usb</translation>
+        <translation>importer les paramètres et/ou les clefs de gpg4usb</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="178"/>
         <source>If you are already using GnuPG you may want to </source>
-        <translation>Si vous utilisez dÃ©jÃ  GnuPG vous pouvez vouloir </translation>
+        <translation>Si vous utilisez déjà GnuPG vous pouvez vouloir </translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="180"/>
         <source>import keys from GnuPG</source>
-        <translation>importer des clefs Ã  partir de GnuPG</translation>
+        <translation>importer des clefs à partir de GnuPG</translation>
     </message>
 </context>
 <context>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../../wizard.cpp" line="403"/>
         <source>Ready.</source>
-        <translation>PrÃªt.</translation>
+        <translation>Prêt.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="404"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../../wizard.cpp" line="406"/>
         <source>You are ready to use gpg4usb now.&lt;br&gt;&lt;br&gt;The offline help will get you started with gpg4usb. It will open in the main window.&lt;br&gt;</source>
-        <translation>Vous Ãªtes maintenant prÃªts Ã  utiliser gpgusb&lt;br&gt;&lt;br&gt;L&apos;aide intÃ©grÃ©e vous permettra de dÃ©marrer avec gpg4usb. Elle s&apos;ouvrira dans la fenÃªtre principale.&lt;br/&gt;</translation>
+        <translation>Vous êtes maintenant prêts à utiliser gpgusb&lt;br&gt;&lt;br&gt;L&apos;aide intégrée vous permettra de démarrer avec gpg4usb. Elle s&apos;ouvrira dans la fenêtre principale.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="411"/>
@@ -194,7 +194,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="36"/>
         <source>Encrypt / Decrypt File</source>
-        <translation>Chiffrer / DÃ©chiffrer fichier</translation>
+        <translation>Chiffrer / Déchiffrer fichier</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="46"/>
@@ -211,7 +211,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="31"/>
         <source>Decrypt File</source>
-        <translation>DÃ©chiffrer fichier</translation>
+        <translation>Déchiffrer fichier</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="33"/>
@@ -221,7 +221,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="53"/>
         <source>Input</source>
-        <translation>EntrÃ©e</translation>
+        <translation>Entrée</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="59"/>
@@ -236,7 +236,7 @@
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="80"/>
         <source>&amp;Decrypt</source>
-        <translation>&amp;DÃ©chffrer</translation>
+        <translation>&amp;Déchffrer</translation>
     </message>
     <message>
         <location filename="../../fileencryptiondialog.cpp" line="116"/>
@@ -257,7 +257,7 @@
         <location filename="../../fileencryptiondialog.cpp" line="180"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>Ne peut Ã©crire le fichier %1:
+        <translation>Ne peut écrire le fichier %1:
 %2.</translation>
     </message>
     <message>
@@ -276,27 +276,27 @@
     <message>
         <location filename="../../settingsdialog.cpp" line="107"/>
         <source>Remember password until closing gpg4usb</source>
-        <translation>Se rappeler la passphrase jusqu&apos;Ã  la fermeture de gpg4usb</translation>
+        <translation>Se rappeler la passphrase jusqu&apos;à la fermeture de gpg4usb</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="114"/>
         <source>Save Checked Keys</source>
-        <translation>Sauvegarde des clefs sÃ©lectionnÃ©es</translation>
+        <translation>Sauvegarde des clefs sélectionnées</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="116"/>
         <source>Save checked private keys on exit and restore them on next start.</source>
-        <translation>Sauvegarder les clefs privÃ©es sÃ©lectionnÃ©es en sortant et les restaurer au prochain dÃ©marrage.</translation>
+        <translation>Sauvegarder les clefs privées sélectionnées en sortant et les restaurer au prochain démarrage.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="123"/>
         <source>Confirm drag&apos;n&apos;drop key import</source>
-        <translation>Confirmer l&apos;import par glisser/dÃ©poser</translation>
+        <translation>Confirmer l&apos;import par glisser/déposer</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="125"/>
         <source>Import files dropped on the keylist without confirmation.</source>
-        <translation>Importer les fichiers dÃ©posÃ©s sur la liste de clefs sans confoirmation.</translation>
+        <translation>Importer les fichiers déposés sur la liste de clefs sans confoirmation.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="132"/>
@@ -307,54 +307,54 @@
 <context>
     <name>GpgME::GpgContext</name>
     <message>
-        <location filename="../../gpgcontext.cpp" line="312"/>
+        <location filename="../../gpgcontext.cpp" line="309"/>
         <source>No Key Selected</source>
-        <translation>Aucune clef selectionnÃ©e</translation>
+        <translation>Aucune clef selectionnée</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="384"/>
+        <location filename="../../gpgcontext.cpp" line="381"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
-        <translation>&lt;br&gt;Aucune clef privÃ©e avec id %1 prÃ©sente au trousseau</translation>
+        <translation>&lt;br&gt;Aucune clef privée avec id %1 présente au trousseau</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="392"/>
+        <location filename="../../gpgcontext.cpp" line="389"/>
         <source>Unsupported algorithm</source>
-        <translation>Algorithme non supportÃ©</translation>
+        <translation>Algorithme non supporté</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="402"/>
+        <location filename="../../gpgcontext.cpp" line="399"/>
         <source>Error decrypting:</source>
-        <translation>Erreur au dÃ©chiffrage:</translation>
+        <translation>Erreur au déchiffrage:</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="476"/>
+        <location filename="../../gpgcontext.cpp" line="473"/>
         <source>Wrong password</source>
         <translation>Mauvaise passphrase</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="484"/>
+        <location filename="../../gpgcontext.cpp" line="481"/>
         <source>Enter Password for</source>
         <translation>Entrer la passphrase pour</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="488"/>
+        <location filename="../../gpgcontext.cpp" line="485"/>
         <source>Enter Password</source>
         <translation>Entrer la passphrase</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>Key Selection</source>
-        <translation>SÃ©lection de clef</translation>
+        <translation>Sélection de clef</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>No Private Key Selected</source>
-        <translation>Aucune clef privÃ©e sÃ©lectionnÃ©e</translation>
+        <translation>Aucune clef privée sélectionnée</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="700"/>
+        <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
-        <translation>Erreur Ã  la signature:</translation>
+        <translation>Erreur à la signature:</translation>
     </message>
 </context>
 <context>
@@ -367,17 +367,17 @@
     <message>
         <location filename="../../wizard.cpp" line="293"/>
         <source>...from existing GnuPG installation</source>
-        <translation>...Ã  partir d&apos;une installation GnuPG existante</translation>
+        <translation>...à partir d&apos;une installation GnuPG existante</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="295"/>
         <source>You can import keys from a locally installed GnuPG.&lt;br&gt;&lt;br&gt; The location is read from registry in Windows or assumed to be the .gnupg folder in the your home directory in Linux.&lt;br&gt;</source>
-        <translation>Vous pouvez importer des clefs Ã  partir d&apos;une installation GnuPG locale.&lt;br&gt;&lt;br&gt;Les emplacements sont lus dans le registre de Windows ou sont supposÃ©s Ãªtre le dossier .gnupg de votre dossier personnel sous Linux</translation>
+        <translation>Vous pouvez importer des clefs à partir d&apos;une installation GnuPG locale.&lt;br&gt;&lt;br&gt;Les emplacements sont lus dans le registre de Windows ou sont supposés être le dossier .gnupg de votre dossier personnel sous Linux</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="299"/>
         <source>Import keys from GnuPG</source>
-        <translation>Importer des clefs Ã  partir de GnuPG</translation>
+        <translation>Importer des clefs à partir de GnuPG</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="314"/>
@@ -405,7 +405,7 @@
     <message>
         <location filename="../../wizard.cpp" line="215"/>
         <source>You can import keys and/or settings from existing gpg4usb. &lt;br&gt;&lt;br&gt;Just check what you want to import, click the import button and choose the directory of your other gpg4usb in the appearing file dialog.</source>
-        <translation>Vous pouvez importer des clefs et/ou des configurations d&apos;un gpg4usb existant.&lt;br&gt;&lt;br&gt;SÃ©lectionnez seulement ce que vous voulez importer, cliquez sur le bouton Importer et choisissez le dossier de votre autre gpg4usb source dans la boite de dialogue qui apparaÃ®t.</translation>
+        <translation>Vous pouvez importer des clefs et/ou des configurations d&apos;un gpg4usb existant.&lt;br&gt;&lt;br&gt;Sélectionnez seulement ce que vous voulez importer, cliquez sur le bouton Importer et choisissez le dossier de votre autre gpg4usb source dans la boite de dialogue qui apparaît.</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="222"/>
@@ -430,12 +430,12 @@
     <message>
         <location filename="../../wizard.cpp" line="264"/>
         <source>Configuration Imported</source>
-        <translation>Configuration importÃ©e</translation>
+        <translation>Configuration importée</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="264"/>
         <source>Imported Configuration from old gpg4usb.&lt;br&gt;Will now restart to activate the configuration.</source>
-        <translation>Configuration importÃ©e de l&apos;ancien gpg4usb.&lt;br&gt;RedÃ©marrez maintenant pour activer la configuration.</translation>
+        <translation>Configuration importée de l&apos;ancien gpg4usb.&lt;br&gt;Redémarrez maintenant pour activer la configuration.</translation>
     </message>
 </context>
 <context>
@@ -443,7 +443,7 @@
     <message>
         <location filename="../../wizard.cpp" line="110"/>
         <source>Getting started...</source>
-        <translation>Pour dÃ©marrer...</translation>
+        <translation>Pour démarrer...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="111"/>
@@ -453,7 +453,7 @@
     <message>
         <location filename="../../wizard.cpp" line="113"/>
         <source>To use gpg4usb for decrypting and signing messages, you need a private key. The next page will help you with key generation or import.&lt;br&gt;&lt;br&gt;For more information have a look at the &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (by clicking the link, the page will open in the main window). &lt;br&gt;</source>
-        <translation>Pour utiliser gpg4usb en vue de dÃ©chiffrer et signer des messages, vous avez besoin d&apos;une clef privÃ©e. La page suivante vous aidera dans la gÃ©nÃ©ration d&apos;une clef ou dans l&apos;import.&lt;br&gt;&lt;br&gt;Pour plus d&apos;information consultez les &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (en cliquant sur le lien, la page s&apos;ouvrira dans la fenÃªtre principale). &lt;br&gt;</translation>
+        <translation>Pour utiliser gpg4usb en vue de déchiffrer et signer des messages, vous avez besoin d&apos;une clef privée. La page suivante vous aidera dans la génération d&apos;une clef ou dans l&apos;import.&lt;br&gt;&lt;br&gt;Pour plus d&apos;information consultez les &lt;a href=&apos;docu_concepts.html&apos;&gt;concepts&lt;/a&gt; (en cliquant sur le lien, la page s&apos;ouvrira dans la fenêtre principale). &lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="122"/>
@@ -466,12 +466,12 @@
     <message>
         <location filename="../../keydetailsdialog.cpp" line="30"/>
         <source>Owner details</source>
-        <translation>PropriÃ©taire</translation>
+        <translation>Propriétaire</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="31"/>
         <source>Key details</source>
-        <translation>PropriÃ©tÃ©s de la clef</translation>
+        <translation>Propriétés de la clef</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="32"/>
@@ -506,7 +506,7 @@
     <message>
         <location filename="../../keydetailsdialog.cpp" line="91"/>
         <source>Created on: </source>
-        <translation>CrÃ©Ã©e le: </translation>
+        <translation>Créée le: </translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="92"/>
@@ -521,26 +521,26 @@
     <message>
         <location filename="../../keydetailsdialog.cpp" line="158"/>
         <source>Warning: Key expired</source>
-        <translation>Alerte: clef expirÃ©e</translation>
+        <translation>Alerte: clef expirée</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="161"/>
         <source>Warning: Key revoked</source>
-        <translation>Alerte: clef rÃ©voquÃ©e</translation>
+        <translation>Alerte: clef révoquée</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="176"/>
         <source>Keydetails</source>
-        <translation>DÃ©tails de la clef</translation>
+        <translation>Détails de la clef</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="187"/>
         <source>You are about to export your private key.
 This is NOT your public key, so don&apos;t give it away.
 Make sure you keep it save.Do you really want to export your private key?</source>
-        <translation>Vous Ãªtes sur le point d&apos;exporter votre clef privÃ©e.
-Ceci N&apos;EST PAS votre clef publique, aussi ne vous en sÃ©parez pas.
-Assurez-vous de la garder en lieu sÃ»r. Voulez-vous vraiment exporter votre clef privÃ©e ?</translation>
+        <translation>Vous êtes sur le point d&apos;exporter votre clef privée.
+Ceci N&apos;EST PAS votre clef publique, aussi ne vous en séparez pas.
+Assurez-vous de la garder en lieu sûr. Voulez-vous vraiment exporter votre clef privée ?</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -555,7 +555,7 @@ Assurez-vous de la garder en lieu sÃ»r. Voulez-vous vraiment exporter votre cl
     <message>
         <location filename="../../keydetailsdialog.cpp" line="202"/>
         <source>Couldn&apos;t open %1 for writing</source>
-        <translation>Ne peut ouvrir %1 en Ã©criture</translation>
+        <translation>Ne peut ouvrir %1 en écriture</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="88"/>
@@ -580,17 +580,17 @@ Assurez-vous de la garder en lieu sÃ»r. Voulez-vous vraiment exporter votre cl
     <message>
         <location filename="../../keydetailsdialog.cpp" line="139"/>
         <source>Private Key</source>
-        <translation>Clef privÃ©e</translation>
+        <translation>Clef privée</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="142"/>
         <source>Export Private Key</source>
-        <translation>Exporter clef privÃ©e</translation>
+        <translation>Exporter clef privée</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="186"/>
         <source>Exporting private Key</source>
-        <translation>Export de la clef privÃ©e</translation>
+        <translation>Export de la clef privée</translation>
     </message>
     <message>
         <location filename="../../keydetailsdialog.cpp" line="199"/>
@@ -603,7 +603,7 @@ Assurez-vous de la garder en lieu sÃ»r. Voulez-vous vraiment exporter votre cl
     <message>
         <location filename="../../keygendialog.cpp" line="31"/>
         <source>Generate Key</source>
-        <translation>GÃ©nÃ©rer clefs</translation>
+        <translation>Générer clefs</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="68"/>
@@ -655,13 +655,13 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keygendialog.cpp" line="81"/>
         <source>Repeat Password:</source>
-        <translation>RÃ©pÃ©ter passphrase:</translation>
+        <translation>Répéter passphrase:</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="117"/>
         <source>  Name must contain at least five characters.  
 </source>
-        <translation>  Le nom doit contenir au moins cinq caractÃ¨res.  </translation>
+        <translation>  Le nom doit contenir au moins cinq caractères.  </translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="120"/>
@@ -671,7 +671,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keygendialog.cpp" line="159"/>
         <source>Generating Key...</source>
-        <translation>GÃ©nÃ©ration de la clef...</translation>
+        <translation>Génération de la clef...</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="161"/>
@@ -679,20 +679,20 @@ Weak -&gt; Strong</source>
  This may take a while.
  To speed up the process use your computer
  (e.g. browse the net, listen to music,...)</source>
-        <translation>Collecte de donnÃ©es alÃ©atoires pour la gÃ©nÃ©ration de la clef.
+        <translation>Collecte de données aléatoires pour la génération de la clef.
      Cela peut prendre un peu de temps.
-     Pour accÃ©lÃ©rer le processus, utilisez votre ordinateur
-     (i.e. naviguer sur le web, Ã©couter de la musique, ...)</translation>
+     Pour accélérer le processus, utilisez votre ordinateur
+     (i.e. naviguer sur le web, écouter de la musique, ...)</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="177"/>
         <source>Success</source>
-        <translation>SuccÃ¨s</translation>
+        <translation>Succès</translation>
     </message>
     <message>
         <location filename="../../keygendialog.cpp" line="177"/>
         <source>New key created</source>
-        <translation>Nouvelle clef crÃ©Ã©e</translation>
+        <translation>Nouvelle clef créée</translation>
     </message>
 </context>
 <context>
@@ -700,27 +700,27 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../wizard.cpp" line="360"/>
         <source>Create a keypair...</source>
-        <translation>CrÃ©er une paire de clefs...</translation>
+        <translation>Créer une paire de clefs...</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="361"/>
         <source>...for decrypting and signing messages</source>
-        <translation>...pour dÃ©chiffrer et signer des messages</translation>
+        <translation>...pour déchiffrer et signer des messages</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="362"/>
         <source>You should create a new keypair.The pair consists of a public and a private key.&lt;br&gt;Other users can use the public key to encrypt messages for you and verify messages signed by you.You can use the private key to decrypt and sign messages.&lt;br&gt;For more information have a look at the offline tutorial (which then is shown in the main window):</source>
-        <translation>Vous devez crÃ©er une nouvelle paire de clef. Une paire consiste en une clef publique et une clef privÃ©e.&lt;br/&gt;&lt;br/&gt;Les autres usagers peuvent utiliser votre clef publique pour chiffrer des messages Ã  votre intention et vÃ©rifier les messages signÃ©s par vous. Vous pouvez utiliser votre clef privÃ©e pour signer des messages et dÃ©chiffrer ceux qui vous sont destinÃ©s.&lt;br&gt;&lt;br&gt;Pour plus d&apos;information, jetez un oeil au tutoriel intÃ©grÃ© (qui est affichÃ© dans la fenÃªtre principale):</translation>
+        <translation>Vous devez créer une nouvelle paire de clef. Une paire consiste en une clef publique et une clef privée.&lt;br/&gt;&lt;br/&gt;Les autres usagers peuvent utiliser votre clef publique pour chiffrer des messages à votre intention et vérifier les messages signés par vous. Vous pouvez utiliser votre clef privée pour signer des messages et déchiffrer ceux qui vous sont destinés.&lt;br&gt;&lt;br&gt;Pour plus d&apos;information, jetez un oeil au tutoriel intégré (qui est affiché dans la fenêtre principale):</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="369"/>
         <source>Offline tutorial</source>
-        <translation>Tutoriel intÃ©grÃ©</translation>
+        <translation>Tutoriel intégré</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="376"/>
         <source>Create New Key</source>
-        <translation>CrÃ©er une nouvelle clef</translation>
+        <translation>Créer une nouvelle clef</translation>
     </message>
 </context>
 <context>
@@ -729,52 +729,52 @@ Weak -&gt; Strong</source>
         <location filename="../../keyimportdetaildialog.cpp" line="31"/>
         <location filename="../../keyimportdetaildialog.cpp" line="47"/>
         <source>Key import details</source>
-        <translation>DÃ©tails d&apos;importation de clefs</translation>
+        <translation>Détails d&apos;importation de clefs</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="31"/>
         <source>No keys found to import</source>
-        <translation>Pas de clef trouvÃ©e pour import</translation>
+        <translation>Pas de clef trouvée pour import</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="56"/>
         <source>Genral key import info</source>
-        <translation>Informations gÃ©nÃ©rales d&apos;import de clefs</translation>
+        <translation>Informations générales d&apos;import de clefs</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="59"/>
         <source>Considered:</source>
-        <translation>ConsidÃ©rÃ©e(s):</translation>
+        <translation>Considérée(s):</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="63"/>
         <source>Public unchanged:</source>
-        <translation>Publique(s) inchangÃ©e(s):</translation>
+        <translation>Publique(s) inchangée(s):</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="68"/>
         <source>Imported:</source>
-        <translation>ImportÃ©e(s):</translation>
+        <translation>Importée(s):</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="73"/>
         <source>Not imported:</source>
-        <translation>Non importÃ©e(s):</translation>
+        <translation>Non importée(s):</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="78"/>
         <source>Private read:</source>
-        <translation>PrivÃ©e(s) lue(s):</translation>
+        <translation>Privée(s) lue(s):</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="83"/>
         <source>Private imported:</source>
-        <translation>PrivÃ©e(s) importÃ©e(s):</translation>
+        <translation>Privée(s) importée(s):</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="88"/>
         <source>Private unchanged:</source>
-        <translation>PrivÃ©e(s) inchangÃ©e(s):</translation>
+        <translation>Privée(s) inchangée(s):</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="104"/>
@@ -799,7 +799,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="128"/>
         <source>private</source>
-        <translation>privÃ©e</translation>
+        <translation>privée</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="131"/>
@@ -809,7 +809,7 @@ Weak -&gt; Strong</source>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="134"/>
         <source>unchanged</source>
-        <translation>inchangÃ©e</translation>
+        <translation>inchangée</translation>
     </message>
     <message>
         <location filename="../../keyimportdetaildialog.cpp" line="137"/>
@@ -853,7 +853,7 @@ Weak -&gt; Strong</source>
         <location filename="../../keylist.cpp" line="195"/>
         <source>You&apos;ve dropped something on the keylist.
  gpg4usb will now try to import key(s).</source>
-        <translation>Vous avez dÃ©posÃ© quelque chose sur la liste des clefs.
+        <translation>Vous avez déposé quelque chose sur la liste des clefs.
 gpg4usb va essayer d&apos;importer les clefs.</translation>
     </message>
     <message>
@@ -892,12 +892,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="76"/>
         <source>Import New Key From File</source>
-        <translation>Importer une nouvelle clef Ã  partir d&apos;un fichier</translation>
+        <translation>Importer une nouvelle clef à partir d&apos;un fichier</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="81"/>
         <source>Import New Key From Clipboard</source>
-        <translation>Importer une nouvelle clef Ã  partir du presse-papiers</translation>
+        <translation>Importer une nouvelle clef à partir du presse-papiers</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="84"/>
@@ -907,7 +907,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="86"/>
         <source>Import New Key From Keyserver</source>
-        <translation>Importer une nouvelle clef Ã  partir d&apos;un serveur de clefs</translation>
+        <translation>Importer une nouvelle clef à partir d&apos;un serveur de clefs</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="89"/>
@@ -917,7 +917,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="91"/>
         <source>Export Selected Key(s) To Clipboard</source>
-        <translation>Exporter le(s) clef(s) sÃ©lectionnÃ©e(s) vers le presse-papier</translation>
+        <translation>Exporter le(s) clef(s) sélectionnée(s) vers le presse-papier</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="94"/>
@@ -927,47 +927,47 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="96"/>
         <source>Export Selected Key(s) To File</source>
-        <translation>Exporter le(s) clef(s) sÃ©lectionnÃ©e(s) vers un fichier</translation>
+        <translation>Exporter le(s) clef(s) sélectionnée(s) vers un fichier</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="99"/>
         <source>Delete Selected Key(s)</source>
-        <translation>Supprimer les clefs sÃ©lectionnÃ©es</translation>
+        <translation>Supprimer les clefs sélectionnées</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="100"/>
         <source>Delete the Selected keys</source>
-        <translation>Supprimer les clefs sÃ©lectionnÃ©es</translation>
+        <translation>Supprimer les clefs sélectionnées</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="103"/>
         <source>Delete Checked Key(s)</source>
-        <translation>&amp;Supprimer les clefs sÃ©lectionnÃ©es</translation>
+        <translation>&amp;Supprimer les clefs sélectionnées</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="104"/>
         <source>Delete the Checked keys</source>
-        <translation>Supprimer les clefs sÃ©lectionnÃ©es</translation>
+        <translation>Supprimer les clefs sélectionnées</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="108"/>
         <source>Generate Key</source>
-        <translation>&amp;GÃ©nÃ©rer des clefs</translation>
+        <translation>&amp;Générer des clefs</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="109"/>
         <source>Generate New Key</source>
-        <translation>GÃ©nÃ©rer une nouvelle clef</translation>
+        <translation>Générer une nouvelle clef</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="113"/>
         <source>Show Keydetails</source>
-        <translation>Afficher les propriÃ©tÃ©s</translation>
+        <translation>Afficher les propriétés</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="114"/>
         <source>Show Details for this Key</source>
-        <translation>Afficher les propriÃ©tÃ©s de cette clef</translation>
+        <translation>Afficher les propriétés de cette clef</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="145"/>
@@ -982,7 +982,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="260"/>
         <source>key(s) exported</source>
-        <translation>clef(s) exportÃ©e(s)</translation>
+        <translation>clef(s) exportée(s)</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="74"/>
@@ -1039,12 +1039,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keymgmt.cpp" line="222"/>
         <source>&lt;b&gt;Are you sure that you want to delete the following keys?.&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation>&lt;b&gt;Etes-vous sÃ»r(e) de vouloir supprimer les clefs suivantes ?&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
+        <translation>&lt;b&gt;Etes-vous sûr(e) de vouloir supprimer les clefs suivantes ?&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="223"/>
         <source>&lt;br/&gt;The action can not be undone.</source>
-        <translation>&lt;br/&gt;Cette action ne peut Ãªtre annulÃ©e.</translation>
+        <translation>&lt;br/&gt;Cette action ne peut être annulée.</translation>
     </message>
     <message>
         <location filename="../../keymgmt.cpp" line="252"/>
@@ -1072,7 +1072,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="36"/>
         <source>Search string:</source>
-        <translation>ChaÃ®ne recherchÃ©e:</translation>
+        <translation>Chaîne recherchée:</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="40"/>
@@ -1092,7 +1092,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="112"/>
         <source>Creation date</source>
-        <translation>Date de crÃ©ation</translation>
+        <translation>Date de création</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="112"/>
@@ -1112,37 +1112,37 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="162"/>
         <source>Too many responses from keyserver!</source>
-        <translation>Trop de rÃ©ponses du serveur !</translation>
+        <translation>Trop de réponses du serveur !</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="168"/>
         <source>No keys found, input may be kexId, retrying search with 0x.</source>
-        <translation>Pas de clef trouvÃ©e, l&apos;entrÃ©e peut Ãªtre hexaID, rÃ©essayez avec 0x.</translation>
+        <translation>Pas de clef trouvée, l&apos;entrée peut être hexaID, réessayez avec 0x.</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="172"/>
         <source>No keys found containing the search string!</source>
-        <translation>Pas de clef trouvÃ©e contenant la chaÃ®ne recherchÃ©e !</translation>
+        <translation>Pas de clef trouvée contenant la chaîne recherchée !</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="175"/>
         <source>Insufficiently specific search string!</source>
-        <translation>ChaÃ®ne de recherche insuffisamment spÃ©cifique !</translation>
+        <translation>Chaîne de recherche insuffisamment spécifique !</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="203"/>
         <source>revoked</source>
-        <translation>rÃ©voquÃ©e</translation>
+        <translation>révoquée</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="206"/>
         <source>disabled</source>
-        <translation>dÃ©sactivÃ©e</translation>
+        <translation>désactivée</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="245"/>
         <source>%1 keys found. Doubleclick a key to import it.</source>
-        <translation>%1 clef(s) trouvÃ©e(s). Double-cliquer sur une clef pour l&apos;importer.</translation>
+        <translation>%1 clef(s) trouvée(s). Double-cliquer sur une clef pour l&apos;importer.</translation>
     </message>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="291"/>
@@ -1152,7 +1152,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../keyserverimportdialog.cpp" line="295"/>
         <source>Key imported</source>
-        <translation>Clef importÃ©e</translation>
+        <translation>Clef importée</translation>
     </message>
 </context>
 <context>
@@ -1160,7 +1160,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="404"/>
         <source>Default Keyserver for import:</source>
-        <translation>Serveur de clef par dÃ©faut pour l&apos;import:</translation>
+        <translation>Serveur de clef par défaut pour l&apos;import:</translation>
     </message>
 </context>
 <context>
@@ -1244,17 +1244,17 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="200"/>
         <source>Undo Last Edit Action</source>
-        <translation>Annuler la derniÃ¨re action d&apos;Ã©dition</translation>
+        <translation>Annuler la dernière action d&apos;édition</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="203"/>
         <source>&amp;Redo</source>
-        <translation>&amp;RÃ©tablir</translation>
+        <translation>&amp;Rétablir</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="205"/>
         <source>Redo Last Edit Action</source>
-        <translation>RÃ©tablir la derniÃ¨re action d&apos;Ã©dition</translation>
+        <translation>Rétablir la dernière action d&apos;édition</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="208"/>
@@ -1264,7 +1264,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="212"/>
         <source>Zoom Out</source>
-        <translation>RÃ©&amp;duire</translation>
+        <translation>Ré&amp;duire</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="216"/>
@@ -1274,7 +1274,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="219"/>
         <source>Paste Text From Clipboard</source>
-        <translation>Coller le texte Ã  partir du presse-papier</translation>
+        <translation>Coller le texte à partir du presse-papier</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="222"/>
@@ -1284,7 +1284,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="225"/>
         <source>Cut the current selection&apos;s contents to the clipboard</source>
-        <translation>Couper le contenu de la sÃ©lection couorante dans le presse-papiers</translation>
+        <translation>Couper le contenu de la sélection couorante dans le presse-papiers</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="229"/>
@@ -1294,7 +1294,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="232"/>
         <source>Copy the current selection&apos;s contents to the clipboard</source>
-        <translation>Copier le contenu de la sÃ©lection couorante dans le presse-papiers</translation>
+        <translation>Copier le contenu de la sélection courante dans le presse-papiers</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="236"/>
@@ -1309,12 +1309,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="241"/>
         <source>Select &amp;All</source>
-        <translation>SÃ©lectio&amp;nner tout</translation>
+        <translation>Sélectio&amp;nner tout</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="244"/>
         <source>Select the whole text</source>
-        <translation>SÃ©lectionner le texte entier</translation>
+        <translation>Sélectionner le texte entier</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="247"/>
@@ -1324,17 +1324,17 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="250"/>
         <source>Remove double linebreaks, e.g. in pasted text from webmailer</source>
-        <translation>Supprimer les doubles sauts de lignes, e.g. dans le texte collÃ© Ã  partir du mailer web</translation>
+        <translation>Supprimer les doubles sauts de lignes, e.g. dans le texte collé à partir du mailer web</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="253"/>
         <source>Se&amp;ttings</source>
-        <translation>Para&amp;mÃ¨tres...</translation>
+        <translation>Para&amp;mètres...</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="254"/>
         <source>Open settings dialog</source>
-        <translation>Ouvrir la fenÃªtre de paramÃ©trage</translation>
+        <translation>Ouvrir la fenêtre de paramétrage</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="260"/>
@@ -1349,12 +1349,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="266"/>
         <source>&amp;Decrypt</source>
-        <translation>&amp;DÃ©chiffrer</translation>
+        <translation>&amp;Déchiffrer</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="269"/>
         <source>Decrypt Message</source>
-        <translation>DÃ©chiffrer message</translation>
+        <translation>Déchiffrer message</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="272"/>
@@ -1364,7 +1364,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="274"/>
         <source>Encrypt/Decrypt File</source>
-        <translation>Chiffrage/DÃ©chiffrage de fichier</translation>
+        <translation>Chiffrage/Déchiffrage de fichier</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="280"/>
@@ -1379,12 +1379,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="285"/>
         <source>&amp;Decrypt File</source>
-        <translation>&amp;DÃ©chiffer fichier</translation>
+        <translation>&amp;Déchiffer fichier</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="287"/>
         <source>Decrypt File</source>
-        <translation>DÃ©chiffer fichier</translation>
+        <translation>Déchiffer fichier</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="290"/>
@@ -1399,12 +1399,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="296"/>
         <source>&amp;Verify</source>
-        <translation>&amp;VÃ©rifier</translation>
+        <translation>&amp;Vérifier</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="299"/>
         <source>Verify Message</source>
-        <translation>VÃ©rifier message</translation>
+        <translation>Vérifier message</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="305"/>
@@ -1414,12 +1414,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="307"/>
         <source>Import New Key From Editor</source>
-        <translation>Importer nouvelle clef Ã  partir de l&apos;Ã©diteur</translation>
+        <translation>Importer nouvelle clef à partir de l&apos;éditeur</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="310"/>
         <source>Manage &amp;keys</source>
-        <translation>&amp;GÃ©rer les clefs</translation>
+        <translation>&amp;Gérer les clefs</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="312"/>
@@ -1434,17 +1434,17 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="319"/>
         <source>Show the application&apos;s About box</source>
-        <translation>Afficher la fenÃªtre A Propos de</translation>
+        <translation>Afficher la fenêtre A Propos de</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="322"/>
         <source>Integrated Help</source>
-        <translation>Aide &amp;intÃ©grÃ©e</translation>
+        <translation>Aide &amp;intégrée</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="323"/>
         <source>Open integrated Help</source>
-        <translation>Ouvrir l&apos;aide intÃ©grÃ©e</translation>
+        <translation>Ouvrir l&apos;aide intégrée</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="326"/>
@@ -1464,7 +1464,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="331"/>
         <source>Translate gpg4usb yourself</source>
-        <translation>Traduire gpg4usb vous-mÃªme</translation>
+        <translation>Traduire gpg4usb vous-même</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="334"/>
@@ -1479,12 +1479,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="340"/>
         <source>Append Selected Key(s) To Text</source>
-        <translation>Ajouter la clef sÃ©lectionnÃ©e au texte</translation>
+        <translation>Ajouter la clef sélectionnée au texte</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="341"/>
         <source>Append The Selected Keys To Text in Editor</source>
-        <translation>Ajouter les clefs sÃ©lectionnÃ©es aux texte dans l&apos;Ã©diteur</translation>
+        <translation>Ajouter les clefs sélectionnées aux texte dans l&apos;éditeur</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="344"/>
@@ -1499,12 +1499,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="349"/>
         <source>Show Keydetails</source>
-        <translation>Afficher propriÃ©tÃ©s de la clef</translation>
+        <translation>Afficher propriétés de la clef</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="350"/>
         <source>Show Details for this Key</source>
-        <translation>Afficher les propriÃ©tÃ©s de cette clef</translation>
+        <translation>Afficher les propriétés de cette clef</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="410"/>
@@ -1534,7 +1534,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="458"/>
         <source>&amp;Steganography</source>
-        <translation>&amp;StÃ©ganographie</translation>
+        <translation>&amp;Stéganographie</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="620"/>
@@ -1543,18 +1543,18 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="623"/>
-        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), ÃƒÂ…ke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
-        <translation>&lt;center&gt;Cette application permet le chiffrage et le&lt;br&gt;dÃ©chiffrage simples de messages ou de fichiers.&lt;br&gt;Il est sous licence GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;DÃ©veloppeurs:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traductions:&lt;/b&gt;&lt;br/&gt;Ahmad (ar), Alessandro (pt_br), Ã…ke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es), Pierre Fauque (fr)&lt;br&gt;&lt;br&gt;Si vous avez des questions ou des suggestions,&lt;br/&gt;jetez un oeil Ã  notre &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;page de contact&lt;/a&gt;&lt;br/&gt;ou&lt;br/&gt;envoyez un mail Ã  notre&lt;br/&gt; mailing list Ã  &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
+        <source>&lt;center&gt;This application allows simple encryption &lt;br&gt;and decryption of text messages or files.&lt;br&gt;It&apos;s licensed under the GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Developer:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Translation:&lt;/b&gt;&lt;br&gt;Ahmad (ar), Alessandro (pt_br), Ãke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es)&lt;br&gt;&lt;br&gt;If you have any questions or suggestions have a look&lt;br/&gt;at our &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;contact page&lt;/a&gt; or send a mail to our&lt;br/&gt; mailing list at &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</source>
+        <translation>&lt;center&gt;Cette application permet le chiffrage et le&lt;br&gt;déchiffrage simples de messages ou de fichiers.&lt;br&gt;Il est sous licence GPL v3&lt;br&gt;&lt;br&gt;&lt;b&gt;Développeurs:&lt;/b&gt;&lt;br&gt;Bene, Heimer, Juergen, Nils, Ubbo&lt;br&gt;&lt;br&gt;&lt;b&gt;Traductions:&lt;/b&gt;&lt;br/&gt;Ahmad (ar), Alessandro (pt_br), Åke (sv),&lt;br/&gt;Elad (he), George (el), Jedi Lin (zh_tw),&lt;br/&gt;Kirill (ru), Marek Bogacz (pl), Phol (es),&lt;br/&gt;Russell (my), Serse (it), Tom (vi),&lt;br/&gt;Toughworm(zh), Viriato (es), Pierre Fauque (fr)&lt;br&gt;&lt;br&gt;Si vous avez des questions ou des suggestions,&lt;br/&gt;jetez un oeil à notre &lt;a href=&quot;http://gpg4usb.cpunk.de/contact.php&quot;&gt;page de contact&lt;/a&gt;&lt;br/&gt;ou&lt;br/&gt;envoyez un mail à notre&lt;br/&gt; mailing list à &lt;a href=&quot;mailto:gpg4usb@gzehn.de&quot;&gt;gpg4usb@gzehn.de&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="365"/>
         <source>Remove PGP Header</source>
-        <translation>Supprimer en-tÃªte PGP</translation>
+        <translation>Supprimer en-tête PGP</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="368"/>
         <source>Add PGP Header</source>
-        <translation>Ajouter en-tÃªte PGP</translation>
+        <translation>Ajouter en-tête PGP</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="467"/>
@@ -1589,7 +1589,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="511"/>
         <source>Special edit</source>
-        <translation>Edition spÃ©ciale</translation>
+        <translation>Edition spéciale</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="522"/>
@@ -1604,7 +1604,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="534"/>
         <source>Encrypt or decrypt File</source>
-        <translation>Chiffrer ou dÃ©chiffrer fichier</translation>
+        <translation>Chiffrer ou déchiffrer fichier</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="535"/>
@@ -1614,7 +1614,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="553"/>
         <source>Ready</source>
-        <translation>PrÃªt</translation>
+        <translation>Prêt</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="561"/>
@@ -1629,7 +1629,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="635"/>
         <source>&lt;br&gt;&lt;br&gt; Built with Qt </source>
-        <translation>&lt;br&gt;&lt;br&gt;BÃ¢ti avec Qt</translation>
+        <translation>&lt;br&gt;&lt;br&gt;Bâti avec Qt</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="636"/>
@@ -1639,7 +1639,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="741"/>
         <source>There is one unencrypted file in attachment folder</source>
-        <translation>Il y a un fichier non chiffrÃ© dans le dossier piÃ¨ces jointes</translation>
+        <translation>Il y a un fichier non chiffré dans le dossier pièces jointes</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="743"/>
@@ -1649,7 +1649,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../mainwindow.cpp" line="743"/>
         <source> unencrypted files in attachment folder</source>
-        <translation> fichiers non chiffrÃ©s dans le dossier piÃ¨ces jointes</translation>
+        <translation> fichiers non chiffrés dans le dossier pièces jointes</translation>
     </message>
 </context>
 <context>
@@ -1657,32 +1657,32 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="204"/>
         <source>Decode quoted printable</source>
-        <translation>DÃ©coder l&apos;encodage quoted printable</translation>
+        <translation>Décoder l&apos;encodage quoted printable</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="206"/>
         <source>Try to recognize quoted printable.</source>
-        <translation>Essayer de reconnaÃ®tre l&apos;encodage quoted printable.</translation>
+        <translation>Essayer de reconnaître l&apos;encodage quoted printable.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="210"/>
         <source>Parse PGP/MIME (Experimental)</source>
-        <translation>Analyser PGP/MIME (ExpÃ©rimental)</translation>
+        <translation>Analyser PGP/MIME (Expérimental)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="212"/>
         <source>Try to split attachments from PGP-MIME ecrypted messages.</source>
-        <translation>Essayer de sÃ©parer les piÃ¨ces jointes des messages chiffrÃ©s avec PGP/MIME.</translation>
+        <translation>Essayer de séparer les pièces jointes des messages chiffrés avec PGP/MIME.</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="216"/>
         <source>Open with external application (Experimental)</source>
-        <translation>Ouvrir avec une application externe (ExpÃ©rimental)</translation>
+        <translation>Ouvrir avec une application externe (Expérimental)</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="218"/>
         <source>Open attachments with default application for the filetype.&lt;br&gt; There are at least two possible problems with this behaviour:&lt;ol&gt;&lt;li&gt;File needs to be saved unencrypted to attachments folder.&lt;br&gt; Its your job to clean this folder.&lt;/li&gt;&lt;li&gt;The external application may have its own temp files.&lt;/li&gt;&lt;/ol&gt;</source>
-        <translation>Ouvrir les piÃ¨ces jointes avec l&apos;application par dÃ©faut pour le type de fichier.&lt;br&gt; Il y a au moins deux problÃ¨mes possibles avec cette faÃ§on de faire:&lt;ol&gt;&lt;li&gt;Le fichier doit Ãªtre enregistrÃ© en clair dans le dossier des piÃ¨ces jointes.&lt;br&gt;   Il vous appartient de nettoyer ce dossier.&lt;/li&gt;&lt;li&gt;L&apos;application externe peut avoir ses propres fichiers temporaires.&lt;/li&gt;&lt;/ol&gt;</translation>
+        <translation>Ouvrir les pièces jointes avec l&apos;application par défaut pour le type de fichier.&lt;br&gt; Il y a au moins deux problèmes possibles avec cette façon de faire:&lt;ol&gt;&lt;li&gt;Le fichier doit être enregistré en clair dans le dossier des pièces jointes.&lt;br&gt;   Il vous appartient de nettoyer ce dossier.&lt;/li&gt;&lt;li&gt;L&apos;application externe peut avoir ses propres fichiers temporaires.&lt;/li&gt;&lt;/ol&gt;</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="225"/>
@@ -1695,12 +1695,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../quitdialog.cpp" line="28"/>
         <source>Unsaved files</source>
-        <translation>Fichiers non sauvegardÃ©s</translation>
+        <translation>Fichiers non sauvegardés</translation>
     </message>
     <message>
         <location filename="../../quitdialog.cpp" line="74"/>
         <source>&lt;h3&gt;%1 files contain unsaved information.&lt;br/&gt;Save the changes before closing?&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;%1 fichier(s) contien(nen)t des informations non sauvegardÃ©es.&lt;br/&gt;Sauvegarder les changements avant fermeture?&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;%1 fichier(s) contien(nen)t des informations non sauvegardées.&lt;br/&gt;Sauvegarder les changements avant fermeture?&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../../quitdialog.cpp" line="85"/>
@@ -1718,7 +1718,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="34"/>
         <source>General</source>
-        <translation>GÃ©nÃ©ral</translation>
+        <translation>Général</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="35"/>
@@ -1738,17 +1738,17 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../settingsdialog.cpp" line="38"/>
         <source>Advanced</source>
-        <translation>AvancÃ©</translation>
+        <translation>Avancé</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="51"/>
         <source>Settings</source>
-        <translation>ParamÃ¨tres</translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.cpp" line="72"/>
         <source>System Default</source>
-        <translation>FranÃ§ais (fr)</translation>
+        <translation>Français (fr)</translation>
     </message>
 </context>
 <context>
@@ -1786,7 +1786,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
         <location filename="../../textedit.cpp" line="143"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>Ne peut Ã©crire le fichier %1:
+        <translation>Ne peut écrire le fichier %1:
 %2.</translation>
     </message>
     <message>
@@ -1797,12 +1797,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../textedit.cpp" line="231"/>
         <source>Unsaved document</source>
-        <translation>Document non sauvegardÃ©</translation>
+        <translation>Document non sauvegardé</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="232"/>
         <source>&lt;h3&gt;The document &quot;%1&quot; has been modified.&lt;br/&gt;Do you want to save your changes?&lt;/h3&gt;</source>
-        <translation>&lt;h3&gt;Le document &quot;%1&quot; a Ã©tÃ© modifiÃ©.&lt;br/&gt;Voulez-vous sauvegarder les changements ?&lt;/h3&gt;</translation>
+        <translation>&lt;h3&gt;Le document &quot;%1&quot; a été modifié.&lt;br/&gt;Voulez-vous sauvegarder les changements ?&lt;/h3&gt;</translation>
     </message>
     <message>
         <location filename="../../textedit.cpp" line="233"/>
@@ -1815,7 +1815,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="30"/>
         <source>Signaturedetails</source>
-        <translation>PropriÃ©tÃ©s de la signature</translation>
+        <translation>Propriétés de la signature</translation>
     </message>
     <message>
         <location filename="../../verifydetailsdialog.cpp" line="61"/>
@@ -1827,7 +1827,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
         <source>Text was completely signed on
  %1 by:
 </source>
-        <translation>Le texte a Ã©tÃ© complÃ¨tement signÃ© le
+        <translation>Le texte a été complètement signé le
  %1 par:</translation>
     </message>
     <message>
@@ -1835,7 +1835,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
         <source>Text was partially signed on
  %1 by:
 </source>
-        <translation>Le texte a Ã©tÃ© partiellement signÃ© le
+        <translation>Le texte a été partiellement signé le
  %1 par:</translation>
     </message>
 </context>
@@ -1862,12 +1862,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="44"/>
         <source>Key not present in keylist</source>
-        <translation>Clef non prÃ©sente dans la liste des clefs</translation>
+        <translation>Clef non présente dans la liste des clefs</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="40"/>
         <source>Key not present with id 0x</source>
-        <translation>Clef non prÃ©sente avec id 0x</translation>
+        <translation>Clef non présente avec id 0x</translation>
     </message>
     <message>
         <location filename="../../verifykeydetailbox.cpp" line="54"/>
@@ -1902,17 +1902,17 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../verifynotification.cpp" line="38"/>
         <source>Show detailed verify information</source>
-        <translation>Afficher les informations dÃ©taillÃ©es de vÃ©rification</translation>
+        <translation>Afficher les informations détaillées de vérification</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="47"/>
         <source>Details</source>
-        <translation>PropriÃ©tÃ©s</translation>
+        <translation>Propriétés</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="117"/>
         <source>Key not present with id 0x</source>
-        <translation>Clef non prÃ©sente avec id 0x</translation>
+        <translation>Clef non présente avec id 0x</translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="159"/>
@@ -1922,12 +1922,12 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../verifynotification.cpp" line="164"/>
         <source>Text was completely signed by: </source>
-        <translation>Le texte a Ã©tÃ© complÃ¨tement signÃ© par: </translation>
+        <translation>Le texte a été complètement signé par: </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="169"/>
         <source>Text was partially signed by: </source>
-        <translation>Le texte a Ã©tÃ© partiellement signÃ© par: </translation>
+        <translation>Le texte a été partiellement signé par: </translation>
     </message>
     <message>
         <location filename="../../verifynotification.cpp" line="147"/>
@@ -1940,7 +1940,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../wizard.cpp" line="44"/>
         <source>First Start Wizard</source>
-        <translation>Premier dÃ©marrage de l&apos;assistant</translation>
+        <translation>Premier démarrage de l&apos;assistant</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="77"/>
@@ -1961,7 +1961,7 @@ gpg4usb va essayer d&apos;importer les clefs.</translation>
     <message>
         <location filename="../../wizard.cpp" line="85"/>
         <source>Couldn&apos;t open private keyringfile: %1</source>
-        <translation>Ne peut ouvrir le trousseau privÃ©: %1</translation>
+        <translation>Ne peut ouvrir le trousseau privé: %1</translation>
     </message>
     <message>
         <location filename="../../wizard.cpp" line="95"/>

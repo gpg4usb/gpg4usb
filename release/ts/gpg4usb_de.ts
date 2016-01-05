@@ -306,52 +306,52 @@
 <context>
     <name>GpgME::GpgContext</name>
     <message>
-        <location filename="../../gpgcontext.cpp" line="312"/>
+        <location filename="../../gpgcontext.cpp" line="309"/>
         <source>No Key Selected</source>
         <translation>Kein Schlüssel ausgewählt</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="384"/>
+        <location filename="../../gpgcontext.cpp" line="381"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
         <translation>&lt;br&gt;Kein privater Schlüssel mit Id %1 in Schlüsselliste gefunden</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="392"/>
+        <location filename="../../gpgcontext.cpp" line="389"/>
         <source>Unsupported algorithm</source>
         <translation>Nicht unterstützter Algorithmus</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="402"/>
+        <location filename="../../gpgcontext.cpp" line="399"/>
         <source>Error decrypting:</source>
         <translation>Fehler beim Entschlüsseln:</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="476"/>
+        <location filename="../../gpgcontext.cpp" line="473"/>
         <source>Wrong password</source>
         <translation>Falsches Passwort</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="484"/>
+        <location filename="../../gpgcontext.cpp" line="481"/>
         <source>Enter Password for</source>
         <translation>Passwort eingeben für</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="488"/>
+        <location filename="../../gpgcontext.cpp" line="485"/>
         <source>Enter Password</source>
         <translation>Bitte Passwort eingeben</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>Key Selection</source>
         <translation>Schlüsselauswahl</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>No Private Key Selected</source>
         <translation>Kein privater Schlüssel ausgewählt</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="700"/>
+        <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
         <translation>Fehler beim Signieren:</translation>
     </message>

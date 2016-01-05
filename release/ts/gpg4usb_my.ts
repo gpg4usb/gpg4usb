@@ -305,52 +305,52 @@
 <context>
     <name>GpgME::GpgContext</name>
     <message>
-        <location filename="../../gpgcontext.cpp" line="312"/>
+        <location filename="../../gpgcontext.cpp" line="309"/>
         <source>No Key Selected</source>
         <translation type="unfinished">ကီး ရွေးချယ်မထားပါ</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="384"/>
+        <location filename="../../gpgcontext.cpp" line="381"/>
         <source>&lt;br&gt;No private key with id %1 present in keyring</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="392"/>
+        <location filename="../../gpgcontext.cpp" line="389"/>
         <source>Unsupported algorithm</source>
         <translation type="unfinished">ပံ့ပိုးမထားတဲ့ အယ်လဂိုရီသမ်</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="402"/>
+        <location filename="../../gpgcontext.cpp" line="399"/>
         <source>Error decrypting:</source>
         <translation type="unfinished">စာဝှက်ဖြည်နေစဉ် အမှားအယွင်း ဖြစ်ပေါ်နေတယ် -</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="476"/>
+        <location filename="../../gpgcontext.cpp" line="473"/>
         <source>Wrong password</source>
         <translation type="unfinished">စကားဝှက် မှားနေတယ်</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="484"/>
+        <location filename="../../gpgcontext.cpp" line="481"/>
         <source>Enter Password for</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="488"/>
+        <location filename="../../gpgcontext.cpp" line="485"/>
         <source>Enter Password</source>
         <translation type="unfinished">စကားဝှက်ကို ရေးထည့်ရန်</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>Key Selection</source>
         <translation type="unfinished">ကီး ရွေးချယ်မှု</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="652"/>
+        <location filename="../../gpgcontext.cpp" line="649"/>
         <source>No Private Key Selected</source>
         <translation type="unfinished">Private ကီး ရွေးချယ်မထားပါ</translation>
     </message>
     <message>
-        <location filename="../../gpgcontext.cpp" line="700"/>
+        <location filename="../../gpgcontext.cpp" line="697"/>
         <source>Error signing:</source>
         <translation type="unfinished">လက်မှတ်ရေးထိုးနေစဉ် အမှားအယွင်း ဖြစ်ပေါ်နေတယ် -</translation>
     </message>
