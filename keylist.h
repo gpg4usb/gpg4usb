@@ -44,6 +44,7 @@ public:
 
     QStringList *getChecked();
     QStringList *getPrivateChecked();
+    QStringList *getAllPrivateKeys();
 
     void setChecked(QStringList *keyIds);
     //QStringList *getPrivateChecked();

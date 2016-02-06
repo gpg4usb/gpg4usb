@@ -38,6 +38,9 @@ MainWindow::MainWindow()
     /* List of binary Attachments */
     attachmentDockCreated = false;
 
+    /* Variable containing if restart is needed */
+    this->slotSetRestartNeeded(false);
+
     keyMgmt = new KeyMgmt(mCtx, this);
     keyMgmt->hide();
     /* test attachmentdir for files alll 15s */
@@ -918,7 +921,7 @@ void MainWindow::openSettingsDialog()
 
     QString preLang = settings.value("int/lang").toString();
 
-    new SettingsDialog(this);
+    new SettingsDialog(mCtx, this);
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     this->setIconSize(iconSize);
@@ -936,8 +939,8 @@ void MainWindow::openSettingsDialog()
         closeAttachmentDock();
     }
 
-    // restart mainwindow if langugage changed
-    if(preLang != settings.value("int/lang").toString()) {
+    // restart mainwindow if necessary
+    if(getRestartNeeded()) {
         if(edit->maybeSaveAnyTab()) {
             saveSettings();
             qApp->exit(RESTART_CODE);
@@ -1000,4 +1003,14 @@ void MainWindow::cutPgpHeader() {
     content.remove(end, QString(GpgConstants::PGP_CRYPT_END).size());
 
     edit->fillTextEditWithText(content.trimmed());
+}
+
+void MainWindow::slotSetRestartNeeded(bool needed)
+{
+    this->restartNeeded = needed;
+}
+
+bool MainWindow::getRestartNeeded()
+{
+    return this->restartNeeded;
 }

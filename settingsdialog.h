@@ -22,6 +22,8 @@
 #ifndef __SETTINGSDIALOG_H__
 #define __SETTINGSDIALOG_H__
 
+#include "keylist.h"
+
 #include <QHash>
 #include <QWidget>
 #include <QtGui>
@@ -52,7 +54,7 @@ class GeneralTab : public QWidget
      Q_OBJECT
 
  public:
-     GeneralTab(QWidget *parent = 0);
+     GeneralTab(GpgME::GpgContext *ctx, QWidget *parent = 0);
      void setSettings();
      void applySettings();
 
@@ -62,11 +64,21 @@ class GeneralTab : public QWidget
      QCheckBox *saveCheckedKeysCheckBox;
      QCheckBox *importConfirmationCheckBox;
      QComboBox *langSelectBox;
+     QComboBox *ownKeySelectBox;
      QHash<QString, QString> lang;
+     QHash<QString, QString> keyIds;
+     QString ownKeyId;
+     KeyList *mKeyList;
+     GpgME::GpgContext *mCtx; /** The current gpg context */
 
 private slots:
+    void slotOwnKeyIdChanged();
+    void slotLanguageChanged();
 
- };
+signals:
+    void signalRestartNeeded(bool needed);
+
+};
 
  class MimeTab : public QWidget
  {
@@ -81,6 +93,10 @@ private slots:
      QCheckBox *mimeParseCheckBox;
      QCheckBox *mimeQPCheckBox;
      QCheckBox *mimeOpenAttachmentCheckBox;
+
+ signals:
+     void signalRestartNeeded(bool needed);
+
  };
 
  class AppearanceTab : public QWidget
@@ -103,11 +119,16 @@ private slots:
      QRadioButton *iconIconsButton;
      QRadioButton *iconAllButton;
      QCheckBox *windowSizeCheckBox;
+
+ signals:
+     void signalRestartNeeded(bool needed);
+
  };
 
  class KeyserverTab : public QWidget
  {
      Q_OBJECT
+
  public:
     KeyserverTab(QWidget *parent = 0);
     void setSettings();
@@ -115,12 +136,16 @@ private slots:
 
  private:
     QComboBox *comboBox;
-    QLabel *label;
-};
+
+ signals:
+    void signalRestartNeeded(bool needed);
+
+ };
 
  class AdvancedTab : public QWidget
  {
      Q_OBJECT
+
  public:
      AdvancedTab(QWidget *parent = 0);
      void setSettings();
@@ -129,14 +154,17 @@ private slots:
  private:
      QCheckBox *steganoCheckBox;
 
+ signals:
+     void signalRestartNeeded(bool needed);
+
  };
 
 class SettingsDialog : public QDialog
 {
     Q_OBJECT
 
-public:
-    SettingsDialog(QWidget *parent = 0);
+ public:
+    SettingsDialog(GpgME::GpgContext *ctx, QWidget *parent = 0);
     GeneralTab *generalTab;
     MimeTab *mimeTab;
     AppearanceTab *appearanceTab;
@@ -144,13 +172,22 @@ public:
     AdvancedTab *advancedTab;
     static QHash<QString, QString> listLanguages();
 
+ public slots:
+    void slotAccept();
 
-public slots:
-    void accept();
+ signals:
+    void signalRestartNeeded(bool needed);
 
-private:
+ private:
     QTabWidget *tabWidget;
     QDialogButtonBox *buttonBox;
+    GpgME::GpgContext *mCtx; /** The current gpg context */
+    bool restartNeeded;
+    bool getRestartNeeded();
+
+ private slots:
+    void slotSetRestartNeeded(bool needed);
+
 };
 
 #endif  // __SETTINGSDIALOG_H__
