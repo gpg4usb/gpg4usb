@@ -83,7 +83,7 @@ void Attachments::createActions()
     openFileAct = new QAction(tr("Open File"), this);
     openFileAct->setToolTip(tr("Open this file"));
     openFileAct->setIcon(QIcon(":fileopen.png"));
-    connect(openFileAct, SIGNAL(triggered()), this, SLOT(openFile()));
+    connect(openFileAct, SIGNAL(triggered()), this, SLOT(slotOpenFile()));
 
 }
 
@@ -136,7 +136,7 @@ void  Attachments::saveByteArrayToFile(QByteArray outBuffer, QString filename)
  *   - ask for cleanup of dir on exit
  *   - remove code-duplication with saveByteArrayToFile
  */
-void Attachments::openFile() {
+void Attachments::slotOpenFile() {
 
     // TODO: make attachmentdir constant or configurable
     QString attachmentDir = qApp->applicationDirPath() + "/attachments/";

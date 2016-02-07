@@ -46,7 +46,7 @@ class Attachments : public QWidget
 
 public slots:
     void slotSaveFile();
-    void openFile();
+    void slotOpenFile();
 
 public:
     Attachments(QWidget *parent = 0);
