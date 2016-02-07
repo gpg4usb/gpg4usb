@@ -50,19 +50,19 @@ public:
     QAction *importKeyFromKeyServerAct;
 
 public slots:
-    void importKeyFromFile();
-    void importKeyFromClipboard();
-    void importKeyFromKeyServer();
-    void importKeys(QByteArray inBuffer);
-    void exportKeyToFile();
-    void exportKeyToClipboard();
-    void deleteSelectedKeys();
-    void deleteCheckedKeys();
-    void generateKeyDialog();
-    void showKeyDetails();
+    void slotImportKeyFromFile();
+    void slotImportKeyFromClipboard();
+    void slotImportKeyFromKeyServer();
+    void slotImportKeys(QByteArray inBuffer);
+    void slotExportKeyToFile();
+    void slotExportKeyToClipboard();
+    void slotDeleteSelectedKeys();
+    void slotDeleteCheckedKeys();
+    void slotGenerateKeyDialog();
+    void slotShowKeyDetails();
 
 signals:
-    void statusBarChanged(QString);
+    void signalStatusBarChanged(QString);
 
 private:
     void createMenus();

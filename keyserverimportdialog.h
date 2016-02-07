@@ -53,15 +53,14 @@ class KeyServerImportDialog : public QDialog
 
 public:
     KeyServerImportDialog(GpgME::GpgContext *ctx, KeyList *keyList, QWidget *parent = 0);
-    void import(QStringList keyIds);
-    void import(QStringList keyIds, QUrl keyserverUrl);
+    void slotImport(QStringList keyIds);
+    void slotImport(QStringList keyIds, QUrl keyserverUrl);
 
 private slots:
-    void import();
-
-    void searchFinished();
-    void importFinished();
-    void search();
+    void slotImport();
+    void slotSearchFinished();
+    void slotImportFinished();
+    void slotSearch();
 
 private:
     void createKeysTable();

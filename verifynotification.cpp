@@ -29,14 +29,14 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, 
     mTextpage = edit;
     verifyLabel = new QLabel(this);
 
-    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
+    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(slotRefresh()));
     connect(edit, SIGNAL(textChanged()), this, SLOT(close()));
 
     importFromKeyserverAct = new QAction(tr("Import missing key from Keyserver"), this);
-    connect(importFromKeyserverAct, SIGNAL(triggered()), this, SLOT(importFromKeyserver()));
+    connect(importFromKeyserverAct, SIGNAL(triggered()), this, SLOT(slotImportFromKeyserver()));
 
     showVerifyDetailsAct = new QAction(tr("Show detailed verify information"), this);
-    connect(showVerifyDetailsAct, SIGNAL(triggered()), this, SLOT(showVerifyDetails()));
+    connect(showVerifyDetailsAct, SIGNAL(triggered()), this, SLOT(slotShowVerifyDetails()));
 
     detailMenu = new QMenu(this);
     detailMenu->addAction(showVerifyDetailsAct);
@@ -53,10 +53,10 @@ VerifyNotification::VerifyNotification(QWidget *parent, GpgME::GpgContext *ctx, 
     this->setLayout(notificationWidgetLayout);
 }
 
-void VerifyNotification::importFromKeyserver()
+void VerifyNotification::slotImportFromKeyserver()
 {
     KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,mKeyList, this);
-    importDialog->import(*keysNotInList);
+    importDialog->slotImport(*keysNotInList);
 }
 
 void VerifyNotification::setVerifyLabel(QString text, verify_label_status verifyLabelStatus)
@@ -85,12 +85,12 @@ void VerifyNotification::showImportAction(bool visible)
     importFromKeyserverAct->setVisible(visible);
 }
 
-void VerifyNotification::showVerifyDetails()
+void VerifyNotification::slotShowVerifyDetails()
 {
     new VerifyDetailsDialog(this, mCtx, mKeyList, mTextpage);
 }
 
-bool VerifyNotification::refresh()
+bool VerifyNotification::slotRefresh()
 {
     verify_label_status verifyStatus=VERIFY_ERROR_OK;
 

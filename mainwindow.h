@@ -71,7 +71,7 @@ public:
      */
     MainWindow();
 public slots:
-    void setStatusBarText(QString text);
+    void slotSetStatusBarText(QString text);
 
 protected:
     /**
@@ -85,115 +85,115 @@ private slots:
      * @details encrypt the text of currently active textedit-page
      * with the currently checked keys
      */
-    void encrypt();
+    void slotEncrypt();
 
     /**
      * @details Show a passphrase dialog and decrypt the text of currently active tab.
      */
-    void decrypt();
+    void slotDecrypt();
 
     /**
      * @details Sign the text of currently active tab with the checked private keys
      */
-    void sign();
+    void slotSign();
 
     /**
      * @details Verify the text of currently active tab and show verify information.
      * If document is signed with a key, which is not in keylist, show import missing
      * key from keyserver in Menu of verifynotification.
      */
-    void verify();
+    void slotVerify();
 
-    void showKeyDetails();
+    void slotShowKeyDetails();
 
 
-    void startWizard();
+    void slotStartWizard();
 
     /**
      * @details Import keys from currently active tab to keylist if possible.
      */
-    void importKeyFromEdit();
+    void slotImportKeyFromEdit();
 
     /**
      * @details Append the selected keys to currently active textedit.
      */
-    void appendSelectedKeys();
+    void slotAppendSelectedKeys();
 
     /**
      * @details Copy the mailaddress of selected key to clipboard.
      * Method for keylists contextmenu.
      */
-    void copyMailAddressToClipboard();
+    void slotCopyMailAddressToClipboard();
 
     /**
      * @details Open key management dialog.
      */
-    void openKeyManagement();
+    void slotOpenKeyManagement();
 
     /**
      * @details Open about-dialog.
      */
-    void about();
+    void slotAbout();
 
     /**
      * @details Open fileencrytion dialog.
      */
-    void fileEncryption();
+    void slotFileEncryption();
 
     /**
      * @details Open dialog for encrypting file.
      */
-    void fileEncrypt();
+    void slotFileEncrypt();
 
     /**
      * @details Open dialog for decrypting file.
      */
-    void fileDecrypt();
+    void slotFileDecrypt();
 
     /**
      * @details Open settings-dialog.
      */
-    void openSettingsDialog();
+    void slotOpenSettingsDialog();
 
     /**
      * @details Open online-tutorial in default browser.
      */
-    void openTutorial();
+    void slotOpenTutorial();
 
     /**
      * @details Open integrated help in new tab.
      */
-    void openHelp();
+    void slotOpenHelp();
 
     /**
      * @details Open integrated help in new tab with the specified page.
      */
-    void openHelp(const QString page);
+    void slotOpenHelp(const QString page);
 
     /**
      * @details Show a warn message in status bar, if there are files in attachment folder.
      */
-    void checkAttachmentFolder();
+    void slotCheckAttachmentFolder();
 
     /**
      * @details Open online translation tutorial in default browser.
      */
-    void openTranslate();
+    void slotOpenTranslate();
 
     /**
      * @details Replace double linebreaks by single linebreaks in currently active tab.
      */
-    void cleanDoubleLinebreaks();
+    void slotCleanDoubleLinebreaks();
 
     /**
      * @details Cut the existing PGP header and footer from current tab.
      */
-    void cutPgpHeader();
+    void slotCutPgpHeader();
 
     /**
      * @details Add PGP header and footer to current tab.
      */
-    void addPgpHeader();
+    void slotAddPgpHeader();
 
 //    void dropEvent(QDropEvent *event);
 
@@ -201,7 +201,7 @@ private slots:
      * @details Disable tab related actions, if number of tabs is 0.
      * @param number number of the opened tabs and -1, if no tab is opened
      */
-    void disableTabActions(int number);
+    void slotDisableTabActions(int number);
 
     /**
      * @details get value of member restartNeeded to needed.

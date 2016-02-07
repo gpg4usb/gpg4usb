@@ -92,7 +92,7 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs)
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
     QPushButton* btnNoKey = buttonBox->button(QDialogButtonBox::Discard);
-    connect(btnNoKey, SIGNAL(clicked()), SLOT(myDiscard()));
+    connect(btnNoKey, SIGNAL(clicked()), SLOT(slotMyDiscard()));
 
     /*
      *  Set the layout
@@ -107,7 +107,7 @@ QuitDialog::QuitDialog(QWidget *parent, QHash<int, QString> unsavedDocs)
 }
 
 
-void QuitDialog::myDiscard()
+void QuitDialog::slotMyDiscard()
 {
     discarded =true;
     reject();

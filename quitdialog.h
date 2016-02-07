@@ -38,7 +38,7 @@ public:
     QList <int> getTabIdsToSave();
 
 private slots:
-    void myDiscard();
+    void slotMyDiscard();
 
 private:
     QAction *closeAct;

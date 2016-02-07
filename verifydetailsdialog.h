@@ -33,7 +33,7 @@ public:
     explicit VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* mKeyList, QTextEdit *edit);
 
 private slots:
-    void refresh();
+    void slotRefresh();
 
 private:
     GpgME::GpgContext *mCtx;

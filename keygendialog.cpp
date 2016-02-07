@@ -98,15 +98,15 @@ void KeyGenDialog::generateKeyDialog()
     vbox2->addWidget(errorLabel);
     vbox2->addWidget(buttonBox);
 
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(keyGenAccept()));
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotKeyGenAccept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-    connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(expireBoxChanged()));
-    connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(passwordEditChanged()));
+    connect(expireCheckBox, SIGNAL(stateChanged(int)), this, SLOT(slotExpireBoxChanged()));
+    connect(passwordEdit, SIGNAL(textChanged(QString)), this, SLOT(slotPasswordEditChanged()));
     this->setLayout(vbox2);
 }
 
-void KeyGenDialog::keyGenAccept()
+void KeyGenDialog::slotKeyGenAccept()
 {
     QString errorString = "";
     QString keyGenParams = "";
@@ -189,7 +189,7 @@ void KeyGenDialog::keyGenAccept()
     }
 }
 
-void KeyGenDialog::expireBoxChanged()
+void KeyGenDialog::slotExpireBoxChanged()
 {
     if (expireCheckBox->checkState()) {
         dateEdit->setEnabled(false);
@@ -198,7 +198,7 @@ void KeyGenDialog::expireBoxChanged()
     }
 }
 
-void KeyGenDialog::passwordEditChanged()
+void KeyGenDialog::slotPasswordEditChanged()
 {
     pwStrengthSlider->setValue(checkPassWordStrength());
     update();

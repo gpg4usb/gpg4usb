@@ -78,7 +78,7 @@ void Attachments::createActions()
     saveFileAct = new QAction(tr("Save File"), this);
     saveFileAct->setToolTip(tr("Save this file"));
     saveFileAct->setIcon(QIcon(":filesave.png"));
-    connect(saveFileAct, SIGNAL(triggered()), this, SLOT(saveFile()));
+    connect(saveFileAct, SIGNAL(triggered()), this, SLOT(slotSaveFile()));
 
     openFileAct = new QAction(tr("Open File"), this);
     openFileAct->setToolTip(tr("Open this file"));
@@ -87,7 +87,7 @@ void Attachments::createActions()
 
 }
 
-void Attachments::saveFile()
+void Attachments::slotSaveFile()
 {
 
     QModelIndexList indexes = tableView->selectionModel()->selection().indexes();

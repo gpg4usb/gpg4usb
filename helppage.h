@@ -39,7 +39,7 @@ public:
 signals:
 
 public slots:
-    void openUrl(QUrl url);
+    void slotOpenUrl(QUrl url);
 
 private:
     QTextBrowser *browser; /** The textbrowser of the tab */

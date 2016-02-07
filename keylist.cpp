@@ -58,12 +58,12 @@ KeyList::KeyList(GpgME::GpgContext *ctx, QWidget *parent)
     setLayout(layout);
 
     popupMenu = new QMenu(this);
-    connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(refresh()));
+    connect(mCtx, SIGNAL(signalKeyDBChanged()), this, SLOT(slotRefresh()));
     setAcceptDrops(true);
-    refresh();
+    slotRefresh();
 }
 
-void KeyList::refresh()
+void KeyList::slotRefresh()
 {
     QStringList *keyList;
     keyList = getChecked();

@@ -35,7 +35,7 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, 
         case GPG_ERR_NO_PUBKEY:
         {
             QPushButton *importButton = new QPushButton(tr("Import from keyserver"));
-            connect(importButton, SIGNAL(clicked()), this, SLOT(importFormKeyserver()));
+            connect(importButton, SIGNAL(clicked()), this, SLOT(slotImportFormKeyserver()));
 
             this->setTitle(tr("Key not present with id 0x") + signature->fpr);
 
@@ -83,10 +83,10 @@ VerifyKeyDetailBox::VerifyKeyDetailBox(QWidget *parent, GpgME::GpgContext* ctx, 
     this->setLayout(grid);
 }
 
-void VerifyKeyDetailBox::importFormKeyserver()
+void VerifyKeyDetailBox::slotImportFormKeyserver()
 {
     KeyServerImportDialog *importDialog =new KeyServerImportDialog(mCtx,mKeyList,this);
-    importDialog->import(QStringList(fpr));
+    importDialog->slotImport(QStringList(fpr));
 }
 
 QString VerifyKeyDetailBox::beautifyFingerprint(QString fingerprint)

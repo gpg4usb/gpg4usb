@@ -52,18 +52,18 @@ Wizard::Wizard(GpgME::GpgContext *ctx, KeyMgmt *keyMgmt, QWidget *parent)
     setStartId(settings.value("wizard/nextPage", -1).toInt());
     settings.remove("wizard/nextPage");
 
-    connect(this, SIGNAL(accepted()), this, SLOT(wizardAccepted()));
-    connect(this, SIGNAL(openHelp(QString)), parentWidget(), SLOT(openHelp(QString)));
+    connect(this, SIGNAL(accepted()), this, SLOT(slotWizardAccepted()));
+    connect(this, SIGNAL(signalOpenHelp(QString)), parentWidget(), SLOT(signalOpenHelp(QString)));
 
 }
 
-void Wizard::wizardAccepted() {
+void Wizard::slotWizardAccepted() {
     QSettings settings;
     // Don't show is mapped to show -> negation
     settings.setValue("wizard/showWizard", !field("showWizard").toBool());
 
     if(field("openHelp").toBool()) {
-        emit openHelp("docu.html#content");
+        emit signalOpenHelp("docu.html#content");
     }
 }
 
@@ -98,7 +98,7 @@ bool Wizard::importPubAndSecKeysFromDir(const QString dir, KeyMgmt *keyMgmt)
         inBuffer.append(pubRingFile.readAll());
         pubRingFile.close();
     }
-    keyMgmt->importKeys(inBuffer);
+    keyMgmt->slotImportKeys(inBuffer);
     inBuffer.clear();
 
     return true;
@@ -136,7 +136,7 @@ IntroPage::IntroPage(QWidget *parent)
         langSelectBox->setCurrentIndex(langSelectBox->findText(langValue));
     }
 
-    connect(langSelectBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(langChange(QString)));
+    connect(langSelectBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotLangChange(QString)));
 
     // set layout and add widgets
     QVBoxLayout *layout = new QVBoxLayout;
@@ -146,7 +146,7 @@ IntroPage::IntroPage(QWidget *parent)
     setLayout(layout);
 }
 
-void IntroPage::langChange(QString lang) {
+void IntroPage::slotLangChange(QString lang) {
     QSettings settings;
     settings.setValue("int/lang", languages.key(lang));
     settings.setValue("wizard/nextPage", this->wizard()->currentId());
@@ -167,19 +167,19 @@ ChoosePage::ChoosePage(QWidget *parent)
                                      "may possibly want to ")+"<a href=""Wizard::Page_GenKey"">"
                                      +tr("create a new keypair")+"</a><hr>");
     keygenLabel->setWordWrap(true);
-    connect(keygenLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    connect(keygenLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(slotJumpPage(const QString&)));
 
     QLabel *importGpg4usbLabel = new QLabel(tr("If you upgrade from an older version of gpg4usb you may want to ")
                                             +"<a href=""Wizard::Page_ImportFromGpg4usb"">"
                                             +tr("import settings and/or keys from gpg4usb")+"</a>");
     importGpg4usbLabel->setWordWrap(true);
-    connect(importGpg4usbLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    connect(importGpg4usbLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(slotJumpPage(const QString&)));
 
     QLabel *importGnupgLabel = new QLabel(tr("If you are already using GnuPG you may want to ")
                                           +"<a href=""Wizard::Page_ImportFromGnupg"">"
                                           +tr("import keys from GnuPG")+"</a><hr>");
     importGnupgLabel->setWordWrap(true);
-    connect(importGnupgLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(jumpPage(const QString&)));
+    connect(importGnupgLabel, SIGNAL(linkActivated(const QString&)), this, SLOT(slotJumpPage(const QString&)));
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(keygenLabel);
@@ -194,7 +194,7 @@ int ChoosePage::nextId() const
     return nextPage;
 }
 
-void ChoosePage::jumpPage(const QString& page)
+void ChoosePage::slotJumpPage(const QString& page)
 {
     QMetaObject qmo = Wizard::staticMetaObject;
     int index = qmo.indexOfEnumerator("WizardPages");
@@ -226,7 +226,7 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     QLabel *configLabel = new QLabel(tr("Configuration"));
 
     QPushButton *importFromGpg4usbButton = new QPushButton(tr("Import from gpg4usb"));
-    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(importFromOlderGpg4usb()));
+    connect(importFromGpg4usbButton, SIGNAL(clicked()), this, SLOT(slotImportFromOlderGpg4usb()));
 
     QGridLayout *gpg4usbLayout = new QGridLayout();
     gpg4usbLayout->addWidget(topLabel,1,1,1,2);
@@ -239,7 +239,7 @@ ImportFromGpg4usbPage::ImportFromGpg4usbPage(GpgME::GpgContext *ctx, KeyMgmt *ke
     this->setLayout(gpg4usbLayout);
 }
 
-void ImportFromGpg4usbPage::importFromOlderGpg4usb()
+void ImportFromGpg4usbPage::slotImportFromOlderGpg4usb()
 {
     QString dir = QFileDialog::getExistingDirectory(this,tr("Other gpg4usb directory"));
 
@@ -257,7 +257,7 @@ void ImportFromGpg4usbPage::importFromOlderGpg4usb()
 
     // try to import config, if appropriate box is checked
     if (gpg4usbConfigCheckBox->isChecked()) {
-        importConfFromGpg4usb(dir);
+        slotImportConfFromGpg4usb(dir);
 
         QSettings settings;
         settings.setValue("wizard/nextPage", this->nextId());
@@ -269,7 +269,7 @@ void ImportFromGpg4usbPage::importFromOlderGpg4usb()
     wizard()->next();
 }
 
-bool ImportFromGpg4usbPage::importConfFromGpg4usb(QString dir) {
+bool ImportFromGpg4usbPage::slotImportConfFromGpg4usb(QString dir) {
     QString path = dir+"/conf/gpg4usb.ini";
     QSettings oldconf(path, QSettings::IniFormat, this);
     QSettings actualConf;
@@ -297,7 +297,7 @@ ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgm
     gnupgLabel->setWordWrap(true);
 
     importFromGnupgButton = new QPushButton(tr("Import keys from GnuPG"));
-    connect(importFromGnupgButton, SIGNAL(clicked()), this, SLOT(importKeysFromGnupg()));
+    connect(importFromGnupgButton, SIGNAL(clicked()), this, SLOT(slotrImportKeysFromGnupg()));
 
     QGridLayout *layout = new QGridLayout();
     layout->addWidget(gnupgLabel);
@@ -306,7 +306,7 @@ ImportFromGnupgPage::ImportFromGnupgPage(GpgME::GpgContext *ctx, KeyMgmt *keyMgm
     this->setLayout(layout);
 }
 
-void ImportFromGnupgPage::importKeysFromGnupg()
+void ImportFromGnupgPage::slotrImportKeysFromGnupg()
 {
     // first get gnupghomedir and check, if it exists
     QString gnuPGHome = getGnuPGHome();
@@ -380,7 +380,7 @@ KeyGenPage::KeyGenPage(GpgME::GpgContext *ctx, QWidget *parent)
     layout->addWidget(topLabel);
     layout->addWidget(linkLabel);
     layout->addWidget(createKeyButtonBox);
-    connect(createKeyButton, SIGNAL(clicked()), this, SLOT(generateKeyDialog()));
+    connect(createKeyButton, SIGNAL(clicked()), this, SLOT(slotGenerateKeyDialog()));
 
     setLayout(layout);
 }
@@ -390,7 +390,7 @@ int KeyGenPage::nextId() const
     return Wizard::Page_Conclusion;
 }
 
-void KeyGenPage::generateKeyDialog()
+void KeyGenPage::slotGenerateKeyDialog()
 {
     KeyGenDialog *keyGenDialog = new KeyGenDialog(mCtx, this);
     keyGenDialog->exec();

@@ -93,8 +93,8 @@ GpgContext::GpgContext()
         debug = false;
     }
 
-    connect(this,SIGNAL(keyDBChanged()),this,SLOT(refreshKeyList()));
-    refreshKeyList();
+    connect(this,SIGNAL(signalKeyDBChanged()),this,SLOT(slotRefreshKeyList()));
+    slotRefreshKeyList();
 }
 
 /** Destructor
@@ -169,7 +169,7 @@ GpgImportInformation GpgContext::importKey(QByteArray inBuffer)
         status=status->next;
     }
     checkErr(err);
-    emit keyDBChanged();
+    emit signalKeyDBChanged();
     gpgme_data_release(in);
     return *importInformation;
 }
@@ -181,7 +181,7 @@ void GpgContext::generateKey(QString *params)
 {
     err = gpgme_op_genkey(mCtx, params->toAscii().data(), NULL, NULL);
     checkErr(err);
-    emit keyDBChanged();
+    emit signalKeyDBChanged();
 }
 
 /** Export Key to QByteArray
@@ -293,7 +293,7 @@ void GpgContext::deleteKeys(QStringList *uidList)
         gpgme_op_keylist_end(mCtx);
         gpgme_op_delete(mCtx, key, 1);
     }
-    emit keyDBChanged();
+    emit signalKeyDBChanged();
 }
 
 /** Encrypt inBuffer for reciepients-uids, write
@@ -754,7 +754,7 @@ QString GpgContext::beautifyFingerprint(QString fingerprint)
     return fingerprint;
 }
 
-void GpgContext::refreshKeyList() {
+void GpgContext::slotRefreshKeyList() {
     mKeyList = this->listKeys();
 }
 

@@ -34,14 +34,14 @@ HelpPage::HelpPage(const QString path, QWidget *parent) :
     //setAttribute(Qt::WA_DeleteOnClose);
     //browser->setSource(QUrl::fromLocalFile(path));
 
-    connect(browser, SIGNAL(anchorClicked(QUrl)), this, SLOT(openUrl(QUrl)));
+    connect(browser, SIGNAL(anchorClicked(QUrl)), this, SLOT(slotOpenUrl(QUrl)));
     browser->setOpenLinks(false);
     browser->setSource(localizedHelp(QUrl(path)));
     browser->setFocus();
 
 }
 
-void HelpPage::openUrl(QUrl url) {
+void HelpPage::slotOpenUrl(QUrl url) {
      browser->setSource(localizedHelp(url));
 };
 

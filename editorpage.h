@@ -95,7 +95,7 @@ private slots:
     /**
       * @details Format the gpg header in another font-style
       */
-    void formatGpgHeader();
+    void slotFormatGpgHeader();
 };
 
 #endif // __TEXTPAGE_H__

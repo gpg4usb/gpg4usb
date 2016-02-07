@@ -29,8 +29,8 @@ KeyServerImportDialog::KeyServerImportDialog(GpgME::GpgContext *ctx, KeyList *ke
     mKeyList = keyList;
     // Buttons
     closeButton = createButton(tr("&Close"), SLOT(close()));
-    importButton = createButton(tr("&Import"), SLOT(import()));
-    searchButton = createButton(tr("&Search"), SLOT(search()));
+    importButton = createButton(tr("&Import"), SLOT(slotImport()));
+    searchButton = createButton(tr("&Search"), SLOT(slotSearch()));
 
     // Line edit for search string
     searchLabel = new QLabel(tr("Search string:"));
@@ -115,7 +115,7 @@ void KeyServerImportDialog::createKeysTable()
     keysTable->verticalHeader()->hide();
 
     connect(keysTable, SIGNAL(cellActivated(int,int)),
-            this, SLOT(import()));
+            this, SLOT(slotImport()));
 }
 
 void KeyServerImportDialog::setMessage(const QString &text, bool error)
@@ -132,16 +132,16 @@ void KeyServerImportDialog::setMessage(const QString &text, bool error)
     }
 }
 
-void KeyServerImportDialog::search()
+void KeyServerImportDialog::slotSearch()
 {
     QUrl url = keyServerComboBox->currentText()+":11371/pks/lookup?search="+searchLineEdit->text()+"&op=index&options=mr";
     qnam = new QNetworkAccessManager(this);
     QNetworkReply* reply = qnam->get(QNetworkRequest(url));
     connect(reply, SIGNAL(finished()),
-            this, SLOT(searchFinished()));
+            this, SLOT(slotSearchFinished()));
 }
 
-void KeyServerImportDialog::searchFinished()
+void KeyServerImportDialog::slotSearchFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
 
@@ -167,7 +167,7 @@ void KeyServerImportDialog::searchFinished()
             if (rx.exactMatch(query)) {
                setMessage(tr("No keys found, input may be kexId, retrying search with 0x."),true);
                searchLineEdit->setText(query.prepend("0x"));
-               this->search();
+               this->slotSearch();
             } else {
                 setMessage(tr("No keys found containing the search string!"),true);
             }
@@ -250,25 +250,25 @@ void KeyServerImportDialog::searchFinished()
     reply = 0;
 }
 
-void KeyServerImportDialog::import()
+void KeyServerImportDialog::slotImport()
 {
     if ( keysTable->currentRow() > -1 ) {
         QString keyid = keysTable->item(keysTable->currentRow(),2)->text();
         QUrl url = keyServerComboBox->currentText();
-        import(QStringList(keyid), url);
+        slotImport(QStringList(keyid), url);
    }
 }
 
-void KeyServerImportDialog::import(QStringList keyIds)
+void KeyServerImportDialog::slotImport(QStringList keyIds)
 {
     QSettings settings;
     QString keyserver=settings.value("keyserver/defaultKeyServer").toString();
     QUrl url(keyserver);
-    import(keyIds, url);
+    slotImport(keyIds, url);
 }
 
 
-void KeyServerImportDialog::import(QStringList keyIds, QUrl keyServerUrl)
+void KeyServerImportDialog::slotImport(QStringList keyIds, QUrl keyServerUrl)
 {
     foreach(QString keyId, keyIds) {
         QUrl reqUrl(keyServerUrl.scheme() + "://" + keyServerUrl.host() + ":11371/pks/lookup?op=get&search=0x"+keyId+"&options=mr");
@@ -276,11 +276,11 @@ void KeyServerImportDialog::import(QStringList keyIds, QUrl keyServerUrl)
         qnam = new QNetworkAccessManager(this);
         QNetworkReply *reply = qnam->get(QNetworkRequest(reqUrl));
         connect(reply, SIGNAL(finished()),
-                this, SLOT(importFinished()));
+                this, SLOT(slotImportFinished()));
     }
 }
 
-void KeyServerImportDialog::importFinished()
+void KeyServerImportDialog::slotImportFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
 

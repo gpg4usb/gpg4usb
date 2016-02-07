@@ -148,10 +148,10 @@ public:
     QString beautifyFingerprint(QString fingerprint);
 
 signals:
-    void keyDBChanged();
+    void signalKeyDBChanged();
 
 private slots:
-    void refreshKeyList();
+    void slotRefreshKeyList();
 
 private:
     gpgme_ctx_t mCtx;

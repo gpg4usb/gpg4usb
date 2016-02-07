@@ -41,7 +41,7 @@ public:
     KeyGenThread(QString keyGenParams, GpgME::GpgContext *ctx);
 
 signals:
-    void keyGenerated();
+    void signalKeyGenerated();
 
 private:
     QString keyGenParams;

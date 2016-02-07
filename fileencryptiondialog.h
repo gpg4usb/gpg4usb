@@ -72,31 +72,31 @@ public slots:
      *
      * @fn selectInputFile
      */
-    void selectInputFile();
+    void slotSelectInputFile();
     /**
      * @brief
      *
      * @fn selectOutputFile
      */
-    void selectOutputFile();
+    void slotSelectOutputFile();
     /**
      * @brief
      *
      * @fn executeAction
      */
-    void executeAction();
+    void slotExecuteAction();
     /**
      * @brief
      *
      * @fn hideKeyList
      */
-    void hideKeyList();
+    void slotHideKeyList();
     /**
      * @brief
      *
      * @fn showKeyList
      */
-    void showKeyList();
+    void slotShowKeyList();
 
 private:
     QLineEdit *outputFileEdit; /**< TODO */

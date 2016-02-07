@@ -53,7 +53,7 @@ public:
     bool containsPrivateKeys();
 
 public slots:
-    void refresh();
+    void slotRefresh();
 
 private:
     void importKeys(QByteArray inBuffer);

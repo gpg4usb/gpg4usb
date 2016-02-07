@@ -51,10 +51,10 @@ private:
     KeyMgmt *mKeyMgmt;
 
 private slots:
-    void wizardAccepted();
+    void slotWizardAccepted();
 
 signals:
-    void openHelp(QString page);
+    void signalOpenHelp(QString page);
 };
 
 class IntroPage : public QWizardPage
@@ -67,7 +67,7 @@ public:
     int nextId() const;
 
 private slots:
-    void langChange(QString lang);
+    void slotLangChange(QString lang);
 };
 
 class ChoosePage : public QWizardPage
@@ -78,7 +78,7 @@ public:
     ChoosePage(QWidget *parent = 0);
 
 private slots:
-    void jumpPage(const QString& page);
+    void slotJumpPage(const QString& page);
 
 private:
     int nextId() const;
@@ -96,8 +96,8 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    void importFromOlderGpg4usb();
-    bool importConfFromGpg4usb(QString dir);
+    void slotImportFromOlderGpg4usb();
+    bool slotImportConfFromGpg4usb(QString dir);
 
 private:
     int nextId() const;
@@ -119,7 +119,7 @@ private slots:
     /**
       * @details  Import keys from gnupg-homedir, private or/and public depend on the checked boxes
       */
-    void importKeysFromGnupg();
+    void slotrImportKeysFromGnupg();
 
 private:
     KeyMgmt *mKeyMgmt;
@@ -145,7 +145,7 @@ public:
     int nextId() const;
 
 private slots:
-    void generateKeyDialog();
+    void slotGenerateKeyDialog();
 
 private:
     GpgME::GpgContext *mCtx;

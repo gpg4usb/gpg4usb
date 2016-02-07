@@ -35,7 +35,7 @@ KeyMgmt::KeyMgmt(GpgME::GpgContext *ctx, QWidget *parent )  : QMainWindow(parent
     createActions();
     createMenus();
     createToolBars();
-    connect(this,SIGNAL(statusBarChanged(QString)),this->parent(),SLOT(setStatusBarText(QString)));
+    connect(this,SIGNAL(signalStatusBarChanged(QString)),this->parent(),SLOT(slotSetStatusBarText(QString)));
 
     /* Restore the iconstyle */
     QSettings settings;
@@ -74,45 +74,45 @@ void KeyMgmt::createActions()
     importKeyFromFileAct = new QAction(tr("&File"), this);
     importKeyFromFileAct->setIcon(QIcon(":import_key_from_file.png"));
     importKeyFromFileAct->setToolTip(tr("Import New Key From File"));
-    connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(importKeyFromFile()));
+    connect(importKeyFromFileAct, SIGNAL(triggered()), this, SLOT(slotImportKeyFromFile()));
 
     importKeyFromClipboardAct = new QAction(tr("&Clipboard"), this);
     importKeyFromClipboardAct->setIcon(QIcon(":import_key_from_clipboard.png"));
     importKeyFromClipboardAct->setToolTip(tr("Import New Key From Clipboard"));
-    connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(importKeyFromClipboard()));
+    connect(importKeyFromClipboardAct, SIGNAL(triggered()), this, SLOT(slotImportKeyFromClipboard()));
 
     importKeyFromKeyServerAct = new QAction(tr("&Keyserver"), this);
     importKeyFromKeyServerAct->setIcon(QIcon(":import_key_from_server.png"));
     importKeyFromKeyServerAct->setToolTip(tr("Import New Key From Keyserver"));
-    connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(importKeyFromKeyServer()));
+    connect(importKeyFromKeyServerAct, SIGNAL(triggered()), this, SLOT(slotImportKeyFromKeyServer()));
 
     exportKeyToClipboardAct = new QAction(tr("Export To &Clipboard"), this);
     exportKeyToClipboardAct->setIcon(QIcon(":export_key_to_clipboard.png"));
     exportKeyToClipboardAct->setToolTip(tr("Export Selected Key(s) To Clipboard"));
-    connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(exportKeyToClipboard()));
+    connect(exportKeyToClipboardAct, SIGNAL(triggered()), this, SLOT(slotExportKeyToClipboard()));
 
     exportKeyToFileAct = new QAction(tr("Export To &File"), this);
     exportKeyToFileAct->setIcon(QIcon(":export_key_to_file.png"));
     exportKeyToFileAct->setToolTip(tr("Export Selected Key(s) To File"));
-    connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(exportKeyToFile()));
+    connect(exportKeyToFileAct, SIGNAL(triggered()), this, SLOT(slotExportKeyToFile()));
 
     deleteSelectedKeysAct = new QAction(tr("Delete Selected Key(s)"), this);
     deleteSelectedKeysAct->setToolTip(tr("Delete the Selected keys"));
-    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(deleteSelectedKeys()));
+    connect(deleteSelectedKeysAct, SIGNAL(triggered()), this, SLOT(slotDeleteSelectedKeys()));
 
     deleteCheckedKeysAct = new QAction(tr("Delete Checked Key(s)"), this);
     deleteCheckedKeysAct->setToolTip(tr("Delete the Checked keys"));
     deleteCheckedKeysAct->setIcon(QIcon(":button_cancel.png"));
-    connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(deleteCheckedKeys()));
+    connect(deleteCheckedKeysAct, SIGNAL(triggered()), this, SLOT(slotDeleteCheckedKeys()));
 
     generateKeyDialogAct = new QAction(tr("Generate Key"), this);
     generateKeyDialogAct->setToolTip(tr("Generate New Key"));
     generateKeyDialogAct->setIcon(QIcon(":key_generate.png"));
-    connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(generateKeyDialog()));
+    connect(generateKeyDialogAct, SIGNAL(triggered()), this, SLOT(slotGenerateKeyDialog()));
 
     showKeyDetailsAct = new QAction(tr("Show Keydetails"), this);
     showKeyDetailsAct->setToolTip(tr("Show Details for this Key"));
-    connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(showKeyDetails()));
+    connect(showKeyDetailsAct, SIGNAL(triggered()), this, SLOT(slotShowKeyDetails()));
 }
 
 void KeyMgmt::createMenus()
@@ -155,14 +155,14 @@ void KeyMgmt::createToolBars()
 
 }
 
-void KeyMgmt::importKeys(QByteArray inBuffer)
+void KeyMgmt::slotImportKeys(QByteArray inBuffer)
 {
     GpgImportInformation result = mCtx->importKey(inBuffer);
     new KeyImportDetailDialog(mCtx, result, this);
 
 }
 
-void KeyMgmt::importKeyFromFile()
+void KeyMgmt::slotImportKeyFromFile()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Key"), "", tr("Key Files") + " (*.asc *.txt);;"+tr("Keyring files")+" (*.gpg);;All Files (*)");
     if (! fileName.isNull()) {
@@ -173,29 +173,29 @@ void KeyMgmt::importKeyFromFile()
             return;
         }
         QByteArray inBuffer = file.readAll();
-        importKeys(inBuffer);
+        slotImportKeys(inBuffer);
         file.close();
     }
 }
 
-void KeyMgmt::importKeyFromKeyServer()
+void KeyMgmt::slotImportKeyFromKeyServer()
 {
     importDialog = new KeyServerImportDialog(mCtx, mKeyList, this);
     importDialog->show();
 }
 
-void KeyMgmt::importKeyFromClipboard()
+void KeyMgmt::slotImportKeyFromClipboard()
 {
     QClipboard *cb = QApplication::clipboard();
-    importKeys(cb->text(QClipboard::Clipboard).toAscii());
+    slotImportKeys(cb->text(QClipboard::Clipboard).toAscii());
 }
 
-void KeyMgmt::deleteSelectedKeys()
+void KeyMgmt::slotDeleteSelectedKeys()
 {
     deleteKeysWithWarning(mKeyList->getSelected());
 }
 
-void KeyMgmt::deleteCheckedKeys()
+void KeyMgmt::slotDeleteCheckedKeys()
 {
     deleteKeysWithWarning(mKeyList->getChecked());
 }
@@ -228,7 +228,7 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
     }
 }
 
-void KeyMgmt::showKeyDetails()
+void KeyMgmt::slotShowKeyDetails()
 {
     if (mKeyList->getSelected()->isEmpty()) {
         return;
@@ -240,7 +240,7 @@ void KeyMgmt::showKeyDetails()
     new KeyDetailsDialog(mCtx, key);
 }
 
-void KeyMgmt::exportKeyToFile()
+void KeyMgmt::slotExportKeyToFile()
 {
     QByteArray *keyArray = new QByteArray();
     if (!mCtx->exportKeys(mKeyList->getChecked(), keyArray)) {
@@ -257,10 +257,10 @@ void KeyMgmt::exportKeyToFile()
     stream << *keyArray;
     file.close();
     delete keyArray;
-    emit statusBarChanged(QString(tr("key(s) exported")));
+    emit signalStatusBarChanged(QString(tr("key(s) exported")));
 }
 
-void KeyMgmt::exportKeyToClipboard()
+void KeyMgmt::slotExportKeyToClipboard()
 {
     QByteArray *keyArray = new QByteArray();
     QClipboard *cb = QApplication::clipboard();
@@ -271,7 +271,7 @@ void KeyMgmt::exportKeyToClipboard()
     delete keyArray;
 }
 
-void KeyMgmt::generateKeyDialog()
+void KeyMgmt::slotGenerateKeyDialog()
 {
     KeyGenDialog *keyGenDialog = new KeyGenDialog(mCtx,this);
     keyGenDialog->show();

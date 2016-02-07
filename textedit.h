@@ -94,44 +94,44 @@ public slots:
     /**
      * @details Insert a ">" at the begining of every line of current textedit.
      */
-    void quote();
+    void slotQuote();
 
     /**
       * @details replace the text of currently active textedit with given text.
       * @param text to fill on.
       */
-    void fillTextEditWithText(QString text);
+    void slotFillTextEditWithText(QString text);
 
     /**
      * @details Saves the content of the current tab, if it has a filepath
      * otherwise it calls saveAs for the current tab
      */
-    void save();
+    void slotSave();
 
     /**
      * @details Opens a savefiledialog and calls saveFile with the choosen filename.
      *
      * @return Return the return value of the savefile method
      */
-    bool saveAs();
+    bool slotSaveAs();
 
     /**
      * @details Show an OpenFileDoalog and open the file in a new tab.
      * Shows an error dialog, if the open fails.
      * Set the focus to the tab of the opened file.
      */
-    void open();
+    void slotOpen();
 
     /**
      * @details Open a print-dialog for the current tab
      */
-    void print();
+    void slotPrint();
 
     /**
      * @details Adds a new tab with the title "untitled"+countpage+".txt"
      *                      Sets the focus to the new tab. Increase Tab-Count by one
      */
-    void newTab();
+    void slotNewTab();
 
     /**
      * @details Adds a new tab with the given title and opens given html file.
@@ -139,36 +139,36 @@ public slots:
      * @param title title for the tab
      * @param path  path for html file to show
      */
-    void newHelpTab(QString title, QString path);
+    void slotNewHelpTab(QString title, QString path);
 
     /**
      * @details put a * in front of current tabs title, if current textedit is modified
      */
-    void showModified();
+    void slotShowModified();
 
     /**
      * @details close the current tab and decrease TabWidget->count by \a 1
      *
      */
-    void closeTab();
+    void slotCloseTab();
 
     /**
      * @details Switch to the next tab.
      *
      */
-    void switchTabUp();
+    void slotSwitchTabUp();
 
     /**
      * @details Switch to the previous tab.
      *
      */
-    void switchTabDown();
+    void slotSwitchTabDown();
 
     /**
      * @details Return pointer to the currently activated tabpage.
      *
      */
-    EditorPage *curPage();
+    EditorPage *slotCurPage();
 
 private:
     /**
@@ -209,23 +209,23 @@ private slots:
     /**
      * @details Cut selected text in current textpage.
      */
-    void cut();
+    void slotCut();
 
     /**
      * @details Copy selected text of current textpage to clipboard.
      */
-    void copy();
+    void slotCopy();
 
     /**
      * @details Paste text from clipboard to current textpage.
      */
-    void paste();
+    void slotPaste();
 
     /**
      * @details Undo last change in current textpage.
      *
      */
-    void undo();
+    void slotUndo();
     /****************************************************************************************
      * Name:                redo
      * Description:         redo last change in current textpage
@@ -237,10 +237,10 @@ private slots:
      * @brief
      *
      */
-    void redo();
+    void slotRedo();
 
-    void zoomIn();
-    void zoomOut();
+    void slotZoomIn();
+    void slotZoomOut();
     /****************************************************************************************
      * Name:                selectAll
      * Description:         select all in current textpage
@@ -252,7 +252,7 @@ private slots:
      * @brief
      *
      */
-    void selectAll();
+    void slotSelectAll();
 
 protected:
     // void dragEnterEvent(QDragEnterEvent *event);

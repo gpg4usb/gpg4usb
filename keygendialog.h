@@ -69,17 +69,17 @@ private slots:
     /**
      * @details when expirebox was checked/unchecked, enable/disable the expiration date box
      */
-    void expireBoxChanged();
+    void slotExpireBoxChanged();
 
     /**
      * @details When passwordedit changed, set new value for password strength slider
      */
-    void passwordEditChanged();
+    void slotPasswordEditChanged();
 
     /**
      * @details check all lineedits for false entries. Show error, when there is one, otherwise generate the key
      */
-    void keyGenAccept();
+    void slotKeyGenAccept();
 
 };
 #endif // __KEYGENDIALOG_H__
