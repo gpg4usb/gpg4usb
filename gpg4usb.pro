@@ -39,6 +39,7 @@ HEADERS += attachments.h \
     verifykeydetailbox.h \
     wizard.h \
     helppage.h \
+    findwidget.h \
     gpgconstants.h
 
 SOURCES += attachments.cpp \
@@ -64,6 +65,7 @@ SOURCES += attachments.cpp \
     verifykeydetailbox.cpp \
     wizard.cpp \
     helppage.cpp \
+    findwidget.cpp \
     gpgconstants.cpp
 
 RC_FILE = gpg4usb.rc

@@ -247,6 +247,11 @@ void MainWindow::createActions()
     selectallAct->setToolTip(tr("Select the whole text"));
     connect(selectallAct, SIGNAL(triggered()), edit, SLOT(slotSelectAll()));
 
+    findAct = new QAction(tr("&Find"), this);
+    findAct->setShortcut(QKeySequence::Find);
+    findAct->setToolTip(tr("Find a word"));
+    connect(findAct, SIGNAL(triggered()), this, SLOT(slotFind()));
+
     cleanDoubleLinebreaksAct = new QAction(tr("Remove &spacing"), this);
     cleanDoubleLinebreaksAct->setIcon(QIcon(":format-line-spacing-triple.png"));
     //cleanDoubleLineBreaksAct->setShortcut(QKeySequence::SelectAll);
@@ -390,6 +395,7 @@ void MainWindow::slotDisableTabActions(int number)
     pasteAct->setDisabled(disable);
     closeTabAct->setDisabled(disable);
     selectallAct->setDisabled(disable);
+    findAct->setDisabled(disable);
     verifyAct->setDisabled(disable);
     signAct->setDisabled(disable);
     encryptAct->setDisabled(disable);
@@ -433,6 +439,8 @@ void MainWindow::createMenus()
     editMenu->addAction(cutAct);
     editMenu->addAction(pasteAct);
     editMenu->addAction(selectallAct);
+    editMenu->addAction(findAct);
+    editMenu->addSeparator();
     editMenu->addAction(quoteAct);
     editMenu->addAction(cleanDoubleLinebreaksAct);
     editMenu->addSeparator();
@@ -835,6 +843,20 @@ void MainWindow::slotDecrypt()
         }
     }
     edit->slotFillTextEditWithText(QString::fromUtf8(*decrypted));
+}
+
+void MainWindow::slotFind()
+{
+    if (edit->tabCount()==0 || edit->curTextPage() == 0) {
+        return;
+    }
+
+    // At first close verifynotification, if existing
+    edit->slotCurPage()->closeNoteByClass("findwidget");
+
+    FindWidget *fw = new FindWidget(this,edit->curTextPage());
+    edit->slotCurPage()->showNotificationWidget(fw, "findWidget");
+
 }
 
 void MainWindow::slotVerify()

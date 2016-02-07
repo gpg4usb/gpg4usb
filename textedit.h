@@ -92,6 +92,12 @@ public:
 
 public slots:
     /**
+     * @details Return pointer to the currently activated tabpage.
+     *
+     */
+    EditorPage *slotCurPage();
+
+    /**
      * @details Insert a ">" at the begining of every line of current textedit.
      */
     void slotQuote();
@@ -163,12 +169,6 @@ public slots:
      *
      */
     void slotSwitchTabDown();
-
-    /**
-     * @details Return pointer to the currently activated tabpage.
-     *
-     */
-    EditorPage *slotCurPage();
 
 private:
     /**

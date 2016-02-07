@@ -47,5 +47,7 @@
         <file alias="mimetypes/image-x-generic.png">release/icons/mimetypes/image-x-generic.png</file>
         <file alias="mimetypes/text-plain.png">release/icons/mimetypes/text-plain.png</file>
         <file alias="mimetypes/unknown.png">release/icons/mimetypes/unknown.png</file>
+        <file alias="button_previous.png">release/icons/button_previous.png</file>
+        <file alias="button_next.png">release/icons/button_next.png</file>
     </qresource>
 </RCC>

@@ -29,6 +29,7 @@
 #include "fileencryptiondialog.h"
 #include "settingsdialog.h"
 #include "verifynotification.h"
+#include "findwidget.h"
 #include "wizard.h"
 
 QT_BEGIN_NAMESPACE
@@ -106,6 +107,10 @@ private slots:
 
     void slotShowKeyDetails();
 
+    /**
+     * @details Open find widget.
+     */
+    void slotFind();
 
     void slotStartWizard();
 
@@ -311,6 +316,7 @@ private:
     QAction *cutAct; /** Action to cut text */
     QAction *pasteAct; /** Action to paste text */
     QAction *selectallAct; /** Action to select whole text */
+    QAction *findAct; /** Action to find text */
     QAction *undoAct; /** Action to undo last action */
     QAction *redoAct; /** Action to redo last action */
     QAction *zoomInAct; /** Action to zoom in */
