@@ -46,13 +46,17 @@ void FindWidget::slotFindNext()
 {
     QTextCursor cursor = mTextpage->textCursor();
     cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
+
     // if end of document is reached, restart search from beginning
     if (cursor.position() == -1) {
-        //cursor.setPosition(0);
-        QTextCursor cursor = mTextpage->document()->find(findEdit->text(), QTextCursor::Start, QTextDocument::FindCaseSensitively);
+        cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
     }
 
-    mTextpage->setTextCursor(cursor);
+    // cursor should not stay at -1, otherwise text is not editable
+    // todo: check how gedit handles this
+    if(cursor.position() != -1) {
+        mTextpage->setTextCursor(cursor);
+    }
     this->setBackground();
 }
 
@@ -66,7 +70,16 @@ void FindWidget::slotFind()
         cursor = mTextpage->document()->find(findEdit->text(), cursor.anchor(), QTextDocument::FindCaseSensitively);
     }
 
-    mTextpage->setTextCursor(cursor);
+    // if end of document is reached, restart search from beginning
+    if (cursor.position() == -1) {
+        cursor = mTextpage->document()->find(findEdit->text(), cursor, QTextDocument::FindCaseSensitively);
+    }
+
+    // cursor should not stay at -1, otherwise text is not editable
+    // todo: check how gedit handles this
+    if(cursor.position() != -1) {
+        mTextpage->setTextCursor(cursor);
+    }
     this->setBackground();
 }
 
@@ -79,18 +92,16 @@ void FindWidget::slotFindPrevious()
     QTextCursor cursor = mTextpage->textCursor();
     cursor = mTextpage->document()->find(findEdit->text(), cursor, flags);
 
-    // if end of document is reached, restart search from beginning
+    // if begin of document is reached, restart search from end
     if (cursor.position() == -1) {
-        qDebug() << "cursor:" << cursor.position();
-        qDebug() << "length: " << mTextpage->document()->toPlainText().length()-1;
-
-        cursor = mTextpage->document()->find(findEdit->text(), QTextCursor::End, QTextDocument::FindCaseSensitively);
-        qDebug() << "cursor2: " << cursor.position();
-        QTextCursor cursor = mTextpage->document()->find(findEdit->text(), cursor, flags);
-        qDebug() << "cursor3: " << cursor.position();
+        cursor = mTextpage->document()->find(findEdit->text(), QTextCursor::End, flags);
     }
 
-    mTextpage->setTextCursor(cursor);
+    // cursor should not stay at -1, otherwise text is not editable
+    // todo: check how gedit handles this
+    if(cursor.position() != -1) {
+        mTextpage->setTextCursor(cursor);
+    }
 	this->setBackground();
 }
 
