@@ -34,7 +34,8 @@ void FindWidget::setBackground()
     QTextCursor cursor = mTextpage->textCursor();
     // if match is found set background of QLineEdit to white, otherwise to red
     QPalette bgPalette( findEdit->palette() );
-    if ((cursor.position() == -1) && (!findEdit->text().isEmpty())) {
+
+    if (!findEdit->text().isEmpty() && mTextpage->document()->find(findEdit->text()).position() < 0 ) {
         bgPalette.setColor( QPalette::Base, "#ececba");
     } else {
         bgPalette.setColor( QPalette::Base, Qt::white);
