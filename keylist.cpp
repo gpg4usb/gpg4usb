@@ -274,3 +274,48 @@ void KeyList::importKeys(QByteArray inBuffer)
     GpgImportInformation result = mCtx->importKey(inBuffer);
     new KeyImportDetailDialog(mCtx, result, this);
 }
+
+void KeyList::uploadKeyToServer(QByteArray *keys)
+{
+    QUrl reqUrl("http://localhost:11371/pks/add");
+    qnam = new QNetworkAccessManager(this);
+
+    QUrl params;
+    keys->replace("\n", "%0D%0A")
+            .replace("(", "%28")
+            .replace(")", "%29")
+            .replace("/", "%2F")
+            .replace(":", "%3A")
+            .replace("+","%2B")
+            .replace(' ', '+');
+
+    params.addEncodedQueryItem("keytext", *keys);
+    QNetworkRequest req(reqUrl);
+
+    req.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
+
+    QNetworkReply *reply = qnam->post(req,params.encodedQuery());
+    connect(reply, SIGNAL(finished()),
+            this, SLOT(uploadFinished()));
+    qDebug() << "REQURL: " << reqUrl;
+    qDebug() << "PARAMS.ENCODED: " << params.toEncoded();
+}
+
+void KeyList::uploadFinished()
+{
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+
+    QByteArray response = reply->readAll();
+    qDebug() << "RESPNOSE: " << response.data();
+    //reply->readAll();
+    qDebug() << "ERROR: " << reply->error();
+    if (reply->error()) {
+        qDebug() << "Error while contacting keyserver!";
+        return;
+    } else {
+        qDebug() << "Success while contacting keyserver!";
+    }
+
+    reply->deleteLater();
+    reply = 0;
+}
