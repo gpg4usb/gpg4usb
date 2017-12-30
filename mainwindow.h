@@ -105,10 +105,19 @@ private slots:
      */
     void slotVerify();
 
+    /**
+     * @details Show the details of the first of the first of selected keys
+     */
     void slotShowKeyDetails();
 
+    /**
+     * @details Refresh key information of selected keys from default keyserver
+     */
     void refreshKeysFromKeyserver();
     
+    /**
+      * @details upload the selected key to the keyserver
+      */
     void uploadKeyToServer();
 
     /**
@@ -116,6 +125,9 @@ private slots:
      */
     void slotFind();
 
+    /**
+      * @details start the wizard
+      */
     void slotStartWizard();
 
     /**
