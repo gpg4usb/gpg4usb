@@ -219,9 +219,9 @@ void KeyMgmt::deleteKeysWithWarning(QStringList *uidList)
     }
 
     int ret = QMessageBox::warning(this, tr("Deleting Keys"),
-                                    tr("<b>Are you sure that you want to delete the following keys?.</b><br/><br/>")+keynames+
-                                    tr("<br/>The action can not be undone."),
-                                    QMessageBox::No | QMessageBox::Yes);
+                                   "<b>"+tr("Are you sure that you want to delete the following keys?")+"</b><br/><br/>"+keynames+
+                                   +"<br/>"+tr("The action can not be undone."),
+                                   QMessageBox::No | QMessageBox::Yes);
 
     if (ret == QMessageBox::Yes) {
         mCtx->deleteKeys(uidList);
