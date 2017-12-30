@@ -107,6 +107,8 @@ private slots:
 
     void slotShowKeyDetails();
 
+    void refreshKeysFromKeyserver();
+    
     /**
      * @details Open find widget.
      */
@@ -330,6 +332,7 @@ private:
     QAction *openTutorialAct; /** Action to open tutorial */
     QAction *openHelpAct; /** Action to open tutorial */
     QAction *showKeyDetailsAct; /** Action to open key-details dialog */
+    QAction *refreshKeysFromKeyserverAct; /** Action to refresh a key from keyserver */
     QAction *startWizardAct; /** Action to open the wizard */
     QAction *cutPgpHeaderAct; /** Action for cutting the PGP header */
     QAction *addPgpHeaderAct; /** Action for adding the PGP header */
