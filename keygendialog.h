@@ -37,7 +37,14 @@ class KeyGenDialog : public QDialog
 {
     Q_OBJECT
 
-public:
+    /**
+     * @details Constructor of this class
+     *
+     * @param ctx The current GpgME context
+     * @param key The key to show details of
+     * @param parent The parent of this widget
+     */
+     public:
     KeyGenDialog(GpgME::GpgContext* ctx, QWidget *parent = 0);
 
 private:

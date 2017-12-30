@@ -22,7 +22,6 @@
 #ifndef __ABOUTDIALOG_H__
 #define __ABOUTDIALOG_H__
 
-#include <QHash>
 #include <QWidget>
 #include <QtGui>
 
@@ -34,6 +33,10 @@ class QLabel;
 class QTabWidget;
 QT_END_NAMESPACE
 
+/**
+ * @brief Class containing the main tab of about dialog
+ *
+ */
 class InfoTab : public QWidget
  {
      Q_OBJECT
@@ -42,7 +45,11 @@ class InfoTab : public QWidget
      InfoTab(QWidget *parent = 0);
  };
 
- class TranslatorsTab : public QWidget
+/**
+ * @brief Class containing the translator tab of about dialog
+ *
+ */
+class TranslatorsTab : public QWidget
  {
      Q_OBJECT
 
@@ -50,6 +57,10 @@ class InfoTab : public QWidget
      TranslatorsTab(QWidget *parent = 0);
  };
 
+ /**
+  * @brief Class for handling the about dialog
+  *
+  */
 class AboutDialog : public QDialog
 {
     Q_OBJECT
