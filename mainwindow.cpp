@@ -928,7 +928,7 @@ void MainWindow::refreshKeysFromKeyserver()
     }
 
     KeyServerImportDialog *ksid = new KeyServerImportDialog(mCtx,mKeyList,this);
-    ksid->import(*mKeyList->getSelected());
+    ksid->slotImport(*mKeyList->getSelected());
 
 }
 
