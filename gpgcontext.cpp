@@ -639,11 +639,12 @@ gpgme_signature_t GpgContext::verify(QByteArray inBuffer) {
  */
 //}
 
-bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer ) {
+bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer, bool detached) {
 
     gpgme_error_t err;
     gpgme_data_t in, out;
     gpgme_sign_result_t result;
+    gpgme_sig_mode_t mode;
 
     if (uidList->count() == 0) {
         QMessageBox::critical(0, tr("Key Selection"), tr("No Private Key Selected"));
@@ -686,7 +687,13 @@ bool GpgContext::sign(QStringList *uidList, const QByteArray &inBuffer, QByteArr
                mode settings of the context are ignored.
      */
 
-     err = gpgme_op_sign (mCtx, in, out, GPGME_SIG_MODE_CLEAR);
+     if(detached) {
+        mode =  GPGME_SIG_MODE_DETACH;
+     } else {
+        mode = GPGME_SIG_MODE_CLEAR;
+     }
+
+     err = gpgme_op_sign (mCtx, in, out, mode);
      checkErr (err);
 
      if (err == GPG_ERR_CANCELED) {
