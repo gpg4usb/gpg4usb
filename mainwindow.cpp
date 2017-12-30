@@ -636,44 +636,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::slotAbout()
 {
-    QPixmap *pixmap = new QPixmap(":gpg4usb-logo.png");
-    QString *title = new QString(tr("About") +" "+ qApp->applicationName());
-    QString *text = new QString("<center><h2>" + qApp->applicationName() + " "
-                                + qApp->applicationVersion() + "</h2></center>"
-                                + tr("<center>This application allows simple encryption <br>"
-                                     "and decryption of text messages or files.<br>"
-                                     "It's licensed under the GPL v3<br><br>"
-                                     "<b>Developer:</b><br>"
-                                     "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
-                                     "<b>Translation:</b><br>"
-                                     "%1<br><br>"
-                                     "If you have any questions or suggestions have a look<br/>"
-                                     "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"
-                                     "contact page</a> or send a mail to our<br/> mailing list at"
-                                     " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>.").arg("Viriato/Phol (es), <br>Serse (it), Russell (my),<br>Alessandro (pt_br),  Kirill (ru), Tom (vi)")
-                                + tr("<br><br> Built with Qt ") + qVersion()
-                                + tr(" and GPGME ") + GpgME::GpgContext::getGpgmeVersion() +"</center>");
-
-    QDialog *dialog = new QDialog(this);
-    dialog->setWindowTitle(*title);
-    QPushButton *closeButton = new QPushButton(tr("&Close"));
-    connect(closeButton, SIGNAL(clicked()), dialog, SLOT(close()));
-
-    QGridLayout *layout = new QGridLayout(dialog);
-    QLabel *pixmapLabel = new QLabel();
-    pixmapLabel->setPixmap(*pixmap);
-    layout->addWidget(pixmapLabel, 0, 0, 1, -1, Qt::AlignCenter);
-    QLabel *aboutLabel = new QLabel();
-    aboutLabel->setText(*text);
-    aboutLabel->setOpenExternalLinks(true);
-    layout->addWidget(aboutLabel, 1, 0, 1, -1);
-    layout->addItem(new QSpacerItem(20, 10, QSizePolicy::Minimum,
-                                    QSizePolicy::Fixed), 2, 1, 1, 1);
-    layout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding), 3, 0, 1, 1);
-    layout->addWidget(closeButton, 3, 1, 1, 1);
-    layout->addItem(new QSpacerItem(20, 20, QSizePolicy::Expanding), 3, 2, 1, 1);
-
-    dialog->exec();
+    new AboutDialog(this);
 }
 
 void MainWindow::slotOpenTranslate()

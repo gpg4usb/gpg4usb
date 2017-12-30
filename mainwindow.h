@@ -28,6 +28,7 @@
 #include "textedit.h"
 #include "fileencryptiondialog.h"
 #include "settingsdialog.h"
+#include "aboutdialog.h"
 #include "verifynotification.h"
 #include "findwidget.h"
 #include "wizard.h"
