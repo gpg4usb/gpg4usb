@@ -281,23 +281,25 @@ void MainWindow::createActions()
     decryptAct->setToolTip(tr("Decrypt Message"));
     connect(decryptAct, SIGNAL(triggered()), this, SLOT(slotDecrypt()));
 
-    fileEncryptionAct = new QAction(tr("&File Encryption"), this);
-    fileEncryptionAct->setIcon(QIcon(":fileencrytion.png"));
-    fileEncryptionAct->setToolTip(tr("Encrypt/Decrypt File"));
-    connect(fileEncryptionAct, SIGNAL(triggered()), this, SLOT(slotFileEncryption()));
-
     /*
      * File encryption submenu
      */
     fileEncryptAct = new QAction(tr("&Encrypt File"), this);
-    //fileEncryptAct->setIcon(QIcon(":fileencrytion.png"));
     fileEncryptAct->setToolTip(tr("Encrypt File"));
     connect(fileEncryptAct, SIGNAL(triggered()), this, SLOT(slotFileEncrypt()));
 
     fileDecryptAct = new QAction(tr("&Decrypt File"), this);
-    //fileDecryptAct->setIcon(QIcon(":fileencrytion.png"));
     fileDecryptAct->setToolTip(tr("Decrypt File"));
     connect(fileDecryptAct, SIGNAL(triggered()), this, SLOT(slotFileDecrypt()));
+
+    fileSignAct = new QAction(tr("&Sign File"), this);
+    fileSignAct->setToolTip(tr("Sign File"));
+    connect(fileSignAct, SIGNAL(triggered()), this, SLOT(slotFileSign()));
+
+    fileVerifyAct = new QAction(tr("&Verify File"), this);
+    fileVerifyAct->setToolTip(tr("Verify File"));
+    connect(fileVerifyAct, SIGNAL(triggered()), this, SLOT(slotFileVerify()));
+
 
     signAct = new QAction(tr("&Sign"), this);
     signAct->setIcon(QIcon(":signature.png"));
@@ -457,6 +459,12 @@ void MainWindow::createMenus()
     editMenu->addSeparator();
     editMenu->addAction(openSettingsAct);
 
+    fileEncMenu = new QMenu(tr("&File..."));
+    fileEncMenu->addAction(fileEncryptAct);
+    fileEncMenu->addAction(fileDecryptAct);
+    fileEncMenu->addAction(fileSignAct);
+    fileEncMenu->addAction(fileVerifyAct);
+
     cryptMenu = menuBar()->addMenu(tr("&Crypt"));
     cryptMenu->addAction(encryptAct);
     cryptMenu->addAction(decryptAct);
@@ -464,8 +472,7 @@ void MainWindow::createMenus()
     cryptMenu->addAction(signAct);
     cryptMenu->addAction(verifyAct);
     cryptMenu->addSeparator();
-    cryptMenu->addAction(fileEncryptAct);
-    cryptMenu->addAction(fileDecryptAct);
+    cryptMenu->addMenu(fileEncMenu);
 
     keyMenu = menuBar()->addMenu(tr("&Keys"));
     importKeyMenu = keyMenu->addMenu(tr("&Import Key From..."));
@@ -547,9 +554,6 @@ void MainWindow::createToolBars()
 
     // Add dropdown menu for file encryption/decryption to crypttoolbar
     fileEncButton = new QToolButton();
-    QMenu* fileEncMenu = new QMenu();
-    fileEncMenu->addAction(fileEncryptAct);
-    fileEncMenu->addAction(fileDecryptAct);
     fileEncButton->setMenu(fileEncMenu);
     fileEncButton->setPopupMode(QToolButton::InstantPopup);
     fileEncButton->setIcon(QIcon(":fileencryption.png"));
@@ -908,13 +912,6 @@ void MainWindow::uploadKeyToServer()
     mKeyList->uploadKeyToServer(keyArray);
 }
 
-void MainWindow::slotFileEncryption()
-{
-        QStringList *keyList;
-        keyList = mKeyList->getChecked();
-        new FileEncryptionDialog(mCtx, *keyList, this);
-}
-
 void MainWindow::slotFileEncrypt()
 {
         QStringList *keyList;
@@ -929,6 +926,19 @@ void MainWindow::slotFileDecrypt()
         new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Decrypt);
 }
 
+void MainWindow::slotFileSign()
+{
+        QStringList *keyList;
+        keyList = mKeyList->getChecked();
+        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Sign);
+}
+
+void MainWindow::slotFileVerify()
+{
+        QStringList *keyList;
+        keyList = mKeyList->getChecked();
+        new FileEncryptionDialog(mCtx, *keyList, this, FileEncryptionDialog::Verify);
+}
 void MainWindow::slotOpenSettingsDialog()
 {
 

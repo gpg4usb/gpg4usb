@@ -158,11 +158,6 @@ private slots:
     void slotAbout();
 
     /**
-     * @details Open fileencrytion dialog.
-     */
-    void slotFileEncryption();
-
-    /**
      * @details Open dialog for encrypting file.
      */
     void slotFileEncrypt();
@@ -171,6 +166,16 @@ private slots:
      * @details Open dialog for decrypting file.
      */
     void slotFileDecrypt();
+
+    /**
+     * @details Open dialog for signing file.
+     */
+    void slotFileSign();
+
+    /**
+     * @details Open dialog for verifying file.
+     */
+    void slotFileVerify();
 
     /**
      * @details Open settings-dialog.
@@ -293,6 +298,7 @@ private:
     QMenu *fileMenu; /** Submenu for file-operations*/
     QMenu *editMenu; /** Submenu for text-operations*/
     QMenu *cryptMenu; /** Submenu for crypt-operations */
+    QMenu *fileEncMenu; /** Submenu for file crypt operations */
     QMenu *helpMenu; /** Submenu for help-operations */
     QMenu *keyMenu; /** Submenu for key-operations */
     QMenu *viewMenu; /** Submenu for view operations */
@@ -339,9 +345,10 @@ private:
     QAction *zoomInAct; /** Action to zoom in */
     QAction *zoomOutAct; /** Action to zoom out */
     QAction *aboutAct; /** Action to open about dialog */
-    QAction *fileEncryptionAct; /** Action to open file-encryption dialog */
     QAction *fileEncryptAct; /** Action to open dialog for encrypting file */
     QAction *fileDecryptAct; /** Action to open dialog for decrypting file */
+    QAction *fileSignAct; /** Action to open dialog for signing file */
+    QAction *fileVerifyAct; /** Action to open dialog for verifying file */
     QAction *openSettingsAct; /** Action to open settings dialog */
     QAction *openTranslateAct; /** Action to open translate doc*/
     QAction *openTutorialAct; /** Action to open tutorial */
