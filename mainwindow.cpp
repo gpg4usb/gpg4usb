@@ -646,12 +646,11 @@ void MainWindow::slotAbout()
                                      "<b>Developer:</b><br>"
                                      "Bene, Heimer, Juergen, Nils, Ubbo<br><br>"
                                      "<b>Translation:</b><br>"
-                                     "Ahmad (ar), Alessandro (pt_br), Åke (sv),<br/>Elad (he), George (el), Jedi Lin (zh_tw),<br/>Kirill (ru), Marek Bogacz (pl), Phol (es),<br/>Russell (my), Serse (it), Tom (vi),<br/>Toughworm(zh), Viriato (es)"
-                                     "<br><br>"
+                                     "%1<br><br>"
                                      "If you have any questions or suggestions have a look<br/>"
                                      "at our <a href=\"http://gpg4usb.cpunk.de/contact.php\">"
                                      "contact page</a> or send a mail to our<br/> mailing list at"
-                                     " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>.")
+                                     " <a href=\"mailto:gpg4usb@gzehn.de\">gpg4usb@gzehn.de</a>.").arg("Viriato/Phol (es), <br>Serse (it), Russell (my),<br>Alessandro (pt_br),  Kirill (ru), Tom (vi)")
                                 + tr("<br><br> Built with Qt ") + qVersion()
                                 + tr(" and GPGME ") + GpgME::GpgContext::getGpgmeVersion() +"</center>");
 
