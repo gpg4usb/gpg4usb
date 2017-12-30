@@ -119,7 +119,7 @@ public:
     void clearPasswordCache();
     void exportSecretKey(QString uid, QByteArray *outBuffer);
     gpgme_key_t getKeyDetails(QString uid);
-    gpgme_signature_t verify(QByteArray in);
+    gpgme_signature_t verify(QByteArray *inBuffer, QByteArray *sigBuffer = NULL);
 //    void decryptVerify(QByteArray in);
     bool sign(QStringList *uidList, const QByteArray &inBuffer, QByteArray *outBuffer, bool detached = false);
     /**

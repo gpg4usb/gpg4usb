@@ -21,12 +21,15 @@
 
 #include "verifydetailsdialog.h"
 
-VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, QTextEdit *edit) :
+VerifyDetailsDialog::VerifyDetailsDialog(QWidget *parent, GpgME::GpgContext* ctx, KeyList* keyList, QByteArray* inputData, QByteArray* inputSignature) :
     QDialog(parent)
 {
     mCtx = ctx;
     mKeyList = keyList;
-    mTextpage = edit;
+    //mTextpage = edit;
+    mInputData = inputData;
+    mInputSignature = inputSignature;
+
     this->setWindowTitle(tr("Signaturedetails"));
 
     connect(mCtx, SIGNAL(keyDBChanged()), this, SLOT(slotRefresh()));
@@ -47,10 +50,25 @@ void VerifyDetailsDialog::slotRefresh()
     QVBoxLayout *mVboxLayout = new QVBoxLayout(mVbox);
     mainLayout->addWidget(mVbox);
 
+    // Button Box for close button
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
+
     // Get signature information of current text
-    QByteArray text = mTextpage->toPlainText().toUtf8();
-    mCtx->preventNoDataErr(&text);
-    gpgme_signature_t sign = mCtx->verify(text);
+    //QByteArray text = mTextpage->toPlainText().toUtf8();
+    //mCtx->preventNoDataErr(&text);
+    gpgme_signature_t sign;
+    if(mInputSignature != 0) {
+        sign = mCtx->verify(mInputData, mInputSignature);
+    } else {
+        sign = mCtx->verify(mInputData);
+    }
+
+    if(sign==0) {
+       mVboxLayout->addWidget(new QLabel(tr("No valid input found")));
+       mVboxLayout->addWidget(buttonBox);
+       return;
+    }
 
     // Get timestamp of signature of current text
     QDateTime timestamp;
@@ -59,8 +77,10 @@ void VerifyDetailsDialog::slotRefresh()
     // Set the title widget depending on sign status
     if(gpg_err_code(sign->status) == GPG_ERR_BAD_SIGNATURE) {
         mVboxLayout->addWidget(new QLabel(tr("Error Validating signature")));
+    } else if (mInputSignature != 0) {
+        mVboxLayout->addWidget(new QLabel(tr("File was signed on <br/> %1 by:<br/>").arg(timestamp.toString(Qt::SystemLocaleLongDate))));
     } else {
-        switch (mCtx->textIsSigned(text))
+        switch (mCtx->textIsSigned(*mInputData))
         {
             case 2:
             {
@@ -79,8 +99,5 @@ void VerifyDetailsDialog::slotRefresh()
         mVboxLayout->addWidget(sbox);
     }
 
-    // Button Box for close button
-    buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     mVboxLayout->addWidget(buttonBox);
 }
