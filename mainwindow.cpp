@@ -104,6 +104,8 @@ void MainWindow::restoreSettings()
     QSize iconSize = settings.value("toolbar/iconsize", QSize(24, 24)).toSize();
     this->setIconSize(iconSize);
 
+    importButton->setIconSize(iconSize);
+    fileEncButton->setIconSize(iconSize);
     // set list of keyserver if not defined
     QStringList *keyServerDefaultList;
     keyServerDefaultList = new QStringList("http://pgp.mit.edu");
@@ -936,6 +938,8 @@ void MainWindow::slotOpenSettingsDialog()
     // Iconsize
     QSize iconSize = settings.value("toolbar/iconsize", QSize(32, 32)).toSize();
     this->setIconSize(iconSize);
+    importButton->setIconSize(iconSize);
+    fileEncButton->setIconSize(iconSize);
 
     // Iconstyle
     Qt::ToolButtonStyle buttonStyle = static_cast<Qt::ToolButtonStyle>(settings.value("toolbar/iconstyle", Qt::ToolButtonTextUnderIcon).toUInt());
