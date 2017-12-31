@@ -629,16 +629,17 @@ GpgPathsTab::GpgPathsTab(QWidget *parent)
     // Label containing the current keydbpath relative to default keydb path
     keydbLabel = new QLabel(accKeydbPath,this);
 
-    QPushButton *keydbButton = new QPushButton("Choose keydb path",this);
+    QPushButton *keydbButton = new QPushButton("Change keydb path",this);
     connect(keydbButton, SIGNAL(clicked()), this, SLOT(chooseKeydbDir()));
     QPushButton *keydbDefaultButton = new QPushButton("Set keydb to default path",this);
     connect(keydbDefaultButton, SIGNAL(clicked()), this, SLOT(setKeydbPathToDefault()));
 
     keydbBox->setLayout(keydbBoxLayout);
-    keydbBoxLayout->addWidget(keydbLabel,1,1);
-    keydbBoxLayout->addWidget(keydbButton,1,2);
-    keydbBoxLayout->addWidget(keydbDefaultButton,2,2);
-    keydbBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the keydb path!")),3,1);
+    keydbBoxLayout->addWidget(new QLabel(tr("Current keydb path: ")),1,1);
+    keydbBoxLayout->addWidget(keydbLabel,1,2);
+    keydbBoxLayout->addWidget(keydbButton,1,3);
+    keydbBoxLayout->addWidget(keydbDefaultButton,2,3);
+    keydbBoxLayout->addWidget(new QLabel(tr("<b>NOTE: </b> Gpg4usb will restart automatically if you change the keydb path!")),3,1,1,3);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(keydbBox);
