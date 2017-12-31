@@ -66,13 +66,13 @@ FileEncryptionDialog::FileEncryptionDialog(GpgME::GpgContext *ctx, QStringList k
     gLayout->addWidget(fl1, 0, 0);
     gLayout->addWidget(inputFileEdit, 0, 1);
     gLayout->addWidget(fb1, 0, 2);
+    signFileEdit = new QLineEdit();
     // verify does not need outfile, but signature file
     if(mAction != Verify) {
         gLayout->addWidget(fl2, 1, 0);
         gLayout->addWidget(outputFileEdit, 1, 1);
         gLayout->addWidget(fb2, 1, 2);
     } else {
-        signFileEdit = new QLineEdit();
         QPushButton *sfb1 = new QPushButton("...");
         connect(sfb1, SIGNAL(clicked()), this, SLOT(slotSelectSignFile()));
         QLabel *sfl1 = new QLabel(tr("Signature"));
