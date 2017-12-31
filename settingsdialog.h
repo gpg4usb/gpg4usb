@@ -135,6 +135,10 @@ signals:
 
  private:
     QComboBox *comboBox;
+    QLineEdit *newKeyServerEdit;
+
+ private slots:
+    void addKeyServer();
 
  signals:
     void signalRestartNeeded(bool needed);
