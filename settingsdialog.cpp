@@ -592,6 +592,7 @@ void KeyserverTab::addKeyServer()
     } else {
         comboBox->addItem("http://" +newKeyServerEdit->text());
     }
+    comboBox->setCurrentIndex(comboBox->count()-1);
 }
 /***********************************
   * get the values of the buttons and
