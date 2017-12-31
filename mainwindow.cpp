@@ -944,6 +944,7 @@ void MainWindow::slotOpenSettingsDialog()
 {
 
     QString preLang = settings.value("int/lang").toString();
+    QString preKeydbPath = settings.value("gpgpaths/keydbpath").toString();
 
     new SettingsDialog(mCtx, this);
     // Iconsize
