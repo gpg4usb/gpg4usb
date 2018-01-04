@@ -3,3 +3,4 @@ objectfiles
 qrc_gpg4usb.cpp
 release/conf
 release/gpg4usb
+Makefile
