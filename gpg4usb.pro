@@ -19,58 +19,58 @@ QT += network
 # Input
 OBJECTS_DIR=objectfiles
 MOC_DIR=mocfiles
-HEADERS += attachments.h \
-    gpgcontext.h \
-    mainwindow.h \
-    fileencryptiondialog.h \
-    keyimportdetaildialog.h \
-    mime.h \
-    keygendialog.h \
-    keygenthread.h \
-    keydetailsdialog.h \
-    keylist.h \
-    keymgmt.h \
-    settingsdialog.h \
-    attachmenttablemodel.h \
-    textedit.h \
-    editorpage.h \
-    quitdialog.h \
-    aboutdialog.h \
-    keyserverimportdialog.h \
-    verifynotification.h \
-    verifydetailsdialog.h \
-    verifykeydetailbox.h \
-    wizard.h \
-    helppage.h \
-    findwidget.h \
-    gpgconstants.h
+HEADERS += src/attachments.h \
+    src/gpgcontext.h \
+    src/mainwindow.h \
+    src/fileencryptiondialog.h \
+    src/keyimportdetaildialog.h \
+    src/mime.h \
+    src/keygendialog.h \
+    src/keygenthread.h \
+    src/keydetailsdialog.h \
+    src/keylist.h \
+    src/keymgmt.h \
+    src/settingsdialog.h \
+    src/attachmenttablemodel.h \
+    src/textedit.h \
+    src/editorpage.h \
+    src/quitdialog.h \
+    src/aboutdialog.h \
+    src/keyserverimportdialog.h \
+    src/verifynotification.h \
+    src/verifydetailsdialog.h \
+    src/verifykeydetailbox.h \
+    src/wizard.h \
+    src/helppage.h \
+    src/findwidget.h \
+    src/gpgconstants.h
 
-SOURCES += attachments.cpp \
-    gpgcontext.cpp \
-    mainwindow.cpp \
-    main.cpp \
-    fileencryptiondialog.cpp \
-    keyimportdetaildialog.cpp \
-    mime.cpp \
-    keygendialog.cpp \
-    keygenthread.cpp \
-    keydetailsdialog.cpp \
-    keylist.cpp \
-    keymgmt.cpp \
-    settingsdialog.cpp \
-    attachmenttablemodel.cpp \
-    textedit.cpp \
-    editorpage.cpp \
-    quitdialog.cpp \
-    aboutdialog.cpp \
-	keyserverimportdialog.cpp \
-    verifynotification.cpp \
-    verifydetailsdialog.cpp \
-    verifykeydetailbox.cpp \
-    wizard.cpp \
-    helppage.cpp \
-    findwidget.cpp \
-    gpgconstants.cpp
+SOURCES += src/attachments.cpp \
+    src/gpgcontext.cpp \
+    src/mainwindow.cpp \
+    src/main.cpp \
+    src/fileencryptiondialog.cpp \
+    src/keyimportdetaildialog.cpp \
+    src/mime.cpp \
+    src/keygendialog.cpp \
+    src/keygenthread.cpp \
+    src/keydetailsdialog.cpp \
+    src/keylist.cpp \
+    src/keymgmt.cpp \
+    src/settingsdialog.cpp \
+    src/attachmenttablemodel.cpp \
+    src/textedit.cpp \
+    src/editorpage.cpp \
+    src/quitdialog.cpp \
+    src/aboutdialog.cpp \
+    src/keyserverimportdialog.cpp \
+    src/verifynotification.cpp \
+    src/verifydetailsdialog.cpp \
+    src/verifykeydetailbox.cpp \
+    src/wizard.cpp \
+    src/helppage.cpp \
+    src/findwidget.cpp \
+    src/gpgconstants.cpp
 
 RC_FILE = gpg4usb.rc
 
