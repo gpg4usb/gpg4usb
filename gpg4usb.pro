@@ -18,6 +18,7 @@ CONFIG += debug
 QT += network
 # Input
 OBJECTS_DIR=objectfiles
+MOC_DIR=mocfiles
 HEADERS += attachments.h \
     gpgcontext.h \
     mainwindow.h \
