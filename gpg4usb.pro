@@ -17,6 +17,7 @@ INCLUDEPATH += . \
 CONFIG += debug
 QT += network
 # Input
+OBJECTS_DIR=objectfiles
 HEADERS += attachments.h \
     gpgcontext.h \
     mainwindow.h \
