@@ -1,3 +1,8 @@
+NOTE
+-----
+This software is not maintained anymore. please feel free to fork. The appropriate build environment is available at 
+https://github.com/gpg4usb/gpg4usb-docker
+
 ABOUT
 -----
 gpg4usb is an easy to use, small portable editor with the possibility
